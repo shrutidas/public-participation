@@ -1,298 +1,170 @@
-function openUrl(u){window.open(u,'_blank','noopener,noreferrer');}
+import { CAT, KEY_ORDER } from './categories.js';
+import { cases } from './cases/index.js';
 
-const CAT={
-  red:{
-    label:'Policy',
-    badge:'br',
-    title:'Public Policy, Government Decision, or Government Recommendation',
-    questions:'Who made the policy, how was it communicated to the public, what was in the policy, what evidence was it based on?'
-  },
-  orange:{
-    label:'Events',
-    badge:'bo',
-    title:'Events Unfolding, Corporate Decisions',
-    questions:null
-  },
-  green:{
-    label:'Knowledge',
-    badge:'bg',
-    title:'Knowledge Landscape',
-    questions:'Who knew what, and what exactly was known? What was being published in the press?'
-  },
-  blue:{
-    label:'Public Opinion',
-    badge:'bb',
-    title:'Public Opinion, Public Response, or Backlash',
-    questions:'What did people think? Who thought what? Did people take actions?'
-  },
-  purple:{
-    label:'Public Participation',
-    badge:'bp',
-    title:'Actual Events of Public Input',
-    questions:'What was the nature of the event? Who participated? What was the goal, and what if any was the policy impact? Were there any citizen assemblies?'
-  }
-};
+let cur = 0;
+let mode = 'timeline';
+let si = 0;
+const filt = { red: true, orange: true, green: true, blue: true, purple: true };
 
-const KEY_ORDER=['red','orange','green','blue','purple'];
-
-const cases=[
-{
-num:"Case Study 1",
-title:"Youth Mental Health & Addiction on Meta Platforms",
-overview:"This case argues that governance failed because critical knowledge about harm was controlled by the companies creating it. Platforms designed powerful recommender systems, but the data needed to assess their risks remained largely inaccessible to the public, researchers, and regulators. Democratic oversight lagged, forced to rely on incomplete external evidence while key scientific insights stayed inside firms. The consequence was a reactive system. Harms surfaced through public fallout, with parents, youth, and civil society raising concerns. This case therefore focuses on how limited access to information shaped both the failure of oversight and the adversarial nature of the public response.",
-entries:[
-{date:"02/2017",cat:"green",actors:"Academic Researchers",text:"External academic literature on social media and adolescent mental health grows substantially; researchers in the UK and the US publish contested but influential findings. Evidence is correlational. The direction of causation, whether social media causes depression or depressed teens use more social media, remains unresolved.",srcs:[{l:"PubMed",u:"https://pubmed.ncbi.nlm.nih.gov/30944443"}]},
-{date:"01/2018",cat:"orange",actors:"Facebook/Meta; Adam Mosseri; Mark Zuckerberg",text:"Facebook changes News Feed ranking algorithm to prioritize posts likely to spark meaningful social interactions, explicitly reducing distribution of public page content, publisher content, and passive viewing. The ranking change was justified in relational and wellbeing language, but internal trade-offs were known. The long-term behavioral effects on teens were not publicly disclosed.",srcs:[{l:"Meta Newsroom",u:"https://about.fb.com/news/2018/01/news-feed-fyi-bringing-people-closer-together"}]},
-{date:"04/2018",cat:"blue",actors:"Ponemon Institute; ~3,000 Facebook users",text:"Trust in Facebook collapses 66% after Cambridge Analytica. Only 28% of Facebook users believe the company is committed to protecting personal information, down from 79% just one year earlier in 2017. Meta conducts harmful practices, gets caught, apologizes, and trust partially recovers. The teen harm issue arrives in a context of already-depleted credibility.",srcs:[{l:"Business Insider",u:"https://www.businessinsider.com/facebook-trust-collapses-after-cambridge-analytica-data-scandal-2018-4"}]},
-{date:"09/2020",cat:"green",actors:"CDC; Academic Researchers; Clinical Professionals",text:"Adolescent mental health trends worsen measurably and publicly. The CDC, youth health researchers, and school counselors publish rising rates of teen depression, anxiety, self-harm, and suicidality. Emergency room visits for self-harm among girls ages 10 to 14 have more than doubled since 2009, according to CDC data. Independent researchers cannot identify causes because they lack access to platform data.",srcs:[{l:"PMC",u:"https://pmc.ncbi.nlm.nih.gov/articles/PMC9176070/"}]},
-{date:"09/2021",cat:"orange",actors:"Wall Street Journal; Meta Researchers and Leadership",text:"WSJ publishes Facebook Files, Part 2: 'We Make Body Image Issues Worse'. Internal Meta/Instagram research slide states: 'We make body image issues worse for one in three teen girls.' The research documents associations between Instagram use and negative body image, anxiety, depression, and social comparison among teen girls.",srcs:[{l:"Meta Newsroom",u:"https://about.fb.com/news/2021/09/research-teen-well-being-and-instagram"},{l:"WSJ",u:"https://www.wsj.com/tech/personal-tech/facebook-knows-instagram-is-toxic-for-teen-girls-company-documents-show-11631620739"}]},
-{date:"09/2021",cat:"blue",actors:"Fox News 'Fox & Friends First'; California psychotherapist mother and daughter",text:"Fox News parent segments: cross-partisan parental alarm. Mother Danielle Bloom: 'Why do we care about tweens? They are a valuable but untapped audience' — citing internal Meta documents. 'These apps want them even more addicted and not be kids.' Bloom's 11-year-old daughter Ruby: 'You can accidentally click on something and see something really bad and then it could scar you for life.'",srcs:[{l:"Fox News",u:"https://www.foxnews.com/media/facebook-targeting-children-parents-trust-social-media"}]},
-{date:"09/2021",cat:"orange",actors:"Meta/Instagram; Adam Mosseri",text:"Meta paused development of Instagram Kids, while continuing parental supervision tools for teens. This is the clearest public product-decision reversal or delay after criticism. Meta framed it as time to work with parents, experts, policymakers, and regulators.",srcs:[{l:"Meta Newsroom",u:"https://about.fb.com/news/2021/09/pausing-instagram-kids-building-parental-supervision-tools"}]},
-{date:"09/2021",cat:"red",actors:"Senate Commerce Subcommittee; Facebook Safety Executive",text:"Senate held hearings on Facebook, Instagram, and mental health harms with Antigone Davis. Congress explicitly made Facebook's internal research, its actions to address risks, and policy safeguards the object of public inquiry.",srcs:[{l:"Senate Commerce",u:"https://www.commerce.senate.gov/meetings/subcommittee-protecting-kids-online-facebook-instagram-and-mental-health-harms/"}]},
-{date:"10/2021",cat:"orange",actors:"Frances Haugen; Senate Subcommittee",text:"Frances Haugen testified that Facebook products harmed children, amplified harmful content, and that only Facebook could inspect the system. Haugen's role was to transform private internal knowledge into a case for transparency, independent research access, and algorithmic accountability.",srcs:[{l:"Written Testimony",u:"https://www.commerce.senate.gov/wp-content/uploads/media/doc/Frances%20Haugen%20Written%20Testimony.pdf"}]},
-{date:"10/2021",cat:"blue",actors:"New York Times",text:"'Teenage Girls Say Instagram's Mental Health Impacts Are No Surprise': Iris Tsouris, freshman at Yale, says the findings 'didn't surprise me at all.' Multiple teens describe friends who deleted the app because it 'was not adding value to their lives.' Teens describe Instagram as 'the most challenging platform due to the highly curated nature of users' profiles.' Peer comparison and superficiality described as systemic.",srcs:[{l:"New York Times",u:"https://www.nytimes.com/live/2021/10/05/technology/facebook-whistleblower-frances-haugen"}]},
-{date:"10/2021",cat:"red",actors:"Senate Commerce Leadership",text:"Senator Blumenthal requested Zuckerberg or Mosseri testimony and alleged Meta concealed information and downplayed internal research. The letter highlights dispute about whether public institutions had been misled and denied documents.",srcs:[{l:"Blumenthal Letter",u:"https://www.blumenthal.senate.gov/imo/media/doc/2021.10.20%20-%20Facebook%20and%20Instagram%20-%20Consumer%20Protection%20Invitation.pdf"}]},
-{date:"11/2021",cat:"blue",actors:"CivicScience; ~2,700 US adults surveyed",text:"CivicScience survey finds 73% of Americans do not trust Meta; Facebook favorability at all-time recorded low. 13% of respondents trust Meta to keep their data safe. 73% do not trust Meta. Facebook's favorability rating hits its lowest ever recorded level — the company ranks last among major consumer tech companies. 33% of people expect Facebook to become 'much less popular' in the next 12 months.",srcs:[{l:"CivicScience",u:"https://civicscience.com/trust-issues-sour-outlook-for-meta-facebook-popularity-falls/"}]},
-{date:"12/2021",cat:"blue",actors:"Washington Post / George Mason University Schar School; nationally representative sample",text:"Washington Post poll found 72% of internet users distrust Facebook with personal data; 64% want stronger tech regulation. Targeted advertising seen as 'intrusive and bothersome' by a large majority.",srcs:[{l:"Washington Post",u:"https://www.washingtonpost.com/technology/2021/12/22/tech-trust-survey/"}]},
-{date:"05/2023",cat:"red",actors:"FTC",text:"FTC proposed a blanket prohibition on Meta monetizing youth data and a pause on new products and features absent independent privacy compliance confirmation. A serious governance attempt focused on youth data, privacy compliance, and product-launch constraints.",srcs:[{l:"FTC",u:"https://www.ftc.gov/news-events/news/press-releases/2023/05/ftc-proposes-blanket-prohibition-preventing-facebook-monetizing-youth-data"}]},
-{date:"05/2023",cat:"red",actors:"US Surgeon General Vivek Murthy; HHS",text:"The US Surgeon General advisory concluded that social media carries benefits and risks but that evidence is insufficient to deem platforms safe for youth, stressing missing independent access to platform data and recommending precaution in the face of uncertainty.",srcs:[{l:"HHS",u:"https://www.hhs.gov/surgeongeneral/reports-and-publications/youth-mental-health/social-media/index.html"}]},
-{date:"06/2023",cat:"purple",actors:"Meta; Stanford Deliberative Democracy Lab; Behavioral Insights Team",text:"Meta and the Stanford Deliberative Democracy Lab launched the first Meta Community Forum, a structured global Deliberative Poll on Metaverse bullying and harassment. 6,300+ people from 32 countries in 23 languages, described as the largest deliberative exercise ever conducted. After deliberation, participants shifted toward wanting stronger platform accountability and clearer content norms. Meta committed to incorporating results into Metaverse governance.",srcs:[{l:"Stanford CDDRL",u:"https://cddrl.fsi.stanford.edu/news/results-first-global-deliberative-pollr-announced-stanfords-deliberative-democracy-lab"}]},
-{date:"10/2023",cat:"red",actors:"State Attorneys General (32)",text:"32 attorneys general announced litigation alleging Meta knowingly designed addictive features harmful to youth. The litigation frames recommendation algorithms, likes, alerts, filters, and infinite scroll as intentionally designed attention-maximizing features tied to youth harms.",srcs:[{l:"NY AG",u:"https://ag.ny.gov/press-release/2023/attorney-general-james-and-multistate-coalition-sue-meta-harming-youth"}]},
-{date:"10/2023",cat:"purple",actors:"Meta; Stanford DDL; Behavioral Insights Team",text:"Second structured deliberative process with Stanford DDL and BIT. Approximately 800 people from the USA, Germany, Spain, and Brazil. Two online sessions with AI-moderated small-group deliberation. Strong cross-national preference for transparency and human override options. Concern about AI chatbots providing emotional support to children without safeguards. Results publicly released.",srcs:[{l:"Stanford Deliberation",u:"https://deliberation.stanford.edu/meta-community-forum-generative-ai-results"}]},
-{date:"10/2023",cat:"blue",actors:"Pew Research Center; 8,842 US adults, 1,453 US teens surveyed",text:"Pew Research finds 81% support requiring parental consent for minors to create social media accounts. 71% favor age verification. 69% favor time limits for minors. Support is consistent across party lines. Young adults (18–29) show 67% support. Teens show 46% support parental consent; 56% support age verification; split on time limits (34% support, 36% oppose).",srcs:[{l:"Pew Research",u:"https://www.pewresearch.org/short-reads/2023/10/31/81-of-us-adults-versus-46-of-teens-favor-parental-consent-for-minors-to-use-social-media/"}]},
-{date:"12/2023",cat:"red",actors:"FTC",text:"FTC proposed COPPA updates, including separate opt-in for targeted advertising, data-retention limits, and restrictions on push-notification nudging. A formal public-comment process and a concrete attempt to regulate engagement nudges and child-data monetization.",srcs:[{l:"FTC",u:"https://www.ftc.gov/news-events/news/press-releases/2023/12/ftc-proposes-strengthening-childrens-privacy-rule-further-limit-companies-ability-monetize-childrens"}]},
-{date:"07/2024",cat:"red",actors:"Senate",text:"Senate passes Kids Online Safety Act 91–3, bipartisan supermajority.",srcs:[{l:"Reuters",u:"https://www.reuters.com/world/us/us-senate-set-pass-major-online-child-safety-reforms-2024-07-30/"}]},
-{date:"10/2024",cat:"blue",actors:"Pew Research Center; 1,391 US Teens and Parents",text:"Pew Research found that 48% of teens say social media has a mostly negative effect on people their age, up from 32% in 2022. Only 11% view it as mostly positive for peers. 50% of parents believe their child's mental health suffered in the past 12 months because of social media use. The number of Americans saying social media has a positive influence on children's mental health fell to 35%, down from 43% in 2022.",srcs:[{l:"Pew Research",u:"https://www.pewresearch.org/wp-content/uploads/sites/20/2025/04/PI_2025.04.22_teens-social-media-mental-health_REPORT.pdf"}]},
-{date:"09/2024",cat:"orange",actors:"Meta/Instagram",text:"Meta launched Instagram Teen Accounts with private defaults, messaging restrictions, sensitive-content limits, time reminders, sleep mode, and parental supervision features.",srcs:[{l:"Meta Newsroom",u:"https://about.fb.com/news/2024/09/instagram-teen-accounts"}]},
-{date:"01/2025",cat:"red",actors:"FTC",text:"FTC finalized COPPA amendments strengthening child-data protections. The final rule strengthened targeted-advertising consent, data retention, data security, and transparency requirements, but did not adopt the proposed push-notification limits.",srcs:[{l:"FTC Final Rule",u:"https://www.ftc.gov/system/files/ftc_gov/pdf/coppa_sbp_1.16_0.pdf"}]},
-{date:"04/2025",cat:"orange",actors:"Meta",text:"Meta expanded Teen Account protections across Instagram, Facebook, and Messenger. Platform self-regulation shifting from Instagram-only defaults to cross-platform youth safety settings.",srcs:[{l:"Meta Newsroom",u:"https://about.fb.com/news/2025/04/introducing-new-built-in-restrictions-instagram-teen-accounts-expanding-facebook-messenger"}]},
-{date:"03/2026",cat:"orange",actors:"Jury; Meta; Google; Plaintiff KGM",text:"A Los Angeles jury found Meta and Google negligent in a social-media harms trial and awarded $6 million, treating platform design features as defective-product issues. This validates the frame and may affect thousands of pending cases.",srcs:[{l:"NPR",u:"https://www.npr.org/2026/03/25/nx-s1-5746125/meta-youtube-social-media-trial-verdict"}]}
-]},
-{
-num:"Case Study 2",
-title:"COVID-19 School Closures and Reopenings",
-overview:"This case is about the difficulty of sustaining precautionary governance as uncertainty evolved. The initial decision of emergency school closures was defensible under radical uncertainty about COVID-19. The harder governance failure came later when delayed, uneven, and poorly justified reopenings took place. This became especially difficult where decision-makers failed to adequately weigh emerging risks or engage communities whose values and priorities were directly at stake. When communities were consulted, were their concerns actually integrated into reopening decisions, or were they sidelined in favor of narrow expert judgments or political pressure? The public fallout reveals the cost of that misalignment. Trust eroded not only because the science was uncertain, but because the process felt unresponsive to the people bearing the consequences.",
-entries:[
-{date:"02/2020",cat:"green",actors:"CDC; NIH/NIAID; WHO",text:"US public health officials knew the virus was highly transmissible via respiratory droplets, that older populations and those with comorbidities faced far worse outcomes, and that children appeared less severely affected. What was unknown was the rate of asymptomatic spread, the role of schools in community transmission, the degree of airborne versus droplet transmission, and long-term health consequences.",srcs:[{l:"PMC",u:"https://pmc.ncbi.nlm.nih.gov/articles/PMC7752102"}]},
-{date:"03/2020",cat:"orange",actors:"Governors; State Education Agencies; Local Districts; Public Health Officials",text:"The first national closure wave unfolded, moving from school and district-level closures to statewide action. Education Week tracked closures from March 6 to May 15, with the initial school and district-level closure data concentrated between March 9 and March 25.",srcs:[{l:"Education Week",u:"https://www.edweek.org/leadership/map-coronavirus-and-school-closures-in-2019-2020/2020/03"}]},
-{date:"03/2020",cat:"red",actors:"Fauci (NIAID); CDC; White House Coronavirus Task Force",text:"Fauci repeatedly emphasized flattening the curve, avoided specifying school closure policy, and deferred to governors on reopening. He acknowledged that science had 'not definitive evidence' on children as vectors. The 6-foot social distancing guidance, later shown to have no clinical trial basis, was being operationalized in school planning documents across all 50 states.",srcs:[{l:"NYT",u:"https://www.nytimes.com/article/flatten-curve-coronavirus.html"}]},
-{date:"03/2020",cat:"red",actors:"Governors; State Agencies; Local Districts",text:"Governors rapidly suspended in-person schooling across almost the entire country. An academic analysis found that 49 states suspended in-person instruction, with Montana as the exception. Governors drove the decision; it was rapid, broadly bipartisan, and oriented around flattening the curve and preserving hospital capacity rather than fine-grained educational trade-offs.",srcs:[{l:"Ed Working Papers",u:"https://edworkingpapers.com/sites/default/files/ai21-355.pdf"}]},
-{date:"03/2020",cat:"orange",actors:"Governors; State Education Agencies; Local Districts",text:"Closures reached near-total scale. At least 55.1 million students in 124,000 public and private schools were affected.",srcs:[{l:"Education Week",u:"https://www.edweek.org/leadership/map-coronavirus-and-school-closures-in-2019-2020/2020/03"}]},
-{date:"04/2020",cat:"red",actors:"Governor Whitmer; Michigan Department of Education",text:"Governor Whitmer ordered Michigan public schools closed for the remainder of the 2019-20 school year and issued Executive Order 2020-88 creating a COVID-19 Return to School Advisory Council with educators, public health officials, local administrators, and parents. Critics would later argue its recommendations were not consistently followed.",srcs:[{l:"AFT Michigan",u:"https://aftmichigan.org/executive-order-closing-public-schools-for-remainder-of-19-20-school-year"}]},
-{date:"06/2020",cat:"red",actors:"Governors; State Education Departments",text:"Nearly every state either ordered or recommended schools stay closed through the end of the 2019-20 school year with online learning options. The original precautionary decision became harder to evaluate as closure duration increased and remote-learning inequality became more visible.",srcs:[{l:"Education Week",u:"https://www.edweek.org/leadership/map-coronavirus-and-school-closures-in-2019-2020/2020/03"}]},
-{date:"06/2020",cat:"purple",actors:"Gov. Whitmer; MDE; Educators; Health Officials; Parents",text:"Michigan Return to Learn Advisory Council convened, the first formal structured public-input body for school reopening in the state. Composed of educators, public health officials, local administrators, and parents. Produced the Return to School Roadmap for fall 2020.",srcs:[{l:"Michigan.gov",u:"https://www.michigan.gov/-/media/Project/Websites/mde/2020/07/15/Item_IIIA1_PPT_Introduction_Dr_Rice.pdf?rev=3afe168a69d94ad59db08bbf4c893965"}]},
-{date:"06/2020",cat:"green",actors:"American Academy of Pediatrics; Teachers Unions; AASA; Trump Administration",text:"The American Academy of Pediatrics first urged policymakers to start with the goal of physical presence in school, then clarified that science and community circumstances should guide decisions and that recommendations should be evidence-based, not political. Politicization of reopening forced AAP to clarify that reopening should depend on local infection conditions, educator safety, stakeholder involvement, and resources.",srcs:[{l:"NPR",u:"https://www.npr.org/sections/coronavirus-live-updates/2020/07/10/889848834/nations-pediatricians-walk-back-support-for-in-person-school"}]},
-{date:"07/2020",cat:"red",actors:"President Trump; VP Pence; CDC Director Redfield",text:"President Trump publicly attacked CDC guidance on reopening schools, calling it impractical and expensive. VP Pence told reporters CDC guidelines were not a barrier to reopening. CDC Director Redfield appeared alongside Pence and stated CDC guidance was not meant to be a rationale to keep schools closed. Trump threatened to withhold federal funding from schools that did not reopen.",srcs:[{l:"NPR",u:"https://www.npr.org/2020/07/08/888898194/trump-blasts-expensive-cdc-guidelines-for-reopening-schools"}]},
-{date:"07/2020",cat:"blue",actors:"KFF",text:"KFF found that 60% of parents with children aged 5 to 17 preferred opening schools later to reduce infection risk, while 34% preferred opening sooner. Parents also worried both about illness and about academic, social, economic, food, technology, and service losses from closure. Parents of color reported especially high concern about safety, resources, technology, food, and services.",srcs:[{l:"KFF",u:"https://www.kff.org/covid-19/kff-health-tracking-poll-july-2020"}]},
-{date:"07/2020",cat:"blue",actors:"Gallup",text:"Gallup found parent preferences shifting away from full-time in-person schooling: 36% favored full-time in-person, 28% full-time remote, and 36% hybrid. Concern about children catching coronavirus rose to 64%. Values differed by infection concern, region, and party, with Republicans far more supportive of in-person schooling and Democrats far less supportive.",srcs:[{l:"Gallup",u:"https://news.gallup.com/poll/316412/fewer-parents-full-time-person-fall-schooling.aspx"}]},
-{date:"07/2020",cat:"orange",actors:"American Federation of Teachers; NEA; Local Affiliates; School Boards",text:"Teachers unions entered the reopening debate as the dominant local advocacy force. Research tracking reopening decisions in 250 of the largest school districts found union presence significantly correlates with remote-only decisions. The AFT threatened safety strikes if school reopening plans did not meet its health and safety standards.",srcs:[{l:"Politico",u:"https://www.politico.com/news/2020/07/28/aft-strikes-school-reopening-384133"}]},
-{date:"09/2020",cat:"red",actors:"Governors; Local School Districts; School Boards; Superintendents; Unions; Parents",text:"Reopening became decentralized and uneven. 48 states left reopening modality decisions to local districts, producing a patchwork of remote, hybrid, and in-person schooling shaped by local politics, union power, parent preferences, and health conditions.",srcs:[{l:"Ed Working Papers",u:"https://edworkingpapers.com/sites/default/files/ai21-355.pdf"}]},
-{date:"09/2020",cat:"orange",actors:"Local School Districts; CDC Researchers; School Communities",text:"National district reopening plans were mixed: CDC reported that 24% of districts were fully online, 51% hybrid, and 17% fully open for in-person instruction. Local control sometimes integrated local values, but also made policy legitimacy depend heavily on local trust, resources, and conflict.",srcs:[{l:"PMC",u:"https://pmc.ncbi.nlm.nih.gov/articles/PMC8938683"}]},
-{date:"Fall 2020",cat:"purple",actors:"30 Randomly Selected Michigan Residents; CMU Researchers",text:"30 Michiganders recruited through a deliberative sortition process. The participant selection used an algorithm developed by CMU computer scientists that maximized demographic representativeness and fairness of random selection. The panel produced 12 policy recommendations covering public health, economic support, and community equity, formally offered to policymakers.",srcs:[{l:"CMU News",u:"https://www.cmu.edu/news/stories/archives/2021/august/citizens-assembly-algorithm.html"}]},
-{date:"01/2021",cat:"red",actors:"Biden Administration; CDC",text:"President Biden issued an executive order supporting safe reopening and continued operation of schools and early-childhood providers. This federalized reopening support without fully nationalizing school governance.",srcs:[{l:"GovInfo",u:"https://www.govinfo.gov/content/pkg/DCPD-202100073/pdf/DCPD-202100073.pdf"}]},
-{date:"01/2021",cat:"green",actors:"CDC; Public Health Researchers",text:"Research summarized accumulating evidence that in-person schooling with mitigation was not typically associated with the kind of rapid spread seen in congregate living facilities or high-density worksites. Reopening could be made safer with universal masks, distancing, ventilation, hybrid models, screening testing, and limits on high-risk extracurriculars.",srcs:[{l:"PMC",u:"https://pmc.ncbi.nlm.nih.gov/articles/PMC8938683"}]},
-{date:"02/2021",cat:"red",actors:"CDC; State and Local School Officials; Public Health Agencies",text:"CDC issued its Operational Strategy for K-12 Schools through Phased Mitigation, stating that schools should open safely as soon as possible, be the last settings to close, and be the first to reopen when safe. It translated evolving science into operational governance including masking, distancing, hygiene, ventilation, contact tracing, and prioritization of elementary students and students at risk of learning loss.",srcs:[{l:"CDC Strategy",u:"https://www.tn.gov/content/dam/tn/health/documents/healthy-places/healthy-schools/CDC_K-12-Operational-Strategy-021221.pdf"}]},
-{date:"03/2021",cat:"orange",actors:"Federal and State Governments; Teachers; School Staff; Vaccine Providers",text:"Teachers and school staff became eligible for vaccination as an essential workforce on March 2, and all persons over age 16 became eligible by April 19. Vaccination changed the risk calculus for reopening, especially for adult staff risk, but did not eliminate conflict.",srcs:[{l:"CDC EID",u:"https://wwwnc.cdc.gov/eid/article/30/1/23-1215_article"}]},
-{date:"05/2021",cat:"red",actors:"FDA; CDC; Adolescents; Schools",text:"Vaccine emergency use authorization was extended to ages 12 to 15. This further changed reopening politics for middle and high schools, where transmission concerns had been greater than for elementary schools, although younger children remained ineligible until later.",srcs:[{l:"CDC EID",u:"https://wwwnc.cdc.gov/eid/article/30/1/23-1215_article"}]},
-{date:"01/2022",cat:"orange",actors:"Schools; Districts; State and Local Health Authorities; Families",text:"Delta and then Omicron produced renewed school-disruption waves. In 2021-22, CDC researchers identified 25,907 COVID-related school-closure events, with the weekly peak in January 2022. More than 14.6 million students were affected, showing that schools still lacked stable tools for keeping in-person learning continuous during surges.",srcs:[{l:"CDC EID",u:"https://wwwnc.cdc.gov/eid/article/30/1/23-1215_article"}]},
-{date:"04/2022",cat:"blue",actors:"CDC; High School Students; Schools",text:"CDC reported widespread adolescent mental-health strain during the pandemic: 37.1% of high school students experienced poor mental health, 44.2% reported persistent sadness or hopelessness, and school connectedness was associated with better mental-health outcomes.",srcs:[{l:"CDC MMWR",u:"https://www.cdc.gov/mmwr/volumes/71/su/su7103a3.htm"}]},
-{date:"12/2022",cat:"green",actors:"National Center for Education Statistics; NAEP; Students and Schools",text:"NAEP long-term trend results showed age-9 reading scores declined 5 points and math scores declined 7 points from 2020 to 2022. The math decline was the first ever in that assessment series, sharpening retrospective criticism that reopening decisions did not always adequately weigh educational inequality and long-run child development.",srcs:[{l:"NAEP",u:"https://www.nationsreportcard.gov/highlights/ltt/2022"}]}
-]},
-{
-num:"Case Study 3",
-title:"COVID-19 Vaccine Mandates",
-overview:"This case is best framed as a conflict between scientific justification and democratic authorization. By September 2021, the evidence strongly supported vaccination as a means of reducing severe disease, hospitalization, and death. The policy problem was whether federal institutions had legitimate authority and sufficient public trust to convert that scientific justification into binding mandates. The bounded case runs from the federal mandate in September 2021 through May 2023, marking the official end of the federal public health emergency. COVID-19 vaccine mandates show that scientific consensus can justify a policy aim without settling the legitimacy of coercive policy instruments. Vaccination was well-supported scientifically, especially for preventing severe disease, but mandates required a separate showing of institutional authority, procedural accountability, proportionality, and public trust. The federal case therefore reveals a core problem for science-based governance: experts can establish what is likely to reduce harm, but democratic institutions must still authorize who may compel action, under what conditions, and with what accountability.",
-entries:[
-{date:"12/2020",cat:"red",actors:"FDA; CDC; Advisory Committee on Immunization Practices",text:"FDA issued an emergency use authorization for the Pfizer-BioNTech vaccine, and ACIP voted 11 to 0 to recommend it for persons aged 16 and older. Evidence for symptomatic disease prevention was high-certainty, but evidence for hospitalization and death prevention was limited because severe events were rare in the trial.",srcs:[{l:"CDC MMWR",u:"https://www.cdc.gov/mmwr/volumes/69/wr/mm6950e2.htm"}]},
-{date:"08/2021",cat:"red",actors:"CDC; Massachusetts Department of Public Health; Local Public Health Investigators",text:"CDC updated masking guidance after Delta breakthrough evidence, including the Barnstable County outbreak report showing 469 cases, 74% among fully vaccinated persons, and similar Ct values among vaccinated and unvaccinated infected people. Vaccines remained central for preventing severe illness, but Delta made transmission control less straightforward and weakened the public-facing claim that vaccination alone would stop spread.",srcs:[{l:"CDC MMWR",u:"https://www.cdc.gov/mmwr/volumes/70/wr/mm7031e2.htm"}]},
-{date:"08/2021",cat:"red",actors:"FDA; BioNTech/Pfizer",text:"FDA gave full approval to Pfizer-BioNTech's vaccine, marketed as Comirnaty, for people aged 16 and older. Full approval reduced one legitimacy objection to mandates by moving the leading vaccine from EUA status into ordinary FDA licensure. FDA still acknowledged myocarditis and pericarditis monitoring and required postmarketing studies.",srcs:[{l:"FDA",u:"https://www.fda.gov/news-events/press-announcements/fda-approves-first-covid-19-vaccine"}]},
-{date:"08/2021",cat:"green",actors:"CDC; HEROES-RECOVER Network Investigators",text:"CDC reported that mRNA vaccine effectiveness against infection among frontline workers declined from 91% before Delta predominance to 66% during Delta predominance, with uncertainty due to limited Delta-period observations. Vaccination still reduced infection risk, but Delta and possible waning made infection and onward transmission less certain than early 2021 messaging implied.",srcs:[{l:"CDC MMWR",u:"https://www.cdc.gov/mmwr/volumes/70/wr/mm7034e4.htm"}]},
-{date:"09/2021",cat:"red",actors:"President Biden; White House; Department of Labor; OSHA; HHS; CMS; Federal Agencies",text:"President Biden announced the federal mandate: OSHA would require employers with 100 or more employees to ensure vaccination or weekly testing. CMS would require vaccination for many healthcare workers. Federal employees and federal contractors would be required to vaccinate. Head Start and federal school personnel were included. The administration shifted from persuasion and incentives toward compulsory rules affecting roughly 100 million Americans.",srcs:[{l:"Miller Center",u:"https://millercenter.org/the-presidency/presidential-speeches/september-9-2021-remarks-fighting-covid-19-pandemic"}]},
-{date:"09/2021",cat:"red",actors:"President Biden; Executive Branch Agencies; Safer Federal Workforce Task Force",text:"Executive Order 14043 required executive agencies to implement a COVID-19 vaccination program for federal employees, with exceptions only as required by law.",srcs:[{l:"GovInfo",u:"https://www.govinfo.gov/content/pkg/DCPD-202100733/pdf/DCPD-202100733.pdf"}]},
-{date:"10/2021",cat:"blue",actors:"KFF; US Adults and Workers Surveyed",text:"KFF polling showed the public-opinion split: 25% of workers reported an employer vaccine requirement, 50% did not want their employer to require vaccination, 90% of unvaccinated workers opposed employer mandates, and support for the large-employer federal vaccine-or-test rule varied sharply by race and party. The science supported vaccination, but the policy instrument was entering a polarized environment in which public authorization was uneven.",srcs:[{l:"KFF",u:"https://www.kff.org/covid-19/kff-covid-19-vaccine-monitor-october-2021"}]},
-{date:"11/2021",cat:"red",actors:"OSHA; Department of Labor; Large Employers; Covered Workers",text:"OSHA published its COVID-19 vaccination and testing Emergency Temporary Standard for employers with 100 or more employees. The Federal Register page records 122,485 comments. OSHA used emergency authority, even though the rule generated massive public response.",srcs:[{l:"Federal Register",u:"https://www.federalregister.gov/documents/2021/11/05/2021-23643/covid-19-vaccination-and-testing-emergency-temporary-standard"}]},
-{date:"12/2021",cat:"red",actors:"US Senate",text:"A majority of the US Senate voted to disapprove the OSHA regulation under S.J. Res. 29. Opponents could argue that Congress had not only failed to enact a comparable mandate, but one chamber had affirmatively rejected the agency rule.",srcs:[{l:"SCOTUS Opinion",u:"https://www.supremecourt.gov/opinions/21pdf/21a244_hgci.pdf"}]},
-{date:"01/2022",cat:"red",actors:"Supreme Court; OSHA",text:"The Supreme Court blocked OSHA's emergency rule requiring large employers to enforce COVID-19 vaccination or testing requirements. The Court treated COVID-19 as a universal risk and held that a rule affecting about 84 million workers required clearer congressional authorization. The dissent argued that OSHA had statutory responsibility and expertise to address grave workplace danger from a physically harmful agent.",srcs:[{l:"SCOTUS",u:"https://www.supremecourt.gov/opinions/21pdf/21a244_hgci.pdf"}]},
-{date:"01/2022",cat:"red",actors:"Supreme Court; CMS",text:"The Supreme Court allowed CMS to enforce the healthcare-worker mandate in Biden v. Missouri. CMS was upheld because the institutional setting was healthcare, the affected population was patients and care providers, and the agency had longstanding authority to impose health-and-safety conditions on federally funded facilities. Similar science supported both mandates, but the institutional context was decisive.",srcs:[{l:"SCOTUS",u:"https://www.supremecourt.gov/opinions/21pdf/21a240_d18e.pdf"}]},
-{date:"01/2022",cat:"blue",actors:"Pew Research Center; US Adults Surveyed",text:"Pew found declining trust: 50% rated public health officials' COVID-19 response as excellent or good, down from 60% in August 2021. 60% said changing recommendations had confused them. Support for proof-of-vaccination requirements varied substantially by setting and party. Scientifically adaptive guidance could be socially interpreted as inconsistency or withheld information, creating a feedback loop between scientific uncertainty, partisan identity, and mandate legitimacy.",srcs:[{l:"Pew Research",u:"https://www.pewresearch.org/science/2022/02/09/increasing-public-criticism-confusion-over-covid-19-response-in-u-s"}]}
-]},
-{
-num:"Case Study 4",
-title:"GenX PFAS Contamination in the Cape Fear River",
-overview:"This case shows how weak environmental governance allowed harm to continue for years. Industrial secrecy, fragmented regulation, and uncertain science delayed action, even as companies benefited economically and downstream communities faced unequal and involuntary exposure risks. Crucially, people do not need definitive proof of harm to act. When credible suspicion exists, especially supported by evidence from outside the affected area, communities have a right to respond and seek protection.",
-entries:[
-{date:"1951",cat:"orange",actors:"DuPont; 3M",text:"DuPont began using PFOA (C8) at Washington Works, West Virginia to manufacture Teflon coatings. 3M is the chief supplier. Discharge into the Ohio River begins. No regulatory disclosure required. The public and downstream communities have no knowledge of the chemicals being used or released.",srcs:[{l:"SearchlightNM",u:"https://searchlightnm.org/toxic-timeline-a-brief-history-of-pfas"}]},
-{date:"1961",cat:"green",actors:"DuPont Internal Scientists",text:"DuPont scientists issued internal warnings about C8 health risks. The company's own toxicologists flagged concerns about accumulation and organ effects. Warnings documented in confidential memos, not shared with EPA, workers, or the public.",srcs:[{l:"Levin Law",u:"https://levinlaw.com/dupont-c8-and-health"}]},
-{date:"1970s",cat:"green",actors:"DuPont; 3M Epidemiology Teams",text:"DuPont discovered high concentrations of PFOA in the blood of Washington Works factory workers. The company did not report this to EPA, as would have been required under TSCA Section 8(e) substantial risk reporting. 3M's own epidemiological studies of workers indicated no adverse effects at ppb levels, framing that both companies would use for years to deflect concern.",srcs:[{l:"EWG EPA Timeline",u:"https://static.ewg.org/reports/2020/pfas-epa-timeline/EPA-PFAS-Timeline-10-21.pdf"}]},
-{date:"1978–1981",cat:"orange",actors:"DuPont; 3M",text:"DuPont's formal testing confirmed elevated PFOA in workers by 1980. A July 1980 internal memo concludes: 'continued exposure is not tolerable.' DuPont reassigned 50 women from the Teflon division but did not tell them why. Between 1979 and 1981, two of seven children born to female Washington Works employees had birth defects. 3M sent DuPont results showing PFOA causes birth defects in rats.",srcs:[{l:"Levin Law",u:"https://levinlaw.com/dupont-c8-and-health"}]},
-{date:"1980",cat:"orange",actors:"DuPont; Fayetteville Works",text:"DuPont began discharging GenX-related fluorochemicals from its Fayetteville Works plant in Bladen County, NC into the Cape Fear River, the primary drinking-water source for downstream communities including Wilmington (approximately 250,000 people). No regulatory requirement mandated disclosure to the public. Discharge continued largely unmonitored for 37 years.",srcs:[{l:"CBS News",u:"https://www.cbsnews.com/news/wilmington-nc-cape-fear-river-water-tainted-genx-dupont-chemours/"}]},
-{date:"1981–1984",cat:"orange",actors:"DuPont",text:"DuPont tested tap water in communities on both sides of the Ohio River from Washington Works and found C8 contamination, including in public drinking water. This was marked 'personal and confidential' and never reported to EPA. DuPont also discovered PFOA crosses the placenta in cord blood. Active concealment of known drinking-water contamination from regulators and the public.",srcs:[{l:"EWG",u:"https://www.ewg.org/news-insights/news-release/epa-finds-dupont-guilty-withholding-teflon-blood-and-water-pollution"},{l:"NYT",u:"https://www.nytimes.com/2016/01/10/magazine/the-lawyer-who-became-duponts-worst-nightmare.html"}]},
-{date:"1998",cat:"green",actors:"3M; EPA Office of Toxic Substances",text:"3M alerted EPA that PFOS builds up in blood, sending rat studies showing liver damage from PFAS exposure. This is the first time EPA was formally notified of the PFAS bioaccumulation problem. 3M's letter described detecting PFOS at 9 to 56 ppb in blood bank samples from people with no known occupational exposure, meaning PFAS were already in the general population's blood.",srcs:[{l:"EWG EPA Timeline",u:"https://static.ewg.org/reports/2020/pfas-epa-timeline/EPA-PFAS-Timeline-10-21.pdf"}]},
-{date:"1998–1999",cat:"purple",actors:"Wilbur Tennant; Rob Bilott; DuPont",text:"Wilbur Tennant, a West Virginia farmer, contacted attorney Rob Bilott after observing cattle deaths, creek contamination, and unusual changes near DuPont's Dry Run Landfill. Tennant's documentation, including videos and animal illness records, became the trigger for federal litigation. Local observation, videos, animal illness, and suspicion became the trigger for litigation and discovery.",srcs:[{l:"Taft Law",u:"https://www.taftlaw.com/services/case-studies/taft-is-a-global-leader-in-pfas-forever-chemicals-litigation-and-advisory-work"},{l:"NYT",u:"https://www.nytimes.com/2016/01/10/magazine/the-lawyer-who-became-duponts-worst-nightmare.html"}]},
-{date:"1999",cat:"red",actors:"EPA; 3M",text:"EPA began an audit of 3M studies in response to 3M's 1998 disclosures, negotiating a formal TSCA Compliance Audit Agreement. EPA would eventually collect over 700 studies from 3M under this process.",srcs:[{l:"EWG EPA Timeline",u:"https://static.ewg.org/reports/2020/pfas-epa-timeline/EPA-PFAS-Timeline-10-21.pdf"}]},
-{date:"2000–2001",cat:"purple",actors:"Rob Bilott; Federal Court; DuPont; EPA and DOJ as Recipients",text:"Court-ordered discovery in the Tennant case produced internal DuPont records about PFOA/C8. Bilott warned EPA, DOJ, and other officials about PFAS dangers. Litigation created a public-record pathway that ordinary regulation had not produced. This matters for Cape Fear because the later GenX problem emerged after PFAS secrecy had already been exposed.",srcs:[{l:"Taft Law",u:"https://www.taftlaw.com/services/case-studies/taft-is-a-global-leader-in-pfas-forever-chemicals-litigation-and-advisory-work"},{l:"NYT",u:"https://www.nytimes.com/2016/01/10/magazine/the-lawyer-who-became-duponts-worst-nightmare.html"}]},
-{date:"2001–2004",cat:"purple",actors:"Exposed Residents; Bilott Legal Team; DuPont; Wood County Circuit Court",text:"Residents filed Leach v. DuPont, a class action for PFOA-contaminated drinking water in six Ohio and West Virginia water districts. The settlement required filtration, health-data collection, independent science, and medical-monitoring conditions. This lawsuit created the scientific infrastructure that regulators and companies lacked.",srcs:[{l:"PMC",u:"https://pmc.ncbi.nlm.nih.gov/articles/PMC2799461"},{l:"Taft Law",u:"https://www.taftlaw.com/services/case-studies/taft-is-a-global-leader-in-pfas-forever-chemicals-litigation-and-advisory-work"}]},
-{date:"2005",cat:"red",actors:"EPA; DuPont",text:"EPA fined DuPont $10.25 million, the largest civil administrative penalty in EPA history at the time, for failing to report substantial risk of injury to human health from PFOA, with violations going back to the 1980s. EPA's own Science Advisory Board issued a draft finding that PFOA is a 'likely human carcinogen.' The fine resolved the violations but imposed no enforceable limits on continued production, use, or release of PFOA.",srcs:[{l:"EWG EPA Timeline",u:"https://static.ewg.org/reports/2020/pfas-epa-timeline/EPA-PFAS-Timeline-10-21.pdf"}]},
-{date:"2005–2006",cat:"purple",actors:"C8 Health Project; Class Members; Independent Administrators",text:"The C8 Health Project collected blood and health data from 69,000 participants. Public participation became science: exposed residents' blood, health histories, and consent generated one of the largest community PFAS exposure datasets.",srcs:[{l:"PMC",u:"https://pmc.ncbi.nlm.nih.gov/articles/PMC2799461"}]},
-{date:"2006–2015",cat:"red",actors:"EPA; DuPont; 3M/Dyneon; Other PFAS Companies",text:"EPA launched the PFOA Stewardship Program, asking eight major companies including DuPont to reduce PFOA emissions and product content by 95 percent by 2010 and work toward elimination by 2015. Federal regulators recognized PFAS in blood, long human half-life, and animal developmental effects before the Cape Fear GenX controversy became public.",srcs:[{l:"EPA",u:"https://www.epa.gov/assessing-and-managing-chemicals-under-tsca/fact-sheet-20102015-pfoa-stewardship-program"}]},
-{date:"2009",cat:"red",actors:"EPA Office of Chemical Safety and Pollution Prevention; DuPont",text:"EPA entered a TSCA Section 5(e) consent order with DuPont for GenX-related substances, requiring 99 percent capture, destruction, recycling, or control of effluent and air emissions. EPA formally recognized insufficient information and potential unreasonable risk, but allowed manufacture under negotiated controls rather than banning or requiring full premarket proof of safety.",srcs:[{l:"EPA OIG",u:"https://www.epa.gov/sites/default/files/2020-05/documents/_epaoig_20200528-20-e-0177_0.pdf"}]},
-{date:"2011–2012",cat:"green",actors:"C8 Science Panel; Wood County Circuit Court; Exposed Class",text:"The C8 Science Panel found probable links between PFOA exposure and kidney cancer, testicular cancer, ulcerative colitis, thyroid disease, hypercholesterolemia, and pregnancy-induced hypertension. These findings should have increased the burden on regulators and companies to treat replacement PFAS as presumptively concerning.",srcs:[{l:"PMC",u:"https://pmc.ncbi.nlm.nih.gov/articles/PMC3855507"}]},
-{date:"2015",cat:"orange",actors:"DuPont; Chemours",text:"DuPont spun off its performance-chemicals business into Chemours and transferred the relevant rights and operations to the new company. Questions about how to coordinate EPA TSCA consent orders became more difficult, because effective oversight and remediation required aligning obligations, data, and enforcement across both companies rather than treating Chemours alone as the sole responsible actor.",srcs:[{l:"EPA OIG",u:"https://www.epa.gov/sites/default/files/2020-05/documents/_epaoig_20200528-20-e-0177_0.pdf"}]},
-{date:"11/2016",cat:"green",actors:"North Carolina State University",text:"Scientists published evidence of legacy and emerging PFAS in the Cape Fear River watershed and found mean GenX concentrations of 631 ng/L downstream of a PFAS manufacturer. This was the key scientific disclosure showing that replacement PFAS were drinking-water contaminants and not removed by conventional treatment.",srcs:[{l:"ACS",u:"https://pubs.acs.org/doi/10.1021/acs.estlett.6b00398"}]},
-{date:"06/2017",cat:"purple",actors:"CFPUA Board; Independent Reviewers",text:"CFPUA Board of Directors held a special public meeting and passed two unanimous resolutions: (1) Chemours must completely remove GenX from the river, and (2) CFPUA may take legal action if not. Independent reviewers were appointed to examine CFPUA's communication failures. The review concluded communication was appropriate, a conclusion widely criticized by the public and press.",srcs:[{l:"Port City Daily",u:"https://portcitydaily.com/local-news/2017/06/22/cfpua-wraps-review-of-communication-practices-doesnt-talk-to-former-communication-chief-news"}]},
-{date:"06/2017",cat:"purple",actors:"Wilmington Residents; Cancer Moms; Mayor Saffo",text:"Wilmington City Council meeting overflowed with residents. Local mothers whose children had cancer, quickly dubbed the cancer moms, showed up demanding answers. Mayor Bill Saffo publicly stated he was alarmed after being told by Chemours officials the discharge had been going on since 1980. Residents had learned about the contamination from the newspaper, not from the government.",srcs:[{l:"CBS News",u:"https://www.cbsnews.com/news/wilmington-nc-cape-fear-river-water-tainted-genx-dupont-chemours/"}]},
-{date:"06/2017",cat:"red",actors:"NC DEQ; NC DHHS",text:"NC DEQ and DHHS began investigating GenX in the Cape Fear River after public reporting and identification of Chemours Fayetteville Works. State action began only after scientific/public disclosure, making delay and public pressure central to the case.",srcs:[{l:"NC DEQ",u:"https://www.deq.nc.gov/news/key-issues/genx-investigation"},{l:"SELC",u:"https://www.selc.org/wp-content/uploads/2022/12/2022-12-05-SELC-timeline-NC-GenX-PFAS-pollution-Chemours.pdf"}]},
-{date:"06/2017",cat:"red",actors:"EPA Region 4",text:"EPA conducted its first on-site TSCA compliance monitoring inspection at Fayetteville Works, eight years after the 2009 consent order that required 99% capture and control. The inspection was triggered by media attention and state agency pressure, not internal EPA monitoring or scheduled compliance review.",srcs:[{l:"EPA OIG",u:"https://www.epa.gov/sites/default/files/2020-05/documents/_epaoig_20200528-20-e-0177_0.pdf"}]},
-{date:"09/2017",cat:"red",actors:"NC DEQ; Chemours; Bladen County Superior Court",text:"NC DEQ sued Chemours and entered a partial consent order requiring Chemours to prevent discharge of processed wastewater containing GenX and two other PFAS compounds. This was the first hard state enforcement pivot from investigation to binding pollution-control obligations.",srcs:[{l:"SELC",u:"https://www.selc.org/wp-content/uploads/2022/12/2022-12-05-SELC-timeline-NC-GenX-PFAS-pollution-Chemours.pdf"}]},
-{date:"11/2017",cat:"purple",actors:"NC State (Knappe, Hoppin, et al.); 344 Wilmington Volunteers; NIEHS",text:"NC State University launched the GenX Exposure Study, collecting blood, urine, and tap water samples from 344 New Hanover County residents. Funded by NIEHS and designed with community input. Results committed to be returned to participants at community meetings first, before broader publication.",srcs:[{l:"GenX Study",u:"https://genxstudy.ncsu.edu/study-overview"}]},
-{date:"11/2017",cat:"purple",actors:"Emily Donovan; Cape Fear River Watch; Community Activists",text:"Clean Cape Fear co-founded by local mother Emily Donovan and others. Cape Fear River Watch joined forces with new activist groups. Demands included making Chemours pay for cleanup, federal regulation of PFAS as a class, no more voluntary agreements, and full transparency on health effects.",srcs:[{l:"Action Network",u:"https://actionnetwork.org/petitions/sign-our-letter-telling-congress-enough-stop-harmful-spread-of-pfas"},{l:"Coastal Review",u:"https://coastalreview.org/2017/08/genx-response-activists-rally-clean-water/"}]},
-{date:"05/2018",cat:"red",actors:"NC DEQ; Cape Fear River Watch",text:"DEQ amended its complaint after discovering PFAS air emissions, while Cape Fear River Watch and SELC pursued citizen-suit strategies under the Clean Water Act and TSCA. The problem expanded from river discharge to multiple pathways: air, groundwater, surface water, stormwater, seeps, and wells.",srcs:[{l:"NC DEQ",u:"https://www.deq.nc.gov/news/key-issues/genx-investigation/chemours-consent-order"}]},
-{date:"2018–2019",cat:"red",actors:"NC DEQ; Cape Fear River Watch; Chemours; State Court",text:"North Carolina DEQ and Cape Fear River Watch negotiated a consent order with Chemours, which a state court made enforceable through public notice and comment. Required large PFAS emission cuts, an end to unpermitted discharges, cleanup of groundwater, alternative drinking water for affected users, and extensive testing and reporting. The consent order converts scientific uncertainty and public pressure into enforceable obligations.",srcs:[{l:"Cape Fear River Watch",u:"https://capefearriverwatch.org/wp-content/uploads/2020/07/Consent-Order-file-stamped-and-fully-executed-b-w-.pdf"}]}
-]}
-];
-
-let cur=0,mode='timeline',si=0;
-const filt={red:true,orange:true,green:true,blue:true,purple:true};
-
-function vis(){return cases[cur].entries.filter(e=>filt[e.cat]);}
-
-function srcHtml(srcs,cls){
-  return srcs.map(s=>`<a class="${cls}" onclick="openUrl('${s.u}')">${s.l}</a>`).join('');
+function vis() {
+  return cases[cur].entries.filter(e => filt[e.cat]);
 }
 
-function renderTabs(){
-  document.getElementById('tabs').innerHTML=cases.map((c,i)=>
-    `<div class="tab${i===cur?' active':''}" onclick="switchCase(${i})">
+function openUrl(u) {
+  window.open(u, '_blank', 'noopener,noreferrer');
+}
+
+function srcHtml(srcs, cls) {
+  return srcs.map(s => `<a class="${cls}" onclick="openUrl('${s.u}')">${s.l}</a>`).join('');
+}
+
+function renderTabs() {
+  document.getElementById('tabs').innerHTML = cases.map((c, i) =>
+    `<div class="tab${i === cur ? ' active' : ''}" onclick="switchCase(${i})">
       <span class="tab-num">${c.num}</span>
       <span class="tab-title">${c.title}</span>
     </div>`).join('');
 }
 
-function renderOverview(){
-  document.getElementById('ov-txt').textContent=cases[cur].overview;
+function renderOverview() {
+  document.getElementById('ov-txt').textContent = cases[cur].overview;
   document.getElementById('ov-txt').classList.add('show');
   document.getElementById('ov-arr').classList.add('open');
 }
 
-function toggleOv(){
+function toggleOv() {
   document.getElementById('ov-txt').classList.toggle('show');
   document.getElementById('ov-arr').classList.toggle('open');
 }
 
-function renderKey(){
-  document.getElementById('key-txt').innerHTML=KEY_ORDER.map(k=>{
-    const c=CAT[k];
-    const q=c.questions?`<div class="key-q">${c.questions}</div>`:'';
+function renderKey() {
+  document.getElementById('key-txt').innerHTML = KEY_ORDER.map(k => {
+    const c = CAT[k];
+    const q = c.questions ? `<div class="key-q">${c.questions}</div>` : '';
     return `<div class="key-item"><span class="key-badge ${c.badge}">${c.label}</span><div><div class="key-title">${c.title}</div>${q}</div></div>`;
   }).join('');
 }
 
-function toggleKey(){
+function toggleKey() {
   document.getElementById('key-txt').classList.toggle('show');
   document.getElementById('key-arr').classList.toggle('open');
 }
 
-function splitEntryText(text,maxLen=150){
-  if(text.length<=maxLen) return {lead:text,rest:null};
-  let cut=maxLen;
-  const sp=text.lastIndexOf(' ',cut);
-  if(sp>maxLen*0.55) cut=sp;
-  return {lead:text.slice(0,cut),rest:text.slice(cut).trimStart()};
+function splitEntryText(text, maxLen = 150) {
+  if (text.length <= maxLen) return { lead: text, rest: null };
+  let cut = maxLen;
+  const sp = text.lastIndexOf(' ', cut);
+  if (sp > maxLen * 0.55) cut = sp;
+  return { lead: text.slice(0, cut), rest: text.slice(cut).trimStart() };
 }
 
-function entryTextHtml(text){
-  const {lead,rest}=splitEntryText(text);
-  if(!rest) return `<p class="etxt">${lead}</p>`;
+function entryTextHtml(text) {
+  const { lead, rest } = splitEntryText(text);
+  if (!rest) return `<p class="etxt">${lead}</p>`;
   return `<p class="etxt"><span class="etxt-lead">${lead}</span><span class="etxt-ellipsis">…</span><span class="etxt-more">${rest}</span></p>`;
 }
 
-function renderTimeline(){
-  const w=document.querySelector('#tl-wrap .tl-inner');
-  w.innerHTML='';
-  cases[cur].entries.forEach(e=>{
-    const d=document.createElement('div');
-    d.className=`ent cat-${e.cat}${filt[e.cat]?'':' hidden'}`;
-    d.innerHTML=`<div class="ehd" onclick="this.parentElement.classList.toggle('open')">
+function renderTimeline() {
+  const w = document.querySelector('#tl-wrap .tl-inner');
+  w.innerHTML = '';
+  cases[cur].entries.forEach(e => {
+    const d = document.createElement('div');
+    d.className = `ent cat-${e.cat}${filt[e.cat] ? '' : ' hidden'}`;
+    d.innerHTML = `<div class="ehd" onclick="this.parentElement.classList.toggle('open')">
       <div class="edate">${e.date}</div>
       <div class="e-mid"><span class="ebadge ${CAT[e.cat].badge}">${CAT[e.cat].label}</span>${entryTextHtml(e.text)}</div>
       <div class="earr">▶</div>
     </div>
     <div class="ebd">
       <div class="eact">${e.actors}</div>
-      <div class="esrcs">${srcHtml(e.srcs,'esrc-link')}</div>
+      <div class="esrcs">${srcHtml(e.srcs, 'esrc-link')}</div>
     </div>`;
     w.appendChild(d);
   });
   updateCount();
 }
 
-function renderStep(){
-  const v=vis();
-  const body=document.getElementById('st-body');
-  const ctr=document.getElementById('st-ctr');
-  if(!v.length){
-    body.innerHTML='<div class="empty-msg">No entries match the selected filters.</div>';
-    ctr.innerHTML='0 of 0';
-    document.getElementById('btn-prev').disabled=true;
-    document.getElementById('btn-next').disabled=true;
+function renderStep() {
+  const v = vis();
+  const body = document.getElementById('st-body');
+  const ctr = document.getElementById('st-ctr');
+  if (!v.length) {
+    body.innerHTML = '<div class="empty-msg">No entries match the selected filters.</div>';
+    ctr.innerHTML = '0 of 0';
+    document.getElementById('btn-prev').disabled = true;
+    document.getElementById('btn-next').disabled = true;
     return;
   }
-  if(si>=v.length)si=v.length-1;
-  if(si<0)si=0;
-  const e=v[si];
-  body.innerHTML=`<div class="st-card">
+  if (si >= v.length) si = v.length - 1;
+  if (si < 0) si = 0;
+  const e = v[si];
+  body.innerHTML = `<div class="st-card">
     <div class="st-meta">
       <span class="st-date">${e.date}</span>
       <span class="st-badge ${CAT[e.cat].badge}">${CAT[e.cat].label}</span>
     </div>
     <div class="st-actors">${e.actors}</div>
     <div class="st-text">${e.text}</div>
-    <div class="st-srcs">${srcHtml(e.srcs,'st-src-link')}</div>
+    <div class="st-srcs">${srcHtml(e.srcs, 'st-src-link')}</div>
   </div>`;
-  ctr.innerHTML=`${si+1} of ${v.length}<small>${cases[cur].num}</small>`;
-  document.getElementById('btn-prev').disabled=si===0;
-  document.getElementById('btn-next').disabled=si===v.length-1;
+  ctr.innerHTML = `${si + 1} of ${v.length}<small>${cases[cur].num}</small>`;
+  document.getElementById('btn-prev').disabled = si === 0;
+  document.getElementById('btn-next').disabled = si === v.length - 1;
 }
 
-function step(d){si+=d;renderStep();}
-
-function updateCount(){
-  const n=vis().length;
-  document.getElementById('cnt').textContent=`${n} entr${n===1?'y':'ies'}`;
+function step(d) {
+  si += d;
+  renderStep();
 }
 
-function switchCase(i){
-  cur=i;si=0;
+function updateCount() {
+  const n = vis().length;
+  document.getElementById('cnt').textContent = `${n} entr${n === 1 ? 'y' : 'ies'}`;
+}
+
+function switchCase(i) {
+  cur = i;
+  si = 0;
   renderTabs();
   renderOverview();
   renderTimeline();
   renderStep();
 }
 
-function toggleFilter(f){
-  if(f==='all'){
-    const allOn=Object.values(filt).every(v=>v);
-    Object.keys(filt).forEach(k=>filt[k]=!allOn);
+function toggleFilter(f) {
+  if (f === 'all') {
+    const allOn = Object.values(filt).every(v => v);
+    Object.keys(filt).forEach(k => { filt[k] = !allOn; });
   } else {
-    filt[f]=!filt[f];
+    filt[f] = !filt[f];
   }
-  document.querySelectorAll('.fl').forEach(b=>{
-    const df=b.dataset.f;
-    if(df==='all') b.classList.toggle('off',!Object.values(filt).every(v=>v));
-    else b.classList.toggle('off',!filt[df]);
+  document.querySelectorAll('.fl').forEach(b => {
+    const df = b.dataset.f;
+    if (df === 'all') b.classList.toggle('off', !Object.values(filt).every(v => v));
+    else b.classList.toggle('off', !filt[df]);
   });
-  si=0;
+  si = 0;
   renderTimeline();
   renderStep();
   updateCount();
 }
 
-function setMode(m){
-  mode=m;
-  document.querySelectorAll('.mbt').forEach(b=>b.classList.toggle('on',b.dataset.m===m));
-  document.getElementById('tl-wrap').classList.toggle('show',m==='timeline');
-  document.getElementById('st-wrap').classList.toggle('show',m==='step');
+function setMode(m) {
+  mode = m;
+  document.querySelectorAll('.mbt').forEach(b => b.classList.toggle('on', b.dataset.m === m));
+  document.getElementById('tl-wrap').classList.toggle('show', m === 'timeline');
+  document.getElementById('st-wrap').classList.toggle('show', m === 'step');
 }
+
+Object.assign(window, {
+  openUrl,
+  toggleOv,
+  toggleKey,
+  setMode,
+  toggleFilter,
+  step,
+  switchCase
+});
 
 renderTabs();
 renderOverview();
