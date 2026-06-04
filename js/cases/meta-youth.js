@@ -160,7 +160,7 @@ export default caseStudy({
 
     entry({
       date: '10/2021',
-      category: 'red',
+      category: 'orange',
       actors: 'Senate Commerce Leadership',
       text:       paragraph(`
         Senator Blumenthal requested Zuckerberg or Mosseri testimony and alleged Meta
@@ -200,7 +200,7 @@ export default caseStudy({
 
     entry({
       date: '05/2023',
-      category: 'red',
+      category: 'green',
       actors: 'FTC',
       text:       paragraph(`
         FTC proposed a blanket prohibition on Meta monetizing youth data and a pause
@@ -216,9 +216,9 @@ export default caseStudy({
       category: 'red',
       actors: 'US Surgeon General Vivek Murthy; HHS',
       text:       paragraph(`
-        The US Surgeon General advisory concluded that social media carries benefits
-        and risks but that evidence is insufficient to deem platforms safe for youth,
-        stressing missing independent access to platform data and recommending
+        The US Surgeon General ran a metatstudy concluding social media carries benefits
+        and risks, but that evidence is insufficient to deem platforms safe for youth. They
+        stress missing independent access to platform data and recommending
         precaution in the face of uncertainty.
       `),
       sources: [source('HHS', 'https://www.hhs.gov/surgeongeneral/reports-and-publications/youth-mental-health/social-media/index.html')],
@@ -259,7 +259,7 @@ export default caseStudy({
       actors: 'Meta; Stanford DDL; Behavioral Insights Team',
       text:       paragraph(`
         Second structured deliberative process with Stanford DDL and BIT.
-        Approximately 800 people from the USA, Germany, Spain, and Brazil. Two online
+        Approximately 1,500 people from the USA, Germany, Spain, and Brazil. Two online
         sessions with AI-moderated small-group deliberation. Strong cross-national
         preference for transparency and human override options. Concern about AI
         chatbots providing emotional support to children without safeguards. Results
@@ -287,10 +287,12 @@ export default caseStudy({
       category: 'red',
       actors: 'FTC',
       text:       paragraph(`
-        FTC proposed COPPA updates, including separate opt-in for targeted
-        advertising, data-retention limits, and restrictions on push-notification
-        nudging. A formal public-comment process and a concrete attempt to regulate
-        engagement nudges and child-data monetization.
+        The FTC opened a formal 60-day public comment window
+        that drew approximately 300 formal comments for amendments to Children's Online Privacy Protection Rule (COPPA).
+        The Commission voted to finalize COPPA with three concrete new requirements: a separate, unbundled opt-in consent specifically for targeted advertising 
+        (meaning a parent could consent to an app while refusing ad monetization of their child's data), 
+        a mandatory written data retention policy prohibiting indefinite storage of children's personal information, 
+        and expanded definitions of "personal information" to include biometric identifiers. 
       `),
       sources: [source('FTC', 'https://www.ftc.gov/news-events/news/press-releases/2023/12/ftc-proposes-strengthening-childrens-privacy-rule-further-limit-companies-ability-monetize-childrens')],
     }),
@@ -300,7 +302,7 @@ export default caseStudy({
       category: 'red',
       actors: 'Senate',
       text:       paragraph(`
-        Senate passes Kids Online Safety Act 91–3, bipartisan supermajority.
+        Senate voted 91–3 to pass the Kids Online Safety Act (KOSA).  It was the first major federal tech regulation to advance in the Senate since 1998, when the original Children's Online Privacy Protection Rule (COPPA) passed.
       `),
       sources: [source('Reuters', 'https://www.reuters.com/world/us/us-senate-set-pass-major-online-child-safety-reforms-2024-07-30/')],
     }),
@@ -337,7 +339,7 @@ export default caseStudy({
       category: 'red',
       actors: 'FTC',
       text:       paragraph(`
-        FTC finalized COPPA amendments strengthening child-data protections. The final
+        FTC finalized Children's Online Privacy Protection Act amendments strengthening child-data protections. The final
         rule strengthened targeted-advertising consent, data retention, data security,
         and transparency requirements, but did not adopt the proposed
         push-notification limits.

@@ -15,7 +15,7 @@ function openUrl(u) {
 }
 
 function srcHtml(srcs, cls) {
-  return srcs.map(s => `<a class="${cls}" onclick="openUrl('${s.u}')">${s.l}</a>`).join('');
+  return srcs.map(s => `<a class="${cls}" onclick="openUrl('${s.u}')">Source: ${s.l}</a>`).join('');
 }
 
 function renderTabs() {
