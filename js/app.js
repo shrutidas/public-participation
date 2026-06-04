@@ -18,6 +18,10 @@ function srcHtml(srcs, cls) {
   return srcs.map(s => `<a class="${cls}" onclick="openUrl('${s.u}')">Source: ${s.l}</a>`).join('');
 }
 
+function actorsHtml(actors) {
+  return `<span class="act-label">Actors:</span> ${actors}`;
+}
+
 function renderTabs() {
   document.getElementById('tabs').innerHTML = cases.map((c, i) =>
     `<div class="tab${i === cur ? ' active' : ''}" onclick="switchCase(${i})">
@@ -76,7 +80,7 @@ function renderTimeline() {
       <div class="earr">▶</div>
     </div>
     <div class="ebd">
-      <div class="eact">${e.actors}</div>
+      <div class="eact">${actorsHtml(e.actors)}</div>
       <div class="esrcs">${srcHtml(e.srcs, 'esrc-link')}</div>
     </div>`;
     w.appendChild(d);
@@ -103,7 +107,7 @@ function renderStep() {
       <span class="st-date">${e.date}</span>
       <span class="st-badge ${CAT[e.cat].badge}">${CAT[e.cat].label}</span>
     </div>
-    <div class="st-actors">${e.actors}</div>
+    <div class="st-actors">${actorsHtml(e.actors)}</div>
     <div class="st-text">${e.text}</div>
     <div class="st-srcs">${srcHtml(e.srcs, 'st-src-link')}</div>
   </div>`;

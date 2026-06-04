@@ -375,9 +375,14 @@ body {
 .eact {
   font-size: 0.875rem;
   color: #555;
-  font-style: italic;
+  font-style: normal;
   margin: 0 0 10px;
   line-height: 1.5;
+}
+
+.act-label {
+  font-weight: 700;
+  font-style: normal;
 }
 
 .esrcs {
@@ -454,7 +459,7 @@ body {
 .st-actors {
   font-size: 0.9375rem;
   color: #555;
-  font-style: italic;
+  font-style: normal;
   margin-bottom: 16px;
   line-height: 1.55;
 }

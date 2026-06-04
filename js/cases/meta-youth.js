@@ -242,13 +242,16 @@ export default caseStudy({
 
     entry({
       date: '10/2023',
-      category: 'red',
-      actors: 'State Attorneys General (32)',
+      category: 'event',
+      actors: 'State Attorney Generals',
       text:       paragraph(`
-        32 attorneys general announced litigation alleging Meta knowingly designed
-        addictive features harmful to youth. The litigation frames recommendation
-        algorithms, likes, alerts, filters, and infinite scroll as intentionally
-        designed attention-maximizing features tied to youth harms.
+        Attorneys general from 42 states sued Meta in federal and state courts on the same day, 
+        alleging the company deliberately engineered Instagram and Facebook to addict children, 
+        knew it was causing harm, and deceived parents about it. The complaints named specific design features, including
+        infinite scroll, algorithmic rabbit holes, near-constant push notifications, and social validation loops, as intentional mechanisms 
+        targeting adolescent brain development to maximize time on platform. 
+        As of 2026, no settlement has been reached, though the first jury trial in March 2026 resulted in a $6 million verdict against Meta, 
+        and the Supreme Court refused in May 2026 to block the state cases from proceeding .
       `),
       sources: [source('NY AG', 'https://ag.ny.gov/press-release/2023/attorney-general-james-and-multistate-coalition-sue-meta-harming-youth')],
     }),
@@ -259,7 +262,7 @@ export default caseStudy({
       actors: 'Meta; Stanford DDL; Behavioral Insights Team',
       text:       paragraph(`
         Second structured deliberative process with Stanford DDL and BIT.
-        Approximately 1,500 people from the USA, Germany, Spain, and Brazil. Two online
+        Approximately 1,500 people the USA, Germany, Spain, and Brazil. Two online
         sessions with AI-moderated small-group deliberation. Strong cross-national
         preference for transparency and human override options. Concern about AI
         chatbots providing emotional support to children without safeguards. Results
