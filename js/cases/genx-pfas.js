@@ -134,7 +134,7 @@ export default caseStudy({
 
     entry({
       date: '1999',
-      category: 'event',
+      category: 'orange',
       actors: 'EPA; 3M',
       text:       paragraph(`
         EPA began an audit of 3M studies in response to 3M's 1998 disclosures,
@@ -180,7 +180,7 @@ export default caseStudy({
 
     entry({
       date: '12/2005',
-      category: 'event',
+      category: 'orange',
       actors: 'EPA; DuPont',
       text:       paragraph(`
         EPA fined DuPont $10.25 million, the largest civil administrative penalty in
