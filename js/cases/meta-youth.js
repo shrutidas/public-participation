@@ -124,7 +124,7 @@ export default caseStudy({
       actors: 'Senate Commerce Subcommittee; Facebook Safety Executive',
       text:       paragraph(`
         Senate held hearings on Facebook, Instagram, and mental health harms with
-        Antigone Davis. Congress explicitly made Facebook's internal research, its
+        Antigone Davis, the Head of Global Safety at Facebook. Congress explicitly made Facebook's internal research, its
         actions to address risks, and policy safeguards the object of public inquiry.
       `),
       sources: [source('Senate Commerce', 'https://www.commerce.senate.gov/meetings/subcommittee-protecting-kids-online-facebook-instagram-and-mental-health-harms/')],
@@ -242,7 +242,7 @@ export default caseStudy({
 
     entry({
       date: '10/2023',
-      category: 'event',
+      category: 'orange',
       actors: 'State Attorney Generals',
       text:       paragraph(`
         Attorneys general from 42 states sued Meta in federal and state courts on the same day, 
