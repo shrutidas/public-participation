@@ -134,7 +134,7 @@ export default caseStudy({
 
     entry({
       date: '1999',
-      category: 'red',
+      category: 'event',
       actors: 'EPA; 3M',
       text:       paragraph(`
         EPA began an audit of 3M studies in response to 3M's 1998 disclosures,
@@ -179,8 +179,8 @@ export default caseStudy({
     }),
 
     entry({
-      date: '2005',
-      category: 'red',
+      date: '12/2005',
+      category: 'event',
       actors: 'EPA; DuPont',
       text:       paragraph(`
         EPA fined DuPont $10.25 million, the largest civil administrative penalty in
@@ -190,11 +190,11 @@ export default caseStudy({
         carcinogen.' The fine resolved the violations but imposed no enforceable
         limits on continued production, use, or release of PFOA.
       `),
-      sources: [source('EWG EPA Timeline', 'https://static.ewg.org/reports/2020/pfas-epa-timeline/EPA-PFAS-Timeline-10-21.pdf')],
+      sources: [source('EWG EPA Timeline', 'https://www.epa.gov/archive/epapages/newsroom_archive/newsreleases/fdcb2f665cac66bb852570d7005d6665.html')],
     }),
 
     entry({
-      date: '2005–2006',
+      date: '08/2006',
       category: 'purple',
       actors: 'C8 Health Project; Class Members; Independent Administrators',
       text:       paragraph(`
@@ -203,7 +203,7 @@ export default caseStudy({
         health histories, and consent generated one of the largest community PFAS
         exposure datasets.
       `),
-      sources: [source('PMC', 'https://pmc.ncbi.nlm.nih.gov/articles/PMC2799461')],
+      sources: [source('PMC', 'https://www.c8sciencepanel.org/panel.html')],
     }),
 
     entry({
@@ -309,7 +309,7 @@ export default caseStudy({
 
     entry({
       date: '06/2017',
-      category: 'red',
+      category: 'orange',
       actors: 'NC DEQ; NC DHHS',
       text:       paragraph(`
         NC DEQ and DHHS began investigating GenX in the Cape Fear River after public
@@ -325,7 +325,7 @@ export default caseStudy({
 
     entry({
       date: '06/2017',
-      category: 'red',
+      category: 'orange',
       actors: 'EPA Region 4',
       text:       paragraph(`
         EPA conducted its first on-site TSCA compliance monitoring inspection at
@@ -343,8 +343,7 @@ export default caseStudy({
       text:       paragraph(`
         NC DEQ sued Chemours and entered a partial consent order requiring Chemours to
         prevent discharge of processed wastewater containing GenX and two other PFAS
-        compounds. This was the first hard state enforcement pivot from investigation
-        to binding pollution-control obligations.
+        compounds. This was the first state enforcement binding pollution-control obligations.
       `),
       sources: [source('SELC', 'https://www.selc.org/wp-content/uploads/2022/12/2022-12-05-SELC-timeline-NC-GenX-PFAS-pollution-Chemours.pdf')],
     }),

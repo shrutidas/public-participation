@@ -363,8 +363,7 @@ export default caseStudy({
       actors: 'Jury; Meta; Google; Plaintiff KGM',
       text:       paragraph(`
         A Los Angeles jury found Meta and Google negligent in a social-media harms
-        trial and awarded $6 million, treating platform design features as
-        defective-product issues. This validates the frame and may affect thousands of
+        trial and awarded $6 million, treating platform design features as defective-product issues. This validates the frame and may affect thousands of
         pending cases.
       `),
       sources: [source('NPR', 'https://www.npr.org/2026/03/25/nx-s1-5746125/meta-youtube-social-media-trial-verdict')],
