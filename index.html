@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Parallel Timelines — Science & Technology Policy Cases</title>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<div id="hdr"><h1>The Case for Public Participation in Science and Technology Policy</h1></div>
+<div id="tabs"></div>
+<div id="ov">
+  <button id="ov-btn" onclick="toggleOv()">
+    <span>Case Overview</span>
+    <span id="ov-arr">▶</span>
+  </button>
+  <div id="ov-txt"></div>
+</div>
+<div id="key">
+  <button id="key-btn" onclick="toggleKey()">
+    <span>Category Key</span>
+    <span id="key-arr">▶</span>
+  </button>
+  <div id="key-txt"></div>
+</div>
+<div id="ctrl">
+  <button class="mbt on" data-m="timeline" onclick="setMode('timeline')">Timeline</button>
+  <button class="mbt" data-m="step" onclick="setMode('step')">Step Through</button>
+  <div class="vsep"></div>
+  <button class="fl fl-all" data-f="all" onclick="toggleFilter('all')">All</button>
+  <button class="fl fl-red" data-f="red" onclick="toggleFilter('red')">Policy</button>
+  <button class="fl fl-orange" data-f="orange" onclick="toggleFilter('orange')">Events</button>
+  <button class="fl fl-green" data-f="green" onclick="toggleFilter('green')">Knowledge</button>
+  <button class="fl fl-blue" data-f="blue" onclick="toggleFilter('blue')">Public Opinion</button>
+  <button class="fl fl-purple" data-f="purple" onclick="toggleFilter('purple')">Public Participation</button>
+  <span id="cnt"></span>
+</div>
+<div id="tl-wrap" class="show"><div class="tl-inner"></div></div>
+<div id="st-wrap">
+  <div id="st-body"></div>
+  <div id="st-nav">
+    <button class="nbtn" id="btn-prev" onclick="step(-1)">← Previous</button>
+    <div id="st-ctr"></div>
+    <button class="nbtn" id="btn-next" onclick="step(1)">Next →</button>
+  </div>
+</div>
+
+<script src="js/app.js"></script>
+</body>
+</html>
