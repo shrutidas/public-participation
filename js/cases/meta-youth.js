@@ -95,12 +95,10 @@ export default caseStudy({
       category: 'blue',
       actors: 'Fox News \'Fox & Friends First\'; California psychotherapist mother and daughter',
       text:       paragraph(`
-        Fox News parent segments: cross-partisan parental alarm. Mother Danielle
-        Bloom: 'Why do we care about tweens? They are a <strong>valuable but untapped
-        audience</strong>' — citing <strong>internal Meta documents</strong>. 'These apps want them even more
-        addicted and not be kids.' Bloom's 11-year-old daughter Ruby: 'You can
-        accidentally click on something and see something really bad and then it could
-        scar you for life.'
+        National media coverage highlighted broad parental concerns about social media’s impact on children and young teens. 
+        Parents expressed alarm that platforms view younger users as a valuable growth market and design products in ways that 
+        encourage prolonged engagement. They also worried that children can easily encounter inappropriate or harmful content online, 
+        with potentially lasting effects on their well-being and development.
       `),
       sources: [source('Fox News', 'https://www.foxnews.com/media/facebook-targeting-children-parents-trust-social-media')],
     }),

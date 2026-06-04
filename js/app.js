@@ -70,7 +70,11 @@ function splitEntryText(text, maxLen = 150) {
       plainSeen++;
     }
   }
-  return { lead: text.slice(0, htmlCut).trimEnd(), rest: text.slice(htmlCut).trimStart() || null };
+  // Keep the word-boundary space in the lead so lead + rest don't run together
+  if (cut < plain.length && plain[cut] === ' ') {
+    while (htmlCut < text.length && /\s/.test(text[htmlCut])) htmlCut++;
+  }
+  return { lead: text.slice(0, htmlCut), rest: text.slice(htmlCut).trimStart() || null };
 }
 
 function entryTextHtml(text) {
