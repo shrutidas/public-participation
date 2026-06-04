@@ -55,11 +55,22 @@ function toggleKey() {
 }
 
 function splitEntryText(text, maxLen = 150) {
-  if (text.length <= maxLen) return { lead: text, rest: null };
+  const plain = text.replace(/<[^>]+>/g, '');
+  if (plain.length <= maxLen) return { lead: text, rest: null };
   let cut = maxLen;
-  const sp = text.lastIndexOf(' ', cut);
+  const sp = plain.lastIndexOf(' ', cut);
   if (sp > maxLen * 0.55) cut = sp;
-  return { lead: text.slice(0, cut), rest: text.slice(cut).trimStart() };
+  // Map plain-text cut point back through HTML to avoid splitting inside tags
+  let plainSeen = 0;
+  let htmlCut = 0;
+  for (; htmlCut < text.length && plainSeen < cut; htmlCut++) {
+    if (text[htmlCut] === '<') {
+      while (htmlCut < text.length && text[htmlCut] !== '>') htmlCut++;
+    } else {
+      plainSeen++;
+    }
+  }
+  return { lead: text.slice(0, htmlCut).trimEnd(), rest: text.slice(htmlCut).trimStart() || null };
 }
 
 function entryTextHtml(text) {

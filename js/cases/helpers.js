@@ -45,7 +45,7 @@ export function caseStudy({ num, title, overview, entries }) {
   return { num, title, overview, entries };
 }
 
-/** Collapse whitespace in one or more text fragments into a single paragraph. */
+/** Collapse whitespace in one or more text fragments into a single paragraph. Supports inline <strong> for emphasis. */
 export function paragraph(...parts) {
   return parts.join(' ').replace(/\s+/g, ' ').trim();
 }
