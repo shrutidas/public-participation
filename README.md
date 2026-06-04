@@ -4,7 +4,7 @@ Tracking public participation in science and technology cases.
 
 Interactive parallel timelines for four science and technology policy case studies.
 
-Project Site: `https://shrutidas.github.io/public-participation`.
+Project Site: `https://shrutidas.github.io/public-participation`
 
 ## Local preview
 
