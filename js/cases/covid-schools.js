@@ -223,7 +223,7 @@ export default caseStudy({
     }),
 
     entry({
-      date: 'Fall 2020',
+      date: '11/2020',
       category: 'purple',
       actors: '30 Randomly Selected Michigan Residents; CMU Researchers',
       text:       paragraph(`
@@ -234,7 +234,10 @@ export default caseStudy({
         health, economic support, and community equity, formally offered to
         policymakers.
       `),
-      sources: [source('CMU News', 'https://www.cmu.edu/news/stories/archives/2021/august/citizens-assembly-algorithm.html')],
+      sources: [
+        source('CMU News', 'https://www.cmu.edu/news/stories/archives/2021/august/citizens-assembly-algorithm.html'),
+        source('Perma.cc', 'https://perma.cc/M2H9-BDVC'),
+      ],
     }),
 
     entry({
@@ -309,7 +312,7 @@ export default caseStudy({
       category: 'orange',
       actors: 'Schools; Districts; State and Local Health Authorities; Families',
       text:       paragraph(`
-        <strong>Delta and then Omicron</strong> produced renewed school-disruption waves. In 2021-22,
+        <strong>Delta and Omicron variants</strong> produced renewed school-disruption waves. In 2021-22,
         CDC researchers identified 25,907 COVID-related school-closure events, with
         the weekly peak in January 2022. More than 14.6 million students were
         affected, showing that schools still lacked <strong>stable tools for keeping in-person

@@ -342,6 +342,12 @@ body {
   margin: 0;
 }
 
+.etxt strong,
+.st-text strong,
+#ov-txt strong {
+  font-weight: 600;
+}
+
 .ent.open .etxt {
   color: #111;
   line-height: 1.65;

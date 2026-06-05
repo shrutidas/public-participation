@@ -21,7 +21,7 @@ export default caseStudy({
       category: 'orange',
       actors: 'Comscore',
       text:       paragraph(`
-        When Facebook <strong>dropped its university-email requirement</strong>, teen usage exploded. 
+        When Facebook dropped its university-email requirement, teen usage exploded. 
         By May 2007, the 12–17 age group had grown 149% year-over-year, from 1.6 million to 4.1 million US teen visitors in a single year.
         Pages viewed grew 143% and average time on site rose to 186 minutes per visitor per month. 
       `),
@@ -141,9 +141,8 @@ export default caseStudy({
       category: 'orange',
       actors: 'Wall Street Journal; Meta Researchers; Leadership',
       text:       paragraph(`
-        WSJ publishes <strong>Facebook Files, Part 2: 'We Make Body Image Issues Worse'</strong>.
-        Internal Meta/Instagram research slide states: <strong>'We make body image issues
-        worse for one in three teen girls.'</strong> The research documents associations
+        WSJ publishes "Facebook Files" revealing internal Meta/Instagram research slides. One slide states, <strong>'We make 
+        body image issues worse for one in three teen girls.'</strong> The research documents associations
         between Instagram use and negative body image, anxiety, depression, and social
         comparison among teen girls.
       `),

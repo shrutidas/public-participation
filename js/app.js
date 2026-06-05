@@ -31,7 +31,7 @@ function renderTabs() {
 }
 
 function renderOverview() {
-  document.getElementById('ov-txt').textContent = cases[cur].overview;
+  document.getElementById('ov-txt').innerHTML = cases[cur].overview;
   document.getElementById('ov-txt').classList.add('show');
   document.getElementById('ov-arr').classList.add('open');
 }
