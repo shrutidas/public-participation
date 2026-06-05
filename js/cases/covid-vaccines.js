@@ -21,6 +21,20 @@ export default caseStudy({
     compel action, under what conditions, and with what accountability.
   `),
   entries: [
+
+    entry({
+      date: '07/2020',
+      category: 'blue',
+      actors: 'Gallup',
+      text:       paragraph(`
+        When Gallup first asked in July 2020 whether Americans would take an FDA-approved COVID vaccine at no cost, 
+        only 50% said yes, roughly the same rate as flu vaccine uptake. The partisan gap was already present. Democrats and Republicans were cautious, but for different reasons.
+        Democrats worried about political interference in FDA; Republicans worried about government overreach.
+      `),
+      sources: [source('Gallup', 'https://news.gallup.com/poll/317018/one-three-americans-not-covid-vaccine.aspx')],
+    }),
+
+
     entry({
       date: '12/2020',
       category: 'red',
@@ -104,6 +118,19 @@ export default caseStudy({
         law.
       `),
       sources: [source('GovInfo', 'https://www.govinfo.gov/content/pkg/DCPD-202100733/pdf/DCPD-202100733.pdf')],
+    }),
+
+    entry({
+      date: '09/2021',
+      category: 'blue',
+      actors: 'US voters',
+      text:       paragraph(`
+        Axios found 60% of voters backed the mandate, including 80% of Democrats but only 30% of Republicans. 
+        Monmouth polling found 63% supported requiring healthcare workers to be vaccinated. In an NBC poll, 88% of Democrats 
+        said they had been vaccinated vs. 46% of Trump-supporting Republicans. Governors of multiple Republican-led states 
+        immediately vowed to fight the mandates in court, and 72% of unvaccinated workers said they would quit rather than comply.
+      `),
+      sources: [source('Axios', 'https://www.axios.com/2021/09/14/axios-ipsos-poll-covid-vaccine-mandates-biden')],
     }),
 
     entry({
@@ -192,5 +219,32 @@ export default caseStudy({
       `),
       sources: [source('Pew Research', 'https://www.pewresearch.org/science/2022/02/09/increasing-public-criticism-confusion-over-covid-19-response-in-u-s')],
     }),
+
+    entry({
+      date: '10/2025',
+      category: 'blue',
+      actors: 'KFF; US Adults Surveyed',
+      text:       paragraph(`
+        Under HHS Secretary RFK Jr., KFF found trust in the CDC for vaccine information had fallen to just 50% of adults, 
+        down from 63% in September 2024. Critically, a partisan inversion occurred. Trust in the CDC for vaccines among Democrats collapsed by 24 percentage points since 2023, 
+        while trust among Republicans actually rose ~10 points because their preferred leaders were now running the agencies. 
+        By 2025, only 56% of adults said they were confident in COVID vaccine safety, with 87% of Democrats confident but only 30% of Republicans. 
+      `),
+      sources: [source('KFF', 'https://www.kff.org/covid-19/kff-covid-19-vaccine-monitor-dashboard/')],
+    }),
+
+    entry({
+      date: '06/2026',
+      category: 'orange',
+      actors: 'RFK Jr.; US Adults',
+      text:       paragraph(`
+          The downstream consequence of Trump Administrations vaccine hesitancy was measles resurgences and preventable disease uptick, 
+          with doctors reporting rising cases of whooping cough, bacterial meningitis-causing infections, 
+          and other vaccine-preventable illnesses by June 2026.
+
+      `),
+      sources: [source('Protect Our Care', 'https://www.protectourcare.org/rfk-jr-meet-consequences-hospitals-see-diseases-resurge-as-vaccinations-decline/')],
+    }),
+
   ]
 });

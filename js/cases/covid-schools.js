@@ -56,7 +56,10 @@ export default caseStudy({
         social distancing guidance, later shown to have <strong>no clinical trial basis</strong>, was
         being operationalized in school planning documents across all 50 states.
       `),
-      sources: [source('NYT', 'https://www.nytimes.com/article/flatten-curve-coronavirus.html')],
+      sources: [
+        source('NYT', 'https://www.nytimes.com/article/flatten-curve-coronavirus.html'),
+        source('CDC', 'https://stacks.cdc.gov/view/cdc/11425'),
+      ],
     }),
 
     entry({
@@ -227,7 +230,9 @@ export default caseStudy({
       category: 'purple',
       actors: '30 Randomly Selected Michigan Residents; CMU Researchers',
       text:       paragraph(`
-        30 Michiganders recruited through a <strong>deliberative sortition process</strong>. The
+        Although there is limited public information about how policymakers ultimately responded to the panel’s recommendations, the legal and procedural record 
+        provides substantial detail about who participated and how the process was conducted.
+        30 Michiganders were recruited through a <strong>deliberative sortition process</strong>. The
         participant selection used an algorithm developed by CMU computer scientists
         that maximized demographic representativeness and fairness of random
         selection. The panel produced <strong>12 policy recommendations</strong> covering public
@@ -237,6 +242,7 @@ export default caseStudy({
       sources: [
         source('CMU News', 'https://www.cmu.edu/news/stories/archives/2021/august/citizens-assembly-algorithm.html'),
         source('Perma.cc', 'https://perma.cc/M2H9-BDVC'),
+        source('Executive Order 2020-88', 'https://content.govdelivery.com/attachments/MIEOG/2020/05/15/file_attachments/1452673/EO%202020-88.pdf'),
       ],
     }),
 

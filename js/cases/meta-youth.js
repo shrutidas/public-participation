@@ -254,7 +254,7 @@ export default caseStudy({
         CivicScience survey finds 73% of Americans do not trust Meta; <strong>Facebook
         favorability at all-time recorded low</strong>. 13% of respondents trust Meta to keep
         their data safe. 73% do not trust Meta. Facebook's favorability rating hits
-        its lowest ever recorded level — <strong>the company ranks last among major consumer
+        its lowest ever recorded level. The company <strong>ranks last among major consumer
         tech companies</strong>. 33% of people expect Facebook to become 'much less popular' in
         the next 12 months.
       `),

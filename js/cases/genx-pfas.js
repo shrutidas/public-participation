@@ -301,7 +301,7 @@ export default caseStudy({
       category: 'purple',
       actors: 'CFPUA Board; Independent Reviewers',
       text:       paragraph(`
-        CFPUA Board of Directors held a special public meeting and passed two
+        Cape Fear Public Utility Authority (CFPUA) Board of Directors held a special public meeting and passed two
         unanimous resolutions: (1) Chemours must completely remove GenX from the
         river, and (2) CFPUA may take legal action if not. Independent reviewers were
         appointed to examine CFPUA's <strong>communication failures</strong>. The review concluded
