@@ -98,7 +98,10 @@ export default caseStudy({
         local administrators, and parents. Critics would later argue its
         recommendations were not consistently followed.
       `),
-      sources: [source('AFT Michigan', 'https://aftmichigan.org/executive-order-closing-public-schools-for-remainder-of-19-20-school-year')],
+      sources: [
+        source('AFT Michigan', 'https://aftmichigan.org/executive-order-closing-public-schools-for-remainder-of-19-20-school-year'),
+        source('Executive Order 2020-88', 'https://content.govdelivery.com/attachments/MIEOG/2020/05/15/file_attachments/1452673/EO%202020-88.pdf'),
+      ],
     }),
 
     entry({
@@ -125,7 +128,10 @@ export default caseStudy({
         educators, public health officials, local administrators, and parents.
         Produced the <strong>Return to School Roadmap</strong> for fall 2020.
       `),
-      sources: [source('Michigan.gov', 'https://www.michigan.gov/-/media/Project/Websites/mde/2020/07/15/Item_IIIA1_PPT_Introduction_Dr_Rice.pdf?rev=3afe168a69d94ad59db08bbf4c893965')],
+      sources: [
+        source('Michigan.gov', 'https://www.michigan.gov/-/media/Project/Websites/mde/2020/07/15/Item_IIIA1_PPT_Introduction_Dr_Rice.pdf?rev=3afe168a69d94ad59db08bbf4c893965'),
+        source('Executive Order 2020-88', 'https://content.govdelivery.com/attachments/MIEOG/2020/05/15/file_attachments/1452673/EO%202020-88.pdf'),
+      ],
     }),
 
     entry({
@@ -241,7 +247,6 @@ export default caseStudy({
       sources: [
         source('CMU News', 'https://www.cmu.edu/news/stories/archives/2021/august/citizens-assembly-algorithm.html'),
         source('Perma.cc', 'https://perma.cc/M2H9-BDVC'),
-        source('Executive Order 2020-88', 'https://content.govdelivery.com/attachments/MIEOG/2020/05/15/file_attachments/1452673/EO%202020-88.pdf'),
       ],
     }),
 
