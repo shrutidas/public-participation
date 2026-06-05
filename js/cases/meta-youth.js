@@ -4,15 +4,15 @@ export default caseStudy({
   num: 'Case Study 1',
   title: 'Youth Mental Health & Addiction on Meta Platforms',
   overview:   paragraph(`
-    This case argues that <strong>governance failed because critical knowledge about harm was
-    controlled by the companies creating it</strong>. Platforms designed powerful recommender
+    This case argues that governance failed because critical knowledge about harm was
+    controlled by the companies creating it. Platforms designed powerful recommender
     systems, but the data needed to assess their risks remained largely inaccessible
     to the public, researchers, and regulators. Democratic oversight lagged, forced to
     rely on incomplete external evidence while key scientific insights stayed inside
-    firms. The consequence was a <strong>reactive system</strong>. Harms surfaced through public
+    firms. The consequence was a reactive system. Harms surfaced through public
     fallout, with parents, youth, and civil society raising concerns. This case
-    therefore focuses on how <strong>limited access to information shaped both the failure of
-    oversight and the adversarial nature of the public response</strong>.
+    therefore focuses on how limited access to information shaped both the failure of
+    oversight and the adversarial nature of the public response.
   `),
   entries: [
 

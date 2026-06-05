@@ -5,14 +5,14 @@ export default caseStudy({
   title: 'COVID-19 Vaccine Mandates',
   overview:   paragraph(`
     This case is best framed as a conflict between scientific justification and
-    <strong>democratic authorization</strong>. By September 2021, the evidence strongly supported
+    democratic authorization. By September 2021, the evidence strongly supported
     vaccination as a means of reducing severe disease, hospitalization, and death. The
     policy problem was whether federal institutions had legitimate authority and
     sufficient public trust to convert that scientific justification into binding
-    mandates. The bounded case runs from the <strong>federal mandate</strong> in September 2021 through
+    mandates. The bounded case runs from the federal mandate in September 2021 through
     May 2023, marking the official end of the federal public health emergency.
     COVID-19 vaccine mandates show that scientific consensus can justify a policy aim
-    without settling the legitimacy of <strong>coercive policy instruments</strong>. Vaccination was
+    without settling the legitimacy of coercive policy instruments. Vaccination was
     well-supported scientifically, especially for preventing severe disease, but
     mandates required a separate showing of institutional authority, procedural
     accountability, proportionality, and public trust. The federal case therefore
@@ -67,7 +67,7 @@ export default caseStudy({
     entry({
       date: '08/2021',
       category: 'red',
-      actors: 'FDA, BioNTech/Pfizer',
+      actors: 'FDA, Pfizer',
       text:       paragraph(`
         FDA gave <strong>full approval</strong> to Pfizer-BioNTech's vaccine, marketed as Comirnaty,
         for people aged 16 and older. Full approval reduced one legitimacy objection
@@ -96,7 +96,7 @@ export default caseStudy({
     entry({
       date: '09/2021',
       category: 'red',
-      actors: 'President Biden, White House, Department of Labor, OSHA, HHS, CMS, Federal Agencies',
+      actors: 'President Biden, White House, Department of Labor, OSHA, HHS, CMS',
       text:       paragraph(`
         President Biden announced the <strong>federal mandate</strong>: OSHA would require employers
         with 100 or more employees to ensure vaccination or weekly testing. CMS would

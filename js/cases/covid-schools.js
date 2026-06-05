@@ -4,10 +4,10 @@ export default caseStudy({
   num: 'Case Study 2',
   title: 'COVID-19 School Closures and Reopenings',
   overview:   paragraph(`
-    This case is about the difficulty of sustaining <strong>precautionary governance</strong> as
-    uncertainty evolved. The initial decision of <strong>emergency school closures</strong> was
+    This case is about the difficulty of sustaining precautionary governance as
+    uncertainty evolved. The initial decision of emergency school closures was
     defensible under radical uncertainty about COVID-19. The harder governance failure
-    came later when <strong>delayed, uneven, and poorly justified reopenings</strong> took place. This
+    came later when delayed, uneven, and poorly justified reopenings took place. This
     became especially difficult where decision-makers failed to adequately weigh
     emerging risks or engage communities whose values and priorities were directly at
     stake. When communities were consulted, were their concerns actually integrated

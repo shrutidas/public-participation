@@ -4,13 +4,13 @@ export default caseStudy({
   num: 'Case Study 4',
   title: 'GenX PFAS Contamination in the Cape Fear River',
   overview:   paragraph(`
-    This case shows how <strong>weak environmental governance</strong> allowed PFAS chemicals to cause harm for
-    years. <strong>Industrial secrecy</strong>, fragmented regulation, and uncertain science delayed
+    This case shows how weak environmental governance allowed PFAS chemicals to cause harm for
+    years. Industrial secrecy, fragmented regulation, and uncertain science delayed
     action, even as companies benefited economically and downstream communities faced
     unequal and involuntary exposure risks. Crucially, people do not need definitive
     proof of harm to act. When credible suspicion exists, especially supported by
-    evidence from outside the affected area, communities have a <strong>right to respond and
-    seek protection</strong>.
+    evidence from outside the affected area, communities have a right to respond and
+    seek protection.
   `),
   entries: [
     entry({
