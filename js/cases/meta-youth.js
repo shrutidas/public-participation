@@ -33,10 +33,10 @@ export default caseStudy({
       category: 'green',
       actors: 'Academic Researchers',
       text:       paragraph(`
-        Instagram launched in 2010 and Snapchat in 2011. Both transformed social media into a more visual, continuous, and <strong>comparison-driven experience</strong>. 
-        During the same period, <strong>youth mental health indicators began to decline</strong>. Australian HILDA Survey data shows that mental health among young women ages 15–24 fell from 73% in 2011 to 62% in 2022. 
-        A study of 11,876 children found that increases in social media use during early adolescence predicted higher depressive symptoms one year later, "finding that youth mental health was stable 
-        but then began falling sharply after 2012, which coincides with the time when photo and video-sharing social media platforms became widely popular."
+        Research has documented a <strong>significant decline in youth mental health</strong> beginning in the early 2010s. 
+        Australian HILDA Survey data shows that the share of young women ages 15–24 reporting good mental health fell from 73% in 2011 to 62% in 2022. 
+        Likewise, a longitudinal study of 11,876 children found that increases in social media use during early adolescence predicted higher depressive symptoms one year later. 
+        Researchers noted that youth mental health remained relatively stable before beginning a sharp decline after 2012, coinciding with the rapid adoption of highly visual social media platforms such as Instagram and Snapchat. 
       `),
       sources: [source('PudMed', 'https://pmc.ncbi.nlm.nih.gov/articles/PMC10294999/')],
     }),
