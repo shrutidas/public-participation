@@ -288,7 +288,7 @@ export default caseStudy({
 
     entry({
       date: '05/2023',
-      category: 'red',
+      category: 'green',
       actors: 'US Surgeon General Vivek Murthy; HHS',
       text:       paragraph(`
         The US Surgeon General ran a metatstudy concluding social media carries benefits
