@@ -254,7 +254,7 @@ export default caseStudy({
       category: 'green',
       actors: 'C8 Science Panel; Wood County Circuit Court; Exposed Class',
       text:       paragraph(`
-        The C8 Science Panel was anindependent scientific body that analyzed prior datasets and issued causal conclusions. 
+        Coming out of the Leach v. Dupont settlement, The C8 Science Panel was an indpendent scientific body that analyzed prior datasets and issued causal conclusions. 
         Three academic epidemiologists (from the University of London, Brown University, and Emory) were 
         appointed by the court and paid by DuPont to use the C8 Health Project data (plus other studies) 
         to decide whether PFOA exposure had a "<strong>probable link</strong>" to specific diseases in that community.
