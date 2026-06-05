@@ -183,7 +183,7 @@ export default caseStudy({
 
     entry({
       date: '09/2021',
-      category: 'red',
+      category: 'orange',
       actors: 'Senate Commerce Subcommittee; Facebook Safety Executive',
       text:       paragraph(`
         Senate held hearings on Facebook, Instagram, and mental health harms with
