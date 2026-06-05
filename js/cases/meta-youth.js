@@ -15,6 +15,32 @@ export default caseStudy({
     oversight and the adversarial nature of the public response.
   `),
   entries: [
+
+    entry({
+      date: '05/2007',
+      category: 'green',
+      actors: 'Comscore',
+      text:       paragraph(`
+        When Facebook dropped its university-email requirement, teen usage exploded. 
+        By May 2007, the 12–17 age group had grown 149% year-over-year, from 1.6 million to 4.1 million US teen visitors in a single year.
+        Pages viewed grew 143% and average time on site rose to 186 minutes per visitor per month. 
+      `),
+      sources: [source('Comscore', 'https://www.comscore.com/Insights/Press-Releases/2007/07/Teenagers-and-Adults-Flood-Facebook')],
+    }),
+
+    entry({
+      date: '2010-2011',
+      category: 'green',
+      actors: 'Academic Researchers',
+      text:       paragraph(`
+        Instagram launched in 2010 and Snapchat in 2011. Both transformed social media into a more visual, continuous, and comparison-driven experience. 
+        During the same period, youth mental health indicators began to decline. Australian HILDA Survey data shows that mental health among young women ages 15–24 fell from 73% in 2011 to 62% in 2022. 
+        A study of 11,876 children found that increases in social media use during early adolescence predicted higher depressive symptoms one year later, "finding that youth mental health was stable 
+        but then began falling sharply after 2012, which coincides with the time when photo and video-sharing social media platforms became widely popular."
+      `),
+      sources: [source('PudMed', 'https://pmc.ncbi.nlm.nih.gov/articles/PMC10294999/')],
+    }),
+
     entry({
       date: '02/2017',
       category: 'green',
@@ -22,7 +48,7 @@ export default caseStudy({
       text:       paragraph(`
         External academic literature on social media and adolescent mental health
         grows substantially; researchers in the UK and the US publish contested but
-        influential findings. Evidence is <strong>correlational</strong>. The direction of <strong>causation</strong>,
+        influential findings. Evidence is correlational. The direction of causation,
         whether social media causes depression or depressed teens use more social
         media, remains unresolved.
       `),
@@ -57,6 +83,7 @@ export default caseStudy({
       `),
       sources: [source('Business Insider', 'https://www.businessinsider.com/facebook-trust-collapses-after-cambridge-analytica-data-scandal-2018-4')],
     }),
+    
 
     entry({
       date: '09/2020',
@@ -74,9 +101,45 @@ export default caseStudy({
     }),
 
     entry({
+      date: '03/2021',
+      category: 'orange',
+      actors: 'Meta; Adam Mosseri',
+      text:       paragraph(`
+        Facebook confirms it is developing “Instagram Kids” for under‑13 tweens, 
+        describing it as a “parent‑controlled experience” in a statement and blog posts after BuzzFeed first reports the project.
+      `),
+      sources: [source('Business Insider', 'https://www.businessinsider.com/facebook-building-instagram-app-for-kids-under-13-report-2021-3/')],
+    }),
+
+    entry({
+      date: '03/2021',
+      category: 'red',
+      actors: 'Congress',
+      text:       paragraph(`
+        Senate proposes the CAMRA Act (Children and Media Research Advancement Act). Bipartisan bill led by Senators Bennet and Markey 
+        to give NIH tens of millions of dollars to study how social media, apps, games, and other digital media affect children’s cognitive, physical, 
+        and socio‑emotional development. Introduced 2018, reintroduced 2019 and 2021, but not actually passed until it was folded into the 2023 omnibus.
+
+      `),
+      sources: [source('Senate', 'https://www.markey.senate.gov/news/press-releases/senators-markey-sasse-blunt-schatz-collins-bennet-and-reps-raskin-gonzalez-trahan-reintroduce-bipartisan-bicameral-legislation-to-study-impact-of-technology-and-media-on-children')],
+    }),
+
+    entry({
+      date: '05/2021',
+      category: 'blue',
+      actors: 'State AGs',
+      text:       paragraph(`
+        A bipartisan group of 44 state attorney generals and 90+ advocacy groups publicly urge Zuckerberg to abandon Instagram Kids, 
+        warning it would harm children’s mental health and privacy
+      `),
+      sources: [source('NAAG', 'https://www.naag.org/press-releases/attorneys-general-urge-facebook-to-abandon-launch-of-instagram-kids/')],
+    }),
+
+
+    entry({
       date: '09/2021',
       category: 'orange',
-      actors: 'Wall Street Journal; Meta Researchers and Leadership',
+      actors: 'Wall Street Journal; Meta Researchers; Leadership',
       text:       paragraph(`
         WSJ publishes Facebook Files, Part 2: 'We Make Body Image Issues Worse'.
         Internal Meta/Instagram research slide states: <strong>'We make body image issues
@@ -106,14 +169,17 @@ export default caseStudy({
     entry({
       date: '09/2021',
       category: 'orange',
-      actors: 'Meta/Instagram; Adam Mosseri',
+      actors: 'Meta, Instagram; Adam Mosseri',
       text:       paragraph(`
         Meta <strong>paused development of Instagram Kids</strong>, while continuing parental
         supervision tools for teens. This is the clearest public product-decision
         reversal or delay after criticism. Meta framed it as time to work with
         parents, experts, policymakers, and regulators.
       `),
-      sources: [source('Meta Newsroom', 'https://about.fb.com/news/2021/09/pausing-instagram-kids-building-parental-supervision-tools')],
+      sources: [
+        source('Meta Newsroom', 'https://about.fb.com/news/2021/09/pausing-instagram-kids-building-parental-supervision-tools'),
+        source('BBC', 'https://www.bbc.com/news/technology-58707753'),
+      ],
     }),
 
     entry({
@@ -121,9 +187,22 @@ export default caseStudy({
       category: 'red',
       actors: 'Senate Commerce Subcommittee; Facebook Safety Executive',
       text:       paragraph(`
-        <strong>Senate</strong> held hearings on Facebook, Instagram, and mental health harms with
+        Senate held hearings on Facebook, Instagram, and mental health harms with
         Antigone Davis, the Head of Global Safety at Facebook. Congress explicitly made Facebook's <strong>internal research</strong>, its
         actions to address risks, and policy safeguards the object of public inquiry.
+      `),
+      sources: [source('Senate Commerce', 'https://www.commerce.senate.gov/meetings/subcommittee-protecting-kids-online-facebook-instagram-and-mental-health-harms/')],
+    }),
+
+    entry({
+      date: '09/2021',
+      category: 'red',
+      actors: 'Senate Commerce Subcommittee',
+      text:       paragraph(`
+        KIDS Act (Kids Internet Design and Safety Act) was introduced by Senators Markey and Blumenthal. The bill was meant to ban manipulative design features for
+        minors (autoplay, endless scroll, streaks, “like” counts, push‑notification nags) and to extend protections against targeted ads up to age 15 on platforms 
+        “reasonably likely” to be used by kids. It was introduced in 2020 and reintroduced in September 2021 after the Facebook Files, but never advanced out of 
+        committee and never got a floor vote in either chamber during that Congress .
       `),
       sources: [source('Senate Commerce', 'https://www.commerce.senate.gov/meetings/subcommittee-protecting-kids-online-facebook-instagram-and-mental-health-harms/')],
     }),
@@ -133,10 +212,10 @@ export default caseStudy({
       category: 'orange',
       actors: 'Frances Haugen; Senate Subcommittee',
       text:       paragraph(`
-        <strong>Frances Haugen</strong> testified that Facebook products harmed children, amplified
-        harmful content, and that only Facebook could inspect the system. Haugen's
-        role was to transform private internal knowledge into a case for <strong>transparency</strong>,
-        independent research access, and <strong>algorithmic accountability</strong>.
+        Frances Haugen reveals herself as the whistleblower on 60 Minutes. Haugen then testifies in front of Congress that Facebook’s own internal research showed its products could harm children and
+        amplify harmful and divisive content. She argued that the company had long been aware of these risks and possessed the 
+        technical ability to make Facebook and Instagram safer, but repeatedly chose not to implement meaningful reforms because doing 
+        so could reduce engagement and profits. Haugen also argued that meaningful oversight was impossible as long as only Facebook could examine the effects of its systems.
       `),
       sources: [source('Written Testimony', 'https://www.commerce.senate.gov/wp-content/uploads/media/doc/Frances%20Haugen%20Written%20Testimony.pdf')],
     }),
@@ -146,12 +225,11 @@ export default caseStudy({
       category: 'blue',
       actors: 'New York Times',
       text:       paragraph(`
-        'Teenage Girls Say Instagram's Mental Health Impacts Are No Surprise': Iris
-        Tsouris, freshman at Yale, says the findings <strong>'didn't surprise me at all.'</strong>
-        Multiple teens describe friends who deleted the app because it 'was not adding
-        value to their lives.' Teens describe Instagram as 'the most challenging
-        platform due to the <strong>highly curated nature</strong> of users' profiles.' Peer comparison
-        and superficiality described as systemic.
+        Teenage girls across schools say Instagram’s harms are obvious. In a New York Times piece, 
+        students interviewed after the Facebook Files said the findings “didn’t surprise [them] at all.” 
+        Yale freshman Iris Tsouris and several high‑schoolers described friends who had deleted Instagram because 
+        it was “not adding value” and called it the “most challenging platform” due to the highly curated nature of 
+        profiles, which drives constant peer comparison and superficial self‑presentation.
       `),
       sources: [source('New York Times', 'https://www.nytimes.com/live/2021/10/05/technology/facebook-whistleblower-frances-haugen')],
     }),
@@ -172,7 +250,7 @@ export default caseStudy({
     entry({
       date: '11/2021',
       category: 'blue',
-      actors: 'CivicScience; ~2,700 US adults surveyed',
+      actors: 'CivicScience, US adults surveyed',
       text:       paragraph(`
         CivicScience survey finds <strong>73%</strong> of Americans do not trust Meta; Facebook
         favorability at all-time recorded low. <strong>13%</strong> of respondents trust Meta to keep
@@ -187,7 +265,7 @@ export default caseStudy({
     entry({
       date: '12/2021',
       category: 'blue',
-      actors: 'Washington Post / George Mason University Schar School; nationally representative sample',
+      actors: 'Washington Post, George Mason University; US adults surveyed',
       text:       paragraph(`
         Washington Post poll found <strong>72%</strong> of internet users distrust Facebook with
         personal data; <strong>64%</strong> want stronger tech regulation. Targeted advertising seen as
@@ -243,7 +321,7 @@ export default caseStudy({
       category: 'orange',
       actors: 'State Attorney Generals',
       text:       paragraph(`
-        Attorneys general from <strong>42 states</strong> sued Meta in federal and state courts on the same day, 
+        Attorney generals from 42 states sued Meta in federal and state courts on the same day, 
         alleging the company deliberately engineered Instagram and Facebook to <strong>addict children</strong>, 
         knew it was causing harm, and deceived parents about it. The complaints named specific design features, including
         infinite scroll, algorithmic rabbit holes, near-constant push notifications, and social validation loops, as intentional mechanisms 
