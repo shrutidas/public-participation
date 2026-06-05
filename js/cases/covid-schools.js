@@ -322,6 +322,18 @@ export default caseStudy({
     }),
 
     entry({
+        date: '01/2022',
+        category: 'blue',
+        actors: 'US representative sample',
+        text:       paragraph(`
+          Support for mitigation measures (masks, vaccines, hybrid schedules) became highly partisan by the end of 2021. Urban Institute work and contemporaneous polls show 
+          Democrats and Black parents more likely to support mask and vaccine mandates in schools, while Republicans were far more likely to oppose them and 
+          to prioritize full in‑person reopening. Partisan and racial divides have hardened around how schools should respond to future outbreaks.
+        `),
+        sources: [source('Urban', 'https://www.urban.org/research/publication/support-mask-and-vaccine-policies-schools-falls-along-racial-and-political-lines')],
+      }),
+
+    entry({
       date: '04/2022',
       category: 'blue',
       actors: 'CDC; High School Students; Schools',
@@ -350,7 +362,7 @@ export default caseStudy({
 
     entry({
       date: '06/2024',
-      category: 'green',
+      category: 'blue',
       actors: 'Harvard Chan School of Public Health',
       text:       paragraph(`
         A 2024 Harvard-de Beaumont poll found that 56% of Americans now say K‑12 closures were “generally a good idea,” alongside 
