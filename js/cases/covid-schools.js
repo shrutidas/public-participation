@@ -117,10 +117,11 @@ export default caseStudy({
     entry({
       date: '06/2020',
       category: 'purple',
-      actors: 'Gov. Whitmer; MDE; Educators; Health Officials; Parents',
+      actors: 'Governor Whitmer; Michigan Department of Education; Educators; Health Officials; Parents',
       text:       paragraph(`
         <strong>Michigan Return to Learn Advisory Council</strong> convened, the first formal
-        structured public-input body for school reopening in the state. Composed of
+        structured public-input body for school reopening in the state. Although there is limited public information about how policymakers ultimately responded to the panel’s recommendations, the legal and procedural record 
+        provides substantial detail about who participated and how the process was conducted. Composed of
         educators, public health officials, local administrators, and parents.
         Produced the <strong>Return to School Roadmap</strong> for fall 2020.
       `),
@@ -230,8 +231,6 @@ export default caseStudy({
       category: 'purple',
       actors: '30 Randomly Selected Michigan Residents; CMU Researchers',
       text:       paragraph(`
-        Although there is limited public information about how policymakers ultimately responded to the panel’s recommendations, the legal and procedural record 
-        provides substantial detail about who participated and how the process was conducted.
         30 Michiganders were recruited through a <strong>deliberative sortition process</strong>. The
         participant selection used an algorithm developed by CMU computer scientists
         that maximized demographic representativeness and fairness of random

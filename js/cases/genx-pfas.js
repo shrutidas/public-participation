@@ -330,9 +330,9 @@ export default caseStudy({
       category: 'orange',
       actors: 'NC DEQ; NC DHHS',
       text:       paragraph(`
-        NC DEQ and DHHS began investigating GenX in the Cape Fear River after public
+       North Carolina Department of Environmental Quality (NC DEQ) and DHHS began investigating GenX in the Cape Fear River after public
         reporting and identification of Chemours Fayetteville Works. <strong>State action
-        began only after scientific/public disclosure</strong>, making delay and public
+        began only after public disclosure</strong>, making public
         pressure central to the case.
       `),
       sources: [
