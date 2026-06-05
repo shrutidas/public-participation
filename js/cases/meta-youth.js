@@ -29,16 +29,34 @@ export default caseStudy({
     }),
 
     entry({
-      date: '2010-2011',
+      date: '04/2012',
+      category: 'orange',
+      actors: 'Facebook, Instagram, Mark Zuckerberg',
+      text:       paragraph(`
+        Facebook purchases Instagram for <strong>$1 billion</strong>, placing the platform's design,
+        algorithm, and user data under its control at the precise moment Instagram was reaching
+        mass adolescent adoption.
+      `),
+      sources: [source('Yahoo Finance', 'https://finance.yahoo.com/blogs/breakout/facebook-snaps-instagram-1-billion-deal-193538763.html')],
+    }),
+
+    entry({
+      date: '2010s',
       category: 'green',
       actors: 'Academic Researchers',
       text:       paragraph(`
-        Research has documented a <strong>significant decline in youth mental health</strong> beginning in the early 2010s. 
-        Australian HILDA Survey data shows that the share of young women ages 15–24 reporting good mental health fell from 73% in 2011 to 62% in 2022. 
-        Likewise, a longitudinal study of 11,876 children found that increases in social media use during early adolescence predicted higher depressive symptoms one year later. 
-        Researchers noted that youth mental health remained relatively stable before beginning a sharp decline after 2012, coinciding with the rapid adoption of highly visual social media platforms such as Instagram and Snapchat. 
+        Researchers now identify the early 2010s as a major inflection point, 
+        coinciding precisely with the mass adoption of visually-driven platforms like Instagram and Snapchat.
+        Analysis of ~17,000 individuals continuously from 2001 onward, found that the share of young women ages 15–24 
+        reporting good mental health was stable through 2011, then fell sharply from 73% to 62% by 2022.
+        Another study 11,876 children similarly found that within-person increases in social media use during early adolescence 
+        prospectively predicted greater depressive symptoms one year later.
       `),
-      sources: [source('PudMed', 'https://pmc.ncbi.nlm.nih.gov/articles/PMC10294999/')],
+      sources: [
+        source('PudMed', 'https://pmc.ncbi.nlm.nih.gov/articles/PMC10294999/'),
+        source('PubMed', 'https://pubmed.ncbi.nlm.nih.gov/40397441/'),
+        source('Pew Research', 'https://www.pewresearch.org/internet/2015/10/08/social-networking-usage-2005-2015/'),
+      ],
     }),
 
     entry({
@@ -58,14 +76,12 @@ export default caseStudy({
     entry({
       date: '01/2018',
       category: 'orange',
-      actors: 'Facebook/Meta; Adam Mosseri; Mark Zuckerberg',
+      actors: 'Facebook, Adam Mosseri, Mark Zuckerberg',
       text:       paragraph(`
-        Facebook changes News Feed ranking algorithm to <strong>prioritize posts likely to
-        spark meaningful social interactions</strong>, explicitly reducing distribution of
-        public page content, publisher content, and passive viewing. The ranking
-        change was justified in relational and wellbeing language, but internal
-        trade-offs were known. <strong>The long-term behavioral effects on teens were not
-        publicly disclosed</strong>.
+        Facebook changed its News Feed algorithm to show users more posts that were likely to generate comments and reactions.
+        To make room for this content, Facebook <strong>reduced the visibility of posts from news organizations and public pages.</strong>
+        The company argued that encouraging more social interaction would improve users’ wellbeing, but it did not publicly disclose 
+        what its internal research suggested about the long-term effects of these engagement-driven changes on teenagers.
       `),
       sources: [source('Meta Newsroom', 'https://about.fb.com/news/2018/01/news-feed-fyi-bringing-people-closer-together')],
     }),
@@ -73,13 +89,12 @@ export default caseStudy({
     entry({
       date: '04/2018',
       category: 'blue',
-      actors: 'Ponemon Institute; ~3,000 Facebook users',
+      actors: 'Ponemon Institute, ~3,000 Facebook users',
       text:       paragraph(`
-        <strong>Trust in Facebook collapses</strong> 66% after Cambridge Analytica. Only 28% of
+        Trust in Facebook collapses 66% after <strong>Cambridge Analytica</strong>. Only 28% of
         Facebook users believe the company is committed to protecting personal
         information, down from 79% just one year earlier in 2017. Meta conducts
-        harmful practices, gets caught, apologizes, and trust partially recovers. The
-        <strong>teen harm issue arrives in a context of already-depleted credibility</strong>.
+        harmful practices, gets caught, and apologizes.
       `),
       sources: [source('Business Insider', 'https://www.businessinsider.com/facebook-trust-collapses-after-cambridge-analytica-data-scandal-2018-4')],
     }),
@@ -88,7 +103,7 @@ export default caseStudy({
     entry({
       date: '09/2020',
       category: 'green',
-      actors: 'CDC; Academic Researchers; Clinical Professionals',
+      actors: 'CDC, Academic Researchers, Clinical Professionals',
       text:       paragraph(`
         <strong>Adolescent mental health trends worsen measurably and publicly</strong>. The CDC, youth
         health researchers, and school counselors publish rising rates of teen
@@ -103,7 +118,7 @@ export default caseStudy({
     entry({
       date: '03/2021',
       category: 'orange',
-      actors: 'Meta; Adam Mosseri',
+      actors: 'Meta, Adam Mosseri',
       text:       paragraph(`
         Facebook confirms it is developing <strong>“Instagram Kids”</strong> for under‑13 tweens, 
         describing it as a <strong>“parent‑controlled experience”</strong> in a statement and blog posts after BuzzFeed first reports the project.
@@ -139,9 +154,9 @@ export default caseStudy({
     entry({
       date: '09/2021',
       category: 'orange',
-      actors: 'Wall Street Journal; Meta Researchers; Leadership',
+      actors: 'Wall Street Journal, Meta Researchers, Leadership',
       text:       paragraph(`
-        WSJ publishes "Facebook Files" revealing internal Meta/Instagram research slides. One slide states, <strong>'We make 
+        WSJ publishes "Facebook Files" revealing internal Meta research slides. One slide states, <strong>'We make 
         body image issues worse for one in three teen girls.'</strong> The research documents associations
         between Instagram use and negative body image, anxiety, depression, and social
         comparison among teen girls.
@@ -155,7 +170,7 @@ export default caseStudy({
     entry({
       date: '09/2021',
       category: 'blue',
-      actors: 'Fox News \'Fox & Friends First\'; California psychotherapist mother and daughter',
+      actors: 'Fox News \'Fox & Friends First\', California psychotherapist mother and daughter',
       text:       paragraph(`
         National media coverage highlighted broad parental concerns about social media’s impact on children and young teens. 
         Parents expressed alarm that platforms view <strong>younger users as a valuable growth market</strong> and design products in ways that 
@@ -168,7 +183,7 @@ export default caseStudy({
     entry({
       date: '09/2021',
       category: 'orange',
-      actors: 'Meta, Instagram; Adam Mosseri',
+      actors: 'Meta, Instagram, Adam Mosseri',
       text:       paragraph(`
         Meta <strong>paused development of Instagram Kids</strong>, while continuing parental
         supervision tools for teens. This is the <strong>clearest public product-decision
@@ -184,7 +199,7 @@ export default caseStudy({
     entry({
       date: '09/2021',
       category: 'orange',
-      actors: 'Senate Commerce Subcommittee; Facebook Safety Executive',
+      actors: 'Senate Commerce Subcommittee, Facebook Safety Executive',
       text:       paragraph(`
         Senate held hearings on Facebook, Instagram, and mental health harms with
         Antigone Davis, the Head of Global Safety at Facebook. Congress explicitly made <strong>Facebook's internal research, its
@@ -209,7 +224,7 @@ export default caseStudy({
     entry({
       date: '10/2021',
       category: 'orange',
-      actors: 'Frances Haugen; Senate Subcommittee',
+      actors: 'Frances Haugen, Senate Subcommittee',
       text:       paragraph(`
         Frances Haugen reveals herself as the whistleblower on 60 Minutes. Haugen then testifies in front of Congress that <strong>Facebook's own internal research showed its products could harm children</strong> and
         amplify harmful and divisive content. She argued that the company had long been aware of these risks and possessed the 
@@ -253,24 +268,11 @@ export default caseStudy({
       text:       paragraph(`
         CivicScience survey finds 73% of Americans do not trust Meta; <strong>Facebook
         favorability at all-time recorded low</strong>. 13% of respondents trust Meta to keep
-        their data safe. 73% do not trust Meta. Facebook's favorability rating hits
-        its lowest ever recorded level. The company <strong>ranks last among major consumer
+        their data safe. 73% do not trust Meta. The company <strong>ranks last among major consumer
         tech companies</strong>. 33% of people expect Facebook to become 'much less popular' in
         the next 12 months.
       `),
       sources: [source('CivicScience', 'https://civicscience.com/trust-issues-sour-outlook-for-meta-facebook-popularity-falls/')],
-    }),
-
-    entry({
-      date: '12/2021',
-      category: 'blue',
-      actors: 'Washington Post, George Mason University; US adults surveyed',
-      text:       paragraph(`
-        Washington Post poll found 72% of internet users distrust Facebook with
-        personal data; 64% want stronger tech regulation. <strong>Targeted advertising seen as
-        'intrusive and bothersome'</strong> by a large majority.
-      `),
-      sources: [source('Washington Post', 'https://www.washingtonpost.com/technology/2021/12/22/tech-trust-survey/')],
     }),
 
     entry({
@@ -289,7 +291,7 @@ export default caseStudy({
     entry({
       date: '05/2023',
       category: 'green',
-      actors: 'US Surgeon General Vivek Murthy; HHS',
+      actors: 'US Surgeon General Vivek Murthy, HHS',
       text:       paragraph(`
         The US Surgeon General ran a metatstudy concluding social media carries benefits
         and risks, but that <strong>evidence is insufficient to deem platforms safe for youth</strong>. They
@@ -302,7 +304,7 @@ export default caseStudy({
     entry({
       date: '06/2023',
       category: 'purple',
-      actors: 'Meta; Stanford Deliberative Democracy Lab; Behavioral Insights Team',
+      actors: 'Meta, Stanford Deliberative Democracy Lab, Behavioral Insights Team',
       text:       paragraph(`
         Meta and the Stanford Deliberative Democracy Lab launched the first <strong>Meta
         Community Forum</strong>, a structured global Deliberative Poll on Metaverse bullying
@@ -325,8 +327,7 @@ export default caseStudy({
         <strong>knew it was causing harm, and deceived parents about it</strong>. The complaints named specific design features, including
         infinite scroll, algorithmic rabbit holes, near-constant push notifications, and social validation loops, as intentional mechanisms 
         targeting adolescent brain development to maximize time on platform. 
-        As of 2026, no settlement has been reached, though the first jury trial in March 2026 resulted in a $6 million verdict against Meta, 
-        and the Supreme Court refused in May 2026 to block the state cases from proceeding .
+        As of 2026, no settlement has been reached.
       `),
       sources: [source('NY AG', 'https://ag.ny.gov/press-release/2023/attorney-general-james-and-multistate-coalition-sue-meta-harming-youth')],
     }),
@@ -334,7 +335,7 @@ export default caseStudy({
     entry({
       date: '10/2023',
       category: 'purple',
-      actors: 'Meta; Stanford DDL; Behavioral Insights Team',
+      actors: 'Meta, Stanford DDL, Behavioral Insights Team',
       text:       paragraph(`
         Second structured deliberative process with Stanford DDL and BIT.
         Approximately 1,500 people the USA, Germany, Spain, and Brazil. Two online
@@ -349,7 +350,7 @@ export default caseStudy({
     entry({
       date: '10/2023',
       category: 'blue',
-      actors: 'Pew Research Center; 8,842 US adults, 1,453 US teens surveyed',
+      actors: 'Pew Research Center, 8,842 US adults, 1,453 US teens surveyed',
       text:       paragraph(`
         Pew Research finds 81% support requiring parental consent for minors to create
         social media accounts. 71% favor age verification. 69% favor time limits for
@@ -365,8 +366,8 @@ export default caseStudy({
       category: 'red',
       actors: 'FTC',
       text:       paragraph(`
-        The FTC opened a formal 60-day public comment window
-        that drew approximately 300 formal comments for amendments to <strong>Children’s Online Privacy Protection Rule (COPPA)</strong>.
+        The FTC opened a formal 60-day public comment window that drew approximately 300 formal comments for amendments 
+        to <strong>Children’s Online Privacy Protection Rule (COPPA)</strong>.
         The Commission voted to finalize COPPA with three concrete new requirements: a <strong>separate, unbundled opt-in consent specifically for targeted advertising</strong> 
         (meaning a parent could consent to an app while refusing ad monetization of their child's data), 
         a mandatory written data retention policy prohibiting indefinite storage of children’s personal information, 
@@ -388,7 +389,7 @@ export default caseStudy({
     entry({
       date: '10/2024',
       category: 'blue',
-      actors: 'Pew Research Center; 1,391 US Teens and Parents',
+      actors: 'Pew Research Center, 1,391 US Teens and Parents',
       text:       paragraph(`
         Pew Research found that 48% of teens say <strong>social media has a mostly negative
         effect on people their age</strong>, up from 32% in 2022. Only 11% view it as mostly
@@ -438,9 +439,31 @@ export default caseStudy({
     }),
 
     entry({
+      date: '02/2026',
+      category: 'orange',
+      actors: 'National PTA, Meta, Google, ConnectSafely, Family Online Safety Institute',
+      text:       paragraph(`
+        The National Parents Teacher Association (PTA) broke partnership with Meta in February 2026, ending 15 years of corporate
+        sponsorship, after internal documents exposed in the Los Angeles trial revealed
+        the full extent of what Meta knew about teen mental health. For over a decade,
+        Meta and Google quietly funded a network of US child-safety and parent
+        organizations, including the National PTA, ConnectSafely, and the Family Online
+        Safety Institute, then <strong>cited those same groups as independent third-party
+        endorsers in regulatory filings and congressional testimony, without disclosing
+        the funding relationship</strong>. The strategy systematically directed public attention
+        toward digital-literacy solutions and individual parental responsibility, and
+        away from <strong>platform design as the source of harm</strong>.
+      `),
+      sources: [
+        source('The Next Web', 'https://thenextweb.com/news/meta-google-fund-us-kids-groups-conflict-of-interest'),
+        source('Reuters', 'https://www.reuters.com/legal/litigation/meta-google-fund-us-kids-groups-critics-warn-social-media-risk-2026-05-14/'),
+      ],
+    }),
+
+    entry({
       date: '03/2026',
       category: 'orange',
-      actors: 'Jury; Meta; Google; Plaintiff KGM',
+      actors: 'Jury, Meta, Google, Plaintiff KGM',
       text:       paragraph(`
         A Los Angeles jury <strong>found Meta and Google negligent</strong> in a social-media harms
         trial and awarded $6 million, treating <strong>platform design features as defective-product issues</strong>. This validates the frame and may affect thousands of

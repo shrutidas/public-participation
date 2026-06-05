@@ -16,7 +16,7 @@ export default caseStudy({
     entry({
       date: '1951',
       category: 'orange',
-      actors: 'DuPont; 3M',
+      actors: 'DuPont, 3M',
       text:       paragraph(`
         DuPont began using  PFOA (perfluorooctanoic acid), a type of PFAS "forever" chemical, at Washington Works, West Virginia to manufacture
         Teflon coatings. This chemical was also known as C8. 3M is the chief supplier. Discharge into the Ohio River
@@ -42,7 +42,7 @@ export default caseStudy({
     entry({
       date: '1970s',
       category: 'green',
-      actors: 'DuPont; 3M Epidemiology Teams',
+      actors: 'DuPont, 3M Epidemiology Teams',
       text:       paragraph(`
         DuPont discovered high concentrations of PFOA in the blood of Washington Works
         factory workers. The company <strong>did not report this to EPA</strong>, as would have been
@@ -56,7 +56,7 @@ export default caseStudy({
     entry({
       date: '1978–1981',
       category: 'orange',
-      actors: 'DuPont; 3M',
+      actors: 'DuPont, 3M',
       text:       paragraph(`
         DuPont reassigned 50 women from the Teflon division but did not tell them why.
         This was based on the results of DuPont's formal testing which confirmed elevated PFOA 
@@ -71,7 +71,7 @@ export default caseStudy({
     entry({
       date: '1980',
       category: 'orange',
-      actors: 'DuPont; Fayetteville Works',
+      actors: 'DuPont, Fayetteville Works',
       text:       paragraph(`
         DuPont began discharging GenX, a chemical substance used for patented manufacturing process, 
         from its Fayetteville Works plant in Bladen County, NC into the Cape Fear River, 
@@ -103,7 +103,7 @@ export default caseStudy({
     entry({
       date: '1998',
       category: 'green',
-      actors: '3M; EPA Office of Toxic Substances',
+      actors: '3M, EPA Office of Toxic Substances',
       text:       paragraph(`
         3M alerted EPA that PFOS builds up in blood, sending rat studies showing liver
         damage from PFAS exposure. This is the first time EPA was formally notified of
@@ -118,7 +118,7 @@ export default caseStudy({
     entry({
       date: '1998',
       category: 'purple',
-      actors: 'Wilbur Tennant; Rob Bilott; DuPont',
+      actors: 'Wilbur Tennant, Rob Bilott, DuPont',
       text:       paragraph(`
         Wilbur Tennant, a West Virginia farmer, contacted attorney Rob Bilott after
         observing cattle deaths, creek contamination, and unusual changes near
@@ -136,7 +136,7 @@ export default caseStudy({
     entry({
       date: '1999',
       category: 'orange',
-      actors: 'EPA; 3M',
+      actors: 'EPA, 3M',
       text:       paragraph(`
         EPA began an audit of 3M studies in response to 3M's 1998 disclosures,
         negotiating a formal <strong>TSCA Compliance Audit Agreement</strong>. EPA would eventually
@@ -148,7 +148,7 @@ export default caseStudy({
     entry({
       date: '2000',
       category: 'orange',
-      actors: 'Rob Bilott; Federal Court; DuPont; EPA and DOJ as Recipients',
+      actors: 'Rob Bilott, Federal Court, DuPont, EPA and DOJ as Recipients',
       text:       paragraph(`
         Court-ordered discovery in the Tennant case produced internal DuPont records
         about PFOA. Bilott warned EPA, DOJ, and other officials about PFAS dangers.
@@ -164,7 +164,7 @@ export default caseStudy({
     entry({
       date: '2001',
       category: 'purple',
-      actors: 'Exposed Residents; Bilott Legal Team; DuPont; Wood County Circuit Court',
+      actors: 'Exposed Residents, Bilott Legal Team, DuPont, Wood County Circuit Court',
       text:       paragraph(`
            Roughly 70,000 residents in six Ohio and West Virginia water districts sued DuPont over PFOA-contaminated drinking water.
            Leach v. Du Pont filed as a <strong>class-action lawsuit</strong> by plaintiffs (led by Joseph K. Leach) in West Virginia.
@@ -178,7 +178,7 @@ export default caseStudy({
     entry({
       date: '2004',
       category: 'purple',
-      actors: 'Exposed Residents; Bilott Legal Team; DuPont; Wood County Circuit Court',
+      actors: 'Exposed Residents, Bilott Legal Team, DuPont, Wood County Circuit Court',
       text:       paragraph(`
         The 2004 settlement for Leach v. Du Pont required DuPont to fund the C8 Science Panel. This required 
         three independent, <strong>court-supervised epidemiologists</strong>, paid for by DuPont but operating independently,
@@ -193,7 +193,7 @@ export default caseStudy({
     entry({
       date: '12/2005',
       category: 'orange',
-      actors: 'EPA; DuPont',
+      actors: 'EPA, DuPont',
       text:       paragraph(`
         EPA fined DuPont $10.25 million, the largest civil administrative penalty in
         EPA history at the time, for <strong>failing to report substantial risk</strong> of injury to
@@ -208,7 +208,7 @@ export default caseStudy({
     entry({
       date: '08/2006',
       category: 'orange',
-      actors: 'C8 Health Project; Class Members; Independent Administrators',
+      actors: 'C8 Health Project, Class Members, Independent Administrators',
       text:       paragraph(`
         The C8 Health Project was run by a private firm called Brookmar Inc., 
         with data collected at community sites across the mid-Ohio Valley between 
@@ -223,7 +223,7 @@ export default caseStudy({
     entry({
       date: '2006',
       category: 'orange',
-      actors: 'EPA; DuPont; 3M/Dyneon; Other PFAS Companies',
+      actors: 'EPA, DuPont, 3M/Dyneon, Other PFAS Companies',
       text:       paragraph(`
          The EPA's Science Advisory Board publicly reviewed a draft PFOA risk assessment and, 
          in a report released April 2006, recommended classifying PFOA in teflon pans as 
@@ -237,7 +237,7 @@ export default caseStudy({
     entry({
       date: '2009',
       category: 'red',
-      actors: 'EPA Office of Chemical Safety and Pollution Prevention; DuPont',
+      actors: 'EPA Office of Chemical Safety and Pollution Prevention, DuPont',
       text:       paragraph(`
         EPA entered a TSCA Section 5(e) <strong>consent order</strong> with DuPont for GenX-related
         substances, requiring 99 percent capture, destruction, recycling, or control
@@ -252,7 +252,7 @@ export default caseStudy({
     entry({
       date: '2012',
       category: 'green',
-      actors: 'C8 Science Panel; Wood County Circuit Court; Exposed Class',
+      actors: 'C8 Science Panel, Wood County Circuit Court, Exposed Class',
       text:       paragraph(`
         Coming out of the Leach v. Dupont settlement, The C8 Science Panel was an indpendent scientific body that analyzed prior datasets and issued causal conclusions. 
         Three academic epidemiologists (from the University of London, Brown University, and Emory) were 
@@ -271,7 +271,7 @@ export default caseStudy({
     entry({
       date: '2015',
       category: 'orange',
-      actors: 'DuPont; Chemours',
+      actors: 'DuPont, Chemours',
       text:       paragraph(`
         DuPont spun off its performance-chemicals business into Chemours and transferred 
         the relevant rights and operations to the new company. This made it more difficult for 
@@ -299,7 +299,7 @@ export default caseStudy({
     entry({
       date: '06/2017',
       category: 'purple',
-      actors: 'CFPUA Board; Independent Reviewers',
+      actors: 'CFPUA Board, Independent Reviewers',
       text:       paragraph(`
         Cape Fear Public Utility Authority (CFPUA) Board of Directors held a special public meeting and passed two
         unanimous resolutions: (1) Chemours must completely remove GenX from the
@@ -314,7 +314,7 @@ export default caseStudy({
     entry({
       date: '06/2017',
       category: 'purple',
-      actors: 'Wilmington Residents; Cancer Moms; Mayor Saffo',
+      actors: 'Wilmington Residents, Cancer Moms, Mayor Saffo',
       text:       paragraph(`
         Wilmington City Council meeting overflowed with residents. Local mothers whose
         children had cancer, quickly dubbed the cancer moms, showed up demanding
@@ -328,7 +328,7 @@ export default caseStudy({
     entry({
       date: '06/2017',
       category: 'orange',
-      actors: 'NC DEQ; NC DHHS',
+      actors: 'NC DEQ, NC DHHS',
       text:       paragraph(`
        North Carolina Department of Environmental Quality (NC DEQ) and DHHS began investigating GenX in the Cape Fear River after public
         reporting and identification of Chemours Fayetteville Works. <strong>State action
@@ -357,7 +357,7 @@ export default caseStudy({
     entry({
       date: '09/2017',
       category: 'red',
-      actors: 'NC DEQ; Chemours; Bladen County Superior Court',
+      actors: 'NC DEQ, Chemours, Bladen County Superior Court',
       text:       paragraph(`
         NC DEQ sued Chemours and entered a partial consent order requiring Chemours to
         prevent discharge of processed wastewater containing GenX (named for the patented manufacturing process) and two other PFAS
@@ -369,7 +369,7 @@ export default caseStudy({
     entry({
       date: '11/2017',
       category: 'purple',
-      actors: 'NC State (Knappe, Hoppin, et al.); 344 Wilmington Volunteers; NIEHS',
+      actors: 'NC State (Knappe, Hoppin, et al.), 344 Wilmington Volunteers, NIEHS',
       text:       paragraph(`
         NC State University launched the GenX Exposure Study, collecting blood, urine,
         and tap water samples from 344 New Hanover County residents. Funded by NIEHS
@@ -382,7 +382,7 @@ export default caseStudy({
     entry({
       date: '11/2017',
       category: 'purple',
-      actors: 'Emily Donovan; Kemp Burdette; Community Activists',
+      actors: 'Emily Donovan, Kemp Burdette, Community Activists',
       text:       paragraph(`
          Advocacy groups formed across the state. Local mother Emily Donovan co-founded Clean Cape Fear with riverkeeper Kemp Burdette and others. 
          Another Facebook group, "Stop GenX in Our Water," grew to over 9,000 members within weeks. Cape Fear River Watch, the Brunswick Environmental Action Team, 
@@ -399,7 +399,7 @@ export default caseStudy({
     entry({
       date: '05/2018',
       category: 'red',
-      actors: 'NC DEQ; Cape Fear River Watch',
+      actors: 'NC DEQ, Cape Fear River Watch',
       text:       paragraph(`
         DEQ amended its complaint after discovering PFAS air emissions, while Cape
         Fear River Watch and SELC pursued <strong>citizen-suit strategies</strong> under the Clean
@@ -412,7 +412,7 @@ export default caseStudy({
     entry({
       date: '2018–2019',
       category: 'red',
-      actors: 'NC DEQ; Cape Fear River Watch; Chemours; State Court',
+      actors: 'NC DEQ, Cape Fear River Watch, Chemours, State Court',
       text:       paragraph(`
         North Carolina DEQ and Cape Fear River Watch negotiated a consent order with
         Chemours, which a state court made enforceable through public notice and

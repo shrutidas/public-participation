@@ -20,7 +20,7 @@ export default caseStudy({
     entry({
       date: '02/2020',
       category: 'green',
-      actors: 'CDC; NIH/NIAID; WHO',
+      actors: 'CDC, NIH/NIAID, WHO',
       text:       paragraph(`
         US public health officials knew the virus was <strong>highly transmissible via
         respiratory droplets</strong>, that older populations and those with comorbidities
@@ -35,7 +35,7 @@ export default caseStudy({
     entry({
       date: '03/2020',
       category: 'orange',
-      actors: 'Governors; State Education Agencies; Local Districts; Public Health Officials',
+      actors: 'Governors, State Education Agencies, Local Districts, Public Health Officials',
       text:       paragraph(`
         The <strong>first national closure wave</strong> unfolded, moving from school and
         district-level closures to <strong>statewide action</strong>. Education Week tracked closures
@@ -48,7 +48,7 @@ export default caseStudy({
     entry({
       date: '03/2020',
       category: 'red',
-      actors: 'Fauci (NIAID); CDC; White House Coronavirus Task Force',
+      actors: 'Fauci (NIAID), CDC, White House Coronavirus Task Force',
       text:       paragraph(`
         Fauci repeatedly emphasized <strong>flattening the curve</strong>, avoided specifying school
         closure policy, and deferred to governors on reopening. He acknowledged that
@@ -65,7 +65,7 @@ export default caseStudy({
     entry({
       date: '03/2020',
       category: 'red',
-      actors: 'Governors; State Agencies; Local Districts',
+      actors: 'Governors, State Agencies, Local Districts',
       text:       paragraph(`
         Governors rapidly suspended in-person schooling across almost the entire
         country. An academic analysis found that <strong>49 states suspended in-person
@@ -79,7 +79,7 @@ export default caseStudy({
     entry({
       date: '03/2020',
       category: 'orange',
-      actors: 'Governors; State Education Agencies; Local Districts',
+      actors: 'Governors, State Education Agencies, Local Districts',
       text:       paragraph(`
         Closures reached <strong>near-total scale</strong>. At least 55.1 million students in 124,000
         public and private schools were affected.
@@ -90,7 +90,7 @@ export default caseStudy({
     entry({
       date: '04/2020',
       category: 'red',
-      actors: 'Governor Whitmer; Michigan Department of Education',
+      actors: 'Governor Whitmer, Michigan Department of Education',
       text:       paragraph(`
         Governor Whitmer ordered Michigan public schools closed for the remainder of
         the 2019-20 school year and issued <strong>Executive Order 2020-88</strong> creating a <strong>COVID-19
@@ -107,7 +107,7 @@ export default caseStudy({
     entry({
       date: '06/2020',
       category: 'red',
-      actors: 'Governors; State Education Departments',
+      actors: 'Governors, State Education Departments',
       text:       paragraph(`
         Nearly every state either <strong>ordered or recommended schools stay closed</strong> through
         the end of the 2019-20 school year with online learning options. The original
@@ -120,7 +120,7 @@ export default caseStudy({
     entry({
       date: '06/2020',
       category: 'purple',
-      actors: 'Governor Whitmer; Michigan Department of Education; Educators; Health Officials; Parents',
+      actors: 'Governor Whitmer, Michigan Department of Education, Educators, Health Officials, Parents',
       text:       paragraph(`
         <strong>Michigan Return to Learn Advisory Council</strong> convened, the first formal
         structured public-input body for school reopening in the state. Although there is limited public information about how policymakers ultimately responded to the panel’s recommendations, the legal and procedural record 
@@ -137,7 +137,7 @@ export default caseStudy({
     entry({
       date: '06/2020',
       category: 'green',
-      actors: 'American Academy of Pediatrics; Teachers Unions; AASA; Trump Administration',
+      actors: 'American Academy of Pediatrics, Teachers Unions, AASA, Trump Administration',
       text:       paragraph(`
         The American Academy of Pediatrics first urged policymakers to start with the
         goal of <strong>physical presence in school</strong>, then clarified that science and community
@@ -152,7 +152,7 @@ export default caseStudy({
     entry({
       date: '07/2020',
       category: 'red',
-      actors: 'President Trump; VP Pence; CDC Director Redfield',
+      actors: 'President Trump, VP Pence, CDC Director Redfield',
       text:       paragraph(`
         President Trump publicly <strong>attacked CDC guidance</strong> on reopening schools, calling
         it impractical and expensive. VP Pence told reporters CDC guidelines were not
@@ -195,7 +195,7 @@ export default caseStudy({
     entry({
       date: '07/2020',
       category: 'orange',
-      actors: 'American Federation of Teachers; NEA; Local Affiliates; School Boards',
+      actors: 'American Federation of Teachers, NEA, Local Affiliates, School Boards',
       text:       paragraph(`
         Teachers unions entered the reopening debate as the dominant local advocacy
         force. Research tracking reopening decisions in 250 of the largest school
@@ -209,7 +209,7 @@ export default caseStudy({
     entry({
       date: '09/2020',
       category: 'red',
-      actors: 'Governors; Local School Districts; School Boards; Superintendents; Unions; Parents',
+      actors: 'Governors, Local School Districts, School Boards, Superintendents, Unions, Parents',
       text:       paragraph(`
         Reopening became decentralized and uneven. <strong>48 states left reopening modality
         decisions to local districts</strong>, producing a <strong>patchwork</strong> of remote, hybrid, and
@@ -222,7 +222,7 @@ export default caseStudy({
     entry({
       date: '09/2020',
       category: 'orange',
-      actors: 'Local School Districts; CDC Researchers; School Communities',
+      actors: 'Local School Districts, CDC Researchers, School Communities',
       text:       paragraph(`
         National district reopening plans were mixed: CDC reported that 24% of
         districts were fully online, 51% hybrid, and 17% fully open for in-person
@@ -235,7 +235,7 @@ export default caseStudy({
     entry({
       date: '11/2020',
       category: 'purple',
-      actors: '30 Randomly Selected Michigan Residents; CMU Researchers',
+      actors: '30 Randomly Selected Michigan Residents, CMU Researchers',
       text:       paragraph(`
         30 Michiganders were recruited through a <strong>deliberative sortition process</strong>. The
         participant selection used an algorithm developed by CMU computer scientists
@@ -253,7 +253,7 @@ export default caseStudy({
     entry({
       date: '01/2021',
       category: 'red',
-      actors: 'Biden Administration; CDC',
+      actors: 'Biden Administration, CDC',
       text:       paragraph(`
         President Biden issued an <strong>executive order</strong> supporting safe reopening and
         continued operation of schools and early-childhood providers. This <strong>federalized
@@ -265,7 +265,7 @@ export default caseStudy({
     entry({
       date: '01/2021',
       category: 'green',
-      actors: 'CDC; Public Health Researchers',
+      actors: 'CDC, Public Health Researchers',
       text:       paragraph(`
         Research summarized accumulating evidence that <strong>in-person schooling with
         mitigation was not typically associated with the kind of rapid spread</strong> seen in
@@ -279,7 +279,7 @@ export default caseStudy({
     entry({
       date: '02/2021',
       category: 'red',
-      actors: 'CDC; State and Local School Officials; Public Health Agencies',
+      actors: 'CDC, State and Local School Officials, Public Health Agencies',
       text:       paragraph(`
         CDC issued its <strong>Operational Strategy for K-12 Schools through Phased
         Mitigation</strong>, stating that schools should open safely as soon as possible, be
@@ -294,7 +294,7 @@ export default caseStudy({
     entry({
       date: '03/2021',
       category: 'orange',
-      actors: 'Federal and State Governments; Teachers; School Staff; Vaccine Providers',
+      actors: 'Federal and State Governments, Teachers, School Staff, Vaccine Providers',
       text:       paragraph(`
         Teachers and school staff became eligible for vaccination as an <strong>essential
         workforce</strong> on March 2, and all persons over age 16 became eligible by April 19.
@@ -307,7 +307,7 @@ export default caseStudy({
     entry({
       date: '05/2021',
       category: 'red',
-      actors: 'FDA; CDC; Adolescents; Schools',
+      actors: 'FDA, CDC, Adolescents, Schools',
       text:       paragraph(`
         <strong>Vaccine emergency use authorization</strong> was extended to ages 12 to 15. This
         further changed <strong>reopening politics for middle and high schools</strong>, where
@@ -320,7 +320,7 @@ export default caseStudy({
     entry({
       date: '01/2022',
       category: 'orange',
-      actors: 'Schools; Districts; State and Local Health Authorities; Families',
+      actors: 'Schools, Districts, State and Local Health Authorities, Families',
       text:       paragraph(`
         <strong>Delta and Omicron variants</strong> produced renewed school-disruption waves. In 2021-22,
         CDC researchers identified 25,907 COVID-related school-closure events, with
@@ -346,7 +346,7 @@ export default caseStudy({
     entry({
       date: '04/2022',
       category: 'green',
-      actors: 'CDC; High School Students; Schools',
+      actors: 'CDC, High School Students, Schools',
       text:       paragraph(`
         CDC reported <strong>widespread adolescent mental-health strain</strong> during the pandemic:
         37.1% of high school students experienced poor mental health, 44.2% reported
@@ -359,7 +359,7 @@ export default caseStudy({
     entry({
       date: '12/2022',
       category: 'green',
-      actors: 'National Center for Education Statistics; NAEP; Students and Schools',
+      actors: 'National Center for Education Statistics, NAEP, Students and Schools',
       text:       paragraph(`
         NAEP long-term trend results showed age-9 reading scores declined 5 points and
         math scores declined 7 points from 2020 to 2022. The math decline was the

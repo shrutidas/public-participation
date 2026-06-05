@@ -38,7 +38,7 @@ export default caseStudy({
     entry({
       date: '12/2020',
       category: 'red',
-      actors: 'FDA; CDC; Advisory Committee on Immunization Practices',
+      actors: 'FDA, CDC, Advisory Committee on Immunization Practices',
       text:       paragraph(`
         FDA issued an <strong>emergency use authorization</strong> for the Pfizer-BioNTech vaccine, and
         ACIP voted 11 to 0 to recommend it for persons aged 16 and older. Evidence for
@@ -52,7 +52,7 @@ export default caseStudy({
     entry({
       date: '08/2021',
       category: 'red',
-      actors: 'CDC; Massachusetts Department of Public Health; Local Public Health Investigators',
+      actors: 'CDC, Massachusetts Department of Public Health, Local Public Health Investigators',
       text:       paragraph(`
         CDC updated masking guidance after Delta breakthrough evidence, including the
         Barnstable County outbreak report showing 469 cases, 74% among fully
@@ -67,7 +67,7 @@ export default caseStudy({
     entry({
       date: '08/2021',
       category: 'red',
-      actors: 'FDA; BioNTech/Pfizer',
+      actors: 'FDA, BioNTech/Pfizer',
       text:       paragraph(`
         FDA gave <strong>full approval</strong> to Pfizer-BioNTech's vaccine, marketed as Comirnaty,
         for people aged 16 and older. Full approval reduced one legitimacy objection
@@ -81,7 +81,7 @@ export default caseStudy({
     entry({
       date: '08/2021',
       category: 'green',
-      actors: 'CDC; HEROES-RECOVER Network Investigators',
+      actors: 'CDC, HEROES-RECOVER Network Investigators',
       text:       paragraph(`
         CDC reported that mRNA vaccine effectiveness against infection among frontline
         workers declined from 91% before Delta predominance to 66% during Delta
@@ -96,7 +96,7 @@ export default caseStudy({
     entry({
       date: '09/2021',
       category: 'red',
-      actors: 'President Biden; White House; Department of Labor; OSHA; HHS; CMS; Federal Agencies',
+      actors: 'President Biden, White House, Department of Labor, OSHA, HHS, CMS, Federal Agencies',
       text:       paragraph(`
         President Biden announced the <strong>federal mandate</strong>: OSHA would require employers
         with 100 or more employees to ensure vaccination or weekly testing. CMS would
@@ -111,7 +111,7 @@ export default caseStudy({
     entry({
       date: '09/2021',
       category: 'red',
-      actors: 'President Biden; Executive Branch Agencies; Safer Federal Workforce Task Force',
+      actors: 'President Biden, Executive Branch Agencies, Safer Federal Workforce Task Force',
       text:       paragraph(`
         <strong>Executive Order 14043</strong> required executive agencies to implement a COVID-19
         vaccination program for federal employees, with exceptions only as required by
@@ -136,7 +136,7 @@ export default caseStudy({
     entry({
       date: '10/2021',
       category: 'blue',
-      actors: 'KFF; US Adults and Workers Surveyed',
+      actors: 'KFF, US Adults and Workers Surveyed',
       text:       paragraph(`
         KFF polling showed the public-opinion split: 25% of workers reported an
         employer vaccine requirement, 50% did not want their employer to require
@@ -151,7 +151,7 @@ export default caseStudy({
     entry({
       date: '11/2021',
       category: 'red',
-      actors: 'OSHA; Department of Labor; Large Employers; Covered Workers',
+      actors: 'OSHA, Department of Labor, Large Employers, Covered Workers',
       text:       paragraph(`
         OSHA published its COVID-19 vaccination and testing <strong>Emergency Temporary
         Standard</strong> for employers with 100 or more employees. The Federal Register page
@@ -177,7 +177,7 @@ export default caseStudy({
     entry({
       date: '01/2022',
       category: 'red',
-      actors: 'Supreme Court; OSHA',
+      actors: 'Supreme Court, OSHA',
       text:       paragraph(`
         The Supreme Court blocked OSHA's emergency rule requiring large employers to
         enforce COVID-19 vaccination or testing requirements. The Court treated
@@ -192,7 +192,7 @@ export default caseStudy({
     entry({
       date: '01/2022',
       category: 'red',
-      actors: 'Supreme Court; CMS',
+      actors: 'Supreme Court, CMS',
       text:       paragraph(`
         The Supreme Court allowed CMS to enforce the <strong>healthcare-worker mandate</strong> in
         Biden v. Missouri. CMS was upheld because the institutional setting was
@@ -207,7 +207,7 @@ export default caseStudy({
     entry({
       date: '01/2022',
       category: 'blue',
-      actors: 'Pew Research Center; US Adults Surveyed',
+      actors: 'Pew Research Center, US Adults Surveyed',
       text:       paragraph(`
         Pew found declining trust: 50% rated public health officials' COVID-19
         response as excellent or good, down from 60% in August 2021. 60% said changing
@@ -223,7 +223,7 @@ export default caseStudy({
     entry({
       date: '10/2025',
       category: 'blue',
-      actors: 'KFF; US Adults Surveyed',
+      actors: 'KFF, US Adults Surveyed',
       text:       paragraph(`
         Under HHS Secretary RFK Jr., KFF found trust in the CDC for vaccine information had fallen to just 50% of adults, 
         down from 63% in September 2024. Critically, a partisan inversion occurred. Trust in the CDC for vaccines among Democrats collapsed by 24 percentage points since 2023, 
@@ -236,7 +236,7 @@ export default caseStudy({
     entry({
       date: '06/2026',
       category: 'orange',
-      actors: 'RFK Jr.; US Adults',
+      actors: 'RFK Jr., US Adults',
       text:       paragraph(`
           The downstream consequence of Trump Administrations vaccine hesitancy was measles resurgences and preventable disease uptick, 
           with doctors reporting rising cases of whooping cough, bacterial meningitis-causing infections, 
