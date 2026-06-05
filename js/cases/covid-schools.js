@@ -335,7 +335,7 @@ export default caseStudy({
 
     entry({
       date: '04/2022',
-      category: 'blue',
+      category: 'green',
       actors: 'CDC; High School Students; Schools',
       text:       paragraph(`
         CDC reported <strong>widespread adolescent mental-health strain</strong> during the pandemic:
