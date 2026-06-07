@@ -28,7 +28,7 @@ export default caseStudy({
       actors: 'Gallup',
       text:       paragraph(`
         When Gallup first asked in July 2020 whether Americans would take an FDA-approved COVID vaccine at no cost, 
-        only 50% said yes, roughly the same rate as flu vaccine uptake. The partisan gap was already present. Democrats and Republicans were cautious, but for different reasons.
+        only 50% said yes, roughly the same rate as flu vaccine uptake. The <strong>partisan gap</strong> was already present. Democrats and Republicans were cautious, but for different reasons.
         Democrats worried about political interference in FDA; Republicans worried about government overreach.
       `),
       sources: [source('Gallup', 'https://news.gallup.com/poll/317018/one-three-americans-not-covid-vaccine.aspx')],
@@ -55,10 +55,10 @@ export default caseStudy({
       actors: 'CDC, Massachusetts Department of Public Health, Local Public Health Investigators',
       text:       paragraph(`
         CDC updated masking guidance after Delta breakthrough evidence, including the
-        Barnstable County outbreak report showing 469 cases, 74% among fully
-        vaccinated persons, and similar Ct values among vaccinated and unvaccinated
-        infected people. Vaccines remained central for preventing severe illness, but
-        Delta made <strong>transmission control</strong> less straightforward and weakened the
+        Barnstable County outbreak report showing 469 cases, 74% of the people infected 
+        in the outbreak were fully vaccinated. Vaccinated and unvaccinated people appeared 
+        to carry similar amounts of the virus. Vaccines remained central for preventing severe illness, but
+        Delta made transmission control less straightforward and weakened the
         public-facing claim that vaccination alone would stop spread.
       `),
       sources: [source('CDC MMWR', 'https://www.cdc.gov/mmwr/volumes/70/wr/mm7031e2.htm')],
@@ -69,11 +69,9 @@ export default caseStudy({
       category: 'red',
       actors: 'FDA, Pfizer',
       text:       paragraph(`
-        FDA gave <strong>full approval</strong> to Pfizer-BioNTech's vaccine, marketed as Comirnaty,
-        for people aged 16 and older. Full approval reduced one legitimacy objection
-        to mandates by moving the leading vaccine from EUA status into <strong>ordinary FDA
-        licensure</strong>. FDA still acknowledged myocarditis and pericarditis monitoring and
-        required postmarketing studies.
+        FDA gave <strong>full approval to Pfizer-BioNTech's vaccine</strong>, marketed as Comirnaty,
+        for people aged 16 and older. The agency continued to monitor rare cases of heart inflammation
+        (myocarditis and pericarditis) and required additional studies to track the vaccine’s long-term safety.
       `),
       sources: [source('FDA', 'https://www.fda.gov/news-events/press-announcements/fda-approves-first-covid-19-vaccine')],
     }),
@@ -98,9 +96,8 @@ export default caseStudy({
       category: 'blue',
       actors: 'Gallup, US Adults Surveyed',
       text:       paragraph(`
-        Before Biden announced his September 9 mandates, Gallup polling found majorities
-        of Americans already supported vaccination requirements in various settings, for
-        business customers, employees, and event attendees.
+        Before Biden announced his September 9 mandates, Gallup polling found <strong>majorities
+        of Americans already supported vaccination requirements</strong> in various work and business settings.
       `),
       sources: [source('Gallup', 'https://news.gallup.com/poll/354506/update-american-public-opinion-vaccination-requirements.aspx')],
     }),
@@ -111,7 +108,7 @@ export default caseStudy({
       actors: 'President Biden, White House, Department of Labor, OSHA, HHS, CMS',
       text:       paragraph(`
         President Biden announced the <strong>federal mandate</strong>: OSHA would require employers
-        with 100 or more employees to ensure vaccination or weekly testing. CMS would
+        with 100 or more employees to ensure vaccination or weekly testing. Centers for Medicare & Medicaid Services would
         require vaccination for many healthcare workers. Federal employees and federal
         contractors would be required to vaccinate. Head Start and federal school
         personnel were included. The administration shifted from persuasion and
@@ -125,7 +122,7 @@ export default caseStudy({
       category: 'red',
       actors: 'President Biden, Executive Branch Agencies, Safer Federal Workforce Task Force',
       text:       paragraph(`
-        <strong>Executive Order 14043</strong> required executive agencies to implement a COVID-19
+        Executive Order 14043 required executive agencies to implement a COVID-19
         vaccination program for federal employees, with exceptions only as required by
         law.
       `),
@@ -150,12 +147,12 @@ export default caseStudy({
       category: 'blue',
       actors: 'KFF, US Adults and Workers Surveyed',
       text:       paragraph(`
-        KFF polling showed the public-opinion split: 25% of workers reported an
+        KFF polling showed the public-opinion split. 25% of workers reported an
         employer vaccine requirement, 50% did not want their employer to require
         vaccination, 90% of unvaccinated workers opposed employer mandates, and
         support for the large-employer federal vaccine-or-test rule varied sharply by
-        race and party. The science supported vaccination, but the <strong>policy instrument</strong>
-        was entering a polarized environment in which <strong>public authorization</strong> was uneven.
+        race and party. The science supported vaccination, but the policy instrument
+        was entering a <strong>polarized environmen in which public authorization was uneven.</strong>
       `),
       sources: [source('KFF', 'https://www.kff.org/covid-19/kff-covid-19-vaccine-monitor-october-2021')],
     }),
@@ -181,10 +178,9 @@ export default caseStudy({
       category: 'red',
       actors: 'OSHA, Department of Labor, Large Employers, Covered Workers',
       text:       paragraph(`
-        OSHA published its COVID-19 vaccination and testing <strong>Emergency Temporary
-        Standard</strong> for employers with 100 or more employees. The Federal Register page
-        records 122,485 comments. OSHA used <strong>emergency authority</strong>, even though the rule
-        generated massive public response.
+        Occupational Safety and Health Administration (OSHA) published its COVID-19 vaccination and testing Emergency Temporary
+        Standard for employers with 100 or more employees. The Federal Register page
+        records 122,485 comments. Here, OSHA used <strong>emergency authority</strong>.
       `),
       sources: [source('Federal Register', 'https://www.federalregister.gov/documents/2021/11/05/2021-23643/covid-19-vaccination-and-testing-emergency-temporary-standard')],
     }),
@@ -194,13 +190,13 @@ export default caseStudy({
       category: 'orange',
       actors: 'Workers, Federal Courts, Supreme Court',
       text:       paragraph(`
-        Thousands of workers file for religious exemptions simultaneously across the
-        country, triggering a wave of litigation. Courts are forced to interpret whether
-        <strong>Jacobson v. Massachusetts</strong> (1905 smallpox precedent) applies, whether
-        <strong>Title VII religious accommodation</strong> is required, and whether EUA status
+        Thousands of <strong>workers file for religious exemptions</strong> simultaneously across the
+        country, triggering a waves of litigation. Courts are forced to interpret whether
+        Jacobson v. Massachusetts (1905 smallpox precedent) applies, whether
+        Title VII religious accommodation is required, and whether EUA status
         changes the analysis. The Supreme Court refuses in November 2021 to block Maine's
         healthcare worker mandate, which uniquely offered no religious exemption, by a
-        <strong>6–3 vote in Does v. Mills</strong>.
+        6–3 vote in Does v. Mills.
       `),
       sources: [
         source('SSRGA', 'https://ssrga.com/bresky_blog/recent-litigation-concerning-covid-19-vaccination-mandates-and-religious-exemptions/'),
@@ -213,10 +209,9 @@ export default caseStudy({
       category: 'red',
       actors: 'US Senate',
       text:       paragraph(`
-        A majority of the US Senate voted to disapprove the OSHA regulation under S.J.
-        Res. 29. Opponents could argue that Congress had not only failed to enact a
-        comparable mandate, but one chamber had affirmatively rejected the <strong>agency
-        rule</strong>.
+        A majority of the US Senate voted to disapprove the OSHA regulation. Opponents could argue 
+        that Congress had not only failed to enact a
+        comparable mandate, but one chamber had affirmatively rejected the agency rule.
       `),
       sources: [source('SCOTUS Opinion', 'https://www.supremecourt.gov/opinions/21pdf/21a244_hgci.pdf')],
     }),
@@ -272,7 +267,7 @@ export default caseStudy({
       category: 'blue',
       actors: 'KFF, US Adults Surveyed',
       text:       paragraph(`
-        Under HHS Secretary RFK Jr., KFF found trust in the CDC for vaccine information had fallen to just 50% of adults, 
+        Under Health Secretary RFK Jr., trust in the CDC for vaccine information had fallen to just 50% of adults, 
         down from 63% in September 2024. Critically, a partisan inversion occurred. Trust in the CDC for vaccines among Democrats collapsed by 24 percentage points since 2023, 
         while trust among Republicans actually rose ~10 points because their preferred leaders were now running the agencies. 
         By 2025, only 56% of adults said they were confident in COVID vaccine safety, with 87% of Democrats confident but only 30% of Republicans. 

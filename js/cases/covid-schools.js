@@ -22,12 +22,10 @@ export default caseStudy({
       category: 'green',
       actors: 'CDC, NIH/NIAID, WHO',
       text:       paragraph(`
-        US public health officials knew the virus was <strong>highly transmissible via
-        respiratory droplets</strong>, that older populations and those with comorbidities
-        faced far worse outcomes, and that <strong>children appeared less severely affected</strong>.
-        What was unknown was the rate of asymptomatic spread, the role of schools in
-        community transmission, the degree of airborne versus droplet transmission,
-        and long-term health consequences.
+        Public health officials understood that the virus spread readily through respiratory droplets, 
+        that older adults and people with comorbidities faced far worse outcomes, and that <strong>children appeared less severely affected</strong>. 
+        At the same time, they had not yet determined how often asymptomatic transmission occurred, how much schools contributed to community spread, 
+        whether airborne transmission played a larger role than droplet transmission, or what long-term health effects the virus might cause.
       `),
       sources: [source('PMC', 'https://pmc.ncbi.nlm.nih.gov/articles/PMC7752102')],
     }),
@@ -38,7 +36,7 @@ export default caseStudy({
       actors: 'Governors, State Education Agencies, Local Districts, Public Health Officials',
       text:       paragraph(`
         The <strong>first national closure wave</strong> unfolded, moving from school and
-        district-level closures to <strong>statewide action</strong>. Education Week tracked closures
+        district-level closures to statewide action. Education Week tracked closures
         from March 6 to May 15, with the initial school and district-level closure
         data concentrated between March 9 and March 25.
       `),
@@ -81,7 +79,7 @@ export default caseStudy({
       category: 'orange',
       actors: 'Governors, State Education Agencies, Local Districts',
       text:       paragraph(`
-        Closures reached <strong>near-total scale</strong>. At least 55.1 million students in 124,000
+        Closures reached near-total scale. At least 55.1 million students in 124,000
         public and private schools were affected.
       `),
       sources: [source('Education Week', 'https://www.edweek.org/leadership/map-coronavirus-and-school-closures-in-2019-2020/2020/03')],
