@@ -95,6 +95,18 @@ export default caseStudy({
 
     entry({
       date: '09/2021',
+      category: 'blue',
+      actors: 'Gallup, US Adults Surveyed',
+      text:       paragraph(`
+        Before Biden announced his September 9 mandates, Gallup polling found majorities
+        of Americans already supported vaccination requirements in various settings, for
+        business customers, employees, and event attendees.
+      `),
+      sources: [source('Gallup', 'https://news.gallup.com/poll/354506/update-american-public-opinion-vaccination-requirements.aspx')],
+    }),
+
+    entry({
+      date: '09/2021',
       category: 'red',
       actors: 'President Biden, White House, Department of Labor, OSHA, HHS, CMS',
       text:       paragraph(`
@@ -149,6 +161,22 @@ export default caseStudy({
     }),
 
     entry({
+      date: '10/2021',
+      category: 'purple',
+      actors: 'NYPD Police Union, Chicago and Washington Police Unions, National Retail Federation, American Trucking Association',
+      text:       paragraph(`
+        The NYPD's largest police union filed suit to block New York City's November 1
+        municipal mandate, arguing officers hadn't been given enough time to seek
+        religious exemptions. In Chicago and Washington state, similar standoffs emerged
+        between police unions and city mayors. Simultaneously, the National Retail
+        Federation and American Trucking Association lobbied Biden to delay the
+        private-employer mandate past the holiday season, warning that worker walkouts
+        would worsen already severe supply chain disruptions.
+      `),
+      sources: [source('New York Times', 'https://www.nytimes.com/2021/10/25/nyregion/nypd-police-covid-vaccine-mandate-deblasio.html')],
+    }),
+
+    entry({
       date: '11/2021',
       category: 'red',
       actors: 'OSHA, Department of Labor, Large Employers, Covered Workers',
@@ -159,6 +187,25 @@ export default caseStudy({
         generated massive public response.
       `),
       sources: [source('Federal Register', 'https://www.federalregister.gov/documents/2021/11/05/2021-23643/covid-19-vaccination-and-testing-emergency-temporary-standard')],
+    }),
+
+    entry({
+      date: '11/2021',
+      category: 'orange',
+      actors: 'Workers, Federal Courts, Supreme Court',
+      text:       paragraph(`
+        Thousands of workers file for religious exemptions simultaneously across the
+        country, triggering a wave of litigation. Courts are forced to interpret whether
+        <strong>Jacobson v. Massachusetts</strong> (1905 smallpox precedent) applies, whether
+        <strong>Title VII religious accommodation</strong> is required, and whether EUA status
+        changes the analysis. The Supreme Court refuses in November 2021 to block Maine's
+        healthcare worker mandate, which uniquely offered no religious exemption, by a
+        <strong>6–3 vote in Does v. Mills</strong>.
+      `),
+      sources: [
+        source('SSRGA', 'https://ssrga.com/bresky_blog/recent-litigation-concerning-covid-19-vaccination-mandates-and-religious-exemptions/'),
+        source('Jacobson v. Massachusetts', 'https://supreme.justia.com/cases/federal/us/197/11/'),
+      ],
     }),
 
     entry({
