@@ -45,10 +45,10 @@ export default caseStudy({
       actors: 'DuPont, 3M Epidemiology Teams',
       text:       paragraph(`
         DuPont discovered high concentrations of PFOA in the blood of Washington Works
-        factory workers. The company <strong>did not report this to EPA</strong>, as would have been
+        factory workers. <strong>The company did not report this to EPA</strong>, as would have been
         required under TSCA Section 8(e) substantial risk reporting. 3M's own
-        epidemiological studies of workers indicated no adverse effects at ppb levels,
-        framing that both companies would use for years to <strong>deflect concern</strong>.
+        epidemiological studies of workers indicated no adverse effects,
+        framing that both companies would use for years to deflect concern.
       `),
       sources: [source('EWG EPA Timeline', 'https://static.ewg.org/reports/2020/pfas-epa-timeline/EPA-PFAS-Timeline-10-21.pdf')],
     }),
@@ -106,9 +106,9 @@ export default caseStudy({
       actors: '3M, EPA Office of Toxic Substances',
       text:       paragraph(`
         3M alerted EPA that PFOS builds up in blood, sending rat studies showing liver
-        damage from PFAS exposure. This is the first time EPA was formally notified of
-        the <strong>bioaccumulation problem</strong>. 3M's letter described detecting PFOS at 9 to
-        56 ppb in blood bank samples from people with no known occupational exposure,
+        damage from PFAS exposure. This is the <strong>first time EPA was formally notified</strong> of
+        the bioaccumulation problem. 3M's letter described detecting PFOS at 9 to
+        56 parts per billion in blood bank samples from people with no known occupational exposure,
         meaning PFAS were already in the general population's blood.
         This triggered EPA's first sustained look at PFAS in people's blood.
       `),
@@ -123,9 +123,7 @@ export default caseStudy({
         Wilbur Tennant, a West Virginia farmer, contacted attorney Rob Bilott after
         observing cattle deaths, creek contamination, and unusual changes near
         DuPont's Dry Run Landfill. Tennant's documentation, including videos and
-        animal illness records, became the <strong>trigger for federal litigation</strong>. Local
-        observation, videos, animal illness, and suspicion became the trigger for
-        litigation and discovery.
+        animal illness records, became the <strong>trigger for federal litigation</strong>.
       `),
       sources: [
         source('Taft Law', 'https://www.taftlaw.com/services/case-studies/taft-is-a-global-leader-in-pfas-forever-chemicals-litigation-and-advisory-work'),
@@ -257,8 +255,7 @@ export default caseStudy({
         Coming out of the Leach v. Dupont settlement, The C8 Science Panel was an indpendent scientific body that analyzed prior datasets and issued causal conclusions. 
         Three academic epidemiologists (from the University of London, Brown University, and Emory) were 
         appointed by the court and paid by DuPont to use the C8 Health Project data (plus other studies) 
-        to decide whether PFOA exposure had a "<strong>probable link</strong>" to specific diseases in that community.
-        They found <strong>probable links</strong> between PFOA exposure and kidney
+        to decide whether PFOA exposure had <strong>probable links to specific diseases and cancers in that community</strong>, includingkidney
         cancer, testicular cancer, ulcerative colitis, thyroid disease,
         hypercholesterolemia, and pregnancy-induced hypertension.
       `),
