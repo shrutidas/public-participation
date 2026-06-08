@@ -91,7 +91,7 @@ export default caseStudy({
       actors: 'Governor Whitmer, Michigan Department of Education',
       text:       paragraph(`
         Governor Whitmer ordered Michigan public schools closed for the remainder of
-        the 2019-20 school year and issued <strong>Executive Order 2020-88</strong> creating a <strong>COVID-19
+        the 2019-20 school year and issued an executive order creating a <strong>COVID-19
         Return to School Advisory Council</strong> with educators, public health officials,
         local administrators, and parents. Critics would later argue its
         recommendations were not consistently followed.
@@ -140,7 +140,7 @@ export default caseStudy({
         The American Academy of Pediatrics first urged policymakers to start with the
         goal of <strong>physical presence in school</strong>, then clarified that science and community
         circumstances should guide decisions and that recommendations should be
-        <strong>evidence-based, not political</strong>. Politicization of reopening forced AAP to
+        evidence-based. Politicization of reopening forced AAP to
         clarify that reopening should depend on local infection conditions, educator
         safety, stakeholder involvement, and resources.
       `),

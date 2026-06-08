@@ -33,7 +33,7 @@ export default caseStudy({
       category: 'orange',
       actors: 'Facebook, Instagram, Mark Zuckerberg',
       text:       paragraph(`
-        Facebook purchases Instagram for <strong>$1 billion</strong>, placing the platform's design,
+        <strong>Facebook purchases Instagram</strong> for $1 billion, placing the platform's design,
         algorithm, and user data under its control at the precise moment Instagram was reaching
         mass adolescent adoption.
       `),
@@ -45,12 +45,12 @@ export default caseStudy({
       category: 'green',
       actors: 'Academic Researchers',
       text:       paragraph(`
-        Researchers now identify the early 2010s as a major inflection point, 
-        coinciding precisely with the mass adoption of visually-driven platforms like Instagram and Snapchat.
+        Researchers now identify the early 2010s as a major inflection point for the mass adoption of 
+        visually-driven platforms like Instagram and Snapchat.
         Analysis of ~17,000 individuals continuously from 2001 onward, found that the share of young women ages 15–24 
         reporting good mental health was stable through 2011, then fell sharply from 73% to 62% by 2022.
-        Another study 11,876 children similarly found that within-person increases in social media use during early adolescence 
-        prospectively predicted greater depressive symptoms one year later.
+        Another study 11,876 children similarly found that <strong>increases in social media use during early adolescence 
+        predicted greater depressive symptoms one year later</strong>.
       `),
       sources: [
         source('PudMed', 'https://pmc.ncbi.nlm.nih.gov/articles/PMC10294999/'),
@@ -68,7 +68,7 @@ export default caseStudy({
         grows substantially; researchers in the UK and the US publish contested but
         influential findings. <strong>Evidence is correlational</strong>. The direction of causation,
         whether social media causes depression or depressed teens use more social
-        media, <strong>remains unresolved</strong>.
+        media, still remains unresolved.
       `),
       sources: [source('PubMed', 'https://pubmed.ncbi.nlm.nih.gov/30944443')],
     }),
@@ -91,7 +91,7 @@ export default caseStudy({
       category: 'blue',
       actors: 'Ponemon Institute, ~3,000 Facebook users',
       text:       paragraph(`
-        Trust in Facebook collapses 66% after <strong>Cambridge Analytica</strong>. Only 28% of
+        Trust in Facebook collapses 66% after Cambridge Analytica. Only 28% of
         Facebook users believe the company is committed to protecting personal
         information, down from 79% just one year earlier in 2017. Meta conducts
         harmful practices, gets caught, and apologizes.
@@ -109,8 +109,8 @@ export default caseStudy({
         health researchers, and school counselors publish rising rates of teen
         depression, anxiety, self-harm, and suicidality. Emergency room visits for
         self-harm among girls ages 10 to 14 have more than doubled since 2009,
-        according to CDC data. <strong>Independent researchers cannot identify causes because
-        they lack access to platform data</strong>.
+        according to CDC data. Independent researchers cannot identify causes because
+        they lack access to platform data.
       `),
       sources: [source('PMC', 'https://pmc.ncbi.nlm.nih.gov/articles/PMC9176070/')],
     }),
@@ -120,8 +120,8 @@ export default caseStudy({
       category: 'orange',
       actors: 'Meta, Adam Mosseri',
       text:       paragraph(`
-        Facebook confirms it is developing <strong>“Instagram Kids”</strong> for under‑13 tweens, 
-        describing it as a <strong>“parent‑controlled experience”</strong> in a statement and blog posts after BuzzFeed first reports the project.
+        Facebook confirms it is developing Instagram Kids for under‑13 tweens, 
+        describing it as a “parent‑controlled experience” in a statement and blog posts after BuzzFeed first reports the project.
       `),
       sources: [source('Business Insider', 'https://www.businessinsider.com/facebook-building-instagram-app-for-kids-under-13-report-2021-3/')],
     }),
@@ -131,9 +131,9 @@ export default caseStudy({
       category: 'red',
       actors: 'Congress',
       text:       paragraph(`
-        Senate proposes the <strong>CAMRA Act (Children and Media Research Advancement Act)</strong>. Bipartisan bill led by Senators Bennet and Markey 
-        to give NIH tens of millions of dollars to study how social media, apps, games, and other digital media affect children’s cognitive, physical, 
-        and socio‑emotional development. Introduced 2018, reintroduced 2019 and 2021, but <strong>not actually passed until it was folded into the 2023 omnibus</strong>.
+        Senate proposes the CAMRA Act (Children and Media Research Advancement Act). Bipartisan bill led by Senators Bennet and Markey 
+        to give NIH tens of millions of dollars to <strong>study how social media and other digital media affect childhood</strong> cognitive, physical, 
+        and socio‑emotional development. Introduced 2018, reintroduced 2019 and 2021, but not actually passed until it was folded into the 2023 omnibus.
 
       `),
       sources: [source('Senate', 'https://www.markey.senate.gov/news/press-releases/senators-markey-sasse-blunt-schatz-collins-bennet-and-reps-raskin-gonzalez-trahan-reintroduce-bipartisan-bicameral-legislation-to-study-impact-of-technology-and-media-on-children')],
@@ -145,7 +145,7 @@ export default caseStudy({
       actors: 'State AGs',
       text:       paragraph(`
         A bipartisan group of 44 state attorney generals and 90+ advocacy groups publicly <strong>urge Zuckerberg to abandon Instagram Kids</strong>, 
-        warning it would <strong>harm children’s mental health and privacy</strong>
+        warning it would harm children’s mental health and privacy.
       `),
       sources: [source('NAAG', 'https://www.naag.org/press-releases/attorneys-general-urge-facebook-to-abandon-launch-of-instagram-kids/')],
     }),
@@ -156,8 +156,8 @@ export default caseStudy({
       category: 'orange',
       actors: 'Wall Street Journal, Meta Researchers, Leadership',
       text:       paragraph(`
-        WSJ publishes "Facebook Files" revealing internal Meta research slides. One slide states, <strong>'We make 
-        body image issues worse for one in three teen girls.'</strong> The research documents associations
+        WSJ publishes the 'Facebook Files' revealing internal Meta research slides. One slide states, "we make 
+        body image issues worse for one in three teen girls." The research documents associations
         between Instagram use and negative body image, anxiety, depression, and social
         comparison among teen girls.
       `),
@@ -172,9 +172,9 @@ export default caseStudy({
       category: 'blue',
       actors: 'Fox News \'Fox & Friends First\', California psychotherapist mother and daughter',
       text:       paragraph(`
-        National media coverage highlighted broad parental concerns about social media’s impact on children and young teens. 
-        Parents expressed alarm that platforms view <strong>younger users as a valuable growth market</strong> and design products in ways that 
-        encourage <strong>prolonged engagement</strong>. They also worried that children can easily encounter inappropriate or harmful content online, 
+        National media coverage highlighted <strong>broad parental concerns about social media’s impact on children and young teens</strong>. 
+        Parents expressed alarm that platforms view younger users as a valuable growth market and design products in ways that 
+        encourage prolonged engagement. They also worried that children can easily encounter inappropriate or harmful content online, 
         with potentially lasting effects on their well-being and development.
       `),
       sources: [source('Fox News', 'https://www.foxnews.com/media/facebook-targeting-children-parents-trust-social-media')],
@@ -187,7 +187,7 @@ export default caseStudy({
       text:       paragraph(`
         Meta <strong>paused development of Instagram Kids</strong>, while continuing parental
         supervision tools for teens. This is the <strong>clearest public product-decision
-        reversal or delay after criticism</strong>. Meta framed it as time to work with
+        reversal after public criticism</strong>. Meta framed it as time to work with
         parents, experts, policymakers, and regulators.
       `),
       sources: [
@@ -199,13 +199,17 @@ export default caseStudy({
     entry({
       date: '09/2021',
       category: 'orange',
-      actors: 'Senate Commerce Subcommittee, Facebook Safety Executive',
+      actors: 'Senate Commerce Subcommittee, Antigone Davis',
       text:       paragraph(`
-        Senate held hearings on Facebook, Instagram, and mental health harms with
-        Antigone Davis, the Head of Global Safety at Facebook. Congress explicitly made <strong>Facebook's internal research, its
-        actions to address risks, and policy safeguards the object of public inquiry</strong>.
+        Senate holds series of hearings on Facebook and Instagram.   
+        Senator Richard Blumenthal convened the Senate Commerce Subcommittee on Consumer Protection hearing titled 
+        "Protecting Kids Online: Facebook, Instagram, and Mental Health Harms".
+        Antigone Davis, the Head of Global Safety at Facebook, was the primary witness and the first Facebook executive compelled to testify on teen mental health specifically.
       `),
-      sources: [source('Senate Commerce', 'https://www.commerce.senate.gov/meetings/subcommittee-protecting-kids-online-facebook-instagram-and-mental-health-harms/')],
+      sources: [
+        source('Senate Commerce', 'https://www.commerce.senate.gov/meetings/subcommittee-protecting-kids-online-facebook-instagram-and-mental-health-harms/'),
+        source('CNBC', 'https://www.cnbc.com/2021/09/23/facebook-exec-will-testify-at-senate-hearing-after-report-finds-instagram-harms-teen-mental-health.html'),
+      ],
     }),
 
     entry({
@@ -213,8 +217,8 @@ export default caseStudy({
       category: 'red',
       actors: 'Senate Commerce Subcommittee',
       text:       paragraph(`
-        <strong>KIDS Act (Kids Internet Design and Safety Act)</strong> was introduced by Senators Markey and Blumenthal. The bill was meant to ban manipulative design features for
-        minors (autoplay, endless scroll, streaks, “like” counts, push‑notification nags) and to extend protections against targeted ads up to age 15 on platforms 
+        Senators Markey and Blumenthal introduce the KIDS Act (Kids Internet Design and Safety Act). The bill was meant to <strong>ban manipulative design features</strong> for
+        minors (autoplay, endless scroll, streaks, like counts, push‑notification nags) and to extend protections against targeted ads up to age 15 on platforms 
         “reasonably likely” to be used by kids. It was introduced in 2020 and reintroduced in September 2021 after the Facebook Files, but <strong>never advanced out of 
         committee and never got a floor vote</strong> in either chamber during that Congress .
       `),
@@ -242,8 +246,8 @@ export default caseStudy({
         Teenage girls across schools say Instagram’s harms are obvious. In a New York Times piece, 
         students interviewed after the Facebook Files said the findings <strong>“didn't surprise [them] at all.”</strong> 
         Yale freshman Iris Tsouris and several high‑schoolers described friends who had deleted Instagram because 
-        it was “not adding value” and called it the <strong>“most challenging platform”</strong> due to the highly curated nature of 
-        profiles, which drives constant peer comparison and superficial self‑presentation.
+        it was not adding value and highly distressing due to the highly curated nature of 
+        profiles, driving constant comparison and superficial self‑presentation.
       `),
       sources: [source('New York Times', 'https://www.nytimes.com/live/2021/10/05/technology/facebook-whistleblower-frances-haugen')],
     }),
@@ -255,8 +259,8 @@ export default caseStudy({
       text:       paragraph(`
         Senator Blumenthal requested Zuckerberg or Mosseri testimony and alleged Meta
         <strong>concealed information and downplayed internal research</strong>. The letter highlights
-        dispute about <strong>whether public institutions had been misled and denied
-        documents</strong>.
+        dispute about swhether public institutions had been misled and denied
+        documents.
       `),
       sources: [source('Blumenthal Letter', 'https://www.blumenthal.senate.gov/imo/media/doc/2021.10.20%20-%20Facebook%20and%20Instagram%20-%20Consumer%20Protection%20Invitation.pdf')],
     }),
@@ -269,7 +273,7 @@ export default caseStudy({
         CivicScience survey finds 73% of Americans do not trust Meta; <strong>Facebook
         favorability at all-time recorded low</strong>. 13% of respondents trust Meta to keep
         their data safe. 73% do not trust Meta. The company <strong>ranks last among major consumer
-        tech companies</strong>. 33% of people expect Facebook to become 'much less popular' in
+        tech companies</strong>. 33% of people expect Facebook to become much less popular in
         the next 12 months.
       `),
       sources: [source('CivicScience', 'https://civicscience.com/trust-issues-sour-outlook-for-meta-facebook-popularity-falls/')],
@@ -280,9 +284,9 @@ export default caseStudy({
       category: 'green',
       actors: 'FTC',
       text:       paragraph(`
-        FTC proposed a <strong>blanket prohibition on Meta monetizing youth data</strong> and a <strong>pause
+        FTC proposed a <strong>blanket prohibition on Meta monetizing youth data</strong> and a pause
         on new products and features absent independent privacy compliance
-        confirmation</strong>. A serious governance attempt focused on youth data, privacy
+        confirmation. A serious governance attempt focused on youth data, privacy
         compliance, and product-launch constraints.
       `),
       sources: [source('FTC', 'https://www.ftc.gov/news-events/news/press-releases/2023/05/ftc-proposes-blanket-prohibition-preventing-facebook-monetizing-youth-data')],
@@ -295,7 +299,7 @@ export default caseStudy({
       text:       paragraph(`
         The US Surgeon General ran a metatstudy concluding social media carries benefits
         and risks, but that <strong>evidence is insufficient to deem platforms safe for youth</strong>. They
-        stress <strong>missing independent access to platform data</strong> and recommending
+        stress missing independent access to platform data and recommending
         precaution in the face of uncertainty.
       `),
       sources: [source('HHS', 'https://www.hhs.gov/surgeongeneral/reports-and-publications/youth-mental-health/social-media/index.html')],
@@ -306,11 +310,11 @@ export default caseStudy({
       category: 'purple',
       actors: 'Meta, Stanford Deliberative Democracy Lab, Behavioral Insights Team',
       text:       paragraph(`
-        Meta and the Stanford Deliberative Democracy Lab launched the first <strong>Meta
-        Community Forum</strong>, a structured global Deliberative Poll on Metaverse bullying
-        and harassment. 6,300+ people from 32 countries in 23 languages, described as
-        the largest deliberative exercise ever conducted. After deliberation,
-        participants <strong>shifted toward wanting stronger platform accountability and
+        Meta and the Stanford Deliberative Democracy Lab release report from the <strong>Meta
+        Community Forum</strong>, a structured global Deliberative Poll on bullying
+        and harassment online. 6,300+ people from 32 countries in 23 languages, described as
+        the largest deliberative exercise ever conducted. <strong>Participants indicated wanting 
+        stronger platform accountability and
         clearer content norms</strong>. Meta committed to incorporating results into Metaverse
         governance.
       `),
@@ -324,7 +328,7 @@ export default caseStudy({
       text:       paragraph(`
         Attorney generals from 42 states sued Meta in federal and state courts on the same day, 
         alleging the company <strong>deliberately engineered Instagram and Facebook to addict children</strong>, 
-        <strong>knew it was causing harm, and deceived parents about it</strong>. The complaints named specific design features, including
+        knew it was causing harm, and deceived parents about it. The complaints named specific design features, including
         infinite scroll, algorithmic rabbit holes, near-constant push notifications, and social validation loops, as intentional mechanisms 
         targeting adolescent brain development to maximize time on platform. 
         As of 2026, no settlement has been reached.
@@ -337,11 +341,11 @@ export default caseStudy({
       category: 'purple',
       actors: 'Meta, Stanford DDL, Behavioral Insights Team',
       text:       paragraph(`
-        Second structured deliberative process with Stanford DDL and BIT.
-        Approximately 1,500 people the USA, Germany, Spain, and Brazil. Two online
-        sessions with AI-moderated small-group deliberation. <strong>Strong cross-national
-        preference for transparency and human override options</strong>. Concern about <strong>AI
-        chatbots providing emotional support to children without safeguards</strong>. Results
+        Stanford DDL and Meta's Behavioral Insights Team conduct another structured deliberative process.
+        Approximately 1,500 people the USA, Germany, Spain, and Brazil engage in two online
+        sessions with AI-moderated small-group deliberation. Strong cross-national
+        preference for transparency and human override options. Concern is brought up about <strong>AI
+        chatbots providing emotional support to children without safeguards</strong>. Results are
         publicly released.
       `),
       sources: [source('Stanford Deliberation', 'https://deliberation.stanford.edu/meta-community-forum-generative-ai-results')],
@@ -366,9 +370,10 @@ export default caseStudy({
       category: 'red',
       actors: 'FTC',
       text:       paragraph(`
-        The FTC opened a formal 60-day public comment window that drew approximately 300 formal comments for amendments 
-        to <strong>Children’s Online Privacy Protection Rule (COPPA)</strong>.
-        The Commission voted to finalize COPPA with three concrete new requirements: a <strong>separate, unbundled opt-in consent specifically for targeted advertising</strong> 
+        The FTC opened a formal 60-day public comment window that drew approximately 300 formal comments for <strong>amendments 
+        to the Children’s Online Privacy Protection Rule (COPPA)</strong>.
+        The Commission voted to finalize COPPA with three concrete new requirements: a separate, 
+        unbundled opt-in consent specifically for targeted advertising
         (meaning a parent could consent to an app while refusing ad monetization of their child's data), 
         a mandatory written data retention policy prohibiting indefinite storage of children’s personal information, 
         and expanded definitions of "personal information" to include biometric identifiers. 
@@ -381,7 +386,9 @@ export default caseStudy({
       category: 'red',
       actors: 'Senate',
       text:       paragraph(`
-        Senate voted 91–3 to pass the <strong>Kids Online Safety Act (KOSA)</strong>.  It was the <strong>first major federal tech regulation to advance in the Senate since 1998</strong>, when the original Children’s Online Privacy Protection Rule (COPPA) passed.
+        Senate voted 91–3 to pass the <strong>Kids Online Safety Act (KOSA)</strong>.  
+        It was the <strong>first major federal tech regulation to advance in the Senate since 1998</strong>, w
+        hen the original Children’s Online Privacy Protection Rule (COPPA) passed.
       `),
       sources: [source('Reuters', 'https://www.reuters.com/world/us/us-senate-set-pass-major-online-child-safety-reforms-2024-07-30/')],
     }),
@@ -393,8 +400,8 @@ export default caseStudy({
       text:       paragraph(`
         Pew Research found that 48% of teens say <strong>social media has a mostly negative
         effect on people their age</strong>, up from 32% in 2022. Only 11% view it as mostly
-        positive for peers. 50% of parents believe their child's <strong>mental health
-        suffered in the past 12 months because of social media use</strong>. The number of
+        positive for peers. 50% of parents believe their child's mental health
+        suffered in the past 12 months because of social media use. The number of
         Americans saying social media has a positive influence on children’s mental
         health fell to 35%, down from 43% in 2022.
       `),
@@ -418,7 +425,7 @@ export default caseStudy({
       category: 'red',
       actors: 'FTC',
       text:       paragraph(`
-        FTC finalized <strong>Children’s Online Privacy Protection Act amendments</strong> strengthening child-data protections. The final
+        FTC finalized COPPA amendments strengthening child-data protections. The final
         rule strengthened targeted-advertising consent, data retention, data security,
         and transparency requirements, but <strong>did not adopt the proposed
         push-notification limits</strong>.
@@ -431,7 +438,7 @@ export default caseStudy({
       category: 'orange',
       actors: 'Meta',
       text:       paragraph(`
-        Meta expanded <strong>Teen Account protections</strong> across Instagram, Facebook, and
+        Meta expands Teen Account protections across Instagram, Facebook, and
         Messenger. Platform self-regulation shifting from Instagram-only defaults to
         <strong>cross-platform youth safety settings</strong>.
       `),
