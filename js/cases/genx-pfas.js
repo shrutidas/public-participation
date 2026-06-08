@@ -399,9 +399,9 @@ export default caseStudy({
       actors: 'NC DEQ, Cape Fear River Watch',
       text:       paragraph(`
         DEQ amended its complaint after discovering PFAS air emissions, while Cape
-        Fear River Watch and SELC pursued <strong>citizen-suit strategies</strong> under the Clean
-        Water Act and TSCA. The problem expanded from river discharge to <strong>multiple
-        pathways</strong>: air, groundwater, surface water, stormwater, seeps, and wells.
+        Fear River Watch and SELC pursued <strong>citizen-suit strategies under the Clean
+        Water Act and TSCA.</strong> The problem expanded from river discharge to multiple
+        pathwaysincluding air, groundwater, surface water, stormwater, seeps, and wells.
       `),
       sources: [source('NC DEQ', 'https://www.deq.nc.gov/news/key-issues/genx-investigation/chemours-consent-order')],
     }),
@@ -412,11 +412,10 @@ export default caseStudy({
       actors: 'NC DEQ, Cape Fear River Watch, Chemours, State Court',
       text:       paragraph(`
         North Carolina DEQ and Cape Fear River Watch negotiated a consent order with
-        Chemours, which a state court made enforceable through public notice and
-        comment. Required large PFAS emission cuts, an end to unpermitted discharges,
+        Chemours, which a <strong>state court made enforceable through public notice and
+        comment.</strong> Required large PFAS emission cuts, an end to unpermitted discharges,
         cleanup of groundwater, alternative drinking water for affected users, and
-        extensive testing and reporting. The <strong>consent order converts scientific
-        uncertainty and public pressure into enforceable obligations</strong>.
+        extensive testing and reporting.
       `),
       sources: [source('Cape Fear River Watch', 'https://capefearriverwatch.org/wp-content/uploads/2020/07/Consent-Order-file-stamped-and-fully-executed-b-w-.pdf')],
     }),
