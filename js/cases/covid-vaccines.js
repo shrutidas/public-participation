@@ -34,7 +34,6 @@ export default caseStudy({
       sources: [source('Gallup', 'https://news.gallup.com/poll/317018/one-three-americans-not-covid-vaccine.aspx')],
     }),
 
-
     entry({
       date: '12/2020',
       category: 'red',
@@ -47,6 +46,67 @@ export default caseStudy({
         rare in the trial.
       `),
       sources: [source('CDC MMWR', 'https://www.cdc.gov/mmwr/volumes/69/wr/mm6950e2.htm')],
+    }),
+
+    entry({
+      date: '01/2021',
+      category: 'blue',
+      actors: 'Researchers, Employed US Adults Surveyed',
+      text:       paragraph(`
+        A survey of 3.1 million employed adults ages 18–64 finds 26% are hesitant to get
+        vaccinated in January, with hesitancy highest in blue collar workers. Top reasons
+        cited were concerns about side effects, lack of trust in the process, and belief
+        they don't need it.
+      `),
+      sources: [source('PMC', 'https://pmc.ncbi.nlm.nih.gov/articles/PMC8474804/')],
+    }),
+
+    entry({
+      date: '03/2021',
+      category: 'orange',
+      actors: 'President Biden, White House',
+      text:       paragraph(`
+        Biden announces the 100-million-dose target is met on Day 58 of his presidency,
+        42 days ahead of the 100-day deadline. The US is averaging 2.5 million shots per
+        day at this point.
+      `),
+      sources: [source('NPR', 'https://www.npr.org/2021/03/18/978840432/biden-administration-to-meet-goal-of-100-million-vaccine-doses-on-friday')],
+    }),
+
+    entry({
+      date: '04/2021',
+      category: 'orange',
+      actors: 'President Biden, CDC',
+      text:       paragraph(`
+        Eligibility expands to all US adults. Weekly vaccination initiation had been
+        peaking; after this date it begins declining across all age groups.
+      `),
+      sources: [source('PMC', 'https://pmc.ncbi.nlm.nih.gov/articles/PMC8224863/')],
+    }),
+
+    entry({
+      date: '05/2021',
+      category: 'blue',
+      actors: 'College Students, Universities',
+      text:       paragraph(`
+        As hundreds of universities announce fall 2021 vaccine requirements, students begin
+        organizing protests. Students challenge both the policy itself and whether
+        universities could legally require an EUA-authorized vaccine before full FDA
+        approval.
+      `),
+      sources: [source('CNBC', 'https://www.cnbc.com/2021/05/19/students-protest-mandatory-covid-vaccinations-at-colleges.html')],
+    }),
+
+    entry({
+      date: '06/2021',
+      category: 'orange',
+      actors: 'CDC',
+      text:       paragraph(`
+        By late June, the U.S. has administered 323.3 million total doses, 179.3 million
+        people (54%) have at least one dose and 153 million (46%) are fully vaccinated.
+        Among adults 65+, 87% have at least one dose.
+      `),
+      sources: [source('CDC', 'https://www.cdc.gov/covid/php/surveillance/index.html')],
     }),
 
     entry({

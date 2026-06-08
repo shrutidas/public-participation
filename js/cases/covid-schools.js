@@ -20,7 +20,7 @@ export default caseStudy({
     entry({
       date: '02/2020',
       category: 'green',
-      actors: 'CDC, NIH/NIAID, WHO',
+      actors: 'CDC, NIH, WHO',
       text:       paragraph(`
         Public health officials understood that the virus spread readily through respiratory droplets, 
         that older adults and people with comorbidities faced far worse outcomes, and that <strong>children appeared less severely affected</strong>. 
@@ -46,7 +46,7 @@ export default caseStudy({
     entry({
       date: '03/2020',
       category: 'red',
-      actors: 'Fauci (NIAID), CDC, White House Coronavirus Task Force',
+      actors: 'Fauci, CDC, White House Coronavirus Task Force',
       text:       paragraph(`
         Fauci repeatedly emphasized <strong>flattening the curve</strong>, avoided specifying school
         closure policy, and deferred to governors on reopening. He acknowledged that
@@ -149,7 +149,7 @@ export default caseStudy({
 
     entry({
       date: '07/2020',
-      category: 'red',
+      category: 'orange',
       actors: 'President Trump, VP Pence, CDC Director Redfield',
       text:       paragraph(`
         President Trump publicly <strong>attacked CDC guidance</strong> on reopening schools, calling
@@ -347,7 +347,7 @@ export default caseStudy({
       actors: 'CDC, High School Students, Schools',
       text:       paragraph(`
         CDC reported <strong>widespread adolescent mental-health strain</strong> during the pandemic:
-        37.1% of high school students experienced poor mental health, 44.2% reported
+        37% of high school students experienced poor mental health, 44% reported
         persistent sadness or hopelessness, and <strong>school connectedness was associated
         with better mental-health outcomes</strong>.
       `),
