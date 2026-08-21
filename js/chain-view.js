@@ -306,8 +306,7 @@ export function renderDetail(el, chain, selection = {}) {
     el.innerHTML = `<div class="cd cd-intro">
       <div class="cd-hint">Click any link on the map to open its evidence and the
         participation that sat at it. Arrow keys walk the chain.</div>
-      <div class="cd-kick">${chain.label}</div>
-      ${chain.purpose ? `<div class="cd-purpose">${chain.purpose}</div>` : ''}
+      <div class="cd-purpose"><strong>${chain.label}:</strong> ${chain.purpose ?? ''}</div>
       <div class="cd-outcome">${chain.outcome}</div>
       <div class="cd-thesis">${chain.thesis}</div>
       ${summaryStrip(chain)}

@@ -1162,13 +1162,24 @@ body[data-view="chain"] #ctrl .fl,
 .ev-quote::before { content: '“'; }
 .ev-quote::after { content: '”'; }
 
-/* Plain-language statement of what a chain is for */
+/* Plain-language statement of what a chain is for. The intro reads as one
+   piece: purpose, outcome, and thesis share a size, with the purpose lifted
+   only by its bold lead-in. */
 .cd-purpose {
-  font-size: 1rem;
-  font-weight: 600;
-  line-height: 1.55;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.65;
   color: #16202f;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
+}
+
+.cd-purpose strong { font-weight: 700; }
+
+.cd-intro .cd-outcome {
+  font-size: 0.875rem;
+  line-height: 1.65;
+  color: #333;
+  margin-bottom: 12px;
 }
 
 /* Chain-stage pill, from the project's working framework */
