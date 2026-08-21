@@ -59,19 +59,25 @@
 <div id="ch-wrap">
   <div id="ch-mapcol">
     <div id="ch-sel"></div>
-    <div id="ch-map"></div>
+    <div id="ch-mapwrap">
+      <div id="ch-map"></div>
+      <div id="ch-zoom" role="group" aria-label="Zoom">
+        <button data-zoom="out" aria-label="Zoom out">&minus;</button>
+        <button data-zoom="reset" id="zoom-lbl" aria-label="Reset zoom">100%</button>
+        <button data-zoom="in" aria-label="Zoom in">+</button>
+      </div>
+    </div>
     <div id="ch-legend">
-      <span class="lg-hd">Arrows<em>How well evidenced the causal link is</em></span>
+      <span class="lg-hd">Nodes<em>What kind of event the node is</em></span>
       <span class="lg-row">
-        <span class="g gr-strong">Strong</span><span class="g gr-moderate">Moderate</span><span class="g gr-weak">Weak</span><span class="g gr-contested">Contested</span><span class="g gr-unstudied">Unstudied</span>
+        <span class="lg-dot"><i class="k-sw k-sw-node-immovable"></i>Events (cannot be changed)</span>
+        <span class="lg-dot"><i class="k-sw k-sw-node-intervenable"></i>Intervenable</span>
+        <span class="lg-dot"><i class="k-sw k-sw-node-outcome"></i>Valued Outcome</span>
       </span>
-      <span class="lg-hd">Dots<em>Whether participation there changed anything</em></span>
+      <span class="lg-hd">Participation<em>Arrow in the middle; actual on the left, proposed on the right</em></span>
       <span class="lg-row">
-        <span class="lg-dot"><i class="cg-dot ef-moved"></i>Most Change</span>
-        <span class="lg-dot"><i class="cg-dot ef-partial"></i>Partial Change</span>
-        <span class="lg-dot"><i class="cg-dot ef-unmeasured"></i>Never Measured</span>
-        <span class="lg-dot"><i class="cg-dot ef-none"></i>No Change</span>
-        <span class="lg-dot"><i class="cg-dot cg-dot-none"></i>None Identified</span>
+        <span class="lg-dot"><i class="lg-card lg-card-actual"></i>Actual participation (documented)</span>
+        <span class="lg-dot"><i class="lg-card lg-card-prop"></i>Proposed participation (from the design work)</span>
         <button class="lg-more" data-openkey>Full Key &rarr;</button>
       </span>
     </div>

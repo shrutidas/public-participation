@@ -1,4 +1,4 @@
-import { chain, link, evidence, participation, paragraph, source } from '../cases/helpers.js';
+import { chain, link, evidence, participation, proposal, paragraph, source } from '../cases/helpers.js';
 
 /* --------------------------------------------------------------------------
  * Case Study 2: COVID-19 Vaccine Mandates
@@ -19,6 +19,23 @@ const total = chain({
   id: 'vax-total',
   label: 'Total Harm Reduction',
   track: 'total',
+  screen: 'vax-harm',
+  nodes: {
+    'Federal messaging fails, on top of existing distrust': 'intervenable',
+    'Trust in public health agencies falls': 'intervenable',
+    'Fewer people follow guidance and get vaccinated': 'intervenable',
+    'Preventable deaths': 'outcome',
+    'Trust-building outreach tries to raise vaccination': 'intervenable',
+    'Mandates replace persuasion; more get vaccinated, but a fight over authority begins': 'outcome'
+  },
+  nodeDates: {
+    'Federal messaging fails, on top of existing distrust': '12/2020',
+    'Trust in public health agencies falls': '01/2022',
+    'Fewer people follow guidance and get vaccinated': '06/2021',
+    'Preventable deaths': '03/2022',
+    'Trust-building outreach tries to raise vaccination': '06/2021',
+    'Mandates replace persuasion; more get vaccinated, but a fight over authority begins': '11/2021'
+  },
   purpose: paragraph(`
     This chain traces how declining trust in public health institutions
     reduced vaccine uptake, and what lower uptake cost in preventable deaths.
@@ -43,9 +60,10 @@ const total = chain({
 
     link({
       id: 'V1',
+      name: 'Messaging failures reduce trust',
       stage: 'trust',
-      from: 'Federal communication failure plus pre-existing institutional distrust',
-      to: 'Decline in trust in public health institutions',
+      from: 'Federal messaging fails, on top of existing distrust',
+      to: 'Trust in public health agencies falls',
       claim: paragraph(`
         Documented CDC communication failures degraded the agency's information
         channel, and public assessment of the public health response declined
@@ -163,6 +181,29 @@ const total = chain({
           ]
         })
       ],
+      proposals: [
+        proposal({
+          name: 'Share everything, early and openly',
+          method: 'Open data & public briefings',
+          description: paragraph(`
+            From the 6/8 session: in an emergency, some recognition of expertise
+            is warranted, but not deference. Publish hospitalization and death
+            rates at the local level and ladder them up; brief frequently on
+            what is and is not known; start early enough that the information
+            informs public understanding rather than arriving late. The
+            session's premise is that if institutions adhere to a belief in the
+            public's capability for rationality and share meaningful
+            information, they might head off the worst of polarization. The
+            actual record here is the substitution documented at this link: a
+            newspaper performed the function.
+          `),
+          mechanism: paragraph(`
+            Consistent official transparency early sustains trust in public
+            health institutions, the trust that V2 shows predicts compliance.
+          `),
+          unstudied: false
+        })
+      ],
       gaps: [
         paragraph(`
           A private, non-governmental channel outperformed official reporting on
@@ -176,9 +217,10 @@ const total = chain({
 
     link({
       id: 'V2',
+      name: 'Trust shapes who follows guidance',
       stage: 'compliance',
-      from: 'Decline in trust in public health institutions',
-      to: 'Reduced compliance and delayed vaccine uptake',
+      from: 'Trust in public health agencies falls',
+      to: 'Fewer people follow guidance and get vaccinated',
       claim: paragraph(`
         Compliance tracks trust in <strong>public health institutions and
         professionals</strong>, not trust in political leaders; declining institutional
@@ -263,8 +305,9 @@ const total = chain({
 
     link({
       id: 'V3',
+      name: 'Missed doses become deaths',
       stage: 'harm',
-      from: 'Reduced compliance and delayed vaccine uptake',
+      from: 'Fewer people follow guidance and get vaccinated',
       to: 'Preventable deaths',
       claim: paragraph(`
         Non-vaccination among eligible adults produced deaths that vaccination
@@ -336,10 +379,11 @@ const total = chain({
 
     link({
       id: 'V4',
+      name: 'Trust-building outreach, not proven to work',
       stage: 'participation',
       after: 'V2',
-      from: 'Reduced compliance and delayed vaccine uptake',
-      to: 'Uptake raised by a trust-targeting participation intervention',
+      from: 'Fewer people follow guidance and get vaccinated',
+      to: 'Trust-building outreach tries to raise vaccination',
       claim: paragraph(`
         Participation interventions that operate on trust (community engagement,
         trusted messengers) are asserted to have raised COVID-19 vaccine uptake.
@@ -518,9 +562,10 @@ const total = chain({
 
     link({
       id: 'V5',
+      name: 'Mandates replace persuasion',
       stage: 'compliance',
-      from: 'Uptake raised by a trust-targeting participation intervention',
-      to: 'Coercion substituted for trust: uptake rises, legitimacy contest begins',
+      from: 'Trust-building outreach tries to raise vaccination',
+      to: 'Mandates replace persuasion; more get vaccinated, but a fight over authority begins',
       claim: paragraph(`
         Mandates raised uptake through requirement rather than persuasion, and
         their adoption triggered a separate contest over authority that was
@@ -602,6 +647,28 @@ const total = chain({
           sources: [source('New York Times', 'https://www.nytimes.com/2021/10/25/nyregion/nypd-police-covid-vaccine-mandate-deblasio.html')]
         })
       ],
+      proposals: [
+        proposal({
+          name: 'Public deliberation before any mandate',
+          method: 'Citizens assembly / mini-public',
+          description: paragraph(`
+            From the 6/8 session: convene a mini-public before any mandate, on
+            the value tradeoff rather than the science, in which ordinary
+            citizens engage expert knowledge as a means of generating the
+            political legitimacy of science. Decisions decentralized, with
+            regional variation accepted as an output rather than a failure:
+            "some places might decide not to vaccinate; so be it." The session
+            read this and the GenX case as counterexamples to the claim that
+            complex policy domains exceed the competence of ordinary citizens
+            deciding in assembly.
+          `),
+          mechanism: paragraph(`
+            A deliberative process convened before a mandate changes subsequent
+            compliance or the perceived legitimacy of the mandate.
+          `),
+          unstudied: true
+        })
+      ],
       gaps: [
         paragraph(`
           No study was identified testing whether a deliberative process convened
@@ -619,6 +686,21 @@ const fair = chain({
   id: 'vax-fair',
   label: 'Fair Harm Reduction',
   track: 'fair',
+  screen: 'vax-harm',
+  nodes: {
+    'Access barriers, plus past harm from institutions': 'immovable',
+    'Early vaccination is unequal by race': 'outcome',
+    'Access, not hesitancy, is the main barrier': 'intervenable',
+    'Federal equity programs roll out at scale': 'intervenable',
+    'The racial vaccination gap narrows': 'outcome'
+  },
+  nodeDates: {
+    'Access barriers, plus past harm from institutions': '04/2021',
+    'Early vaccination is unequal by race': '04/2021',
+    'Access, not hesitancy, is the main barrier': '05/2021',
+    'Federal equity programs roll out at scale': '06/2021',
+    'The racial vaccination gap narrows': '11/2021'
+  },
   purpose: paragraph(`
     This chain traces why vaccination rates started unequal across racial
     groups, which barriers (access or conviction) drove the gap, and what
@@ -642,9 +724,10 @@ const fair = chain({
 
     link({
       id: 'F1',
+      name: 'Barriers make early vaccination unequal',
       stage: 'harm',
-      from: 'Structural barriers plus historical institutional trauma',
-      to: 'Unequal early uptake',
+      from: 'Access barriers, plus past harm from institutions',
+      to: 'Early vaccination is unequal by race',
       claim: paragraph(`
         The early gap was real, large, and <em>widening</em> by social vulnerability
         at the moment supply was expanding.
@@ -723,9 +806,10 @@ const fair = chain({
 
     link({
       id: 'F2',
+      name: 'Access is the real barrier',
       stage: 'structural',
-      from: 'Unequal early uptake',
-      to: 'Access, not conviction, identified as the binding constraint',
+      from: 'Early vaccination is unequal by race',
+      to: 'Access, not hesitancy, is the main barrier',
       claim: paragraph(`
         Distance to vaccination sites causally reduced uptake, and interventions
         that removed distance produced the largest measured uptake effects in
@@ -768,14 +852,37 @@ const fair = chain({
         })
       ],
       participation: [],
+      proposals: [
+        proposal({
+          name: 'Let communities design how vaccines reach them',
+          method: 'Community advisory & co-design',
+          description: paragraph(`
+            Affected communities decide where and how vaccination access is
+            delivered: siting of mobile units, hours, locations, paid-time-off
+            coordination. Of the proposals in this project, this is the one
+            whose mechanism rests on the strongest causal evidence: distance
+            reduced uptake in 98% of model specifications, and the mobile-unit
+            cluster RCT produced the largest measured uptake effect in the
+            literature reviewed here. The design question the record leaves
+            open is who chooses the sites, not whether sites work.
+          `),
+          mechanism: paragraph(`
+            Removing access barriers raises uptake; community knowledge of
+            local material conditions places the infrastructure where the
+            barriers actually are.
+          `),
+          unstudied: false
+        })
+      ],
       gaps: []
     }),
 
     link({
       id: 'F3',
+      name: 'Equity programs run, but go unmeasured',
       stage: 'participation',
-      from: 'Access, not conviction, identified as the binding constraint',
-      to: 'Federal equity infrastructure deployed at scale',
+      from: 'Access, not hesitancy, is the main barrier',
+      to: 'Federal equity programs roll out at scale',
       claim: paragraph(`
         Federal equity programs documented reach in detail; no evaluation
         measuring their effect on uptake was identified, and in one case the
@@ -876,6 +983,26 @@ const fair = chain({
           ]
         })
       ],
+      proposals: [
+        proposal({
+          name: 'Fund evaluation alongside the programs',
+          method: 'Built-in program evaluation',
+          description: paragraph(`
+            Fund a counterfactual evaluation as a condition of every
+            community-engagement award, so that roughly $1.1 billion in
+            participation infrastructure does not exist in the record only as
+            dollar figures and dose counts. The 6/8 session's question sits
+            behind this: what information is already available, and is it used
+            by and shared with the public?
+          `),
+          mechanism: paragraph(`
+            Evaluation funded alongside delivery produces the effect estimates
+            this link currently lacks, and future emergencies inherit evidence
+            instead of reach statistics.
+          `),
+          unstudied: true
+        })
+      ],
       gaps: [
         paragraph(`
           No published outcome evaluation of any of these line items was
@@ -890,9 +1017,10 @@ const fair = chain({
 
     link({
       id: 'F4',
+      name: 'The gap narrows',
       stage: 'harm-reduction',
-      from: 'Federal equity infrastructure deployed at scale',
-      to: 'The racial vaccination gap narrows by late 2021',
+      from: 'Federal equity programs roll out at scale',
+      to: 'The racial vaccination gap narrows',
       claim: paragraph(`
         The gap narrowed by late 2021. Attribution to any specific intervention
         is unestablished, and the best available analysis identifies a different

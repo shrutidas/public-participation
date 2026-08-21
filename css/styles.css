@@ -336,7 +336,28 @@ body[data-view="chain"] #ctrl .fl,
 .chb:hover { border-color: #1c2333; }
 .chb.on { background: #1c2333; color: #fff; border-color: #1c2333; }
 
-#ch-map { flex: 1 1 auto; overflow: auto; min-height: 0; }
+#ch-mapwrap { position: relative; flex: 1 1 auto; min-height: 0; display: flex; }
+#ch-map { flex: 1 1 auto; overflow: auto; min-height: 0; cursor: grab; }
+#ch-map.grabbing { cursor: grabbing; }
+#ch-map.grabbing .cg-node, #ch-map.grabbing .cg-chip, #ch-map.grabbing .cg-card { cursor: grabbing; }
+
+/* Zoom control, floating over the map. */
+#ch-zoom {
+  position: absolute; right: 12px; bottom: 12px; z-index: 8;
+  display: flex; align-items: stretch;
+  background: #fff; border: 1px solid #c9c2b6; border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.14); overflow: hidden;
+}
+#ch-zoom button {
+  font-family: inherit; border: none; background: #fff; cursor: pointer;
+  color: #2a2a2a; font-weight: 700; padding: 6px 11px; font-size: 0.875rem;
+  line-height: 1; transition: background 0.12s;
+}
+#ch-zoom button:hover { background: #eee9df; }
+#zoom-lbl {
+  min-width: 48px; font-size: 0.6875rem; letter-spacing: 0.02em;
+  border-left: 1px solid #e2ddd3; border-right: 1px solid #e2ddd3;
+}
 
 /* ---- the graph ---- */
 
@@ -344,8 +365,10 @@ body[data-view="chain"] #ctrl .fl,
 
 .cg-edges { position: absolute; left: 0; top: 0; overflow: visible; pointer-events: none; }
 
-.cg-edge { fill: none; stroke-width: 2.5; opacity: 0.85; transition: stroke-width 0.15s, opacity 0.15s; }
-.cg-edge.on { stroke-width: 4.5; opacity: 1; }
+/* The causal arrows no longer encode strength: one neutral color, faded by
+   default and darker when selected, at a constant width (no size jump). */
+.cg-edge { fill: none; stroke: #b0aaa0; stroke-width: 2.25; transition: stroke 0.15s; }
+.cg-edge.on { stroke: #1c2333; }
 
 .cg-hit { fill: none; stroke: transparent; stroke-width: 22; cursor: pointer; pointer-events: stroke; }
 
@@ -354,58 +377,95 @@ body[data-view="chain"] #ctrl .fl,
   background: #22304a;
   color: #fff;
   border-radius: 7px;
-  padding: 10px 13px;
-  font-size: 0.8125rem;
+  padding: 9px 12px;
+  font-size: 0.6875rem;
   font-weight: 600;
-  line-height: 1.42;
+  line-height: 1.4;
+  text-align: center;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.14);
 }
 
-.cg-node.cg-root { background: #4a5f7a; }
-.cg-node.cg-end { background: #6e1510; }
-.cg-node.cg-fork { background: #2f4a6d; }
+/* Node roles: gray for events that cannot be changed, green for events
+   participation could act on, red for the outcomes worth caring about. */
+.cg-node-date { font-weight: 800; opacity: 0.85; white-space: nowrap; }
 
+.cg-node.cg-immovable { background: #5c6270; }
+.cg-node.cg-intervenable { background: #1e6b3c; }
+.cg-node.cg-outcome { background: #8c1f16; }
+.cg-node.sel { outline: 3px solid #4a9fd5; outline-offset: 2px; }
 
-.cg-chip {
+/* Sub-chains sharing one screen: separate canvases side by side, never one
+   merged graph. Side by side (not stacked) so the second sub-chain sits as a
+   visible peer rather than below the fold where it can be missed. Each column
+   sizes to its own graph so a wide sub-chain cannot overflow into its
+   neighbour. */
+.cg-row { display: flex; flex-direction: row; gap: 48px; align-items: flex-start; }
+.cg-col { flex: 0 0 auto; }
+.cg-canvas { position: relative; }
+.cg-col .cg-sub { font-size: 0.8125rem; }
+.cg-sub {
+  font-size: 0.75rem; font-weight: 700; letter-spacing: 0.04em; color: #3f3a32;
+  margin: 0 0 8px; padding-bottom: 5px; border-bottom: 1px solid #d8d3c8;
+}
+
+/* A link on the map: the arrow runs through the center; the name chip sits on
+   it, with ACTUAL participation flanking left and PROPOSED flanking right. The
+   chip is the flow anchor so the name stays centered on the arrow whatever
+   flanks it. */
+.cg-linkgroup {
   position: absolute;
   transform: translate(-50%, -50%);
-  display: flex; align-items: center; gap: 6px;
+  display: inline-flex;
+}
+
+.cg-chip {
+  position: relative;
+  z-index: 2;
   background: #fff;
-  border: 1.5px solid #c9c2b6;
-  border-radius: 20px;
-  padding: 4px 10px;
+  border: 1.5px solid #b8b1a4;
+  border-radius: 8px;
+  padding: 4px 9px;
   cursor: pointer;
   font-family: inherit;
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.12);
-  transition: transform 0.12s, box-shadow 0.12s, border-color 0.12s;
-  white-space: nowrap;
+  font-size: 0.625rem; font-weight: 700; color: #2a2a2a; letter-spacing: 0.02em;
+  line-height: 1.25; text-align: center;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
+  transition: box-shadow 0.12s, border-color 0.12s;
+  max-width: 150px;
 }
+.cg-chip:hover { border-color: #1c2333; box-shadow: 0 3px 10px rgba(0,0,0,0.18); }
+.cg-linkgroup.on .cg-chip { background: #1c2333; border-color: #1c2333; color: #fff; }
 
-.cg-chip:hover { transform: translate(-50%, -50%) scale(1.08); box-shadow: 0 3px 12px rgba(0,0,0,0.2); }
-
-.cg-chip.st-strong { border-color: #177038; }
-.cg-chip.st-moderate { border-color: #1258a0; }
-.cg-chip.st-weak { border-color: #a84e08; }
-.cg-chip.st-contested { border-color: #8a6d0f; }
-.cg-chip.st-unstudied { border-color: #aa2a20; }
-
-.cg-chip.on { background: #1c2333; border-color: #1c2333; }
-.cg-chip.on .cg-chip-id { color: #fff; }
-.cg-chip.on .cg-dot { box-shadow: 0 0 0 1.5px rgba(255,255,255,0.9); }
-.cg-chip.on .cg-dot-none { border-color: rgba(255,255,255,0.7); }
-
-.cg-chip-id { font-size: 0.75rem; font-weight: 700; color: #3a3a3a; letter-spacing: 0.03em; }
-.cg-chip-dots { display: flex; gap: 3px; }
-
-.cg-dot {
-  width: 8px; height: 8px; border-radius: 50%; display: inline-block;
-  box-sizing: border-box; flex-shrink: 0;
+/* The flanking columns. Absolutely placed just outside the chip so the chip
+   itself stays exactly on the arrow. */
+.cg-side {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  display: flex; flex-direction: column; gap: 4px; z-index: 1;
 }
-.cg-dot.ef-moved { background: #601898; }
-.cg-dot.ef-partial { background: #a274d0; }
-.cg-dot.ef-unmeasured { background: #ede3f9; border: 1.5px solid #601898; }
-.cg-dot.ef-none { background: #9a948a; }
-.cg-dot.cg-dot-none { background: transparent; border: 1.5px solid #bdb7ac; }
+.cg-side-actual { right: 100%; align-items: flex-end; padding-right: 12px; }
+.cg-side-prop { left: 100%; align-items: flex-start; padding-left: 12px; }
+
+/* A participation card on the map. Actual: solid purple. Proposed: purple,
+   dashed. Both name the event in full; click opens the detail. */
+.cg-card {
+  font-family: inherit; cursor: pointer; text-align: center;
+  font-size: 0.625rem; font-weight: 600; line-height: 1.28;
+  padding: 5px 8px; border-radius: 6px; width: 132px;
+  white-space: normal; overflow-wrap: anywhere;
+  transition: box-shadow 0.12s, transform 0.12s;
+}
+.cg-card:hover { box-shadow: 0 2px 9px rgba(0,0,0,0.16); transform: translateY(-1px); z-index: 6; position: relative; }
+.cg-linkgroup:hover { z-index: 5; }
+.cg-actual { background: #f2eafb; color: #3d0f70; border: 1.5px solid #601898; }
+.cg-prop { background: #f7f1fd; color: #3d0f70; border: 1.5px dashed #601898; }
+
+/* A short connector tick from each flank toward the arrow. */
+.cg-side-actual::after,
+.cg-side-prop::before {
+  content: ''; position: absolute; top: 50%; width: 12px; border-top: 1.5px solid #b39ddb;
+}
+.cg-side-actual::after { right: 0; }
+.cg-side-prop::before { left: 0; border-top-style: dashed; }
 
 #ch-legend {
   display: grid;
@@ -424,8 +484,11 @@ body[data-view="chain"] #ctrl .fl,
   display: block; font-style: normal; font-weight: 500;
   font-size: 0.6875rem; color: #8a8377; margin-top: 1px;
 }
-.lg-row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.lg-row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; }
 .lg-dot { display: inline-flex; align-items: center; gap: 5px; }
+.lg-card { width: 22px; height: 13px; border-radius: 4px; display: inline-block; flex-shrink: 0; }
+.lg-card-actual { background: #f2eafb; border: 1.5px solid #601898; }
+.lg-card-prop { background: #f7f1fd; border: 1.5px dashed #601898; }
 .lg-more {
   margin-left: auto; background: none; border: 1px solid #bdb7ac; border-radius: 4px;
   font-family: inherit; font-size: 0.6875rem; font-weight: 700; color: #5a5347;
@@ -445,10 +508,11 @@ body[data-view="chain"] #ctrl .fl,
 .gr-contested { background: #fbf3d8; color: #5a4708; border: 1px solid #8a6d0f; }
 .gr-unstudied { background: #faeaea; color: #6e1510; border: 1px solid #aa2a20; }
 
-.pa-effect.ef-moved, .g.ef-moved { background: #601898; color: #fff; border: 1px solid #601898; }
-.pa-effect.ef-partial, .g.ef-partial { background: #a274d0; color: #fff; border: 1px solid #a274d0; }
-.pa-effect.ef-unmeasured, .g.ef-unmeasured { background: #ede3f9; color: #43106e; border: 1px dashed #601898; }
-.pa-effect.ef-none, .g.ef-none { background: #e8e5e0; color: #514c44; border: 1px solid #9a948a; }
+/* Summary-strip pills: actual (solid purple), proposed (dashed purple),
+   neutral (counts). No strength or effect coloring anywhere. */
+.g.g-actual { background: #f2eafb; color: #3d0f70; border: 1px solid #601898; }
+.g.g-prop { background: #f7f1fd; color: #3d0f70; border: 1px dashed #601898; }
+.g.g-neutral { background: #ececf2; color: #33384a; border: 1px solid #b7bccb; }
 
 /* ---- detail pane ---- */
 
@@ -527,6 +591,7 @@ body[data-view="chain"] #ctrl .fl,
 }
 .ln-sec-counter h4 { color: #7a3410; }
 .ln-sec-part h4 { color: #380c68; }
+.ln-sec-prop h4 { color: #4a1a7a; }
 .ln-sec-gap h4 { color: #6e1510; }
 .ln-none { font-size: 0.8125rem; color: #8a8377; font-style: italic; }
 
@@ -561,9 +626,6 @@ body[data-view="chain"] #ctrl .fl,
 .pa[data-part] { cursor: pointer; transition: box-shadow 0.12s, transform 0.12s; }
 .pa[data-part]:hover { box-shadow: 0 2px 10px rgba(0,0,0,0.1); transform: translateX(2px); }
 .pa[data-part]:focus-visible { outline: 2px solid #601898; outline-offset: 2px; }
-.pa.pa-partial { border-left-color: #a274d0; }
-.pa.pa-unmeasured { border-left-color: #601898; border-left-style: dashed; }
-.pa.pa-none { border-left-color: #9a948a; background: #f3f1ee; border-color: #ddd8d0; }
 
 .pa-hd { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 7px; }
 .pa-date { font-size: 0.75rem; font-weight: 700; color: #444; letter-spacing: 0.02em; }
@@ -572,12 +634,37 @@ body[data-view="chain"] #ctrl .fl,
   font-size: 0.5625rem; font-weight: 700; letter-spacing: 0.04em;
   background: #f0e8fa; color: #380c68; border: 1px solid #601898; padding: 2px 8px; border-radius: 10px;
 }
-.pa-effect {
-  font-size: 0.5625rem; font-weight: 700;
-  letter-spacing: 0.04em; padding: 2px 8px; border-radius: 10px;
-}
 .pa-actors { font-size: 0.8125rem; color: #555; margin-bottom: 6px; line-height: 1.5; }
 .pa-desc { font-size: 0.875rem; line-height: 1.6; color: #222; }
+
+/* Proposed participation cards: same purple as the documented record, but
+   dashed throughout, marking speculation. A fully dashed left edge (default
+   here) plus the "unstudied link" flag marks a proposal resting on a causal
+   link the literature has not studied. */
+.pp {
+  background: #f7f1fd; border: 1px dashed #b79ae0; border-left: 4px dashed #601898;
+  border-radius: 0 6px 6px 0; padding: 11px 14px; margin-bottom: 10px;
+}
+.pp.pp-unstudied { border-left-color: #601898; }
+.pp-method {
+  font-size: 0.5625rem; font-weight: 700; letter-spacing: 0.04em;
+  background: #f2eafb; color: #3d0f70; border: 1px solid #601898;
+  padding: 2px 8px; border-radius: 10px;
+}
+.pp-flag {
+  font-size: 0.5625rem; font-weight: 700; letter-spacing: 0.04em;
+  background: #fff; color: #3d0f70; border: 1px dashed #601898;
+  padding: 2px 8px; border-radius: 10px;
+}
+.pp-mech { font-size: 0.8125rem; line-height: 1.55; color: #4a3a5e; margin-top: 7px; }
+.pp-mech-note { display: block; font-size: 0.75rem; color: #601898; margin-top: 3px; }
+
+/* Paired sub-chain intros in the overview pane. */
+.cd-subchain { border-top: 2px solid #e6e0d5; margin-top: 20px; padding-top: 16px; }
+.cd-subchain:first-of-type { border-top: none; margin-top: 6px; padding-top: 0; }
+
+/* Small link id beside the event name in the detail header. */
+.cd-lid { font-size: 0.6875rem; font-weight: 700; color: #8a8377; letter-spacing: 0.04em; }
 
 .gap-list li {
   font-size: 0.875rem; line-height: 1.6; color: #4a1e1a; background: #fdf2f1;
@@ -672,10 +759,11 @@ body[data-view="chain"] #ctrl .fl,
 
 /* Miniature versions of the map's own marks, so the key shows the real thing. */
 .k-sw { width: 26px; height: 13px; border-radius: 3px; display: inline-block; flex-shrink: 0; }
-.k-sw-node-root { background: #4a5f7a; }
-.k-sw-node-mid { background: #22304a; }
-.k-sw-node-fork { background: #2f4a6d; }
-.k-sw-node-end { background: #6e1510; }
+.k-sw-node-immovable { background: #5c6270; }
+.k-sw-node-intervenable { background: #1e6b3c; }
+.k-sw-node-outcome { background: #8c1f16; }
+.k-sw-card-actual { background: #f2eafb; border: 1.5px solid #601898; }
+.k-sw-card-prop { background: #f7f1fd; border: 1.5px dashed #601898; }
 .k-sw-edge-solid { height: 0; border-top: 3px solid #177038; border-radius: 0; }
 .k-sw-edge-dash { height: 0; border-top: 3px dashed #aa2a20; border-radius: 0; }
 .k-sw-chip {
@@ -1153,13 +1241,13 @@ body[data-view="chain"] #ctrl .fl,
    only by its bold lead-in. */
 .cd-purpose {
   font-size: 0.875rem;
-  font-weight: 600;
+  font-weight: 400;
   line-height: 1.65;
-  color: #2e2e2e;
+  color: #333;
   margin-bottom: 12px;
 }
 
-.cd-purpose strong { font-weight: 750; color: #16202f; }
+.cd-purpose strong { font-weight: 400; color: #333; }
 
 .cd-intro .cd-outcome {
   font-size: 0.875rem;

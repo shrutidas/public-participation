@@ -12,6 +12,8 @@
  *   #/case/<slug>/chain/<chainId>                   a specific chain
  *   #/case/<slug>/chain/<chainId>/<linkId>          a link, detail open
  *   #/case/<slug>/chain/<chainId>/<linkId>/p/<n>    a participation instance
+ *   #/case/<slug>/chain/<chainId>/<linkId>/pr/<n>   a proposed participation
+ *   #/case/<slug>/chain/<chainId>/n/<i>             a node (i = index in nodes)
  */
 
 const VIEWS = ['chain', 'timeline'];
@@ -20,7 +22,7 @@ export function parse(hash = window.location.hash) {
   const raw = hash.replace(/^#\/?/, '');
   const seg = raw.split('/').filter(Boolean);
 
-  const route = { caseSlug: null, view: null, chainId: null, linkId: null, partIdx: null };
+  const route = { caseSlug: null, view: null, chainId: null, linkId: null, partIdx: null, propIdx: null, nodeIdx: null };
   if (seg[0] !== 'case' || !seg[1]) return route;
 
   route.caseSlug = decodeURIComponent(seg[1]);
@@ -30,15 +32,23 @@ export function parse(hash = window.location.hash) {
   if (route.view !== 'chain') return route;
 
   if (seg[3]) route.chainId = decodeURIComponent(seg[3]);
-  if (seg[4]) route.linkId = decodeURIComponent(seg[4]);
-  if (seg[5] === 'p' && seg[6] != null) {
-    const n = Number(seg[6]);
-    if (Number.isInteger(n) && n >= 0) route.partIdx = n;
+  if (seg[4] === 'n' && seg[5] != null) {
+    const n = Number(seg[5]);
+    if (Number.isInteger(n) && n >= 0) route.nodeIdx = n;
+  } else if (seg[4]) {
+    route.linkId = decodeURIComponent(seg[4]);
+    if ((seg[5] === 'p' || seg[5] === 'pr') && seg[6] != null) {
+      const n = Number(seg[6]);
+      if (Number.isInteger(n) && n >= 0) {
+        if (seg[5] === 'p') route.partIdx = n;
+        else route.propIdx = n;
+      }
+    }
   }
   return route;
 }
 
-export function build({ caseSlug, view, chainId, linkId, partIdx } = {}) {
+export function build({ caseSlug, view, chainId, linkId, partIdx, propIdx, nodeIdx } = {}) {
   if (!caseSlug) return '#/';
   const seg = ['case', encodeURIComponent(caseSlug)];
   if (view) seg.push(view);
@@ -47,6 +57,9 @@ export function build({ caseSlug, view, chainId, linkId, partIdx } = {}) {
     if (linkId) {
       seg.push(encodeURIComponent(linkId));
       if (partIdx != null) seg.push('p', String(partIdx));
+      else if (propIdx != null) seg.push('pr', String(propIdx));
+    } else if (nodeIdx != null) {
+      seg.push('n', String(nodeIdx));
     }
   }
   return '#/' + seg.join('/');

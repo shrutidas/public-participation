@@ -1,14 +1,13 @@
-import { chain, link, evidence, participation, paragraph, source } from '../cases/helpers.js';
+import { chain, link, evidence, participation, proposal, paragraph, source } from '../cases/helpers.js';
 
 /* --------------------------------------------------------------------------
  * Case Study 3: GenX Contamination in the Cape Fear River
  *
- * Two chains, matching the two outcomes participation could plausibly have
- * improved:
- *
- *   DETECTION: could the problem have been identified earlier?
- *   RESPONSE: once identified, was the response faster or better because
- *               of participation?
+ * One chain. Public knowledge is a mediator in this case, not an end
+ * outcome: the only terminal outcomes that matter are the harm absorbed
+ * while disclosure failed and the harm reduction that followed disclosure.
+ * The chain therefore runs the full arc, from concealment through the
+ * newspaper story to the consent order and what it did not generalize into.
  *
  * The record shows this was not a detection failure but a disclosure
  * failure: EPA research scientists detected the compounds in 2012, and the
@@ -16,39 +15,81 @@ import { chain, link, evidence, participation, paragraph, source } from '../case
  * monitoring one.
  * -------------------------------------------------------------------------- */
 
-const detection = chain({
-  id: 'pfas-detection',
-  label: 'Earlier Identification',
-  track: 'detection',
+const harmReduction = chain({
+  id: 'pfas-harm',
+  label: 'Harm Reduction',
+  track: 'harm-reduction',
+  nodes: {
+    'The company hid what it knew': 'intervenable',
+    'Regulators never got the information the law required': 'intervenable',
+    'No inspection, and no warning to the public': 'intervenable',
+    'The contamination is found, but kept inside agencies': 'intervenable',
+    'The public finds out, from a newspaper': 'intervenable',
+    'PFAS measured in the blood of residents': 'outcome',
+    'Agencies act within a week': 'intervenable',
+    'A weak first order that leaves out groundwater and rivers': 'intervenable',
+    'A stronger draft order, with the citizen group as a legal party': 'intervenable',
+    'A final order that protects downstream towns and lets the citizen group enforce it': 'intervenable',
+    'Lasting community research that returns results to residents': 'outcome',
+    'No statewide standard follows': 'outcome'
+  },
+  nodeDates: {
+    'The company hid what it knew': '1961',
+    'Regulators never got the information the law required': '2005',
+    'No inspection, and no warning to the public': '2009',
+    'The contamination is found, but kept inside agencies': '08/2012',
+    'The public finds out, from a newspaper': '06/2017',
+    'PFAS measured in the blood of residents': '2017',
+    'Agencies act within a week': '06/2017',
+    'A weak first order that leaves out groundwater and rivers': '06/2018',
+    'A stronger draft order, with the citizen group as a legal party': '11/2018',
+    'A final order that protects downstream towns and lets the citizen group enforce it': '02/2019',
+    'Lasting community research that returns results to residents': '2019',
+    'No statewide standard follows': '05/2026'
+  },
   purpose: paragraph(`
-    This chain traces why GenX contamination of the Cape Fear River stayed
+    This chain runs the full arc of the case: why GenX contamination stayed
     unknown to the public for decades after the companies, and later the
-    regulators, knew.
+    regulators, knew; how public knowledge finally arrived; and what that
+    knowledge did and did not convert into. Public knowledge sits in the
+    middle of this chain as a mediator, not at the end as an outcome. The
+    outcomes that matter are the harm absorbed while disclosure failed and
+    the harm reduction that followed it.
   `),
   outcome: paragraph(`
     Approximately <strong>200,000</strong> CFPUA customers (250,000–300,000 in the wider
     downstream region) drank water with a mean GenX concentration of
     <strong>631 ng/L</strong> and concentrations up to approximately 4,500 ng/L
-    (Sun et al., 2016).
+    (Sun et al., 2016), with PFAS measured in the blood of residents years before
+    disclosure. After disclosure: a <strong>$12 million</strong> penalty, a consent order
+    with a citizen group holding independent enforcement authority, a 99%
+    discharge reduction, filtered water for Wilmington by 2022; and, nine
+    years on, <strong>still no enforceable North Carolina surface water standard for
+    GenX</strong>, with the federal drinking water limit proposed for rescission in
+    May 2026.
   `),
   thesis: paragraph(`
     The available evidence indicates that detection worked and disclosure did
     not. <strong>EPA research scientists found the novel compounds in samples collected
-    in 2012</strong>; academic quantification reached NC DEQ in November 2016. The step
-    that failed was the one from institutional knowledge to public knowledge:
-    roughly <strong>five years</strong> from federal detection, and roughly <strong>seven months</strong>
-    from a peer-reviewed paper reaching the regulator, to a newspaper reporting
-    what was in the tap water. On this record, participation instruments that
-    improve <em>sensing</em> would not have changed the outcome; instruments that
-    force <em>notification</em> address the step that failed.
+    in 2012</strong>; academic quantification reached NC DEQ in November 2016; roughly
+    <strong>five years</strong> passed between federal detection and a newspaper reporting
+    what was in the tap water. Once public knowledge existed, it converted into
+    response through three different instruments closing three different links,
+    in sequence and not interchangeably: <strong>journalism</strong> produced disclosure,
+    <strong>litigation</strong> produced scope, and <strong>public comment</strong> produced downstream
+    coverage. None of them was deliberative, and this adversarial record
+    produced more documented change than any deliberative instrument in the
+    other two cases in this project. What it did not produce is a
+    generalizable standard.
   `),
   links: [
 
     link({
       id: 'D1',
+      name: 'The company hides evidence it was required to report',
       stage: 'structural',
-      from: 'Corporate concealment, 1961 onward',
-      to: 'Regulators without the information the law entitled them to',
+      from: 'The company hid what it knew',
+      to: 'Regulators never got the information the law required',
       claim: paragraph(`
         Disclosure obligations existed and were not met. The asserted failure
         at this link is legal compliance.
@@ -169,6 +210,47 @@ const detection = chain({
           sources: [source('Minnesota Reformer', 'https://minnesotareformer.com/2022/12/15/toxic-3m-knew-its-chemicals-were-harmful-decades-ago-but-didnt-tell-the-public-government/')]
         })
       ],
+      proposals: [
+        proposal({
+          name: 'Give workers a protected way to report',
+          method: 'Worker committees & protected disclosure',
+          description: paragraph(`
+            From the 6/8 session: a mechanism for involving workers in
+            companies, so that a company cannot simply bury evidence. DuPont
+            was observing unusual medical issues among its own workers; the
+            session's question was why those workers had no say, calling them
+            the canary in the coal mine and drawing the parallel to the opioid
+            case. The documented analog at this link, Richard Purdy's 1999
+            resignation disclosure, is individual whistleblowing, which arrived
+            decades after the internal findings and depended on one person
+            accepting the cost.
+          `),
+          mechanism: paragraph(`
+            Structured, protected worker voice surfaces concealed internal
+            evidence years before litigation discovery can.
+          `),
+          unstudied: true
+        }),
+        proposal({
+          name: 'Let residents report early warning signs',
+          method: 'Participatory science / community reporting',
+          description: paragraph(`
+            From the 6/8 session, anchored to 1998, when someone first notices
+            something is off: an institution for reporting suspicions and
+            symptoms, treating them as experiential knowledge, with local
+            meetings, information spreading, and crowdsourced data collection
+            at the sign of a threat. A caution from this project's own record:
+            in this case detection was not the step that failed after 2012;
+            disclosure was. This proposal addresses the earlier decades, when
+            harm signals existed only as worker and resident experience.
+          `),
+          mechanism: paragraph(`
+            Community experiential reports trigger investigation before formal
+            institutional detection exists.
+          `),
+          unstudied: true
+        })
+      ],
       gaps: [
         paragraph(`
           Litigation is the only instrument in this record that reliably pierced
@@ -182,9 +264,10 @@ const detection = chain({
 
     link({
       id: 'D2',
+      name: 'An order no one checks',
       stage: 'structural',
-      from: 'Regulators without the information the law entitled them to',
-      to: 'No triggered inspection and no public notification',
+      from: 'Regulators never got the information the law required',
+      to: 'No inspection, and no warning to the public',
       claim: paragraph(`
         Regulatory machinery specific to this substance existed from 2009 and did
         not produce an inspection until after public disclosure in 2017.
@@ -230,6 +313,30 @@ const detection = chain({
         })
       ],
       participation: [],
+      proposals: [
+        proposal({
+          name: 'Warn the public when discharge is approved',
+          method: 'Statutory right-to-know',
+          description: paragraph(`
+            From the 6/8 session: every time a company starts discharging
+            something into the natural environment, the ground, a river, the
+            affected public is notified, as part of the approval process for
+            chemicals, drugs, and technology, on the model of an FDA-style
+            initial review that involves the public and makes assurances about
+            monitoring under uncertainty. Offsets do not substitute: the
+            session noted that externalities are borne by the specific
+            communities affected. Applied here, a 5(e) consent order would
+            carry a notification duty to downstream water users and a local
+            monitoring plan with public involvement.
+          `),
+          mechanism: paragraph(`
+            A notification duty attached to discharge approvals converts
+            institutional knowledge into public knowledge without waiting for a
+            newspaper.
+          `),
+          unstudied: true
+        })
+      ],
       gaps: [
         paragraph(`
           The record supplies a specific answer to why the existing mechanism did not
@@ -244,9 +351,10 @@ const detection = chain({
 
     link({
       id: 'D3',
+      name: 'The findings stay inside agencies',
       stage: 'structural',
-      from: 'No triggered inspection and no public notification',
-      to: 'Detection achieved, but held inside institutions',
+      from: 'No inspection, and no warning to the public',
+      to: 'The contamination is found, but kept inside agencies',
       claim: paragraph(`
         Detection was not the bottleneck. Between federal detection and public
         disclosure sat roughly five years in which the knowledge existed inside
@@ -315,6 +423,26 @@ const detection = chain({
         })
       ],
       participation: [],
+      proposals: [
+        proposal({
+          name: 'A law that forces public notice on detection',
+          method: 'Right-to-know trigger',
+          description: paragraph(`
+            A notification requirement that fires when a peer-reviewed detection
+            above a threshold reaches a regulator, so that the roughly five
+            years between federal detection and public knowledge, and the seven
+            months between the Sun et al. paper reaching NC DEQ and the
+            newspaper story, cannot recur silently. In this record the function
+            was performed by one reporter reading a public federal database.
+          `),
+          mechanism: paragraph(`
+            Automatic disclosure on regulator receipt of a qualifying detection
+            removes journalism as the single point of failure between
+            institutional and public knowledge.
+          `),
+          unstudied: true
+        })
+      ],
       gaps: [
         paragraph(`
           Two claims that would materially strengthen this link remain unverified:
@@ -328,9 +456,10 @@ const detection = chain({
 
     link({
       id: 'D4',
+      name: 'A reporter tells the public',
       stage: 'participation',
-      from: 'Detection achieved, but held inside institutions',
-      to: 'Public knowledge (June 2017), via a newspaper',
+      from: 'The contamination is found, but kept inside agencies',
+      to: 'The public finds out, from a newspaper',
       claim: paragraph(`
         The link was closed by a local newspaper reporter reading a federal
         transparency database, not by a regulator, a utility, or any participation
@@ -375,7 +504,7 @@ const detection = chain({
       participation: [
         participation({
           date: '06/2017',
-          name: 'Local journalism as the de facto notification instrument',
+          name: 'Local journalism did the job of warning the public',
           kind: 'journalism',
           actors: 'Vaughn Hagerty, Wilmington StarNews',
           description: paragraph(`
@@ -405,10 +534,11 @@ const detection = chain({
 
     link({
       id: 'D5',
+      name: 'Exposure shows up in the blood',
       stage: 'harm',
       after: 'D3',
-      from: 'Detection achieved, but held inside institutions',
-      to: 'Measured body burden in the exposed population',
+      from: 'The contamination is found, but kept inside agencies',
+      to: 'PFAS measured in the blood of residents',
       claim: paragraph(`
         The harm is quantified in serum, and the quantification exists because a
         university built a study around a community, not because any regulator
@@ -460,7 +590,7 @@ const detection = chain({
           finding: paragraph(`
             Analysis of 119 archived adult serum samples collected 2010–2016
             (<strong>before disclosure</strong>) found PFMOAA at a median of 42 ng/mL, the
-            highest of 56 PFAS measured, establishing body burden in the population
+            highest of 56 PFAS measured, establishing internal PFAS levels in the population
             years before the June 2017 public disclosure.
           `),
           quote: paragraph(`
@@ -485,43 +615,15 @@ const detection = chain({
       ],
       participation: [],
       gaps: []
-    })
-
-  ]
-});
-
-const response = chain({
-  id: 'pfas-response',
-  label: 'Faster and Better Response',
-  track: 'response',
-  purpose: paragraph(`
-    This chain traces what happened after public disclosure in June 2017:
-    which forms of participation forced remediation, and which protections
-    never followed.
-  `),
-  outcome: paragraph(`
-    A <strong>$12 million</strong> penalty, a consent order with a citizen group holding
-    independent enforcement authority, a 99% discharge reduction, filtered water
-    for Wilmington by 2022; and, nine years on, <strong>still no enforceable North
-    Carolina surface water standard for GenX</strong>, with the federal drinking water
-    limit proposed for rescission in May 2026.
-  `),
-  thesis: paragraph(`
-    The assembled evidence shows three different instruments closing three
-    different links, in sequence and not interchangeably: <strong>journalism</strong>
-    produced disclosure, <strong>litigation</strong> produced scope, and <strong>public comment</strong>
-    produced downstream coverage. None of them was deliberative. The documented
-    participation record is adversarial and legal, and it produced more
-    documented change than any deliberative instrument in the other two cases in
-    this project.
-  `),
-  links: [
+    }),
 
     link({
       id: 'R1',
+      name: 'News coverage forces the state to act',
       stage: 'compliance',
-      from: 'Public disclosure (June 2017)',
-      to: 'Emergency agency action within one week',
+      after: 'D4',
+      from: 'The public finds out, from a newspaper',
+      to: 'Agencies act within a week',
       claim: paragraph(`
         Press attention, not participation, unlocked the initial regulatory response.
       `),
@@ -607,14 +709,38 @@ const response = chain({
           ]
         })
       ],
+      proposals: [
+        proposal({
+          name: 'Let the public choose experts to review the evidence',
+          method: 'Independent science review',
+          description: paragraph(`
+            From the 6/8 session: let the public appoint its own experts to
+            review the evidence, with independent third-party assessment of
+            testing (blood panels, water contaminant analyses) and a defined
+            public role on those panels. The session named the precondition
+            directly: trust in the public input process itself, or a mechanism
+            for bypassing authorities the community does not trust. In the
+            actual record, the community got its expert review through a
+            closed meeting's pool reporter and forums convened by a
+            riverkeeper group and news organizations.
+          `),
+          mechanism: paragraph(`
+            Review by experts the community chose sustains the legitimacy of
+            emergency response where trust in the responsible agencies is
+            already damaged.
+          `),
+          unstudied: true
+        })
+      ],
       gaps: []
     }),
 
     link({
       id: 'R2',
+      name: 'A narrow first order',
       stage: 'structural',
-      from: 'Emergency agency action within one week',
-      to: 'A weak draft order omitting groundwater and surface water pathways',
+      from: 'Agencies act within a week',
+      to: 'A weak first order that leaves out groundwater and rivers',
       claim: paragraph(`
         The regulator's June 2018 draft order covered two contamination pathways
         and left others unaddressed. The sequence is documented: the narrow draft
@@ -647,9 +773,10 @@ const response = chain({
 
     link({
       id: 'R3',
+      name: 'A citizen lawsuit widens the order',
       stage: 'participation',
-      from: 'A weak draft order omitting groundwater and surface water pathways',
-      to: 'A comprehensive draft order, with the citizen group as a party',
+      from: 'A weak first order that leaves out groundwater and rivers',
+      to: 'A stronger draft order, with the citizen group as a legal party',
       claim: paragraph(`
         A 1,100-member nonprofit resolved two live lawsuits in exchange for party
         status, independent enforcement authority over eleven provisions, and a
@@ -734,7 +861,7 @@ const response = chain({
       participation: [
         participation({
           date: '05/2018–08/2018',
-          name: 'Cape Fear River Watch / SELC citizen suit',
+          name: 'Cape Fear River Watch, SELC citizen suit',
           kind: 'litigation',
           actors: 'Cape Fear River Watch (1,100 members), Southern Environmental Law Center',
           description: paragraph(`
@@ -763,9 +890,10 @@ const response = chain({
 
     link({
       id: 'R4',
+      name: 'Public comment adds protections',
       stage: 'participation',
-      from: 'A comprehensive draft order, with the citizen group as a party',
-      to: 'A final order with downstream protections and citizen enforcement authority',
+      from: 'A stronger draft order, with the citizen group as a legal party',
+      to: 'A final order that protects downstream towns and lets the citizen group enforce it',
       claim: paragraph(`
         Public comment on the draft order produced documented, itemized,
         agency-acknowledged changes to its terms.
@@ -847,9 +975,10 @@ const response = chain({
 
     link({
       id: 'R5',
+      name: 'Lasting community research',
       stage: 'participation',
-      from: 'A final order with downstream protections and citizen enforcement authority',
-      to: 'Sustained community research capacity and returned individual results',
+      from: 'A final order that protects downstream towns and lets the citizen group enforce it',
+      to: 'Lasting community research that returns results to residents',
       claim: paragraph(`
         Beyond the order itself, the episode produced durable research
         infrastructure: a statewide monitoring network and a longitudinal exposure
@@ -985,10 +1114,11 @@ const response = chain({
 
     link({
       id: 'R6',
+      name: 'It never becomes a statewide rule',
       stage: 'structural',
       after: 'R4',
-      from: 'A final order with downstream protections and citizen enforcement authority',
-      to: 'A generalizable standard: the link does not hold',
+      from: 'A final order that protects downstream towns and lets the citizen group enforce it',
+      to: 'No statewide standard follows',
       claim: paragraph(`
         The link does not hold. Nine years of the most extensive participation
         record in the project produced remediation at one plant and no
@@ -1076,6 +1206,28 @@ const response = chain({
         })
       ],
       participation: [],
+      proposals: [
+        proposal({
+          name: 'Federal funding, enforcement designed locally',
+          method: 'Federal funding, local design',
+          description: paragraph(`
+            From the 6/8 session: federally funded programs whose enforcement
+            and implementation methods are locally designed, as a route from
+            facility-level wins to protections that reach the next community.
+            The session's diagnosis of the existing mechanisms fits this link:
+            EPA distrusted state authorities at Flint; local government
+            sometimes holds more public trust but lacks capacity; lawsuits are
+            too expensive for people. The 1969 OMB Circular A-105 regional
+            structure was raised as a model for varying how agencies serve
+            different regions.
+          `),
+          mechanism: paragraph(`
+            Pairing federal resources with locally designed enforcement
+            converts facility-scoped remediation into generalizable standards.
+          `),
+          unstudied: true
+        })
+      ],
       gaps: [
         paragraph(`
           On this record, participation instruments in this domain are
@@ -1092,4 +1244,4 @@ const response = chain({
   ]
 });
 
-export default [detection, response];
+export default [harmReduction];

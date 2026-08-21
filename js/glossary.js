@@ -1,15 +1,18 @@
 /**
  * Every label used anywhere in the project, defined in one place.
  *
- * There are two independent dimensions on the chain map and they are easy to
- * confuse, so they get separate visual languages:
+ * There are three independent dimensions on the chain map and they are easy
+ * to confuse, so they get separate visual languages:
  *
+ *   THE BOX: what kind of event the node is. Gray for events nothing could
+ *                have moved, green for events participation could act on,
+ *                red for the outcomes worth caring about.
  *   THE ARROW: how well evidenced the causal link is. Sequential color
  *                ramp from green (safe to assert) to red (no evidence found).
- *   THE DOTS: whether public participation at that link changed anything.
- *                Purple family, matching the "Public Participation" category
- *                used on the timelines. Grey means it did nothing, or there
- *                was nothing there.
+ *   THE DOTS: participation at that link. Purple dots (left of the link
+ *                name) are actual, documented participation, colored by
+ *                effect; orange dots (right) are proposed, speculative
+ *                participation from the project's design work.
  */
 
 /** A short orientation, rendered at the top of the Key panel. */
@@ -24,11 +27,11 @@ export const HOW_TO = [
   },
   {
     title: 'Read the map',
-    desc: 'Boxes are states of the world; arrows are causal claims. Arrow color encodes the evidence grade for each claim (a dashed arrow marks a claim that was searched for and not found in the literature). Click a labeled arrow (S1, R3) to open its evidence, counter-evidence, and open questions; arrow keys step through the chain.'
+    desc: 'Nodes are states of the world, colored by role: gray for events that cannot be changed (the pandemic itself, historical trauma), green for events participation could act on, red for the outcomes worth caring about. Click a node to see the timeline around its date. The causal arrows run down the center of the chain; each carries a name chip. Click a chip to open its evidence, counter-evidence, and open questions in the sidebar. Arrow keys step through the chain.'
   },
   {
-    title: 'The dots record participation',
-    desc: 'Each dot on an arrow is one documented instance of public participation at that link, colored by its documented effect. A hollow dot marks a link where no instance was identified; the distribution of hollow dots is itself a finding.'
+    title: 'Participation flanks each arrow: actual left, proposed right',
+    desc: 'To the left of each arrow sit the documented instances of participation at that link (purple). To the right sit the proposed instances from the project’s 6/8 design work (purple, dashed, because they did not happen). Click any card to open its full record; a proposal also says whether the mechanism it presumes has support in the studied literature.'
   },
   {
     title: 'Compare argument and chronology',
@@ -48,40 +51,24 @@ export const GLOSSARY = [
   {
     id: 'map',
     title: 'Reading the Chain Map',
-    note: 'Boxes are states of the world. Arrows are the claim that one produced the next.',
+    note: 'Nodes are states of the world, colored by what can be done about them. Arrows are the claim that one produced the next.',
     views: ['chain'],
     items: [
-      { swatch: 'edge-solid', label: 'Arrow', desc: 'One causal link. Its color is the evidence grade below. Click it to open the evidence.' },
-      { swatch: 'edge-dash', label: 'Dashed Arrow', desc: 'An unstudied link, asserted in the argument, but no evidence found for it.' },
-      { swatch: 'chip', label: 'Chip', desc: 'Sits on the arrow. Carries the link id and one dot per participation instance at that link.' }
+      { swatch: 'node-immovable', label: 'Events (Cannot Be Changed)', desc: 'An event no participation instrument could have moved: the pandemic itself, historical institutional trauma. Gray marks what the argument takes as given.' },
+      { swatch: 'node-intervenable', label: 'Intervenable Event', desc: 'An event participation could plausibly have acted on. Green marks where an instrument, actual or proposed, has something to push against.' },
+      { swatch: 'node-outcome', label: 'Valued Outcome', desc: 'A harm or harm-reduction outcome worth caring about. Red marks what the chain exists to explain, wherever it sits in the graph.' },
+      { swatch: 'edge-solid', label: 'Arrow', desc: 'One causal link, running down the center of the chain. Click its name chip to open the evidence, counter-evidence, and open questions in the sidebar. (Evidence is still graded strong to unstudied inside the sidebar; the arrows themselves no longer carry that color.)' },
+      { swatch: 'chip', label: 'Link Name', desc: 'Sits on the arrow and names the causal event. Its actual participation flanks it on the left; its proposed participation flanks it on the right.' }
     ]
   },
   {
-    id: 'strength',
-    title: 'Arrows: How Well Evidenced the Link Is',
-    note: 'This grades the causal claim itself, not any single study. It tells you how hard you can lean on the link in prose.',
+    id: 'participation',
+    title: 'Participation: Actual (Left) and Proposed (Right)',
+    note: 'The arrow runs down the middle. Documented participation sits to its left; proposed participation, from the project’s 6/8 design work, sits to its right. Both are purple; proposed is dashed to mark that it did not happen.',
     views: ['chain'],
-    countBy: 'strength',
     items: [
-      { badge: 'gr-strong', key: 'strong', label: 'Strong', desc: 'Causal identification (RCT, natural experiment, difference-in-differences) or an authoritative repeated measure. Safe to assert plainly.' },
-      { badge: 'gr-moderate', key: 'moderate', label: 'Moderate', desc: 'Correlational, a single survey, or a program evaluation with a comparison group. Assert it, but name the design.' },
-      { badge: 'gr-weak', key: 'weak', label: 'Weak', desc: 'Anecdote, self-report with no counterfactual, or an advocacy source. Use to illustrate, never to prove.' },
-      { badge: 'gr-contested', key: 'contested', label: 'Contested', desc: 'Credible evidence points both ways. The counter-evidence section holds the other side. Do not resolve it in prose; show the fight.' },
-      { badge: 'gr-unstudied', key: 'unstudied', label: 'Unstudied', desc: 'Searched for, and it does not appear to exist. This is a finding in its own right, not a hole to apologize for.' }
-    ]
-  },
-  {
-    id: 'effect',
-    title: 'Dots: Whether Participation There Changed Anything',
-    note: 'One dot per participation instance sitting at that link. Purple means it happened and did something; grey means it did not, or nothing was there.',
-    views: ['chain'],
-    countBy: 'effect',
-    items: [
-      { dot: 'ef-moved', key: 'moved', label: 'Most Change', desc: 'A documented change in the decision, the rule, or the outcome. The strongest claim available.' },
-      { dot: 'ef-partial', key: 'partial', label: 'Partial Change', desc: 'A documented change, but limited or contested in scope.' },
-      { dot: 'ef-unmeasured', key: 'unmeasured', label: 'Never Measured', desc: 'It ran, often at very large scale, and no counterfactual was ever established. The most common failure in this record.' },
-      { dot: 'ef-none', key: 'none', label: 'No Change', desc: 'It ran, and nothing changed.' },
-      { dot: 'cg-dot-none', label: 'None Identified', desc: 'No participation instance was found at this link at all. Where these cluster is itself a finding.' }
+      { swatch: 'card-actual', label: 'Actual Participation', desc: 'A documented instance of public participation that sat at that link. Click it to open its full record: what it was, who took part, and what it changed.' },
+      { swatch: 'card-prop', label: 'Proposed Participation', desc: 'A counterfactual process from the design work that did not run at that link but could have. Click it to open the presumed mechanism, and whether that mechanism has support in the studied literature.' }
     ]
   },
   {
@@ -127,8 +114,7 @@ export const GLOSSARY = [
       { key: 'total', label: 'Total Harm Reduction', desc: 'Harm reduced through overall compliance. Trust is the hypothesized mediator.' },
       { key: 'fair', label: 'Fair Harm Reduction', desc: 'Harm reduced through equitable reach. Access is the hypothesized mediator.' },
       { key: 'legitimacy', label: 'Decision Legitimacy', desc: 'Used where no clean harm outcome exists that participation could have improved, and the damage is to the standing of the decision itself.' },
-      { key: 'detection', label: 'Earlier Identification', desc: 'Could the problem have been found, or disclosed, sooner?' },
-      { key: 'response', label: 'Faster and Better Response', desc: 'Once known, was the response quicker or more complete because of participation?' }
+      { key: 'harm-reduction', label: 'Harm Reduction', desc: 'The full arc from root cause through public knowledge (a mediator, not an outcome) to the harm absorbed and the harm reduction achieved. Used for the GenX case, where the only terminal outcome that matters is harm reduction.' }
     ]
   },
   {
@@ -140,6 +126,8 @@ export const GLOSSARY = [
       { label: 'Evidence', desc: 'Findings supporting the causal claim, each graded on its own.' },
       { label: 'Counter-evidence', desc: 'Kept as a separate section rather than folded into a hedge, so a contested link shows both sides at full strength.' },
       { label: 'Caveat', desc: 'A limitation attached to one finding: a non-representative sample, a partisan source, a design that cannot support the reading.' },
+      { label: 'Actual Participation', desc: 'Documented instances of participation that sat at this link, each with its effect.' },
+      { label: 'Proposed Participation', desc: 'Counterfactual processes from the project’s design work, each naming the mechanism it presumes and whether that mechanism is studied.' },
       { label: 'Open Questions', desc: 'What would have to be researched for this link to firm up. These are the research plan, generated from the argument rather than written separately.' }
     ]
   }

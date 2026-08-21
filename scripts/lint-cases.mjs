@@ -6,7 +6,7 @@ import { fileURLToPath } from 'url';
 import { readdirSync } from 'fs';
 import { CAT, KEY_ORDER } from '../js/categories.js';
 import {
-  VALID_STRENGTHS, VALID_PARTICIPATION_KINDS, VALID_EFFECTS
+  VALID_STRENGTHS, VALID_PARTICIPATION_KINDS, VALID_EFFECTS, VALID_NODE_ROLES
 } from '../js/cases/helpers.js';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -117,6 +117,23 @@ function lintChains(file, data) {
       return;
     }
 
+    // Every node must carry a role for the map's color schema; every role
+    // must belong to a node that exists.
+    const nodeLabels = new Set(ch.links.flatMap(l => [l.from, l.to]));
+    for (const [n, role] of Object.entries(ch.nodes ?? {})) {
+      if (!VALID_NODE_ROLES.includes(role)) {
+        error(file, `${cLabel} node "${n}" has invalid role "${role}"`);
+      }
+      if (!nodeLabels.has(n)) {
+        error(file, `${cLabel} nodes map names "${n}", which no link uses`);
+      }
+    }
+    for (const n of nodeLabels) {
+      if (!(n in (ch.nodes ?? {}))) {
+        error(file, `${cLabel} node "${n}" has no role in nodes`);
+      }
+    }
+
     const seenLinkIds = new Set();
 
     ch.links.forEach((l, li) => {
@@ -124,6 +141,9 @@ function lintChains(file, data) {
 
       for (const field of ['id', 'from', 'to', 'claim', 'strength']) {
         if (!(field in l)) error(file, `${lLabel} missing "${field}"`);
+      }
+      if (!l.name?.trim()) {
+        error(file, `${lLabel} has no name — the map shows the event name on the link`);
       }
       if (seenLinkIds.has(l.id)) error(file, `${lLabel} has a duplicate link id`);
       seenLinkIds.add(l.id);
@@ -184,6 +204,18 @@ function lintChains(file, data) {
         lintSources(file, pLabel, p.srcs);
       });
 
+      (l.proposals ?? []).forEach((p, pi) => {
+        const pLabel = `${lLabel}, proposal ${pi + 1} (${p.name ?? 'unnamed'})`;
+        if (!p.name?.trim()) error(file, `${pLabel} missing name`);
+        if (!p.method?.trim()) error(file, `${pLabel} missing method`);
+        if (!p.description?.trim()) error(file, `${pLabel} missing description`);
+        if (!p.mechanism?.trim()) error(file, `${pLabel} missing mechanism`);
+        if (typeof p.unstudied !== 'boolean') {
+          error(file, `${pLabel} missing unstudied flag`);
+        }
+        if (p.srcs?.length) lintSources(file, pLabel, p.srcs);
+      });
+
       (l.gaps ?? []).forEach((g, gi) => {
         if (!g?.trim()) error(file, `${lLabel}, gap ${gi + 1} is empty`);
       });
@@ -236,7 +268,12 @@ const partCount = cases.reduce(
     (m, ch) => m + ch.links.reduce((k, l) => k + (l.participation?.length ?? 0), 0), 0
   ), 0
 );
+const propCount = cases.reduce(
+  (n, c) => n + (c.chains ?? []).reduce(
+    (m, ch) => m + ch.links.reduce((k, l) => k + (l.proposals?.length ?? 0), 0), 0
+  ), 0
+);
 
 console.log('All case studies passed lint.');
 console.log(`  ${caseFiles.length} files, ${cases.reduce((n, c) => n + c.entries.length, 0)} entries total`);
-console.log(`  ${chainCount} causal chains, ${linkCount} links, ${partCount} participation instances`);
+console.log(`  ${chainCount} causal chains, ${linkCount} links, ${partCount} participation instances, ${propCount} proposed instances`);

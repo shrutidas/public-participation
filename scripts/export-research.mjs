@@ -109,6 +109,29 @@ for (const c of cases) {
         }
       });
 
+      // Proposed participation: the counterfactual record, one row per
+      // proposal, sourced to the project's design work rather than to a URL.
+      for (const p of l.proposals ?? []) {
+        rows.push({
+          Case: c.title,
+          'Record Type': p.unstudied ? 'Proposed participation (unstudied link)' : 'Proposed participation',
+          Chain: ch.label,
+          'Link ID': l.id,
+          'Causal Chain Placement': placement,
+          'Link Strength': l.strength,
+          'Evidence Grade': '',
+          'Participation Kind': plain(p.method),
+          'Participation Effect': '',
+          Date: '',
+          Actors: '',
+          'Resource Title': p.srcs?.[0]?.l ?? '',
+          URL: p.srcs?.[0]?.u ?? '',
+          'Key Finding': `${p.name}: ${plain(p.description)} Presumed mechanism: ${plain(p.mechanism)}`,
+          Caveat: '',
+          'Deep Link': linkUrl
+        });
+      }
+
       // Open questions carry no source by definition; they are what is missing.
       for (const g of l.gaps) {
         rows.push({

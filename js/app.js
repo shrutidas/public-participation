@@ -2,8 +2,8 @@ import { CAT, KEY_ORDER } from './categories.js';
 import { cases } from './cases/index.js';
 import { bindSourceLinks, srcHtml } from './util.js';
 import * as router from './router.js';
-import { renderMap, renderDetail, renderGaps, stepLink } from './chain-view.js';
-import { GLOSSARY, HOW_TO, TIMELINE_NOTE } from './glossary.js';
+import { renderMap, renderDetail, renderGaps, stepLink, highlightSelection } from './chain-view.js';
+import { GLOSSARY, TIMELINE_NOTE } from './glossary.js';
 
 /* ------------------------------- state ---------------------------------- */
 
@@ -12,10 +12,17 @@ const state = {
   view: null,          // 'chain' | 'timeline'
   chainIdx: 0,
   linkId: null,
-  partIdx: null,
+  partIdx: null,       // selected actual-participation instance
+  propIdx: null,       // selected proposed-participation instance
+  nodeLabel: null,     // selected node (shows the timeline around its date)
   rightTab: 'detail',  // chain view's right pane: 'detail' | 'timeline'
-  gapsOpen: false      // chain overview showing the Open Questions pane
+  gapsOpen: false,     // chain overview showing the Open Questions pane
+  zoom: 1,             // chain map zoom level
+  fitKey: null,        // which chain the current zoom was auto-fitted to
+  builtScreen: null    // which screen the map DOM is currently built for
 };
+
+const ZOOM = { min: 0.4, max: 2.2, step: 0.12 };
 
 const filt = { red: true, orange: true, green: true, blue: true, purple: true };
 
@@ -24,6 +31,16 @@ const curCase = () => cases[state.cur];
 const curChains = () => curCase().chains || [];
 const curChain = () => curChains()[state.chainIdx] || null;
 const defaultView = c => (c.chains?.length ? 'chain' : 'timeline');
+
+/* Chains sharing a `screen` render side by side as separate sub-chains
+   (total and fair harm reduction stay on one screen without being merged). */
+const screenKey = ch => ch.screen ?? ch.id;
+const curScreenChains = () => {
+  const ch = curChain();
+  return ch ? curChains().filter(c => screenKey(c) === screenKey(ch)) : [];
+};
+const chainOfLink = linkId =>
+  curChains().find(c => c.links.some(l => l.id === linkId)) || null;
 
 function vis() {
   return curCase().entries.filter(e => filt[e.cat]);
@@ -39,6 +56,11 @@ function route() {
     if (state.linkId) {
       r.linkId = state.linkId;
       if (state.partIdx != null) r.partIdx = state.partIdx;
+      else if (state.propIdx != null) r.propIdx = state.propIdx;
+    } else if (state.nodeLabel != null) {
+      const owner = curChains().find(c => state.nodeLabel in (c.nodes || {})) || curChain();
+      r.chainId = owner.id;
+      r.nodeIdx = Object.keys(owner.nodes || {}).indexOf(state.nodeLabel);
     }
   }
   return r;
@@ -66,6 +88,8 @@ function applyRoute() {
   state.chainIdx = 0;
   state.linkId = null;
   state.partIdx = null;
+  state.propIdx = null;
+  state.nodeLabel = null;
   state.gapsOpen = false;
 
   if (state.view === 'chain') {
@@ -80,9 +104,15 @@ function applyRoute() {
         state.linkId = link.id;
         if (r.partIdx != null && link.participation[r.partIdx]) state.partIdx = r.partIdx;
         else if (r.partIdx != null) canonical = false;
+        else if (r.propIdx != null && (link.proposals ?? [])[r.propIdx]) state.propIdx = r.propIdx;
+        else if (r.propIdx != null) canonical = false;
       } else {
         canonical = false;
       }
+    } else if (ch && r.nodeIdx != null) {
+      const label = Object.keys(ch.nodes || {})[r.nodeIdx];
+      if (label) state.nodeLabel = label;
+      else canonical = false;
     }
   }
   return canonical;
@@ -126,7 +156,7 @@ function setKeyPanel(open) {
 /* -------------------------------- the key -------------------------------- */
 
 function glossaryCounts() {
-  const strength = {}, effect = {}, kind = {}, stage = {};
+  const strength = {}, effect = {}, kind = {}, stage = {}, proposal = {};
   for (const c of cases) {
     for (const ch of c.chains ?? []) {
       for (const l of ch.links) {
@@ -136,10 +166,14 @@ function glossaryCounts() {
           effect[p.effect] = (effect[p.effect] || 0) + 1;
           kind[p.kind] = (kind[p.kind] || 0) + 1;
         }
+        for (const p of l.proposals ?? []) {
+          const k = p.unstudied ? 'unstudied' : 'studied';
+          proposal[k] = (proposal[k] || 0) + 1;
+        }
       }
     }
   }
-  return { strength, effect, kind, stage };
+  return { strength, effect, kind, stage, proposal };
 }
 
 function glossaryMark(item) {
@@ -151,12 +185,6 @@ function glossaryMark(item) {
 
 function renderKey() {
   const counts = glossaryCounts();
-
-  const howto = `<section class="k-sec k-howto">
-    <h3>How to Use This Tool</h3>
-    <ol class="k-steps">${HOW_TO.map(st =>
-      `<li><strong>${st.title}.</strong> ${st.desc}</li>`).join('')}</ol>
-  </section>`;
 
   const timeline = `<section class="k-sec">
     <h3>Timeline Entry Categories</h3>
@@ -191,8 +219,8 @@ function renderKey() {
   }).join('');
 
   el('key-txt').innerHTML = state.view === 'chain'
-    ? howto + sections + timeline
-    : howto + timeline + sections;
+    ? sections + timeline
+    : timeline + sections;
 }
 
 /* ------------------------------ timeline --------------------------------- */
@@ -303,10 +331,13 @@ function renderChainTimeline() {
   const link = state.linkId && curChain()
     ? curChain().links.find(l => l.id === state.linkId)
     : null;
+  const node = !link && state.nodeLabel && curChain() ? state.nodeLabel : null;
+  const nodeSpan = node ? dateSpan(curChain().nodeDates?.[node] ?? '') : null;
 
   let shared = 0;
   let near = 0;
   let body = '';
+  let note;
   if (link) {
     const urls = linkSourceUrls(link);
     const spans = linkDateSpans(link);
@@ -322,19 +353,33 @@ function renderChainTimeline() {
       }
       return entryHtml(e, ' ent-dim');
     }).join('');
-  } else {
-    body = c.entries.map(e => entryHtml(e)).join('');
-  }
-
-  const parts = [];
-  if (shared) parts.push(`<strong>${shared}</strong> share a source with <strong>${link?.id}</strong>`);
-  if (near) parts.push(`<strong>${near}</strong> fall inside its participation dates`);
-  const note = link
-    ? `<div class="ct-note">${parts.length
+    const parts = [];
+    if (shared) parts.push(`<strong>${shared}</strong> share a source with <strong>${link.id}</strong>`);
+    if (near) parts.push(`<strong>${near}</strong> fall inside its participation dates`);
+    note = `<div class="ct-note">${parts.length
         ? parts.join('; ') + '; the rest are dimmed.'
         : `Nothing on the timeline cites or coincides with link <strong>${link.id}</strong> yet.`}
-      </div>`
-    : `<div class="ct-note">The full chronology. Select a link on the map to highlight the entries behind it.</div>`;
+      </div>`;
+  } else if (node) {
+    // A node is a state of the world at a point in time; highlight the
+    // chronology around its date.
+    const date = curChain().nodeDates?.[node];
+    body = c.entries.map(e => {
+      const es = dateSpan(e.date);
+      if (nodeSpan && spansOverlap(nodeSpan, es)) {
+        near++;
+        return entryHtml(e, ' ent-near');
+      }
+      return entryHtml(e, ' ent-dim');
+    }).join('');
+    note = `<div class="ct-note">${near
+        ? `<strong>${near}</strong> timeline ${near === 1 ? 'entry' : 'entries'} around <strong>${date}</strong> (${node}); the rest are dimmed.`
+        : `Nothing on the timeline falls in <strong>${date}</strong> (${node}) yet.`}
+      </div>`;
+  } else {
+    body = c.entries.map(e => entryHtml(e)).join('');
+    note = `<div class="ct-note">The full chronology. Click a node or a link on the map to highlight the entries behind it.</div>`;
+  }
 
   host.innerHTML = note + `<div class="ct-list">${body}</div>`;
 
@@ -356,17 +401,52 @@ function setRightTab(tab) {
   if (tab === 'timeline') renderChainTimeline();
 }
 
+/** Mark one node as selected on the map, clearing any prior node highlight. */
+function highlightNode(mapEl, label) {
+  mapEl.querySelectorAll('.cg-node.sel').forEach(n => n.classList.remove('sel'));
+  if (!label) return;
+  mapEl.querySelectorAll(`.cg-node[data-node="${cssAttr(label)}"]`).forEach(n => n.classList.add('sel'));
+}
+
+const cssAttr = s => String(s).replace(/(["\\])/g, '\\$1');
+
+/**
+ * Click a node box: it is a state of the world at a date, so the right pane
+ * switches to the timeline and highlights the entries around that date. Routed
+ * (via nodeIdx) so state and URL stay in sync; otherwise clicking a link the
+ * URL already points to would be a no-op and never re-highlight.
+ */
+function selectNode(label) {
+  const owner = curChains().find(c => label in (c.nodes || {})) || curChain();
+  const idx = Object.keys(owner.nodes || {}).indexOf(label);
+  if (idx === -1) return;
+  if (state.rightTab !== 'timeline') setRightTab('timeline');
+  navigate({ chainId: owner.id, nodeIdx: idx, linkId: null, partIdx: null, propIdx: null });
+}
+
 function renderChainSelector() {
   const chains = curChains();
   const host = el('ch-sel');
-  if (chains.length < 2) {
+
+  // One selector button per screen; chains sharing a screen share a button.
+  const screens = [];
+  for (const c of chains) {
+    const key = screenKey(c);
+    let s = screens.find(x => x.key === key);
+    if (!s) screens.push(s = { key, chains: [] });
+    s.chains.push(c);
+  }
+
+  if (screens.length < 2) {
     host.innerHTML = '';
     host.classList.add('hide');
     return;
   }
   host.classList.remove('hide');
-  host.innerHTML = chains.map((c, i) =>
-    `<button class="chb${i === state.chainIdx ? ' on' : ''}" data-chain="${c.id}">${c.label}</button>`
+  const curKey = curChain() ? screenKey(curChain()) : null;
+  host.innerHTML = screens.map(s =>
+    `<button class="chb${s.key === curKey ? ' on' : ''}" data-chain="${s.chains[0].id}">
+      ${s.chains.map(c => c.label).join(' &amp; ')}</button>`
   ).join('');
 }
 
@@ -380,11 +460,129 @@ function renderChain() {
     el('ch-timeline').innerHTML = '';
     return;
   }
-  const sel = { linkId: state.linkId, partIdx: state.partIdx };
-  renderMap(map, ch, sel);
+  const sel = { linkId: state.linkId, partIdx: state.partIdx, propIdx: state.propIdx };
+  const onScreen = curScreenChains();
+  const key = screenKey(ch);
+
+  // Only rebuild the map DOM when the screen actually changes. A selection
+  // change (clicking a box, walking with the arrow keys) updates the highlight
+  // in place, leaving scroll and zoom exactly where they were, so the map never
+  // jumps under the pointer.
+  const needsBuild = state.builtScreen !== key || !map.firstElementChild;
+
+  if (needsBuild) {
+    if (onScreen.length > 1) {
+      // Two separate sub-chains on one screen: each gets its own labeled
+      // canvas; they are never merged into one graph.
+      map.innerHTML = `<div class="cg-row">${onScreen.map(c =>
+        `<div class="cg-col"><div class="cg-sub">${c.label}</div>
+          <div class="cg-canvas" data-canvas="${c.id}"></div></div>`).join('')}</div>`;
+      for (const c of onScreen) {
+        renderMap(map.querySelector(`[data-canvas="${c.id}"]`), c, sel);
+      }
+    } else {
+      renderMap(map, ch, sel);
+    }
+    state.builtScreen = key;
+    const fitted = autoFit();
+    applyZoom();
+    // On first showing a chain, anchor at the top with the root node centred in
+    // the viewport, so the reader starts at the root cause.
+    if (fitted) centerTopRow();
+    highlightNode(map, state.nodeLabel);
+  } else {
+    highlightSelection(map, state.linkId);
+    highlightNode(map, state.nodeLabel);
+  }
+
+  // A selected node is shown through the timeline, so make sure that tab is up.
+  if (state.nodeLabel && !state.linkId && state.rightTab !== 'timeline') setRightTab('timeline');
+
   if (state.gapsOpen && !state.linkId) renderGaps(el('ch-detail'), ch);
-  else renderDetail(el('ch-detail'), ch, sel);
+  else renderDetail(el('ch-detail'), ch, sel, onScreen);
   if (state.rightTab === 'timeline') renderChainTimeline();
+}
+
+/* ------------------------------- zoom ------------------------------------ */
+
+// CSS `zoom` scales the rendered map AND its scroll extent, so panning by
+// scrolling keeps working at any zoom. Applied to whatever the map holds (a
+// single graph, or the paired-screen row).
+function applyZoom() {
+  const content = el('ch-map').firstElementChild;
+  if (content) content.style.zoom = state.zoom;
+  const lbl = el('zoom-lbl');
+  if (lbl) lbl.textContent = `${Math.round(state.zoom * 100)}%`;
+}
+
+function setZoom(z) {
+  state.zoom = Math.min(ZOOM.max, Math.max(ZOOM.min, Math.round(z * 100) / 100));
+  applyZoom();
+}
+
+// On first showing a chain (or when switching to a different one), pick a
+// starting zoom and return true so the caller scrolls to the top. Auto-fit
+// runs once per chain: any re-render of the same chain (selecting a link,
+// opening a card) keeps the current zoom, so a manual zoom sticks until the
+// chain changes. The chain always opens at 100%, centred on the root; the
+// reader drags to pan and zooms out to survey.
+const DEFAULT_ZOOM = 1;
+function autoFit() {
+  const key = curChain() ? screenKey(curChain()) : null;
+  if (key === state.fitKey) return false;
+  // A single chain opens at 100%. A paired screen (total & fair side by side)
+  // fits to width instead, so the second sub-chain is visible and not missed.
+  const paired = curScreenChains().length > 1;
+  if (paired) {
+    const map = el('ch-map');
+    const content = map.firstElementChild;
+    if (content) {
+      content.style.zoom = 1;
+      const natural = content.scrollWidth;
+      const fit = natural > 0 ? (map.clientWidth - 6) / natural : 1;
+      state.zoom = Math.max(ZOOM.min, Math.min(1, Math.round(fit * 100) / 100));
+    } else {
+      state.zoom = DEFAULT_ZOOM;
+    }
+  } else {
+    state.zoom = DEFAULT_ZOOM;
+  }
+  state.fitKey = key;
+  return true;
+}
+
+// Scroll so the top row of nodes (the root cause, or the first sub-chain's
+// root on a paired screen) is centred horizontally and pinned to the top.
+// Uses bounding rects so it is correct at any zoom and through the paired
+// screen's nesting.
+function centerTopRow() {
+  const map = el('ch-map');
+  const nodes = [...map.querySelectorAll('.cg-node')];
+  if (!nodes.length) return;
+  const mr = map.getBoundingClientRect();
+  const rects = nodes.map(n => n.getBoundingClientRect());
+  const minTop = Math.min(...rects.map(r => r.top));
+  const topRow = rects.filter(r => r.top <= minTop + 4);
+  const left = Math.min(...topRow.map(r => r.left));
+  const right = Math.max(...topRow.map(r => r.right));
+  const centreContent = (left + right) / 2 - mr.left + map.scrollLeft;
+  const topContent = minTop - mr.top + map.scrollTop;
+  map.scrollLeft = Math.max(0, centreContent - map.clientWidth / 2);
+  map.scrollTop = Math.max(0, topContent - 12);
+}
+
+// Zoom toward the pointer: keep the point under the cursor fixed as the map
+// scales, the way map apps and design tools behave.
+function zoomAt(clientX, clientY, factor) {
+  const map = el('ch-map');
+  const r = map.getBoundingClientRect();
+  const px = map.scrollLeft + (clientX - r.left);
+  const py = map.scrollTop + (clientY - r.top);
+  const prev = state.zoom;
+  setZoom(prev * factor);
+  const ratio = state.zoom / prev;
+  map.scrollLeft = px * ratio - (clientX - r.left);
+  map.scrollTop = py * ratio - (clientY - r.top);
 }
 
 /* ------------------------------- render ---------------------------------- */
@@ -453,11 +651,80 @@ function bindEvents() {
   });
 
   el('ch-map').addEventListener('click', e => {
+    // Clicking a node box opens the timeline around that node's date.
+    const nodeEl = e.target.closest('[data-node]');
+    if (nodeEl && !e.target.closest('[data-link]')) {
+      selectNode(nodeEl.dataset.node);
+      return;
+    }
     const b = e.target.closest('[data-link]');
     if (!b) return;
     // Selecting a link always brings up its details, whichever pane is open.
+    // The link may live in either sub-chain on a paired screen. A click on an
+    // actual-participation card opens that instance; a proposed card opens the
+    // link detail (which lists the proposals).
+    state.nodeLabel = null;
     if (state.rightTab !== 'detail') setRightTab('detail');
-    navigate({ linkId: b.dataset.link, partIdx: null });
+    const owner = chainOfLink(b.dataset.link);
+    const patch = { linkId: b.dataset.link, partIdx: null, propIdx: null };
+    if (owner) patch.chainId = owner.id;
+    if (b.dataset.part != null) patch.partIdx = Number(b.dataset.part);
+    else if (b.dataset.prop != null) patch.propIdx = Number(b.dataset.prop);
+    navigate(patch);
+  });
+
+  // Drag to pan: press and move anywhere on the map to scroll it. A small
+  // movement threshold means a press that does not move still counts as a
+  // click on a card or link; a press that drags suppresses the click that
+  // would otherwise follow.
+  const map = el('ch-map');
+  let drag = null;
+  map.addEventListener('pointerdown', e => {
+    if (e.button !== 0) return;
+    drag = { x: e.clientX, y: e.clientY, sl: map.scrollLeft, st: map.scrollTop, moved: false, id: e.pointerId };
+  });
+  map.addEventListener('pointermove', e => {
+    if (!drag || e.pointerId !== drag.id) return;
+    const dx = e.clientX - drag.x, dy = e.clientY - drag.y;
+    if (!drag.moved && Math.hypot(dx, dy) > 5) {
+      drag.moved = true;
+      map.classList.add('grabbing');
+      try { map.setPointerCapture(drag.id); } catch {}
+    }
+    if (drag.moved) {
+      map.scrollLeft = drag.sl - dx;
+      map.scrollTop = drag.st - dy;
+    }
+  });
+  const endDrag = () => {
+    if (drag?.moved) {
+      // Swallow the click this drag would otherwise trigger.
+      const swallow = ev => { ev.stopPropagation(); ev.preventDefault(); };
+      map.addEventListener('click', swallow, { capture: true, once: true });
+      setTimeout(() => map.removeEventListener('click', swallow, true), 0);
+    }
+    map.classList.remove('grabbing');
+    drag = null;
+  };
+  map.addEventListener('pointerup', endDrag);
+  map.addEventListener('pointercancel', endDrag);
+
+  // Zoom: buttons, ctrl/cmd + wheel, and trackpad pinch (which arrives as a
+  // wheel event with ctrlKey set). Plain scroll/drag still pans.
+  el('ch-map').addEventListener('wheel', e => {
+    if (!(e.ctrlKey || e.metaKey)) return;
+    e.preventDefault();
+    zoomAt(e.clientX, e.clientY, e.deltaY < 0 ? 1 + ZOOM.step : 1 / (1 + ZOOM.step));
+  }, { passive: false });
+
+  el('ch-zoom').addEventListener('click', e => {
+    const b = e.target.closest('[data-zoom]');
+    if (!b) return;
+    const map = el('ch-map');
+    const cx = map.getBoundingClientRect().left + map.clientWidth / 2;
+    const cy = map.getBoundingClientRect().top + map.clientHeight / 2;
+    if (b.dataset.zoom === 'reset') { setZoom(1); map.scrollTo({ left: 0, top: 0 }); }
+    else zoomAt(cx, cy, b.dataset.zoom === 'in' ? 1 + ZOOM.step : 1 / (1 + ZOOM.step));
   });
 
   el('ch-right-tabs').addEventListener('click', e => {
@@ -470,7 +737,11 @@ function bindEvents() {
   });
 
   el('ch-detail').addEventListener('click', e => {
-    if (e.target.closest('[data-gaps]')) {
+    const gp = e.target.closest('[data-gaps]');
+    if (gp) {
+      // On a paired screen the button names which sub-chain's questions to open.
+      const idx = curChains().findIndex(c => c.id === gp.dataset.gaps);
+      if (idx !== -1) state.chainIdx = idx;
       state.gapsOpen = true;
       renderGaps(el('ch-detail'), curChain());
       return;
@@ -489,20 +760,23 @@ function bindEvents() {
         renderChain();
         return;
       }
-      navigate(back.dataset.back === 'chain' ? { linkId: null, partIdx: null } : { partIdx: null });
+      navigate(back.dataset.back === 'chain'
+        ? { linkId: null, partIdx: null, propIdx: null }
+        : { partIdx: null, propIdx: null });
       return;
     }
     const p = e.target.closest('[data-part]');
-    if (p) navigate({ partIdx: Number(p.dataset.part) });
+    if (p) { navigate({ partIdx: Number(p.dataset.part), propIdx: null }); return; }
+    const pr = e.target.closest('[data-prop]');
+    if (pr) navigate({ propIdx: Number(pr.dataset.prop), partIdx: null });
   });
 
   el('ch-detail').addEventListener('keydown', e => {
     if (e.key !== 'Enter' && e.key !== ' ') return;
     const p = e.target.closest('[data-part]');
-    if (p) {
-      e.preventDefault();
-      navigate({ partIdx: Number(p.dataset.part) });
-    }
+    const pr = e.target.closest('[data-prop]');
+    if (p) { e.preventDefault(); navigate({ partIdx: Number(p.dataset.part), propIdx: null }); }
+    else if (pr) { e.preventDefault(); navigate({ propIdx: Number(pr.dataset.prop), partIdx: null }); }
   });
 
   // Entry expansion works in the timeline view and in the chain view's
@@ -547,19 +821,30 @@ function bindEvents() {
     }
     if (state.view !== 'chain' || !curChain()) return;
     if (e.target.matches('input, textarea')) return;
+    // Keyboard zoom: +, -, and 0 to reset.
+    if (e.key === '+' || e.key === '=') { e.preventDefault(); setZoom(state.zoom * (1 + ZOOM.step)); return; }
+    if (e.key === '-' || e.key === '_') { e.preventDefault(); setZoom(state.zoom / (1 + ZOOM.step)); return; }
+    if (e.key === '0') { e.preventDefault(); setZoom(1); el('ch-map').scrollTo({ left: 0, top: 0 }); return; }
     const dir = (e.key === 'ArrowDown' || e.key === 'ArrowRight') ? 1
       : (e.key === 'ArrowUp' || e.key === 'ArrowLeft') ? -1 : 0;
     if (!dir) return;
     e.preventDefault();
     if (state.rightTab !== 'detail') setRightTab('detail');
-    navigate({ linkId: stepLink(curChain(), state.linkId, dir), partIdx: null });
+    // Walk across every sub-chain on the current screen.
+    const links = curScreenChains().flatMap(c => c.links);
+    const next = stepLink(links, state.linkId, dir);
+    const owner = chainOfLink(next);
+    const patch = { linkId: next, partIdx: null };
+    if (owner) patch.chainId = owner.id;
+    navigate(patch);
   });
 
   let t;
   window.addEventListener('resize', () => {
     if (state.view !== 'chain') return;
     clearTimeout(t);
-    t = setTimeout(renderChain, 150);
+    // A width change alters slot sizing, so force a full rebuild + refit.
+    t = setTimeout(() => { state.builtScreen = null; state.fitKey = null; renderChain(); }, 150);
   });
 
   router.onChange(onHashChange);

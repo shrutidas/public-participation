@@ -1,4 +1,4 @@
-import { chain, link, evidence, participation, paragraph, source } from '../cases/helpers.js';
+import { chain, link, evidence, participation, proposal, paragraph, source } from '../cases/helpers.js';
 
 /* --------------------------------------------------------------------------
  * Case Study 1: COVID-19 School Closures and Reopenings
@@ -15,6 +15,28 @@ const legitimacy = chain({
   id: 'schools-legitimacy',
   label: 'Decision Legitimacy',
   track: 'legitimacy',
+  nodes: {
+    'Schools close in an emergency, before the risks were known': 'immovable',
+    'Only one group could force the reopening decision': 'intervenable',
+    'Remote learning drags on, disconnected from local COVID levels': 'intervenable',
+    'Families leave public school': 'outcome',
+    'Confidence in public schools collapses': 'intervenable',
+    'Parents fight back with lawsuits and recalls, after the decisions': 'intervenable',
+    'Chronic absence sticks': 'outcome',
+    'Trust in scientists and public health falls more widely': 'outcome',
+    'Test scores fall': 'outcome'
+  },
+  nodeDates: {
+    'Schools close in an emergency, before the risks were known': '03/2020',
+    'Only one group could force the reopening decision': '06/2020',
+    'Remote learning drags on, disconnected from local COVID levels': '09/2020',
+    'Families leave public school': '10/2020',
+    'Confidence in public schools collapses': '07/2022',
+    'Parents fight back with lawsuits and recalls, after the decisions': '11/2021',
+    'Chronic absence sticks': '05/2022',
+    'Trust in scientists and public health falls more widely': '11/2023',
+    'Test scores fall': '09/2022'
+  },
   purpose: paragraph(`
     This chain traces how the way school reopening decisions were made, not
     the closures themselves, damaged public confidence in schools, and what
@@ -34,23 +56,22 @@ const legitimacy = chain({
     the assessment's history (NAEP Long-Term Trend).
   `),
   thesis: paragraph(`
-    The available evidence does not show that parents had no voice. Parents had
-    voice; it was solicited as an aggregation of individual preferences
-    (surveys, town halls) at a moment when the decision was a collective value
-    tradeoff. Teachers' unions had a mechanism that converted voice into
-    binding terms. The asymmetry documented in the record was not in volume of
-    input but in <strong>whether input had anywhere to bind</strong>. When binding
-    participation was unavailable, participation did not disappear; it
-    relocated to recalls, litigation, and disenrollment, all of which arrive
-    after the decision and none of which improve it.
+    The available evidence shows parents had some voice; it was solicited as an
+    aggregation of individual preferences (surveys, town halls) at a moment when
+    the decision was a collective value tradeoff. Teachers' unions had a
+    mechanism that converted voice into binding terms. The asymmetry documented
+    was in whether input had anywhere to bind. When binding participation was
+    unavailable, it relocated to recalls, litigation, and disenrollment, all of
+    which arrive after the decisions.
   `),
   links: [
 
     link({
       id: 'S1',
+      name: 'Only unions can force the terms',
       stage: 'structural',
-      from: 'Emergency closure under genuine uncertainty (March 2020)',
-      to: 'Structural asymmetry in who could bind the reopening decision',
+      from: 'Schools close in an emergency, before the risks were known',
+      to: 'Only one group could force the reopening decision',
       claim: paragraph(`
         Reopening was negotiated through collective bargaining, a channel with
         legal force available to one stakeholder group. Every other stakeholder
@@ -147,6 +168,47 @@ const legitimacy = chain({
             source('Perma.cc', 'https://perma.cc/M2H9-BDVC')]
         })
       ],
+      proposals: [
+        proposal({
+          name: 'Regional citizen assemblies that can decide',
+          method: 'Citizens assembly (sortition, confederal)',
+          description: paragraph(`
+            From the project's 6/8 design session: citizen assemblies convened
+            early (March to June 2020), selected by sortition, in which expert
+            and ordinary knowledge engage. Geographically decentralized on a
+            confederal model, so that different regions reach different
+            decisions and the outcomes can then be compared. Decisions binding
+            or quasi-binding, so that the channel available to parents,
+            students, and community members carries the same kind of force
+            collective bargaining carried for teachers.
+          `),
+          mechanism: paragraph(`
+            A binding deliberative channel for non-union stakeholders changes
+            the reopening decision or its perceived legitimacy.
+          `),
+          unstudied: true
+        }),
+        proposal({
+          name: 'Bring the right experts together with the public',
+          method: 'Minipublic with mapped expertise',
+          description: paragraph(`
+            From the 6/8 session: bring the public into engagement with experts
+            early, and ask explicitly what specific expertise sheds light on the
+            decision rather than importing generic authority: ventilation and
+            building design, epidemiology, early-childhood education, and a
+            mapping of public spaces with sufficient ventilation for continued
+            teaching in safe conditions. The public contributes knowledge of
+            local values, social conditions, and material conditions that sits
+            outside the expert set.
+          `),
+          mechanism: paragraph(`
+            Early structured engagement between experts and citizens produces
+            reopening options and value tradeoffs that preference surveys do
+            not surface.
+          `),
+          unstudied: true
+        })
+      ],
       gaps: [
         paragraph(`
           No US school district was identified that ran a structured deliberative
@@ -160,9 +222,10 @@ const legitimacy = chain({
 
     link({
       id: 'S2',
+      name: 'Union bargaining sets the timing',
       stage: 'compliance',
-      from: 'Structural asymmetry in who could bind the reopening decision',
-      to: 'Prolonged remote instruction, decoupled from local case rates',
+      from: 'Only one group could force the reopening decision',
+      to: 'Remote learning drags on, disconnected from local COVID levels',
       claim: paragraph(`
         Where bargaining power was strongest, reopening timing tracked
         bargaining outcomes rather than local case rates: the decision channel,
@@ -271,6 +334,26 @@ const legitimacy = chain({
           ]
         })
       ],
+      proposals: [
+        proposal({
+          name: 'Let different places decide for themselves',
+          method: 'Confederal decision-making',
+          description: paragraph(`
+            From the 6/8 session: decentralize decision-making as well as
+            discussion, not only across states but within them, so that
+            different decisions hold for different spaces. Getting people into
+            a room to resolve differences replaces appealing to leadership at
+            the top, whichever leadership that is. Regional variation also
+            generates the outcome comparisons the record now lacks.
+          `),
+          mechanism: paragraph(`
+            Decentralized, locally negotiated reopening decisions track local
+            conditions better than a single channel dominated by the strongest
+            organized interest.
+          `),
+          unstudied: true
+        })
+      ],
       gaps: [
         paragraph(`
           Union action is the clearest documented case in this record of
@@ -286,9 +369,10 @@ const legitimacy = chain({
 
     link({
       id: 'S3',
+      name: 'Remote-only makes families leave',
       stage: 'harm',
-      from: 'Prolonged remote instruction, decoupled from local case rates',
-      to: 'Exit from public schooling',
+      from: 'Remote learning drags on, disconnected from local COVID levels',
+      to: 'Families leave public school',
       claim: paragraph(`
         Remote-only instruction produced disenrollment beyond the pandemic-wide
         baseline, at a rate that tracks instructional mode specifically rather
@@ -344,7 +428,7 @@ const legitimacy = chain({
             homeschooling growth rate of around 2%.
           `),
           grade: 'moderate',
-          caveat: 'Descriptive. Thirty states (including DC) report annual counts, 28 of them for 2024-25; nothing regresses homeschool uptake on district remote-learning duration.',
+          caveat: 'Descriptive. Thirty states (including DC) report annual counts, 28 of them for 2024-25; nothing regresses homeschool uptake on district remote-learning duration. The homeschool rise also has multiple candidate drivers that no available study separates (distrust of schools, remote-work flexibility among parents, economic factors, curriculum disputes), so the growth rate is not by itself a trust measure.',
           sources: [source('Johns Hopkins Homeschool Hub', 'https://education.jhu.edu/edpolicy/policy-research-initiatives/homeschool-hub/homeschool-growth-2024-2025/')]
         })
       ],
@@ -361,10 +445,11 @@ const legitimacy = chain({
 
     link({
       id: 'S4',
+      name: 'Confidence splits along party lines',
       stage: 'trust',
       after: 'S2',
-      from: 'Prolonged remote instruction, decoupled from local case rates',
-      to: 'Collapse in confidence in public schools as a system',
+      from: 'Remote learning drags on, disconnected from local COVID levels',
+      to: 'Confidence in public schools collapses',
       claim: paragraph(`
         Confidence in public schools fell sharply after 2020, but the fall is
         partisan and systemic rather than parental and local, and the
@@ -455,6 +540,27 @@ const legitimacy = chain({
         })
       ],
       participation: [],
+      proposals: [
+        proposal({
+          name: 'Share local data from the first weeks',
+          method: 'Open data & public communication',
+          description: paragraph(`
+            From the 6/8 session: make hospitalization and death rates public
+            at the local level and ladder them up, starting early enough that
+            the information can inform public understanding rather than arrive
+            late in the process. Experts share what is and is not known from
+            the start, treating other citizens as thoughtful and rational; the
+            session's premise is that meaningful shared information can head
+            off the worst of polarization. It took six months for a
+            newspaper's tracker to become the de facto public data channel.
+          `),
+          mechanism: paragraph(`
+            Transparent, legible local information early sustains trust in the
+            deciding institutions.
+          `),
+          unstudied: false
+        })
+      ],
       gaps: [
         paragraph(`
           The defensible version of this link is narrower than a general
@@ -479,9 +585,10 @@ const legitimacy = chain({
 
     link({
       id: 'S5',
+      name: 'Input turns into conflict',
       stage: 'participation',
-      from: 'Collapse in confidence in public schools as a system',
-      to: 'Participation relocates to adversarial, post-hoc forms',
+      from: 'Confidence in public schools collapses',
+      to: 'Parents fight back with lawsuits and recalls, after the decisions',
       claim: paragraph(`
         Public participation in school governance did not decline after 2020; it
         surged, into channels that arrive after the decision and are adversarial
@@ -595,6 +702,26 @@ const legitimacy = chain({
           sources: [source('2022 SF Board of Education recall', 'https://en.wikipedia.org/wiki/2022_San_Francisco_Board_of_Education_recall_elections')]
         })
       ],
+      proposals: [
+        proposal({
+          name: 'Give the public a real say before the decision',
+          method: 'Standing community process with binding elements',
+          description: paragraph(`
+            The design implication the 6/8 session drew from this link: the
+            recalls, suits, and board conflict documented here are participation
+            arriving after the decision, in adversarial form. A standing channel
+            in which parent and community input binds before the decision is the
+            proposed alternative; the session flagged that teachers' unions and
+            other organized groups were driving decisions in one direction or
+            the other while everyone else held a survey.
+          `),
+          mechanism: paragraph(`
+            Binding upstream voice reduces adversarial post-hoc participation
+            and the trust damage that follows it.
+          `),
+          unstudied: true
+        })
+      ],
       gaps: [
         paragraph(`
           No study was identified that examines whether districts that experienced
@@ -608,14 +735,18 @@ const legitimacy = chain({
 
     link({
       id: 'S6',
+      name: 'Missing school becomes normal',
       stage: 'harm',
       after: 'S4',
-      from: 'Collapse in confidence in public schools as a system',
-      to: 'Chronic absenteeism as a persistent condition',
+      from: 'Confidence in public schools collapses',
+      to: 'Chronic absence sticks',
       claim: paragraph(`
         Post-pandemic chronic absenteeism tracks remote-learning exposure in
-        dose-response fashion, is associated with relational climate, and
-        appears in cohorts that entered school after closures ended.
+        dose-response fashion, is associated with relational climate including
+        teacher-reported relationships with parents, and appears in cohorts that
+        entered school after closures ended, a pattern consistent with a
+        family-level shift in attendance norms rather than students' own
+        disrupted experience.
       `),
       strength: 'moderate',
       evidence: [
@@ -651,6 +782,26 @@ const legitimacy = chain({
           grade: 'moderate',
           sources: [source('UChicago Consortium, Connection, Trust, and Learning', 'https://consortium.uchicago.edu/sites/default/files/2026-01/Connection,%20Trust,%20and%20Learning-Jan26-Consortium.pdf'),
             source('Overdeck Family Foundation research summary', 'https://overdeck.org/research-repository/chronic-absenteeism/connection-trust-learning-student-attendance-in-the-middle-and-high-school-grades-following-the-covid-19-pandemic/')]
+        }),
+        evidence({
+          finding: paragraph(`
+            The same UChicago Consortium analysis, using 5Essentials school
+            climate surveys (2017-2019 against 2022-2024, grades 6-11), found
+            <strong>teachers' reports of their relationships with parents</strong>
+            (teacher-parent trust, parent involvement in school, parent influence
+            on decision making) significantly related to school absence rates in
+            both middle grades and high schools, with the associations
+            <strong>stronger in post-pandemic years than before the pandemic</strong>.
+          `),
+          quote: paragraph(`
+            Teachers' reports of their relationships with parents were also
+            significantly related to absence rates in their school in both middle
+            grades and high schools. [...] even stronger in post-pandemic years
+            than before the pandemic.
+          `),
+          grade: 'moderate',
+          caveat: 'School-level association; direction is not identified. Consistent with a trust-based account of absenteeism, alongside the changed-attendance-norm account below.',
+          sources: [source('UChicago Consortium, Connection, Trust, and Learning', 'https://consortium.uchicago.edu/sites/default/files/2026-01/Connection,%20Trust,%20and%20Learning-Jan26-Consortium.pdf')]
         }),
         evidence({
           finding: paragraph(`
@@ -699,15 +850,25 @@ const legitimacy = chain({
         })
       ],
       participation: [],
-      gaps: []
+      gaps: [
+        paragraph(`
+          The elevation among 2025 kindergartners, a cohort born after the
+          closures, is consistent with a norm shift transmitted by parents
+          rather than by students' own disrupted schooling, but no study
+          identifies the transmission channel. Parent trust, remote-work
+          patterns, economic factors, and a general attendance-norm change
+          remain unseparated as drivers of persistent absence.
+        `)
+      ]
     }),
 
     link({
       id: 'S7',
+      name: 'Distrust spreads to science',
       stage: 'trust',
       after: 'S4',
-      from: 'Collapse in confidence in public schools as a system',
-      to: 'Broader decline in trust in scientists and public health',
+      from: 'Confidence in public schools collapses',
+      to: 'Trust in scientists and public health falls more widely',
       claim: paragraph(`
         The hypothesis that the school closure conflict fed the broader decline
         in trust in scientists and public health has not been tested. <strong>No study
@@ -771,10 +932,11 @@ const legitimacy = chain({
 
     link({
       id: 'S8',
+      name: 'Remote learning lowers test scores',
       stage: 'harm',
       after: 'S2',
-      from: 'Prolonged remote instruction, decoupled from local case rates',
-      to: 'Learning loss on national and state assessments',
+      from: 'Remote learning drags on, disconnected from local COVID levels',
+      to: 'Test scores fall',
       claim: paragraph(`
         Longer remote instruction predicted larger declines in measured
         achievement, with the losses concentrated in high-poverty districts

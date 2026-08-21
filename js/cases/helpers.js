@@ -152,6 +152,38 @@ export function participation({
 }
 
 /**
+ * What role a node plays in the chain, per the agreed color schema:
+ * gray for events that cannot be intervened on, green for events that can,
+ * red for the outcomes the project cares about.
+ */
+const VALID_NODE_ROLES = [
+  'immovable',      // an event no instrument could have moved (the pandemic itself)
+  'intervenable',   // an event participation could plausibly act on
+  'outcome'         // a harm or harm-reduction outcome worth caring about
+];
+
+/**
+ * One proposed (counterfactual) participation instance sitting at a causal
+ * link: a process from the project's design work that did not run, but could
+ * have. Distinct from participation(), which records what actually happened.
+ * `mechanism` states the causal claim the proposal operates on;
+ * `unstudied: true` marks a proposal whose mechanism references a causal link
+ * not found in the studied literature, which the map renders explicitly.
+ */
+export function proposal({ name, method, description, mechanism, unstudied = false, sources = [] }) {
+  if (!name?.trim()) throw new Error('Proposal is missing a name');
+  if (!method?.trim()) throw new Error(`Proposal "${name}" is missing a method`);
+  if (!description?.trim()) throw new Error(`Proposal "${name}" is missing a description`);
+  if (!mechanism?.trim()) throw new Error(`Proposal "${name}" is missing a mechanism`);
+  checkSources(sources, `Proposal "${name}"`);
+  return {
+    name, method, description, mechanism,
+    unstudied: Boolean(unstudied),
+    srcs: sources.map(s => ({ l: s.label, u: s.url }))
+  };
+}
+
+/**
  * Which stage of the causal chain a link's endpoint belongs to, per the
  * project's working framework: structural conditions shape the chain;
  * participation intervenes in it; trust and compliance transmit it; harm and
@@ -166,12 +198,18 @@ const VALID_STAGES = [
   'harm-reduction'   // the reduction or avoidance of harm, distinct from harm
 ];
 
-/** One causal link: the assertion that `from` produced `to`. */
+/**
+ * One causal link: the assertion that `from` produced `to`.
+ * `name` is the short event name the map shows on the link itself; the full
+ * claim and evidence open in the sidebar on click.
+ */
 export function link({
-  id, from, to, claim, strength, stage = null, after = null,
-  evidence: evid = [], counterEvidence = [], participation: part = [], gaps = []
+  id, name = null, from, to, claim, strength, stage = null, after = null,
+  evidence: evid = [], counterEvidence = [], participation: part = [],
+  proposals = [], gaps = []
 }) {
   if (!id?.trim()) throw new Error('Link is missing an id');
+  if (name != null && !String(name).trim()) throw new Error(`Link "${id}" has an empty name`);
   if (!from?.trim()) throw new Error(`Link "${id}" is missing a from node`);
   if (!to?.trim()) throw new Error(`Link "${id}" is missing a to node`);
   if (!claim?.trim()) throw new Error(`Link "${id}" is missing a claim`);
@@ -189,28 +227,63 @@ export function link({
     );
   }
   return {
-    id, from, to, claim, strength, stage, after,
-    evidence: evid, counterEvidence, participation: part, gaps
+    id, name, from, to, claim, strength, stage, after,
+    evidence: evid, counterEvidence, participation: part, proposals, gaps
   };
 }
 
-/** An ordered chain of links from a root cause to an outcome. */
-export function chain({ id, label, track, purpose = null, outcome, thesis, links = [] }) {
+/**
+ * An ordered chain of links from a root cause to an outcome.
+ * `nodes` assigns every node label a role (immovable | intervenable | outcome),
+ * which drives the map's node colors. `screen` groups chains that render
+ * side by side on one screen as separate sub-chains (total and fair harm
+ * reduction share a screen without being merged).
+ */
+export function chain({
+  id, label, track, purpose = null, outcome, thesis,
+  nodes = {}, nodeDates = {}, screen = null, links = []
+}) {
   if (!id?.trim()) throw new Error('Chain is missing an id');
   if (purpose != null && !String(purpose).trim()) {
     throw new Error(`Chain "${id}" has an empty purpose`);
   }
   if (!label?.trim()) throw new Error(`Chain "${id}" is missing a label`);
-  if (!['total', 'fair', 'legitimacy', 'detection', 'response'].includes(track)) {
+  if (!['total', 'fair', 'legitimacy', 'detection', 'response', 'harm-reduction'].includes(track)) {
     throw new Error(
       `Invalid track "${track}" on chain "${id}". ` +
-      `Use total, fair, legitimacy, detection, or response.`
+      `Use total, fair, legitimacy, detection, response, or harm-reduction.`
     );
   }
   if (!outcome?.trim()) throw new Error(`Chain "${id}" is missing an outcome`);
   if (!thesis?.trim()) throw new Error(`Chain "${id}" is missing a thesis`);
   if (links.length === 0) throw new Error(`Chain "${id}" has no links`);
-  return { id, label, track, purpose, outcome, thesis, links };
+  if (screen != null && !String(screen).trim()) {
+    throw new Error(`Chain "${id}" has an empty screen`);
+  }
+  for (const [label_, role] of Object.entries(nodes)) {
+    if (!VALID_NODE_ROLES.includes(role)) {
+      throw new Error(
+        `Invalid node role "${role}" for node "${label_}" in chain "${id}". ` +
+        `Use one of: ${VALID_NODE_ROLES.join(', ')}`
+      );
+    }
+  }
+  for (const l of links) {
+    for (const n of [l.from, l.to]) {
+      if (!(n in nodes)) {
+        throw new Error(`Chain "${id}": node "${n}" (link ${l.id}) has no role in nodes`);
+      }
+    }
+  }
+  for (const [label_, date] of Object.entries(nodeDates)) {
+    if (!(label_ in nodes)) {
+      throw new Error(`Chain "${id}": nodeDates names "${label_}", which is not a node`);
+    }
+    if (!String(date).trim()) {
+      throw new Error(`Chain "${id}": node "${label_}" has an empty date`);
+    }
+  }
+  return { id, label, track, purpose, outcome, thesis, nodes, nodeDates, screen, links };
 }
 
 /** Collapse whitespace in one or more text fragments into a single paragraph. Supports inline <strong> for emphasis. */
@@ -223,4 +296,7 @@ export function source(label, url) {
   return { label, url };
 }
 
-export { VALID_CATEGORIES, VALID_STRENGTHS, VALID_PARTICIPATION_KINDS, VALID_EFFECTS, VALID_STAGES };
+export {
+  VALID_CATEGORIES, VALID_STRENGTHS, VALID_PARTICIPATION_KINDS,
+  VALID_EFFECTS, VALID_STAGES, VALID_NODE_ROLES
+};
