@@ -24,7 +24,7 @@ const total = chain({
     reduced vaccine uptake, and what lower uptake cost in preventable deaths.
   `),
   outcome: paragraph(`
-    An estimated <strong>232,000–234,000</strong> preventable adult deaths among the unvaccinated,
+    An estimated <strong>232,000–234,000 preventable adult deaths</strong> among the unvaccinated,
     against <strong>3.2 million</strong> deaths averted by the vaccination program overall.
   `),
   thesis: paragraph(`
@@ -351,8 +351,8 @@ const total = chain({
         evidence({
           finding: paragraph(`
             A meta-analysis of community engagement in vaccination promotion (JMIR
-            Public Health and Surveillance, 2024) found a pooled rate difference of
-            <strong>+0.18 (95% CI 0.07–0.29)</strong>. Of 20 included studies (2006–2021),
+            Public Health and Surveillance, 2024) found <strong>a pooled rate difference of
+            +0.18 (95% CI 0.07–0.29)</strong>. Of 20 included studies (2006–2021),
             only 5 were cluster RCTs and <strong>only one concerned COVID-19 vaccination;
             that study was a single-group pre-post design with no control group</strong>.
             I² = 98.4%.
@@ -388,8 +388,8 @@ const total = chain({
             A three-arm randomized trial at a Federally Qualified Health Center
             (BMC Public Health, 2024) tested adding a <strong>personalized clinician
             recommendation</strong> (the trusted-messenger mechanism, isolated) to text
-            outreach. 90-day vaccination: plain text <strong>11.5%</strong>, plus clinician
-            recommendation <strong>11.6%</strong>, plus two-way SMS 8.5%. The trial found no
+            outreach. 90-day vaccination: <strong>plain text 11.5%</strong>, plus <strong>clinician
+            recommendation 11.6%</strong>, plus two-way SMS 8.5%. The trial found no
             improvement from the clinician recommendation.
           `),
           quote: paragraph(`
@@ -439,8 +439,8 @@ const total = chain({
             For scale comparison: a cluster RCT of <strong>mobile vaccination units</strong>
             across 20 communities produced <strong>12.8% vs 3.8%: a 9.0 point, 3.4×
             effect</strong>, with no measured reduction at fixed sites. Text reminders
-            across 3.66 million CVS patients raised 30-day booster uptake by
-            <strong>1.05 percentage points</strong> (Nature, 2024). Mandates produced
+            across 3.66 million CVS patients raised <strong>30-day booster uptake by
+            1.05 percentage points</strong> (Nature, 2024). Mandates produced
             cumulative gains of +4.7 to +12 points (Nature Human Behaviour, 2022).
             None of these instruments operates on trust.
           `),
@@ -653,8 +653,8 @@ const fair = chain({
       evidence: [
         evidence({
           finding: paragraph(`
-            KFF administrative data, late April 2021, at least one dose: White
-            <strong>38%</strong>, Hispanic <strong>25%</strong>, Black <strong>24%</strong>: gaps of 13 and 14
+            KFF administrative data, late April 2021, at least one dose: <strong>White
+            38%</strong>, <strong>Hispanic 25%</strong>, <strong>Black 24%</strong>: gaps of 13 and 14
             percentage points.
           `),
           quote: paragraph(`
@@ -685,11 +685,11 @@ const fair = chain({
         evidence({
           finding: paragraph(`
             KFF Vaccine Monitor, among unvaccinated Hispanic adults (April 2021):
-            <strong>64%</strong> worried about missing work due to side effects, 52% about
+            <strong>64% worried about missing work due to side effects</strong>, 52% about
             out-of-pocket cost, <strong>49% concerned they could not get the vaccine from
             a place they trust</strong>, 35% had immigration-status concerns (63% among
-            likely-undocumented). <strong>54%</strong> of employed respondents not yet ready to
-            vaccinate said paid time off would make them more likely to do so.
+            likely-undocumented). <strong>54% of employed respondents not yet ready to
+            vaccinate</strong> said paid time off would make them more likely to do so.
           `),
           quote: paragraph(`
             Nearly two-thirds (64%) are concerned about missing work due to side
@@ -752,7 +752,7 @@ const fair = chain({
         }),
         evidence({
           finding: paragraph(`
-            Cluster RCT of mobile vaccination units: <strong>12.8% vs 3.8%</strong> vaccinated,
+            Cluster RCT of mobile vaccination units: <strong>12.8% vs 3.8% vaccinated</strong>,
             a 9.0 point / 3.4× effect across 20 randomized communities and 20,414
             unvaccinated adults, with no measured reduction at fixed sites (2.7% vs
             2.8% at vaccination centers).

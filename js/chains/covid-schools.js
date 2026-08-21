@@ -21,15 +21,15 @@ const legitimacy = chain({
     that damage cost in enrollment, attendance, and learning.
   `),
   outcome: paragraph(`
-    Gallup confidence in public schools at <strong>28% in 2022</strong> (29% in 2019), with a
-    29-point partisan gap against a 7-point average since 1973; public school
+    Gallup <strong>confidence in public schools at 28% in 2022</strong> (29% in 2019), with a
+    <strong>29-point partisan gap</strong> against a 7-point average since 1973; public school
     enrollment down 1.4 million between fall 2019 and fall 2020 (NCES), with
     remote-only instruction causally responsible for an additional
-    <strong>1.1 percentage points</strong> of disenrollment (Dee et al., 2021); homeschool
+    <strong>1.1 percentage points of disenrollment</strong> (Dee et al., 2021); homeschool
     growth at 4.9% in 2024-25, more than double the pre-pandemic rate
-    (Johns Hopkins Homeschool Hub); chronic absenteeism at <strong>22% of US
+    (Johns Hopkins Homeschool Hub); <strong>chronic absenteeism at 22% of US
     students (about 10.8 million)</strong> in 2024-25, still above pre-pandemic
-    levels (RAND); age-9 NAEP scores down <strong>5 points in reading and 7 points
+    levels (RAND); <strong>age-9 NAEP scores down 5 points in reading and 7 points
     in mathematics</strong> between 2020 and 2022, the first mathematics decline in
     the assessment's history (NAEP Long-Term Trend).
   `),
@@ -241,7 +241,7 @@ const legitimacy = chain({
           `),
           effect: 'moved',
           sources: [
-            source('Gothamist (UFT)', 'https://gothamist.com/news/nyc-teachers-union-prepared-strike-if-safety-demands-are-not-met'),
+            source('NPR (UFT)', 'https://www.npr.org/sections/coronavirus-live-updates/2020/08/19/903927057/nyc-teacher-unions-prepared-to-strike-if-safety-demands-are-not-met'),
             source('Marianno et al., Power in a Pandemic (AERA Open)', 'https://journals.sagepub.com/doi/pdf/10.1177/23328584221074337'),
             source('The 74 (AFT resolution)', 'https://www.the74million.org/video-american-federation-of-teachers-authorizes-educator-safety-strikes-if-schools-reopen-this-fall-without-adequate-safety-measures/')
           ]
@@ -299,8 +299,8 @@ const legitimacy = chain({
         evidence({
           finding: paragraph(`
             Dee, Huffaker, Phillips, and Sagara (2021) found remote-only
-            instruction in 2020-21 caused an additional <strong>1.1 percentage point</strong>
-            enrollment decline: disenrollment rose from -2.6% to -3.7%, a
+            instruction in 2020-21 caused an additional <strong>1.1 percentage point
+            enrollment decline</strong>: disenrollment rose from -2.6% to -3.7%, a
             <strong>42% increase</strong>. Effects concentrated in kindergarten and, to a
             lesser extent, elementary schools; there was <strong>no consistent evidence
             that hybrid instruction had an impact</strong> or that remote instruction
@@ -334,7 +334,7 @@ const legitimacy = chain({
         evidence({
           finding: paragraph(`
             Homeschooling growth ran at roughly 2% annually pre-pandemic; in
-            2024-25 it grew <strong>4.9%</strong>, with 36% of reporting states hitting
+            2024-25 it <strong>grew 4.9%</strong>, with 36% of reporting states hitting
             their highest-ever homeschool enrollment, <strong>exceeding pandemic peaks</strong>,
             four years after schools reopened (Johns Hopkins Homeschool Hub, 2025).
           `),
@@ -377,8 +377,8 @@ const legitimacy = chain({
             Gallup confidence in public schools: 29% (2019) → <strong>41% (2020 rally)</strong> →
             32% (2021) → <strong>28% (2022)</strong>. The decline is overwhelmingly partisan:
             Republicans 34% (2020) → 20% (2021) → <strong>14% (2022)</strong>, a 20-point fall,
-            while Democrats held at 48% → 43%. The 2022 partisan gap was
-            <strong>29 points</strong> against an average of 7 points since 1973.
+            while Democrats held at 48% → 43%. <strong>The 2022 partisan gap was
+            29 points</strong> against an average of 7 points since 1973.
           `),
           quote: paragraph(`
             Today's 29-point gap between Republican and Democratic confidence in
@@ -528,8 +528,8 @@ const legitimacy = chain({
         }),
         evidence({
           finding: paragraph(`
-            Jacob (2024) found contested school board general elections rose
-            <strong>11 percentage points</strong> (~25% relative) and turnout rose <strong>25%</strong>,
+            Jacob (2024) found <strong>contested school board general elections rose
+            11 percentage points</strong> (~25% relative) and <strong>turnout rose 25%</strong>,
             still 27% above pre-pandemic levels through the end of 2022. But there
             was <strong>no significant change in incumbent win rates</strong>. Districts with
             5% fall-2020 enrollment declines saw turnout rise 16.4% versus 8.4% in
@@ -655,10 +655,10 @@ const legitimacy = chain({
         evidence({
           finding: paragraph(`
             AEI's absenteeism tracker (Malkus) reports that 2025 kindergartners,
-            many not yet born when closures began, had chronic absenteeism rates
-            <strong>48% above the 2019 baseline</strong>; first, second, and third graders,
+            many not yet born when closures began, had <strong>chronic absenteeism rates
+            48% above the 2019 baseline</strong>; first, second, and third graders,
             none of whom experienced schooling during the first two pandemic
-            school years, showed increases of <strong>58, 64, and 70 percent</strong>
+            school years, showed <strong>increases of 58, 64, and 70 percent</strong>
             respectively over their 2019 counterparts. Elevation is not
             disproportionate among cohorts that were in school during the
             pandemic, which the report reads as a changed attendance norm rather
@@ -721,7 +721,7 @@ const legitimacy = chain({
         evidence({
           finding: paragraph(`
             Pew confidence in scientists fell 87% (April 2020) → 73% (October 2023),
-            then <strong>recovered</strong> to 76% (2024) and 77% (January 2026). The recovery
+            then <strong>recovered to 76% (2024) and 77% (January 2026)</strong>. The recovery
             runs opposite to the Gallup school-confidence series, which shows no
             comparable rebound over the same period.
           `),

@@ -50,8 +50,8 @@ const detection = chain({
       from: 'Corporate concealment, 1961 onward',
       to: 'Regulators without the information the law entitled them to',
       claim: paragraph(`
-        Disclosure obligations existed and were not met: the asserted failure at
-        this link is legal compliance, not information scarcity.
+        Disclosure obligations existed and were not met. The asserted failure
+        at this link is legal compliance.
       `),
       strength: 'strong',
       evidence: [

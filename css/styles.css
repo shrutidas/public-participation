@@ -792,20 +792,7 @@ body[data-view="chain"] #ctrl .fl,
 #key-btn:hover { background: #2b3d56; color: #fff; border-color: #6cb6e8; }
 #key-btn.on { background: #4a9fd5; border-color: #4a9fd5; color: #fff; }
 
-#memo-link {
-  flex-shrink: 0;
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: #8fc4ec;
-  text-decoration: none;
-  border: 1.5px solid #3f5c7d;
-  border-radius: 6px;
-  padding: 7px 13px;
-  transition: all 0.15s;
-  white-space: nowrap;
-}
 
-#memo-link:hover { background: #2b3d56; color: #fff; border-color: #4a9fd5; }
 
 /* ---- drawer ---- */
 
@@ -1056,8 +1043,7 @@ body[data-view="chain"] #ctrl .fl,
 
 @media (max-width: 900px) {
   #top-title { display: none; }
-  #memo-link { display: none; }
-  #ch-right { max-width: none; }
+    #ch-right { max-width: none; }
 }
 
 .ent.ent-near { box-shadow: 0 0 0 1.5px #b39ddb; }
@@ -1167,13 +1153,13 @@ body[data-view="chain"] #ctrl .fl,
    only by its bold lead-in. */
 .cd-purpose {
   font-size: 0.875rem;
-  font-weight: 400;
+  font-weight: 600;
   line-height: 1.65;
-  color: #16202f;
+  color: #2e2e2e;
   margin-bottom: 12px;
 }
 
-.cd-purpose strong { font-weight: 700; }
+.cd-purpose strong { font-weight: 750; color: #16202f; }
 
 .cd-intro .cd-outcome {
   font-size: 0.875rem;
