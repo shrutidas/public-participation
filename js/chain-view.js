@@ -280,7 +280,7 @@ function summaryStrip(chain) {
 
   const pills = (order, counts, cls, labels) => order
     .filter(k => counts[k])
-    .map(k => `<span class="g ${cls}-${k}">${counts[k]} ${labels[k].toLowerCase()}</span>`)
+    .map(k => `<span class="g ${cls}-${k}">${counts[k]} ${labels[k]}</span>`)
     .join('');
 
   const s = pills(STRENGTH_ORDER, byStrength, 'gr', STRENGTH_LABEL);
@@ -292,7 +292,7 @@ function summaryStrip(chain) {
   return `<div class="cd-sum">
     ${row('Links', s)}
     ${e ? row('Participation', e) : ''}
-    ${gaps ? row('Open', `<button class="g gr-unstudied cd-sum-btn" data-gaps>${gaps} question${gaps === 1 ? '' : 's'} &rarr;</button>`) : ''}
+    ${gaps ? row('Open', `<button class="g gr-unstudied cd-sum-btn" data-gaps>${gaps} Open Question${gaps === 1 ? '' : 's'} &rarr;</button>`) : ''}
   </div>`;
 }
 
@@ -304,13 +304,13 @@ export function renderDetail(el, chain, selection = {}) {
 
   if (!link) {
     el.innerHTML = `<div class="cd cd-intro">
+      <div class="cd-hint">Click any link on the map to open its evidence and the
+        participation that sat at it. Arrow keys walk the chain.</div>
       <div class="cd-kick">${chain.label}</div>
       ${chain.purpose ? `<div class="cd-purpose">${chain.purpose}</div>` : ''}
       <div class="cd-outcome">${chain.outcome}</div>
       <div class="cd-thesis">${chain.thesis}</div>
       ${summaryStrip(chain)}
-      <div class="cd-hint">Click any link on the map to open its evidence and the
-        participation that sat at it. Arrow keys walk the chain.</div>
     </div>`;
     el.scrollTop = 0;
     return;

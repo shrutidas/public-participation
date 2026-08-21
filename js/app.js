@@ -454,7 +454,10 @@ function bindEvents() {
 
   el('ch-map').addEventListener('click', e => {
     const b = e.target.closest('[data-link]');
-    if (b) navigate({ linkId: b.dataset.link, partIdx: null });
+    if (!b) return;
+    // Selecting a link always brings up its details, whichever pane is open.
+    if (state.rightTab !== 'detail') setRightTab('detail');
+    navigate({ linkId: b.dataset.link, partIdx: null });
   });
 
   el('ch-right-tabs').addEventListener('click', e => {
@@ -475,6 +478,7 @@ function bindEvents() {
     const go = e.target.closest('[data-golink]');
     if (go) {
       state.gapsOpen = false;
+      if (state.rightTab !== 'detail') setRightTab('detail');
       navigate({ linkId: go.dataset.golink, partIdx: null });
       return;
     }
@@ -547,6 +551,7 @@ function bindEvents() {
       : (e.key === 'ArrowUp' || e.key === 'ArrowLeft') ? -1 : 0;
     if (!dir) return;
     e.preventDefault();
+    if (state.rightTab !== 'detail') setRightTab('detail');
     navigate({ linkId: stepLink(curChain(), state.linkId, dir), partIdx: null });
   });
 

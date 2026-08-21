@@ -1207,3 +1207,5 @@ body[data-view="chain"] #ctrl .fl,
 }
 
 #tl-expand:hover { border-color: #1c2333; color: #1c2333; }
+
+.cd-intro .cd-hint { margin: 0 0 16px; }

@@ -15,32 +15,32 @@
 /** A short orientation, rendered at the top of the Key panel. */
 export const HOW_TO = [
   {
-    title: 'Pick a case',
-    desc: 'The Cases button (top left) opens the case list. Three cases have causal chains; the Meta case is timeline only.'
+    title: 'Select a case',
+    desc: 'The Cases button (top left) lists the four case studies. Three carry full causal chains; the Meta case is documented as a timeline only.'
   },
   {
-    title: 'Two views of the same case',
-    desc: 'Causal Chain is the argument: what caused what, and how well we can prove each step. Timeline is the raw chronology behind it. Toggle between them in the top bar.'
+    title: 'Two representations of each case',
+    desc: 'The causal chain states the argument: which conditions produced which outcomes, and how well the evidence supports each step. The timeline holds the underlying chronology. The Timeline tab sits beside the Causal Link pane; Expand opens the full chronology with category filters, and Back to Chain returns to the map.'
   },
   {
     title: 'Read the map',
-    desc: 'Boxes are states of the world. Arrows are causal claims, colored by how well evidenced they are (dashed means no evidence was found). Click any labeled chip (S1, R3...) to open that link\u2019s evidence, counter-evidence, and open questions on the right. Arrow keys walk the chain; Escape deselects.'
+    desc: 'Boxes are states of the world; arrows are causal claims. Arrow color encodes the evidence grade for each claim (a dashed arrow marks a claim that was searched for and not found in the literature). Click a labeled arrow (S1, R3) to open its evidence, counter-evidence, and open questions; arrow keys step through the chain.'
   },
   {
-    title: 'The dots are the point',
-    desc: 'Each dot on a chip is one instance of public participation at that link, colored by whether it demonstrably changed anything. A hollow dot means none was found there, and where those cluster is itself a finding.'
+    title: 'The dots record participation',
+    desc: 'Each dot on an arrow is one documented instance of public participation at that link, colored by its documented effect. A hollow dot marks a link where no instance was identified; the distribution of hollow dots is itself a finding.'
   },
   {
-    title: 'Put the chronology beside the argument',
-    desc: 'The right pane\u2019s Timeline tab shows the case chronology next to the map. With a link selected, entries that cite the same sources or fall inside its participation dates light up; the rest dim.'
+    title: 'Compare argument and chronology',
+    desc: 'The Timeline tab displays the chronology beside the map. With a link selected, entries that cite the same sources, or that fall within the link\u2019s participation dates, are highlighted; the rest recede.'
   },
   {
     title: 'Follow the open questions',
-    desc: 'On the chain overview, the questions pill opens every unresolved research question in the chain, grouped by the link it would firm up.'
+    desc: 'Each chain overview lists its unresolved research questions, grouped by the link they would strengthen. Together these constitute the research agenda the chains generate.'
   },
   {
-    title: 'Share exactly what you see',
-    desc: 'The URL always points at the current case, chain, link, or participation instance. Copy it and the recipient lands on the same view.'
+    title: 'Cite a specific view',
+    desc: 'Every case, chain, link, and participation instance has a stable URL. Copying the address functions as a pinpoint citation: a reader lands on the exact evidence under discussion.'
   }
 ];
 
