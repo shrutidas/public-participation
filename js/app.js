@@ -94,16 +94,9 @@ function renderTopBar() {
   const c = curCase();
   el('top-num').textContent = c.num;
   el('top-title').textContent = c.title;
-
-  const hasChains = curChains().length > 0;
-  el('modes').innerHTML = [
-    ['chain', 'Causal Chain'],
-    ['timeline', 'Timeline']
-  ].map(([m, label]) => {
-    const off = m === 'chain' && !hasChains;
-    return `<button class="mbt${state.view === m ? ' on' : ''}${off ? ' disabled' : ''}"
-      data-view="${m}"${off ? ' disabled title="No chain mapped for this case yet"' : ''}>${label}</button>`;
-  }).join('');
+  // Cases without a chain live in the full timeline and have no chain to
+  // return to.
+  el('tl-back').classList.toggle('hide', !curChains().length);
 }
 
 function renderDrawer() {
@@ -447,10 +440,12 @@ function bindEvents() {
     setKeyPanel(!el('key-panel').classList.contains('open')));
   el('key-close').addEventListener('click', () => setKeyPanel(false));
 
-  el('modes').addEventListener('click', e => {
-    const b = e.target.closest('[data-view]');
-    if (b && !b.disabled) navigate({ view: b.dataset.view, chainId: null, linkId: null, partIdx: null });
-  });
+  // The Expand button in the split pane and the Back to Chain button in the
+  // full timeline are the only two view switches.
+  for (const id of ['tl-expand', 'tl-back']) {
+    el(id).addEventListener('click', () =>
+      navigate({ view: el(id).dataset.view, chainId: null, linkId: null, partIdx: null }));
+  }
 
   el('ch-sel').addEventListener('click', e => {
     const b = e.target.closest('[data-chain]');

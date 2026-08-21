@@ -1173,3 +1173,37 @@ body[data-view="chain"] #ctrl .fl,
 
 /* Chain-stage pill, from the project's working framework */
 .cd-stage { background: #eef0f4; color: #2c3a4d; border: 1px solid #8fa3bd; }
+
+/* ---- single-timeline navigation ---- */
+
+.tl-back {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: 5px;
+  border: 1.5px solid #1258a0;
+  background: #e3eef8;
+  color: #09386a;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.tl-back:hover { background: #bed4ee; }
+.tl-back.hide { display: none; }
+
+#tl-expand {
+  margin-left: auto;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  padding: 5px 12px;
+  border: 1.5px solid #b3aca0;
+  border-radius: 5px;
+  background: #fff;
+  color: #4a463f;
+  cursor: pointer;
+  font-family: inherit;
+  align-self: center;
+  margin-bottom: 6px;
+}
+
+#tl-expand:hover { border-color: #1c2333; color: #1c2333; }

@@ -17,7 +17,6 @@
     <span id="top-num"></span>
     <span id="top-title"></span>
   </div>
-  <nav id="modes"></nav>
   <button id="key-btn">Key</button>
   <a id="memo-link" href="memo.html">Memo II &rarr;</a>
 </header>
@@ -41,6 +40,7 @@
 
 <div id="tl-wrap">
   <div class="tl-toolbar">
+    <button class="tl-back" id="tl-back" data-view="chain">&larr; Back to Chain</button>
     <button class="ov-toggle" data-ov>About This Case</button>
     <span class="vsep"></span>
     <button class="fl fl-all" data-f="all">All</button>
@@ -81,6 +81,7 @@
     <div id="ch-right-tabs">
       <button class="rt on" data-rt="detail">Causal Link</button>
       <button class="rt" data-rt="timeline">Timeline</button>
+      <button id="tl-expand" data-view="timeline" title="Open the full timeline with filters and the case overview">Expand &#x2922;</button>
     </div>
     <div id="ch-detail" class="rt-pane show"></div>
     <div id="ch-timeline" class="rt-pane"></div>
