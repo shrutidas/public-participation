@@ -28,8 +28,8 @@ const detection = chain({
   outcome: paragraph(`
     Approximately <strong>200,000</strong> CFPUA customers (250,000–300,000 in the wider
     downstream region) drank water with a mean GenX concentration of
-    <strong>631 ng/L</strong> and concentrations up to approximately 4,500 ng/L, for a cohort
-    averaging <strong>20 years</strong> of residency in the region.
+    <strong>631 ng/L</strong> and concentrations up to approximately 4,500 ng/L
+    (Sun et al., 2016).
   `),
   thesis: paragraph(`
     The available evidence indicates that detection worked and disclosure did

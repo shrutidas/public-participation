@@ -27,9 +27,11 @@ const legitimacy = chain({
     remote-only instruction causally responsible for an additional
     <strong>1.1 percentage points</strong> of disenrollment (Dee et al., 2021); homeschool
     growth at 4.9% in 2024-25, more than double the pre-pandemic rate
-    (Johns Hopkins Homeschool Hub); age-9 NAEP scores down <strong>5 points in
-    reading and 7 points in mathematics</strong> between 2020 and 2022, the first
-    mathematics decline in the assessment's history (NAEP Long-Term Trend).
+    (Johns Hopkins Homeschool Hub); chronic absenteeism at <strong>22% of US
+    students (about 10.8 million)</strong> in 2024-25, still above pre-pandemic
+    levels (RAND); age-9 NAEP scores down <strong>5 points in reading and 7 points
+    in mathematics</strong> between 2020 and 2022, the first mathematics decline in
+    the assessment's history (NAEP Long-Term Trend).
   `),
   thesis: paragraph(`
     The available evidence does not show that parents had no voice. Parents had
