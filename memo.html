@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Memo II: Causal Chains for Public Participation in Science and Technology Policy</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; scroll-behavior: smooth; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  background: #f4f2ee; color: #1a1a1a; line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+#hdr { background: #1c2333; color: #fff; padding: 22px 32px; }
+#hdr .kick {
+  font-size: 0.6875rem; font-weight: 700;
+  letter-spacing: 0.03em; color: #7f9ec0; margin-bottom: 7px;
+}
+#hdr h1 { font-size: 1.4rem; font-weight: 600; line-height: 1.35; max-width: 760px; }
+#hdr .sub { font-size: 0.875rem; color: #b6c6d8; margin-top: 9px; }
+#hdr a { color: #8fc4ec; }
+main { max-width: 800px; margin: 0 auto; padding: 34px 32px 100px; }
+h2 {
+  font-size: 1.25rem; font-weight: 700; line-height: 1.35;
+  margin: 48px 0 6px; padding-top: 26px; border-top: 2px solid #d4cfc5; color: #16202f;
+}
+h2:first-of-type { margin-top: 20px; }
+h2 .n {
+  display: block; font-size: 0.6875rem; font-weight: 700;
+  letter-spacing: 0.05em; color: #8a8377; margin-bottom: 7px;
+}
+h3 { font-size: 1rem; font-weight: 700; margin: 30px 0 8px; color: #22304a; }
+h4 {
+  font-size: 0.75rem; font-weight: 700; letter-spacing: 0.035em;
+  color: #6a6255; margin: 22px 0 7px;
+}
+p { margin-bottom: 14px; }
+ul, ol { margin: 0 0 16px 22px; }
+li { margin-bottom: 9px; }
+a { color: #1258a0; }
+a:hover { color: #0a3e75; }
+strong { font-weight: 650; }
+em { font-style: italic; }
+code {
+  font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 0.875em;
+  background: #e8e4dc; padding: 1px 5px; border-radius: 3px;
+}
+.lede {
+  font-size: 1.0625rem; line-height: 1.7; color: #2a2a2a;
+  border-left: 4px solid #1c2333; padding: 4px 0 4px 18px; margin-bottom: 26px;
+}
+.box {
+  background: #fff; border: 1px solid #ddd8ce; border-radius: 8px;
+  padding: 18px 22px; margin: 20px 0;
+}
+.box.warn { border-left: 5px solid #aa2a20; background: #fdf5f4; }
+.box.fix { border-left: 5px solid #177038; background: #f3faf6; }
+.box.q { border-left: 5px solid #8a6d0f; background: #fdfaf0; }
+.box h4 { margin-top: 0; }
+.box p:last-child, .box ul:last-child, .box ol:last-child { margin-bottom: 0; }
+.chainbox {
+  background: #fff; border: 1px solid #ddd8ce; border-radius: 8px;
+  padding: 4px 0; margin: 20px 0; overflow: hidden;
+}
+.cb-row {
+  display: grid; grid-template-columns: 40px 1fr 96px; gap: 12px;
+  padding: 12px 20px; border-bottom: 1px solid #f0ece4; align-items: start;
+}
+.cb-row:last-child { border-bottom: none; }
+.cb-id { font-size: 0.75rem; font-weight: 700; color: #8a8377; padding-top: 2px; }
+.cb-txt { font-size: 0.875rem; line-height: 1.6; }
+.cb-txt .node { font-weight: 650; color: #16202f; }
+.g {
+  display: inline-block; font-size: 0.625rem; font-weight: 700;
+  letter-spacing: 0.04em; padding: 2px 8px; border-radius: 10px; white-space: nowrap;
+}
+.g-strong { background: #e5f5ec; color: #0c4520; border: 1px solid #177038; }
+.g-moderate { background: #e3eef8; color: #09386a; border: 1px solid #1258a0; }
+.g-weak { background: #fef0e2; color: #612800; border: 1px solid #a84e08; }
+.g-contested { background: #fbf3d8; color: #5a4708; border: 1px solid #8a6d0f; }
+.g-unstudied { background: #faeaea; color: #6e1510; border: 1px solid #aa2a20; }
+table { border-collapse: collapse; width: 100%; margin: 18px 0; font-size: 0.8125rem; }
+th, td { text-align: left; padding: 9px 11px; border-bottom: 1px solid #ddd8ce; vertical-align: top; line-height: 1.55; }
+th { font-size: 0.6875rem; letter-spacing: 0.03em; color: #6a6255; background: #eae7df; }
+.pri {
+  display: inline-block; font-size: 0.625rem; font-weight: 700;
+  letter-spacing: 0.05em; padding: 2px 8px; border-radius: 4px; color: #fff; margin-right: 7px;
+}
+.p1 { background: #aa2a20; }
+.p2 { background: #a84e08; }
+.p3 { background: #4a5f7a; }
+.study { border-left: 4px solid #d4cfc5; padding-left: 16px; margin: 18px 0; }
+.study h3 { margin-top: 0; }
+.meta { font-size: 0.8125rem; color: #6a6255; }
+#toc { background: #e8e4dc; border-radius: 8px; padding: 16px 22px; margin-bottom: 30px; }
+#toc h4 { margin-top: 0; }
+#toc ol { margin-bottom: 0; margin-left: 18px; font-size: 0.875rem; }
+#toc li { margin-bottom: 5px; }
+footer {
+  border-top: 2px solid #d4cfc5; margin-top: 50px; padding-top: 20px;
+  font-size: 0.8125rem; color: #6a6255;
+}
+@media (max-width: 640px) {
+  main { padding: 24px 18px 70px; }
+  #hdr { padding: 18px; }
+  .cb-row { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div id="hdr">
+  <div class="kick">Second Iteration · Research Memo</div>
+  <h1>Causal Chains for Public Participation in Science and Technology Policy</h1>
+  <div class="sub">
+    Three cases mapped link by link, with evidence and participation instances at every link.
+    Companion to the <a href="index.html">interactive tool</a>; see the <strong>Causal Chain</strong> view.
+  </div>
+</div>
+
+<main>
+
+<div class="lede">
+  The first memo asked whether public participation would have reduced harm in these
+  cases. This one asks a narrower and more answerable question: <strong>at which specific
+  causal link would participation have had to act, and is there evidence that anything
+  did?</strong> Mapping the chains produced four corrections to the first iteration's
+  framing and one finding that runs against the project's thesis. Both are below,
+  before the good news.
+</div>
+
+<div id="toc">
+  <h4>Contents</h4>
+  <ol>
+    <li><a href="#corrections">What the evidence changed</a></li>
+    <li><a href="#method">The method, and what a link has to carry</a></li>
+    <li><a href="#cross">Six findings that hold across all three cases</a></li>
+    <li><a href="#schools">Case: COVID-19 school closures</a></li>
+    <li><a href="#vaccines">Case: COVID-19 vaccine mandates</a></li>
+    <li><a href="#pfas">Case: GenX in the Cape Fear</a></li>
+    <li><a href="#typology">The "bad company + regulatory failure" typology</a></li>
+    <li><a href="#design">What this implies for design</a></li>
+    <li><a href="#plan">Research plan</a></li>
+  </ol>
+</div>
+
+<h2 id="corrections"><span class="n">Section 1</span>What the evidence changed</h2>
+
+<p>
+  Five claims from the first iteration did not survive contact with the literature. Each
+  is more interesting corrected than it was as originally stated.
+</p>
+
+<div class="box warn">
+  <h4>1. PFAS was not a detection failure. It was a disclosure failure.</h4>
+  <p>
+    The first memo framed Stage 1 as "corporations were hoarding information that public
+    and government did not know," with citizen sensing as the natural fix. But
+    <strong>EPA's own Office of Research and Development detected the novel compounds in
+    Cape Fear samples collected in summer 2012</strong>
+    (<a href="https://pubs.acs.org/doi/10.1021/acs.est.5b01215">Strynar et al. 2015</a>),
+    and Detlef Knappe emailed the quantifying paper to NC DEQ on 23 November 2016. The
+    public found out on <strong>7 June 2017</strong>, from a newspaper. Roughly five years from
+    federal detection, seven months from a peer-reviewed paper landing in a regulator's
+    inbox.
+  </p>
+  <p>
+    This matters because it changes the prescription. Participation instruments that
+    improve <em>sensing</em> (bucket brigades, community air monitors, citizen science)
+    would not have helped here. Instruments that force <em>notification</em> would have.
+  </p>
+</div>
+
+<div class="box warn">
+  <h4>2. Parents were not voiceless. Their voice had nowhere to bind.</h4>
+  <p>
+    The five-district study of reopening decisions found parent input flowed through
+    <strong>surveys and virtual town halls used to elicit individual preferences rather than as
+    deliberative forums</strong>. A principal quoted in it: "There's not this group that
+    [parents'] voice can be sent through and amplified, and so they're just individuals."
+    (<a href="https://files.eric.ed.gov/fulltext/EJ1383169.pdf">Singer et al.</a>)
+  </p>
+  <p>
+    The asymmetry was not in volume of input. It was in <strong>whether input had anywhere to
+    bind</strong>. Unions had a contract; everyone else had a survey. That is a sharper and more
+    fixable complaint than "nobody asked us."
+  </p>
+</div>
+
+<div class="box warn">
+  <h4>3. Parents were largely deferential at the time. The damage shows up later, in exit and in partisan-asymmetric confidence.</h4>
+  <p>
+    The same study found <strong>no evidence of significant parent backlash</strong> during 2020-21.
+    One New Orleans parent: "I can't say that they did wrong. They did the right thing". It
+    argues parent deference <em>reinforced</em> district caution. Gallup's series on
+    satisfaction with one's own child's education barely moved (82% → 74%). The
+    <a href="https://pdkpoll.org/wp-content/uploads/2020/10/PDKPoll2019Topline.pdf">PDK
+    Poll</a> shows no decline at all through 2022.
+  </p>
+  <p>
+    What did move: Gallup confidence in public schools fell from a 2020 rally peak of 41%
+    to 28% in 2022, driven almost entirely by Republicans (34% → <strong>14%</strong>) while
+    Democrats held (48% → 43%). The 2022 partisan gap was <strong>29 points against a
+    historical average of 7</strong>
+    (<a href="https://news.gallup.com/poll/394784/confidence-public-schools-turns-partisan.aspx">Gallup</a>).
+    And Dee et al. found remote-only instruction <em>caused</em> an additional 1.1-point
+    enrollment decline: a 42% increase in disenrollment, with hybrid showing no effect
+    (<a href="https://www.nber.org/papers/w29156">NBER w29156</a>).
+  </p>
+  <p>
+    So: systemic, partisan, lagged, and revealed through behavior. Not contemporaneous
+    parent-reported grievance. A memo claiming the latter is contradicted by the best
+    qualitative evidence.
+  </p>
+</div>
+
+<div class="box warn">
+  <h4>4. The claim that school closures fed the anti-science turn is unsupported.</h4>
+  <p>
+    Searched directly. Pew's reports on the decline in confidence in scientists (87% in
+    April 2020 → 73% in October 2023) contain <strong>no mention of schools, education policy, or
+    closures</strong>. The largest recent academic treatment, ~10,000 respondents across 25+
+    countries: does not examine education policy at all. And confidence in scientists has
+    since <strong>recovered</strong> to 77% (January 2026) while confidence in schools has not, which
+    runs the wrong way for the story.
+  </p>
+  <p>
+    The circumstantial case is not nothing: the Republican-specific collapse in school
+    confidence and the Republican-specific deficit in scientist confidence describe the
+    same population. But nobody has connected them. Carry it as a labeled hypothesis or
+    drop it.
+  </p>
+</div>
+
+<div class="box warn">
+  <h4>5. The COVID trust collapse was more partisan than racial, including at CDC.</h4>
+  <p>
+    This one is uncomfortable because it cuts at the load-bearing assumption. RAND's
+    American Life Panel measured CDC trust May → October 2020 and found the decline was
+    significant among White (−0.8) and Hispanic (−0.7) respondents and
+    <strong>not statistically significant among Black respondents (−0.3)</strong>; by politics, Trump
+    voters −0.8 (significant), Biden voters −0.3 (not)
+    (<a href="https://www.rand.org/pubs/research_reports/RRA308-12.html">RAND RR-A308-12</a>).
+  </p>
+  <p>
+    Historical institutional trauma is real and well documented as a driver of differential
+    response to identical guidance. But <em>the CDC communication failure of 2020-21</em> did
+    not fall hardest on the communities the equity interventions were designed for. Two
+    distinct mechanisms are being conflated in the first memo, and they call for different
+    fixes.
+  </p>
+</div>
+
+<h2 id="method"><span class="n">Section 2</span>The method, and what a link has to carry</h2>
+
+<p>
+  A chain runs from a root cause to a quantified outcome. Every link is an explicit
+  assertion that A produced B, and every link has to carry four things:
+</p>
+
+<ol>
+  <li><strong>The claim</strong>: stated so it could be false.</li>
+  <li><strong>Evidence, graded.</strong> <span class="g g-strong">Strong</span> means causal
+    identification or an authoritative repeated measure.
+    <span class="g g-moderate">Moderate</span> means correlational, single-survey, or a
+    program evaluation with a comparison group.
+    <span class="g g-weak">Weak</span> means anecdote, self-report, or advocacy source.
+    <span class="g g-contested">Contested</span> means credible evidence points both ways.
+    <span class="g g-unstudied">Unstudied</span> means I looked and it does not appear to exist.</li>
+  <li><strong>Counter-evidence</strong>, kept as a separate field rather than folded into a
+    hedge. If a link is contested, the memo should show the fight.</li>
+  <li><strong>Participation instances at that link</strong>: what was actually tried, by whom,
+    and whether it demonstrably moved anything: <em>most change</em>, <em>partial change</em>,
+    <em>no change</em>, or <em>never measured</em>.</li>
+</ol>
+
+<p>
+  The last category is doing more work than expected. Across the three cases, <strong>9 of 20
+  documented participation instances have never had their effect measured at all</strong>, 
+  including roughly $1.1 billion of federal community-engagement spending.
+</p>
+
+<p>
+  Chains branch. Several links descend from the same node (a link can declare which
+  earlier link it continues), and two cases have two parallel chains because they have
+  two distinct outcomes participation was asked to improve. The tool enforces continuity:
+  a link's starting node must be its parent's ending node, or the linter rejects it. That
+  constraint is the point: it prevents the chain from quietly becoming a list of related
+  facts.
+</p>
+
+<h2 id="cross"><span class="n">Section 3</span>Six findings that hold across all three cases</h2>
+
+<h3>1. In two of three cases, journalism performed a state function</h3>
+<p>
+  The federal government did not publish county-level COVID case data during the first
+  year of the pandemic. A single New York Times reporter's spreadsheet scaled to 160+
+  contributors, won a Pulitzer, and was viewed a billion times, then shut down in 2023
+  because state and local agencies were "reporting their data less frequently and less
+  reliably." In Cape Fear, a StarNews reporter found the contamination by
+  <strong>browsing EPA's own UCMR3 database</strong>, noticing Wilmington hits, and searching his way
+  to the Knappe paper. The disclosure infrastructure worked. Nobody was reading it.
+</p>
+<p>
+  Both channels performed a notification function no statute assigned to anyone. Both have
+  no funding model and no obligation to exist. This is the most consequential pattern in
+  the project and the first memo did not name it.
+</p>
+
+<h3>2. The only participation instruments that reliably bind are adversarial and legal</h3>
+<p>
+  Ranked by documented effect on an outcome: teachers' union collective bargaining
+  (moved reopening timing, controlling for case rates); the Cape Fear River Watch citizen
+  suit (produced party status, a $12M penalty, and independent enforcement authority over
+  eleven paragraphs of a consent order); the Consent Order public comment period (produced
+  itemized, agency-acknowledged changes protecting downstream utilities); Tennant/Leach
+  discovery (pierced two decades of concealment).
+</p>
+<p>
+  Deliberative instruments appear exactly once in the entire record (a 30-person
+  sortition panel in Michigan in November 2020), and it was a research exercise, not a
+  decision procedure. <strong>I could not find a single US school district that ran a structured
+  deliberative process on reopening.</strong> The normative case for deliberation in this project
+  currently rests on theory and on non-US precedent, not on anything these three cases
+  demonstrate.
+</p>
+
+<h3>3. The causal evidence supports access interventions, not trust interventions</h3>
+<p>
+  This is the finding that runs against the thesis, and it should be confronted rather
+  than managed.
+</p>
+<table>
+  <tr><th>Intervention</th><th>Effect on uptake</th><th>Design</th></tr>
+  <tr><td>Mobile vaccination units</td><td><strong>+9.0 pp</strong> (12.8% vs 3.8%)</td><td>Cluster RCT, 20 communities</td></tr>
+  <tr><td>Mandates</td><td>+4.7 to +12 pp</td><td>Difference-in-differences, 4 countries</td></tr>
+  <tr><td>Cash incentive ($3)</td><td>+12.3 pp</td><td>Cluster RCT, 310 villages</td></tr>
+  <tr><td>Text reminders</td><td>+1.05 pp</td><td>RCT, 3.66M patients</td></tr>
+  <tr><td>Health-and-social-needs case management</td><td>HR 1.06 (1.02–1.10)</td><td>RCT, 38,627 people</td></tr>
+  <tr><td><strong>Personalized clinician recommendation</strong></td><td><strong>11.6% vs 11.5%, null</strong></td><td>RCT at an FQHC</td></tr>
+  <tr><td><strong>Identity-tailored messages + celebrity endorsers</strong></td><td><strong>Null</strong> (Fauci endorsement <em>reduced</em> conservative intent)</td><td>RCT, n=4,190</td></tr>
+</table>
+<p>
+  The one trial that cleanly isolated the trusted-messenger mechanism returned zero. The
+  canonical Popular Opinion Leader cluster RCT for COVID vaccine uptake among Black adults
+  <strong>began recruiting in February 2024</strong>, three years after the question stopped mattering
+  operationally. Meanwhile every instrument that moved uptake bypasses trust entirely.
+</p>
+<p>
+  There is a defensible reading that keeps participation in the argument: what community
+  infrastructure actually delivers is <strong>access</strong>, a low-barrier site with people who
+  speak your language, no insurance requirement, and no appointment system. Unidos en
+  Salud reached 11,098 people at 70.5% Latinx against a 13.3% citywide share, with 47.3%
+  uninsured and 62.4% with no primary care provider. That is a real and large effect on
+  <em>reach</em>. It is just not evidence about trust, and the memo should stop borrowing
+  the trust framing to describe an access result.
+</p>
+
+<h3>4. Public comment worked once, and we know approximately why</h3>
+<p>
+  Comment periods are usually theatre. The Chemours Consent Order comment period is the
+  cleanest counter-example in the project: ~380 comments produced a
+  <a href="https://www.deq.nc.gov/genx/2019-02-20-final-deq-response-comments-proposed-consent/download">published,
+  itemized agency response</a> adding a new paragraph requiring characterization of PFAS
+  <em>at downstream utility raw water intakes</em>, a sediment assessment, a three-to-fourfold
+  increase in Old Outfall 002 reduction, a 20-year filtration floor, and DEQ's right to
+  split samples.
+</p>
+<p>
+  Note who benefited: <strong>downstream communities, the constituency furthest from the
+  facility and least represented in the original negotiation.</strong> Four conditions were
+  present that usually are not: a specific draft document rather than an open question; a
+  defined adversary; an intermediary (SELC) running a public session to translate the
+  draft before the deadline; and a live lawsuit in the background. Those are testable
+  conditions, and testing them across other consent orders is a tractable study.
+</p>
+
+<h3>5. Participation instruments are venue-scoped, and win the plant while losing the rule</h3>
+<p>
+  Cape Fear is the strongest participation record in the project. Nine years on, North
+  Carolina still has <strong>no enforceable surface water standard for GenX</strong>: the
+  Environmental Management Commission narrowed groundwater standards from the eight
+  compounds DEQ proposed to three, and the 2026 monitoring rules carry no compliance
+  deadline. And on <strong>20 May 2026 EPA proposed rescinding the federal 10 ng/L drinking
+  water limit for GenX</strong>
+  (<a href="https://www.federalregister.gov/documents/2026/05/20/2026-10085/rescission-of-regulatory-determinations-and-removal-of-related-provisions-for-four-pfas-substances">Federal
+  Register</a>; the comment period ran to July 20, 2026).
+</p>
+<p>
+  Meanwhile CFPUA ratepayers have paid <strong>$82.8 million</strong> for filtration and Chemours has
+  contributed nothing toward it, and CFPUA's own motion to intervene in the consent order
+  was denied as untimely. The citizen group got in; the entity paying the bill did not.
+</p>
+<p>
+  A citizen suit produces relief at one facility. A comment period improves one order.
+  Neither reaches the rule that would protect the next community, because rulemaking is a
+  different venue with different participants on a different clock. Any theory of
+  participation that stops at "the community won" will systematically overstate what these
+  instruments accomplish.
+</p>
+
+<h3>6. Money without measurement</h3>
+<p>
+  Roughly <strong>$1.1 billion</strong> in federal participation infrastructure ($323M to 150
+  community-based organizations, $250M to local governments for health literacy, $500M for
+  community health workers, $29M for vaccine-confidence research) exists in the public
+  record as dollar figures and dose counts and <strong>nothing else</strong>. I could find no published
+  outcome evaluation of any line item.
+</p>
+<p>
+  Worse: DHS's Inspector General found FEMA had not finalized its equity guidance and
+  <strong>lacked systems to collect demographic data on applicants</strong>: "without a system of
+  records, FEMA cannot accurately identify and target resources to underserved and
+  marginalized communities." About 19% of federal Community Vaccination Center doses have
+  no demographic data at all. Site-level results ranged from Newark (16.8% of doses to
+  White recipients in an 11%-White city) to <strong>Cleveland (73% to White recipients in a
+  33.8%-White city)</strong>.
+</p>
+<p>
+  If the memo makes one narrow institutional recommendation, "fund the evaluation at the
+  same time you fund the program" is defensible on this evidence alone.
+</p>
+
+<h2 id="schools"><span class="n">Case 1</span>COVID-19 school closures</h2>
+
+<p class="meta">
+  One chain, seven links, terminal outcome: durable systemic confidence loss expressed
+  through exit and adversarial participation. This case has no clean harm-reduction
+  outcome participation could plausibly have improved: the epidemiological tradeoff was
+  genuinely contested. So the chain runs to legitimacy instead.
+</p>
+
+<div class="chainbox">
+  <div class="cb-row"><div class="cb-id">S1</div>
+    <div class="cb-txt"><span class="node">Emergency closure under uncertainty</span> → <span class="node">structural asymmetry in who could bind the decision</span>. Unions had a contract; parents had surveys.</div>
+    <div><span class="g g-strong">Strong</span></div></div>
+  <div class="cb-row"><div class="cb-id">S2</div>
+    <div class="cb-txt">→ <span class="node">prolonged remote instruction decoupled from local case rates</span>. Mandatory-bargaining states substantially more likely to stay remote controlling for case rates; Detroit's union won modality choice and ~95% chose remote.</div>
+    <div><span class="g g-strong">Strong</span></div></div>
+  <div class="cb-row"><div class="cb-id">S3</div>
+    <div class="cb-txt">→ <span class="node">exit from public schooling</span>. Remote-only caused +1.1 pp disenrollment, a 42% increase; hybrid had no effect. Homeschool growth hit 4.9% in 2024-25, above pandemic peaks.</div>
+    <div><span class="g g-strong">Strong</span></div></div>
+  <div class="cb-row"><div class="cb-id">S4</div>
+    <div class="cb-txt"><em>branches from S2</em> → <span class="node">collapse in systemic confidence</span>. Gallup 41% → 28%, Republicans 34% → 14%. But PDK shows no drop through 2022 and parents' ratings of their own school held.</div>
+    <div><span class="g g-contested">Contested</span></div></div>
+  <div class="cb-row"><div class="cb-id">S5</div>
+    <div class="cb-txt">→ <span class="node">participation relocates to adversarial, post-hoc forms</span>. 84 recall efforts against 215 board members in 2021 (vs a 28/64 annual average); board-community conflict 8% → 47%; contested elections +11 pp, turnout +25%, and yet <strong>no change in incumbent win rates</strong>.</div>
+    <div><span class="g g-strong">Strong</span></div></div>
+  <div class="cb-row"><div class="cb-id">S6</div>
+    <div class="cb-txt"><em>branches from S4</em> → <span class="node">chronic absenteeism as a persistent condition</span>. Dose-response with remote exposure; relational climate now predicts attendance more strongly than pre-pandemic; K-3 cohorts who never saw a closure show similarly elevated absenteeism.</div>
+    <div><span class="g g-moderate">Moderate</span></div></div>
+  <div class="cb-row"><div class="cb-id">S7</div>
+    <div class="cb-txt"><em>branches from S4</em> → <span class="node">broader decline in trust in scientists</span>. No study supports this. Pew's reports do not mention schools; scientist confidence has recovered while school confidence has not.</div>
+    <div><span class="g g-unstudied">Unstudied</span></div></div>
+</div>
+
+<div class="box q">
+  <h4>The uncomfortable thing about S1 and S2</h4>
+  <p>
+    Union collective bargaining is the clearest example in this entire project of
+    participation that <strong>demonstrably moved a policy outcome</strong>. The complaint cannot be
+    that unions participated. It has to be that they were the only stakeholder whose
+    participation had teeth. That reframes the design question usefully: not "how do we
+    reduce union voice" but <strong>"what instrument gives other stakeholders comparable binding
+    capacity"</strong>, and the honest answer from the record is that nobody built one.
+  </p>
+</div>
+
+<h2 id="vaccines"><span class="n">Case 2</span>COVID-19 vaccine mandates</h2>
+
+<p class="meta">
+  Two chains. <strong>Total harm reduction</strong> (five links, mediated by uptake) and
+  <strong>fair harm reduction</strong> (four links, mediated by reach). Participation was asked to do
+  a different job in each, and the evidence treats them very differently.
+</p>
+
+<h3>Total harm reduction</h3>
+
+<div class="chainbox">
+  <div class="cb-row"><div class="cb-id">V1</div>
+    <div class="cb-txt"><span class="node">Communication failure + prior distrust</span> → <span class="node">decline in trust in public health institutions</span>. Two CDC telebriefings in all of 2021; public rating of the response 79% → 50%. <em>Counter: the decline was partisan, not racial.</em></div>
+    <div><span class="g g-moderate">Moderate</span></div></div>
+  <div class="cb-row"><div class="cb-id">V2</div>
+    <div class="cb-txt">→ <span class="node">reduced compliance and delayed uptake</span>. Across 12 countries, trust in leaders was <em>not</em> predictive; trust in institutions was, mediated by giving rationale, soliciting feedback, and disclosing uncertainty.</div>
+    <div><span class="g g-strong">Strong</span></div></div>
+  <div class="cb-row"><div class="cb-id">V3</div>
+    <div class="cb-txt">→ <span class="node">preventable deaths</span>. ~234,000 (KFF) and ~232,000 (independent replication, CI 214k–250k), against 3.2M deaths averted overall.</div>
+    <div><span class="g g-strong">Strong</span></div></div>
+  <div class="cb-row"><div class="cb-id">V4</div>
+    <div class="cb-txt"><em>branches from V2</em> → <span class="node">uptake raised by a trust-targeting intervention</span>. The link the whole thesis rests on, and the weakest in the chain. See the table in Section 3.</div>
+    <div><span class="g g-contested">Contested</span></div></div>
+  <div class="cb-row"><div class="cb-id">V5</div>
+    <div class="cb-txt">→ <span class="node">coercion substituted for trust; legitimacy contest begins</span>. Mandates worked (+66% weekly first doses), then the authority question resolved judicially rather than deliberatively.</div>
+    <div><span class="g g-strong">Strong</span></div></div>
+</div>
+
+<h3>Fair harm reduction</h3>
+
+<div class="chainbox">
+  <div class="cb-row"><div class="cb-id">F1</div>
+    <div class="cb-txt"><span class="node">Structural barriers + historical trauma</span> → <span class="node">unequal early uptake</span>. Late April 2021: White 38%, Hispanic 25%, Black 24%. Coverage in the highest-SVI county quartile was 10.3 points below the lowest, and <em>widening</em>.</div>
+    <div><span class="g g-strong">Strong</span></div></div>
+  <div class="cb-row"><div class="cb-id">F2</div>
+    <div class="cb-txt">→ <span class="node">access, not conviction, is the binding constraint</span>. Distance–uptake negative in 98% of 6,096 model specifications; mobile-unit RCT +9.0 pp. 64% of unvaccinated Hispanic adults worried about missing work; 54% said paid time off would change their decision.</div>
+    <div><span class="g g-strong">Strong</span></div></div>
+  <div class="cb-row"><div class="cb-id">F3</div>
+    <div class="cb-txt">→ <span class="node">federal equity infrastructure at scale</span>. 219M retail pharmacy doses, 46.5% to high-EDI areas; community health centers 68% to minority patients; FQHCs 61.4% to people of color vs a 40% national average. <em>Counter: FEMA could not measure its own equity performance.</em></div>
+    <div><span class="g g-moderate">Moderate</span></div></div>
+  <div class="cb-row"><div class="cb-id">F4</div>
+    <div class="cb-txt">→ <span class="node">the gap narrows by late 2021</span>. It did. But the best attribution analysis finds <strong>only knowledge</strong> mediated the change; trust in CDC had <em>no association with the change</em>, and neither differential access nor media use explained it.</div>
+    <div><span class="g g-unstudied">Unstudied</span></div></div>
+</div>
+
+<div class="box q">
+  <h4>The Annenberg result deserves its own paragraph</h4>
+  <p>
+    A national probability panel tracked actual dose receipt from April 2021 to July 2022
+    and tested five explanations for the narrowing of the Black–White gap. Only
+    <em>knowledge</em> mediated it, and the authors attribute it to knowledge transmitted
+    <strong>from within the Black community</strong>
+    (<a href="https://www.annenbergpublicpolicycenter.org/publication/what-caused-the-narrowing-of-black-white-covid-19-vaccination-disparity-in-the-us-a-test-of-5-hypotheses/">APPC</a>).
+  </p>
+  <p>
+    Read pessimistically, this rules out both mechanisms the participation programs were
+    designed around. Read constructively, <strong>the thing that worked is itself a form of
+    participation: one nobody designed, funded, or measured</strong>: information moving through
+    community networks under their own logic. That is a research agenda, not a null result.
+    It also suggests the design question is less "how do we message to communities" and more
+    "what makes a community's own information network fast and accurate."
+  </p>
+</div>
+
+<h2 id="pfas"><span class="n">Case 3</span>GenX in the Cape Fear</h2>
+
+<p class="meta">
+  Two chains: <strong>earlier identification</strong> (five links) and <strong>faster response</strong> (six
+  links). The response chain is the strongest participation record in the project, and it
+  is entirely adversarial and legal, with no deliberative body anywhere in it.
+</p>
+
+<h3>Earlier identification</h3>
+
+<div class="chainbox">
+  <div class="cb-row"><div class="cb-id">D1</div>
+    <div class="cb-txt"><span class="node">Corporate concealment, 1961 onward</span> → <span class="node">regulators without information the law entitled them to</span>. EPA's $10.25M penalty in 2005 proves the obligation was real and the breach provable.</div>
+    <div><span class="g g-strong">Strong</span></div></div>
+  <div class="cb-row"><div class="cb-id">D2</div>
+    <div class="cb-txt">→ <span class="node">no triggered inspection, no public notification</span>. EPA entered a <strong>TSCA 5(e) consent order for GenX substances in 2009</strong> requiring 99% capture. Its first on-site TSCA inspection at Fayetteville Works was <strong>June 2017</strong>: eight years later, three weeks after the newspaper story.</div>
+    <div><span class="g g-strong">Strong</span></div></div>
+  <div class="cb-row"><div class="cb-id">D3</div>
+    <div class="cb-txt">→ <span class="node">detection achieved, held inside institutions</span>. EPA ORD 2012 samples; Knappe's paper to DEQ 23 Nov 2016; state possibly aware mid-2016.</div>
+    <div><span class="g g-strong">Strong</span></div></div>
+  <div class="cb-row"><div class="cb-id">D4</div>
+    <div class="cb-txt">→ <span class="node">public knowledge, via a newspaper</span>. StarNews, 7 June 2017. DEQ investigation opened seven days later.</div>
+    <div><span class="g g-strong">Strong</span></div></div>
+  <div class="cb-row"><div class="cb-id">D5</div>
+    <div class="cb-txt"><em>branches from D3</em> → <span class="node">measured body burden</span>. Fluoroethers 24% of total serum PFAS; four legacy PFAS in ≥97% of participants above national levels. Notably GenX itself was <em>not</em> detected in serum: the compound the crisis is named for does not bioaccumulate; its co-discharged relatives do.</div>
+    <div><span class="g g-strong">Strong</span></div></div>
+</div>
+
+<h3>Faster and better response</h3>
+
+<div class="chainbox">
+  <div class="cb-row"><div class="cb-id">R1</div>
+    <div class="cb-txt"><span class="node">Public disclosure</span> → <span class="node">emergency agency action in one week</span>. The health goal moved from 71,000 ppt to 140 ppt in about five weeks, with no new science in between. Press, not participation, unlocked this.</div>
+    <div><span class="g g-moderate">Moderate</span></div></div>
+  <div class="cb-row"><div class="cb-id">R2</div>
+    <div class="cb-txt">→ <span class="node">a weak draft order</span> omitting groundwater and surface water pathways (11 June 2018). Note the sequence: the weak draft came <em>after</em> a year of agency attention and <em>before</em> the citizen suit.</div>
+    <div><span class="g g-moderate">Moderate</span></div></div>
+  <div class="cb-row"><div class="cb-id">R3</div>
+    <div class="cb-txt">→ <span class="node">a comprehensive draft with the citizen group as a party</span>. Cape Fear River Watch traded two live lawsuits for Plaintiff-Intervenor status, a $12M penalty, and (under ¶38) <strong>independent authority to enforce eleven paragraphs of the order</strong>, plus ¶40 obliging DEQ to meet with it.</div>
+    <div><span class="g g-strong">Strong</span></div></div>
+  <div class="cb-row"><div class="cb-id">R4</div>
+    <div class="cb-txt">→ <span class="node">a final order with downstream protections</span>. ~380 comments; DEQ's published response documents the specific paragraphs added and modified.</div>
+    <div><span class="g g-strong">Strong</span></div></div>
+  <div class="cb-row"><div class="cb-id">R5</div>
+    <div class="cb-txt">→ <span class="node">sustained research capacity and returned individual results</span>. $5.013M to the NC Policy Collaboratory created a statewide PFAS testing network across 348 sites; the GenX Exposure Study grew from 344 to 1,020+ participants and has returned individual blood results in 2018, 2022 and 2025.</div>
+    <div><span class="g g-strong">Strong</span></div></div>
+  <div class="cb-row"><div class="cb-id">R6</div>
+    <div class="cb-txt"><em>branches from R4</em> → <span class="node">a generalizable standard: the link does not hold</span>. No enforceable NC surface water standard nine years on; the federal MCL proposed for rescission May 2026.</div>
+    <div><span class="g g-strong">Strong</span></div></div>
+</div>
+
+<div class="box fix">
+  <h4>Two design findings this case hands us directly</h4>
+  <p>
+    <strong>A TSCA 5(e) consent order creates an obligation on a company with no scheduled
+    verification and no notification duty to the affected public.</strong> Attaching a local
+    monitoring plan with public involvement to every 5(e) order is a narrow, concrete
+    reform this case supports on its own facts, and it is close to the first memo's
+    "FDA-like initial review involving the public" instinct, but scoped to an existing
+    instrument rather than a new institution.
+  </p>
+  <p>
+    <strong>Return-of-results is a real, sustained, eight-year practice here and nobody has
+    evaluated it.</strong> Individual blood PFAS results mailed to participants in 2018, an
+    11-page letter with NASEM clinical guidance and an expert Q&amp;A panel in 2022, a
+    community meeting hosted by the citizen group, further results in 2025. Given how rare
+    sustained return-of-results is, evaluating its effect on trust, retention and
+    mobilization is unusually tractable and would generalize well.
+  </p>
+</div>
+
+<h2 id="typology"><span class="n">Section 4</span>The "bad company + regulatory failure" typology</h2>
+
+<p>
+  The first memo hypothesized that this case type is accumulating and eroding trust in
+  regulators specifically, spilling into unrelated domains like data-center opposition.
+  I went looking. The results are mostly negative, and the negatives are useful.
+</p>
+
+<div class="box warn">
+  <h4>What is not there</h4>
+  <ul>
+    <li><strong>The regulator-specific pre/post design essentially does not exist in the US
+      polling record.</strong> No before/after measurement of trust in NHTSA around Takata, EPA or
+      CARB around Dieselgate, FDA or DEA around Purdue, CMS or FDA around Theranos, FDA
+      around the 2022 formula shutdown, or FRA and EPA around East Palestine. The 2005
+      AP-Ipsos release on Vioxx has exactly the right headline (damage localized to the
+      regulator, not the drug class), and no retrievable percentages.</li>
+    <li><strong>Nobody has operationalised concealment-plus-regulatory-inaction as a treatment.</strong>
+      The scandal-and-trust literature studies political corruption, not this.</li>
+    <li><strong>The one clean test of cross-level spillover is negative.</strong> A Belgian study of
+      2018 municipal scandals found real effects on trust in local government and mayors,
+      but tested federal and regional trust as a robustness check and found the effect
+      <em>largely confined to the level where the scandal occurred</em>
+      (<a href="https://link.springer.com/article/10.1057/s41269-022-00241-y">Acta Politica 58(1)</a>).
+      If the memo asserts spillover, it is asserting something the best available evidence
+      mildly contradicts.</li>
+    <li><strong>The accumulated-tech-distrust explanation for data-center opposition has not been
+      tested against NIMBY, and the descriptive evidence cuts against it.</strong> Gallup's
+      March–April 2026 survey finds 71% oppose a local AI data center, but the stated
+      reasons run about 3.5:1 toward material concerns: 50% resource effects (water,
+      energy), 22% quality of life, 20% costs, versus <strong>14% negative views of AI</strong>
+      (<a href="https://news.gallup.com/poll/709772/americans-oppose-data-centers-area.aspx">Gallup</a>).
+      Gallup publishes no breakdown by proximity, so the core NIMBY test is unrun.</li>
+  </ul>
+</div>
+
+<div class="box fix">
+  <h4>What is there, and is worth taking</h4>
+  <ul>
+    <li><strong>Compensation repairs competence violations and does not repair integrity
+      violations.</strong> In two studies, compensation restored trust after competence-based
+      breaches (p&lt;.001) and had <em>no significant effect</em> after integrity-based ones
+      (F=1.85, p=.162), including under overcompensation
+      (<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4694657/">PLOS ONE 10(12)</a>).
+      Concealment is definitionally an integrity violation. This is a mechanism that
+      explains the Stanford UK finding the first memo already cites, and it predicts that
+      the Flint $626M and 3M $10.3B settlements did not restore trust. It is lab work; the
+      field replication is the single most tractable gap in this whole typology.</li>
+    <li><strong>Trust damage persists after corruption <em>perceptions</em> recover.</strong> Spanish
+      scandals moved ~6.2% of the population from trusting to distrusting local politicians;
+      perceptions reverted to baseline, trust did not
+      (<a href="https://diposit.ub.edu/bitstreams/9da39f80-9d93-448d-b73f-81ab9601bac5/download">EJPE 55</a>).</li>
+    <li><strong>Boeing 737 MAX is the strongest analogue we do not yet have as a case.</strong>
+      Documented concealment ("Boeing withheld crucial information from the FAA… including
+      concealing the very existence of MCAS from 737 MAX pilots"), documented regulatory
+      capture through delegation ("FAA management has undercut the authority and judgment of
+      its own technical experts and sided with Boeing"), 346 deaths, and a complete
+      participation vacuum
+      (<a href="https://democrats-transportation.house.gov/imo/media/doc/final_boeing_737_max_report1.pdf">House
+      T&amp;I final report</a>; <a href="https://www.oig.dot.gov/sites/default/files/FAA%20Certification%20of%20737%20MAX%20Boeing%20II%20Final%20Report%5E2-23-2021.pdf">DOT
+      OIG</a>).</li>
+    <li><strong>Memphis xAI is a data-center case that <em>is</em> the bad-company type.</strong> A records
+      request found zero permits on file; aerial imagery in April 2025 revealed 35 turbines
+      against a disclosed count roughly half that; thermal imaging confirmed 30+ operating;
+      turbines came out only after an NAACP Clean Air Act notice
+      (<a href="https://www.selc.org/news/inside-memphis-fight-against-xai/">SELC</a>). This
+      is citizen monitoring forcing regulatory response, in the domain where the memo
+      currently only has survey data.</li>
+    <li><strong>The monitoring channel is being actively closed.</strong> Louisiana's Community Air
+      Monitoring Reliability Act, signed May 2024, bars data from non-EPA-approved
+      technologies (i.e. community monitors) from Clean Air Act enforcement, at the same
+      time EPA has awarded $53M to 133 community monitoring groups
+      (<a href="https://climate.law.columbia.edu/content/louisiana-enacts-bill-undermining-local-air-quality-monitoring">Columbia
+      Climate Law</a>). The funding and the admissibility are moving in opposite directions.
+      That is a sharp, current, previously unmapped finding.</li>
+  </ul>
+</div>
+
+<div class="box q">
+  <h4>The identification problem this typology has to solve</h4>
+  <p>
+    The largest recent movements in regulator trust are attributed to <em>partisan political
+    attack</em>, not to scandal: FDA confidence fell 73% → 63% and CDC 72% → 64% between
+    September 2024 and August 2025, driven almost entirely by Democrats
+    (<a href="https://www.annenbergpublicpolicycenter.org/public-confidence-in-u-s-health-agencies-slides-fueled-by-declines-among-democrats/">Annenberg</a>).
+    Any claim that concealment scandals drive regulator distrust has to net out a much
+    larger partisan signal running through the same period. That is the typology's
+    principal methodological obstacle, not a footnote.
+  </p>
+</div>
+
+<h2 id="design"><span class="n">Section 5</span>What this implies for design</h2>
+
+<p>
+  Reading the three chains together, the participation instruments that did something have
+  four properties in common, and the ones that did nothing lack them.
+</p>
+
+<table>
+  <tr><th>Property</th><th>Present in</th><th>Absent from</th></tr>
+  <tr>
+    <td><strong>Binds someone.</strong> Produces an obligation, not information.</td>
+    <td>Collective bargaining; consent-order party status with enforcement rights; discovery</td>
+    <td>Advisory councils; surveys; town halls; sortition panels run as research</td>
+  </tr>
+  <tr>
+    <td><strong>Arrives before the decision</strong> rather than after it.</td>
+    <td>Union negotiation; comment on a draft order</td>
+    <td>Recalls; litigation against a decision already made; disenrollment</td>
+  </tr>
+  <tr>
+    <td><strong>Attaches to a specific document</strong> the public can mark up.</td>
+    <td>The Chemours draft consent order</td>
+    <td>"Weigh in on reopening"; generic health-communication campaigns</td>
+  </tr>
+  <tr>
+    <td><strong>Has an intermediary</strong> doing translation.</td>
+    <td>SELC before the comment deadline; librarians and promotoras as information brokers</td>
+    <td>Federal messaging campaigns; comment portals without a guide</td>
+  </tr>
+</table>
+
+<p>
+  Three concrete proposals follow, each scoped to an existing instrument rather than a new
+  institution, which is the form of proposal this evidence can actually support:
+</p>
+
+<ol>
+  <li><strong>A statutory public-notification trigger.</strong> When a peer-reviewed detection above
+    a threshold reaches a regulator, notification to the affected water system and public
+    becomes mandatory within a fixed window. This is the instrument whose absence cost
+    Wilmington seven months and whose function was performed, unpaid and unobliged, by a
+    newspaper.</li>
+  <li><strong>Public-involvement conditions on TSCA 5(e)-type orders.</strong> Any consent order
+    permitting discharge under uncertainty carries a local monitoring plan with named
+    community participants and scheduled verification. The Cape Fear order shows this is
+    draftable: ¶29, ¶38 and ¶40 already do a version of it, imposed by a citizen group
+    rather than by statute.</li>
+  <li><strong>Evaluation funded alongside participation programs.</strong> Not a governance reform,
+    but on the evidence here the highest-yield one: $1.1B of participation infrastructure
+    is currently unevaluable, and the strongest arguments for participation are unavailable
+    because nobody measured.</li>
+</ol>
+
+<p>
+  And one thing the evidence does <em>not</em> support: a general claim that deliberative
+  minipublics would have improved these three outcomes. The instrument barely appears in
+  the American record for these cases, and where it appears it changed nothing. The
+  defensible version is a <em>prospective</em> claim: that deliberation on the value
+  tradeoff, held before a coercive instrument is deployed, would change perceived
+  legitimacy, and that claim is testable in the next emergency if it is designed now.
+</p>
+
+<h2 id="plan"><span class="n">Section 6</span>Research plan</h2>
+
+<p>
+  Ranked by how much resolving the question would change the argument, not by how easy it
+  is. Items marked <span class="pri p1">Tier 1</span> would change what the memo concludes.
+</p>
+
+<div class="study">
+  <h3><span class="pri p1">Tier 1</span>Closure duration → trust and legitimacy outcomes</h3>
+  <p>
+    <strong>The gap:</strong> No paper uses remote-learning duration or instructional mode as a
+    treatment with a trust, satisfaction, legitimacy or civic outcome. Singer's 2025 review
+    of the reopening literature has no downstream-consequences section; Jacob (2024)
+    explicitly disclaims the ability to test it. The only mode-as-treatment causal paper
+    measures enrollment.
+  </p>
+  <p>
+    <strong>Why it matters:</strong> This is link S4, currently graded <span class="g g-contested">Contested</span>,
+    and it is the hinge of the whole schools case. If closure duration predicts a trust
+    outcome, the legitimacy argument is established. If it does not, the case reduces to a
+    story about exit.
+  </p>
+  <p>
+    <strong>Approach:</strong> District-level instructional-mode panels (the Dee et al. and DeAngelis-Makridis
+    data exist) merged against geographically resolvable attitude measures:
+    EdChoice/Morning Consult monthly parent tracker has state identifiers; Gallup and PDK
+    have region. State-level is a fallback if district-level attitude data does not exist.
+    <em>Check first whether anyone holds a geocoded parent-trust panel; if not, the
+    fallback is a retrospective survey with recalled district modality, which is weaker but
+    publishable.</em>
+  </p>
+</div>
+
+<div class="study">
+  <h3><span class="pri p1">Tier 1</span>Does compensation repair trust after an integrity violation? Field test.</h3>
+  <p>
+    <strong>The gap:</strong> The finding is lab-only (PLOS ONE 2015). No field replication exists,
+    despite four unusually clean natural experiments: Flint's $626M settlement, 3M's
+    $10.3B PFAS water-system settlement (2023), DuPont/Chemours settlements, and VW
+    buybacks.
+  </p>
+  <p>
+    <strong>Why it matters:</strong> It is the mechanism that would make the "bad company +
+    regulatory failure" typology cohere, and it predicts something policy-relevant: that
+    settlement-based remedies do not restore the thing that was broken.
+  </p>
+  <p>
+    <strong>Approach:</strong> Look for pre/post trust measures around settlement announcement dates
+    in existing panels (Roper archive has post-Flint drinking-water trust polling; check
+    whether any state-level series brackets the 2023 3M settlement). If nothing brackets
+    it, this becomes a commissioned survey, but check the archives first, because the
+    Roper Center holds more of this than is indexed.
+  </p>
+</div>
+
+<div class="study">
+  <h3><span class="pri p1">Tier 1</span>Excess minority mortality attributable to the spring 2021 vaccination lag</h3>
+  <p>
+    <strong>The gap:</strong> Both major preventable-death estimates (~234k KFF, ~232k EJE) and the
+    Commonwealth Fund averted-deaths model report by age, <strong>not by race</strong>. The specific
+    "fair harm reduction" quantity has never been estimated.
+  </p>
+  <p>
+    <strong>Why it matters:</strong> It is the terminal node of the fair-harm chain. Without it, the
+    equity argument runs on gap percentages rather than on lives, which is both weaker
+    rhetorically and less useful for cost-benefit.
+  </p>
+  <p>
+    <strong>Approach:</strong> The method is a direct extension of the existing ones: apply
+    age-and-race-specific death rates among vaccinated vs unvaccinated to the observed
+    coverage gap trajectory. The jurisdictions reporting vaccination status by death
+    (25–30 states) would need race stratification; check CDC's restricted-use files.
+    Feasible as a collaboration with an author of either existing estimate.
+  </p>
+</div>
+
+<div class="study">
+  <h3><span class="pri p1">Tier 1</span>Prospective: deliberation before coercion</h3>
+  <p>
+    <strong>The gap:</strong> Nobody has tested whether a deliberative process convened <em>before</em>
+    a mandate (on the value tradeoff, not the science) changes subsequent compliance or
+    perceived legitimacy.
+  </p>
+  <p>
+    <strong>Why it matters:</strong> It is the only way to establish the project's central normative
+    claim causally, and it cannot be done retrospectively because the instrument was never
+    used.
+  </p>
+  <p>
+    <strong>Approach:</strong> Design now, deploy at the next opportunity. The nearest available
+    analogue in the meantime is a survey experiment: describe a policy as arrived at by
+    (a) expert determination, (b) stakeholder negotiation, (c) a randomly selected citizen
+    panel, and measure stated compliance and legitimacy. That is cheap, it is a real
+    contribution, and it does not require an emergency.
+  </p>
+</div>
+
+<div class="study">
+  <h3><span class="pri p2">Tier 2</span>What made the Chemours comment period work?</h3>
+  <p>
+    Comment periods almost never change terms. This one demonstrably did, and DEQ published
+    the itemized changes. The four candidate conditions (specific draft, defined
+    adversary, intermediary translation, live litigation) are testable by comparing
+    against a sample of other state consent orders with published comment responses. This
+    is the most directly actionable design study in the plan.
+  </p>
+</div>
+
+<div class="study">
+  <h3><span class="pri p2">Tier 2</span>Evaluate the GenX return-of-results program</h3>
+  <p>
+    An eight-year sustained practice with no evaluation. Effects on participant trust,
+    retention, community mobilization and policy. Jane Hoppin's team is the obvious
+    partner; the study has a built-in comparison in the anonymised 2010–2016 archived-sera
+    cohort, whose members received nothing back.
+  </p>
+</div>
+
+<div class="study">
+  <h3><span class="pri p2">Tier 2</span>Homeschool uptake regressed on remote-learning duration</h3>
+  <p>
+    Dee et al. did this for public enrollment. Nobody has done it for homeschooling, where
+    growth in 2024-25 <em>exceeded pandemic peaks</em>. Data exists (JHU Homeschool Hub for
+    30 states; district modality panels). Small, clean, and it converts the strongest
+    revealed-preference evidence in the schools case into a dose-response finding.
+  </p>
+</div>
+
+<div class="study">
+  <h3><span class="pri p2">Tier 2</span>Does a statutory public-notification trigger exist anywhere?</h3>
+  <p>
+    A jurisdiction scan: EU (the 2019 Whistleblower Directive covers environmental
+    protection and requires anonymous external channels), California Prop 65, state
+    right-to-know statutes, and any drinking-water notification rule that fires on research
+    rather than on exceedance of a promulgated standard. If nothing fires on
+    <em>peer-reviewed detection of an unregulated compound</em>, that absence is the
+    finding, and it is the memo's cleanest legislative recommendation.
+  </p>
+</div>
+
+<div class="study">
+  <h3><span class="pri p2">Tier 2</span>Data centers: distrust vs proximity</h3>
+  <p>
+    Gallup publishes no breakdown by proximity to an existing facility, so the NIMBY test is
+    unrun and the accumulated-distrust hypothesis is untested. A survey experiment varying
+    (a) operator identity, (b) stated local benefit, (c) distance, would settle it. Worth
+    doing only if the memo intends to keep data centers as a case; otherwise Memphis xAI
+    is the better use of the same attention, because it is a documented instance of the
+    concealment type rather than a sentiment finding.
+  </p>
+</div>
+
+<div class="study">
+  <h3><span class="pri p3">Tier 3</span>Verification queue</h3>
+  <p>Claims currently in the chains or adjacent to them that are not yet solid enough to publish on:</p>
+  <ul>
+    <li>NRDC's assertion that NC agencies knew about PFAS "at least a decade" before 2017,
+      and NC Newsline's report of a DEQ employee raising DuPont groundwater contamination
+      ~15 years earlier. Both would materially strengthen D2 and D3.</li>
+    <li>The exact numeric value of EPA's June 2022 GenX health advisory (widely reported as
+      10 ppt; not confirmed from EPA's own document).</li>
+    <li>The date of the Cape Fear River Watch community forum: June 7 vs June 21, 2017.</li>
+    <li>The <em>Toxics</em> 2024 community-engaged sampling paper (whether residents
+      themselves collected; sample counts; partner organizations). This is the only lead on
+      citizen water sampling in the case.</li>
+    <li>Whether the GenX Report Back Committee has community members on it.</li>
+    <li>Latkin et al. 2022 (Vaccine): prospective panel linking early-pandemic trusted
+      information sources to vaccination >1 year later. Effect sizes were not retrievable
+      through automated access; needs a manual pull.</li>
+  </ul>
+</div>
+
+<div class="study">
+  <h3><span class="pri p3">Tier 3</span>Cases to consider promoting</h3>
+  <ul>
+    <li><strong>Boeing 737 MAX</strong>: the best-documented concealment-plus-regulatory-capture case
+      available, with a quantified terminal harm and a total participation vacuum. It would
+      test whether the typology holds outside environmental and public health domains.</li>
+    <li><strong>Memphis xAI</strong>: concealment, regulator non-action, and citizen aerial and
+      thermal monitoring forcing a response, in the data-center domain. Currently the only
+      data-center evidence in the repository is survey sentiment.</li>
+    <li><strong>Flint</strong>: already well sourced in the repository and not yet built as a chain.
+      Its distinguishing feature for this project is that the citizen-science link (Virginia
+      Tech and the residents' sampling) is unusually well documented.</li>
+  </ul>
+</div>
+
+<div class="study">
+  <h3><span class="pri p3">Tier 3</span>Rural resentment: currently unmapped</h3>
+  <p>
+    Cramer's rural consciousness framework is in the repository and appears nowhere in the
+    chains, because it is not clear which link it acts on. It is not the same object as
+    institutional-harm-based distrust: it is a place identity plus a perception of
+    distributive injustice, and it predicts opposition to policies that would materially
+    help the person opposing them. Before adding it, the question to answer is
+    <strong>whether resentment-based distrust enters these chains at the trust link at all, or
+    whether it operates on the legitimacy link instead</strong>: i.e. whether the objection is
+    "I don't believe you" or "you don't get to decide this." Those imply different
+    instruments, and the Gallup partisan-asymmetry finding in the schools case is the
+    natural place to test it.
+  </p>
+</div>
+
+<footer>
+  <p>
+    <strong>Memo II</strong> · Companion to the <a href="index.html">interactive tool</a>. The chains
+    described here are live in the Causal Chain view: 5 chains, 27 links, 20 participation
+    instances, each with graded evidence and sources.
+  </p>
+  <p>
+    Evidence grades follow the convention in Section 2. Where a link is graded
+    <span class="g g-unstudied">Unstudied</span>, that reflects a targeted search that came
+    back empty: recorded deliberately, because a false positive would be much more costly
+    to this argument than a null.
+  </p>
+</footer>
+
+</main>
+</body>
+</html>

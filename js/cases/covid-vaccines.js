@@ -1,7 +1,9 @@
+import chains from '../chains/covid-vaccines.js';
 import { caseStudy, entry, paragraph, source } from './helpers.js';
 
 export default caseStudy({
-  num: 'Case Study 3',
+  num: 'Case Study 2',
+  slug: 'covid-vaccines',
   title: 'COVID-19 Vaccine Mandates',
   overview:   paragraph(`
     This case is best framed as a conflict between scientific justification and
@@ -20,6 +22,7 @@ export default caseStudy({
     likely to reduce harm, but democratic institutions must still authorize who may
     compel action, under what conditions, and with what accountability.
   `),
+  chains,
   entries: [
 
     entry({

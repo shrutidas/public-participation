@@ -8,41 +8,82 @@
 </head>
 <body>
 
-<div id="hdr"><h1>The Case for Public Participation in Science and Technology Policy</h1></div>
-<div id="tabs"></div>
-<div id="ov">
-  <button id="ov-btn" onclick="toggleOv()">
-    <span>Case Overview</span>
-    <span id="ov-arr">▶</span>
+<header id="top">
+  <button id="nav-btn" aria-expanded="false" aria-controls="drawer">
+    <span class="nav-ico"><i></i><i></i><i></i></span>
+    <span class="nav-lbl">Cases</span>
   </button>
-  <div id="ov-txt"></div>
-</div>
-<div id="key">
-  <button id="key-btn" onclick="toggleKey()">
-    <span>Category Key</span>
-    <span id="key-arr">▶</span>
-  </button>
+  <div id="top-case">
+    <span id="top-num"></span>
+    <span id="top-title"></span>
+  </div>
+  <nav id="modes"></nav>
+  <button id="key-btn">Key</button>
+  <a id="memo-link" href="memo.html">Memo II &rarr;</a>
+</header>
+
+<div id="drawer-backdrop"></div>
+<aside id="drawer" aria-hidden="true">
+  <div class="dr-head">
+    <div class="dr-site">The Case for Public Participation in Science and Technology Policy</div>
+    <button id="drawer-close" aria-label="Close">&times;</button>
+  </div>
+  <nav id="drawer-cases"></nav>
+</aside>
+
+<aside id="key-panel" aria-hidden="true">
+  <div class="kp-head">
+    <span>Key</span>
+    <button id="key-close" aria-label="Close">&times;</button>
+  </div>
   <div id="key-txt"></div>
+</aside>
+
+<div id="tl-wrap">
+  <div class="tl-toolbar">
+    <button class="ov-toggle" data-ov>About This Case</button>
+    <span class="vsep"></span>
+    <button class="fl fl-all" data-f="all">All</button>
+    <button class="fl fl-red" data-f="red">Policy</button>
+    <button class="fl fl-orange" data-f="orange">Events</button>
+    <button class="fl fl-green" data-f="green">Knowledge</button>
+    <button class="fl fl-blue" data-f="blue">Public Opinion</button>
+    <button class="fl fl-purple" data-f="purple">Public Participation</button>
+    <span id="cnt"></span>
+  </div>
+  <div class="tl-scroll">
+    <div id="tl-ov" class="tl-ov"></div>
+    <div class="tl-inner"></div>
+  </div>
 </div>
-<div id="ctrl">
-  <button class="mbt on" data-m="timeline" onclick="setMode('timeline')">Timeline</button>
-  <button class="mbt" data-m="step" onclick="setMode('step')">Step Through</button>
-  <div class="vsep"></div>
-  <button class="fl fl-all" data-f="all" onclick="toggleFilter('all')">All</button>
-  <button class="fl fl-red" data-f="red" onclick="toggleFilter('red')">Policy</button>
-  <button class="fl fl-orange" data-f="orange" onclick="toggleFilter('orange')">Events</button>
-  <button class="fl fl-green" data-f="green" onclick="toggleFilter('green')">Knowledge</button>
-  <button class="fl fl-blue" data-f="blue" onclick="toggleFilter('blue')">Public Opinion</button>
-  <button class="fl fl-purple" data-f="purple" onclick="toggleFilter('purple')">Public Participation</button>
-  <span id="cnt"></span>
-</div>
-<div id="tl-wrap" class="show"><div class="tl-inner"></div></div>
-<div id="st-wrap">
-  <div id="st-body"></div>
-  <div id="st-nav">
-    <button class="nbtn" id="btn-prev" onclick="step(-1)">← Previous</button>
-    <div id="st-ctr"></div>
-    <button class="nbtn" id="btn-next" onclick="step(1)">Next →</button>
+
+<div id="ch-wrap">
+  <div id="ch-mapcol">
+    <div id="ch-sel"></div>
+    <div id="ch-map"></div>
+    <div id="ch-legend">
+      <span class="lg-hd">Arrows<em>How well evidenced the causal link is</em></span>
+      <span class="lg-row">
+        <span class="g gr-strong">Strong</span><span class="g gr-moderate">Moderate</span><span class="g gr-weak">Weak</span><span class="g gr-contested">Contested</span><span class="g gr-unstudied">Unstudied</span>
+      </span>
+      <span class="lg-hd">Dots<em>Whether participation there changed anything</em></span>
+      <span class="lg-row">
+        <span class="lg-dot"><i class="cg-dot ef-moved"></i>Most Change</span>
+        <span class="lg-dot"><i class="cg-dot ef-partial"></i>Partial Change</span>
+        <span class="lg-dot"><i class="cg-dot ef-unmeasured"></i>Never Measured</span>
+        <span class="lg-dot"><i class="cg-dot ef-none"></i>No Change</span>
+        <span class="lg-dot"><i class="cg-dot cg-dot-none"></i>None Identified</span>
+        <button class="lg-more" data-openkey>Full Key &rarr;</button>
+      </span>
+    </div>
+  </div>
+  <div id="ch-right">
+    <div id="ch-right-tabs">
+      <button class="rt on" data-rt="detail">Causal Link</button>
+      <button class="rt" data-rt="timeline">Timeline</button>
+    </div>
+    <div id="ch-detail" class="rt-pane show"></div>
+    <div id="ch-timeline" class="rt-pane"></div>
   </div>
 </div>
 

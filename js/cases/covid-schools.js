@@ -1,7 +1,9 @@
+import chains from '../chains/covid-schools.js';
 import { caseStudy, entry, paragraph, source } from './helpers.js';
 
 export default caseStudy({
-  num: 'Case Study 2',
+  num: 'Case Study 1',
+  slug: 'covid-schools',
   title: 'COVID-19 School Closures and Reopenings',
   overview:   paragraph(`
     This case is about the difficulty of sustaining precautionary governance as
@@ -16,6 +18,7 @@ export default caseStudy({
     misalignment. Trust eroded not only because the science was uncertain, but because
     the process felt unresponsive to the people bearing the consequences.
   `),
+  chains,
   entries: [
     entry({
       date: '02/2020',

@@ -1,7 +1,8 @@
 import { caseStudy, entry, paragraph, source } from './helpers.js';
 
 export default caseStudy({
-  num: 'Case Study 1',
+  num: 'Case Study 4',
+  slug: 'meta-youth',
   title: 'Youth Mental Health & Addiction on Meta Platforms',
   overview:   paragraph(`
     This case argues that governance failed because critical knowledge about harm was
