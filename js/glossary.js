@@ -62,12 +62,12 @@ export const GLOSSARY = [
     views: ['spine'],
     countBy: 'failure',
     items: [
-      { key: 'did-not-know', label: 'Did Not Know', desc: 'The mechanism’s operators lacked the information, often because someone withheld it.', eg: 'Discharge permit reviewers reading a file that never named the chemical' },
-      { key: 'knew-no-act', label: 'Knew, Did Not Act', desc: 'The information was there and nothing fired.', eg: 'An unverified consent order; withheld federal data' },
-      { key: 'acted-no-effect', label: 'Acted, No Effect', desc: 'The mechanism ran as designed and did not change the decision or outcome.', eg: 'Parent surveys; 122,485 comments on a rule already in force' },
-      { key: 'no-mechanism', label: 'No Mechanism Existed', desc: 'Nothing existed to fire; the function went unperformed or a private actor substituted.', eg: 'No school-mode dataset; no notice duty for unregulated contaminants' },
-      { key: 'partial', label: 'Acted, Partial Effect', desc: 'It fired and changed part of the decision or outcome.', eg: 'Advisory committee votes that narrowed a federal authorization' },
-      { key: 'worked', label: 'Worked', desc: 'It fired and bound. Kept on the map because the asymmetry, who held a binding channel and who did not, is the argument.', eg: 'Union bargaining; courts; tribal self-governance; citizen suits' }
+      { key: 'did-not-know', label: 'Did Not Know', desc: 'The people responsible for the decision did not have the relevant information, often because it was never disclosed to them.', eg: 'Discharge permit reviewers reading a file that never named the chemical' },
+      { key: 'knew-no-act', label: 'Knew, Did Not Act', desc: 'The relevant information was available, but no action was taken.', eg: 'An unverified consent order; withheld federal data' },
+      { key: 'acted-no-effect', label: 'Acted, No Effect', desc: 'Action was taken, but it did not change the decision or outcome.', eg: 'Parent surveys; 122,485 comments on a rule already in force' },
+      { key: 'no-mechanism', label: 'No Mechanism Existed', desc: 'There was no formal process for addressing the issue, so nothing required it to be considered or acted on.', eg: 'No school-mode dataset; no notice duty for unregulated contaminants' },
+      { key: 'partial', label: 'Acted, Partial Effect', desc: 'Action was taken and changed part of the decision or outcome, but not all of it.', eg: 'Advisory committee votes that narrowed a federal authorization' },
+      { key: 'worked', label: 'Worked', desc: 'The process was used and had the authority to affect the outcome. It remains on the map to show an important difference: some people had a formal way to influence the decision, while others did not.', eg: 'Union bargaining; courts; tribal self-governance; citizen suits' }
     ]
   },
   {
@@ -81,22 +81,9 @@ export const GLOSSARY = [
       { key: 'moderate', label: 'Substantial', desc: 'Relevant and supportive, but indirect, partial, or context-limited.' },
       { key: 'weak', label: 'Weak', desc: 'Speculative, analogical, or clearly confounded.' },
       { key: 'contested', label: 'Contested', desc: 'Credible evidence points both ways.' },
-      { key: 'unstudied', label: 'Unstudied', desc: 'Searched for, and the evidence does not appear to exist. Recorded as a finding, not a failure.' }
+      { key: 'unstudied', label: 'Unstudied', desc: 'Unable to identify substantive prior research.' }
     ]
   },
-  {
-    id: 'record',
-    title: 'What Sits on a Proposal',
-    note: 'Open any orange chip and the sidebar gives these sections, in this order.',
-    views: ['spine'],
-    countBy: 'proposal',
-    items: [
-      { key: 'proposed', label: 'The Chain', desc: 'The full causal chain from intervention to outcome, one graded link at a time; an unstudied link says so on its own card.' },
-      { label: 'When and Where', desc: 'If we could only do this one thing: the specific point on the timeline and the jurisdiction where it would intervene.' },
-      { label: 'Intended Impacts', desc: 'Measured impacts the chain reaches are separated from conjectured impacts nothing measures.' },
-      { label: 'Comparables', desc: 'Real-world cases where something similar was tried, with measured outcomes where they exist and stated absences where they do not.' }
-    ]
-  }
 ];
 
 /** The five timeline entry categories, defined in categories.js, described here. */

@@ -27,7 +27,7 @@ export default spineData({
         continued production.
       `),
       anchors: ['internal warnings', 'failing to report substantial risk'],
-      sources: [source('EPA 2005', 'https://www.epa.gov/archive/epapages/newsroom_archive/newsreleases/fdcb2f665cac66bb852570d7005d6665.html')]
+      sources: [source('US Environmental Protection Agency', 'https://www.epa.gov/archive/epapages/newsroom_archive/newsreleases/fdcb2f665cac66bb852570d7005d6665.html')]
     }),
     mechanism({
       name: 'Consent order verification',
@@ -43,7 +43,7 @@ export default spineData({
         existed at all.
       `),
       anchors: ['insufficient information and potential unreasonable risk', 'first on-site TSCA compliance monitoring inspection'],
-      sources: [source('EPA OIG 2020', 'https://www.epa.gov/sites/default/files/2020-05/documents/_epaoig_20200528-20-e-0177_0.pdf')]
+      sources: [source('US Environmental Protection Agency', 'https://www.epa.gov/sites/default/files/2020-05/documents/_epaoig_20200528-20-e-0177_0.pdf')]
     }),
     mechanism({
       name: 'Discharge permits and public comment',
@@ -60,7 +60,7 @@ export default spineData({
         draft, comment, and hearing.
       `),
       anchors: ['Discharge continued largely unmonitored'],
-      sources: [source('NC DEQ letter, Nov. 16, 2017', 'https://files.nc.gov/ncdeq/GenX/Letter%20November%2011-16-17.pdf')]
+      sources: [source('North Carolina Department of Environmental Quality', 'https://files.nc.gov/ncdeq/GenX/Letter%20November%2011-16-17.pdf')]
     }),
     mechanism({
       name: 'Federal drinking water monitoring',
@@ -89,7 +89,7 @@ export default spineData({
         contaminants.
       `),
       anchors: ['Toxin taints CFPUA drinking water'],
-      sources: [source('EPA Public Notification Rule', 'https://www.epa.gov/dwreginfo/public-notification-rule')]
+      sources: [source('US Environmental Protection Agency', 'https://www.epa.gov/dwreginfo/public-notification-rule')]
     }),
     mechanism({
       name: 'Toxics release right-to-know',
@@ -103,7 +103,7 @@ export default spineData({
         exposure window, no disclosure regime named these compounds.
       `),
       anchors: ['No regulatory disclosure required'],
-      sources: [source('EPA TRI PFAS page', 'https://www.epa.gov/toxics-release-inventory-tri-program/addition-certain-pfas-tri-national-defense-authorization-act')]
+      sources: [source('US Environmental Protection Agency', 'https://www.epa.gov/toxics-release-inventory-tri-program/addition-certain-pfas-tri-national-defense-authorization-act')]
     }),
     mechanism({
       name: 'Worker safety rules',
@@ -117,7 +117,7 @@ export default spineData({
         that varied by region.
       `),
       anchors: ['continued exposure is not tolerable'],
-      sources: [source('GAO-10-722', 'https://www.gao.gov/products/gao-10-722')]
+      sources: [source('US Government Accountability Office', 'https://www.gao.gov/products/gao-10-722')]
     }),
     mechanism({
       name: 'Citizen suits',
@@ -133,7 +133,7 @@ export default spineData({
         discharge reductions. The scope was one facility, not a standard.
       `),
       anchors: ['citizen-suit strategies'],
-      sources: [source('NC DEQ consent order page', 'https://www.deq.nc.gov/news/key-issues/genx-investigation/chemours-consent-order')]
+      sources: [source('North Carolina Department of Environmental Quality', 'https://www.deq.nc.gov/news/key-issues/genx-investigation/chemours-consent-order')]
     }),
     mechanism({
       name: 'Public comment on the consent order',
@@ -177,7 +177,7 @@ export default spineData({
             showed <strong>conventional treatment did not remove it</strong>.
           `),
           grade: 'strong',
-          sources: [source('Sun et al. 2016, ES&T Letters', 'https://pubs.acs.org/doi/10.1021/acs.estlett.6b00398')]
+          sources: [source('Sun et al. 2016', 'https://pubs.acs.org/doi/10.1021/acs.estlett.6b00398')]
         })
       ]
     }),
@@ -205,17 +205,25 @@ export default spineData({
         evidence({
           finding: paragraph(`
             Kotlarz et al. (2020) measured PFAS in blood from the GenX Exposure
-            Study cohort; samples stored from 2010 to 2016 showed PFMOAA medians
-            of 42 ng/mL. After exposure ended in Arnsberg, Germany, PFOA left
-            the blood with a <strong>half-life of 3.26 years</strong>, which supports every
+            Study cohort: samples stored from 2010 to 2016 showed <strong>PFMOAA
+            medians of 42 ng/mL</strong>.
+          `),
+          grade: 'strong',
+          sources: [
+            source('Kotlarz et al. 2020', 'https://ehp.niehs.nih.gov/doi/10.1289/EHP6837')
+          ]
+        }),
+        evidence({
+          finding: paragraph(`
+            After exposure ended in Arnsberg, Germany, PFOA left the blood with
+            a <strong>half-life of 3.26 years</strong>, which supports every
             chain's claim that an earlier cutoff would have lowered blood
             levels.
           `),
           grade: 'strong',
           quote: 'PFOA levels decreased in all study participants from Arnsberg',
           sources: [
-            source('Kotlarz et al. 2020, EHP', 'https://ehp.niehs.nih.gov/doi/10.1289/EHP6837'),
-            source('Brede et al. 2010 (TERA summary)', 'https://tera.org/Alliance%20for%20Risk/Workshop%20Xll/CaseSummaryPFOA.pdf')
+            source('Brede et al. 2010', 'https://tera.org/Alliance%20for%20Risk/Workshop%20Xll/CaseSummaryPFOA.pdf')
           ]
         })
       ]
@@ -253,7 +261,7 @@ export default spineData({
           `),
           grade: 'moderate',
           quote: 'PFNA and PFOS were associated with higher levels of total and non-HDL cholesterol, with associations larger in magnitude among older adults',
-          sources: [source('Rosen et al. 2022, EHP (PubMed)', 'https://pubmed.ncbi.nlm.nih.gov/36069575/')]
+          sources: [source('Rosen et al. 2022', 'https://pubmed.ncbi.nlm.nih.gov/36069575/')]
         }),
         evidence({
           finding: paragraph(`
@@ -266,8 +274,8 @@ export default spineData({
           grade: 'strong',
           quote: 'limited evidence for cancer in humans (renal cell carcinoma and testicular cancer)',
           sources: [
-            source('C8 Science Panel report', 'http://www.c8sciencepanel.org/pdfs/Probable_Link_C8_Cancer_16April2012_v2.pdf'),
-            source('IARC Monographs Vol. 135, 2023', 'https://www.iarc.who.int/news-events/iarc-monographs-evaluate-the-carcinogenicity-of-perfluorooctanoic-acid-pfoa-and-perfluorooctanesulfonic-acid-pfos')
+            source('C8 Science Panel', 'http://www.c8sciencepanel.org/pdfs/Probable_Link_C8_Cancer_16April2012_v2.pdf'),
+            source('International Agency for Research on Cancer', 'https://www.iarc.who.int/news-events/iarc-monographs-evaluate-the-carcinogenicity-of-perfluorooctanoic-acid-pfoa-and-perfluorooctanesulfonic-acid-pfos')
           ]
         }),
         evidence({
@@ -279,7 +287,7 @@ export default spineData({
           `),
           grade: 'moderate',
           quote: 'the NASEM published recommendations for medical monitoring of PFAS-exposed people based on the total (sum) concentration of 7 specific PFAS in blood',
-          sources: [source('GenX Exposure Study 2024 report-back', 'https://genxstudy.ncsu.edu/wp-content/uploads/sites/149/2025/11/Deidentified_2024_PFAS_ReportBack.pdf')]
+          sources: [source('GenX Exposure Study', 'https://genxstudy.ncsu.edu/wp-content/uploads/sites/149/2025/11/Deidentified_2024_PFAS_ReportBack.pdf')]
         })
       ],
       counterEvidence: [
@@ -293,7 +301,7 @@ export default spineData({
           `),
           grade: 'moderate',
           quote: 'the liver is the primary target organ for toxicity from oral exposure',
-          sources: [source('EPA GenX toxicity assessment factsheet', 'https://www.epa.gov/system/files/documents/2023-03/GenX-Tox-Assessment-technical-factsheet-March-2023-Update.pdf')]
+          sources: [source('US Environmental Protection Agency', 'https://www.epa.gov/system/files/documents/2023-03/GenX-Tox-Assessment-technical-factsheet-March-2023-Update.pdf')]
         })
       ]
     }),
@@ -320,8 +328,8 @@ export default spineData({
           `),
           grade: 'strong',
           sources: [
-            source('WUNC 2025', 'https://www.wunc.org/environment/2025-06-09/chemours-genx-cape-fear-river-pollution-pfas-wilmington'),
-            source('Port City Daily 2022', 'https://portcitydaily.com/local-news/2022/06/24/brunswick-officials-celebrate-low-pfas-in-water-typically-achieved-through-reverse-osmosis/')
+            source('WUNC', 'https://www.wunc.org/environment/2025-06-09/chemours-genx-cape-fear-river-pollution-pfas-wilmington'),
+            source('Port City Daily', 'https://portcitydaily.com/local-news/2022/06/24/brunswick-officials-celebrate-low-pfas-in-water-typically-achieved-through-reverse-osmosis/')
           ]
         })
       ]
@@ -381,7 +389,7 @@ export default spineData({
             569 passed the House 104 to 3 and stalled in the Senate.
           `),
           grade: 'strong',
-          sources: [source('Federal Register 2026', 'https://www.federalregister.gov/documents/2026/05/20/2026-10085/rescission-of-regulatory-determinations-and-removal-of-related-provisions-for-four-pfas-substances')]
+          sources: [source('Federal Register', 'https://www.federalregister.gov/documents/2026/05/20/2026-10085/rescission-of-regulatory-determinations-and-removal-of-related-provisions-for-four-pfas-substances')]
         })
       ]
     })
@@ -429,7 +437,7 @@ export default spineData({
               `),
               grade: 'moderate',
               quote: 'Only 6% of the frauds are revealed by the SEC and 14% by the auditors. More important monitors are media (14%), industry regulators (16%), and employees (19%).',
-              sources: [source('Dyck, Morse and Zingales (NBER w12882)', 'https://www.nber.org/papers/w12882')]
+              sources: [source('Dyck, Morse and Zingales 2007', 'https://www.nber.org/papers/w12882')]
             })
           ],
           counterEvidence: [
@@ -441,7 +449,7 @@ export default spineData({
               `),
               grade: 'moderate',
               quote: 'OSHA lacks sufficient internal controls to ensure that the whistleblower program operates as intended',
-              sources: [source('GAO-10-722', 'https://www.gao.gov/products/gao-10-722')]
+              sources: [source('US Government Accountability Office', 'https://www.gao.gov/products/gao-10-722')]
             })
           ]
         }),
@@ -474,7 +482,7 @@ export default spineData({
                 replicated the five-year stall the detection findings hit.
               `),
               grade: 'moderate',
-              sources: [source('EPA 2005', 'https://www.epa.gov/archive/epapages/newsroom_archive/newsreleases/fdcb2f665cac66bb852570d7005d6665.html')]
+              sources: [source('US Environmental Protection Agency', 'https://www.epa.gov/archive/epapages/newsroom_archive/newsreleases/fdcb2f665cac66bb852570d7005d6665.html')]
             })
           ]
         }),
@@ -494,7 +502,7 @@ export default spineData({
                 the information arrived, the response came fast.
               `),
               grade: 'moderate',
-              sources: [source('NC DEQ letter, Nov. 16, 2017', 'https://files.nc.gov/ncdeq/GenX/Letter%20November%2011-16-17.pdf')]
+              sources: [source('North Carolina Department of Environmental Quality', 'https://files.nc.gov/ncdeq/GenX/Letter%20November%2011-16-17.pdf')]
             })
           ],
           counterEvidence: [
@@ -526,7 +534,7 @@ export default spineData({
                 half-life after exposure ends is 3.26 years.
               `),
               grade: 'strong',
-              sources: [source('Kotlarz et al. 2020, EHP', 'https://ehp.niehs.nih.gov/doi/10.1289/EHP6837')]
+              sources: [source('Kotlarz et al. 2020', 'https://ehp.niehs.nih.gov/doi/10.1289/EHP6837')]
             }),
             evidence({
               finding: paragraph(`
@@ -538,8 +546,8 @@ export default spineData({
               `),
               grade: 'moderate',
               sources: [
-                source('C8 Science Panel report', 'http://www.c8sciencepanel.org/pdfs/Probable_Link_C8_Cancer_16April2012_v2.pdf'),
-                source('Rosen et al. 2022, EHP (PubMed)', 'https://pubmed.ncbi.nlm.nih.gov/36069575/')
+                source('C8 Science Panel', 'http://www.c8sciencepanel.org/pdfs/Probable_Link_C8_Cancer_16April2012_v2.pdf'),
+                source('Rosen et al. 2022', 'https://pubmed.ncbi.nlm.nih.gov/36069575/')
               ]
             })
           ]
@@ -571,7 +579,7 @@ export default spineData({
             technology and regulation.
           `),
           strength: 'moderate',
-          sources: [source('FAA Safety', 'https://www.faasafety.gov/files/events/EA/EA23/2010/EA2334954/NASA_Reporting.pdf')]
+          sources: [source('US Federal Aviation Administration', 'https://www.faasafety.gov/files/events/EA/EA23/2010/EA2334954/NASA_Reporting.pdf')]
         }),
         comparable({
           name: 'OSHA Whistleblower Program Audit',
@@ -584,7 +592,7 @@ export default spineData({
             proposal must exceed, not copy.
           `),
           strength: 'strong',
-          sources: [source('GAO-10-722', 'https://www.gao.gov/products/gao-10-722')]
+          sources: [source('US Government Accountability Office', 'https://www.gao.gov/products/gao-10-722')]
         })
       ],
       sources: []
@@ -627,15 +635,32 @@ export default spineData({
             evidence({
               finding: paragraph(`
                 Over 50,000 citizen complaints to the Texas environmental
-                regulator increased inspections and notices of violation at the
-                targeted facilities; Woburn's community observation plus an
-                academic study confirmed a <strong>fourfold leukemia excess</strong>; Tennant's
-                cattle documentation pierced concealment in the PFOA arc.
+                regulator <strong>increased inspections and notices of
+                violation</strong> at the targeted facilities.
               `),
               grade: 'moderate',
               sources: [
-                source('AEA 2018 conference paper', 'https://www.aeaweb.org/conference/2018/preliminary/paper/eSR58nDd'),
-                source('Kennedy, Woburn files', 'https://dankennedy.net/woburn-files/a-civil-action-the-real-story/')
+                source('Evans and Shimshack 2018', 'https://www.aeaweb.org/conference/2018/preliminary/paper/eSR58nDd')
+              ]
+            }),
+            evidence({
+              finding: paragraph(`
+                Woburn's community observation plus an academic study confirmed
+                a <strong>fourfold leukemia excess</strong>.
+              `),
+              grade: 'moderate',
+              sources: [
+                source('Dan Kennedy, Woburn Files', 'https://dankennedy.net/woburn-files/a-civil-action-the-real-story/')
+              ]
+            }),
+            evidence({
+              finding: paragraph(`
+                Tennant's cattle documentation <strong>pierced
+                concealment</strong> in the PFOA arc.
+              `),
+              grade: 'moderate',
+              sources: [
+                source('Levin Law', 'https://levinlaw.com/dupont-c8-and-health')
               ]
             })
           ],
@@ -649,7 +674,7 @@ export default spineData({
               `),
               grade: 'moderate',
               quote: 'In the 108 CDC cancer cluster investigations that resulted, no meaningful environmental causes explained any of the clusters',
-              sources: [source('Connecticut DPH technical brief', 'https://portal.ct.gov/-/media/departments-and-agencies/dph/dph/environmental_health/eoha/pdf/cancerclustertechbrieffinalpdf.pdf')]
+              sources: [source('Connecticut Department of Public Health', 'https://portal.ct.gov/-/media/departments-and-agencies/dph/dph/environmental_health/eoha/pdf/cancerclustertechbrieffinalpdf.pdf')]
             })
           ]
         }),
@@ -672,7 +697,7 @@ export default spineData({
               `),
               grade: 'moderate',
               quote: 'citizen science datasets collected without cheats represented the only internally consistent measures of water lead levels',
-              sources: [source('Roy and Edwards 2019, Citizen Science: Theory and Practice', 'https://theoryandpractice.citizenscienceassociation.org/articles/10.5334/cstp.154')]
+              sources: [source('Roy and Edwards 2019', 'https://theoryandpractice.citizenscienceassociation.org/articles/10.5334/cstp.154')]
             }),
             evidence({
               finding: paragraph(`
@@ -684,7 +709,7 @@ export default spineData({
               `),
               grade: 'moderate',
               quote: 'Of the 1426 episodes identified by the community sensors, 723 (51%) were not observed by the government monitors',
-              sources: [source('Seto et al. 2019, IJERPH', 'https://www.mdpi.com/1660-4601/16/18/3268')]
+              sources: [source('Seto et al. 2019', 'https://www.mdpi.com/1660-4601/16/18/3268')]
             })
           ],
           counterEvidence: [
@@ -715,7 +740,7 @@ export default spineData({
                 levels after discharge controls are measured in this case.
               `),
               grade: 'strong',
-              sources: [source('Kotlarz et al. 2020, EHP', 'https://ehp.niehs.nih.gov/doi/10.1289/EHP6837')]
+              sources: [source('Kotlarz et al. 2020', 'https://ehp.niehs.nih.gov/doi/10.1289/EHP6837')]
             })
           ],
           counterEvidence: [
@@ -745,8 +770,8 @@ export default spineData({
           `),
           strength: 'strong',
           sources: [
-            source('NY DEC fact sheet', 'https://extapps.dec.ny.gov/docs/air_pdf/tonfact1011.pdf'),
-            source('DOJ', 'https://www.justice.gov/archives/opa/pr/tonawanda-coke-and-manager-sentenced-violating-clean-air-act-and-resource-conservation-and')
+            source('New York State Department of Environmental Conservation', 'https://extapps.dec.ny.gov/docs/air_pdf/tonfact1011.pdf'),
+            source('US Department of Justice', 'https://www.justice.gov/archives/opa/pr/tonawanda-coke-and-manager-sentenced-violating-clean-air-act-and-resource-conservation-and')
           ]
         }),
         comparable({
@@ -774,7 +799,7 @@ export default spineData({
             cleanup, a state cleanup fund, and a state cancer registry.
           `),
           strength: 'moderate',
-          sources: [source('Kennedy, Woburn files', 'https://dankennedy.net/woburn-files/a-civil-action-the-real-story/')]
+          sources: [source('Dan Kennedy, Woburn Files', 'https://dankennedy.net/woburn-files/a-civil-action-the-real-story/')]
         })
       ],
       sources: []
@@ -818,7 +843,7 @@ export default spineData({
                 most serious violations</strong>.
               `),
               grade: 'moderate',
-              sources: [source('EPA Public Notification Rule', 'https://www.epa.gov/dwreginfo/public-notification-rule')]
+              sources: [source('US Environmental Protection Agency', 'https://www.epa.gov/dwreginfo/public-notification-rule')]
             })
           ],
           counterEvidence: [
@@ -829,7 +854,7 @@ export default spineData({
                 order. As enacted policy, unstudied.
               `),
               grade: 'moderate',
-              sources: [source('EPA Public Notification Rule', 'https://www.epa.gov/dwreginfo/public-notification-rule')]
+              sources: [source('US Environmental Protection Agency', 'https://www.epa.gov/dwreginfo/public-notification-rule')]
             })
           ]
         }),
@@ -850,8 +875,8 @@ export default spineData({
               grade: 'strong',
               quote: 'an increase in bottled water sales of 22 percent from violations due to microorganisms and 17 percent from violations due to elements and chemicals',
               sources: [
-                source('Graff Zivin et al. (NBER w16695)', 'https://www.nber.org/papers/w16695'),
-                source('Currie et al., AER 2015', 'https://www.aeaweb.org/articles?id=10.1257%2Faer.20121656')
+                source('Graff Zivin et al. 2011', 'https://www.nber.org/papers/w16695'),
+                source('Currie et al. 2015', 'https://www.aeaweb.org/articles?id=10.1257%2Faer.20121656')
               ]
             })
           ],
@@ -863,7 +888,7 @@ export default spineData({
                 100 miles downstream.
               `),
               grade: 'moderate',
-              sources: [source('Currie et al., AER 2015', 'https://www.aeaweb.org/articles?id=10.1257%2Faer.20121656')]
+              sources: [source('Currie et al. 2015', 'https://www.aeaweb.org/articles?id=10.1257%2Faer.20121656')]
             })
           ]
         }),
@@ -887,7 +912,7 @@ export default spineData({
               quote: 'reduced total violations by between 30% and 44%',
               sources: [
                 source('Bennear and Olmstead 2008', 'https://ideas.repec.org/a/eee/jeeman/v56y2008i2p117-130.html'),
-                source('TURI overview', 'https://www.turi.org/wp-content/uploads/2024/03/TURAOverview.June2018.pdf')
+                source('Toxics Use Reduction Institute', 'https://www.turi.org/wp-content/uploads/2024/03/TURAOverview.June2018.pdf')
               ]
             })
           ],
@@ -901,7 +926,7 @@ export default spineData({
                 depends on.
               `),
               grade: 'moderate',
-              sources: [source('NC DEQ letter, Nov. 16, 2017', 'https://files.nc.gov/ncdeq/GenX/Letter%20November%2011-16-17.pdf')]
+              sources: [source('North Carolina Department of Environmental Quality', 'https://files.nc.gov/ncdeq/GenX/Letter%20November%2011-16-17.pdf')]
             })
           ]
         }),
@@ -922,7 +947,7 @@ export default spineData({
                 cutoff would have avoided.
               `),
               grade: 'strong',
-              sources: [source('Kotlarz et al. 2020, EHP', 'https://ehp.niehs.nih.gov/doi/10.1289/EHP6837')]
+              sources: [source('Kotlarz et al. 2020', 'https://ehp.niehs.nih.gov/doi/10.1289/EHP6837')]
             })
           ]
         })
@@ -942,8 +967,8 @@ export default spineData({
           `),
           strength: 'moderate',
           sources: [
-            source('EPA (Teitelbaum)', 'https://www.epa.gov/sites/default/files/2015-09/documents/teitelbaum.pdf'),
-            source('EPA TRI National Analysis', 'https://www.epa.gov/trinationalanalysis/releases-chemicals')
+            source('US Environmental Protection Agency', 'https://www.epa.gov/sites/default/files/2015-09/documents/teitelbaum.pdf'),
+            source('US Environmental Protection Agency', 'https://www.epa.gov/trinationalanalysis/releases-chemicals')
           ]
         }),
         comparable({
@@ -956,7 +981,7 @@ export default spineData({
             releases 92 percent, per preliminary state analysis.
           `),
           strength: 'moderate',
-          sources: [source('TURI overview', 'https://www.turi.org/wp-content/uploads/2024/03/TURAOverview.June2018.pdf')]
+          sources: [source('Toxics Use Reduction Institute', 'https://www.turi.org/wp-content/uploads/2024/03/TURAOverview.June2018.pdf')]
         }),
         comparable({
           name: 'REACH Candidate List Substitution',
@@ -968,7 +993,7 @@ export default spineData({
             replaced a listed substance with a less hazardous one.
           `),
           strength: 'moderate',
-          sources: [source('Business Chemistry', 'https://www.businesschemistry.org/article/impacts-of-the-reach-candidate-list-of-substances-subject-to-authorisation-the-reputation-mechanism-and-empirical-results-on-behavioral-adaptations-of-german-supply-chain-actors/')]
+          sources: [source('Journal of Business Chemistry', 'https://www.businesschemistry.org/article/impacts-of-the-reach-candidate-list-of-substances-subject-to-authorisation-the-reputation-mechanism-and-empirical-results-on-behavioral-adaptations-of-german-supply-chain-actors/')]
         })
       ],
       sources: []
@@ -1028,7 +1053,7 @@ export default spineData({
                 legal survey.
               `),
               grade: 'moderate',
-              sources: [source('EPA Public Notification Rule', 'https://www.epa.gov/dwreginfo/public-notification-rule')]
+              sources: [source('US Environmental Protection Agency', 'https://www.epa.gov/dwreginfo/public-notification-rule')]
             })
           ]
         }),
@@ -1047,7 +1072,7 @@ export default spineData({
                 discharge cessation announced within two weeks.
               `),
               grade: 'strong',
-              sources: [source('WRAL timeline', 'https://www.wral.com/story/timeline-tracking-the-route-of-genx-in-the-cape-fear-river/16869639/')]
+              sources: [source('WRAL', 'https://www.wral.com/story/timeline-tracking-the-route-of-genx-in-the-cape-fear-river/16869639/')]
             })
           ],
           counterEvidence: [
@@ -1080,7 +1105,7 @@ export default spineData({
                 months</strong> show the gain per year of earlier cutoff.
               `),
               grade: 'strong',
-              sources: [source('Kotlarz et al. 2020, EHP', 'https://ehp.niehs.nih.gov/doi/10.1289/EHP6837')]
+              sources: [source('Kotlarz et al. 2020', 'https://ehp.niehs.nih.gov/doi/10.1289/EHP6837')]
             })
           ]
         })
@@ -1096,7 +1121,7 @@ export default spineData({
             contaminants only, the boundary this proposal erases.
           `),
           strength: 'moderate',
-          sources: [source('EPA', 'https://www.epa.gov/dwreginfo/public-notification-rule')]
+          sources: [source('US Environmental Protection Agency', 'https://www.epa.gov/dwreginfo/public-notification-rule')]
         }),
         comparable({
           name: 'Flint Emergency Response After Resident Data',
@@ -1107,7 +1132,7 @@ export default spineData({
             declarations and more than $600 million in relief followed.
           `),
           strength: 'strong',
-          sources: [source('Citizen Science: Theory and Practice', 'https://theoryandpractice.citizenscienceassociation.org/articles/10.5334/cstp.154')]
+          sources: [source('Roy and Edwards 2019', 'https://theoryandpractice.citizenscienceassociation.org/articles/10.5334/cstp.154')]
         }),
         comparable({
           name: 'The June 2017 Wilmington StarNews Story',
@@ -1174,7 +1199,7 @@ export default spineData({
               `),
               grade: 'moderate',
               quote: 'there is a probable link between exposure to C8 (also known as PFOA) and testicular cancer and kidney cancer',
-              sources: [source('C8 Science Panel report', 'http://www.c8sciencepanel.org/pdfs/Probable_Link_C8_Cancer_16April2012_v2.pdf')]
+              sources: [source('C8 Science Panel', 'http://www.c8sciencepanel.org/pdfs/Probable_Link_C8_Cancer_16April2012_v2.pdf')]
             })
           ],
           counterEvidence: [
@@ -1223,8 +1248,8 @@ export default spineData({
               grade: 'moderate',
               quote: 'report-back increased concern for consumer product chemicals',
               sources: [
-                source('Boronow et al. 2023, EHP', 'https://ehp.niehs.nih.gov/doi/10.1289/EHP12565'),
-                source('Rochester et al. 2024, IJERPH', 'https://www.mdpi.com/1660-4601/21/7/905')
+                source('Boronow et al. 2023', 'https://ehp.niehs.nih.gov/doi/10.1289/EHP12565'),
+                source('Rochester et al. 2024', 'https://www.mdpi.com/1660-4601/21/7/905')
               ]
             })
           ]
@@ -1246,7 +1271,7 @@ export default spineData({
               `),
               grade: 'weak',
               quote: 'Final study participation was 69,030, enrolled over a 13-month period in 2005-2006',
-              sources: [source('Frisbee et al. 2009, EHP (LSHTM record)', 'https://researchonline.lshtm.ac.uk/id/eprint/4315/')]
+              sources: [source('Frisbee et al. 2009', 'https://researchonline.lshtm.ac.uk/id/eprint/4315/')]
             })
           ],
           counterEvidence: [
@@ -1277,7 +1302,7 @@ export default spineData({
             followed.
           `),
           strength: 'strong',
-          sources: [source('C8 Science Panel report', 'http://www.c8sciencepanel.org/pdfs/Probable_Link_C8_Cancer_16April2012_v2.pdf')]
+          sources: [source('C8 Science Panel', 'http://www.c8sciencepanel.org/pdfs/Probable_Link_C8_Cancer_16April2012_v2.pdf')]
         }),
         comparable({
           name: 'Stillwater Good Neighbor Agreement',
@@ -1291,7 +1316,7 @@ export default spineData({
             evaluation.
           `),
           strength: 'moderate',
-          sources: [source('WRI snapshot', 'https://www.wri.org/snapshots/community-benefits-snapshot-stillwater-good-neighbor-agreement')]
+          sources: [source('World Resources Institute', 'https://www.wri.org/snapshots/community-benefits-snapshot-stillwater-good-neighbor-agreement')]
         }),
         comparable({
           name: 'Superfund Technical Assistance Grants',
@@ -1303,7 +1328,7 @@ export default spineData({
             eligible communities under a lengthy application process.
           `),
           strength: 'moderate',
-          sources: [source('GAO T-RCED-93-1', 'https://www.gao.gov/products/t-rced-93-1')]
+          sources: [source('US Government Accountability Office', 'https://www.gao.gov/products/t-rced-93-1')]
         })
       ],
       sources: []
@@ -1348,7 +1373,7 @@ export default spineData({
                 wells</strong>, though that funding was state, not federal.
               `),
               grade: 'moderate',
-              sources: [source('GAO T-RCED-93-1', 'https://www.gao.gov/products/t-rced-93-1')]
+              sources: [source('US Government Accountability Office', 'https://www.gao.gov/products/t-rced-93-1')]
             })
           ],
           counterEvidence: [
@@ -1359,7 +1384,7 @@ export default spineData({
                 reactive, arriving after exposure.
               `),
               grade: 'moderate',
-              sources: [source('GAO T-RCED-93-1', 'https://www.gao.gov/products/t-rced-93-1')]
+              sources: [source('US Government Accountability Office', 'https://www.gao.gov/products/t-rced-93-1')]
             })
           ]
         }),
@@ -1379,7 +1404,7 @@ export default spineData({
                 cleanup fund and cancer registry.
               `),
               grade: 'weak',
-              sources: [source('Michigan EGLE', 'https://www.michigan.gov/egle/about/organization/drinking-water-and-environmental-health/community-water-supply/pfas-drinking-water-rules')]
+              sources: [source('Michigan Department of Environment, Great Lakes, and Energy', 'https://www.michigan.gov/egle/about/organization/drinking-water-and-environmental-health/community-water-supply/pfas-drinking-water-rules')]
             })
           ],
           counterEvidence: [
@@ -1420,7 +1445,7 @@ export default spineData({
                 was <strong>proposed for rescission in May 2026</strong> on procedural grounds.
               `),
               grade: 'moderate',
-              sources: [source('Federal Register 2026', 'https://www.federalregister.gov/documents/2026/05/20/2026-10085/rescission-of-regulatory-determinations-and-removal-of-related-provisions-for-four-pfas-substances')]
+              sources: [source('Federal Register', 'https://www.federalregister.gov/documents/2026/05/20/2026-10085/rescission-of-regulatory-determinations-and-removal-of-related-provisions-for-four-pfas-substances')]
             })
           ]
         })
@@ -1436,7 +1461,7 @@ export default spineData({
             generalization North Carolina did not achieve.
           `),
           strength: 'moderate',
-          sources: [source('Michigan EGLE', 'https://www.michigan.gov/egle/about/organization/drinking-water-and-environmental-health/community-water-supply/pfas-drinking-water-rules')]
+          sources: [source('Michigan Department of Environment, Great Lakes, and Energy', 'https://www.michigan.gov/egle/about/organization/drinking-water-and-environmental-health/community-water-supply/pfas-drinking-water-rules')]
         }),
         comparable({
           name: 'CDC REACH Program',
@@ -1450,7 +1475,7 @@ export default spineData({
             is a finding in its own right.
           `),
           strength: 'weak',
-          sources: [source('CDC MMWR Supplement 2014', 'https://www.cdc.gov/mmwr/preview/mmwrhtml/su6301a2.htm')]
+          sources: [source('US Centers for Disease Control and Prevention', 'https://www.cdc.gov/mmwr/preview/mmwrhtml/su6301a2.htm')]
         }),
         comparable({
           name: 'Superfund Technical Assistance Grants',
@@ -1462,7 +1487,7 @@ export default spineData({
             barriers.
           `),
           strength: 'moderate',
-          sources: [source('GAO T-RCED-93-1', 'https://www.gao.gov/products/t-rced-93-1')]
+          sources: [source('US Government Accountability Office', 'https://www.gao.gov/products/t-rced-93-1')]
         })
       ],
       sources: []
@@ -1509,7 +1534,7 @@ export default spineData({
                 Analogical: a different industry and decision type.
               `),
               grade: 'weak',
-              sources: [source('Bellona 2016', 'https://bellona.org/news/nuclear-issues/radioactive-waste-and-spent-nuclear-fuel/2016-08-21710')]
+              sources: [source('Bellona', 'https://bellona.org/news/nuclear-issues/radioactive-waste-and-spent-nuclear-fuel/2016-08-21710')]
             })
           ]
         }),
@@ -1531,7 +1556,7 @@ export default spineData({
               `),
               grade: 'moderate',
               quote: 'The GNAs studied are generally quite effective',
-              sources: [source('Kenney et al. 2004, Natural Resources Law Center', 'https://scholar.law.colorado.edu/cgi/viewcontent.cgi?httpsredir=1&article=1018&context=books_reports_studies')]
+              sources: [source('Kenney et al. 2004', 'https://scholar.law.colorado.edu/cgi/viewcontent.cgi?httpsredir=1&article=1018&context=books_reports_studies')]
             }),
             evidence({
               finding: paragraph(`
@@ -1542,7 +1567,7 @@ export default spineData({
               `),
               grade: 'moderate',
               quote: 'complaints are associated with sharp increases in regulator monitoring and enforcement',
-              sources: [source('Colmer, Evans and Shimshack 2023, CEP DP1903', 'https://ideas.repec.org/p/cep/cepdps/dp1903.html')]
+              sources: [source('Colmer, Evans and Shimshack 2023', 'https://ideas.repec.org/p/cep/cepdps/dp1903.html')]
             })
           ],
           counterEvidence: [
@@ -1554,7 +1579,7 @@ export default spineData({
                 newspaper story.
               `),
               grade: 'strong',
-              sources: [source('EPA OIG 2020', 'https://www.epa.gov/sites/default/files/2020-05/documents/_epaoig_20200528-20-e-0177_0.pdf')]
+              sources: [source('US Environmental Protection Agency', 'https://www.epa.gov/sites/default/files/2020-05/documents/_epaoig_20200528-20-e-0177_0.pdf')]
             })
           ]
         }),
@@ -1573,7 +1598,7 @@ export default spineData({
                 year of earlier enforcement.
               `),
               grade: 'strong',
-              sources: [source('Kotlarz et al. 2020, EHP', 'https://ehp.niehs.nih.gov/doi/10.1289/EHP6837')]
+              sources: [source('Kotlarz et al. 2020', 'https://ehp.niehs.nih.gov/doi/10.1289/EHP6837')]
             })
           ]
         })
@@ -1594,7 +1619,7 @@ export default spineData({
             evaluation.
           `),
           strength: 'moderate',
-          sources: [source('Bellona 2016', 'https://bellona.org/news/nuclear-issues/radioactive-waste-and-spent-nuclear-fuel/2016-08-21710')]
+          sources: [source('Bellona', 'https://bellona.org/news/nuclear-issues/radioactive-waste-and-spent-nuclear-fuel/2016-08-21710')]
         })
       ],
       sources: []

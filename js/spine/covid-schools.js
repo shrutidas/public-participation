@@ -31,7 +31,7 @@ export default spineData({
         preference aggregation with no binding step.
       `),
       anchors: ['48 states left reopening modality'],
-      sources: [source('Brookings', 'https://www.brookings.edu/articles/the-revolt-of-the-public-school-parents/')]
+      sources: [source('Brookings Institution', 'https://www.brookings.edu/articles/the-revolt-of-the-public-school-parents/')]
     }),
     mechanism({
       name: 'State advisory councils',
@@ -46,7 +46,7 @@ export default spineData({
         recommendations were followed, and critics argued they were not.
       `),
       anchors: ['Return to School Roadmap'],
-      sources: [source('Executive Order 2020-88', 'https://content.govdelivery.com/attachments/MIEOG/2020/05/15/file_attachments/1452673/EO%202020-88.pdf')]
+      sources: [source('Michigan Executive Order 2020-88', 'https://content.govdelivery.com/attachments/MIEOG/2020/05/15/file_attachments/1452673/EO%202020-88.pdf')]
     }),
     mechanism({
       name: 'Parent surveys and polls',
@@ -63,7 +63,7 @@ export default spineData({
       anchors: ['60% of parents'],
       sources: [
         source('KFF', 'https://www.kff.org/covid-19/kff-health-tracking-poll-july-2020'),
-        source('Hartney and Finger', 'https://edworkingpapers.com/sites/default/files/ai20-304.pdf')
+        source('Hartney and Finger 2020', 'https://edworkingpapers.com/sites/default/files/ai20-304.pdf')
       ]
     }),
     mechanism({
@@ -127,7 +127,7 @@ export default spineData({
       `),
       anchors: ['physical presence in school', 'Operational Strategy'],
       sources: [
-        source('Hartney and Finger', 'https://edworkingpapers.com/sites/default/files/ai20-304.pdf'),
+        source('Hartney and Finger 2020', 'https://edworkingpapers.com/sites/default/files/ai20-304.pdf'),
         source('Grossmann et al.', 'https://journals.sagepub.com/doi/10.3102/0013189X211048840')
       ]
     }),
@@ -175,7 +175,7 @@ export default spineData({
           `),
           grade: 'strong',
           quote: 'remote-only instead of in-person instruction reduced enrollment by 1.1 percentage points',
-          sources: [source('NBER w29156', 'https://www.nber.org/papers/w29156')]
+          sources: [source('Dee et al. 2021', 'https://www.nber.org/papers/w29156')]
         }),
         evidence({
           finding: paragraph(`
@@ -183,7 +183,7 @@ export default spineData({
             million (fall 2020)</strong>, then 49.4 to 49.6 million through 2022.
           `),
           grade: 'strong',
-          sources: [source('NCES', 'https://nces.ed.gov/programs/coe/indicator/cga/public-school-enrollment')]
+          sources: [source('National Center for Education Statistics', 'https://nces.ed.gov/programs/coe/indicator/cga/public-school-enrollment')]
         })
       ]
     }),
@@ -208,16 +208,39 @@ export default spineData({
       evidence: [
         evidence({
           finding: paragraph(`
-            RAND's 2025 district survey and AEI's 2026 tracking report document
-            persistence; Singer's dose-response <strong>ties absence to months of remote
-            exposure</strong>; the UChicago Consortium finds teacher-reported parent
-            relationships associated with school absence rates, stronger after
-            the pandemic.
+            RAND's 2025 district survey and AEI's 2026 tracking report both
+            document <strong>persistence of elevated chronic absence</strong>
+            through 2024-25.
           `),
           grade: 'moderate',
           sources: [
-            source('RAND RRA956-34', 'https://www.rand.org/pubs/research_reports/RRA956-34.html'),
-            source('AEI tracker', 'https://www.aei.org/research-products/report/from-attendance-crisis-to-chronic-condition-tracking-post-pandemic-chronic-absenteeism-into-2025/')
+            source('RAND Corporation', 'https://www.rand.org/pubs/research_reports/RRA956-34.html'),
+            source('American Enterprise Institute', 'https://www.aei.org/research-products/report/from-attendance-crisis-to-chronic-condition-tracking-post-pandemic-chronic-absenteeism-into-2025/')
+          ]
+        }),
+        evidence({
+          finding: paragraph(`
+            Singer's dose-response analysis <strong>ties persistent absence
+            declines to months of remote exposure</strong>: no significant
+            decline at 1-3 months of remote-only instruction, meaningful
+            declines at 4 or more months, and the largest at 7-9 months.
+          `),
+          grade: 'moderate',
+          quote: 'remote learning in 2020-21 led to persistent declines in post-pandemic attendance, with generally larger negative effects for students exposed to longer periods of remote learning',
+          sources: [
+            source('Singer 2026', 'https://edworkingpapers.com/sites/default/files/ai25_1196_v4.pdf')
+          ]
+        }),
+        evidence({
+          finding: paragraph(`
+            The UChicago Consortium finds teacher-reported parent relationships
+            significantly related to school absence rates, <strong>stronger
+            after the pandemic than before</strong>.
+          `),
+          grade: 'moderate',
+          quote: 'Teachers\' reports of their relationships with parents were also significantly related to absence rates in their school in both middle grades and high schools. [...] even stronger in post-pandemic years than before the pandemic.',
+          sources: [
+            source('University of Chicago Consortium on School Research', 'https://consortium.uchicago.edu/sites/default/files/2026-01/Connection,%20Trust,%20and%20Learning-Jan26-Consortium.pdf')
           ]
         })
       ],
@@ -229,7 +252,7 @@ export default spineData({
             explanation alongside any trust-based account.
           `),
           grade: 'moderate',
-          sources: [source('RAND RRA956-34', 'https://www.rand.org/pubs/research_reports/RRA956-34.html')]
+          sources: [source('RAND Corporation', 'https://www.rand.org/pubs/research_reports/RRA956-34.html')]
         })
       ]
     }),
@@ -293,14 +316,37 @@ export default spineData({
         evidence({
           finding: paragraph(`
             Goldhaber et al. (2022) and Jack et al. (2023) tie remote and hybrid
-            mode to <strong>larger achievement declines</strong> across states and districts;
-            Sweden's open primary schools showed no learning loss across 97,073
-            students in grades 1-3.
+            mode to <strong>larger achievement declines</strong> across states
+            and districts.
           `),
           grade: 'strong',
           sources: [
-            source('NAEP 2022', 'https://www.nationsreportcard.gov/highlights/ltt/2022'),
+            source('Goldhaber et al. 2022', 'https://www.nber.org/papers/w30010'),
+            source('Jack et al. 2023', 'https://www.aeaweb.org/articles?id=10.1257/aeri.20210748')
+          ]
+        }),
+        evidence({
+          finding: paragraph(`
+            Sweden kept primary schools open and saw <strong>no learning loss
+            across 97,073 students in grades 1-3</strong>, and even “students
+            from low socio-economic backgrounds were not especially
+            affected”.
+          `),
+          grade: 'strong',
+          quote: 'students from low socio-economic backgrounds were not especially affected',
+          sources: [
             source('Hallin et al. 2022', 'https://pubmed.ncbi.nlm.nih.gov/35677729/')
+          ]
+        }),
+        evidence({
+          finding: paragraph(`
+            NAEP long-term trend age-9 scores fell 5 points in reading and 7 in
+            mathematics from 2020 to 2022, <strong>the first mathematics decline
+            in the series</strong>.
+          `),
+          grade: 'strong',
+          sources: [
+            source('National Assessment of Educational Progress', 'https://www.nationsreportcard.gov/highlights/ltt/2022')
           ]
         })
       ],
@@ -317,7 +363,7 @@ export default spineData({
           `),
           grade: 'moderate',
           quote: 'From 2017 to 2019, students lost as much ground in reading as they did during the pandemic',
-          sources: [source('Harvard CEPR 2026', 'https://cepr.harvard.edu/news/2026/05/why-us-test-scores-are-generation-long-decline')]
+          sources: [source('Harvard Center for Education Policy Research', 'https://cepr.harvard.edu/news/2026/05/why-us-test-scores-are-generation-long-decline')]
         })
       ]
     })
@@ -365,7 +411,7 @@ export default spineData({
               `),
               grade: 'moderate',
               quote: 'conducted rapid, online deliberation with 28 members of the public on COVID-19 exit strategies',
-              sources: [source('Ada Lovelace Institute 2020', 'https://www.adalovelaceinstitute.org/project/rapid-online-deliberation-on-covid-19-technologies/')]
+              sources: [source('Ada Lovelace Institute', 'https://www.adalovelaceinstitute.org/project/rapid-online-deliberation-on-covid-19-technologies/')]
             })
           ],
           counterEvidence: [
@@ -377,7 +423,7 @@ export default spineData({
                 convenings of at least one full day and often much longer.
               `),
               grade: 'moderate',
-              sources: [source('OECD 2020', 'https://www.oecd.org/en/publications/innovative-citizen-participation-and-new-democratic-institutions_339306da-en/full-report/component-8.html')]
+              sources: [source('Organisation for Economic Co-operation and Development', 'https://www.oecd.org/en/publications/innovative-citizen-participation-and-new-democratic-institutions_339306da-en/full-report/component-8.html')]
             })
           ]
         }),
@@ -400,7 +446,7 @@ export default spineData({
               `),
               grade: 'moderate',
               quote: 'Plebiscites resulted in dramatically higher satisfaction among villagers, increased knowledge about the project, greater perceived benefits, and higher reported willingness to contribute',
-              sources: [source('Olken (NBER w14123)', 'https://www.nber.org/papers/w14123')]
+              sources: [source('Olken 2008', 'https://www.nber.org/papers/w14123')]
             }),
             evidence({
               finding: paragraph(`
@@ -424,7 +470,7 @@ export default spineData({
                 rated government follow-through 3.3 out of 10.
               `),
               grade: 'moderate',
-              sources: [source('KNOCA briefing', 'https://www.knoca.eu/briefings/policy-impact-of-the-french-citizens-convention-for-the-climate-untangling-the-fate-of-the-citizens-recommendations')]
+              sources: [source('Knowledge Network on Climate Assemblies', 'https://www.knoca.eu/briefings/policy-impact-of-the-french-citizens-convention-for-the-climate-untangling-the-fate-of-the-citizens-recommendations')]
             })
           ]
         }),
@@ -487,7 +533,7 @@ export default spineData({
               grade: 'weak',
               quote: 'legitimacy - typically operationalized as the perceived obligation to obey and trust and confidence in the relevant institutions - plays an important role in achieving such compliance',
               sources: [
-                source('Tyler and Jackson 2013 (SSRN)', 'https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2292517'),
+                source('Tyler and Jackson 2013', 'https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2292517'),
                 source('Verboon and Goslinga 2018', 'https://link.springer.com/article/10.1007/s12144-017-9762-x')
               ]
             })
@@ -543,7 +589,7 @@ export default spineData({
             binding promise decaying under pressure.
           `),
           strength: 'strong',
-          sources: [source('KNOCA briefing', 'https://www.knoca.eu/briefings/policy-impact-of-the-french-citizens-convention-for-the-climate-untangling-the-fate-of-the-citizens-recommendations')]
+          sources: [source('Knowledge Network on Climate Assemblies', 'https://www.knoca.eu/briefings/policy-impact-of-the-french-citizens-convention-for-the-climate-untangling-the-fate-of-the-citizens-recommendations')]
         }),
         comparable({
           name: 'Michigan Sortition Panel',
@@ -556,7 +602,7 @@ export default spineData({
             decision window.
           `),
           strength: 'weak',
-          sources: [source('CMU News', 'https://www.cmu.edu/news/stories/archives/2021/august/citizens-assembly-algorithm.html')]
+          sources: [source('Carnegie Mellon University', 'https://www.cmu.edu/news/stories/archives/2021/august/citizens-assembly-algorithm.html')]
         })
       ],
       sources: []
@@ -642,7 +688,7 @@ export default spineData({
               `),
               grade: 'strong',
               quote: 'the relative risk of infection of students decreased at least by 74% compared with a classroom with only natural ventilation',
-              sources: [source('Frontiers in Public Health 2022', 'https://www.frontiersin.org/journals/public-health/articles/10.3389/fpubh.2022.1087087/full')]
+              sources: [source('Buonanno et al. 2022', 'https://www.frontiersin.org/journals/public-health/articles/10.3389/fpubh.2022.1087087/full')]
             })
           ],
           counterEvidence: [
@@ -654,7 +700,7 @@ export default spineData({
                 the risk. Sweden's open schools doubled teacher infection risk.
               `),
               grade: 'moderate',
-              sources: [source('Time 2020', 'https://time.com/5868098/schools-reopening-coronavirus-denmark-south-korea-israel/')]
+              sources: [source('Time', 'https://time.com/5868098/schools-reopening-coronavirus-denmark-south-korea-israel/')]
             })
           ]
         }),
@@ -669,18 +715,26 @@ export default spineData({
             evidence({
               finding: paragraph(`
                 A randomized experiment with 2,150 Brazilian municipalities
-                found mayors update on research findings and that informing
-                them about an effective policy <strong>raised adoption by 10
-                percentage points</strong>; in this case, test-to-stay evidence (a 1.5
-                percent secondary attack rate, up to 8,152 in-person days
-                saved in one district) preceded CDC's December 2021
-                endorsement of the less restrictive option.
+                found mayors update on research findings: informing them about
+                an effective policy <strong>raised adoption by 10 percentage
+                points</strong>.
+              `),
+              grade: 'moderate',
+              sources: [
+                source('Hjort et al. 2021', 'https://www.nber.org/papers/w25941')
+              ]
+            }),
+            evidence({
+              finding: paragraph(`
+                In this case, test-to-stay evidence preceded CDC's December 2021
+                endorsement of the less restrictive option: a 1.5 percent
+                secondary attack rate, and <strong>up to 8,152 in-person days
+                saved in one district</strong>.
               `),
               grade: 'moderate',
               quote: 'up to 8,152 in-person learning days were saved among TTS participants',
               sources: [
-                source('Hjort et al. (NBER w25941)', 'https://www.nber.org/papers/w25941'),
-                source('CDC MMWR 2021', 'https://www.cdc.gov/mmwr/volumes/70/wr/mm705152e2.htm')
+                source('US Centers for Disease Control and Prevention', 'https://www.cdc.gov/mmwr/volumes/70/wr/mm705152e2.htm')
               ]
             })
           ],
@@ -711,17 +765,28 @@ export default spineData({
           evidence: [
             evidence({
               finding: paragraph(`
-                Sweden's open primary schools: <strong>97,073 students in grades
-                1-3 with no learning loss</strong>, and even “students from low
-                socio-economic backgrounds were not especially affected”; US
-                studies tie remote mode to larger achievement declines and 1.1
-                points of extra disenrollment.
+                Sweden kept primary schools open and saw <strong>no learning loss
+                across 97,073 students in grades 1-3</strong>, and even “students
+                from low socio-economic backgrounds were not especially
+                affected”.
               `),
               grade: 'strong',
               quote: 'students from low socio-economic backgrounds were not especially affected',
               sources: [
-                source('Hallin et al. 2022', 'https://pubmed.ncbi.nlm.nih.gov/35677729/'),
-                source('NBER w29156', 'https://www.nber.org/papers/w29156')
+                source('Hallin et al. 2022', 'https://pubmed.ncbi.nlm.nih.gov/35677729/')
+              ]
+            }),
+            evidence({
+              finding: paragraph(`
+                US districts that offered remote-only instead of in-person
+                instruction in 2020-21 saw <strong>1.1 percentage points of extra
+                disenrollment</strong>, “a 42 percent increase in disenrollment
+                from -2.6 to -3.7 percent”.
+              `),
+              grade: 'strong',
+              quote: 'offering remote-only instead of in-person instruction reduced enrollment by 1.1 percentage points (i.e., a 42 percent increase in disenrollment from -2.6 to -3.7 percent)',
+              sources: [
+                source('Dee et al. 2021', 'https://www.nber.org/papers/w29156')
               ]
             })
           ]
@@ -764,7 +829,7 @@ export default spineData({
             half.
           `),
           strength: 'strong',
-          sources: [source('Frontiers in Public Health 2022', 'https://www.frontiersin.org/journals/public-health/articles/10.3389/fpubh.2022.1087087/full')]
+          sources: [source('Buonanno et al. 2022', 'https://www.frontiersin.org/journals/public-health/articles/10.3389/fpubh.2022.1087087/full')]
         }),
         comparable({
           name: 'UK Genetically Modified Crops Public Debate',
@@ -823,7 +888,7 @@ export default spineData({
                 proposal cannot claim it as its own contribution.
               `),
               grade: 'strong',
-              sources: [source('PMC', 'https://pmc.ncbi.nlm.nih.gov/articles/PMC8938683')]
+              sources: [source('Honein et al. 2021', 'https://pmc.ncbi.nlm.nih.gov/articles/PMC8938683')]
             })
           ]
         }),
@@ -837,18 +902,26 @@ export default spineData({
           evidence: [
             evidence({
               finding: paragraph(`
-                Each half of the link has adjacent support: after Bolivia's
-                1994 decentralization, municipal investment <strong>shifted toward
-                objective indicators of local need</strong>, and in the America in One
-                Room field experiment, structured deliberation produced large
-                depolarizing changes in policy attitudes. No study combines
-                the two in a crisis decision.
+                After Bolivia's 1994 decentralization, municipal investment
+                <strong>shifted toward objective indicators of local
+                need</strong>.
               `),
               grade: 'weak',
               quote: 'These changes are strongly and positively related to objective indicators of need',
               sources: [
-                source('Faguet 2004', 'https://socialserviceworkforce.org/wp-content/uploads/2024/03/Does-Decentralization-Increase-Gov-Responsiveness.pdf'),
-                source('Fishkin et al. 2021, APSR', 'https://www.cambridge.org/core/journals/american-political-science-review/article/is-deliberation-an-antidote-to-extreme-partisan-polarization-reflections-on-america-in-one-room/5DEFB6F8D944ECDE77A5E80C3346D4DE')
+                source('Faguet 2004', 'https://socialserviceworkforce.org/wp-content/uploads/2024/03/Does-Decentralization-Increase-Gov-Responsiveness.pdf')
+              ]
+            }),
+            evidence({
+              finding: paragraph(`
+                In the America in One Room field experiment, structured
+                deliberation produced <strong>large depolarizing changes in
+                policy attitudes</strong>. No study combines decentralized
+                authority with structured deliberation in a crisis decision.
+              `),
+              grade: 'weak',
+              sources: [
+                source('Fishkin et al. 2021', 'https://www.cambridge.org/core/journals/american-political-science-review/article/is-deliberation-an-antidote-to-extreme-partisan-polarization-reflections-on-america-in-one-room/5DEFB6F8D944ECDE77A5E80C3346D4DE')
               ]
             })
           ],
@@ -885,7 +958,7 @@ export default spineData({
                 informed.
               `),
               grade: 'moderate',
-              sources: [source('NBER w29156', 'https://www.nber.org/papers/w29156')]
+              sources: [source('Dee et al. 2021', 'https://www.nber.org/papers/w29156')]
             })
           ],
           counterEvidence: [
@@ -896,7 +969,7 @@ export default spineData({
                 from other regions during the decision window.
               `),
               grade: 'moderate',
-              sources: [source('CDC EID', 'https://wwwnc.cdc.gov/eid/article/30/1/23-1215_article')]
+              sources: [source('US Centers for Disease Control and Prevention', 'https://wwwnc.cdc.gov/eid/article/30/1/23-1215_article')]
             })
           ]
         }),
@@ -918,19 +991,22 @@ export default spineData({
               `),
               grade: 'moderate',
               quote: 'keeping the former open had limited consequences for the overall transmission of the virus',
-              sources: [source('Vlachos et al.', 'https://www.sciencedaily.com/releases/2021/02/210212101842.htm')]
+              sources: [source('Vlachos et al. 2021', 'https://www.sciencedaily.com/releases/2021/02/210212101842.htm')]
             })
           ],
           counterEvidence: [
             evidence({
               finding: paragraph(`
-                Open schools <strong>doubled teacher infection risk</strong> (7th
-                most affected of
-                124 occupations) and raised partner risk 30%. Any chain arguing
-                conditions permitted earlier opening has to state whose risk rose.
+                In Sweden, upper-secondary schools moved online in spring 2020
+                while lower-secondary schools stayed open, and open schools
+                <strong>doubled teacher infection risk</strong>: “the infection
+                rate doubled among lower-secondary teachers relative to
+                upper-secondary ones” (7th most affected of 124 occupations),
+                with partner risk up 30%.
               `),
               grade: 'moderate',
-              sources: [source('Vlachos et al.', 'https://www.sciencedaily.com/releases/2021/02/210212101842.htm')]
+              quote: 'the infection rate doubled among lower-secondary teachers relative to upper-secondary ones',
+              sources: [source('Vlachos et al. 2021', 'https://www.sciencedaily.com/releases/2021/02/210212101842.htm')]
             })
           ]
         })
@@ -960,7 +1036,7 @@ export default spineData({
             nearest measured neighbor points the other way for the emergency phase.
           `),
           strength: 'moderate',
-          sources: [source('Publius 2023', 'https://academic.oup.com/publius/article/54/1/34/7191229')]
+          sources: [source('Tselios 2024', 'https://academic.oup.com/publius/article/54/1/34/7191229')]
         }),
         comparable({
           name: 'Sweden and Denmark Open-School Policies',
@@ -992,7 +1068,7 @@ export default spineData({
             evaluation.
           `),
           strength: 'moderate',
-          sources: [source('Bellona 2016', 'https://bellona.org/news/nuclear-issues/radioactive-waste-and-spent-nuclear-fuel/2016-08-21710')]
+          sources: [source('Bellona', 'https://bellona.org/news/nuclear-issues/radioactive-waste-and-spent-nuclear-fuel/2016-08-21710')]
         })
       ],
       sources: []
@@ -1036,7 +1112,7 @@ export default spineData({
               `),
               grade: 'moderate',
               quote: 'We have federal data on school operations for only the largest districts in the country',
-              sources: [source('Brown University 2021', 'https://www.brown.edu/news/2021-09-15/hub')]
+              sources: [source('Brown University', 'https://www.brown.edu/news/2021-09-15/hub')]
             })
           ]
         }),
@@ -1080,7 +1156,7 @@ export default spineData({
               `),
               grade: 'moderate',
               quote: 'a 17-point swing',
-              sources: [source('Brookings 2021', 'https://www.brookings.edu/articles/how-misinformation-is-distorting-covid-policies-and-behaviors/')]
+              sources: [source('Brookings Institution', 'https://www.brookings.edu/articles/how-misinformation-is-distorting-covid-policies-and-behaviors/')]
             })
           ],
           counterEvidence: [
@@ -1092,7 +1168,7 @@ export default spineData({
                 availability.
               `),
               grade: 'strong',
-              sources: [source('Brookings 2021', 'https://www.brookings.edu/articles/how-misinformation-is-distorting-covid-policies-and-behaviors/')]
+              sources: [source('Brookings Institution', 'https://www.brookings.edu/articles/how-misinformation-is-distorting-covid-policies-and-behaviors/')]
             })
           ]
         }),
@@ -1115,8 +1191,8 @@ export default spineData({
               `),
               grade: 'weak',
               sources: [
-                source('Cucciniello et al. 2017, PAR', 'https://onlinelibrary.wiley.com/doi/abs/10.1111/puar.12685'),
-                source('Grimmelikhuijsen and Meijer 2014, JPART', 'https://academic.oup.com/jpart/article-abstract/24/1/137/916830')
+                source('Cucciniello et al. 2017', 'https://onlinelibrary.wiley.com/doi/abs/10.1111/puar.12685'),
+                source('Grimmelikhuijsen and Meijer 2014', 'https://academic.oup.com/jpart/article-abstract/24/1/137/916830')
               ]
             })
           ]
@@ -1161,7 +1237,7 @@ export default spineData({
             measured.
           `),
           strength: 'weak',
-          sources: [source('Sidewalk Labs 2020', 'https://medium.com/sidewalk-talk/how-open-data-and-civic-participation-helped-taiwan-slow-covid-b1449bab5841')]
+          sources: [source('Sidewalk Labs', 'https://medium.com/sidewalk-talk/how-open-data-and-civic-participation-helped-taiwan-slow-covid-b1449bab5841')]
         })
       ],
       sources: []
@@ -1212,7 +1288,38 @@ export default spineData({
               `),
               grade: 'moderate',
               quote: 'Most LSCs are viable governance organizations that responsibly complete their mandated duties',
-              sources: [source('ERIC ED476943', 'https://eric.ed.gov/?id=ED476943')]
+              sources: [source('Designs for Change 2002', 'https://eric.ed.gov/?id=ED476943')]
+            }),
+            evidence({
+              finding: paragraph(`
+                The councils' highest-profile pandemic-era decision has now been
+                evaluated: Chicago Public Schools handed the 2020
+                police-in-schools decision to each school's council, and schools
+                that voted to remove officers saw <strong>no detrimental changes
+                in student disciplinary outcomes or perceptions of school
+                climate</strong>.
+              `),
+              grade: 'moderate',
+              quote: 'Schools removed SROs without detrimental changes in student disciplinary outcomes or perceptions of school climate.',
+              sources: [
+                source('University of Chicago Consortium on School Research', 'https://consortium.uchicago.edu/publications/removing-police-officers-from-Chicago-schools')
+              ]
+            })
+          ],
+          counterEvidence: [
+            evidence({
+              finding: paragraph(`
+                Capacity strain is documented: when Chicago delegated the 2020
+                police vote, <strong>more than a fifth of the 72 schools with
+                officers lacked a council able to form a quorum</strong>, and
+                1,400 council seats sat empty after the 2022 elections.
+              `),
+              grade: 'moderate',
+              quote: 'More than a fifth of the 72 schools with police officers assigned to them either don\'t have LSCs at all or don\'t have enough members to form a quorum',
+              sources: [
+                source('WBEZ Chicago', 'https://www.npr.org/local/309/2020/07/14/890756361/20-of-schools-lack-enough-local-school-council-members-to-vote-on-keeping-police'),
+                source('Chalkbeat Chicago', 'https://www.chalkbeat.org/chicago/2022/9/1/23333494/chicago-public-schools-local-school-councils-vacancies-raise-your-hand/')
+              ]
             })
           ]
         }),
@@ -1235,7 +1342,7 @@ export default spineData({
               quote: 'engaging with participatory budgeting increased individuals\' probability of voting by an average of 8.4 percentage points',
               sources: [
                 source('Johnson, Carlson, and Reynolds 2023', 'https://link.springer.com/article/10.1007/s11109-021-09679-w'),
-                source('Touchton and Wampler', 'https://scholarworks.boisestate.edu/polsci_facpubs/146/')
+                source('Touchton and Wampler 2014', 'https://scholarworks.boisestate.edu/polsci_facpubs/146/')
               ]
             })
           ],
@@ -1250,7 +1357,7 @@ export default spineData({
               `),
               grade: 'strong',
               quote: 'no statistically significant evidence that the presence of a CRB increases aggregate perceptions of procedural legitimacy',
-              sources: [source('PNAS Nexus 2025', 'https://academic.oup.com/pnasnexus/article/4/9/pgaf267/8238990')]
+              sources: [source('Schiff et al. 2025', 'https://academic.oup.com/pnasnexus/article/4/9/pgaf267/8238990')]
             })
           ]
         }),
@@ -1265,16 +1372,24 @@ export default spineData({
               finding: paragraph(`
                 The clearest causal case runs in reverse: the 1972 Tuskegee
                 disclosure raised medical mistrust among older Black men and
-                cut physician visits, with <strong>life expectancy at 45 falling by up
-                to 1.5 years</strong>. In schools, the Chicago trust studies found
-                low-trust schools saw virtually no improvement, and pandemic
-                exit tracked the district's instructional decision.
+                cut physician visits, with <strong>life expectancy at 45
+                falling by up to 1.5 years</strong>.
               `),
               grade: 'weak',
               quote: 'life expectancy at age 45 for black men fell by up to 1.5 years in response to the disclosure',
               sources: [
-                source('Alsan and Wanamaker (NBER w22323)', 'https://www.nber.org/papers/w22323'),
-                source('Musaddiq et al. (NBER w29262)', 'https://www.nber.org/papers/w29262')
+                source('Alsan and Wanamaker 2016', 'https://www.nber.org/papers/w22323')
+              ]
+            }),
+            evidence({
+              finding: paragraph(`
+                In schools, pandemic exit <strong>tracked the district's
+                instructional decision</strong>: families left the districts
+                that stayed remote.
+              `),
+              grade: 'weak',
+              sources: [
+                source('Musaddiq et al. 2021', 'https://www.nber.org/papers/w29262')
               ]
             })
           ],
@@ -1287,7 +1402,7 @@ export default spineData({
                 not reach.
               `),
               grade: 'moderate',
-              sources: [source('AEI tracker', 'https://www.aei.org/research-products/report/from-attendance-crisis-to-chronic-condition-tracking-post-pandemic-chronic-absenteeism-into-2025/')]
+              sources: [source('American Enterprise Institute', 'https://www.aei.org/research-products/report/from-attendance-crisis-to-chronic-condition-tracking-post-pandemic-chronic-absenteeism-into-2025/')]
             })
           ]
         }),
@@ -1336,12 +1451,23 @@ export default spineData({
           authority: 'Binding: hire principals, set budgets, parent majority',
           outcome: paragraph(`
             Elected parent-majority councils hire principals and set budgets at
-            500+ Chicago schools, and most proved viable — the closest US analog
-            to a standing binding parent channel. Their pandemic-era role is
-            unevaluated.
+            500+ Chicago schools, and most proved viable, the closest US analog
+            to a standing binding parent channel. Their pandemic-era record now
+            has an evaluation: Chicago Public Schools handed the 2020
+            police-in-schools decision to each school's council, and the
+            University of Chicago Consortium found schools that removed officers
+            saw no detrimental changes in discipline or school climate. Capacity
+            strain is also documented: over a fifth of schools with officers
+            lacked a council able to form a quorum for that vote, and 1,400
+            seats sat empty after the 2022 elections.
           `),
           strength: 'moderate',
-          sources: [source('ERIC ED476943', 'https://eric.ed.gov/?id=ED476943')]
+          sources: [
+            source('Designs for Change 2002', 'https://eric.ed.gov/?id=ED476943'),
+            source('University of Chicago Consortium on School Research', 'https://consortium.uchicago.edu/publications/removing-police-officers-from-Chicago-schools'),
+            source('WBEZ Chicago', 'https://www.npr.org/local/309/2020/07/14/890756361/20-of-schools-lack-enough-local-school-council-members-to-vote-on-keeping-police'),
+            source('Chalkbeat Chicago', 'https://www.chalkbeat.org/chicago/2022/9/1/23333494/chicago-public-schools-local-school-councils-vacancies-raise-your-hand/')
+          ]
         }),
         comparable({
           name: 'Brazilian Municipal Participatory Budgeting',
@@ -1356,7 +1482,7 @@ export default spineData({
           strength: 'strong',
           sources: [
             source('Gonçalves 2014', 'https://ideas.repec.org/a/eee/wdevel/v53y2014icp94-110.html'),
-            source('Touchton and Wampler', 'https://scholarworks.boisestate.edu/polsci_facpubs/146/')
+            source('Touchton and Wampler 2014', 'https://scholarworks.boisestate.edu/polsci_facpubs/146/')
           ]
         }),
         comparable({
@@ -1371,7 +1497,7 @@ export default spineData({
             turns on the binding-elements clause.
           `),
           strength: 'strong',
-          sources: [source('PNAS Nexus 2025', 'https://academic.oup.com/pnasnexus/article/4/9/pgaf267/8238990')]
+          sources: [source('Schiff et al. 2025', 'https://academic.oup.com/pnasnexus/article/4/9/pgaf267/8238990')]
         }),
         comparable({
           name: 'Oregon Citizens Initiative Review',

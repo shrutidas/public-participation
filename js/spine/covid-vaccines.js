@@ -26,7 +26,7 @@ export default spineData({
         path to effect.
       `),
       anchors: ['ACIP voted 11 to 0'],
-      sources: [source('STAT 2021', 'https://www.statnews.com/2021/10/07/cdc-director-defends-decision-to-overrule-expert-panel-on-covid-booster-shots-for-health-workers/')]
+      sources: [source('STAT', 'https://www.statnews.com/2021/10/07/cdc-director-defends-decision-to-overrule-expert-panel-on-covid-booster-shots-for-health-workers/')]
     }),
     mechanism({
       name: 'FDA advisory committee review',
@@ -41,7 +41,7 @@ export default spineData({
         visibly constrained a federal decision.
       `),
       anchors: ['full approval to Pfizer'],
-      sources: [source('Healio 2021', 'https://www.healio.com/news/infectious-disease/20210917/fda-committee-votes-against-blanket-recommendation-for-covid19-vaccine-boosters')]
+      sources: [source('Healio', 'https://www.healio.com/news/infectious-disease/20210917/fda-committee-votes-against-blanket-recommendation-for-covid19-vaccine-boosters')]
     }),
     mechanism({
       name: 'Notice-and-comment rulemaking',
@@ -57,7 +57,7 @@ export default spineData({
         participation after the decision.
       `),
       anchors: ['122,485 comments'],
-      sources: [source('Federal Register 2021', 'https://www.federalregister.gov/documents/2021/11/05/2021-23643/covid-19-vaccination-and-testing-emergency-temporary-standard')]
+      sources: [source('Federal Register', 'https://www.federalregister.gov/documents/2021/11/05/2021-23643/covid-19-vaccination-and-testing-emergency-temporary-standard')]
     }),
     mechanism({
       name: 'Congressional review',
@@ -71,7 +71,7 @@ export default spineData({
         rule.
       `),
       anchors: ['disapprove the OSHA regulation'],
-      sources: [source('SCOTUS opinion', 'https://www.supremecourt.gov/opinions/21pdf/21a244_hgci.pdf')]
+      sources: [source('US Supreme Court', 'https://www.supremecourt.gov/opinions/21pdf/21a244_hgci.pdf')]
     }),
     mechanism({
       name: 'Courts',
@@ -85,7 +85,7 @@ export default spineData({
         deliberative.
       `),
       anchors: ['clearer congressional authorization'],
-      sources: [source('SCOTUS', 'https://www.supremecourt.gov/opinions/21pdf/21a244_hgci.pdf')]
+      sources: [source('US Supreme Court', 'https://www.supremecourt.gov/opinions/21pdf/21a244_hgci.pdf')]
     }),
     mechanism({
       name: 'Union collective bargaining',
@@ -130,7 +130,7 @@ export default spineData({
         formal authority producing a measured favorable endpoint.
       `),
       anchors: ['Indian Health Service route'],
-      sources: [source('PBS NOVA 2021', 'https://www.pbs.org/wgbh/nova/article/native-americans-highest-covid-vaccination-rate-us/')]
+      sources: [source('PBS NOVA', 'https://www.pbs.org/wgbh/nova/article/native-americans-highest-covid-vaccination-rate-us/')]
     }),
     mechanism({
       name: 'Federal data transparency',
@@ -146,7 +146,7 @@ export default spineData({
         withholding.
       `),
       anchors: ['changing recommendations had confused'],
-      sources: [source('NACWA reprint of NYT 2022', 'https://www.nacwa.org/news-publications/news-detail/2022/02/22/the-c.d.c.-isn-t-publishing-large-portions-of-the-covid-data-it-collects')]
+      sources: [source('New York Times', 'https://www.nacwa.org/news-publications/news-detail/2022/02/22/the-c.d.c.-isn-t-publishing-large-portions-of-the-covid-data-it-collects')]
     })
   ],
 
@@ -172,7 +172,7 @@ export default spineData({
             program.
           `),
           grade: 'strong',
-          sources: [source('Commonwealth Fund 2022', 'https://www.commonwealthfund.org/blog/2022/two-years-covid-vaccines-prevented-millions-deaths-hospitalizations')]
+          sources: [source('Commonwealth Fund', 'https://www.commonwealthfund.org/blog/2022/two-years-covid-vaccines-prevented-millions-deaths-hospitalizations')]
         })
       ]
     }),
@@ -198,8 +198,8 @@ export default spineData({
           `),
           grade: 'strong',
           sources: [
-            source('Peterson-KFF', 'https://www.healthsystemtracker.org/brief/covid19-and-other-leading-causes-of-death-in-the-us/'),
-            source('Eur J Epidemiol 2023', 'https://pubmed.ncbi.nlm.nih.gov/37580441/')
+            source('Peterson-KFF Health System Tracker', 'https://www.healthsystemtracker.org/brief/covid19-and-other-leading-causes-of-death-in-the-us/'),
+            source('Jia et al. 2023', 'https://link.springer.com/article/10.1007/s10654-023-01006-3')
           ]
         })
       ]
@@ -229,7 +229,7 @@ export default spineData({
             interventions, not persuasion.
           `),
           grade: 'moderate',
-          sources: [source('CDC MMWR 2022', 'https://www.cdc.gov/mmwr/volumes/71/wr/mm7123a2.htm')]
+          sources: [source('US Centers for Disease Control and Prevention', 'https://www.cdc.gov/mmwr/volumes/71/wr/mm7123a2.htm')]
         })
       ],
       counterEvidence: [
@@ -266,11 +266,11 @@ export default spineData({
       evidence: [
         evidence({
           finding: paragraph(`
-            Nature Human Behaviour 2022 difference-in-differences estimates
+            Karaivanov et al. (2022) difference-in-differences estimates
             across national mandates.
           `),
           grade: 'strong',
-          sources: [source('Nature Human Behaviour 2022', 'https://www.nature.com/articles/s41562-021-01272-9')]
+          sources: [source('Karaivanov et al. 2022', 'https://www.nature.com/articles/s41562-022-01363-1')]
         })
       ],
       counterEvidence: [
@@ -334,7 +334,7 @@ export default spineData({
               `),
               grade: 'strong',
               quote: 'Openness ensures long-term trust, and this is crucial if we are to be revaccinated, or in relation to the next major health crisis.',
-              sources: [source('Petersen et al. (release)', 'https://www.eurekalert.org/news-releases/829673')]
+              sources: [source('Petersen et al. 2021', 'https://www.eurekalert.org/news-releases/829673')]
             })
           ],
           counterEvidence: [
@@ -347,7 +347,7 @@ export default spineData({
                 trust fell.
               `),
               grade: 'moderate',
-              sources: [source('RAND RR-A308-12', 'https://www.rand.org/pubs/research_reports/RRA308-12.html')]
+              sources: [source('RAND Corporation', 'https://www.rand.org/pubs/research_reports/RRA308-12.html')]
             })
           ]
         }),
@@ -371,7 +371,7 @@ export default spineData({
               `),
               grade: 'moderate',
               quote: 'Measures of trust in the government and interpersonal trust, as well as less government corruption, had larger, statistically significant associations with lower standardised infection rates.',
-              sources: [source('Bollyky et al.', 'https://www.polisci.washington.edu/research/publications/pandemic-preparedness-and-covid-19-exploratory-analysis-infection-and')]
+              sources: [source('Bollyky et al. 2022', 'https://www.polisci.washington.edu/research/publications/pandemic-preparedness-and-covid-19-exploratory-analysis-infection-and')]
             })
           ],
           counterEvidence: [
@@ -390,8 +390,8 @@ export default spineData({
               grade: 'strong',
               quote: 'the campaign increased the number of vaccines in the average treated county by 103',
               sources: [
-                source('Scientific Reports 2024', 'https://www.nature.com/articles/s41598-024-54441-x'),
-                source('Larsen et al. (arXiv)', 'https://arxiv.org/abs/2203.02625')
+                source('Dong et al. 2024', 'https://www.nature.com/articles/s41598-024-54441-x'),
+                source('Larsen et al. 2022', 'https://arxiv.org/abs/2203.02625')
               ]
             })
           ]
@@ -409,7 +409,7 @@ export default spineData({
                 <strong>232,000 to 234,000</strong> for June 2021 to March 2022.
               `),
               grade: 'strong',
-              sources: [source('Eur J Epidemiol 2023', 'https://pubmed.ncbi.nlm.nih.gov/37580441/')]
+              sources: [source('Jia et al. 2023', 'https://link.springer.com/article/10.1007/s10654-023-01006-3')]
             })
           ]
         })
@@ -426,7 +426,7 @@ export default spineData({
             confounded national context.
           `),
           strength: 'weak',
-          sources: [source('Scientific Reports 2022', 'https://www.nature.com/articles/s41598-022-20312-6')]
+          sources: [source('Yueh et al. 2022', 'https://www.nature.com/articles/s41598-022-20312-6')]
         }),
         comparable({
           name: 'NYT, JHU and the COVID Tracking Project',
@@ -439,7 +439,7 @@ export default spineData({
             reliably. No trust consequence was measured.
           `),
           strength: 'moderate',
-          sources: [source('NACWA reprint of NYT', 'https://www.nacwa.org/news-publications/news-detail/2022/02/22/the-c.d.c.-isn-t-publishing-large-portions-of-the-covid-data-it-collects')]
+          sources: [source('New York Times', 'https://www.nacwa.org/news-publications/news-detail/2022/02/22/the-c.d.c.-isn-t-publishing-large-portions-of-the-covid-data-it-collects')]
         })
       ],
       sources: []
@@ -528,18 +528,35 @@ export default spineData({
           counterEvidence: [
             evidence({
               finding: paragraph(`
-                Adjacent evidence runs both directions: requirements
+                In a preregistered experiment (N=606), requirements
                 <strong>strengthened vaccination intentions across groups and
-                reactance levels</strong> (preregistered experiment, N=606), and
-                the first large hospital
-                mandate saw 153 of 25,000 employees leave; against that, US state
-                mandates showed no uptake change and later spillover costs.
+                reactance levels</strong> without any legitimacy-building step.
               `),
               grade: 'moderate',
               quote: 'Requirements strengthened vaccination intentions across racial and ethnic groups, across studies, and across levels of trait psychological reactance.',
               sources: [
-                source('Albarracin et al. 2021', 'https://www.nature.com/articles/s41598-021-00256-z'),
-                source('Texas Tribune 2021', 'https://www.texastribune.org/2021/06/23/texas-hospital-houston-methodist-vaccine-employees-fired-resign/')
+                source('Albarracin et al. 2021', 'https://www.nature.com/articles/s41598-021-00256-z')
+              ]
+            }),
+            evidence({
+              finding: paragraph(`
+                The first large hospital mandate saw <strong>153 of 25,000
+                employees leave</strong>.
+              `),
+              grade: 'moderate',
+              sources: [
+                source('Texas Tribune', 'https://www.texastribune.org/2021/06/23/texas-hospital-houston-methodist-vaccine-employees-fired-resign/')
+              ]
+            }),
+            evidence({
+              finding: paragraph(`
+                US state mandates produced <strong>no detectable uptake
+                change</strong> and depressed later booster and flu vaccination.
+              `),
+              grade: 'moderate',
+              quote: 'COVID-19 vaccine adoption did not significantly change in the weeks before and after states implemented vaccine mandates',
+              sources: [
+                source('Rains et al. 2024', 'https://experts.arizona.edu/en/publications/us-state-vaccine-mandates-did-not-influence-covid-19-vaccination-/')
               ]
             })
           ]
@@ -561,7 +578,7 @@ export default spineData({
                 cumulative gains up to 12 points.
               `),
               grade: 'strong',
-              sources: [source('Nature Human Behaviour 2022', 'https://www.nature.com/articles/s41562-021-01272-9')]
+              sources: [source('Karaivanov et al. 2022', 'https://www.nature.com/articles/s41562-022-01363-1')]
             }),
             evidence({
               finding: paragraph(`
@@ -572,7 +589,7 @@ export default spineData({
               `),
               grade: 'strong',
               quote: 'the share of the eligible population vaccinated with two doses increased from 49% on 12 July to 89% by mid-December 2021',
-              sources: [source('Ward et al. 2022, Nature Medicine', 'https://www.nature.com/articles/s41591-021-01661-7')]
+              sources: [source('Ward et al. 2022', 'https://www.nature.com/articles/s41591-021-01661-7')]
             })
           ],
           counterEvidence: [
@@ -596,7 +613,7 @@ export default spineData({
               `),
               grade: 'moderate',
               quote: 'the share of vaccinated people with doubts about the vaccine increased from 44% to 61% after the health pass was implemented',
-              sources: [source('Ward et al. 2022, Nature Medicine', 'https://www.nature.com/articles/s41591-021-01661-7')]
+              sources: [source('Ward et al. 2022', 'https://www.nature.com/articles/s41591-021-01661-7')]
             })
           ]
         }),
@@ -613,7 +630,7 @@ export default spineData({
                 among the unvaccinated, June 2021 to March 2022.
               `),
               grade: 'strong',
-              sources: [source('Eur J Epidemiol 2023', 'https://pubmed.ncbi.nlm.nih.gov/37580441/')]
+              sources: [source('Jia et al. 2023', 'https://link.springer.com/article/10.1007/s10654-023-01006-3')]
             })
           ]
         })
@@ -645,7 +662,7 @@ export default spineData({
             confidence low.
           `),
           strength: 'moderate',
-          sources: [source('Eurosurveillance 2018', 'https://www.eurosurveillance.org/content/10.2807/1560-7917.ES.2018.23.17.18-00048')]
+          sources: [source('Lévy-Bruhl et al. 2018', 'https://www.eurosurveillance.org/content/10.2807/1560-7917.ES.2018.23.17.18-00048')]
         }),
         comparable({
           name: 'South Korea, Shin-Gori Reactor Deliberation',
@@ -676,7 +693,7 @@ export default spineData({
             promise is worth when a government keeps the final word.
           `),
           strength: 'strong',
-          sources: [source('KNOCA briefing', 'https://www.knoca.eu/briefings/policy-impact-of-the-french-citizens-convention-for-the-climate-untangling-the-fate-of-the-citizens-recommendations')]
+          sources: [source('Knowledge Network on Climate Assemblies', 'https://www.knoca.eu/briefings/policy-impact-of-the-french-citizens-convention-for-the-climate-untangling-the-fate-of-the-citizens-recommendations')]
         }),
         comparable({
           name: 'Calgary Fluoridation Removal and Reinstatement',
@@ -694,8 +711,8 @@ export default spineData({
           `),
           strength: 'strong',
           sources: [
-            source('Oral Health Group 2025', 'https://www.oralhealthgroup.com/dental-governance-regulations/calgarys-fluoride-reinstatement-serves-as-cautionary-tale-for-u-s-quebec-1003987839/'),
-            source('McLaren et al.', 'https://pmc.ncbi.nlm.nih.gov/articles/PMC9663766/')
+            source('Oral Health Group', 'https://www.oralhealthgroup.com/dental-governance-regulations/calgarys-fluoride-reinstatement-serves-as-cautionary-tale-for-u-s-quebec-1003987839/'),
+            source('McLaren et al. 2022', 'https://pmc.ncbi.nlm.nih.gov/articles/PMC9663766/')
           ]
         })
       ],
@@ -746,8 +763,8 @@ export default spineData({
               grade: 'moderate',
               quote: 'The city worked with each prioritized community to create a neighborhood task force composed of diverse representatives to design vaccine outreach and distribution strategies.',
               sources: [
-                source('Public Health Reports 2023', 'https://journals.sagepub.com/doi/full/10.1177/00333549221143093'),
-                source('PLOS ONE 2021', 'https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0257111')
+                source('Johnson et al. 2023', 'https://journals.sagepub.com/doi/full/10.1177/00333549221143093'),
+                source('Marquez et al. 2021', 'https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0257111')
               ]
             }),
             evidence({
@@ -758,7 +775,7 @@ export default spineData({
                 IHS supply channel and community cohesion.
               `),
               grade: 'moderate',
-              sources: [source('PBS NOVA 2021', 'https://www.pbs.org/wgbh/nova/article/native-americans-highest-covid-vaccination-rate-us/')]
+              sources: [source('PBS NOVA', 'https://www.pbs.org/wgbh/nova/article/native-americans-highest-covid-vaccination-rate-us/')]
             })
           ],
           counterEvidence: [
@@ -769,7 +786,7 @@ export default spineData({
                 in isolation.
               `),
               grade: 'moderate',
-              sources: [source('PLOS ONE 2021', 'https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0257111')]
+              sources: [source('Marquez et al. 2021', 'https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0257111')]
             })
           ]
         }),
@@ -790,7 +807,7 @@ export default spineData({
                 uptake effects in the record run through access, not persuasion.
               `),
               grade: 'strong',
-              sources: [source('PNAS Nexus 2023', 'https://academic.oup.com/pnasnexus/article/2/12/pgad411/7459517')]
+              sources: [source('Mazar et al. 2023', 'https://academic.oup.com/pnasnexus/article/2/12/pgad411/7459517')]
             })
           ]
         }),
@@ -811,7 +828,7 @@ export default spineData({
                 of 4 doses to White recipients in a 33.8% White city</strong>.
               `),
               grade: 'moderate',
-              sources: [source('CDC MMWR 2022', 'https://www.cdc.gov/mmwr/volumes/71/wr/mm7123a2.htm')]
+              sources: [source('US Centers for Disease Control and Prevention', 'https://www.cdc.gov/mmwr/volumes/71/wr/mm7123a2.htm')]
             })
           ],
           counterEvidence: [
@@ -843,7 +860,7 @@ export default spineData({
                 by race, so the equity share of the toll remains unestimated.
               `),
               grade: 'strong',
-              sources: [source('Eur J Epidemiol 2023', 'https://pubmed.ncbi.nlm.nih.gov/37580441/')]
+              sources: [source('Jia et al. 2023', 'https://link.springer.com/article/10.1007/s10654-023-01006-3')]
             })
           ]
         })
@@ -860,7 +877,7 @@ export default spineData({
             There was no randomization, and co-design was bundled with supply.
           `),
           strength: 'moderate',
-          sources: [source('Public Health Reports 2023', 'https://journals.sagepub.com/doi/full/10.1177/00333549221143093')]
+          sources: [source('Johnson et al. 2023', 'https://journals.sagepub.com/doi/full/10.1177/00333549221143093')]
         }),
         comparable({
           name: 'Community-Based Monitoring of Clinics, Uganda',
@@ -876,7 +893,7 @@ export default spineData({
             bridge to a larger replication that found much weaker effects.
           `),
           strength: 'strong',
-          sources: [source('Björkman and Svensson, QJE 2009', 'https://www.jakobsvensson.com/uploads/9/9/1/0/99107788/124-2-735.pdf')]
+          sources: [source('Björkman and Svensson 2009', 'https://www.jakobsvensson.com/uploads/9/9/1/0/99107788/124-2-735.pdf')]
         }),
         comparable({
           name: 'Tribal IHS-Route Vaccination',
@@ -890,7 +907,7 @@ export default spineData({
             authority is a pending category call.
           `),
           strength: 'moderate',
-          sources: [source('PBS NOVA 2021', 'https://www.pbs.org/wgbh/nova/article/native-americans-highest-covid-vaccination-rate-us/')]
+          sources: [source('PBS NOVA', 'https://www.pbs.org/wgbh/nova/article/native-americans-highest-covid-vaccination-rate-us/')]
         }),
         comparable({
           name: 'Community-Led Ebola Action, SMAC',
@@ -906,7 +923,7 @@ export default spineData({
             control exists.
           `),
           strength: 'moderate',
-          sources: [source('bioRxiv preprint', 'https://www.biorxiv.org/content/10.1101/661959v1.full.pdf')]
+          sources: [source('Bedson et al. 2019', 'https://www.biorxiv.org/content/10.1101/661959v1.full.pdf')]
         })
       ],
       sources: []
@@ -948,14 +965,21 @@ export default spineData({
               finding: paragraph(`
                 The GSA Office of Evaluation Sciences runs randomized evaluations
                 embedded in federal health programs at <strong>samples over
-                55,000</strong>,
-                demonstrating administrative feasibility; oversight bodies
-                documented the absence the proposal fixes.
+                55,000</strong>, demonstrating administrative feasibility.
               `),
               grade: 'moderate',
               sources: [
-                source('OES vaccination portfolio', 'https://oes.gsa.gov/vaccines/'),
-                source('GAO-22-104457', 'https://www.gao.gov/products/gao-22-104457')
+                source('Office of Evaluation Sciences', 'https://oes.gsa.gov/vaccines/')
+              ]
+            }),
+            evidence({
+              finding: paragraph(`
+                Oversight bodies <strong>documented the absence the proposal
+                fixes</strong>.
+              `),
+              grade: 'moderate',
+              sources: [
+                source('US Government Accountability Office', 'https://www.gao.gov/products/gao-22-104457')
               ]
             })
           ]
@@ -977,7 +1001,7 @@ export default spineData({
               `),
               grade: 'strong',
               quote: 'informing mayors about research on a simple and effective policy, taxpayer reminder letters, increases the probability the policy is implemented by 10 percentage points',
-              sources: [source('Hjort et al. 2021, AER', 'https://www.aeaweb.org/articles?id=10.1257%2Faer.20190830')]
+              sources: [source('Hjort et al. 2021', 'https://www.aeaweb.org/articles?id=10.1257%2Faer.20190830')]
             }),
             evidence({
               finding: paragraph(`
@@ -990,7 +1014,7 @@ export default spineData({
               `),
               grade: 'moderate',
               quote: 'city departments adopt a nudge treatment in follow-on communication in 27% of cases',
-              sources: [source('DellaVigna, Kim and Linos (NBER w30144)', 'https://www.nber.org/papers/w30144')]
+              sources: [source('DellaVigna, Kim and Linos 2022', 'https://www.nber.org/papers/w30144')]
             }),
             evidence({
               finding: paragraph(`
@@ -1005,7 +1029,7 @@ export default spineData({
               grade: 'weak',
               caveat: 'Feasibility and correction evidence, not a test of decisions changing.',
               quote: 'behaviorally-informed direct communications can increase vaccination rates at scale but may have smaller, less reliable effects than the published literature suggests',
-              sources: [source('OES vaccination portfolio', 'https://oes.gsa.gov/vaccines/')]
+              sources: [source('Office of Evaluation Sciences', 'https://oes.gsa.gov/vaccines/')]
             })
           ]
         }),
@@ -1029,7 +1053,7 @@ export default spineData({
               `),
               grade: 'weak',
               quote: 'the results indicate that an equal amount of financial resources without the incentives would not have achieved the same gain in outcomes',
-              sources: [source('Basinga et al. 2011 (World Bank WPS5190)', 'https://ideas.repec.org/p/wbk/wbrwps/5190.html')]
+              sources: [source('Basinga et al. 2011', 'https://ideas.repec.org/p/wbk/wbrwps/5190.html')]
             })
           ]
         })
@@ -1050,7 +1074,7 @@ export default spineData({
           `),
           strength: 'strong',
           sources: [
-            source('DMEO case study', 'https://dmeo.gov.in/sites/default/files/2021-08/Package2_WCD_CaseStudy19.pdf'),
+            source('Development Monitoring and Evaluation Office, NITI Aayog', 'https://dmeo.gov.in/sites/default/files/2021-08/Package2_WCD_CaseStudy19.pdf'),
             source('Behrman 2010', 'https://ideas.repec.org/a/eee/wdevel/v38y2010i10p1473-1485.html')
           ]
         }),
@@ -1065,7 +1089,7 @@ export default spineData({
             +1.05 points on boosters across 3.66 million patients.
           `),
           strength: 'strong',
-          sources: [source('OES', 'https://oes.gsa.gov/vaccines/')]
+          sources: [source('Office of Evaluation Sciences', 'https://oes.gsa.gov/vaccines/')]
         })
       ],
       sources: []
