@@ -11,7 +11,7 @@ import { srcHtml } from './util.js';
  * -------------------------------------------------------------------------- */
 
 export const STRENGTH_LABEL = {
-  strong: 'Strong', moderate: 'Moderate', weak: 'Weak',
+  strong: 'Strong', moderate: 'Substantial', weak: 'Weak',
   contested: 'Contested', unstudied: 'Unstudied'
 };
 

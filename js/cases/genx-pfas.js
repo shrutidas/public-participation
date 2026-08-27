@@ -6,20 +6,13 @@ export default caseStudy({
   slug: 'genx-pfas',
   title: 'GenX Contamination in the Cape Fear River',
   overview:   paragraph(`
-    This case is usually told as a story about science being too slow. It was not.
-    EPA's own researchers detected these compounds in the Cape Fear in 2012, and a
-    peer-reviewed paper quantifying them reached state regulators in November 2016.
-    The public did not find out until June 2017, from a reporter reading a federal
-    database that had been open the whole time. The failure was disclosure, not
-    detection, and the machinery that should have caught it existed: a 2009 consent
-    order covering these exact substances required 99 percent capture, with no
-    scheduled verification and no duty to notify anyone downstream. What eventually
-    filled the gap was adversarial rather than deliberative (a citizen suit that won a
-    community group formal party status and independent enforcement power, and a
-    comment period that added protections for downstream utilities), and it produced
-    remediation at one plant rather than a standard that would protect the next
-    community. Crucially, none of it required proof of harm. People acted on credible
-    suspicion, much of it generated outside the affected area, and they were right to.
+    This case shows how weak environmental governance allowed harm to continue for
+    years. Industrial secrecy, fragmented regulation, and uncertain science delayed
+    action, even as companies benefited economically and downstream communities faced
+    unequal and involuntary exposure risks.<br><br>Crucially, people do not need
+    definitive proof of harm to act. When credible suspicion exists, especially
+    supported by evidence from outside the affected area, communities have a right to
+    respond and seek protection.
   `),
   chains,
   entries: [

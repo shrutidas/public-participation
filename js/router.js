@@ -13,6 +13,7 @@
  *   #/case/<slug>/spine/i/<i>             a measured impact
  *   #/case/<slug>/spine/pr/<i>            a proposed intervention, chain expanded
  *   #/case/<slug>/spine/pr/<i>/l/<j>      one link of a proposal's chain
+ *   #/case/<slug>/spine/pr/<i>/c          a proposal's comparable cases only
  * Legacy '#/case/<slug>/chain/...' URLs fall back to the spine map.
  */
 
@@ -45,6 +46,8 @@ export function parse(hash = window.location.hash) {
       if (route.selKind === 'prop' && seg[5] === 'l' && seg[6] != null) {
         const j = num(seg[6]);
         if (j != null) { route.selKind = 'proplink'; route.linkIdx = j; }
+      } else if (route.selKind === 'prop' && seg[5] === 'c') {
+        route.selKind = 'propcomp';
       }
     }
   }
@@ -56,10 +59,11 @@ export function build({ caseSlug, view, selKind, selIdx, linkIdx } = {}) {
   const seg = ['case', encodeURIComponent(caseSlug)];
   if (view) seg.push(view);
   if (view === 'spine' && selKind != null && selIdx != null) {
-    const pre = { entry: 'e', mech: 'm', impact: 'i', prop: 'pr', proplink: 'pr' }[selKind];
+    const pre = { entry: 'e', mech: 'm', impact: 'i', prop: 'pr', proplink: 'pr', propcomp: 'pr' }[selKind];
     if (pre) {
       seg.push(pre, String(selIdx));
       if (selKind === 'proplink' && linkIdx != null) seg.push('l', String(linkIdx));
+      if (selKind === 'propcomp') seg.push('c');
     }
   }
   return '#/' + seg.join('/');

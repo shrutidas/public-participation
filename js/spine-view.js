@@ -80,7 +80,7 @@ export function renderSpineMap(el, caseObj, spine, sel = {}) {
     el.dataset.pr = pi;
     el.dataset.ae = i;
     el.title = p.method;
-    el.innerHTML = `<span class="sp-propbox-kick">Proposed intervention</span>${p.name}`;
+    el.innerHTML = `<span class="sp-propbox-kick">Proposed Public Participation</span>${p.name}`;
     el.style.width = `${PROP_W}px`;
     el.style.visibility = 'hidden';
     stage.appendChild(el);
@@ -177,9 +177,8 @@ export function renderSpineMap(el, caseObj, spine, sel = {}) {
       .filter(x => x.i !== -1)
       .sort((a, b) => yTop[a.i] - yTop[b.i]);
     const targetY = froms.length ? Math.min(...froms.map(x => yTop[x.i])) : L.padTop;
-    const hasCtr = (im.counterEvidence ?? []).length > 0;
-    const pills = froms.map((x, k) =>
-      `<span class="sp-grade fl-${x.f.strength}">${STRENGTH_LABEL[x.f.strength]}${hasCtr && k === froms.length - 1 ? '<i class="sp-ctr" title="Counter-evidence exists"></i>' : ''}</span>`
+    const pills = froms.map(x =>
+      `<span class="sp-grade fl-${x.f.strength}">${STRENGTH_LABEL[x.f.strength]}</span>`
     ).join('');
     const d = document.createElement('div');
     d.className = 'sp-imp';
@@ -243,7 +242,7 @@ export function renderSpineMap(el, caseObj, spine, sel = {}) {
         d.dataset.pr = pi;
         d.dataset.pl = li;
         d.innerHTML = `<span class="sp-chain-name">${lk.name}</span>
-          <span class="sp-grade fl-${lk.strength}">${STRENGTH_LABEL[lk.strength]}${(lk.counterEvidence ?? []).length ? '<i class="sp-ctr" title="Counter-evidence exists"></i>' : ''}</span>`;
+          <span class="sp-grade fl-${lk.strength}">${STRENGTH_LABEL[lk.strength]}</span>`;
         d.style.left = `${bx}px`;
         d.style.top = `${Math.round(baseY)}px`;
         d.style.width = `${boxW}px`;
@@ -291,10 +290,9 @@ export function renderSpineMap(el, caseObj, spine, sel = {}) {
         rowBot = Math.max(rowBot, ey);
         prev = { x2: bx + boxW, cy: cyc, bx, boxW, stackBot: ey };
       });
-      // Terminal arrows into the measured impact boxes. Dashed and labeled:
-      // these are the proposal's INTENDED effects on the measured quantities,
-      // not documented causation like the solid event arrows.
-      let drewTerm = false;
+      // Terminal arrows into the measured impact boxes. Dashed: these are the
+      // proposal's INTENDED effects on the measured quantities, not documented
+      // causation like the solid event arrows.
       for (const name of p.impactsMeasured) {
         const ii = spine.impacts.findIndex(x => x.name === name);
         const box = stage.querySelector(`.sp-imp[data-i="${ii}"]`);
@@ -302,31 +300,19 @@ export function renderSpineMap(el, caseObj, spine, sel = {}) {
         const iy = parseFloat(box.style.top) + box.offsetHeight / 2;
         paths += `<path class="sp-edge sp-edge-chain sp-edge-term" marker-end="url(#sp-dot-chain)"
           d="M ${prev.x2} ${prev.cy} C ${prev.x2 + 80} ${prev.cy}, ${L.impX - 120} ${iy}, ${L.impX - 3} ${iy}"></path>`;
-        drewTerm = true;
-      }
-      let termBot = rowBot;
-      if (drewTerm) {
-        const tl = document.createElement('div');
-        tl.className = 'sp-termlabel';
-        tl.textContent = 'dashed lines: intended effect';
-        tl.style.left = `${prev.bx}px`;
-        tl.style.top = `${Math.round(prev.stackBot + 4)}px`;
-        tl.style.width = `${prev.boxW + 40}px`;
-        stage.appendChild(tl);
-        termBot = Math.max(termBot, prev.stackBot + 4 + tl.offsetHeight);
       }
       // The comparable real-world cases behind this chain, named on the map.
-      // Click opens the proposal's detail, where each case has its full record.
+      // Click shows ONLY the comparable cases in the detail pane.
       if ((p.comparables ?? []).length) {
         const cl = document.createElement('button');
         cl.className = 'sp-complist';
         cl.dataset.pr = pi;
         cl.innerHTML = `<span class="sp-complist-kick">Comparable cases:</span> ${p.comparables.map(c => c.name).join(' &middot; ')}`;
         cl.style.left = `${startX}px`;
-        cl.style.top = `${Math.round(Math.max(rowBot, termBot) + 8)}px`;
+        cl.style.top = `${Math.round(rowBot + 8)}px`;
         cl.style.width = `${L.bandW}px`;
         stage.appendChild(cl);
-        rowBot = Math.max(rowBot, termBot) + 8 + cl.offsetHeight;
+        rowBot = rowBot + 8 + cl.offsetHeight;
       }
       rowY = rowBot + 26 + CHAIN_ROW_GAP;
     }
@@ -362,6 +348,9 @@ export function highlightSpine(el, sel = {}) {
   } else if (sel.kind === 'prop') {
     on(`.sp-propbox[data-pr="${sel.idx}"]`);
     ringAnchor(sel.idx);
+  } else if (sel.kind === 'propcomp') {
+    on(`.sp-complist[data-pr="${sel.idx}"]`);
+    ringAnchor(sel.idx);
   }
 }
 
@@ -375,7 +364,6 @@ function evHtml(list, kind) {
       <span class="ev-grade gr-${ev.grade}">${STRENGTH_LABEL[ev.grade]}</span>
       <div class="ev-body">
         <div class="ev-finding">${ev.finding}</div>
-        ${ev.quote ? `<blockquote class="ev-quote">${ev.quote}</blockquote>` : ''}
         ${ev.caveat ? `<div class="ev-caveat">Caveat: ${ev.caveat}</div>` : ''}
         <div class="ev-srcs">${srcHtml(ev.srcs)}</div>
       </div>
@@ -428,13 +416,23 @@ function compHtml(list) {
   if (!list?.length) return '';
   const items = list.map(c => `
     <li class="sp-comp">
-      <div class="pa-hd"><span class="pa-name">${c.name}</span>
-        <span class="pa-kind">${c.where}, ${c.when}</span>
-        <span class="ev-grade gr-${c.strength}">${STRENGTH_LABEL[c.strength]}</span></div>
-      <div class="pa-desc"><em>${c.authority}.</em> ${c.outcome}</div>
+      <div class="pa-hd"><span class="pa-name">${c.name}</span></div>
+      <div class="pa-grade"><span class="ev-grade gr-${c.strength}">${STRENGTH_LABEL[c.strength]}</span></div>
+      <div class="pa-desc">${c.outcome}</div>
+      <div class="pa-loc"><strong>Location:</strong> ${c.where} (${c.when})</div>
       ${c.srcs?.length ? `<div class="ev-srcs">${srcHtml(c.srcs)}</div>` : ''}
     </li>`).join('');
   return `<div class="ln-sec ln-sec-comp"><h4>Comparable Real-World Cases</h4><ul class="pa-list">${items}</ul></div>`;
+}
+
+function propCompDetail(spine, i) {
+  const p = spine.proposals[i];
+  return `<div class="cd">
+    <button class="cd-back" data-back="prop">&larr; ${attr(p.name)}</button>
+    <div class="cd-kick cd-kick-prop">Proposed Public Participation</div>
+    <div class="cd-head"><span class="cd-id">${p.name}</span></div>
+    ${compHtml(p.comparables)}
+  </div>`;
 }
 
 function propDetail(spine, i) {
@@ -445,12 +443,12 @@ function propDetail(spine, i) {
       <div class="ev-body"><div class="ev-finding">${lk.name}</div></div>
     </li>`).join('');
   return `<div class="cd">
-    <div class="cd-kick cd-kick-prop">Proposed Intervention</div>
+    <div class="cd-kick cd-kick-prop">Proposed Public Participation</div>
     <div class="cd-head"><span class="cd-id">${p.name}</span> <span class="pp-method">${p.method}</span></div>
     <p class="cd-claim">${p.description}</p>
-    <div class="ln-sec"><h4>If We Could Only Do This One Thing: When and Where</h4>
+    <div class="ln-sec">
       <p class="cd-claim"><span class="act-label">Where:</span> ${p.where}</p>
-      <p class="cd-claim">${p.when}</p></div>
+      <p class="cd-claim"><span class="act-label">When:</span> ${p.when}</p></div>
     <div class="ln-sec"><h4>The Causal Chain, Link by Link</h4>
       <p class="cd-claim sp-hintline">Click a link to see its evidence and counter-evidence.</p>
       <ul class="ev-list">${chainRows}</ul></div>
@@ -487,14 +485,14 @@ function overview(caseObj, spine) {
     <div class="cd-hint">The timeline runs down the center in order. Mechanisms that already
       existed sit on the left, tagged with how they failed. Measured impacts sit on the
       right; each arrow carries a strength flag you can click. Orange boxes are the
-      proposed interventions from the design work, bracketed to the event where they
+      proposed public participation from the design work, bracketed to the event where they
       would intervene, each with its causal chain drawn below and the evidence on
       the cards.</div>
     <div class="cd-sum">
       <span class="cd-sum-lbl">Timeline</span><div class="cd-sum-pills"><span class="g g-neutral">${caseObj.entries.length} Events</span></div>
       <span class="cd-sum-lbl">Existing</span><div class="cd-sum-pills"><span class="g g-mech">${nMech} Mechanisms That Should Have Worked</span></div>
       <span class="cd-sum-lbl">Measured</span><div class="cd-sum-pills"><span class="g g-imp">${nImp} Measured Impacts</span></div>
-      <span class="cd-sum-lbl">Proposed</span><div class="cd-sum-pills"><span class="g g-prop">${nProp} Proposed Interventions</span></div>
+      <span class="cd-sum-lbl">Proposed</span><div class="cd-sum-pills"><span class="g g-prop">${nProp} Proposed Public Participation</span></div>
     </div>
   </div>`;
 }
@@ -506,6 +504,7 @@ export function renderSpineDetail(el, caseObj, spine, sel = {}) {
   else if (sel.kind === 'impact') el.innerHTML = impactDetail(spine, sel.idx);
   else if (sel.kind === 'prop') el.innerHTML = propDetail(spine, sel.idx);
   else if (sel.kind === 'proplink') el.innerHTML = propLinkDetail(spine, sel.idx, sel.linkIdx);
+  else if (sel.kind === 'propcomp') el.innerHTML = propCompDetail(spine, sel.idx);
   else el.innerHTML = overview(caseObj, spine);
   el.scrollTop = 0;
 }

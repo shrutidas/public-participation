@@ -174,7 +174,7 @@ export default spineData({
         evidence({
           finding: paragraph(`
             Sun et al. (2016) quantified GenX in finished drinking water and
-            showed conventional treatment did not remove it.
+            showed <strong>conventional treatment did not remove it</strong>.
           `),
           grade: 'strong',
           sources: [source('Sun et al. 2016, ES&T Letters', 'https://pubs.acs.org/doi/10.1021/acs.estlett.6b00398')]
@@ -192,7 +192,7 @@ export default spineData({
         In 344 Wilmington residents, fluoroethers contributed about a quarter of
         the summed PFAS in blood; four legacy PFAS sat above national levels in
         97 percent or more of participants. Median fluoroether levels declined
-        34 to 65 percent within six months of discharge controls. GenX itself
+        34 to 65 percent within six months of discharge controls. GenX
         was not detected above 2 ng/mL; the measured load is fluoroethers and
         legacy PFAS. Blood levels matter because PFAS exposure is linked to
         disease, recorded on its own card.
@@ -207,7 +207,7 @@ export default spineData({
             Kotlarz et al. (2020) measured PFAS in blood from the GenX Exposure
             Study cohort; samples stored from 2010 to 2016 showed PFMOAA medians
             of 42 ng/mL. After exposure ended in Arnsberg, Germany, PFOA left
-            the blood with a half-life of 3.26 years, which supports every
+            the blood with a <strong>half-life of 3.26 years</strong>, which supports every
             chain's claim that an earlier cutoff would have lowered blood
             levels.
           `),
@@ -224,7 +224,7 @@ export default spineData({
       name: 'Disease linked to PFAS exposure',
       headline: paragraph(`
         The PFAS in residents' blood is linked to disease: higher cholesterol
-        measured in the Wilmington cohort itself, and kidney and testicular
+        measured in the Wilmington cohort, and kidney and testicular
         cancer where PFOA was studied at population scale.
       `),
       measures: paragraph(`
@@ -236,8 +236,8 @@ export default spineData({
         residents, the C8 Science Panel found probable links to kidney cancer,
         testicular cancer, thyroid disease, ulcerative colitis, high
         cholesterol, and pregnancy-induced hypertension, and IARC classified it
-        carcinogenic to humans in 2023. GenX itself produces liver and
-        pancreatic tumors in animal studies; no human disease study of GenX
+        carcinogenic to humans in 2023. In animal studies, GenX produces liver
+        and pancreatic tumors; no human disease study of GenX
         exists.
       `),
       from: [
@@ -248,8 +248,8 @@ export default spineData({
           finding: paragraph(`
             Rosen et al. (2022) measured lipids in 326 GenX Exposure Study
             participants ages 6 to 86: PFOS and PFNA were associated with
-            higher total and non-HDL cholesterol, about 5 to 6 mg/dL per
-            quartile, with the largest associations in older adults.
+            higher total and non-HDL cholesterol, <strong>about 5 to 6 mg/dL per
+            quartile</strong>, with the largest associations in older adults.
           `),
           grade: 'moderate',
           quote: 'PFNA and PFOS were associated with higher levels of total and non-HDL cholesterol, with associations larger in magnitude among older adults',
@@ -258,8 +258,8 @@ export default spineData({
         evidence({
           finding: paragraph(`
             The C8 Science Panel, working from blood samples and health data on
-            about 69,000 PFOA-exposed residents, found probable links to six
-            conditions including kidney and testicular cancer; IARC classified
+            about 69,000 PFOA-exposed residents, found <strong>probable links to six
+            conditions including kidney and testicular cancer</strong>; IARC classified
             PFOA carcinogenic to humans in 2023, with limited human evidence
             for renal cell and testicular cancer.
           `),
@@ -274,8 +274,8 @@ export default spineData({
           finding: paragraph(`
             The 2024 GenX Exposure Study report to participants applies the
             National Academies' screening thresholds: 97 percent of
-            participants sat above 2 ng/mL summed PFAS and 12 percent above 20
-            ng/mL, the level at which medical monitoring is recommended.
+            participants sat above 2 ng/mL summed PFAS and <strong>12 percent above 20
+            ng/mL</strong>, the level at which medical monitoring is recommended.
           `),
           grade: 'moderate',
           quote: 'the NASEM published recommendations for medical monitoring of PFAS-exposed people based on the total (sum) concentration of 7 specific PFAS in blood',
@@ -285,7 +285,7 @@ export default spineData({
       counterEvidence: [
         evidence({
           finding: paragraph(`
-            No human disease study of GenX itself exists: EPA's toxicity
+            <strong>No human disease study of GenX exists</strong>: EPA's toxicity
             assessment rests on animal studies, with the liver as the primary
             target organ, and the cohort's cholesterol associations track
             legacy PFAS rather than fluoroethers, two of which were associated
@@ -376,8 +376,8 @@ export default spineData({
       evidence: [
         evidence({
           finding: paragraph(`
-            The federal government rescinded regulatory determinations for four
-            PFAS substances in a May 2026 Federal Register notice; NC House Bill
+            The federal government <strong>rescinded regulatory determinations for four
+            PFAS substances</strong> in a May 2026 Federal Register notice; NC House Bill
             569 passed the House 104 to 3 and stalled in the Senate.
           `),
           grade: 'strong',
@@ -389,8 +389,8 @@ export default spineData({
 
   proposals: [
     spineProposal({
-      name: 'Give workers a protected way to report',
-      method: 'Worker committees & protected disclosure',
+      name: 'Give workers a protected way to report chemical risks',
+      method: 'Worker Committees & Protected Disclosure',
       anchor: 'continued exposure is not tolerable',
       where: 'Congress and EPA, with worker anti-retaliation machinery as the shield',
       when: paragraph(`
@@ -398,7 +398,7 @@ export default spineData({
         workers and concluded internally that continued exposure was not
         tolerable, the same year Fayetteville Works began discharging into the
         Cape Fear. A protected worker channel with a duty to transmit
-        substantial-risk findings belongs in the chemicals statute itself. The
+        substantial-risk findings belongs in the chemicals statute. The
         earliest leverage point is 1961; 1980 is the first year the intervention
         touches this river.
       `),
@@ -422,8 +422,10 @@ export default spineData({
             evidence({
               finding: paragraph(`
                 Across all reported frauds at large US firms 1996 to 2004,
-                employees were the single largest detector class, ahead of
-                regulators and auditors.
+                employees were the <strong>single largest detector class</strong>:
+                “Only 6% of the frauds are revealed by the SEC and 14% by the
+                auditors. More important monitors are media (14%), industry
+                regulators (16%), and employees (19%).”
               `),
               grade: 'moderate',
               quote: 'Only 6% of the frauds are revealed by the SEC and 14% by the auditors. More important monitors are media (14%), industry regulators (16%), and employees (19%).',
@@ -435,7 +437,7 @@ export default spineData({
               finding: paragraph(`
                 Employees bear net costs from whistleblowing, which suppresses
                 reporting absent strong protection; GAO found the existing OSHA
-                whistleblower program lacked sufficient internal controls.
+                whistleblower program <strong>lacked sufficient internal controls</strong>.
               `),
               grade: 'moderate',
               quote: 'OSHA lacks sufficient internal controls to ensure that the whistleblower program operates as intended',
@@ -456,18 +458,18 @@ export default spineData({
                 3M's 1998 disclosure letter triggered EPA's first sustained look
                 at PFAS in blood and a compliance audit collecting over 700
                 studies; firms targeted by an OSHA retaliation complaint showed
-                measurably fewer irregularities for at least two years after.
+                <strong>measurably fewer irregularities for at least two years</strong> after.
               `),
               grade: 'moderate',
               quote: 'those deterrent effects lasted for at least two full years after the whistleblower lodged the complaint',
-              sources: [source('Wilde 2017 (summary)', 'https://www.sciencedaily.com/releases/2017/01/170103151133.htm')]
+              sources: [source('Wilde 2017', 'https://www.sciencedaily.com/releases/2017/01/170103151133.htm')]
             })
           ],
           counterEvidence: [
             evidence({
               finding: paragraph(`
-                The in-case sanction arrived 24 years after the earliest
-                violation year and imposed no enforceable limits on continued
+                The in-case sanction arrived <strong>24 years after the earliest
+                violation year</strong> and imposed no enforceable limits on continued
                 production; disclosure reaching only the agency might have
                 replicated the five-year stall the detection findings hit.
               `),
@@ -488,7 +490,7 @@ export default spineData({
               finding: paragraph(`
                 Once information became public in June 2017, DEQ suspended the
                 discharge-authorizing permit provisions effective November 30,
-                2017, and the 2019 order produced 99 percent reductions. When
+                2017, and the 2019 order produced <strong>99 percent reductions</strong>. When
                 the information arrived, the response came fast.
               `),
               grade: 'moderate',
@@ -499,8 +501,8 @@ export default spineData({
             evidence({
               finding: paragraph(`
                 The demonstrated response ran on public and press knowledge, not
-                regulator knowledge alone: regulators held the 2016 findings
-                without acting.
+                regulator knowledge alone: regulators <strong>held the 2016 findings
+                without acting</strong>.
               `),
               grade: 'moderate',
               sources: [source('Coastal Review', 'https://coastalreview.org/2022/06/vaughn-hagerty-the-reporter-who-broke-the-genx-story/')]
@@ -519,8 +521,8 @@ export default spineData({
           evidence: [
             evidence({
               finding: paragraph(`
-                Median fluoroether levels in blood declined 34 to 65 percent
-                within six months of discharge controls; PFOA's elimination
+                Median fluoroether levels in blood <strong>declined 34 to 65 percent
+                within six months</strong> of discharge controls; PFOA's elimination
                 half-life after exposure ends is 3.26 years.
               `),
               grade: 'strong',
@@ -529,10 +531,10 @@ export default spineData({
             evidence({
               finding: paragraph(`
                 The disease link is measured for PFOA at population scale: the
-                C8 Science Panel found probable links to kidney and testicular
-                cancer among about 69,000 exposed residents, and the Wilmington
-                cohort itself shows PFAS-associated higher cholesterol. GenX
-                itself has no human disease study.
+                C8 Science Panel found probable links to <strong>kidney and testicular
+                cancer among about 69,000 exposed residents</strong>, and the Wilmington
+                cohort shows PFAS-associated higher cholesterol. GenX
+                has no human disease study.
               `),
               grade: 'moderate',
               sources: [
@@ -545,13 +547,14 @@ export default spineData({
       ],
       comparables: [
         comparable({
-          name: 'Richard Purdy resignation disclosure',
+          name: 'Richard Purdy Resignation Disclosure',
           where: '3M, Minnesota', when: '1999',
           authority: 'Individual, unprotected',
           outcome: paragraph(`
-            His resignation letter to EPA helped trigger the PFC investigation;
-            3M announced the PFOS phaseout in 2000. Individual, unprotected, and
-            late; the outcome it moved is documented.
+            Purdy’s resignation letter to EPA helped trigger the PFC
+            investigation; 3M announced the PFOS phaseout in 2000. He acted
+            alone, without legal protection, and late, but the outcome his
+            disclosure moved is documented.
           `),
           strength: 'moderate',
           sources: [source('Minnesota Reformer', 'https://minnesotareformer.com/2022/12/15/toxic-3m-knew-its-chemicals-were-harmful-decades-ago-but-didnt-tell-the-public-government/')]
@@ -561,21 +564,24 @@ export default spineData({
           where: 'United States', when: '1976-present',
           authority: 'Third-party receipt, routinized immunity',
           outcome: paragraph(`
-            Over 500,000 confidential reports and about 4,000 alerting messages;
-            disclosure became normal professional behavior. Hazard-reduction
-            endpoint unmeasured and confounded with technology and regulation.
+            Aviation workers filed over 500,000 confidential reports with NASA
+            as a third-party recipient, producing about 4,000 alerting messages;
+            routinized immunity made disclosure normal professional behavior.
+            The hazard-reduction endpoint is unmeasured and confounded with
+            technology and regulation.
           `),
           strength: 'moderate',
           sources: [source('FAA Safety', 'https://www.faasafety.gov/files/events/EA/EA23/2010/EA2334954/NASA_Reporting.pdf')]
         }),
         comparable({
-          name: 'OSHA whistleblower program audit',
+          name: 'OSHA Whistleblower Program Audit',
           where: 'United States', when: '2010',
           authority: 'The existing statutory channel',
           outcome: paragraph(`
-            GAO found the program lacked sufficient internal controls and could
-            not measure its own outcomes. The measured baseline the proposal must
-            exceed, not copy.
+            GAO audited the existing statutory channel, OSHA’s whistleblower
+            program, and found it lacked sufficient internal controls and could
+            not measure its own outcomes. That is the measured baseline the
+            proposal must exceed, not copy.
           `),
           strength: 'strong',
           sources: [source('GAO-10-722', 'https://www.gao.gov/products/gao-10-722')]
@@ -585,20 +591,20 @@ export default spineData({
     }),
 
     spineProposal({
-      name: 'Let residents report early warning signs',
-      method: 'Participatory science & community reporting',
+      name: 'Let residents report early signs of contamination',
+      method: 'Participatory Science & Community Reporting',
       anchor: 'cattle deaths',
       where: 'EPA Region 3 and West Virginia for the documented 1998 signal; NC DEQ and CFPUA for a 2013-2015 Cape Fear deployment',
       when: paragraph(`
-        The chip sits at 1998 because that is where the workshop anchored it:
-        the first time someone notices something is off, which in this record is
-        the farmer Wilbur Tennant's documentation in West Virginia. On the Cape
-        Fear itself the instrument had little to grip before 2012, because GenX
+        The proposal sits at 1998 because this is the first time someone notices
+        something is off, which in this record is the farmer Wilbur Tennant's
+        documentation in West Virginia. On the Cape
+        Fear, the instrument had little to grip before 2012, because GenX
         at ng/L levels produced no resident-observable signal. A defensible Cape
         Fear deployment is 2013 to 2015, when UCMR3 data existed and an
         organized community water sampling program could have found and
         publicized what the utility did not. Whether the map should keep the
-        workshop's anchor or move to the 2012 detection is a pending call.
+        1998 anchor or move to the 2012 detection is a pending call.
       `),
       description: paragraph(`
         From the 6/8 session, anchored to 1998: local meetings, information
@@ -623,7 +629,7 @@ export default spineData({
                 Over 50,000 citizen complaints to the Texas environmental
                 regulator increased inspections and notices of violation at the
                 targeted facilities; Woburn's community observation plus an
-                academic study confirmed a fourfold leukemia excess; Tennant's
+                academic study confirmed a <strong>fourfold leukemia excess</strong>; Tennant's
                 cattle documentation pierced concealment in the PFOA arc.
               `),
               grade: 'moderate',
@@ -637,7 +643,9 @@ export default spineData({
             evidence({
               finding: paragraph(`
                 Cancer-cluster base rates run hard against symptom-triggered
-                detection.
+                detection: “In the 108 CDC cancer cluster investigations that
+                resulted, no meaningful environmental causes explained any of
+                the clusters”.
               `),
               grade: 'moderate',
               quote: 'In the 108 CDC cancer cluster investigations that resulted, no meaningful environmental causes explained any of the clusters',
@@ -655,11 +663,12 @@ export default spineData({
           evidence: [
             evidence({
               finding: paragraph(`
-                Where residents sampled with a lab partner, they detected what
-                official monitoring missed: Flint residents collected water
+                Where residents sampled with a lab partner, they <strong>detected what
+                official monitoring missed</strong>: Flint residents collected water
                 samples from 269 homes with Virginia Tech running the analysis,
                 producing the dataset that exposed lead contamination official
-                sampling had not.
+                sampling had not; the authors report the citizen datasets were
+                “the only internally consistent measures of water lead levels”.
               `),
               grade: 'moderate',
               quote: 'citizen science datasets collected without cheats represented the only internally consistent measures of water lead levels',
@@ -668,8 +677,8 @@ export default spineData({
             evidence({
               finding: paragraph(`
                 A community sensor network in Imperial County, California
-                identified 1,426 fine-particle pollution episodes against 116
-                found by government monitors; half the community-detected
+                identified <strong>1,426 fine-particle pollution episodes against 116
+                found by government monitors</strong>; half the community-detected
                 episodes never appeared in official data. Air, not water, and
                 sensors, not symptoms, but a measured detection gain.
               `),
@@ -682,8 +691,8 @@ export default spineData({
             evidence({
               finding: paragraph(`
                 GenX is odorless and tasteless at ng/L levels and produced no
-                acute observable signal; no documented resident report preceded
-                the 2012 detection. The first observable sign of a threat was a
+                acute observable signal; <strong>no documented resident report preceded
+                the 2012 detection</strong>. The first observable sign of a threat was a
                 published paper, not an experience.
               `),
               grade: 'moderate',
@@ -703,8 +712,7 @@ export default spineData({
             evidence({
               finding: paragraph(`
                 The speed of the post-2017 response and the decline in blood
-                levels after discharge controls are measured in the case
-                itself.
+                levels after discharge controls are measured in this case.
               `),
               grade: 'strong',
               sources: [source('Kotlarz et al. 2020, EHP', 'https://ehp.niehs.nih.gov/doi/10.1289/EHP6837')]
@@ -713,7 +721,7 @@ export default spineData({
           counterEvidence: [
             evidence({
               finding: paragraph(`
-                Detection alone stalled inside agencies for five years; the
+                Detection alone <strong>stalled inside agencies for five years</strong>; the
                 response demonstrated in 2017 ran on press amplification.
               `),
               grade: 'moderate',
@@ -724,7 +732,7 @@ export default spineData({
       ],
       comparables: [
         comparable({
-          name: 'Tonawanda bucket brigade',
+          name: 'Tonawanda Bucket Brigade',
           where: 'Tonawanda, NY', when: '2004-2013',
           authority: 'Resident sampling, then state study, then criminal enforcement',
           outcome: paragraph(`
@@ -742,25 +750,27 @@ export default spineData({
           ]
         }),
         comparable({
-          name: 'Flint resident water sampling',
+          name: 'Flint Resident Water Sampling',
           where: 'Flint, MI', when: '2015',
           authority: 'Resident-collected samples with Virginia Tech',
           outcome: paragraph(`
-            Residents returned 84 percent of 300 sampling kits (252 samples;
-            269 homes in the published analysis); the resident dataset
-            contradicted official sampling (90th percentile lead 25.2 ppb) and
-            preceded the January 2016 federal emergency and more than $600
-            million in relief.
+            Residents, sampling their own taps with Virginia Tech running the
+            analysis, returned 84 percent of 300 kits (252 samples; 269 homes
+            in the published analysis); the resident dataset contradicted
+            official sampling (90th percentile lead 25.2 ppb) and preceded the
+            January 2016 federal emergency and more than $600 million in
+            relief.
           `),
           strength: 'strong',
           sources: [source('Flint Water Study', 'https://flintwaterstudy.org/information-for-flint-residents/results-for-citizen-testing-for-lead-300-kits/')]
         }),
         comparable({
-          name: 'Woburn leukemia cluster',
+          name: 'Woburn Leukemia Cluster',
           where: 'Woburn, MA', when: '1970s-1986',
           authority: 'Community observation plus academic partnership',
           outcome: paragraph(`
-            A confirmed fourfold leukemia excess, a settlement, a Superfund
+            Community observation and an academic partnership confirmed a
+            fourfold leukemia excess, which produced a settlement, a Superfund
             cleanup, a state cleanup fund, and a state cancer registry.
           `),
           strength: 'moderate',
@@ -771,8 +781,8 @@ export default spineData({
     }),
 
     spineProposal({
-      name: 'Warn the public when discharge is approved',
-      method: 'Statutory right-to-know',
+      name: 'Warn the public when chemical discharge is approved',
+      method: 'Statutory Right-to-Know',
       anchor: 'insufficient information and potential unreasonable risk',
       where: 'EPA Office of Chemical Safety and Pollution Prevention; the 1980 permit is the earlier anchor',
       when: paragraph(`
@@ -804,8 +814,8 @@ export default spineData({
             evidence({
               finding: paragraph(`
                 The machinery exists for regulated contaminants: the drinking
-                water Public Notification Rule gives suppliers 24 hours for the
-                most serious violations.
+                water Public Notification Rule gives suppliers <strong>24 hours for the
+                most serious violations</strong>.
               `),
               grade: 'moderate',
               sources: [source('EPA Public Notification Rule', 'https://www.epa.gov/dwreginfo/public-notification-rule')]
@@ -814,7 +824,7 @@ export default spineData({
           counterEvidence: [
             evidence({
               finding: paragraph(`
-                The rule does not address unregulated contaminants, and no
+                The rule <strong>does not address unregulated contaminants</strong>, and no
                 jurisdiction attaches public notice to a chemicals consent
                 order. As enacted policy, unstudied.
               `),
@@ -833,8 +843,8 @@ export default spineData({
           evidence: [
             evidence({
               finding: paragraph(`
-                Drinking water violations raise bottled water sales 17 to 22
-                percent; industrial plant openings cut housing values 11 percent
+                Drinking water violations raise <strong>bottled water sales 17 to 22
+                percent</strong>; industrial plant openings cut housing values 11 percent
                 within half a mile, evidence markets capitalize known risk.
               `),
               grade: 'strong',
@@ -849,7 +859,7 @@ export default spineData({
             evidence({
               finding: paragraph(`
                 Avoidance is costly and regressive, and salience effects
-                concentrate within a mile of a plant while Cape Fear exposure ran
+                <strong>concentrate within a mile of a plant</strong> while Cape Fear exposure ran
                 100 miles downstream.
               `),
               grade: 'moderate',
@@ -867,7 +877,7 @@ export default spineData({
           evidence: [
             evidence({
               finding: paragraph(`
-                Mailed water quality reports cut violations 30 to 44 percent and
+                Mailed water quality reports <strong>cut violations 30 to 44 percent</strong> and
                 severe health violations 40 to 57 percent; Massachusetts firms
                 cut on-site releases 92 percent under use reporting; 61 percent
                 of surveyed German downstream users substituted substances after
@@ -876,7 +886,7 @@ export default spineData({
               grade: 'strong',
               quote: 'reduced total violations by between 30% and 44%',
               sources: [
-                source('Bennear and Olmstead 2008 (abstract)', 'https://ideas.repec.org/a/eee/jeeman/v56y2008i2p117-130.html'),
+                source('Bennear and Olmstead 2008', 'https://ideas.repec.org/a/eee/jeeman/v56y2008i2p117-130.html'),
                 source('TURI overview', 'https://www.turi.org/wp-content/uploads/2024/03/TURAOverview.June2018.pdf')
               ]
             })
@@ -886,7 +896,7 @@ export default spineData({
               finding: paragraph(`
                 Every measured disclosure success operates on listed, named
                 chemicals; PFAS entered TRI only in December 2019, and the
-                Fayetteville permit file named no chemical at all. Naming the
+                Fayetteville permit file <strong>named no chemical at all</strong>. Naming the
                 chemical at approval is the step every disclosure regime
                 depends on.
               `),
@@ -906,8 +916,8 @@ export default spineData({
           evidence: [
             evidence({
               finding: paragraph(`
-                The declines in blood levels after controls and the $82.8
-                million and $158.7 million filtration bills give measured
+                The declines in blood levels after controls and the <strong>$82.8
+                million and $158.7 million filtration bills</strong> give measured
                 numbers for what the exposure did and for what an earlier
                 cutoff would have avoided.
               `),
@@ -923,9 +933,10 @@ export default spineData({
           where: 'United States', when: '1986-present',
           authority: 'Mandatory annual public disclosure of listed releases',
           outcome: paragraph(`
-            On-site air releases of TRI-reportable chemicals fell 52 percent,
-            or 838 million pounds, from 2003 to 2013, and 21 percent since 2014
-            with a 32 percent air decline; attribution to disclosure rests
+            Under TRI’s mandatory annual public disclosure, on-site air
+            releases of reportable chemicals fell 52 percent, or 838 million
+            pounds, from 2003 to 2013, and 21 percent since 2014 with a 32
+            percent air decline; attribution to disclosure rests
             partly on literature that could not be fetched, and quantities are
             self-reported by facilities.
           `),
@@ -940,19 +951,21 @@ export default spineData({
           where: 'Massachusetts', when: '1990-2016',
           authority: 'Mandatory use reporting and planning',
           outcome: paragraph(`
-            Toxic chemical use down 66 percent, byproduct down 72 percent,
-            on-site releases down 92 percent, per preliminary state analysis.
+            Under mandatory use reporting and planning, Massachusetts firms cut
+            toxic chemical use 66 percent, byproduct 72 percent, and on-site
+            releases 92 percent, per preliminary state analysis.
           `),
           strength: 'moderate',
           sources: [source('TURI overview', 'https://www.turi.org/wp-content/uploads/2024/03/TURAOverview.June2018.pdf')]
         }),
         comparable({
-          name: 'REACH candidate list substitution',
+          name: 'REACH Candidate List Substitution',
           where: 'European Union', when: '2011 survey',
           authority: 'Listing-triggered disclosure regime',
           outcome: paragraph(`
-            61 percent of surveyed German downstream users replaced a listed
-            substance with a less hazardous one.
+            After the EU's REACH regulation put substances of very high concern on a
+            public candidate list, 61 percent of surveyed German downstream users
+            replaced a listed substance with a less hazardous one.
           `),
           strength: 'moderate',
           sources: [source('Business Chemistry', 'https://www.businesschemistry.org/article/impacts-of-the-reach-candidate-list-of-substances-subject-to-authorisation-the-reputation-mechanism-and-empirical-results-on-behavioral-adaptations-of-german-supply-chain-actors/')]
@@ -962,8 +975,8 @@ export default spineData({
     }),
 
     spineProposal({
-      name: 'A law that forces public notice on detection',
-      method: 'Right-to-know trigger',
+      name: 'A law that forces public notice when contamination is found',
+      method: 'Right-to-Know Trigger',
       anchor: 'stayed inside agencies and journals',
       where: 'Congress writing the duty into the drinking water or chemicals statute; EPA executing; NC DEQ for the state-scale fallback',
       when: paragraph(`
@@ -996,8 +1009,10 @@ export default spineData({
             evidence({
               finding: paragraph(`
                 The UCMR3 data were public and one reporter performed the
-                function once by browsing them; the 24-hour notification
-                machinery exists for regulated contaminants.
+                function once by browsing them: “he loaded the data to see what
+                would pop up for the Wilmington area. There were some local
+                hits”. The 24-hour notification machinery exists for regulated
+                contaminants.
               `),
               grade: 'moderate',
               quote: 'he loaded the data to see what would pop up for the Wilmington area. There were some local hits',
@@ -1028,7 +1043,7 @@ export default spineData({
             evidence({
               finding: paragraph(`
                 Measured in the case: story June 7, 2017; state investigation
-                June 14; health goal lowered 99.8 percent in five weeks;
+                June 14; <strong>health goal lowered 99.8 percent in five weeks</strong>;
                 discharge cessation announced within two weeks.
               `),
               grade: 'strong',
@@ -1040,11 +1055,11 @@ export default spineData({
               finding: paragraph(`
                 The 2017 response ran on press amplification; whether a statutory
                 notice without a front page produces the same seven-day response
-                is untested. Mailed notices alone changed utility behavior 30 to
-                44 percent, a floor rather than the 2017 cliff.
+                is untested. Mailed notices alone <strong>changed utility behavior 30 to
+                44 percent</strong>, a floor rather than the 2017 cliff.
               `),
               grade: 'moderate',
-              sources: [source('Bennear and Olmstead 2008 (abstract)', 'https://ideas.repec.org/a/eee/jeeman/v56y2008i2p117-130.html')]
+              sources: [source('Bennear and Olmstead 2008', 'https://ideas.repec.org/a/eee/jeeman/v56y2008i2p117-130.html')]
             })
           ]
         }),
@@ -1061,8 +1076,8 @@ export default spineData({
               finding: paragraph(`
                 Blood samples stored from before disclosure show what the
                 window produced (PFMOAA median 42 ng/mL, the highest of 56 PFAS
-                measured); post-control declines of 34 to 65 percent in six
-                months show the gain per year of earlier cutoff.
+                measured); <strong>post-control declines of 34 to 65 percent in six
+                months</strong> show the gain per year of earlier cutoff.
               `),
               grade: 'strong',
               sources: [source('Kotlarz et al. 2020, EHP', 'https://ehp.niehs.nih.gov/doi/10.1289/EHP6837')]
@@ -1072,19 +1087,19 @@ export default spineData({
       ],
       comparables: [
         comparable({
-          name: 'Drinking water Public Notification Rule',
+          name: 'Drinking Water Public Notification Rule',
           where: 'United States', when: '1998-present',
           authority: 'Enacted, regulated contaminants only',
           outcome: paragraph(`
-            The enacted template: 24-hour notice for the most serious
-            violations, operational nationwide. Its regulated-only scope is the
-            boundary this proposal erases.
+            This enacted federal rule requires 24-hour notice for the most
+            serious violations and operates nationwide. It covers regulated
+            contaminants only, the boundary this proposal erases.
           `),
           strength: 'moderate',
           sources: [source('EPA', 'https://www.epa.gov/dwreginfo/public-notification-rule')]
         }),
         comparable({
-          name: 'Flint emergency response after resident data',
+          name: 'Flint Emergency Response After Resident Data',
           where: 'Flint, MI', when: '2015-2016',
           authority: 'Public knowledge converting into action',
           outcome: paragraph(`
@@ -1095,13 +1110,16 @@ export default spineData({
           sources: [source('Citizen Science: Theory and Practice', 'https://theoryandpractice.citizenscienceassociation.org/articles/10.5334/cstp.154')]
         }),
         comparable({
-          name: 'The June 2017 story itself',
+          name: 'The June 2017 Wilmington StarNews Story',
           where: 'Wilmington, NC', when: '06/2017',
           authority: 'Journalism performing the missing function',
           outcome: paragraph(`
-            Front-page story to state investigation in seven days, health goal
-            cut 99.8 percent in five weeks. This proposal writes that sequence
-            into law.
+            On June 7, 2017, the Wilmington StarNews reported on its front page that
+            GenX was in the Cape Fear drinking water. The state opened an
+            investigation within seven days, cut its provisional health goal 99.8
+            percent in five weeks, and Chemours agreed to stop the discharge. A
+            newspaper performed the public-notice function; this proposal writes that
+            sequence into law so notice does not depend on a newsroom.
           `),
           strength: 'strong',
           sources: [source('Coastal Review', 'https://coastalreview.org/2022/06/vaughn-hagerty-the-reporter-who-broke-the-genx-story/')]
@@ -1111,8 +1129,8 @@ export default spineData({
     }),
 
     spineProposal({
-      name: 'Let the public choose experts to review the evidence',
-      method: 'Independent science review',
+      name: 'Let the public choose experts to review the health evidence',
+      method: 'Independent Science Review',
       anchor: 'State action began only after public disclosure',
       where: 'NC DHHS and NC DEQ',
       when: paragraph(`
@@ -1147,9 +1165,12 @@ export default spineData({
             evidence({
               finding: paragraph(`
                 The C8 Science Panel, jointly appointed under a court settlement,
-                delivered probable-link findings for six conditions that carried
-                automatic legal consequence for roughly 70,000 class members and
-                became the evidentiary basis for later regulation.
+                delivered probable-link findings for six conditions, reporting
+                “there is a probable link between exposure to C8 (also known as
+                PFOA) and testicular cancer and kidney cancer”; the findings
+                carried <strong>automatic legal consequence for roughly 70,000
+                class members</strong> and became the evidentiary basis for
+                later regulation.
               `),
               grade: 'moderate',
               quote: 'there is a probable link between exposure to C8 (also known as PFOA) and testicular cancer and kidney cancer',
@@ -1160,7 +1181,7 @@ export default spineData({
             evidence({
               finding: paragraph(`
                 The C8 panel was appointed by a court, not chosen by the
-                community, and took seven years, a timescale mismatched to
+                community, and <strong>took seven years</strong>, a timescale mismatched to
                 emergency response. No directly community-chosen analog with
                 measured outcomes was identified.
               `),
@@ -1180,8 +1201,10 @@ export default spineData({
             evidence({
               finding: paragraph(`
                 The report-back literature finds returning personal results
-                strengthens relationships and supports trust in science; the
-                documented effects are qualitative intentions and self-reports.
+                strengthens relationships and supports trust in science, calling
+                report-back “a powerful tool for increasing understanding of
+                environmental health”; the documented effects are qualitative
+                intentions and self-reports.
               `),
               grade: 'weak',
               quote: 'Personal exposure report-back is a powerful tool for increasing understanding of environmental health',
@@ -1193,7 +1216,7 @@ export default spineData({
                 exposure report-back raised concern about consumer product
                 chemicals and participants took exposure-reducing actions,
                 notably for PFAS; in a Nevada cohort, the share who did not
-                know how to reduce exposure fell from 79 to 35 percent after
+                know how to reduce exposure <strong>fell from 79 to 35 percent</strong> after
                 report-back, and one urinary chemical marker fell
                 significantly.
               `),
@@ -1217,8 +1240,8 @@ export default spineData({
             evidence({
               finding: paragraph(`
                 The closest PFAS precedent: the court-created, independently
-                run C8 Health Project enrolled 69,030 exposed residents in 13
-                months, returning individual PFOA results to participants. The
+                run C8 Health Project <strong>enrolled 69,030 exposed residents in 13
+                months</strong>, returning individual PFOA results to participants. The
                 trust mechanism is described, not causally isolated.
               `),
               grade: 'weak',
@@ -1246,10 +1269,11 @@ export default spineData({
           where: 'West Virginia and Ohio', when: '2005-2012',
           authority: 'Bilaterally appointed, findings carried automatic legal consequence',
           outcome: paragraph(`
-            Probable-link findings for six conditions, built on a companion
-            health project that collected blood samples and questionnaires from
-            about 69,000 exposed residents; DuPont precluded from denying
-            causation for class members; DuPont-funded medical monitoring
+            The bilaterally appointed panel delivered probable-link findings
+            for six conditions, built on a companion health project that
+            collected blood samples and questionnaires from about 69,000
+            exposed residents. The findings precluded DuPont from denying
+            causation for class members, and DuPont-funded medical monitoring
             followed.
           `),
           strength: 'strong',
@@ -1260,9 +1284,11 @@ export default spineData({
           where: 'Montana', when: '2000-present',
           authority: 'Binding oversight, council-hired experts',
           outcome: paragraph(`
-            Water monitoring more stringent than state and federal standards,
-            company-funded; no arbitration or environmental litigation in 24
-            years, as reported by the parties without independent evaluation.
+            The binding agreement produced company-funded water monitoring more
+            stringent than state and federal standards, overseen by experts the
+            community council hired; the parties report no arbitration or
+            environmental litigation in 24 years, without independent
+            evaluation.
           `),
           strength: 'moderate',
           sources: [source('WRI snapshot', 'https://www.wri.org/snapshots/community-benefits-snapshot-stillwater-good-neighbor-agreement')]
@@ -1272,9 +1298,9 @@ export default spineData({
           where: 'United States', when: '1988-present',
           authority: 'Federal funds for community-hired expertise',
           outcome: paragraph(`
-            Recipients primarily hired technical advisors and kept residents
-            informed; uptake reached 9 percent of eligible communities under a
-            lengthy application process.
+            Communities that won the federal grants primarily hired technical
+            advisors and kept residents informed; uptake reached 9 percent of
+            eligible communities under a lengthy application process.
           `),
           strength: 'moderate',
           sources: [source('GAO T-RCED-93-1', 'https://www.gao.gov/products/t-rced-93-1')]
@@ -1284,8 +1310,8 @@ export default spineData({
     }),
 
     spineProposal({
-      name: 'Federal funding, enforcement designed locally',
-      method: 'Federal funding, local design',
+      name: 'Federal funding for locally designed enforcement',
+      method: 'Federal Funding, Local Design',
       anchor: 'public notice and comment',
       where: 'Congress and EPA for the funding; the NC Environmental Management Commission for the standard-setting it must feed',
       when: paragraph(`
@@ -1318,8 +1344,8 @@ export default spineData({
               finding: paragraph(`
                 Superfund technical assistance grants funded community advisors;
                 the NC legislature's $5 million to the Policy Collaboratory built
-                a network sampling 190 surface water intakes and 158 municipal
-                wells, though that funding was state, not federal.
+                a network sampling <strong>190 surface water intakes and 158 municipal
+                wells</strong>, though that funding was state, not federal.
               `),
               grade: 'moderate',
               sources: [source('GAO T-RCED-93-1', 'https://www.gao.gov/products/t-rced-93-1')]
@@ -1328,7 +1354,7 @@ export default spineData({
           counterEvidence: [
             evidence({
               finding: paragraph(`
-                Grant uptake reached 9 percent of eligible communities under a
+                Grant uptake reached <strong>9 percent of eligible communities</strong> under a
                 lengthy, labor-intensive application process; Flint's funding was
                 reactive, arriving after exposure.
               `),
@@ -1347,8 +1373,8 @@ export default spineData({
           evidence: [
             evidence({
               finding: paragraph(`
-                Michigan adopted enforceable drinking water limits for seven
-                PFAS compounds, effective August 3, 2020, following its own
+                Michigan adopted <strong>enforceable drinking water limits for seven
+                PFAS compounds</strong>, effective August 3, 2020, following its own
                 facility-level crises; Woburn's aftermath produced a state
                 cleanup fund and cancer registry.
               `),
@@ -1361,12 +1387,12 @@ export default spineData({
               finding: paragraph(`
                 The in-case record is the strongest counter-evidence: nine years
                 of the project's most extensive participation produced
-                remediation at one plant and no enforceable state standard, with
+                <strong>remediation at one plant and no enforceable state standard</strong>, with
                 the House bill stalling in the Senate. Private enforcement also
                 crowds out public sanctions in the one large-n study.
               `),
               grade: 'moderate',
-              sources: [source('Langpap and Shimshack 2010 (abstract)', 'https://ideas.repec.org/a/eee/jeeman/v59y2010i3p235-249.html')]
+              sources: [source('Langpap and Shimshack 2010', 'https://ideas.repec.org/a/eee/jeeman/v59y2010i3p235-249.html')]
             })
           ]
         }),
@@ -1381,17 +1407,17 @@ export default spineData({
             evidence({
               finding: paragraph(`
                 Standards operate mechanically once adopted, and even
-                disclosure-only mandates cut violations 30 to 44 percent.
+                disclosure-only mandates <strong>cut violations 30 to 44 percent</strong>.
               `),
               grade: 'moderate',
-              sources: [source('Bennear and Olmstead 2008 (abstract)', 'https://ideas.repec.org/a/eee/jeeman/v56y2008i2p117-130.html')]
+              sources: [source('Bennear and Olmstead 2008', 'https://ideas.repec.org/a/eee/jeeman/v56y2008i2p117-130.html')]
             })
           ],
           counterEvidence: [
             evidence({
               finding: paragraph(`
                 Adoption does not guarantee persistence: the federal GenX limit
-                was proposed for rescission in May 2026 on procedural grounds.
+                was <strong>proposed for rescission in May 2026</strong> on procedural grounds.
               `),
               grade: 'moderate',
               sources: [source('Federal Register 2026', 'https://www.federalregister.gov/documents/2026/05/20/2026-10085/rescission-of-regulatory-determinations-and-removal-of-related-provisions-for-four-pfas-substances')]
@@ -1401,24 +1427,25 @@ export default spineData({
       ],
       comparables: [
         comparable({
-          name: 'Michigan PFAS drinking water limits',
+          name: 'Michigan PFAS Drinking Water Limits',
           where: 'Michigan', when: '2020',
           authority: 'Enforceable statewide rules',
           outcome: paragraph(`
-            Seven compounds regulated statewide following facility-level
-            crises: the generalization North Carolina did not achieve.
+            Michigan adopted enforceable statewide drinking water rules for
+            seven PFAS compounds after its own facility-level crises, the
+            generalization North Carolina did not achieve.
           `),
           strength: 'moderate',
           sources: [source('Michigan EGLE', 'https://www.michigan.gov/egle/about/organization/drinking-water-and-environmental-health/community-water-supply/pfas-drinking-water-rules')]
         }),
         comparable({
-          name: 'CDC REACH program',
+          name: 'CDC REACH Program',
           where: 'United States', when: '1999-present',
           authority: 'Federal money, local design, health delivery',
           outcome: paragraph(`
-            Two decades of federal-local programs whose public record is
-            dominated by reach counts; one fetched outcome finding on smoking
-            declines. No instance of federally funded, locally designed
+            Two decades of federally funded, locally designed health programs
+            left a public record dominated by reach counts, with one fetched
+            outcome finding on smoking declines. No instance of federally funded, locally designed
             enforcement with measured outcomes was found anywhere; the absence
             is a finding in its own right.
           `),
@@ -1430,8 +1457,9 @@ export default spineData({
           where: 'United States', when: '1988-present',
           authority: 'The existing federal-funds-for-local-capacity template',
           outcome: paragraph(`
-            Measured uptake of 9 percent of eligible communities, with
-            documented administrative barriers.
+            The existing federal-funds-for-local-capacity program reached 9
+            percent of eligible communities, with documented administrative
+            barriers.
           `),
           strength: 'moderate',
           sources: [source('GAO T-RCED-93-1', 'https://www.gao.gov/products/t-rced-93-1')]
@@ -1441,8 +1469,8 @@ export default spineData({
     }),
 
     spineProposal({
-      name: 'Put the public inside the approval review',
-      method: 'Stakeholder participation in initial review',
+      name: 'Put the public inside the chemical approval review',
+      method: 'Stakeholder Participation in Initial Review',
       anchor: 'insufficient information and potential unreasonable risk',
       where: 'EPA Office of Chemical Safety and Pollution Prevention, with the review body seated from affected downstream communities',
       when: paragraph(`
@@ -1476,8 +1504,8 @@ export default spineData({
               finding: paragraph(`
                 In Finnish and Swedish nuclear waste siting, host municipalities
                 held formal power at the approval decision with publicly funded
-                independent review, and both programs reached consented,
-                operating outcomes where non-consensual programs stalled.
+                independent review, and both programs <strong>reached consented,
+                operating outcomes</strong> where non-consensual programs stalled.
                 Analogical: a different industry and decision type.
               `),
               grade: 'weak',
@@ -1497,8 +1525,8 @@ export default spineData({
             evidence({
               finding: paragraph(`
                 An evaluation of 13 Good Neighbor Agreements between community
-                groups and polluting facilities found most achieved substantial
-                implementation of their monitoring and compliance commitments,
+                groups and polluting facilities found <strong>most achieved substantial
+                implementation</strong> of their monitoring and compliance commitments,
                 conditional on community leverage and resources.
               `),
               grade: 'moderate',
@@ -1509,7 +1537,7 @@ export default spineData({
               finding: paragraph(`
                 Across more than 130,000 environmental citizen complaints in
                 Texas, complaint-triggered investigations increased regulator
-                monitoring and found more, and more severe, violations than
+                monitoring and <strong>found more, and more severe, violations</strong> than
                 routine monitoring.
               `),
               grade: 'moderate',
@@ -1521,8 +1549,8 @@ export default spineData({
             evidence({
               finding: paragraph(`
                 The baseline without a constituency is measured in this case: the
-                2009 order contained no scheduled verification, and EPA's first
-                on-site inspection came June 28, 2017, three weeks after the
+                2009 order contained no scheduled verification, and EPA's <strong>first
+                on-site inspection came June 28, 2017</strong>, three weeks after the
                 newspaper story.
               `),
               grade: 'strong',
@@ -1540,8 +1568,8 @@ export default spineData({
           evidence: [
             evidence({
               finding: paragraph(`
-                Median fluoroether levels in blood declined 34 to 65 percent
-                within six months of discharge controls, the measured gain per
+                Median fluoroether levels in blood <strong>declined 34 to 65 percent
+                within six months</strong> of discharge controls, the measured gain per
                 year of earlier enforcement.
               `),
               grade: 'strong',
@@ -1552,17 +1580,18 @@ export default spineData({
       ],
       comparables: [
         comparable({
-          name: 'Finnish and Swedish municipal nuclear waste veto',
+          name: 'Finnish and Swedish Municipal Nuclear Waste Veto',
           where: 'Finland and Sweden', when: '1980s-2020s',
           authority: 'Host municipalities held formal veto power, with funded independent review',
           outcome: paragraph(`
-            Sweden financed municipal expertise through the Nuclear Waste Fund,
-            so Osthammar's review staff were paid by the fund, enabling
-            independent assessment rather than industry reliance, and the
-            operator reported strong local support. Finland built the world's
-            first operating deep repository. The source flags that community
-            acceptance may reflect existing nuclear infrastructure rather than
-            rigorous safety evaluation.
+            Host municipalities in Finland and Sweden held a formal veto over nuclear
+            waste repository siting. Sweden financed municipal expertise through the
+            Nuclear Waste Fund, so Osthammar's review staff were paid by the fund,
+            enabling independent assessment rather than industry reliance, and the
+            operator reported strong local support. Finland built the world's first
+            operating deep repository. The source flags that community acceptance may
+            reflect existing nuclear infrastructure rather than rigorous safety
+            evaluation.
           `),
           strength: 'moderate',
           sources: [source('Bellona 2016', 'https://bellona.org/news/nuclear-issues/radioactive-waste-and-spent-nuclear-fuel/2016-08-21710')]

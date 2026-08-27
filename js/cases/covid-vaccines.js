@@ -12,7 +12,7 @@ export default caseStudy({
     policy problem was whether federal institutions had legitimate authority and
     sufficient public trust to convert that scientific justification into binding
     mandates. The bounded case runs from the federal mandate in September 2021 through
-    May 2023, marking the official end of the federal public health emergency.
+    May 2023, marking the official end of the federal public health emergency.<br><br>
     COVID-19 vaccine mandates show that scientific consensus can justify a policy aim
     without settling the legitimacy of coercive policy instruments. Vaccination was
     well-supported scientifically, especially for preventing severe disease, but
@@ -143,7 +143,7 @@ export default caseStudy({
       actors: 'College Students, Universities',
       text:       paragraph(`
         As hundreds of universities announce fall 2021 vaccine requirements, students begin
-        organizing protests. Students challenge both the policy itself and whether
+        organizing protests. Students challenge both the policy and whether
         universities could legally require an EUA-authorized vaccine before full FDA
         approval.
       `),

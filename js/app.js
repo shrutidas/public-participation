@@ -88,7 +88,8 @@ function applyRoute() {
       mech: sp.mechanisms.length,
       impact: sp.impacts.length,
       prop: sp.proposals.length,
-      proplink: sp.proposals.length
+      proplink: sp.proposals.length,
+      propcomp: sp.proposals.length
     };
     if (r.selIdx < (bounds[r.selKind] ?? 0)) {
       state.selKind = r.selKind;
@@ -425,6 +426,8 @@ function bindEvents() {
       select('proplink', Number(pl.dataset.pr), Number(pl.dataset.pl));
       return;
     }
+    const cs = e.target.closest('.sp-complist');
+    if (cs) { select('propcomp', Number(cs.dataset.pr)); return; }
     const pr = e.target.closest('[data-pr]');
     if (pr) { select('prop', Number(pr.dataset.pr)); return; }
     const m = e.target.closest('[data-m]');

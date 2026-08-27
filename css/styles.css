@@ -30,7 +30,7 @@ body {
   font-size: 0.6875rem;
   font-weight: 700;
   padding: 3px 8px;
-  border-radius: 12px;
+  border-radius: 8px;
   letter-spacing: 0.03em;
   white-space: nowrap;
   margin-top: 2px;
@@ -505,7 +505,7 @@ body[data-view="chain"] #ctrl .fl,
 
 .g {
   display: inline-block; font-size: 0.625rem; font-weight: 700; letter-spacing: 0.04em;
-  padding: 2px 8px; border-radius: 10px; white-space: nowrap;
+  padding: 3px 8px; border-radius: 8px; white-space: nowrap;
 }
 .gr-strong { background: #e5f5ec; color: #0c4520; border: 1px solid #177038; }
 .gr-moderate { background: #e3eef8; color: #09386a; border: 1px solid #1258a0; }
@@ -603,14 +603,18 @@ body[data-view="chain"] #ctrl .fl,
 .ln-sec-part h4 { color: #380c68; }
 .ln-sec-prop h4 { color: #4a1a7a; }
 .ln-sec-gap h4 { color: #6e1510; }
+/* Evidence, counter-evidence, and comparable-case headers sit above bordered
+   cards; a divider under them read as a double line. */
+.ln-sec-for h4, .ln-sec-counter h4, .ln-sec-comp h4 { border-bottom: none; padding-bottom: 0; }
 .ln-none { font-size: 0.8125rem; color: #8a8377; font-style: italic; }
 
 .ev-list, .pa-list, .gap-list { list-style: none; }
 
 .ev {
-  display: grid; grid-template-columns: 88px 1fr; gap: 11px;
-  padding: 9px 0; border-bottom: 1px solid #efeae0; align-items: start;
+  display: block;
+  padding: 9px 0; border-bottom: 1px solid #efeae0;
 }
+.ev > .ev-grade { display: inline-block; margin: 0 0 7px; }
 .ev:last-child { border-bottom: none; }
 
 /* In the detail pane, evidence sits on red cards like on the map: solid for
@@ -624,20 +628,23 @@ body[data-view="chain"] #ctrl .fl,
 .ln-sec-counter .ev:last-child { border-bottom: 1.5px dashed #b3261e; }
 
 .ev-grade {
-  font-size: 0.5625rem; padding: 2px 6px; border-radius: 10px; font-weight: 700; text-align: center; letter-spacing: 0.03em; margin-top: 2px;
+  font-size: 0.5625rem; padding: 3px 7px; border-radius: 8px; font-weight: 700; text-align: center; letter-spacing: 0.03em; margin-top: 2px;
 }
 .ev-finding { font-size: 0.875rem; line-height: 1.6; color: #222; }
+.ev-finding strong, .pa-desc strong { font-weight: 700; }
 .ev-caveat {
   font-size: 0.8125rem; line-height: 1.55; color: #7a3410; background: #fdf5ec;
   border-left: 3px solid #d99a55; padding: 6px 10px; margin-top: 7px; border-radius: 0 4px 4px 0;
 }
 
-.ev-srcs { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 7px; }
+.ev-srcs { display: flex; flex-direction: column; align-items: flex-start; gap: 3px; margin-top: 7px; }
+.pa-loc { font-size: 0.75rem; color: #555; margin-top: 7px; }
 .ev-srcs a {
-  font-size: 0.75rem; color: #1258a0; text-decoration: none; background: #e3eef8;
-  padding: 3px 9px; border-radius: 4px; border: 1px solid #a8c8e8; cursor: pointer;
+  font-size: 0.75rem; color: #1258a0; text-decoration: underline;
+  text-underline-offset: 2px; background: transparent; padding: 1px 0;
+  border: none; cursor: pointer;
 }
-.ev-srcs a:hover { background: #bed4ee; text-decoration: underline; }
+.ev-srcs a:hover { color: #0d3f73; }
 
 .pa {
   background: #f7f2fd; border: 1px solid #ddcdf2; border-left: 4px solid #601898;
@@ -648,11 +655,12 @@ body[data-view="chain"] #ctrl .fl,
 .pa[data-part]:focus-visible { outline: 2px solid #601898; outline-offset: 2px; }
 
 .pa-hd { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 7px; }
+.pa-grade { margin: -3px 0 7px; }
 .pa-date { font-size: 0.75rem; font-weight: 700; color: #444; letter-spacing: 0.02em; }
 .pa-name { font-size: 0.9375rem; font-weight: 600; color: #111; }
 .pa-kind {
   font-size: 0.5625rem; font-weight: 700; letter-spacing: 0.04em;
-  background: #f0e8fa; color: #380c68; border: 1px solid #601898; padding: 2px 8px; border-radius: 10px;
+  background: #f0e8fa; color: #380c68; border: 1px solid #601898; padding: 3px 8px; border-radius: 8px;
 }
 .pa-actors { font-size: 0.8125rem; color: #555; margin-bottom: 6px; line-height: 1.5; }
 .pa-desc { font-size: 0.875rem; line-height: 1.6; color: #222; }
@@ -669,12 +677,12 @@ body[data-view="chain"] #ctrl .fl,
 .pp-method {
   font-size: 0.5625rem; font-weight: 700; letter-spacing: 0.04em;
   background: #f2eafb; color: #3d0f70; border: 1px solid #601898;
-  padding: 2px 8px; border-radius: 10px;
+  padding: 3px 8px; border-radius: 8px;
 }
 .pp-flag {
   font-size: 0.5625rem; font-weight: 700; letter-spacing: 0.04em;
   background: #fff; color: #3d0f70; border: 1px dashed #601898;
-  padding: 2px 8px; border-radius: 10px;
+  padding: 3px 8px; border-radius: 8px;
 }
 .pp-mech { font-size: 0.8125rem; line-height: 1.55; color: #4a3a5e; margin-top: 7px; }
 .pp-mech-note { display: block; font-size: 0.75rem; color: #601898; margin-top: 3px; }
@@ -1241,22 +1249,6 @@ body[data-view="chain"] #ctrl .fl,
 
 .k-steps strong { font-weight: 650; color: #16202f; }
 
-/* Verbatim source quote inside an evidence item */
-.ev-quote {
-  margin: 8px 0 0;
-  padding: 7px 12px;
-  border-left: 3px solid #7f9ec0;
-  background: #f2f5f9;
-  border-radius: 0 4px 4px 0;
-  font-size: 0.8125rem;
-  line-height: 1.6;
-  color: #2c3a4d;
-  font-style: italic;
-}
-
-.ev-quote::before { content: '“'; }
-.ev-quote::after { content: '”'; }
-
 /* Plain-language statement of what a chain is for. The intro reads as one
    piece: purpose, outcome, and thesis share a size, with the purpose lifted
    only by its bold lead-in. */
@@ -1352,7 +1344,7 @@ body[data-view="chain"] #ctrl .fl,
 .sp-mech-name { font-weight: 650; margin-bottom: 4px; }
 .sp-failtag {
   display: inline-block; font-size: .62rem; font-weight: 700; letter-spacing: .02em;
-  border-radius: 999px; padding: 2px 8px; border: 1px solid transparent;
+  border-radius: 8px; padding: 3px 8px; border: 1px solid transparent;
 }
 /* Failure tags are uniformly gray: the mode reads as text, not a color code. */
 .sp-failtag { background: #f1efe9; color: #57524a; border-color: #c9c3b6; }
@@ -1415,7 +1407,6 @@ body[data-view="chain"] #ctrl .fl,
 .fl-contested { border-color: #8a6d0f; color: #8a6d0f; }
 .fl-contested:hover { background: #f7f1dd; }
 .fl-unstudied { border-color: #aa2a20; color: #aa2a20; background: #fbeceb; }
-.sp-ctr { width: 7px; height: 7px; border-radius: 50%; background: #b3261e; display: inline-block; }
 
 /* Sidebar additions */
 .cd-kick-mech { color: #2f7d3f; }
@@ -1448,7 +1439,7 @@ body[data-view="chain"] #ctrl .fl,
 .sp-grade {
   display: inline-flex; align-items: center; gap: 4px;
   font-size: .6rem; font-weight: 700; letter-spacing: .02em;
-  border: 1.5px solid currentColor; border-radius: 5px; padding: 1px 7px;
+  border: 1.5px solid currentColor; border-radius: 8px; padding: 3px 8px;
   background: #fff;
 }
 .sp-grade.fl-unstudied { background: #fbeceb; }
@@ -1466,11 +1457,6 @@ body[data-view="chain"] #ctrl .fl,
 
 /* Terminal arrows: intended effects, not documented causation */
 .sp-edge-term { stroke-dasharray: 7 5; }
-.sp-termlabel {
-  position: absolute; font-size: .62rem; font-style: italic; font-weight: 650;
-  color: #c05621; background: rgba(255,255,255,.7); padding: 0 4px; border-radius: 4px;
-  pointer-events: none; white-space: nowrap;
-}
 
 /* Impact cards carry their arrow strengths as in-card pills */
 .sp-imp-grades { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 5px; }
@@ -1496,4 +1482,5 @@ body[data-view="chain"] #ctrl .fl,
   font-family: inherit; white-space: normal; word-break: break-word;
 }
 .sp-complist:hover { background: #f7f5f0; border-color: #8a8377; }
+.sp-complist.sel { background: #f7f5f0; border-color: #57524a; border-style: solid; box-shadow: 0 0 0 3px rgba(107,100,87,.35); }
 .sp-complist-kick { font-weight: 800; letter-spacing: .04em; text-transform: uppercase; font-size: .55rem; color: #6b6457; margin-right: 2px; }

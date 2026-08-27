@@ -123,7 +123,7 @@ export default spineData({
         eleven months after closures. Politicization in July 2020 damaged the
         federal channel's neutrality, and the decision studies find modality
         tracked partisanship and bargaining strength, not guidance or local case
-        rates. For public input into guidance itself, no mechanism existed.
+        rates. For public input into the guidance, no mechanism existed.
       `),
       anchors: ['physical presence in school', 'Operational Strategy'],
       sources: [
@@ -169,7 +169,9 @@ export default spineData({
         evidence({
           finding: paragraph(`
             Dee, Huffaker, Phillips, and Sagara (NBER w29156, 2021) identify the
-            enrollment effect of instructional mode across states.
+            enrollment effect of instructional mode across states, finding that
+            “remote-only instead of in-person instruction reduced enrollment by
+            1.1 percentage points”.
           `),
           grade: 'strong',
           quote: 'remote-only instead of in-person instruction reduced enrollment by 1.1 percentage points',
@@ -177,8 +179,8 @@ export default spineData({
         }),
         evidence({
           finding: paragraph(`
-            NCES enrollment series: 50.8 million (fall 2019) to 49.4 million
-            (fall 2020), then 49.4 to 49.6 million through 2022.
+            NCES enrollment series: <strong>50.8 million (fall 2019) to 49.4
+            million (fall 2020)</strong>, then 49.4 to 49.6 million through 2022.
           `),
           grade: 'strong',
           sources: [source('NCES', 'https://nces.ed.gov/programs/coe/indicator/cga/public-school-enrollment')]
@@ -207,8 +209,8 @@ export default spineData({
         evidence({
           finding: paragraph(`
             RAND's 2025 district survey and AEI's 2026 tracking report document
-            persistence; Singer's dose-response ties absence to months of remote
-            exposure; the UChicago Consortium finds teacher-reported parent
+            persistence; Singer's dose-response <strong>ties absence to months of remote
+            exposure</strong>; the UChicago Consortium finds teacher-reported parent
             relationships associated with school absence rates, stronger after
             the pandemic.
           `),
@@ -222,8 +224,8 @@ export default spineData({
       counterEvidence: [
         evidence({
           finding: paragraph(`
-            One quarter of surveyed youth did not consider their own chronic
-            absence a problem, which points toward indifference as a competing
+            One quarter of surveyed youth <strong>did not consider their own
+            chronic absence a problem</strong>, which points toward indifference as a competing
             explanation alongside any trust-based account.
           `),
           grade: 'moderate',
@@ -263,8 +265,8 @@ export default spineData({
         evidence({
           finding: paragraph(`
             Parents were typically supportive of how their schools handled the
-            pandemic in 2020-21, and PDK local school grades did not fall through
-            2022. The damage appears in partisan, systemic measures with a lag,
+            pandemic in 2020-21, and <strong>PDK local school grades did not fall
+            through 2022</strong>. The damage appears in partisan, systemic measures with a lag,
             not in contemporaneous parent judgments.
           `),
           grade: 'moderate',
@@ -291,7 +293,7 @@ export default spineData({
         evidence({
           finding: paragraph(`
             Goldhaber et al. (2022) and Jack et al. (2023) tie remote and hybrid
-            mode to larger achievement declines across states and districts;
+            mode to <strong>larger achievement declines</strong> across states and districts;
             Sweden's open primary schools showed no learning loss across 97,073
             students in grades 1-3.
           `),
@@ -307,8 +309,8 @@ export default spineData({
           finding: paragraph(`
             Education Recovery Scorecard data through 2025, reported by the New
             York Times and reposted by Harvard CEPR, show scores stopped
-            climbing in the mid-2010s, with reading losses from 2017 to 2019
-            matching the pandemic-era losses. Part of the post-2020 gap
+            climbing in the mid-2010s, with <strong>reading losses from 2017 to
+            2019 matching the pandemic-era losses</strong>. Part of the post-2020 gap
             reflects a longer decline rather than closure policy; the
             mode-to-decline comparisons across districts are within-period and
             are not touched by the pre-trend.
@@ -323,8 +325,8 @@ export default spineData({
 
   proposals: [
     spineProposal({
-      name: 'Regional citizen assemblies that can decide',
-      method: 'Citizens assembly (sortition, rotation, confederal)',
+      name: 'Regional citizen assemblies that can decide school reopening',
+      method: 'Citizens Assembly (Sortition, Rotation, Confederal)',
       anchor: 'Return to School Roadmap',
       where: 'State level; Michigan is the natural jurisdiction',
       when: paragraph(`
@@ -358,8 +360,8 @@ export default spineData({
             evidence({
               finding: paragraph(`
                 The Ada Lovelace Institute ran rapid online deliberation with 28
-                members of the public on COVID-19 exit strategies during May 2020,
-                while the UK was in lockdown.
+                members of the public on COVID-19 exit strategies <strong>during
+                May 2020, while the UK was in lockdown</strong>.
               `),
               grade: 'moderate',
               quote: 'conducted rapid, online deliberation with 28 members of the public on COVID-19 exit strategies',
@@ -370,7 +372,7 @@ export default spineData({
             evidence({
               finding: paragraph(`
                 Reference-class timing runs long: the Irish assembly deliberated
-                five sessions over six months; the French climate convention ran
+                <strong>five sessions over six months</strong>; the French climate convention ran
                 nine months; the OECD stocktake of nearly 300 processes describes
                 convenings of at least one full day and often much longer.
               `),
@@ -392,8 +394,8 @@ export default spineData({
               finding: paragraph(`
                 A 48-village randomized experiment in Indonesia compared binding
                 plebiscites against representative meetings for choosing local
-                projects: the binding format raised satisfaction, perceived
-                legitimacy, and willingness to contribute, even though the
+                projects: the binding format <strong>raised satisfaction, perceived
+                legitimacy, and willingness to contribute</strong>, even though the
                 chosen projects barely changed.
               `),
               grade: 'moderate',
@@ -403,8 +405,8 @@ export default spineData({
             evidence({
               finding: paragraph(`
                 Brazilian municipalities that gave citizens binding budget
-                authority shifted spending toward health and sanitation and cut
-                infant mortality by 1 to 2 per 1,000, the strongest measured
+                authority shifted spending toward health and sanitation and <strong>cut
+                infant mortality by 1 to 2 per 1,000</strong>, the strongest measured
                 case of citizen participation with force behind it.
               `),
               grade: 'moderate',
@@ -417,7 +419,8 @@ export default spineData({
               finding: paragraph(`
                 The nearest binding-adjacent pledge eroded under pressure: France's
                 president promised to implement 146 of 149 convention proposals;
-                the parliamentary bill incorporated an estimated 40%, and members
+                the parliamentary bill <strong>incorporated an estimated
+                40%</strong>, and members
                 rated government follow-through 3.3 out of 10.
               `),
               grade: 'moderate',
@@ -436,23 +439,25 @@ export default spineData({
             evidence({
               finding: paragraph(`
                 Germann, Marien, and Muradova (Political Studies 2024; survey
-                experiment, N=1,309) find fairness perceptions rose 0.7 points,
-                27% of a standard deviation. Collins (APSR 2021) finds exposure to
-                deliberative school board meetings raised trust in local officials.
+                experiment, N=1,309) find fairness perceptions <strong>rose 0.7
+                points, 27% of a standard deviation</strong>, though the gains are
+                “largely limited to situations in which their recommendations are
+                honored”. Collins (APSR 2021) finds exposure to deliberative
+                school board meetings raised trust in local officials.
               `),
               grade: 'moderate',
               quote: 'Mini-publics increase legitimacy perceptions among the broader citizenry; however, these beneficial effects are largely limited to situations in which their recommendations are honored.',
               sources: [
                 source('Germann et al. 2024', 'https://journals.sagepub.com/doi/10.1177/00323217221137444'),
-                source('Collins 2021 (summary)', 'https://home.watson.brown.edu/news/2021-08-06/does-meeting-style-matter-effects-exposure-participatory-and-deliberative-school')
+                source('Collins 2021', 'https://home.watson.brown.edu/news/2021-08-06/does-meeting-style-matter-effects-exposure-participatory-and-deliberative-school')
               ]
             })
           ],
           counterEvidence: [
             evidence({
               finding: paragraph(`
-                In the same experiment the acceptance effect became insignificant
-                when recommendations were rejected, and referendums outperformed
+                In the same experiment the acceptance effect <strong>became insignificant
+                when recommendations were rejected</strong>, and referendums outperformed
                 mini-publics on both fairness and acceptance.
               `),
               grade: 'moderate',
@@ -474,8 +479,8 @@ export default spineData({
             evidence({
               finding: paragraph(`
                 Adjacent domains support the mechanism: in a national US
-                survey, perceived legitimacy of legal institutions predicted
-                compliance and willing cooperation, and in taxation, fair
+                survey, perceived legitimacy of legal institutions <strong>predicted
+                compliance and willing cooperation</strong>, and in taxation, fair
                 process raised acceptance of personally disadvantageous
                 systemic changes.
               `),
@@ -508,15 +513,15 @@ export default spineData({
           where: 'Ireland', when: '2016-2018',
           authority: 'Advisory, coupled by design to a referendum',
           outcome: paragraph(`
-            99 members deliberated over five sessions; the 2018 referendum
-            repealed the amendment with 66% in favor on 64% turnout, tracking the
-            assembly's vote, and the government adopted the assembly's suggested
-            constitutional wording over the parliamentary committee's. Coding of
-            3,981 speech acts found assembly members showed a deeper cognitively
-            complex grasp of the subject than parliamentarians, and experts spoke
-            with higher complexity to citizens than to the committee. A
-            policy-adoption outcome with no counterfactual for the assembly's
-            contribution.
+            The Irish government convened 99 randomly selected members, who deliberated
+            over five sessions. The 2018 referendum repealed the amendment with 66% in
+            favor on 64% turnout, tracking the assembly's vote, and the government
+            adopted the assembly's suggested constitutional wording over the
+            parliamentary committee's. Coding of 3,981 speech acts found assembly
+            members showed a deeper cognitively complex grasp of the subject than
+            parliamentarians, and experts spoke with higher complexity to citizens than
+            to the committee. A policy-adoption outcome with no counterfactual for the
+            assembly's contribution.
           `),
           strength: 'moderate',
           sources: [
@@ -529,24 +534,26 @@ export default spineData({
           where: 'France', when: '2019-2021',
           authority: 'Quasi-binding presidential promise, eroded',
           outcome: paragraph(`
-            20% of the 149 recommendations implemented, 51% in modified form,
-            roughly 29% dropped; members rated government follow-through 3.3 out
-            of 10. The government was selective, prioritizing recommendations
-            based on incentives rather than regulation, and was more responsive
-            to more detailed recommendations. The measured case of a binding
-            promise decaying under pressure.
+            France’s president promised to implement nearly all of the citizen
+            convention’s 149 recommendations; in the end 20% were implemented,
+            51% in modified form, and roughly 29% were dropped, and members rated
+            government follow-through 3.3 out of 10. The government was
+            selective, favoring incentive-based over regulatory recommendations
+            and responding more to detailed ones. It is the measured case of a
+            binding promise decaying under pressure.
           `),
           strength: 'strong',
           sources: [source('KNOCA briefing', 'https://www.knoca.eu/briefings/policy-impact-of-the-french-citizens-convention-for-the-climate-untangling-the-fate-of-the-citizens-recommendations')]
         }),
         comparable({
-          name: 'Michigan sortition panel',
+          name: 'Michigan Sortition Panel',
           where: 'Michigan', when: '11/2020',
           authority: 'Advisory research exercise',
           outcome: paragraph(`
-            Sortition proved feasible mid-pandemic; the panel's 12
-            recommendations had no documented effect, and it convened after the
-            fall decision window.
+            Researchers convened a randomly selected panel of Michigan residents on
+            pandemic policy, proving sortition feasible mid-pandemic; the panel's 12
+            recommendations had no documented effect, and it convened after the fall
+            decision window.
           `),
           strength: 'weak',
           sources: [source('CMU News', 'https://www.cmu.edu/news/stories/archives/2021/august/citizens-assembly-algorithm.html')]
@@ -556,8 +563,8 @@ export default spineData({
     }),
 
     spineProposal({
-      name: 'Bring the right experts together with the public',
-      method: 'Minipublic with mapped expertise',
+      name: 'Bring experts and the public together on safer reopening',
+      method: 'Minipublic with Mapped Expertise',
       anchor: 'physical presence in school',
       where: 'District or county level, in the large urban districts that chose remote-only fall starts',
       when: paragraph(`
@@ -591,9 +598,11 @@ export default spineData({
               finding: paragraph(`
                 The one measured experts-with-public result: in the Irish
                 assembly, coding of 3,981 speech acts found experts communicated
-                with higher cognitive complexity to a citizen assembly than to a
-                parliamentary committee, a measured interaction between forum
-                design and expert behavior. A process measure, analogical to
+                with <strong>higher cognitive complexity</strong> to a citizen
+                assembly than to a parliamentary committee, and that assembly
+                members “demonstrate a deeper cognitively complex grasp of the
+                subject matter” — a measured interaction between forum design and
+                expert behavior. A process measure, analogical to
                 reopening decisions.
               `),
               grade: 'weak',
@@ -625,8 +634,11 @@ export default spineData({
           evidence: [
             evidence({
               finding: paragraph(`
-                Marche region, Italy: retrospective cohort of 205,347 students
-                across more than 10,000 classrooms.
+                Marche region, Italy: in a retrospective cohort of 205,347
+                students across more than 10,000 classrooms, with mechanical
+                ventilation “the relative risk of infection of students decreased
+                at least by 74% compared with a classroom with only natural
+                ventilation”.
               `),
               grade: 'strong',
               quote: 'the relative risk of infection of students decreased at least by 74% compared with a classroom with only natural ventilation',
@@ -637,8 +649,8 @@ export default spineData({
             evidence({
               finding: paragraph(`
                 Israel reopened in May 2020, lifted class-size limits two weeks
-                later, and closed schools by June 3 after 2,026 students and staff
-                tested positive. Mitigation quality, not reopening itself, carried
+                later, and <strong>closed schools by June 3 after 2,026 students and
+                staff tested positive</strong>. Mitigation quality, not the fact of reopening, carried
                 the risk. Sweden's open schools doubled teacher infection risk.
               `),
               grade: 'moderate',
@@ -658,8 +670,8 @@ export default spineData({
               finding: paragraph(`
                 A randomized experiment with 2,150 Brazilian municipalities
                 found mayors update on research findings and that informing
-                them about an effective policy raised adoption by 10 percentage
-                points; in the case itself, test-to-stay evidence (a 1.5
+                them about an effective policy <strong>raised adoption by 10
+                percentage points</strong>; in this case, test-to-stay evidence (a 1.5
                 percent secondary attack rate, up to 8,152 in-person days
                 saved in one district) preceded CDC's December 2021
                 endorsement of the less restrictive option.
@@ -676,8 +688,8 @@ export default spineData({
             evidence({
               finding: paragraph(`
                 Across more than 10,000 districts, reopening decisions did not
-                track risk information. A 40-to-60% Trump-vote shift moved remote
-                probability 17 percentage points while the local case rate had a
+                track risk information. A 40-to-60% Trump-vote shift <strong>moved remote
+                probability 17 percentage points</strong> while the local case rate had a
                 trivial effect.
               `),
               grade: 'strong',
@@ -699,9 +711,11 @@ export default spineData({
           evidence: [
             evidence({
               finding: paragraph(`
-                Sweden's open primary schools: 97,073 students in grades 1-3 with
-                no learning loss; US studies tie remote mode to larger achievement
-                declines and 1.1 points of extra disenrollment.
+                Sweden's open primary schools: <strong>97,073 students in grades
+                1-3 with no learning loss</strong>, and even “students from low
+                socio-economic backgrounds were not especially affected”; US
+                studies tie remote mode to larger achievement declines and 1.1
+                points of extra disenrollment.
               `),
               grade: 'strong',
               quote: 'students from low socio-economic backgrounds were not especially affected',
@@ -715,23 +729,24 @@ export default spineData({
       ],
       comparables: [
         comparable({
-          name: 'Ada Lovelace rapid online deliberation',
+          name: 'Ada Lovelace Rapid Online Deliberation',
           where: 'United Kingdom', when: '05/2020',
           authority: 'Advisory, pre-rollout',
           outcome: paragraph(`
-            28 members with expert input produced four steers on COVID-19
-            technologies within one month, during lockdown. No measured policy
-            outcome.
+            The Ada Lovelace Institute convened 28 members online during lockdown; with
+            expert input they produced four steers on COVID-19 technologies within one
+            month. No measured policy outcome.
           `),
           strength: 'weak',
           sources: [source('Ada Lovelace Institute', 'https://www.adalovelaceinstitute.org/project/rapid-online-deliberation-on-covid-19-technologies/')]
         }),
         comparable({
-          name: 'Texas utility deliberative polls',
+          name: 'Texas Utility Deliberative Polls',
           where: 'Texas', when: '1996-1998',
           authority: 'Advisory to eight utilities',
           outcome: paragraph(`
-            Deliberation with experts surfaced willingness to pay for renewables;
+            Deliberative polls run for eight Texas utilities brought customers
+            and experts together and surfaced willingness to pay for renewables;
             the 1999 law required about 3% renewable supply and Texas became the
             largest US wind generator. Attribution is not causally identified.
           `),
@@ -739,30 +754,31 @@ export default spineData({
           sources: [source('National Civic League', 'https://www.nationalcivicleague.org/ncr-article/deliberative-polling-and-the-rise-of-wind-power-in-texas/')]
         }),
         comparable({
-          name: 'Marche region classroom ventilation program',
+          name: 'Marche Region Classroom Ventilation Program',
           where: 'Italy', when: '2021-2022',
           authority: 'Regional engineering program, no deliberative component',
           outcome: paragraph(`
-            316 mechanically ventilated classrooms; at least 74% relative
-            infection risk reduction. The engineering half of the proposal
-            without the participation half.
+            A regional engineering program mechanically ventilated 316
+            classrooms and cut students’ relative infection risk by at least 74%.
+            It is the engineering half of the proposal without the participation
+            half.
           `),
           strength: 'strong',
           sources: [source('Frontiers in Public Health 2022', 'https://www.frontiersin.org/journals/public-health/articles/10.3389/fpubh.2022.1087087/full')]
         }),
         comparable({
-          name: 'GM Nation public debate',
+          name: 'UK Genetically Modified Crops Public Debate',
           where: 'United Kingdom', when: '2003',
           authority: 'Government commissioned, advisory, no connection to the policy decision',
           outcome: paragraph(`
-            Six regional events cascaded into hundreds of open meetings and
-            roughly 37,000 feedback forms, plus ten recruited narrow-but-deep
-            groups. The final finding was that people are generally uneasy about
-            GM, with little support for early commercialization. The process
-            lacked clear connection to actual government policy decisions, which
-            fostered cynicism about the exercise's genuine purpose; the recruited
-            groups reached measurably different positions from the self-selected
-            meetings.
+            The UK government sponsored a national public debate on genetically
+            modified crops: six regional events cascaded into hundreds of open meetings
+            and roughly 37,000 feedback forms, plus ten recruited narrow-but-deep
+            groups. The final finding was that people are generally uneasy about genetically modified crops,
+            with little support for early commercialization. The process lacked clear
+            connection to actual government policy decisions, which fostered cynicism
+            about the exercise's genuine purpose; the recruited groups reached
+            measurably different positions from the self-selected meetings.
           `),
           strength: 'moderate',
           sources: [source('Open University', 'https://www.open.edu/openlearn/science-maths-technology/achieving-public-dialogue/content-section-4')]
@@ -772,13 +788,13 @@ export default spineData({
     }),
 
     spineProposal({
-      name: 'Let different places decide for themselves',
-      method: 'Confederal decision-making',
+      name: 'Let each district make its own reopening decision',
+      method: 'Confederal Decision-Making',
       anchor: '48 states left reopening modality',
       where: 'State legislatures and governors, at the delegation decision',
       when: paragraph(`
         June to August 2020, when states chose how to delegate the fall
-        decision. Decentralization itself happened: 48 states left modality to
+        decision. Decentralization did happen: 48 states left modality to
         districts. The proposal's distinctive content is decentralization plus a
         structured local resolution process plus organized cross-region outcome
         comparison, neither of which existed then or during the winter 2021-22
@@ -802,8 +818,8 @@ export default spineData({
           evidence: [
             evidence({
               finding: paragraph(`
-                Directly observed: fall 2020 produced 24% fully online, 51%
-                hybrid, 17% in-person. This link happened in the actual world; the
+                Directly observed: fall 2020 produced <strong>24% fully online, 51%
+                hybrid, 17% in-person</strong>. This link happened in the actual world; the
                 proposal cannot claim it as its own contribution.
               `),
               grade: 'strong',
@@ -822,8 +838,8 @@ export default spineData({
             evidence({
               finding: paragraph(`
                 Each half of the link has adjacent support: after Bolivia's
-                1994 decentralization, municipal investment shifted toward
-                objective indicators of local need, and in the America in One
+                1994 decentralization, municipal investment <strong>shifted toward
+                objective indicators of local need</strong>, and in the America in One
                 Room field experiment, structured deliberation produced large
                 depolarizing changes in policy attitudes. No study combines
                 the two in a crisis decision.
@@ -840,8 +856,8 @@ export default spineData({
             evidence({
               finding: paragraph(`
                 This is the link that failed in the observed decentralization.
-                Across 10,000+ districts, decisions tracked partisanship and union
-                strength, not severity; whether adding a deliberative resolution
+                Across 10,000+ districts, decisions <strong>tracked partisanship and union
+                strength, not severity</strong>; whether adding a deliberative resolution
                 step changes this is unstudied.
               `),
               grade: 'strong',
@@ -864,8 +880,8 @@ export default spineData({
             evidence({
               finding: paragraph(`
                 The variation did generate knowledge: the mode-effect studies all
-                exploit cross-district variation. The learning arrived in
-                2021-2023 publications, years after the decisions it could have
+                exploit cross-district variation. The learning <strong>arrived in
+                2021-2023 publications</strong>, years after the decisions it could have
                 informed.
               `),
               grade: 'moderate',
@@ -897,53 +913,57 @@ export default spineData({
               finding: paragraph(`
                 Sweden kept schools through grade 9 open with limited consequences
                 for overall transmission and no learning loss in grades 1-3;
-                Denmark reopened in April 2020 with no case increase.
+                <strong>Denmark reopened in April 2020 with no case
+                increase</strong>.
               `),
               grade: 'moderate',
               quote: 'keeping the former open had limited consequences for the overall transmission of the virus',
-              sources: [source('Vlachos et al. (summary)', 'https://www.sciencedaily.com/releases/2021/02/210212101842.htm')]
+              sources: [source('Vlachos et al.', 'https://www.sciencedaily.com/releases/2021/02/210212101842.htm')]
             })
           ],
           counterEvidence: [
             evidence({
               finding: paragraph(`
-                Open schools doubled teacher infection risk (7th most affected of
+                Open schools <strong>doubled teacher infection risk</strong> (7th
+                most affected of
                 124 occupations) and raised partner risk 30%. Any chain arguing
                 conditions permitted earlier opening has to state whose risk rose.
               `),
               grade: 'moderate',
-              sources: [source('Vlachos et al. (summary)', 'https://www.sciencedaily.com/releases/2021/02/210212101842.htm')]
+              sources: [source('Vlachos et al.', 'https://www.sciencedaily.com/releases/2021/02/210212101842.htm')]
             })
           ]
         })
       ],
       comparables: [
         comparable({
-          name: 'The US fall 2020 delegation itself',
+          name: 'US Fall 2020 Delegation to School Districts',
           where: 'United States', when: '2020',
           authority: '48 states delegated modality to districts',
           outcome: paragraph(`
-            The proposal's nearest real-world trial and its strongest
-            counter-evidence: decisions tracked partisanship and union strength,
-            not severity.
+            48 states delegated the fall 2020 reopening decision to their school
+            districts. This is not an outside analog; it happened in this case,
+            and it is the proposal’s nearest real-world trial and its strongest
+            counter-evidence: district decisions tracked partisanship and union
+            strength, not COVID severity.
           `),
           strength: 'strong',
           sources: [source('Hartney and Finger 2020', 'https://edworkingpapers.com/sites/default/files/ai20-304.pdf')]
         }),
         comparable({
-          name: 'Cross-national decentralization and containment timing',
+          name: 'Cross-National Decentralization and Containment Timing',
           where: '93 countries', when: '2020',
           authority: 'Natural experiment, containment phase',
           outcome: paragraph(`
-            More decentralized countries delayed the start of containment
-            measures. A phase mismatch with reopening; the nearest measured
-            neighbor points the other way for the emergency phase.
+            A study across 93 countries found that more decentralized countries delayed
+            the start of containment measures. A phase mismatch with reopening; the
+            nearest measured neighbor points the other way for the emergency phase.
           `),
           strength: 'moderate',
           sources: [source('Publius 2023', 'https://academic.oup.com/publius/article/54/1/34/7191229')]
         }),
         comparable({
-          name: 'Sweden and Denmark open-school policies',
+          name: 'Sweden and Denmark Open-School Policies',
           where: 'Sweden, Denmark', when: '2020',
           authority: 'National uniform decisions',
           outcome: paragraph(`
@@ -956,10 +976,11 @@ export default spineData({
           sources: [source('Hallin et al. 2022', 'https://pubmed.ncbi.nlm.nih.gov/35677729/')]
         }),
         comparable({
-          name: 'Finnish and Swedish municipal nuclear waste veto',
+          name: 'Finnish and Swedish Municipal Nuclear Waste Veto',
           where: 'Finland and Sweden', when: '1980s-2020s',
           authority: 'Host municipalities held formal veto power, with funded independent review',
           outcome: paragraph(`
+            Host municipalities held a formal veto over repository siting.
             Sweden financed municipal expertise through the Nuclear Waste Fund,
             so Osthammar's review staff were paid by the fund, enabling
             independent assessment rather than industry reliance, and the
@@ -978,8 +999,8 @@ export default spineData({
     }),
 
     spineProposal({
-      name: 'Share local data from the first weeks',
-      method: 'Open data & public communication',
+      name: 'Share local case and school data from the first weeks',
+      method: 'Open Data & Public Communication',
       anchor: '49 states suspended in-person',
       where: 'State health departments jointly with state education agencies',
       when: paragraph(`
@@ -1008,8 +1029,10 @@ export default spineData({
             evidence({
               finding: paragraph(`
                 A small grant-funded team assembled school-level mode data for
-                over 55,000 schools in 30 states, demonstrating feasibility, 18
-                months late.
+                <strong>over 55,000 schools in 30 states</strong>, demonstrating
+                feasibility, 18 months late; until then, as the project put it,
+                “We have federal data on school operations for only the largest
+                districts in the country”.
               `),
               grade: 'moderate',
               quote: 'We have federal data on school operations for only the largest districts in the country',
@@ -1027,13 +1050,16 @@ export default spineData({
           evidence: [
             evidence({
               finding: paragraph(`
-                van der Bles et al. (PNAS 2020): five experiments, 5,780
+                van der Bles et al. (PNAS 2020) ran five experiments with 5,780
                 participants, including a BBC News field experiment on
-                numeric-range uncertainty.
+                numeric-range uncertainty, and found “little to no negative
+                effect on levels of trust in the data itself, those who provided
+                it (e.g. civil servants) or those reporting it (e.g.
+                journalists)”.
               `),
               grade: 'moderate',
               quote: 'little to no negative effect on levels of trust in the data itself, those who provided it (e.g. civil servants) or those reporting it (e.g. journalists)',
-              sources: [source('van der Bles et al. (summary)', 'https://phys.org/news/2020-03-uncertainty-facts-news.html')]
+              sources: [source('van der Bles et al. 2020', 'https://pubmed.ncbi.nlm.nih.gov/32205438/')]
             })
           ]
         }),
@@ -1049,7 +1075,8 @@ export default spineData({
               finding: paragraph(`
                 Information moved preferences at the margin: Biden voters' support
                 for in-person schooling ran 43% under alarming case framing
-                against 60% under pediatric-endorsement framing, a 17-point swing.
+                against 60% under pediatric-endorsement framing, <strong>a 17-point
+                swing</strong>.
               `),
               grade: 'moderate',
               quote: 'a 17-point swing',
@@ -1059,8 +1086,8 @@ export default spineData({
           counterEvidence: [
             evidence({
               finding: paragraph(`
-                Misperception persisted despite ubiquitous public data: only 18%
-                of US adults correctly estimated hospitalization rates, and
+                Misperception persisted despite ubiquitous public data: <strong>only 18% of US adults correctly estimated
+                hospitalization rates</strong>, and
                 partisan risk perception diverged through a period of maximal data
                 availability.
               `),
@@ -1081,7 +1108,8 @@ export default spineData({
               finding: paragraph(`
                 The transparency-to-trust literature supports only a
                 conditional version: a systematic review of 187 studies finds
-                mixed, context-dependent effects of transparency on trust, and
+                <strong>mixed, context-dependent effects of transparency on
+                trust</strong>, and
                 an experiment found transparency raised perceived
                 trustworthiness only for some citizen subgroups.
               `),
@@ -1100,33 +1128,37 @@ export default spineData({
           where: 'Brown University', when: '09/2021',
           authority: 'Private substitution for a missing federal function',
           outcome: paragraph(`
-            School-level mode data for 55,000+ schools in 30 states; enabled the
-            mode-treatment research. No study measures its effect on public
-            trust.
+            A grant-funded university team assembled school-level mode data for
+            55,000+ schools in 30 states, substituting for a missing federal
+            function; the data enabled the mode-treatment research. No study
+            measures its effect on public trust.
           `),
           strength: 'moderate',
           sources: [source('Brown University', 'https://www.brown.edu/news/2021-09-15/hub')]
         }),
         comparable({
-          name: 'BBC News uncertainty field experiment',
+          name: 'BBC News Uncertainty Field Experiment',
           where: 'United Kingdom', when: '2020',
           authority: 'Field experiment inside live news',
           outcome: paragraph(`
-            Communicating numeric uncertainty did not reduce trust in the data or
-            its source. A direct measured outcome for the communication design
-            choice.
+            A field experiment inside live BBC News coverage found that communicating
+            numeric uncertainty did not reduce trust in the data or its source.
+            “These results could help reassure all communicators of facts and
+            science that they can be more open and transparent about the limits
+            of human knowledge.”
           `),
           strength: 'strong',
-          sources: [source('van der Bles et al. (summary)', 'https://phys.org/news/2020-03-uncertainty-facts-news.html')]
+          sources: [source('van der Bles et al. 2020', 'https://pubmed.ncbi.nlm.nih.gov/32205438/')]
         }),
         comparable({
-          name: 'Taiwan mask inventory API and civic maps',
+          name: 'Taiwan Mask Inventory API and Civic Maps',
           where: 'Taiwan', when: '02/2020',
           authority: 'Government open API plus civic tech',
           outcome: paragraph(`
-            A government ran radical operational transparency at national scale
-            within days; one map app took nearly 1 million inquiries on day one.
-            Trust and anxiety effects are claimed, not measured.
+            Taiwan's government published a live mask-inventory API within days of the
+            outbreak, and civic technologists built maps on it; one map app took nearly
+            1 million inquiries on day one. Trust and anxiety effects are claimed, not
+            measured.
           `),
           strength: 'weak',
           sources: [source('Sidewalk Labs 2020', 'https://medium.com/sidewalk-talk/how-open-data-and-civic-participation-helped-taiwan-slow-covid-b1449bab5841')]
@@ -1136,8 +1168,8 @@ export default spineData({
     }),
 
     spineProposal({
-      name: 'Give the public a real say before the decision',
-      method: 'Stakeholder participation, standing binding channel',
+      name: 'Give parents a real say before closure decisions',
+      method: 'Stakeholder Participation, Standing Binding Channel',
       anchor: 'safety strikes',
       where: 'Large urban districts with the sharpest bargaining asymmetry; Chicago already had the statutory infrastructure',
       when: paragraph(`
@@ -1174,8 +1206,8 @@ export default spineData({
               finding: paragraph(`
                 Chicago Local School Councils: elected parent-majority councils at
                 500+ schools hire principals on performance contracts, set
-                improvement priorities, and determine budgets; research found most
-                are viable governance organizations, with 10-15% showing serious
+                improvement priorities, and determine budgets; research found <strong>most
+                are viable governance organizations</strong>, with 10-15% showing serious
                 shortcomings.
               `),
               grade: 'moderate',
@@ -1193,8 +1225,8 @@ export default spineData({
           evidence: [
             evidence({
               finding: paragraph(`
-                NYC participatory budgeting raised subsequent voting probability
-                8.4 points, most for underrepresented groups; Brazilian
+                NYC participatory budgeting <strong>raised subsequent voting probability
+                8.4 points</strong>, most for underrepresented groups; Brazilian
                 participatory budgeting shifted spending to sanitation and health
                 with a reduction in infant mortality, across two independent
                 research teams.
@@ -1213,8 +1245,8 @@ export default spineData({
                 A preregistered experiment on civilian police review boards
                 (N=2,503) found no significant evidence that a standing oversight
                 body without binding authority raises perceived legitimacy, and
-                perceived legitimacy fell when the citizen body visibly disagreed
-                with the institution.
+                <strong>perceived legitimacy fell when the citizen body visibly
+                disagreed</strong> with the institution.
               `),
               grade: 'strong',
               quote: 'no statistically significant evidence that the presence of a CRB increases aggregate perceptions of procedural legitimacy',
@@ -1233,8 +1265,8 @@ export default spineData({
               finding: paragraph(`
                 The clearest causal case runs in reverse: the 1972 Tuskegee
                 disclosure raised medical mistrust among older Black men and
-                cut physician visits, with life expectancy at 45 falling by up
-                to 1.5 years. In schools, the Chicago trust studies found
+                cut physician visits, with <strong>life expectancy at 45 falling by up
+                to 1.5 years</strong>. In schools, the Chicago trust studies found
                 low-trust schools saw virtually no improvement, and pandemic
                 exit tracked the district's instructional decision.
               `),
@@ -1249,7 +1281,8 @@ export default spineData({
           counterEvidence: [
             evidence({
               finding: paragraph(`
-                Absence is elevated even for cohorts born after closures, which
+                Absence is <strong>elevated even for cohorts born after
+                closures</strong>, which
                 suggests a diffuse norm shift a district-level trust channel may
                 not reach.
               `),
@@ -1271,20 +1304,22 @@ export default spineData({
               finding: paragraph(`
                 After the University of Michigan health system began proactive
                 disclosure with offers of resolution, new claims and lawsuits
-                per month fell and legal defense spending dropped 61 percent, a
+                per month fell and <strong>legal defense spending dropped 61
+                percent</strong>, a
                 measured case of upstream engagement displacing litigation, in
                 medicine rather than school governance.
               `),
               grade: 'moderate',
               quote: 'a 61 percent decrease in spending at the UMHS on legal defense costs',
-              sources: [source('Kachalia et al. 2010 (summary)', 'https://www.sciencedaily.com/releases/2010/08/100816204210.htm')]
+              sources: [source('Kachalia et al. 2010', 'https://www.sciencedaily.com/releases/2010/08/100816204210.htm')]
             })
           ],
           counterEvidence: [
             evidence({
               finding: paragraph(`
                 The adversarial surge is documented (84 recall efforts, the
-                litigation wave, the participation shift from 6% to 49%), but no
+                litigation wave, <strong>the participation shift from 6% to
+                49%</strong>), but no
                 study tests whether districts with stronger upstream channels saw
                 less of it.
               `),
@@ -1300,21 +1335,23 @@ export default spineData({
           where: 'Chicago', when: '1988-present',
           authority: 'Binding: hire principals, set budgets, parent majority',
           outcome: paragraph(`
-            The closest US analog to a standing binding parent channel, viable at
-            500+ schools. Its pandemic-era role is unevaluated.
+            Elected parent-majority councils hire principals and set budgets at
+            500+ Chicago schools, and most proved viable — the closest US analog
+            to a standing binding parent channel. Their pandemic-era role is
+            unevaluated.
           `),
           strength: 'moderate',
           sources: [source('ERIC ED476943', 'https://eric.ed.gov/?id=ED476943')]
         }),
         comparable({
-          name: 'Brazilian municipal participatory budgeting',
+          name: 'Brazilian Municipal Participatory Budgeting',
           where: 'Brazil', when: '1990-2004',
           authority: 'Binding in practice, annual, city scale',
           outcome: paragraph(`
-            Spending shifted to sanitation and health with measured infant
-            mortality declines, replicated by two independent teams. The
-            strongest measured welfare outcome for any standing binding channel;
-            furthest domain from schools.
+            Municipalities that adopted participatory budgeting shifted spending toward
+            sanitation and health, with measured infant mortality declines replicated
+            by two independent teams. The strongest measured welfare outcome for any
+            standing binding channel; furthest domain from schools.
           `),
           strength: 'strong',
           sources: [
@@ -1323,14 +1360,15 @@ export default spineData({
           ]
         }),
         comparable({
-          name: 'Civilian police review boards',
+          name: 'Civilian Police Review Boards',
           where: 'United States', when: '1970s-present',
           authority: 'Standing, mostly without disciplinary authority',
           outcome: paragraph(`
-            The field's most important negative comparable: an experimental null
-            on legitimacy, and a measured backfire when the citizen body
-            disagreed with the institution. Whether it applies turns on the
-            binding-elements clause.
+            The field's most important negative comparable: standing citizen
+            boards that mostly lack disciplinary authority showed an
+            experimental null on legitimacy and a measured backfire when the
+            citizen body disagreed with the institution. Whether it applies
+            turns on the binding-elements clause.
           `),
           strength: 'strong',
           sources: [source('PNAS Nexus 2025', 'https://academic.oup.com/pnasnexus/article/4/9/pgaf267/8238990')]
@@ -1352,7 +1390,7 @@ export default spineData({
           sources: [source('Knobloch, Barthel, and Gastil 2020', 'https://journals.sagepub.com/doi/full/10.1177/0032321719852254')]
         }),
         comparable({
-          name: 'Ostbelgien permanent Citizens Council',
+          name: 'Ostbelgien Permanent Citizens Council',
           where: 'Belgium', when: '2019-present',
           authority: 'Created by decree; agenda-setting power and mandatory institutional follow-up',
           outcome: paragraph(`
