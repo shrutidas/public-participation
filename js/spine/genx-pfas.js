@@ -155,6 +155,11 @@ export default spineData({
   impacts: [
     impact({
       name: 'Exposure through drinking water',
+      headline: paragraph(`
+        Roughly 200,000 water customers, with up to 300,000 people downstream,
+        drank water carrying GenX at a mean of 631 ng/L over a discharge window
+        running from 1980 to 2017.
+      `),
       measures: paragraph(`
         Roughly 200,000 CFPUA customers, with 250,000 to 300,000 people
         downstream, drank water with mean GenX concentrations of 631 ng/L and up
@@ -178,6 +183,11 @@ export default spineData({
     }),
     impact({
       name: 'PFAS measured in the blood of residents',
+      headline: paragraph(`
+        Fluoroethers made up about a quarter of summed PFAS in the blood of tested
+        Wilmington residents; median levels fell 34 to 65 percent within six
+        months of discharge controls.
+      `),
       measures: paragraph(`
         In 344 Wilmington residents, fluoroethers contributed about a quarter of
         summed serum PFAS; four legacy PFAS sat above national levels in 97
@@ -210,6 +220,11 @@ export default spineData({
     }),
     impact({
       name: 'Filtration costs paid by water customers',
+      headline: paragraph(`
+        Water customers paid for the cleanup: $82.8 million for carbon filtration
+        in Wilmington funded by an 8 percent rate increase, and $158.7 million
+        for reverse osmosis in Brunswick County.
+      `),
       measures: paragraph(`
         CFPUA built granular activated carbon filtration for $43 million, $82.8
         million with maintenance, funded by an 8 percent customer rate increase;
@@ -235,6 +250,11 @@ export default spineData({
     }),
     impact({
       name: 'Discharge cut 99 percent, a $12 million penalty',
+      headline: paragraph(`
+        The 2019 Consent Order cut air emissions 99 percent by the end of 2019,
+        imposed a $12 million penalty, and delivered alternative drinking water
+        to affected well owners.
+      `),
       measures: paragraph(`
         The 2019 Consent Order produced a 99 percent air emission reduction by
         the end of 2019 through a thermal oxidizer operating at 99.99 percent
@@ -259,6 +279,11 @@ export default spineData({
     }),
     impact({
       name: 'Statewide rule adoption',
+      headline: paragraph(`
+        Nine years of the case's most extensive participation produced
+        remediation at one plant but no enforceable statewide standard, and the
+        federal GenX limit was proposed for rescission in May 2026.
+      `),
       measures: paragraph(`
         Nine years of the case's most extensive participation produced
         remediation at one plant and no enforceable North Carolina surface water

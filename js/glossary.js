@@ -33,7 +33,7 @@ export const HOW_TO = [
   },
   {
     title: 'Orange: the proposed interventions',
-    desc: 'Orange chips are the proposals from the 6/8 design work, anchored at the point on the timeline where they would intervene. Click one to expand its causal chain, one at a time: intervention to mechanism to measured impact, with an evidence flag under every link and counter-evidence kept at full strength.'
+    desc: 'Orange chips are the proposals from the 6/8 design work, anchored at the point on the timeline where they would intervene. Each proposal’s causal chain is drawn below the event where it would intervene: intervention to mechanism to measured impact, with an evidence flag under every link and counter-evidence kept at full strength.'
   },
   {
     title: 'Cite a specific view',
@@ -51,7 +51,7 @@ export const GLOSSARY = [
       { swatch: 'sp-ent', label: 'Timeline Event', desc: 'One dated event on the central spine, in chronological order. Its badge shows the category; click it for the full record and sources.' },
       { swatch: 'sp-mech', label: 'Existing Mechanism', desc: 'An oversight or participation mechanism that already existed when the case ran. Connected to the event where it should have fired.' },
       { swatch: 'sp-imp', label: 'Measured Impact', desc: 'An endpoint the record actually measures. Arrows point from the specific events where the causal claim holds; each arrow carries a strength flag.' },
-      { swatch: 'sp-prop', label: 'Proposed Intervention', desc: 'A proposal from the 6/8 design work, anchored where it would intervene. Click to expand its causal chain, one at a time.' },
+      { swatch: 'sp-prop', label: 'Proposed Intervention', desc: 'A proposal from the 6/8 design work, anchored where it would intervene. Its causal chain is drawn below; click for the full record.' },
       { swatch: 'sp-flag', label: 'Evidence Flag', desc: 'The strength grade for one causal claim. A dot on the flag means counter-evidence exists; click the flag to read both sides.' }
     ]
   },

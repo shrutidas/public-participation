@@ -191,7 +191,7 @@ body {
   font-size: 0.6875rem;
   font-weight: 700;
   padding: 3px 8px;
-  border-radius: 12px;
+  border-radius: 8px;
   letter-spacing: 0.03em;
   margin-bottom: 6px;
 }
@@ -335,6 +335,11 @@ body[data-view="chain"] #ctrl .fl,
 }
 .chb:hover { border-color: #1c2333; }
 .chb.on { background: #1c2333; color: #fff; border-color: #1c2333; }
+
+#ch-sel { flex-shrink: 0; padding: 10px 16px 0; }
+#ch-sel:empty { display: none; }
+.ov-toggle.on { border-color: #1c2333; color: #1c2333; background: #f3f1ec; }
+.sp-about-panel { margin-top: 8px; max-height: 230px; overflow-y: auto; }
 
 #ch-mapwrap { position: relative; flex: 1 1 auto; min-height: 0; display: flex; }
 #ch-map { flex: 1 1 auto; overflow: auto; min-height: 0; cursor: grab; }
@@ -534,6 +539,11 @@ body[data-view="chain"] #ctrl .fl,
 }
 .cd-back:hover { color: #0a3e75; text-decoration: underline; }
 
+.cd .cd-claim { margin-bottom: 14px; }
+.cd .eact { margin: 14px 0 12px; }
+.cd > .ev-srcs { margin-top: 14px; }
+.cd-about { border-top: 1px solid #e3ddd2; margin-top: 26px; padding-top: 18px; }
+
 .cd-kick {
   font-size: 0.6875rem; font-weight: 700;
   letter-spacing: 0.08em; color: #8a8377; margin-bottom: 10px;
@@ -602,6 +612,16 @@ body[data-view="chain"] #ctrl .fl,
   padding: 9px 0; border-bottom: 1px solid #efeae0; align-items: start;
 }
 .ev:last-child { border-bottom: none; }
+
+/* In the detail pane, evidence sits on red cards like on the map: solid for
+   evidence, dashed for counter-evidence. */
+.ln-sec-for .ev, .ln-sec-counter .ev {
+  background: #fdf7f6; border: 1.5px solid #b3261e; border-radius: 8px;
+  padding: 10px 12px; margin-bottom: 8px;
+}
+.ln-sec-for .ev:last-child { border-bottom: 1.5px solid #b3261e; }
+.ln-sec-counter .ev { background: #fdf5f5; border-style: dashed; }
+.ln-sec-counter .ev:last-child { border-bottom: 1.5px dashed #b3261e; }
 
 .ev-grade {
   font-size: 0.5625rem; padding: 2px 6px; border-radius: 10px; font-weight: 700; text-align: center; letter-spacing: 0.03em; margin-top: 2px;
@@ -1080,6 +1100,7 @@ body[data-view="chain"] #ctrl .fl,
 
 .rt:hover { color: #1a1a1a; }
 .rt.on { color: #16202f; border-bottom-color: #4a9fd5; }
+.rt-label { font-size: 0.75rem; font-weight: 700; padding: 7px 14px 7px 0; color: #16202f; border-bottom: 2.5px solid #4a9fd5; }
 
 .rt-pane { display: none; flex: 1; min-height: 0; }
 .rt-pane.show { display: block; }
@@ -1302,10 +1323,10 @@ body[data-view="chain"] #ctrl .fl,
 
 .sp-edge { fill: none; stroke-width: 2; }
 .sp-edge-spine { stroke: #2b6cb0; stroke-width: 2.5; }
-.sp-edge-mech { stroke: #2f7d3f; opacity: .55; }
-.sp-edge-mech.on { opacity: 1; stroke-width: 2.5; }
-.sp-edge-imp { stroke: #1e6b3c; opacity: .55; }
-.sp-edge-imp.on { opacity: 1; stroke-width: 2.5; }
+.sp-edge-mech { stroke: rgba(107,100,87,.45); }
+.sp-edge-mech.on { stroke: #6b6457; stroke-width: 2.5; }
+.sp-edge-imp { stroke: rgba(30,107,60,.5); }
+.sp-edge-imp.on { stroke: #1e6b3c; stroke-width: 2.5; }
 .sp-edge-chain { stroke: #c05621; stroke-width: 2.25; }
 .sp-edge-term { stroke-dasharray: none; }
 
@@ -1323,22 +1344,18 @@ body[data-view="chain"] #ctrl .fl,
 
 .sp-mech {
   position: absolute; box-sizing: border-box; cursor: pointer;
-  background: #ecf5ec; border: 1.5px solid #2f7d3f; border-radius: 8px;
-  padding: 8px 10px; font-size: .72rem; line-height: 1.3; color: #17381f;
+  background: #fff; border: 1.5px solid #8a8377; border-radius: 8px;
+  padding: 8px 10px; font-size: .72rem; line-height: 1.3; color: #33302a;
 }
-.sp-mech:hover { box-shadow: 0 2px 8px rgba(47,125,63,.25); }
-.sp-mech.sel { box-shadow: 0 0 0 3px rgba(47,125,63,.35); }
+.sp-mech:hover { box-shadow: 0 2px 8px rgba(107,100,87,.3); }
+.sp-mech.sel { box-shadow: 0 0 0 3px rgba(107,100,87,.4); border-color: #57524a; }
 .sp-mech-name { font-weight: 650; margin-bottom: 4px; }
 .sp-failtag {
   display: inline-block; font-size: .62rem; font-weight: 700; letter-spacing: .02em;
   border-radius: 999px; padding: 2px 8px; border: 1px solid transparent;
 }
-.ft-did-not-know { background: #f3e8e8; color: #7a2e22; border-color: #caa49b; }
-.ft-knew-no-act { background: #f6ecdc; color: #7a4c10; border-color: #d3b183; }
-.ft-acted-no-effect { background: #efeae2; color: #5c5142; border-color: #c4b8a4; }
-.ft-no-mechanism { background: #ece9f4; color: #453a6b; border-color: #b0a6d4; }
-.ft-partial { background: #e6eef7; color: #274d78; border-color: #9db8d6; }
-.ft-worked { background: #e2f0e4; color: #1e5c2c; border-color: #93c39e; }
+/* Failure tags are uniformly gray: the mode reads as text, not a color code. */
+.sp-failtag { background: #f1efe9; color: #57524a; border-color: #c9c3b6; }
 
 .sp-imp {
   position: absolute; box-sizing: border-box; cursor: pointer;
@@ -1349,6 +1366,7 @@ body[data-view="chain"] #ctrl .fl,
 .sp-imp.sel { box-shadow: 0 0 0 3px rgba(30,107,60,.35); }
 .sp-imp-kick { font-size: .6rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: #1e6b3c; margin-bottom: 3px; }
 .sp-imp-name { font-weight: 650; line-height: 1.3; }
+.sp-imp-headline { font-size: .66rem; font-weight: 400; line-height: 1.4; color: #2c4a35; margin-top: 4px; }
 
 .sp-propchip {
   position: absolute; box-sizing: border-box; cursor: pointer; text-align: left;
@@ -1413,10 +1431,11 @@ body[data-view="chain"] #ctrl .fl,
 
 /* Key swatches for the spine legend */
 .k-sw-sp-ent { background: #eef4fb; border: 1.5px solid #2b6cb0; }
-.k-sw-sp-mech { background: #ecf5ec; border: 1.5px solid #2f7d3f; }
+.k-sw-sp-mech { background: #fff; border: 1.5px solid #8a8377; }
 .k-sw-sp-imp { background: #e4efe7; border: 2px solid #1e6b3c; }
 .k-sw-sp-prop { background: #fdf1e5; border: 1.5px dashed #c05621; }
 .k-sw-sp-flag { background: #fff; border: 1.5px solid #b3261e; }
+.k-sw-sp-ctr { background: #fdf5f5; border: 1.5px dashed #b3261e; }
 
 /* Spine round 2: full-text cards, aligned headers, evidence on the graph */
 .sp-ent { font-size: .74rem; }

@@ -22,7 +22,6 @@ const state = {
   selKind: null,       // null | 'entry' | 'mech' | 'impact' | 'prop' | 'proplink'
   selIdx: null,
   linkIdx: null,
-  rightTab: 'detail',  // spine view's right pane: 'detail' | 'timeline'
   zoom: 1,             // spine map zoom level
   fitKey: null,        // which case the current zoom was auto-fitted to
   builtKey: null       // which case+expansion the map DOM is currently built for
@@ -38,12 +37,9 @@ const curSpine = () => SPINES[curCase().slug] || null;
 const defaultView = c => (SPINES[c.slug] ? 'spine' : 'timeline');
 const curSel = () => ({ kind: state.selKind, idx: state.selIdx, linkIdx: state.linkIdx });
 
-/* The map DOM is rebuilt only when the case changes or a different proposal
-   chain is expanded; every other selection updates highlights in place. */
-const builtKey = () => {
-  const open = (state.selKind === 'prop' || state.selKind === 'proplink') ? state.selIdx : 'none';
-  return `${curCase().slug}::${open}`;
-};
+/* Every proposal chain is always open, so the map DOM is rebuilt only when
+   the case changes; every selection updates highlights in place. */
+const builtKey = () => `${curCase().slug}::all`;
 
 function vis() {
   return curCase().entries.filter(e => filt[e.cat]);
@@ -256,74 +252,26 @@ function renderTimeline() {
     curCase().entries.map(e => entryHtml(e)).join('');
 }
 
-/* -------------------------- spine view: right pane ------------------------ */
+/* The right pane always shows the detail; the full timeline opens through
+   the Expand Timeline button. */
 
-/** Which entry indices the current selection points at, for the split timeline. */
-function selectedEntryIndices() {
-  const c = curCase();
-  const sp = curSpine();
-  if (!sp) return [];
-  if (state.selKind === 'entry') return [state.selIdx];
-  if (state.selKind === 'mech') {
-    return sp.mechanisms[state.selIdx].anchors
-      .map(a => anchorIndex(c.entries, a)).filter(i => i !== -1);
-  }
-  if (state.selKind === 'impact') {
-    return sp.impacts[state.selIdx].from
-      .map(f => anchorIndex(c.entries, f.anchor)).filter(i => i !== -1);
-  }
-  if (state.selKind === 'prop' || state.selKind === 'proplink') {
-    const i = anchorIndex(c.entries, sp.proposals[state.selIdx].anchor);
-    return i === -1 ? [] : [i];
-  }
-  return [];
-}
+/* About This Case: a toggle bar under the top bar, over the map. */
+let aboutOpen = false;
 
-function renderSpineTimeline() {
-  const host = el('ch-timeline');
-  const c = curCase();
-  const marked = new Set(selectedEntryIndices());
-
-  let note;
-  let body;
-  if (marked.size) {
-    body = c.entries.map((e, i) =>
-      entryHtml(e, marked.has(i) ? ' ent-match' : ' ent-dim')).join('');
-    note = `<div class="ct-note"><strong>${marked.size}</strong> timeline
-      ${marked.size === 1 ? 'entry' : 'entries'} behind the current selection; the rest are dimmed.</div>`;
-  } else {
-    body = c.entries.map(e => entryHtml(e)).join('');
-    note = `<div class="ct-note">The full chronology. Click anything on the map to highlight the entries behind it.</div>`;
-  }
-
-  host.innerHTML = note + `<div class="ct-list">${body}</div>`;
-
-  const first = host.querySelector('.ent-match');
-  if (first) {
-    host.querySelector('.ct-list').scrollTop = Math.max(0, first.offsetTop - 80);
-  } else {
-    const list = host.querySelector('.ct-list');
-    if (list) list.scrollTop = 0;
-  }
-}
-
-function setRightTab(tab) {
-  state.rightTab = tab;
-  document.querySelectorAll('#ch-right-tabs .rt').forEach(b =>
-    b.classList.toggle('on', b.dataset.rt === tab));
-  el('ch-detail').classList.toggle('show', tab === 'detail');
-  el('ch-timeline').classList.toggle('show', tab === 'timeline');
-  if (tab === 'timeline') renderSpineTimeline();
+function renderAboutBar() {
+  el('ch-sel').innerHTML = `
+    <button id="sp-about-btn" class="ov-toggle${aboutOpen ? ' on' : ''}" aria-expanded="${aboutOpen}">About This Case</button>
+    <div id="sp-about-panel" class="tl-ov-inner sp-about-panel"${aboutOpen ? '' : ' hidden'}>${curCase().overview}</div>`;
 }
 
 function renderSpine() {
   const c = curCase();
   const sp = curSpine();
   const map = el('ch-map');
+  renderAboutBar();
   if (!sp) {
     map.innerHTML = `<div class="empty-msg">No spine has been mapped for this case yet.</div>`;
     el('ch-detail').innerHTML = '';
-    el('ch-timeline').innerHTML = '';
     return;
   }
 
@@ -350,7 +298,6 @@ function renderSpine() {
   }
 
   renderSpineDetail(el('ch-detail'), c, sp, curSel());
-  if (state.rightTab === 'timeline') renderSpineTimeline();
 }
 
 /* ------------------------------- zoom ------------------------------------ */
@@ -443,7 +390,6 @@ function onHashChange() {
 }
 
 function select(kind, idx, linkIdx = null) {
-  if (state.rightTab !== 'detail') setRightTab('detail');
   navigate({ selKind: kind, selIdx: idx, linkIdx });
 }
 
@@ -540,9 +486,10 @@ function bindEvents() {
     else zoomAt(cx, cy, b.dataset.zoom === 'in' ? 1 + ZOOM.step : 1 / (1 + ZOOM.step));
   });
 
-  el('ch-right-tabs').addEventListener('click', e => {
-    const b = e.target.closest('[data-rt]');
-    if (b) setRightTab(b.dataset.rt);
+  el('ch-sel').addEventListener('click', e => {
+    if (!e.target.closest('#sp-about-btn')) return;
+    aboutOpen = !aboutOpen;
+    renderAboutBar();
   });
 
   document.addEventListener('click', e => {
@@ -623,7 +570,6 @@ function bindEvents() {
     const n = curCase().entries.length;
     const cur = state.selKind === 'entry' ? state.selIdx : (dir > 0 ? -1 : n);
     const next = Math.min(Math.max(cur + dir, 0), n - 1);
-    if (state.rightTab !== 'detail') setRightTab('detail');
     navigate({ selKind: 'entry', selIdx: next, linkIdx: null });
     // Keep the selected event in view without disturbing zoom.
     const box = el('ch-map').querySelector(`.sp-ent[data-e="${next}"]`);

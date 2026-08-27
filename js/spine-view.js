@@ -12,9 +12,9 @@ import { FAILURE_LABEL } from './cases/helpers.js';
  * impacts sit on the right (dark green), with arrows from the specific events
  * where the causal claim holds, each arrow carrying a strength flag. Proposed
  * interventions (orange) anchor at the point on the spine where they would
- * intervene; selecting one expands its causal chain to the right, one at a
- * time, with an evidence flag under every link. Red flags carry the evidence;
- * a dot on a flag means counter-evidence exists.
+ * intervene; every proposal's causal chain renders below its anchor, always
+ * open, one row per proposal, with the evidence on red cards under every
+ * link. A dot on a grade pill means counter-evidence exists.
  * -------------------------------------------------------------------------- */
 
 const L = {
@@ -51,7 +51,6 @@ function entryBoxHtml(e, i) {
  */
 export function renderSpineMap(el, caseObj, spine, sel = {}) {
   const entries = caseObj.entries;
-  const openProp = sel.kind === 'prop' || sel.kind === 'proplink' ? sel.idx : null;
 
   el.innerHTML = `<div class="sp"><svg class="sp-edges"></svg></div>`;
   const stage = el.querySelector('.sp');
@@ -77,8 +76,9 @@ export function renderSpineMap(el, caseObj, spine, sel = {}) {
     const i = anchorIndex(entries, p.anchor);
     if (i === -1) return;
     const el = document.createElement('button');
-    el.className = `sp-propbox${openProp === pi ? ' on' : ''}`;
+    el.className = 'sp-propbox';
     el.dataset.pr = pi;
+    el.dataset.ae = i;
     el.title = p.method;
     el.innerHTML = `<span class="sp-propbox-kick">Proposed intervention</span>${p.name}`;
     el.style.width = `${PROP_W}px`;
@@ -87,14 +87,15 @@ export function renderSpineMap(el, caseObj, spine, sel = {}) {
     (propAt.get(i) || propAt.set(i, []).get(i)).push({ p, pi, el, h: el.offsetHeight });
   });
 
-  // Expansion height for the open proposal's chain: the tallest link's full
-  // evidence stack (every evidence and counter-evidence card, uncollapsed).
-  let EXP_H = 0;
-  if (openProp != null && spine.proposals[openProp]) {
-    const maxCards = Math.max(...spine.proposals[openProp].links.map(lk =>
+  // Reserved height for one proposal's always-open chain row: the tallest
+  // link's full evidence stack (every evidence and counter-evidence card,
+  // uncollapsed), plus arrows and the intended-effect label.
+  const CHAIN_ROW_GAP = 48;
+  const expH = p => {
+    const maxCards = Math.max(...p.links.map(lk =>
       Math.max((lk.evidence ?? []).length + (lk.counterEvidence ?? []).length, 1)));
-    EXP_H = 200 + maxCards * 56;
-  }
+    return 200 + maxCards * 56;
+  };
 
   // Pass 2: vertical layout.
   const yTop = [];
@@ -104,8 +105,8 @@ export function renderSpineMap(el, caseObj, spine, sel = {}) {
     const h = entEls[i].offsetHeight;
     const list = propAt.get(i) || [];
     const stackH = list.length ? list.reduce((a, x) => a + x.h + 8, 0) + 6 : 0;
-    let gap = L.entryGap + Math.max(0, stackH - h);
-    if (openProp != null && propAt.get(i)?.some(x => x.pi === openProp)) gap += EXP_H;
+    const chainsH = list.reduce((a, x) => a + expH(x.p) + CHAIN_ROW_GAP, 0);
+    const gap = L.entryGap + Math.max(0, stackH - h) + chainsH;
     y += h + gap;
   });
   const totalH = y - L.entryGap + L.padBottom;
@@ -122,16 +123,20 @@ export function renderSpineMap(el, caseObj, spine, sel = {}) {
   });
 
   let paths = '';
-  const defs = `<defs>
-    <marker id="sp-arw" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5"
-      orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="context-stroke"></path></marker>
-  </defs>`;
+  const arw = (id, color) => `<marker id="sp-arw-${id}" viewBox="0 0 10 10" refX="9" refY="5"
+      markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 L 2.8 5 z" fill="${color}"></path></marker>`;
+  // Curved connectors end in a node dot instead of an arrowhead: a dot needs
+  // no orientation, so a steep or curved approach never looks bent.
+  const dot = (id, color) => `<marker id="sp-dot-${id}" viewBox="0 0 10 10" refX="5" refY="5"
+      markerWidth="4.6" markerHeight="4.6"><circle cx="5" cy="5" r="4.4" fill="${color}"></circle></marker>`;
+  const defs = `<defs>${arw('spine', '#2b6cb0')}${arw('chain', '#c05621')}${dot('mech', '#6b6457')}${dot('imp', '#1e6b3c')}${dot('chain', '#c05621')}</defs>`;
 
   // Spine arrows between consecutive entries.
   const cx = L.spineX + L.spineW / 2;
   for (let i = 0; i < entries.length - 1; i++) {
     const a = geo(i), b = geo(i + 1);
-    paths += `<path class="sp-edge sp-edge-spine" marker-end="url(#sp-arw)"
+    paths += `<path class="sp-edge sp-edge-spine" marker-end="url(#sp-arw-spine)"
       d="M ${cx} ${a.bot} L ${cx} ${b.top - 2}"></path>`;
   }
 
@@ -157,7 +162,7 @@ export function renderSpineMap(el, caseObj, spine, sel = {}) {
     for (const i of idxs) {
       const g = geo(i);
       const dx = (g.x1 - mx) * 0.5;
-      paths += `<path class="sp-edge sp-edge-mech" data-m="${mi}" marker-end="url(#sp-arw)"
+      paths += `<path class="sp-edge sp-edge-mech" data-m="${mi}" marker-end="url(#sp-dot-mech)"
         d="M ${mx} ${myc} C ${mx + dx} ${myc}, ${g.x1 - dx} ${g.cy}, ${g.x1 - 3} ${g.cy}"></path>`;
     }
   });
@@ -181,6 +186,7 @@ export function renderSpineMap(el, caseObj, spine, sel = {}) {
     d.dataset.i = ii;
     d.tabIndex = 0;
     d.innerHTML = `<div class="sp-imp-kick">Measured impact</div><div class="sp-imp-name">${im.name}</div>
+      <div class="sp-imp-headline">${im.headline}</div>
       <div class="sp-imp-grades">${pills}</div>`;
     d.style.left = `${L.impX}px`;
     d.style.width = `${L.impW}px`;
@@ -192,50 +198,48 @@ export function renderSpineMap(el, caseObj, spine, sel = {}) {
     const iyc = iy + d.offsetHeight / 2;
     for (const { i } of froms) {
       const g = geo(i);
-      paths += `<path class="sp-edge sp-edge-imp" data-i="${ii}" marker-end="url(#sp-arw)"
+      paths += `<path class="sp-edge sp-edge-imp" data-i="${ii}" marker-end="url(#sp-dot-imp)"
         d="M ${g.x2} ${g.cy} C ${g.x2 + 120} ${g.cy}, ${ix - 160} ${iyc}, ${ix - 3} ${iyc}"></path>`;
     }
   });
 
   // Proposal boxes, the grouping bracket that alludes to their anchor event
-  // (a bracket, not an arrow: attachment, not causation), and the open
-  // proposal's expanded chain.
+  // (a bracket, not an arrow: attachment, not causation), and every
+  // proposal's causal chain, always open, one row per proposal in box order.
   for (const [i, list] of propAt) {
     const g = geo(i);
     const px = g.x2 + 46;
     let py = g.top;
-    let openEl = null;
-    for (const rec of list) {
+    list.forEach((rec, k) => {
       rec.el.style.left = `${px}px`;
       rec.el.style.top = `${Math.round(py)}px`;
       rec.el.style.visibility = 'visible';
+      rec.y = py;
+      rec.k = k;
       // Dotted tie from the bracket to this box.
       paths += `<path class="sp-edge sp-edge-allude-tie"
         d="M ${g.x2 + 26} ${g.cy} C ${g.x2 + 36} ${g.cy}, ${px - 10} ${py + rec.h / 2}, ${px - 2} ${py + rec.h / 2}"></path>`;
-      if (openProp === rec.pi) {
-        entEls[i].classList.add('sp-ent-prop');
-        openEl = { x1: px, x2: px + PROP_W, cy: py + rec.h / 2, bot: py + rec.h };
-      }
       py += rec.h + 8;
-    }
+    });
     // The bracket hugs the anchor event's right edge, grouping it.
     paths += `<path class="sp-edge sp-edge-allude"
       d="M ${g.x2 + 8} ${g.top + 6} L ${g.x2 + 18} ${g.top + 6} L ${g.x2 + 18} ${g.bot - 6} L ${g.x2 + 8} ${g.bot - 6}"></path>
       <path class="sp-edge sp-edge-allude" d="M ${g.x2 + 18} ${g.cy} L ${g.x2 + 26} ${g.cy}"></path>`;
 
-    const open = list.find(x => x.pi === openProp);
-    if (open) {
-      const { p, pi } = open;
-      const stackBot = py;
-      const baseY = Math.max(g.bot, stackBot) + 32;
+    // Chain rows, one per proposal, stacked below the anchor and its boxes.
+    let rowY = Math.max(g.bot, py) + 32;
+    for (const rec of list) {
+      const { p, pi } = rec;
+      const baseY = rowY;
       const n = p.links.length;
       const boxW = Math.min(176, Math.floor((L.bandW - (n - 1) * L.chainGap) / n));
       const startX = L.bandX;
       let prev = null;
+      let rowBot = baseY;
       p.links.forEach((lk, li) => {
         const bx = startX + li * (boxW + L.chainGap);
         const d = document.createElement('button');
-        d.className = `sp-chainbox${lk.strength === 'unstudied' ? ' sp-chain-un' : ''}${sel.kind === 'proplink' && sel.idx === pi && sel.linkIdx === li ? ' on' : ''}`;
+        d.className = `sp-chainbox${lk.strength === 'unstudied' ? ' sp-chain-un' : ''}`;
         d.dataset.pr = pi;
         d.dataset.pl = li;
         d.innerHTML = `<span class="sp-chain-name">${lk.name}</span>
@@ -247,13 +251,18 @@ export function renderSpineMap(el, caseObj, spine, sel = {}) {
         const h = d.offsetHeight;
         const cyc = baseY + h / 2;
         if (prev) {
-          paths += `<path class="sp-edge sp-edge-chain" marker-end="url(#sp-arw)"
+          paths += `<path class="sp-edge sp-edge-chain" marker-end="url(#sp-arw-chain)"
             d="M ${prev.x2} ${prev.cy} L ${bx - 3} ${cyc}"></path>`;
         } else {
-          // Arrow from the proposal box itself down into the first chain box.
-          const o = openEl ?? { x1: g.x2 - 40, bot: g.cy };
-          paths += `<path class="sp-edge sp-edge-chain" marker-end="url(#sp-arw)"
-            d="M ${o.x1 + 40} ${o.bot} C ${o.x1 + 40} ${o.bot + 34}, ${bx + boxW / 2} ${baseY - 44}, ${bx + boxW / 2} ${baseY - 3}"></path>`;
+          // Arrow from the proposal box into its own chain row: out the
+          // box's right side, down a lane right of the box stack, into the
+          // first chain card's top. One lane per box so drops never cross
+          // a lower box.
+          const laneX = px + PROP_W + 10 + rec.k * 8;
+          const oy = rec.y + rec.h / 2;
+          paths += `<path class="sp-edge sp-edge-chain" marker-end="url(#sp-dot-chain)"
+            d="M ${px + PROP_W} ${oy} C ${laneX - 4} ${oy}, ${laneX} ${oy + 6}, ${laneX} ${Math.min(oy + 60, baseY - 50)}
+               L ${laneX} ${baseY - 44} C ${laneX} ${baseY - 14}, ${bx + boxW / 2} ${baseY - 40}, ${bx + boxW / 2} ${baseY - 3}"></path>`;
         }
         // The evidence itself hangs under the card, in red, as the original
         // sketch proposed: every evidence and counter-evidence entry gets its
@@ -279,6 +288,7 @@ export function renderSpineMap(el, caseObj, spine, sel = {}) {
         for (const ev of (lk.counterEvidence ?? [])) {
           addCard('Counter', ev.srcs?.map(x => x.l).join('; ') || 'Source', ' sp-evcard-ctr');
         }
+        rowBot = Math.max(rowBot, ey);
         prev = { x2: bx + boxW, cy: cyc, bx, boxW, stackBot: ey };
       });
       // Terminal arrows into the measured impact boxes. Dashed and labeled:
@@ -290,19 +300,20 @@ export function renderSpineMap(el, caseObj, spine, sel = {}) {
         const box = stage.querySelector(`.sp-imp[data-i="${ii}"]`);
         if (!box || !prev) continue;
         const iy = parseFloat(box.style.top) + box.offsetHeight / 2;
-        paths += `<path class="sp-edge sp-edge-chain sp-edge-term" marker-end="url(#sp-arw)"
+        paths += `<path class="sp-edge sp-edge-chain sp-edge-term" marker-end="url(#sp-dot-chain)"
           d="M ${prev.x2} ${prev.cy} C ${prev.x2 + 80} ${prev.cy}, ${L.impX - 120} ${iy}, ${L.impX - 3} ${iy}"></path>`;
         drewTerm = true;
       }
       if (drewTerm) {
         const tl = document.createElement('div');
         tl.className = 'sp-termlabel';
-        tl.textContent = 'dashed arrows: intended effect';
+        tl.textContent = 'dashed lines: intended effect';
         tl.style.left = `${prev.bx}px`;
         tl.style.top = `${Math.round(prev.stackBot + 4)}px`;
         tl.style.width = `${prev.boxW + 40}px`;
         stage.appendChild(tl);
       }
+      rowY = rowBot + 26 + CHAIN_ROW_GAP;
     }
   }
 
@@ -315,7 +326,14 @@ export function renderSpineMap(el, caseObj, spine, sel = {}) {
 export function highlightSpine(el, sel = {}) {
   el.querySelectorAll('.sp .sel').forEach(n => n.classList.remove('sel'));
   el.querySelectorAll('.sp-edge.on').forEach(n => n.classList.remove('on'));
+  el.querySelectorAll('.sp-ent-prop').forEach(n => n.classList.remove('sp-ent-prop'));
   const on = q => el.querySelectorAll(q).forEach(n => n.classList.add('sel'));
+  const ringAnchor = pi => {
+    const box = el.querySelector(`.sp-propbox[data-pr="${pi}"]`);
+    if (box?.dataset.ae != null) {
+      el.querySelector(`.sp-ent[data-e="${box.dataset.ae}"]`)?.classList.add('sp-ent-prop');
+    }
+  };
   if (sel.kind === 'entry') on(`.sp-ent[data-e="${sel.idx}"]`);
   else if (sel.kind === 'mech') {
     on(`.sp-mech[data-m="${sel.idx}"]`);
@@ -325,8 +343,10 @@ export function highlightSpine(el, sel = {}) {
     el.querySelectorAll(`.sp-edge-imp[data-i="${sel.idx}"]`).forEach(n => n.classList.add('on'));
   } else if (sel.kind === 'proplink') {
     on(`.sp-chainbox[data-pr="${sel.idx}"][data-pl="${sel.linkIdx}"]`);
+    ringAnchor(sel.idx);
   } else if (sel.kind === 'prop') {
     on(`.sp-propbox[data-pr="${sel.idx}"]`);
+    ringAnchor(sel.idx);
   }
 }
 
@@ -381,6 +401,7 @@ function impactDetail(spine, i) {
   return `<div class="cd">
     <div class="cd-kick cd-kick-imp">Measured Impact</div>
     <div class="cd-head"><span class="cd-id">${im.name}</span></div>
+    <p class="cd-claim"><strong>${im.headline}</strong></p>
     <p class="cd-claim">${im.measures}</p>
     <div class="ln-sec"><h4>Causal Arrows From the Timeline</h4><ul class="ev-list">${arrows}</ul></div>
     ${evHtml(im.evidence, 'for')}
@@ -451,9 +472,8 @@ function overview(caseObj, spine) {
       existed sit on the left, tagged with how they failed. Measured impacts sit on the
       right; each arrow carries a strength flag you can click. Orange boxes are the
       proposed interventions from the design work, bracketed to the event where they
-      would intervene; click one to expand its causal chain, one at a time, with the
-      evidence on the cards.</div>
-    <div class="cd-purpose">${caseObj.overview}</div>
+      would intervene, each with its causal chain drawn below and the evidence on
+      the cards.</div>
     <div class="cd-sum">
       <span class="cd-sum-lbl">Timeline</span><div class="cd-sum-pills"><span class="g g-neutral">${caseObj.entries.length} Events</span></div>
       <span class="cd-sum-lbl">Existing</span><div class="cd-sum-pills"><span class="g g-mech">${nMech} Mechanisms That Should Have Worked</span></div>
@@ -464,6 +484,7 @@ function overview(caseObj, spine) {
 }
 
 export function renderSpineDetail(el, caseObj, spine, sel = {}) {
+  // About This Case lives in the toggle under the top bar, not here.
   if (sel.kind === 'entry') el.innerHTML = entryDetail(caseObj, sel.idx);
   else if (sel.kind === 'mech') el.innerHTML = mechDetail(spine, sel.idx);
   else if (sel.kind === 'impact') el.innerHTML = impactDetail(spine, sel.idx);

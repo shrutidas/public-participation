@@ -309,11 +309,11 @@ const VALID_FAILURES = [
 ];
 
 export const FAILURE_LABEL = {
-  'did-not-know': 'Did not know',
-  'knew-no-act': 'Knew, did not act',
-  'acted-no-effect': 'Acted, no effect',
-  'no-mechanism': 'No mechanism existed',
-  'partial': 'Acted, partial effect',
+  'did-not-know': 'Did Not Know',
+  'knew-no-act': 'Knew, Did Not Act',
+  'acted-no-effect': 'Acted, No Effect',
+  'no-mechanism': 'No Mechanism Existed',
+  'partial': 'Acted, Partial Effect',
   'worked': 'Worked'
 };
 
@@ -334,8 +334,9 @@ export function mechanism({ name, actor, failure, note, detail, anchors = [], so
 }
 
 /** A measured impact attached to the spine, with causal arrows from specific events. */
-export function impact({ name, measures, from = [], evidence: evid = [], counterEvidence = [] }) {
+export function impact({ name, headline, measures, from = [], evidence: evid = [], counterEvidence = [] }) {
   if (!name?.trim()) throw new Error('Impact is missing a name');
+  if (!headline?.trim()) throw new Error(`Impact "${name}" is missing a headline`);
   if (!measures?.trim()) throw new Error(`Impact "${name}" is missing a measures paragraph`);
   if (!from.length) throw new Error(`Impact "${name}" has no causal arrows (from)`);
   for (const f of from) {
@@ -344,7 +345,7 @@ export function impact({ name, measures, from = [], evidence: evid = [], counter
       throw new Error(`Impact "${name}" arrow has invalid strength "${f.strength}"`);
     }
   }
-  return { name, measures, from, evidence: evid, counterEvidence };
+  return { name, headline, measures, from, evidence: evid, counterEvidence };
 }
 
 /** One link inside a proposed intervention's causal chain. */

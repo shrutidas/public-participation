@@ -153,6 +153,10 @@ export default spineData({
   impacts: [
     impact({
       name: 'Deaths and hospitalizations averted by vaccination',
+      headline: paragraph(`
+        Vaccination prevented more than 3 million deaths and 18 million
+        hospitalizations in the US in the program's first two years.
+      `),
       measures: paragraph(`
         The vaccination program prevented more than 18 million additional
         hospitalizations and over 3 million additional deaths in the US in its
@@ -174,6 +178,10 @@ export default spineData({
     }),
     impact({
       name: 'Deaths among unvaccinated adults',
+      headline: paragraph(`
+        Roughly 232,000 adult deaths between June 2021 and March 2022 would have
+        been prevented by vaccination, per two independent estimates.
+      `),
       measures: paragraph(`
         Roughly 232,000 to 234,000 adult deaths between June 2021 and March 2022
         would have been prevented by vaccination, per two independent estimates.
@@ -198,6 +206,11 @@ export default spineData({
     }),
     impact({
       name: 'The racial vaccination gap',
+      headline: paragraph(`
+        The Black-White vaccination gap closed from about 14 points at the April
+        2021 peak to 5 points by mid-2022; no one has estimated the mortality
+        cost of the spring 2021 lag by race.
+      `),
       measures: paragraph(`
         The Black-White vaccination gap fell from about 14 points at the April
         2021 peak to 5 points by July 2022; by end of November 2021,
@@ -234,6 +247,11 @@ export default spineData({
     }),
     impact({
       name: 'Vaccination uptake after mandates',
+      headline: paragraph(`
+        First doses jumped 66% after mandate announcements abroad; US state
+        mandates produced no detectable uptake change and preceded lower booster
+        and flu vaccination.
+      `),
       measures: paragraph(`
         Mandate announcements abroad were followed by a 66% increase in weekly
         first doses and cumulative gains of 5 to 12 points (Canada, France,

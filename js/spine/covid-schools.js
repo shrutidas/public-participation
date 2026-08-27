@@ -151,6 +151,11 @@ export default spineData({
   impacts: [
     impact({
       name: 'Public school enrollment',
+      headline: paragraph(`
+        Public school enrollment fell by 1.4 million students between fall 2019 and
+        fall 2020 and has not recovered; remote-only instruction caused a
+        measurable share of the exit.
+      `),
       measures: paragraph(`
         National public school enrollment fell from 50.8 million in fall 2019 to
         49.4 million in fall 2020 and stabilized near that level. Remote-only
@@ -182,6 +187,11 @@ export default spineData({
     }),
     impact({
       name: 'Chronic absenteeism',
+      headline: paragraph(`
+        Chronic absenteeism stayed elevated long after schools reopened, with
+        roughly 22% of students nationally missing a tenth or more of school
+        days through 2024-25.
+      `),
       measures: paragraph(`
         Chronic absenteeism (missing 10 percent or more of school days) remained
         elevated through 2024-25, at roughly 22% of students nationally, with
@@ -223,6 +233,11 @@ export default spineData({
     }),
     impact({
       name: 'Confidence in public schools',
+      headline: paragraph(`
+        Confidence in public schools fell to 28% by 2022, concentrated almost
+        entirely among Republicans, while parents kept rating their own schools
+        far better than the institution.
+      `),
       measures: paragraph(`
         Gallup confidence in public schools fell from its 2020 rally to 28% by
         2022, with the decline concentrated almost entirely among Republicans
@@ -259,6 +274,11 @@ export default spineData({
     }),
     impact({
       name: 'Test scores',
+      headline: paragraph(`
+        National test scores dropped significantly following the COVID-19
+        pandemic, but recent studies show the downward trend actually began
+        years earlier.
+      `),
       measures: paragraph(`
         NAEP long-term trend age-9 scores declined 5 points in reading and 7 in
         mathematics from 2020 to 2022, the first mathematics decline in the
@@ -280,6 +300,22 @@ export default spineData({
             source('NAEP 2022', 'https://www.nationsreportcard.gov/highlights/ltt/2022'),
             source('Hallin et al. 2022', 'https://pubmed.ncbi.nlm.nih.gov/35677729/')
           ]
+        })
+      ],
+      counterEvidence: [
+        evidence({
+          finding: paragraph(`
+            Education Recovery Scorecard data through 2025, reported by the New
+            York Times and reposted by Harvard CEPR, show scores stopped
+            climbing in the mid-2010s, with reading losses from 2017 to 2019
+            matching the pandemic-era losses. Part of the post-2020 gap
+            reflects a longer decline rather than closure policy; the
+            mode-to-decline comparisons across districts are within-period and
+            are not touched by the pre-trend.
+          `),
+          grade: 'moderate',
+          quote: 'From 2017 to 2019, students lost as much ground in reading as they did during the pandemic',
+          sources: [source('Harvard CEPR 2026', 'https://cepr.harvard.edu/news/2026/05/why-us-test-scores-are-generation-long-decline')]
         })
       ]
     })
