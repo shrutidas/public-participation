@@ -1294,3 +1294,153 @@ body[data-view="chain"] #ctrl .fl,
 #tl-expand:hover { border-color: #1c2333; color: #1c2333; }
 
 .cd-intro .cd-hint { margin: 0 0 16px; }
+
+/* ======================= SPINE VIEW (second memo rework) =================== */
+
+.sp { position: relative; min-height: 100%; }
+.sp-edges { position: absolute; inset: 0; pointer-events: none; }
+
+.sp-edge { fill: none; stroke-width: 2; }
+.sp-edge-spine { stroke: #2b6cb0; stroke-width: 2.5; }
+.sp-edge-mech { stroke: #2f7d3f; opacity: .55; }
+.sp-edge-mech.on { opacity: 1; stroke-width: 2.5; }
+.sp-edge-imp { stroke: #1e6b3c; opacity: .55; }
+.sp-edge-imp.on { opacity: 1; stroke-width: 2.5; }
+.sp-edge-chain { stroke: #c05621; stroke-width: 2.25; }
+.sp-edge-term { stroke-dasharray: none; }
+
+.sp-ent {
+  position: absolute; box-sizing: border-box; cursor: pointer;
+  background: #eef4fb; border: 1.5px solid #2b6cb0; border-radius: 8px;
+  padding: 8px 10px; font-size: .72rem; line-height: 1.35; color: #1c2333;
+}
+.sp-ent:hover { box-shadow: 0 2px 8px rgba(43,108,176,.25); }
+.sp-ent.sel { box-shadow: 0 0 0 3px rgba(43,108,176,.35); border-color: #1a4e85; }
+.sp-ent.sp-ent-prop { border-color: #c05621; box-shadow: 0 0 0 3px rgba(192,86,33,.3); }
+.sp-ent-hd { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; }
+.sp-date { font-weight: 700; font-size: .72rem; color: #1a4e85; white-space: nowrap; }
+.sp-ent-txt { color: #333a45; }
+
+.sp-mech {
+  position: absolute; box-sizing: border-box; cursor: pointer;
+  background: #ecf5ec; border: 1.5px solid #2f7d3f; border-radius: 8px;
+  padding: 8px 10px; font-size: .72rem; line-height: 1.3; color: #17381f;
+}
+.sp-mech:hover { box-shadow: 0 2px 8px rgba(47,125,63,.25); }
+.sp-mech.sel { box-shadow: 0 0 0 3px rgba(47,125,63,.35); }
+.sp-mech-name { font-weight: 650; margin-bottom: 4px; }
+.sp-failtag {
+  display: inline-block; font-size: .62rem; font-weight: 700; letter-spacing: .02em;
+  border-radius: 999px; padding: 2px 8px; border: 1px solid transparent;
+}
+.ft-did-not-know { background: #f3e8e8; color: #7a2e22; border-color: #caa49b; }
+.ft-knew-no-act { background: #f6ecdc; color: #7a4c10; border-color: #d3b183; }
+.ft-acted-no-effect { background: #efeae2; color: #5c5142; border-color: #c4b8a4; }
+.ft-no-mechanism { background: #ece9f4; color: #453a6b; border-color: #b0a6d4; }
+.ft-partial { background: #e6eef7; color: #274d78; border-color: #9db8d6; }
+.ft-worked { background: #e2f0e4; color: #1e5c2c; border-color: #93c39e; }
+
+.sp-imp {
+  position: absolute; box-sizing: border-box; cursor: pointer;
+  background: #e4efe7; border: 2px solid #1e6b3c; border-radius: 8px;
+  padding: 8px 10px; font-size: .72rem; color: #143d23;
+}
+.sp-imp:hover { box-shadow: 0 2px 8px rgba(30,107,60,.3); }
+.sp-imp.sel { box-shadow: 0 0 0 3px rgba(30,107,60,.35); }
+.sp-imp-kick { font-size: .6rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: #1e6b3c; margin-bottom: 3px; }
+.sp-imp-name { font-weight: 650; line-height: 1.3; }
+
+.sp-propchip {
+  position: absolute; box-sizing: border-box; cursor: pointer; text-align: left;
+  background: #fdf1e5; border: 1.5px dashed #c05621; border-radius: 999px;
+  padding: 4px 12px; font-size: .68rem; font-weight: 650; color: #8a3c12;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  font-family: inherit;
+}
+.sp-propchip:hover { background: #fbe4cd; }
+.sp-propchip.on, .sp-propchip.sel { background: #c05621; border-style: solid; color: #fff; }
+
+.sp-chainbox {
+  position: absolute; box-sizing: border-box; cursor: pointer; text-align: center;
+  background: #fdf1e5; border: 1.5px solid #c05621; border-radius: 8px;
+  padding: 7px 8px; font-size: .68rem; line-height: 1.3; font-weight: 600; color: #6d3313;
+  font-family: inherit;
+}
+.sp-chainbox:hover { box-shadow: 0 2px 8px rgba(192,86,33,.3); }
+.sp-chainbox.on, .sp-chainbox.sel { box-shadow: 0 0 0 3px rgba(192,86,33,.4); }
+.sp-chain-un { border-style: dashed; }
+
+.sp-banner {
+  position: absolute; box-sizing: border-box; font-size: .62rem; font-style: italic;
+  color: #8a3c12;
+}
+.sp-banner-inline {
+  position: static; display: block; background: #fdf1e5; border: 1px dashed #c05621;
+  border-radius: 6px; padding: 6px 10px; margin: 8px 0; font-size: .72rem;
+}
+
+.sp-flag {
+  position: absolute; box-sizing: border-box; cursor: pointer;
+  background: #fff; border: 1.5px solid #b3261e; border-radius: 5px;
+  padding: 2px 7px; font-size: .62rem; font-weight: 700; color: #b3261e;
+  display: inline-flex; align-items: center; gap: 4px; font-family: inherit;
+  white-space: nowrap;
+}
+.sp-flag:hover { background: #fbeceb; }
+.sp-flag.sel { box-shadow: 0 0 0 3px rgba(179,38,30,.3); }
+.fl-strong { border-color: #177038; color: #177038; }
+.fl-strong:hover { background: #e9f4ec; }
+.fl-moderate { border-color: #1258a0; color: #1258a0; }
+.fl-moderate:hover { background: #e8eff8; }
+.fl-weak { border-color: #a84e08; color: #a84e08; }
+.fl-weak:hover { background: #f9efe4; }
+.fl-contested { border-color: #8a6d0f; color: #8a6d0f; }
+.fl-contested:hover { background: #f7f1dd; }
+.fl-unstudied { border-color: #aa2a20; color: #aa2a20; background: #fbeceb; }
+.sp-ctr { width: 7px; height: 7px; border-radius: 50%; background: #b3261e; display: inline-block; }
+
+/* Sidebar additions */
+.cd-kick-mech { color: #2f7d3f; }
+.cd-kick-imp { color: #1e6b3c; }
+.cd-kick-prop { color: #c05621; }
+.sp-chainrow { display: flex; gap: 10px; align-items: flex-start; padding: 6px 8px; border-radius: 6px; cursor: pointer; list-style: none; }
+.sp-chainrow:hover { background: #f4f0ea; }
+.sp-arrowrow { display: flex; gap: 10px; align-items: flex-start; padding: 4px 0; list-style: none; }
+.sp-comp { list-style: none; padding: 8px 10px; border: 1px solid #ddd5c8; border-radius: 8px; margin-bottom: 8px; background: #fbfaf7; }
+.sp-hintline { font-size: .72rem; color: #6d6455; }
+.g-mech { background: #ecf5ec; color: #1e5c2c; border: 1px solid #93c39e; }
+.g-imp { background: #e4efe7; color: #143d23; border: 1px solid #1e6b3c; }
+
+/* Key swatches for the spine legend */
+.k-sw-sp-ent { background: #eef4fb; border: 1.5px solid #2b6cb0; }
+.k-sw-sp-mech { background: #ecf5ec; border: 1.5px solid #2f7d3f; }
+.k-sw-sp-imp { background: #e4efe7; border: 2px solid #1e6b3c; }
+.k-sw-sp-prop { background: #fdf1e5; border: 1.5px dashed #c05621; }
+.k-sw-sp-flag { background: #fff; border: 1.5px solid #b3261e; }
+
+/* Spine round 2: full-text cards, aligned headers, evidence on the graph */
+.sp-ent { font-size: .74rem; }
+.sp-ent-hd { align-items: center; margin-bottom: 5px; }
+.sp-ent-hd .ebadge { position: static; margin: 0; line-height: 1.4; transform: none; align-self: center; }
+.sp-ent-txt strong { color: #1c2333; }
+
+.sp-chainbox { display: flex; flex-direction: column; align-items: center; gap: 5px; }
+.sp-chain-name { display: block; }
+.sp-grade {
+  display: inline-flex; align-items: center; gap: 4px;
+  font-size: .6rem; font-weight: 700; letter-spacing: .02em;
+  border: 1.5px solid currentColor; border-radius: 5px; padding: 1px 7px;
+  background: #fff;
+}
+.sp-grade.fl-unstudied { background: #fbeceb; }
+
+.sp-evcard {
+  position: absolute; box-sizing: border-box; cursor: pointer; text-align: left;
+  background: #fff; border: 1.5px solid #b3261e; border-radius: 6px;
+  padding: 4px 8px; font-size: .62rem; line-height: 1.3; color: #7a2018;
+  font-family: inherit; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.sp-evcard:hover { background: #fbeceb; }
+.sp-evcard-kick { display: block; font-size: .55rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: #b3261e; }
+.sp-evcard-ctr { border-style: dashed; background: #fdf5f5; }
+.sp-evcard-un { color: #aa2a20; font-style: italic; }

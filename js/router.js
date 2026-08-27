@@ -1,65 +1,65 @@
 /**
- * Hash routing, so every case, chain, link and participation instance has its
- * own URL. The project gets circulated by email; "look at link R3" needs to be
- * a link, not an instruction.
+ * Hash routing, so every case, event, mechanism, impact, and proposal has its
+ * own URL. The project gets circulated by email; "look at the notice-on-
+ * detection proposal" needs to be a link, not an instruction.
  *
  * Routes
- *   #/                                              default case, default view
- *   #/case/<slug>                                   case, default view
- *   #/case/<slug>/timeline                          entry timeline
- *   #/case/<slug>/step                              entry timeline, one at a time
- *   #/case/<slug>/chain                             first chain, nothing selected
- *   #/case/<slug>/chain/<chainId>                   a specific chain
- *   #/case/<slug>/chain/<chainId>/<linkId>          a link, detail open
- *   #/case/<slug>/chain/<chainId>/<linkId>/p/<n>    a participation instance
- *   #/case/<slug>/chain/<chainId>/<linkId>/pr/<n>   a proposed participation
- *   #/case/<slug>/chain/<chainId>/n/<i>             a node (i = index in nodes)
+ *   #/                                    default case, default view
+ *   #/case/<slug>                         case, default view
+ *   #/case/<slug>/timeline                entry timeline
+ *   #/case/<slug>/spine                   spine map, nothing selected
+ *   #/case/<slug>/spine/e/<i>             a timeline event
+ *   #/case/<slug>/spine/m/<i>             a mechanism that should have worked
+ *   #/case/<slug>/spine/i/<i>             a measured impact
+ *   #/case/<slug>/spine/pr/<i>            a proposed intervention, chain expanded
+ *   #/case/<slug>/spine/pr/<i>/l/<j>      one link of a proposal's chain
+ * Legacy '#/case/<slug>/chain/...' URLs fall back to the spine map.
  */
 
-const VIEWS = ['chain', 'timeline'];
+const VIEWS = ['spine', 'timeline'];
 
 export function parse(hash = window.location.hash) {
   const raw = hash.replace(/^#\/?/, '');
   const seg = raw.split('/').filter(Boolean);
 
-  const route = { caseSlug: null, view: null, chainId: null, linkId: null, partIdx: null, propIdx: null, nodeIdx: null };
+  const route = { caseSlug: null, view: null, selKind: null, selIdx: null, linkIdx: null };
   if (seg[0] !== 'case' || !seg[1]) return route;
 
   route.caseSlug = decodeURIComponent(seg[1]);
   if (!seg[2]) return route;
 
+  if (seg[2] === 'chain') { route.view = 'spine'; route.legacy = true; return route; } // legacy
   route.view = VIEWS.includes(seg[2]) ? seg[2] : null;
-  if (route.view !== 'chain') return route;
+  if (route.view !== 'spine') return route;
 
-  if (seg[3]) route.chainId = decodeURIComponent(seg[3]);
-  if (seg[4] === 'n' && seg[5] != null) {
-    const n = Number(seg[5]);
-    if (Number.isInteger(n) && n >= 0) route.nodeIdx = n;
-  } else if (seg[4]) {
-    route.linkId = decodeURIComponent(seg[4]);
-    if ((seg[5] === 'p' || seg[5] === 'pr') && seg[6] != null) {
-      const n = Number(seg[6]);
-      if (Number.isInteger(n) && n >= 0) {
-        if (seg[5] === 'p') route.partIdx = n;
-        else route.propIdx = n;
+  const num = s => {
+    const n = Number(s);
+    return Number.isInteger(n) && n >= 0 ? n : null;
+  };
+  const kinds = { e: 'entry', m: 'mech', i: 'impact', pr: 'prop' };
+  if (seg[3] && kinds[seg[3]] && seg[4] != null) {
+    const n = num(seg[4]);
+    if (n != null) {
+      route.selKind = kinds[seg[3]];
+      route.selIdx = n;
+      if (route.selKind === 'prop' && seg[5] === 'l' && seg[6] != null) {
+        const j = num(seg[6]);
+        if (j != null) { route.selKind = 'proplink'; route.linkIdx = j; }
       }
     }
   }
   return route;
 }
 
-export function build({ caseSlug, view, chainId, linkId, partIdx, propIdx, nodeIdx } = {}) {
+export function build({ caseSlug, view, selKind, selIdx, linkIdx } = {}) {
   if (!caseSlug) return '#/';
   const seg = ['case', encodeURIComponent(caseSlug)];
   if (view) seg.push(view);
-  if (view === 'chain' && chainId) {
-    seg.push(encodeURIComponent(chainId));
-    if (linkId) {
-      seg.push(encodeURIComponent(linkId));
-      if (partIdx != null) seg.push('p', String(partIdx));
-      else if (propIdx != null) seg.push('pr', String(propIdx));
-    } else if (nodeIdx != null) {
-      seg.push('n', String(nodeIdx));
+  if (view === 'spine' && selKind != null && selIdx != null) {
+    const pre = { entry: 'e', mech: 'm', impact: 'i', prop: 'pr', proplink: 'pr' }[selKind];
+    if (pre) {
+      seg.push(pre, String(selIdx));
+      if (selKind === 'proplink' && linkIdx != null) seg.push('l', String(linkIdx));
     }
   }
   return '#/' + seg.join('/');

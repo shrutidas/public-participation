@@ -38,6 +38,21 @@ export default caseStudy({
     }),
 
     entry({
+      date: '11/2020',
+      category: 'purple',
+      actors: 'Tribal governments, Indian Health Service',
+      text:       paragraph(`
+        Tribal governments chose between state allocation and the <strong>Indian Health
+        Service route</strong> for vaccine distribution, and many chose IHS to keep control
+        of prioritization, protecting elders, language keepers, and teachers. By
+        July 2021, American Indian and Alaska Native people had the <strong>highest
+        vaccination rate of any US group</strong>: 45.5% with at least one dose against
+        33.7% for White Americans.
+      `),
+      sources: [source('PBS NOVA', 'https://www.pbs.org/wgbh/nova/article/native-americans-highest-covid-vaccination-rate-us/')],
+    }),
+
+    entry({
       date: '12/2020',
       category: 'red',
       actors: 'FDA, CDC, Advisory Committee on Immunization Practices',
@@ -65,6 +80,24 @@ export default caseStudy({
     }),
 
     entry({
+      date: '02/2021',
+      category: 'purple',
+      actors: 'Latino Task Force, UCSF, community health workers, Mission District residents',
+      text:       paragraph(`
+        <strong>Unidos en Salud</strong> opened a community-run low-barrier vaccination site in
+        San Francisco's Mission District, designed with the neighborhood it served.
+        Over 16 weeks it delivered <strong>20,792 doses</strong> with 98.4% second-dose
+        completion; 70.5% of clients were Latinx against 13.3% of the city's prior
+        vaccinated population, and 58.3% reported the site let them vaccinate
+        earlier.
+      `),
+      sources: [
+        source('PLOS ONE', 'https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0257111'),
+        source('PubMed 34543291', 'https://pubmed.ncbi.nlm.nih.gov/34543291/'),
+      ],
+    }),
+
+    entry({
       date: '03/2021',
       category: 'orange',
       actors: 'President Biden, White House',
@@ -85,6 +118,23 @@ export default caseStudy({
         peaking; after this date it begins declining across all age groups.
       `),
       sources: [source('PMC', 'https://pmc.ncbi.nlm.nih.gov/articles/PMC8224863/')],
+    }),
+
+    entry({
+      date: '04/2021',
+      category: 'red',
+      actors: 'HHS, 150 community-based organizations, 73 local governments',
+      text:       paragraph(`
+        The federal <strong>vaccine equity push</strong> allocated $323 million to community-based
+        organizations, $250 million to local governments for culturally appropriate
+        health literacy, and $500 million for community health worker programs,
+        largely targeted at communities of color. <strong>No published outcome evaluation
+        of these line items has been identified.</strong>
+      `),
+      sources: [
+        source('Healthcare Dive', 'https://www.healthcaredive.com/news/hhs-will-send-250m-in-grants-for-vaccine-equity-push/596372/'),
+        source('HHS fact sheet', 'https://www.hhs.gov/sites/default/files/black-history-month-2022-fact-sheet.pdf'),
+      ],
     }),
 
     entry({

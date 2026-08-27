@@ -1,134 +1,100 @@
 /**
  * Every label used anywhere in the project, defined in one place.
  *
- * There are three independent dimensions on the chain map and they are easy
- * to confuse, so they get separate visual languages:
+ * The spine map has four visual languages that are easy to confuse:
  *
- *   THE BOX: what kind of event the node is. Gray for events nothing could
- *                have moved, green for events participation could act on,
- *                red for the outcomes worth caring about.
- *   THE ARROW: how well evidenced the causal link is. Sequential color
- *                ramp from green (safe to assert) to red (no evidence found).
- *   THE DOTS: participation at that link. Purple dots (left of the link
- *                name) are actual, documented participation, colored by
- *                effect; orange dots (right) are proposed, speculative
- *                participation from the project's design work.
+ *   BLUE BOXES: the timeline itself, every event in order.
+ *   GREEN BOXES (left): oversight mechanisms that already existed, each
+ *                tagged with how it failed to prevent the harm.
+ *   DARK GREEN BOXES (right): measured impacts, with arrows from the
+ *                specific events where the causal claim holds.
+ *   ORANGE: proposed interventions from the design work, anchored where
+ *                they would intervene; each expands into its causal chain,
+ *                with a red evidence flag under every link.
  */
 
 /** A short orientation, rendered at the top of the Key panel. */
 export const HOW_TO = [
   {
     title: 'Select a case',
-    desc: 'The Cases button (top left) lists the four case studies. Three carry full causal chains; the Meta case is documented as a timeline only.'
+    desc: 'The Cases button (top left) lists the four case studies. Three carry full spine maps; the Meta case is documented as a timeline only.'
   },
   {
-    title: 'Two representations of each case',
-    desc: 'The causal chain states the argument: which conditions produced which outcomes, and how well the evidence supports each step. The timeline holds the underlying chronology. The Timeline tab sits beside the Causal Link pane; Expand opens the full chronology with category filters, and Back to Chain returns to the map.'
+    title: 'Read the spine',
+    desc: 'The timeline runs down the center in chronological order: policy decisions, events, knowledge, public opinion, and participation, each tagged with its category. Click any event to read its full record and sources.'
   },
   {
-    title: 'Read the map',
-    desc: 'Nodes are states of the world, colored by role: gray for events that cannot be changed (the pandemic itself, historical trauma), green for events participation could act on, red for the outcomes worth caring about. Click a node to see the timeline around its date. The causal arrows run down the center of the chain; each carries a name chip. Click a chip to open its evidence, counter-evidence, and open questions in the sidebar. Arrow keys step through the chain.'
+    title: 'The left rail: what already existed',
+    desc: 'Green boxes are the oversight and participation mechanisms that already existed in the ecosystem. Each connects to the event where it should have fired and carries a tag for how it failed: did not know, knew but did not act, acted with no effect, no mechanism existed, or worked.'
   },
   {
-    title: 'Participation flanks each arrow: actual left, proposed right',
-    desc: 'To the left of each arrow sit the documented instances of participation at that link (purple). To the right sit the proposed instances from the project’s 6/8 design work (purple, dashed, because they did not happen). Click any card to open its full record; a proposal also says whether the mechanism it presumes has support in the studied literature.'
+    title: 'The right rail: what was measured',
+    desc: 'Dark green boxes are the case’s measured impacts. An arrow connects an impact to a specific event only where a causal claim holds, and every arrow carries a strength flag you can click to see the evidence.'
   },
   {
-    title: 'Compare argument and chronology',
-    desc: 'The Timeline tab displays the chronology beside the map. With a link selected, entries that cite the same sources, or that fall within the link\u2019s participation dates, are highlighted; the rest recede.'
-  },
-  {
-    title: 'Follow the open questions',
-    desc: 'Each chain overview lists its unresolved research questions, grouped by the link they would strengthen. Together these constitute the research agenda the chains generate.'
+    title: 'Orange: the proposed interventions',
+    desc: 'Orange chips are the proposals from the 6/8 design work, anchored at the point on the timeline where they would intervene. Click one to expand its causal chain, one at a time: intervention to mechanism to measured impact, with an evidence flag under every link and counter-evidence kept at full strength.'
   },
   {
     title: 'Cite a specific view',
-    desc: 'Every case, chain, link, and participation instance has a stable URL. Copying the address functions as a pinpoint citation: a reader lands on the exact evidence under discussion.'
+    desc: 'Every case, event, mechanism, impact, proposal, and chain link has a stable URL. Copying the address functions as a pinpoint citation.'
   }
 ];
 
 export const GLOSSARY = [
   {
     id: 'map',
-    title: 'Reading the Chain Map',
-    note: 'Nodes are states of the world, colored by what can be done about them. Arrows are the claim that one produced the next.',
-    views: ['chain'],
+    title: 'Reading the Spine Map',
+    note: 'The timeline is the argument’s backbone; everything else attaches to it.',
+    views: ['spine'],
     items: [
-      { swatch: 'node-immovable', label: 'Events (Cannot Be Changed)', desc: 'An event no participation instrument could have moved: the pandemic itself, historical institutional trauma. Gray marks what the argument takes as given.' },
-      { swatch: 'node-intervenable', label: 'Intervenable Event', desc: 'An event participation could plausibly have acted on. Green marks where an instrument, actual or proposed, has something to push against.' },
-      { swatch: 'node-outcome', label: 'Valued Outcome', desc: 'A harm or harm-reduction outcome worth caring about. Red marks what the chain exists to explain, wherever it sits in the graph.' },
-      { swatch: 'edge-solid', label: 'Arrow', desc: 'One causal link, running down the center of the chain. Click its name chip to open the evidence, counter-evidence, and open questions in the sidebar. (Evidence is still graded strong to unstudied inside the sidebar; the arrows themselves no longer carry that color.)' },
-      { swatch: 'chip', label: 'Link Name', desc: 'Sits on the arrow and names the causal event. Its actual participation flanks it on the left; its proposed participation flanks it on the right.' }
+      { swatch: 'sp-ent', label: 'Timeline Event', desc: 'One dated event on the central spine, in chronological order. Its badge shows the category; click it for the full record and sources.' },
+      { swatch: 'sp-mech', label: 'Existing Mechanism', desc: 'An oversight or participation mechanism that already existed when the case ran. Connected to the event where it should have fired.' },
+      { swatch: 'sp-imp', label: 'Measured Impact', desc: 'An endpoint the record actually measures. Arrows point from the specific events where the causal claim holds; each arrow carries a strength flag.' },
+      { swatch: 'sp-prop', label: 'Proposed Intervention', desc: 'A proposal from the 6/8 design work, anchored where it would intervene. Click to expand its causal chain, one at a time.' },
+      { swatch: 'sp-flag', label: 'Evidence Flag', desc: 'The strength grade for one causal claim. A dot on the flag means counter-evidence exists; click the flag to read both sides.' }
     ]
   },
   {
-    id: 'participation',
-    title: 'Participation: Actual (Left) and Proposed (Right)',
-    note: 'The arrow runs down the middle. Documented participation sits to its left; proposed participation, from the project’s 6/8 design work, sits to its right. Both are purple; proposed is dashed to mark that it did not happen.',
-    views: ['chain'],
+    id: 'failure',
+    title: 'How Existing Mechanisms Failed',
+    note: 'The framing question for every case: what ecosystem was participation being added to, and why was it not enough?',
+    views: ['spine'],
+    countBy: 'failure',
     items: [
-      { swatch: 'card-actual', label: 'Actual Participation', desc: 'A documented instance of public participation that sat at that link. Click it to open its full record: what it was, who took part, and what it changed.' },
-      { swatch: 'card-prop', label: 'Proposed Participation', desc: 'A counterfactual process from the design work that did not run at that link but could have. Click it to open the presumed mechanism, and whether that mechanism has support in the studied literature.' }
+      { key: 'did-not-know', label: 'Did Not Know', desc: 'The mechanism’s operators lacked the information, often because someone withheld it.', eg: 'Discharge permit reviewers reading a file that never named the chemical' },
+      { key: 'knew-no-act', label: 'Knew, Did Not Act', desc: 'The information was there and nothing fired.', eg: 'An unverified consent order; withheld federal data' },
+      { key: 'acted-no-effect', label: 'Acted, No Effect', desc: 'The mechanism ran as designed and did not change the decision or outcome.', eg: 'Parent surveys; 122,485 comments on a rule already in force' },
+      { key: 'no-mechanism', label: 'No Mechanism Existed', desc: 'Nothing existed to fire; the function went unperformed or a private actor substituted.', eg: 'No school-mode dataset; no notice duty for unregulated contaminants' },
+      { key: 'partial', label: 'Acted, Partial Effect', desc: 'It fired and changed part of the decision or outcome.', eg: 'Advisory committee votes that narrowed a federal authorization' },
+      { key: 'worked', label: 'Worked', desc: 'It fired and bound. Kept on the map because the asymmetry, who held a binding channel and who did not, is the argument.', eg: 'Union bargaining; courts; tribal self-governance; citizen suits' }
     ]
   },
   {
-    id: 'stage',
-    title: 'Chain Stages',
-    note: 'Which part of the causal chain a link’s endpoint belongs to, per the project’s working framework.',
-    views: ['chain'],
-    countBy: 'stage',
+    id: 'strength',
+    title: 'Evidence Strength',
+    note: 'The scale the working document uses, applied to every flag on the map and every graded item in the sidebar.',
+    views: ['spine'],
+    countBy: 'strength',
     items: [
-      { key: 'structural', label: 'Structural', desc: 'Background institutions, rules, or conditions that shape the chain but are not themselves participation, trust, compliance, or the outcome.' },
-      { key: 'participation', label: 'Participation', desc: 'A mechanism through which actors directly intervene, contest, deliberate, monitor, sue, comment, organize, or otherwise engage decision-making.' },
-      { key: 'trust', label: 'Trust', desc: 'Evidence about confidence, perceived legitimacy, credibility, grievance, or distrust.' },
-      { key: 'compliance', label: 'Compliance', desc: 'Behavior that reflects following, resisting, or altering implementation of a policy.' },
-      { key: 'harm', label: 'Harm', desc: 'The bad outcome itself.' },
-      { key: 'harm-reduction', label: 'Harm Reduction', desc: 'The reduction or avoidance of harm, which is distinct from harm.' }
-    ]
-  },
-  {
-    id: 'kind',
-    title: 'Kinds of Participation',
-    note: 'What form the participation took. The pattern across the project is that the instruments which bind are adversarial and legal.',
-    views: ['chain'],
-    countBy: 'kind',
-    items: [
-      { key: 'deliberative', label: 'Deliberative', desc: 'Sortition panels, citizens’ assemblies, appointed advisory councils.', eg: 'Michigan’s 30-person randomly selected pandemic panel' },
-      { key: 'consultative', label: 'Consultative', desc: 'Surveys, town halls, public comment periods, hearings. Input is collected; nothing obliges anyone to act on it.', eg: 'The Chemours consent-order comment period' },
-      { key: 'litigation', label: 'Litigation', desc: 'Citizen suits, intervention, petitions for judicial review, discovery.', eg: 'Cape Fear River Watch’s Clean Water Act suit' },
-      { key: 'bargaining', label: 'Bargaining', desc: 'Collective bargaining, strike authorization, organized labour action. The only channel in the record that reliably converts voice into binding terms.', eg: 'AFT’s 2020 strike authorization' },
-      { key: 'electoral', label: 'Electoral', desc: 'Recalls, board elections, referenda. Arrives after the decision.', eg: 'The February 2022 San Francisco school board recall' },
-      { key: 'monitoring', label: 'Monitoring', desc: 'Citizen science, community sampling, independent measurement, return of results.', eg: 'The NC State GenX Exposure Study' },
-      { key: 'journalism', label: 'Journalism', desc: 'Press and independent data projects performing a disclosure function no statute assigned to anyone.', eg: 'The NYT county-level COVID tracker' },
-      { key: 'service', label: 'Service & Mutual Aid', desc: 'Community-run delivery, trusted-messenger outreach, mutual aid.', eg: 'Unidos en Salud in San Francisco’s Mission District' },
-      { key: 'whistleblowing', label: 'Whistleblowing', desc: 'Insiders disclosing, or resigning over, information their organization concealed.', eg: '3M toxicologist Richard Purdy’s 1998 resignation' },
-      { key: 'protest', label: 'Protest', desc: 'Demonstrations, boycotts, organized refusal.', eg: 'Not yet used in this project' }
-    ]
-  },
-  {
-    id: 'track',
-    title: 'Chain Tracks',
-    note: 'A case gets more than one chain when participation was asked to do a different job for a different outcome.',
-    views: ['chain'],
-    items: [
-      { key: 'total', label: 'Total Harm Reduction', desc: 'Harm reduced through overall compliance. Trust is the hypothesized mediator.' },
-      { key: 'fair', label: 'Fair Harm Reduction', desc: 'Harm reduced through equitable reach. Access is the hypothesized mediator.' },
-      { key: 'legitimacy', label: 'Decision Legitimacy', desc: 'Used where no clean harm outcome exists that participation could have improved, and the damage is to the standing of the decision itself.' },
-      { key: 'harm-reduction', label: 'Harm Reduction', desc: 'The full arc from root cause through public knowledge (a mediator, not an outcome) to the harm absorbed and the harm reduction achieved. Used for the GenX case, where the only terminal outcome that matters is harm reduction.' }
+      { key: 'strong', label: 'Strong', desc: 'Directly measured, specific, and tightly connected to the claim.' },
+      { key: 'moderate', label: 'Moderate', desc: 'Relevant and supportive, but indirect, partial, or context-limited.' },
+      { key: 'weak', label: 'Weak', desc: 'Speculative, analogical, or clearly confounded.' },
+      { key: 'contested', label: 'Contested', desc: 'Credible evidence points both ways.' },
+      { key: 'unstudied', label: 'Unstudied', desc: 'Searched for, and the evidence does not appear to exist. Recorded as a finding, not a failure.' }
     ]
   },
   {
     id: 'record',
-    title: 'What Sits on a Link',
-    note: 'Open the detail pane for any link and you get these four sections, in this order.',
-    views: ['chain'],
+    title: 'What Sits on a Proposal',
+    note: 'Open any orange chip and the sidebar gives these sections, in this order.',
+    views: ['spine'],
+    countBy: 'proposal',
     items: [
-      { label: 'Evidence', desc: 'Findings supporting the causal claim, each graded on its own.' },
-      { label: 'Counter-evidence', desc: 'Kept as a separate section rather than folded into a hedge, so a contested link shows both sides at full strength.' },
-      { label: 'Caveat', desc: 'A limitation attached to one finding: a non-representative sample, a partisan source, a design that cannot support the reading.' },
-      { label: 'Actual Participation', desc: 'Documented instances of participation that sat at this link, each with its effect.' },
-      { label: 'Proposed Participation', desc: 'Counterfactual processes from the project’s design work, each naming the mechanism it presumes and whether that mechanism is studied.' },
-      { label: 'Open Questions', desc: 'What would have to be researched for this link to firm up. These are the research plan, generated from the argument rather than written separately.' }
+      { key: 'proposed', label: 'The Chain', desc: 'The full causal chain from intervention to outcome, one graded link at a time. A banner says when no study tests the chain end to end.' },
+      { label: 'When and Where', desc: 'If we could only do this one thing: the specific point on the timeline and the jurisdiction where it would intervene.' },
+      { label: 'Intended Impacts', desc: 'Measured impacts the chain reaches are separated from conjectured impacts nothing measures.' },
+      { label: 'Comparables', desc: 'Real-world cases where something similar was tried, with measured outcomes where they exist and stated absences where they do not.' }
     ]
   }
 ];
@@ -136,5 +102,5 @@ export const GLOSSARY = [
 /** The five timeline entry categories, defined in categories.js, described here. */
 export const TIMELINE_NOTE =
   'Timeline entries are the raw chronology behind a case. Their five categories are ' +
-  'independent of the chain taxonomy above; an entry is tagged by what kind of event ' +
+  'independent of the spine taxonomy above; an entry is tagged by what kind of event ' +
   'it was, not by how well evidenced anything is.';

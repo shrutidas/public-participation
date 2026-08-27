@@ -253,6 +253,111 @@ if (cases) {
   });
 }
 
+/* ------------------------------ spine lint ------------------------------- */
+
+const spineDir = join(root, 'js/spine');
+let spineFiles = [];
+try {
+  spineFiles = readdirSync(spineDir).filter(n => n.endsWith('.js')).sort();
+} catch {
+  // No spine directory yet.
+}
+
+const plainText = s => String(s).replace(/<[^>]+>/g, '');
+
+function anchorMatches(entries, anchor) {
+  return entries.filter(e => plainText(e.text).includes(anchor)).length;
+}
+
+function lintEvidenceList(file, where, list) {
+  (list ?? []).forEach((ev, ei) => {
+    const eLabel = `${where}, evidence ${ei + 1}`;
+    if (!ev.finding?.trim()) error(file, `${eLabel} has an empty finding`);
+    if (!VALID_STRENGTHS.includes(ev.grade)) {
+      error(file, `${eLabel} has invalid grade "${ev.grade}"`);
+    }
+    if (!ev.srcs?.length) error(file, `${eLabel} must have at least one source`);
+    lintSources(file, eLabel, ev.srcs);
+  });
+}
+
+let spineTotals = { mechanisms: 0, impacts: 0, proposals: 0, propLinks: 0, comparables: 0 };
+
+for (const file of spineFiles) {
+  let mod;
+  try {
+    mod = await import(pathToFileURL(join(spineDir, file)).href);
+  } catch (err) {
+    error(`spine/${file}`, `failed to load — ${err.message}`);
+    continue;
+  }
+  const sp = mod.default;
+  const f = `spine/${file}`;
+  const owner = cases?.find(c => c.slug === sp.slug);
+  if (!owner) {
+    error(f, `slug "${sp.slug}" does not match any case`);
+    continue;
+  }
+  const entries = owner.entries;
+
+  const checkAnchor = (where, anchor) => {
+    const n = anchorMatches(entries, anchor);
+    if (n === 0) error(f, `${where}: anchor "${anchor}" matches no timeline entry`);
+    else if (n > 1) error(f, `${where}: anchor "${anchor}" matches ${n} entries — must be unique`);
+  };
+
+  sp.mechanisms.forEach((m, mi) => {
+    const w = `mechanism ${mi + 1} (${m.name})`;
+    m.anchors.forEach(a => checkAnchor(w, a));
+    if (m.srcs?.length) lintSources(f, w, m.srcs);
+    spineTotals.mechanisms++;
+  });
+
+  sp.impacts.forEach((im, ii) => {
+    const w = `impact ${ii + 1} (${im.name})`;
+    im.from.forEach(fr => {
+      checkAnchor(w, fr.anchor);
+      if (!VALID_STRENGTHS.includes(fr.strength)) {
+        error(f, `${w} arrow has invalid strength "${fr.strength}"`);
+      }
+    });
+    lintEvidenceList(f, w, im.evidence);
+    lintEvidenceList(f, `${w} (counter)`, im.counterEvidence);
+    spineTotals.impacts++;
+  });
+
+  const impactNames = new Set(sp.impacts.map(i => i.name));
+  sp.proposals.forEach((p, pi) => {
+    const w = `proposal ${pi + 1} (${p.name})`;
+    checkAnchor(w, p.anchor);
+    for (const n of p.impactsMeasured) {
+      if (!impactNames.has(n)) error(f, `${w} names measured impact "${n}", which does not exist`);
+    }
+    if (!p.links.length) error(f, `${w} has no chain links`);
+    p.links.forEach((lk, li) => {
+      const lw = `${w}, link ${li + 1} (${lk.name})`;
+      if (!VALID_STRENGTHS.includes(lk.strength)) {
+        error(f, `${lw} has invalid strength "${lk.strength}"`);
+      }
+      if (lk.strength !== 'unstudied' && !(lk.evidence ?? []).length) {
+        error(f, `${lw} is graded "${lk.strength}" but carries no evidence`);
+      }
+      lintEvidenceList(f, lw, lk.evidence);
+      lintEvidenceList(f, `${lw} (counter)`, lk.counterEvidence);
+      spineTotals.propLinks++;
+    });
+    p.comparables.forEach((c, ci) => {
+      const cw = `${w}, comparable ${ci + 1} (${c.name})`;
+      if (!VALID_STRENGTHS.includes(c.strength)) {
+        error(f, `${cw} has invalid strength "${c.strength}"`);
+      }
+      if (c.srcs?.length) lintSources(f, cw, c.srcs);
+      spineTotals.comparables++;
+    });
+    spineTotals.proposals++;
+  });
+}
+
 if (errors.length) {
   console.error(`Found ${errors.length} problem(s):\n`);
   errors.forEach(msg => console.error(msg));
@@ -277,3 +382,4 @@ const propCount = cases.reduce(
 console.log('All case studies passed lint.');
 console.log(`  ${caseFiles.length} files, ${cases.reduce((n, c) => n + c.entries.length, 0)} entries total`);
 console.log(`  ${chainCount} causal chains, ${linkCount} links, ${partCount} participation instances, ${propCount} proposed instances`);
+console.log(`  spine: ${spineTotals.mechanisms} mechanisms, ${spineTotals.impacts} impacts, ${spineTotals.proposals} proposals with ${spineTotals.propLinks} chain links, ${spineTotals.comparables} comparables`);

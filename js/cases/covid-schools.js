@@ -94,7 +94,7 @@ export default caseStudy({
       actors: 'Governor Whitmer, Michigan Department of Education',
       text:       paragraph(`
         Governor Whitmer ordered Michigan public schools closed for the remainder of
-        the 2019-20 school year and issued an executive order creating a <strong>COVID-19
+        the 2019-20 school year, and in May issued an executive order creating a <strong>COVID-19
         Return to School Advisory Council</strong> with educators, public health officials,
         local administrators, and parents. Critics would later argue its
         recommendations were not consistently followed.
@@ -234,6 +234,25 @@ export default caseStudy({
     }),
 
     entry({
+      date: '09/2020',
+      category: 'purple',
+      actors: 'United Federation of Teachers, Mayor de Blasio, NYC Department of Education',
+      text:       paragraph(`
+        The UFT, representing about 75,000 NYC teachers, threatened to <strong>sue or
+        strike</strong> over the planned September 10 reopening, citing inadequate testing
+        and safety protocols. On September 1 the city and the union reached a deal
+        that <strong>delayed in-person instruction to September 21</strong>, added monthly random
+        testing and a citywide closure trigger at a 3% infection rate. The only
+        stakeholder channel in the case that could <strong>force the terms</strong> of a reopening
+        decision.
+      `),
+      sources: [
+        source('NPR', 'https://www.npr.org/sections/coronavirus-live-updates/2020/08/19/903927057/nyc-teacher-unions-prepared-to-strike-if-safety-demands-are-not-met'),
+        source('K-12 Dive', 'https://www.k12dive.com/news/nyc-uft-reopening-agreement-delays-school-start-boosts-safety/584532/'),
+      ],
+    }),
+
+    entry({
       date: '11/2020',
       category: 'purple',
       actors: '30 Randomly Selected Michigan Residents, CMU Researchers',
@@ -293,6 +312,20 @@ export default caseStudy({
     }),
 
     entry({
+      date: '02/2021',
+      category: 'purple',
+      actors: 'SF City Attorney Dennis Herrera, SF Board of Education, Superintendent Matthews',
+      text:       paragraph(`
+        San Francisco's city attorney <strong>sued the city's own school district</strong>,
+        demanding the restart of in-person instruction for more than 52,000
+        students, believed to be the first civil action filed by a city against a
+        district over COVID-19 closings. Participation arriving as <strong>litigation,
+        after the decisions</strong>.
+      `),
+      sources: [source('NBC News', 'https://www.nbcnews.com/news/us-news/san-francisco-sues-its-own-school-district-demands-restart-person-n1256639')],
+    }),
+
+    entry({
       date: '03/2021',
       category: 'orange',
       actors: 'Federal and State Governments, Teachers, School Staff, Vaccine Providers',
@@ -343,6 +376,23 @@ export default caseStudy({
         `),
         sources: [source('Urban', 'https://www.urban.org/research/publication/support-mask-and-vaccine-policies-schools-falls-along-racial-and-political-lines')],
       }),
+
+    entry({
+      date: '02/2022',
+      category: 'purple',
+      actors: 'San Francisco voters, three recalled commissioners',
+      text:       paragraph(`
+        San Francisco voters <strong>recalled three Board of Education members</strong> by margins
+        of 69 to 76% on 36% turnout, citing schools remaining closed in 2020-21
+        while other districts opened. The verdict arrived <strong>14 to 20 months after the
+        decisions it judged</strong>; nationally, 84 recall efforts in 2021 produced one
+        removal in the 16 elections held.
+      `),
+      sources: [
+        source('2022 SF Board of Education recall', 'https://en.wikipedia.org/wiki/2022_San_Francisco_Board_of_Education_recall_elections'),
+        source('Ballotpedia', 'https://news.ballotpedia.org/2021/11/08/school-board-recalls-in-2021/'),
+      ],
+    }),
 
     entry({
       date: '04/2022',

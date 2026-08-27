@@ -276,6 +276,23 @@ export default caseStudy({
     }),
 
     entry({
+      date: '08/2012',
+      category: 'green',
+      actors: 'EPA National Exposure Research Laboratory (Strynar et al.)',
+      text:       paragraph(`
+        EPA research scientists collected Cape Fear River water samples in summer
+        2012 and identified <strong>12 novel fluorinated compounds, including GenX</strong>,
+        downstream of the Fayetteville Works plant. The findings were published in
+        2015 and <strong>stayed inside agencies and journals</strong>; no notification to
+        downstream utilities or the public followed.
+      `),
+      sources: [
+        source('Strynar et al. 2015, ES&T', 'https://pubs.acs.org/doi/10.1021/acs.est.5b01215'),
+        source('Strynar et al. 2015 (open copy, NC State CHHE)', 'https://chhe.research.ncsu.edu/wordpress/wp-content/uploads/2018/05/Ethers_Strynar_EST2015.pdf'),
+      ],
+    }),
+
+    entry({
       date: '2015',
       category: 'orange',
       actors: 'DuPont, Chemours',
@@ -301,6 +318,23 @@ export default caseStudy({
         conventional treatment</strong>.
       `),
       sources: [source('ACS', 'https://pubs.acs.org/doi/10.1021/acs.estlett.6b00398')],
+    }),
+
+    entry({
+      date: '06/2017',
+      category: 'purple',
+      actors: 'Vaughn Hagerty, Wilmington StarNews',
+      text:       paragraph(`
+        The Wilmington StarNews published <strong>"Toxin taints CFPUA drinking water"</strong> on
+        June 7, 2017, reporting GenX discharge affecting drinking water for roughly
+        250,000 people. The reporter found the story by <strong>browsing EPA's public
+        UCMR3 monitoring database</strong> and reaching the Sun et al. paper. One reporter
+        performed the notification function that no statute assigned to anyone.
+      `),
+      sources: [
+        source('Coastal Review', 'https://coastalreview.org/2022/06/vaughn-hagerty-the-reporter-who-broke-the-genx-story/'),
+        source('WRAL timeline', 'https://www.wral.com/story/timeline-tracking-the-route-of-genx-in-the-cape-fear-river/16869639/'),
+      ],
     }),
 
     entry({

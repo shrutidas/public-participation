@@ -286,6 +286,137 @@ export function chain({
   return { id, label, track, purpose, outcome, thesis, nodes, nodeDates, screen, links };
 }
 
+/* ------------------------------------------------------------------ *
+ * Spine layer (second memo rework)
+ *
+ * The timeline is the central spine. Three kinds of object hang off it:
+ * mechanisms that already existed and should have worked (left), measured
+ * impacts with causal arrows from specific events (right), and proposed
+ * interventions anchored at the point where they would intervene, each
+ * expanding into its own causal chain with evidence at every link.
+ * Anchors are unique substrings of a timeline entry's text; the linter
+ * verifies each anchor matches exactly one entry.
+ * ------------------------------------------------------------------ */
+
+/** Why an existing mechanism failed to prevent the harm. */
+const VALID_FAILURES = [
+  'did-not-know',    // the mechanism's operators lacked the information
+  'knew-no-act',     // the information was there and nothing fired
+  'acted-no-effect', // it fired and did not change the decision or outcome
+  'no-mechanism',    // nothing existed to fire
+  'partial',         // it fired and changed part of the decision or outcome
+  'worked'           // it fired and bound; kept for the asymmetry argument
+];
+
+export const FAILURE_LABEL = {
+  'did-not-know': 'Did not know',
+  'knew-no-act': 'Knew, did not act',
+  'acted-no-effect': 'Acted, no effect',
+  'no-mechanism': 'No mechanism existed',
+  'partial': 'Acted, partial effect',
+  'worked': 'Worked'
+};
+
+/** An oversight or participation mechanism that already existed in the ecosystem. */
+export function mechanism({ name, actor, failure, note, detail, anchors = [], sources = [] }) {
+  if (!name?.trim()) throw new Error('Mechanism is missing a name');
+  if (!actor?.trim()) throw new Error(`Mechanism "${name}" is missing an actor`);
+  if (!VALID_FAILURES.includes(failure)) {
+    throw new Error(
+      `Invalid failure "${failure}" on mechanism "${name}". Use one of: ${VALID_FAILURES.join(', ')}`
+    );
+  }
+  if (!note?.trim()) throw new Error(`Mechanism "${name}" is missing a note`);
+  if (!detail?.trim()) throw new Error(`Mechanism "${name}" is missing a detail paragraph`);
+  if (!anchors.length) throw new Error(`Mechanism "${name}" has no timeline anchors`);
+  checkSources(sources, `Mechanism "${name}"`);
+  return { name, actor, failure, note, detail, anchors, srcs: sources.map(s => ({ l: s.label, u: s.url })) };
+}
+
+/** A measured impact attached to the spine, with causal arrows from specific events. */
+export function impact({ name, measures, from = [], evidence: evid = [], counterEvidence = [] }) {
+  if (!name?.trim()) throw new Error('Impact is missing a name');
+  if (!measures?.trim()) throw new Error(`Impact "${name}" is missing a measures paragraph`);
+  if (!from.length) throw new Error(`Impact "${name}" has no causal arrows (from)`);
+  for (const f of from) {
+    if (!f.anchor?.trim()) throw new Error(`Impact "${name}" has an arrow without an anchor`);
+    if (!VALID_STRENGTHS.includes(f.strength)) {
+      throw new Error(`Impact "${name}" arrow has invalid strength "${f.strength}"`);
+    }
+  }
+  return { name, measures, from, evidence: evid, counterEvidence };
+}
+
+/** One link inside a proposed intervention's causal chain. */
+export function propLink({ name, claim, strength, evidence: evid = [], counterEvidence = [] }) {
+  if (!name?.trim()) throw new Error('Proposal link is missing a name');
+  if (!claim?.trim()) throw new Error(`Proposal link "${name}" is missing a claim`);
+  if (!VALID_STRENGTHS.includes(strength)) {
+    throw new Error(
+      `Invalid strength "${strength}" on proposal link "${name}". Use one of: ${VALID_STRENGTHS.join(', ')}`
+    );
+  }
+  if (strength !== 'unstudied' && evid.length === 0) {
+    throw new Error(`Proposal link "${name}" is graded "${strength}" but carries no evidence`);
+  }
+  return { name, claim, strength, evidence: evid, counterEvidence };
+}
+
+/** A comparable real-world intervention with its measured outcome. */
+export function comparable({ name, where, when, authority, outcome, strength, sources = [] }) {
+  if (!name?.trim()) throw new Error('Comparable is missing a name');
+  if (!where?.trim()) throw new Error(`Comparable "${name}" is missing a where`);
+  if (!when?.trim()) throw new Error(`Comparable "${name}" is missing a when`);
+  if (!authority?.trim()) throw new Error(`Comparable "${name}" is missing an authority note`);
+  if (!outcome?.trim()) throw new Error(`Comparable "${name}" is missing an outcome`);
+  if (!VALID_STRENGTHS.includes(strength)) {
+    throw new Error(`Invalid strength "${strength}" on comparable "${name}"`);
+  }
+  checkSources(sources, `Comparable "${name}"`);
+  return { name, where, when, authority, outcome, strength, srcs: sources.map(s => ({ l: s.label, u: s.url })) };
+}
+
+/**
+ * A proposed intervention anchored to the spine, carrying its full causal
+ * chain from intervention to outcome. `banner: true` marks a chain no study
+ * tests end to end; per-link grades still render underneath.
+ */
+export function spineProposal({
+  name, method, anchor, when, where, description,
+  banner = true, impactsMeasured = [], impactsConjectured = [],
+  links = [], comparables = [], sources = []
+}) {
+  if (!name?.trim()) throw new Error('Spine proposal is missing a name');
+  if (!method?.trim()) throw new Error(`Spine proposal "${name}" is missing a method`);
+  if (!anchor?.trim()) throw new Error(`Spine proposal "${name}" is missing a timeline anchor`);
+  if (!when?.trim()) throw new Error(`Spine proposal "${name}" is missing a when paragraph`);
+  if (!where?.trim()) throw new Error(`Spine proposal "${name}" is missing a where`);
+  if (!description?.trim()) throw new Error(`Spine proposal "${name}" is missing a description`);
+  if (!links.length) throw new Error(`Spine proposal "${name}" has no chain links`);
+  checkSources(sources, `Spine proposal "${name}"`);
+  return {
+    name, method, anchor, when, where, description,
+    banner: Boolean(banner), impactsMeasured, impactsConjectured,
+    links, comparables, srcs: sources.map(s => ({ l: s.label, u: s.url }))
+  };
+}
+
+/** Per-case spine data: mechanisms, impacts, and anchored proposals. */
+export function spineData({ slug, mechanisms = [], impacts = [], proposals = [] }) {
+  if (!slug?.trim()) throw new Error('Spine data is missing a slug');
+  const impactNames = new Set(impacts.map(i => i.name));
+  for (const p of proposals) {
+    for (const n of p.impactsMeasured) {
+      if (!impactNames.has(n)) {
+        throw new Error(`Spine proposal "${p.name}" names measured impact "${n}", which is not an impact of case "${slug}"`);
+      }
+    }
+  }
+  return { slug, mechanisms, impacts, proposals };
+}
+
+export { VALID_FAILURES };
+
 /** Collapse whitespace in one or more text fragments into a single paragraph. Supports inline <strong> for emphasis. */
 export function paragraph(...parts) {
   return parts.join(' ').replace(/\s+/g, ' ').trim();

@@ -40,7 +40,7 @@
 
 <div id="tl-wrap">
   <div class="tl-toolbar">
-    <button class="tl-back" id="tl-back" data-view="chain">&larr; Back to Chain</button>
+    <button class="tl-back" id="tl-back" data-view="spine">&larr; Back to Map</button>
     <button class="ov-toggle" data-ov>About This Case</button>
     <span class="vsep"></span>
     <button class="fl fl-all" data-f="all">All</button>
@@ -69,16 +69,16 @@
       </div>
     </div>
     <div id="ch-legend">
-      <span class="lg-hd">Nodes<em>What kind of event the node is</em></span>
+      <span class="lg-hd">The Spine<em>The timeline runs down the center, in order</em></span>
       <span class="lg-row">
-        <span class="lg-dot"><i class="k-sw k-sw-node-immovable"></i>Events (cannot be changed)</span>
-        <span class="lg-dot"><i class="k-sw k-sw-node-intervenable"></i>Intervenable</span>
-        <span class="lg-dot"><i class="k-sw k-sw-node-outcome"></i>Valued Outcome</span>
+        <span class="lg-dot"><i class="k-sw k-sw-sp-ent"></i>Timeline event</span>
+        <span class="lg-dot"><i class="k-sw k-sw-sp-mech"></i>Existing mechanism, tagged with how it failed</span>
+        <span class="lg-dot"><i class="k-sw k-sw-sp-imp"></i>Measured impact</span>
       </span>
-      <span class="lg-hd">Participation<em>Arrow in the middle; actual on the left, proposed on the right</em></span>
+      <span class="lg-hd">Proposals & Evidence<em>Orange chips expand one at a time</em></span>
       <span class="lg-row">
-        <span class="lg-dot"><i class="lg-card lg-card-actual"></i>Actual participation (documented)</span>
-        <span class="lg-dot"><i class="lg-card lg-card-prop"></i>Proposed participation (from the design work)</span>
+        <span class="lg-dot"><i class="k-sw k-sw-sp-prop"></i>Proposed intervention (from the design work)</span>
+        <span class="lg-dot"><i class="k-sw k-sw-sp-flag"></i>Evidence flag; a dot means counter-evidence exists</span>
         <button class="lg-more" data-openkey>Full Key &rarr;</button>
       </span>
     </div>
