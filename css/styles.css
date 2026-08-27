@@ -1399,13 +1399,13 @@ body[data-view="chain"] #ctrl .fl,
 .sp-flag:hover { background: #fbeceb; }
 .sp-flag.sel { box-shadow: 0 0 0 3px rgba(179,38,30,.3); }
 .fl-strong { border-color: #177038; color: #177038; }
-.fl-strong:hover { background: #e9f4ec; }
+.sp-flag.fl-strong:hover { background: #e9f4ec; }
 .fl-moderate { border-color: #1258a0; color: #1258a0; }
-.fl-moderate:hover { background: #e8eff8; }
+.sp-flag.fl-moderate:hover { background: #e8eff8; }
 .fl-weak { border-color: #a84e08; color: #a84e08; }
-.fl-weak:hover { background: #f9efe4; }
+.sp-flag.fl-weak:hover { background: #f9efe4; }
 .fl-contested { border-color: #8a6d0f; color: #8a6d0f; }
-.fl-contested:hover { background: #f7f1dd; }
+.sp-flag.fl-contested:hover { background: #f7f1dd; }
 .fl-unstudied { border-color: #aa2a20; color: #aa2a20; background: #fbeceb; }
 
 /* Sidebar additions */
@@ -1437,6 +1437,7 @@ body[data-view="chain"] #ctrl .fl,
 .sp-chainbox { display: flex; flex-direction: column; align-items: center; gap: 5px; }
 .sp-chain-name { display: block; }
 .sp-grade {
+  pointer-events: none;
   display: inline-flex; align-items: center; gap: 4px;
   font-size: .6rem; font-weight: 700; letter-spacing: .02em;
   border: 1.5px solid currentColor; border-radius: 8px; padding: 3px 8px;
@@ -1447,7 +1448,7 @@ body[data-view="chain"] #ctrl .fl,
 .sp-evcard {
   position: absolute; box-sizing: border-box; cursor: pointer; text-align: left;
   background: #fff; border: 1.5px solid #b3261e; border-radius: 6px;
-  padding: 4px 8px; font-size: .62rem; line-height: 1.3; color: #7a2018;
+  padding: 5px 9px; font-size: .74rem; line-height: 1.3; color: #7a2018;
   font-family: inherit; white-space: normal; word-break: break-word;
 }
 .sp-evcard:hover { background: #fbeceb; }
@@ -1478,9 +1479,9 @@ body[data-view="chain"] #ctrl .fl,
 .sp-complist {
   position: absolute; box-sizing: border-box; cursor: pointer; text-align: left;
   background: rgba(255,255,255,.85); border: 1px dashed #c9c3b6; border-radius: 6px;
-  padding: 4px 8px; font-size: .62rem; line-height: 1.35; color: #57524a;
+  padding: 5px 9px; font-size: .74rem; line-height: 1.35; color: #57524a;
   font-family: inherit; white-space: normal; word-break: break-word;
 }
 .sp-complist:hover { background: #f7f5f0; border-color: #8a8377; }
 .sp-complist.sel { background: #f7f5f0; border-color: #57524a; border-style: solid; box-shadow: 0 0 0 3px rgba(107,100,87,.35); }
-.sp-complist-kick { font-weight: 800; letter-spacing: .04em; text-transform: uppercase; font-size: .55rem; color: #6b6457; margin-right: 2px; }
+.sp-complist-kick { font-weight: 800; letter-spacing: .04em; text-transform: uppercase; font-size: .64rem; color: #6b6457; margin-right: 2px; }

@@ -94,7 +94,7 @@ export function renderSpineMap(el, caseObj, spine, sel = {}) {
   const expH = p => {
     const maxCards = Math.max(...p.links.map(lk =>
       Math.max((lk.evidence ?? []).length + (lk.counterEvidence ?? []).length, 1)));
-    return 200 + maxCards * 56 + (p.comparables?.length ? 44 : 0);
+    return 200 + maxCards * 56 + (p.comparables?.length ? 52 : 0);
   };
 
   // Pass 2: vertical layout.
