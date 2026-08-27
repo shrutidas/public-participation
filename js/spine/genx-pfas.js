@@ -875,11 +875,7 @@ export default spineData({
           evidence: [
             evidence({
               finding: paragraph(`
-                Mailed water quality reports <strong>cut violations 30 to 44 percent</strong> and
-                severe health violations 40 to 57 percent; Massachusetts firms
-                cut on-site releases 92 percent under use reporting; 61 percent
-                of surveyed German downstream users substituted substances after
-                REACH listing.
+                Disclosure requirements led to measurable changes in behavior. Mailed water quality reports <strong>reduced violations by 30–44% and severe health violations by 40–57%</strong>. In Massachusetts, companies required to report chemical use reduced on-site releases by 92%. In Germany, 61% of surveyed companies using listed substances reported replacing them with alternatives after they were listed under REACH.
               `),
               grade: 'strong',
               quote: 'reduced total violations by between 30% and 44%',
