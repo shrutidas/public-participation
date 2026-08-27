@@ -1487,3 +1487,13 @@ body[data-view="chain"] #ctrl .fl,
 .sp-propbox-kick { display: block; font-size: .58rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: #c05621; margin-bottom: 2px; }
 .sp-edge-allude { stroke: #c05621; stroke-width: 2; fill: none; }
 .sp-edge-allude-tie { stroke: #c05621; stroke-width: 1.6; fill: none; stroke-dasharray: 2.5 4; opacity: .8; }
+
+/* Comparable real-world cases named on the map under each proposal chain */
+.sp-complist {
+  position: absolute; box-sizing: border-box; cursor: pointer; text-align: left;
+  background: rgba(255,255,255,.85); border: 1px dashed #c9c3b6; border-radius: 6px;
+  padding: 4px 8px; font-size: .62rem; line-height: 1.35; color: #57524a;
+  font-family: inherit; white-space: normal; word-break: break-word;
+}
+.sp-complist:hover { background: #f7f5f0; border-color: #8a8377; }
+.sp-complist-kick { font-weight: 800; letter-spacing: .04em; text-transform: uppercase; font-size: .55rem; color: #6b6457; margin-right: 2px; }

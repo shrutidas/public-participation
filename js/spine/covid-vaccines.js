@@ -491,12 +491,30 @@ export default spineData({
           ]
         }),
         propLink({
-          name: 'Legitimacy improves compliance',
+          name: 'Legitimacy could improve compliance',
           claim: paragraph(`
-            Perceived legitimacy improves compliance with the mandate or reduces
-            backlash.
+            Perceived legitimacy could improve compliance with the mandate or
+            reduce backlash.
           `),
-          strength: 'unstudied',
+          strength: 'weak',
+          evidence: [
+            evidence({
+              finding: paragraph(`
+                In a survey of 1,595 Australians during early COVID lockdowns,
+                felt duty to support the authorities was the dominant predictor
+                of compliance, far ahead of sanction risk; a meta-analysis of
+                64 studies finds legitimacy beliefs predict compliance with the
+                law, with the effect running through legitimacy rather than
+                procedure directly.
+              `),
+              grade: 'moderate',
+              quote: 'normative concerns regarding duty to support the authorities dominated compliance decisions',
+              sources: [
+                source('Murphy et al. 2020', 'https://journals.sagepub.com/doi/full/10.1177/0004865820954484'),
+                source('Walters and Bolger 2019', 'https://link.springer.com/article/10.1007/s11292-018-9338-2')
+              ]
+            })
+          ],
           counterEvidence: [
             evidence({
               finding: paragraph(`
@@ -516,11 +534,12 @@ export default spineData({
           ]
         }),
         propLink({
-          name: 'Mandates raise uptake',
+          name: 'A legitimate mandate could raise uptake',
           claim: paragraph(`
-            A mandate carrying deliberative legitimacy raises uptake at least as
-            much as one imposed without it, with less backlash. The evidence
-            below tests mandates alone; the deliberative increment is untested.
+            A mandate carrying deliberative legitimacy could raise uptake at
+            least as much as one imposed without it, with less backlash. The
+            evidence below tests mandates alone; the deliberative increment is
+            untested.
           `),
           strength: 'contested',
           evidence: [
@@ -532,6 +551,16 @@ export default spineData({
               `),
               grade: 'strong',
               sources: [source('Nature Human Behaviour 2022', 'https://www.nature.com/articles/s41562-021-01272-9')]
+            }),
+            evidence({
+              finding: paragraph(`
+                France's health pass, announced July 12, 2021: two-dose
+                coverage of the eligible population rose from 49 percent at
+                announcement to 89 percent by mid-December 2021.
+              `),
+              grade: 'strong',
+              quote: 'the share of the eligible population vaccinated with two doses increased from 49% on 12 July to 89% by mid-December 2021',
+              sources: [source('Ward et al. 2022, Nature Medicine', 'https://www.nature.com/articles/s41591-021-01661-7')]
             })
           ],
           counterEvidence: [
@@ -542,6 +571,19 @@ export default spineData({
               `),
               grade: 'moderate',
               sources: [source('Rains et al. 2024 (abstract)', 'https://experts.arizona.edu/en/publications/us-state-vaccine-mandates-did-not-influence-covid-19-vaccination-/')]
+            }),
+            evidence({
+              finding: paragraph(`
+                The same French health pass did not reduce hesitancy itself:
+                the share of vaccinated people with doubts about the vaccine
+                rose from 44 to 61 percent after implementation, and coverage
+                lagged among the elderly, the poorest, and the most
+                marginalized, with only 86 percent of people over 80
+                vaccinated as of October 2021.
+              `),
+              grade: 'moderate',
+              quote: 'the share of vaccinated people with doubts about the vaccine increased from 44% to 61% after the health pass was implemented',
+              sources: [source('Ward et al. 2022, Nature Medicine', 'https://www.nature.com/articles/s41591-021-01661-7')]
             })
           ]
         }),
@@ -585,7 +627,8 @@ export default spineData({
             The one located instance of the exact sequence: consultation, then a
             law extending infant mandates from 3 to 11 vaccines. The critical
             literature disputes that the citizen jury itself recommended the
-            mandate; coverage studies remain unfetched.
+            mandate, and Ward et al. (2022) report the extension drew no public
+            backlash while leaving French vaccine confidence low.
           `),
           strength: 'moderate',
           sources: [source('Eurosurveillance 2018', 'https://www.eurosurveillance.org/content/10.2807/1560-7917.ES.2018.23.17.18-00048')]
@@ -668,11 +711,11 @@ export default spineData({
       impactsConjectured: ['Community ownership', 'Standing infrastructure for the next emergency'],
       links: [
         propLink({
-          name: 'Co-design puts access where the barriers are',
+          name: 'Co-design could put access where the barriers are',
           claim: paragraph(`
-            Community co-design lands access infrastructure where the barriers
-            actually are. The co-design component has not been isolated from
-            supply prioritization in any study.
+            Community co-design could land access infrastructure where the
+            barriers actually are. The co-design component has not been
+            isolated from supply prioritization in any study.
           `),
           strength: 'moderate',
           evidence: [
@@ -735,11 +778,11 @@ export default spineData({
           ]
         }),
         propLink({
-          name: 'Equitable uptake narrows the gap earlier',
+          name: 'Equitable uptake could narrow the gap earlier',
           claim: paragraph(`
-            Equitable uptake narrows the racial gap earlier than it narrowed in
-            fact, cutting the never-estimated mortality cost of the spring 2021
-            lag.
+            Equitable uptake could have narrowed the racial gap earlier than it
+            narrowed in fact, cutting the never-estimated mortality cost of the
+            spring 2021 lag.
           `),
           strength: 'moderate',
           evidence: [
@@ -872,9 +915,9 @@ export default spineData({
       impactsConjectured: ['Effect estimates exist for the next emergency', 'Allocation shifts toward instruments with measured effects', 'Accountability for public money'],
       links: [
         propLink({
-          name: 'Requiring evaluation produces evaluations',
+          name: 'Requiring evaluation could produce evaluations',
           claim: paragraph(`
-            Requiring evaluation in award terms produces evaluations.
+            Requiring evaluation in award terms could produce evaluations.
           `),
           strength: 'moderate',
           evidence: [
@@ -894,17 +937,40 @@ export default spineData({
           ]
         }),
         propLink({
-          name: 'Evidence changes later decisions',
+          name: 'Evidence could change later decisions',
           claim: paragraph(`
-            Effect estimates change later allocation, within the pandemic and in
-            the next emergency.
+            Effect estimates could change later allocation, within the pandemic
+            and in the next emergency.
           `),
-          strength: 'unstudied',
+          strength: 'moderate',
           evidence: [
             evidence({
               finding: paragraph(`
+                A randomized experiment with 2,150 Brazilian municipalities
+                found mayors pay to learn evaluation results, update their
+                beliefs, and that informing them about an effective policy
+                raised its adoption by 10 percentage points.
+              `),
+              grade: 'strong',
+              quote: 'informing mayors about research on a simple and effective policy, taxpayer reminder letters, increases the probability the policy is implemented by 10 percentage points',
+              sources: [source('Hjort et al. 2021, AER', 'https://www.aeaweb.org/articles?id=10.1257%2Faer.20190830')]
+            }),
+            evidence({
+              finding: paragraph(`
+                A follow-up of 73 randomized nudge trials run with 67 US city
+                departments found cities adopted the tested treatment in later
+                communications in 27 percent of cases, with adoption driven
+                more by staff continuity than by the strength of the evidence.
+                Evidence travels into decisions, partially.
+              `),
+              grade: 'moderate',
+              quote: 'city departments adopt a nudge treatment in follow-on communication in 27% of cases',
+              sources: [source('DellaVigna, Kim and Linos (NBER w30144)', 'https://www.nber.org/papers/w30144')]
+            }),
+            evidence({
+              finding: paragraph(`
                 The OES portfolio's embedded evaluations corrected an optimistic
-                published literature, the epistemic service the proposal buys;
+                published literature, the correction service the proposal buys;
                 whether any agency reallocated because of it was not identified.
               `),
               grade: 'weak',
@@ -915,13 +981,27 @@ export default spineData({
           ]
         }),
         propLink({
-          name: 'Better allocation raises uptake',
+          name: 'Better allocation could raise uptake',
           claim: paragraph(`
-            Reallocation toward measured instruments raises uptake and lowers
-            deaths. Conjectured by construction; no study can exist for a policy
-            not adopted.
+            Reallocation toward measured instruments could raise uptake and
+            lower deaths. Conjectured by construction; no study can exist for a
+            policy not adopted.
           `),
-          strength: 'unstudied'
+          strength: 'unstudied',
+          evidence: [
+            evidence({
+              finding: paragraph(`
+                The nearest empirical anchor: in a randomized rollout in
+                Rwanda, tying health spending to measured service outputs
+                raised institutional deliveries and preventive child visits,
+                and the design shows the incentive structure, not the money
+                alone, drove the gains.
+              `),
+              grade: 'weak',
+              quote: 'the results indicate that an equal amount of financial resources without the incentives would not have achieved the same gain in outcomes',
+              sources: [source('Basinga et al. 2011 (World Bank WPS5190)', 'https://ideas.repec.org/p/wbk/wbrwps/5190.html')]
+            })
+          ]
         })
       ],
       comparables: [

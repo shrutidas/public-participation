@@ -190,11 +190,12 @@ export default spineData({
       `),
       measures: paragraph(`
         In 344 Wilmington residents, fluoroethers contributed about a quarter of
-        summed serum PFAS; four legacy PFAS sat above national levels in 97
-        percent or more of participants. Median fluoroether levels declined 34
-        to 65 percent within six months of discharge controls. GenX itself was
-        not detected above 2 ng/mL; the measured burden is fluoroethers and
-        legacy PFAS.
+        the summed PFAS in blood; four legacy PFAS sat above national levels in
+        97 percent or more of participants. Median fluoroether levels declined
+        34 to 65 percent within six months of discharge controls. GenX itself
+        was not detected above 2 ng/mL; the measured load is fluoroethers and
+        legacy PFAS. Blood levels matter because PFAS exposure is linked to
+        disease, recorded on its own card.
       `),
       from: [
         { anchor: 'Discharge continued largely unmonitored', strength: 'strong', note: 'Exposure shows up in the blood' },
@@ -203,11 +204,12 @@ export default spineData({
       evidence: [
         evidence({
           finding: paragraph(`
-            Kotlarz et al. (2020) measured serum PFAS in the GenX Exposure Study
-            cohort; archived 2010-2016 serum showed PFMOAA medians of 42 ng/mL.
-            PFOA elimination kinetics (half-life 3.26 years after exposure ended
-            in Arnsberg, Germany) support the earlier-cutoff counterfactual in
-            every chain.
+            Kotlarz et al. (2020) measured PFAS in blood from the GenX Exposure
+            Study cohort; samples stored from 2010 to 2016 showed PFMOAA medians
+            of 42 ng/mL. After exposure ended in Arnsberg, Germany, PFOA left
+            the blood with a half-life of 3.26 years, which supports every
+            chain's claim that an earlier cutoff would have lowered blood
+            levels.
           `),
           grade: 'strong',
           quote: 'PFOA levels decreased in all study participants from Arnsberg',
@@ -215,6 +217,83 @@ export default spineData({
             source('Kotlarz et al. 2020, EHP', 'https://ehp.niehs.nih.gov/doi/10.1289/EHP6837'),
             source('Brede et al. 2010 (TERA summary)', 'https://tera.org/Alliance%20for%20Risk/Workshop%20Xll/CaseSummaryPFOA.pdf')
           ]
+        })
+      ]
+    }),
+    impact({
+      name: 'Disease linked to PFAS exposure',
+      headline: paragraph(`
+        The PFAS in residents' blood is linked to disease: higher cholesterol
+        measured in the Wilmington cohort itself, and kidney and testicular
+        cancer where PFOA was studied at population scale.
+      `),
+      measures: paragraph(`
+        In the Wilmington cohort, PFOS and PFNA were associated with higher
+        total and non-HDL cholesterol, about 5 to 6 mg/dL per quartile,
+        strongest in older adults. Twelve percent of tested residents exceeded
+        the blood level at which the National Academies recommend medical
+        screening. For PFOA, elevated in 97 percent or more of tested
+        residents, the C8 Science Panel found probable links to kidney cancer,
+        testicular cancer, thyroid disease, ulcerative colitis, high
+        cholesterol, and pregnancy-induced hypertension, and IARC classified it
+        carcinogenic to humans in 2023. GenX itself produces liver and
+        pancreatic tumors in animal studies; no human disease study of GenX
+        exists.
+      `),
+      from: [
+        { anchor: 'Discharge continued largely unmonitored', strength: 'moderate', note: 'Cholesterol associations are measured in this cohort; cancer evidence comes from PFOA populations elsewhere' }
+      ],
+      evidence: [
+        evidence({
+          finding: paragraph(`
+            Rosen et al. (2022) measured lipids in 326 GenX Exposure Study
+            participants ages 6 to 86: PFOS and PFNA were associated with
+            higher total and non-HDL cholesterol, about 5 to 6 mg/dL per
+            quartile, with the largest associations in older adults.
+          `),
+          grade: 'moderate',
+          quote: 'PFNA and PFOS were associated with higher levels of total and non-HDL cholesterol, with associations larger in magnitude among older adults',
+          sources: [source('Rosen et al. 2022, EHP (PubMed)', 'https://pubmed.ncbi.nlm.nih.gov/36069575/')]
+        }),
+        evidence({
+          finding: paragraph(`
+            The C8 Science Panel, working from blood samples and health data on
+            about 69,000 PFOA-exposed residents, found probable links to six
+            conditions including kidney and testicular cancer; IARC classified
+            PFOA carcinogenic to humans in 2023, with limited human evidence
+            for renal cell and testicular cancer.
+          `),
+          grade: 'strong',
+          quote: 'limited evidence for cancer in humans (renal cell carcinoma and testicular cancer)',
+          sources: [
+            source('C8 Science Panel report', 'http://www.c8sciencepanel.org/pdfs/Probable_Link_C8_Cancer_16April2012_v2.pdf'),
+            source('IARC Monographs Vol. 135, 2023', 'https://www.iarc.who.int/news-events/iarc-monographs-evaluate-the-carcinogenicity-of-perfluorooctanoic-acid-pfoa-and-perfluorooctanesulfonic-acid-pfos')
+          ]
+        }),
+        evidence({
+          finding: paragraph(`
+            The 2024 GenX Exposure Study report to participants applies the
+            National Academies' screening thresholds: 97 percent of
+            participants sat above 2 ng/mL summed PFAS and 12 percent above 20
+            ng/mL, the level at which medical monitoring is recommended.
+          `),
+          grade: 'moderate',
+          quote: 'the NASEM published recommendations for medical monitoring of PFAS-exposed people based on the total (sum) concentration of 7 specific PFAS in blood',
+          sources: [source('GenX Exposure Study 2024 report-back', 'https://genxstudy.ncsu.edu/wp-content/uploads/sites/149/2025/11/Deidentified_2024_PFAS_ReportBack.pdf')]
+        })
+      ],
+      counterEvidence: [
+        evidence({
+          finding: paragraph(`
+            No human disease study of GenX itself exists: EPA's toxicity
+            assessment rests on animal studies, with the liver as the primary
+            target organ, and the cohort's cholesterol associations track
+            legacy PFAS rather than fluoroethers, two of which were associated
+            with higher HDL.
+          `),
+          grade: 'moderate',
+          quote: 'the liver is the primary target organ for toxicity from oral exposure',
+          sources: [source('EPA GenX toxicity assessment factsheet', 'https://www.epa.gov/system/files/documents/2023-03/GenX-Tox-Assessment-technical-factsheet-March-2023-Update.pdf')]
         })
       ]
     }),
@@ -228,8 +307,7 @@ export default spineData({
       measures: paragraph(`
         CFPUA built granular activated carbon filtration for $43 million, $82.8
         million with maintenance, funded by an 8 percent customer rate increase;
-        Brunswick County built reverse osmosis for $158.7 million. The costs are
-        the measured price of decades of unknowing exposure.
+        Brunswick County built reverse osmosis for $158.7 million.
       `),
       from: [
         { anchor: 'Toxin taints CFPUA drinking water', strength: 'strong', note: 'Disclosure forced the treatment decision onto ratepayers' }
@@ -259,8 +337,8 @@ export default spineData({
         The 2019 Consent Order produced a 99 percent air emission reduction by
         the end of 2019 through a thermal oxidizer operating at 99.99 percent
         efficiency, a $12 million penalty, and alternative drinking water for
-        affected well owners. Serum fluoroethers declined 34 to 65 percent
-        within six months of discharge controls.
+        affected well owners. Fluoroether levels in residents' blood declined
+        34 to 65 percent within six months of discharge controls.
       `),
       from: [
         { anchor: 'public notice and comment', strength: 'strong', note: 'The enforceable order produced the reductions' },
@@ -326,17 +404,17 @@ export default spineData({
       `),
       description: paragraph(`
         From the 6/8 session: a mechanism for involving workers in oversight.
-        DuPont observed unusual medical issues among its own workers, who were
-        the canary in the coal mine with no say.
+        DuPont observed unusual medical issues among its own workers, who saw
+        the harm first and had no say.
       `),
       banner: true,
-      impactsMeasured: ['Exposure through drinking water', 'PFAS measured in the blood of residents'],
+      impactsMeasured: ['Exposure through drinking water', 'PFAS measured in the blood of residents', 'Disease linked to PFAS exposure'],
       impactsConjectured: ['Corporate accountability', 'Worker empowerment'],
       links: [
         propLink({
-          name: 'A protected channel produces disclosures',
+          name: 'A protected channel could produce more disclosures',
           claim: paragraph(`
-            A protected, structured worker reporting channel produces
+            A protected, structured worker reporting channel could produce more
             disclosures of concealed findings.
           `),
           strength: 'moderate',
@@ -366,10 +444,10 @@ export default spineData({
           ]
         }),
         propLink({
-          name: 'Disclosure reaches and moves the regulator',
+          name: 'Disclosure could reach and move the regulator',
           claim: paragraph(`
-            Worker disclosure reaches the regulator and produces scrutiny
-            decades before litigation discovery would.
+            Worker disclosure could reach the regulator and produce scrutiny
+            decades before litigation discovery did.
           `),
           strength: 'moderate',
           evidence: [
@@ -399,9 +477,10 @@ export default spineData({
           ]
         }),
         propLink({
-          name: 'Earlier information, earlier discharge control',
+          name: 'Earlier information could mean earlier control',
           claim: paragraph(`
-            Earlier regulator information produces earlier discharge control.
+            A regulator that knew earlier could have controlled the discharge
+            earlier.
           `),
           strength: 'moderate',
           evidence: [
@@ -409,8 +488,8 @@ export default spineData({
               finding: paragraph(`
                 Once information became public in June 2017, DEQ suspended the
                 discharge-authorizing permit provisions effective November 30,
-                2017, and the 2019 order produced 99 percent reductions. The
-                response function is demonstrated fast when it fires.
+                2017, and the 2019 order produced 99 percent reductions. When
+                the information arrived, the response came fast.
               `),
               grade: 'moderate',
               sources: [source('NC DEQ letter, Nov. 16, 2017', 'https://files.nc.gov/ncdeq/GenX/Letter%20November%2011-16-17.pdf')]
@@ -429,21 +508,37 @@ export default spineData({
           ]
         }),
         propLink({
-          name: 'Shorter window, lower body burden',
+          name: 'Less exposure could mean less disease',
           claim: paragraph(`
-            An earlier cutoff lowers cumulative exposure and the PFAS measured
-            in residents' blood.
+            An earlier cutoff lowers cumulative exposure and the PFAS in
+            residents' blood. The blood levels matter because PFAS exposure is
+            linked to disease: higher cholesterol, thyroid disease, and kidney
+            and testicular cancer.
           `),
           strength: 'strong',
           evidence: [
             evidence({
               finding: paragraph(`
-                Median serum fluoroethers declined 34 to 65 percent within six
-                months of discharge controls; PFOA's elimination half-life after
-                exposure ends is 3.26 years.
+                Median fluoroether levels in blood declined 34 to 65 percent
+                within six months of discharge controls; PFOA's elimination
+                half-life after exposure ends is 3.26 years.
               `),
               grade: 'strong',
               sources: [source('Kotlarz et al. 2020, EHP', 'https://ehp.niehs.nih.gov/doi/10.1289/EHP6837')]
+            }),
+            evidence({
+              finding: paragraph(`
+                The disease link is measured for PFOA at population scale: the
+                C8 Science Panel found probable links to kidney and testicular
+                cancer among about 69,000 exposed residents, and the Wilmington
+                cohort itself shows PFAS-associated higher cholesterol. GenX
+                itself has no human disease study.
+              `),
+              grade: 'moderate',
+              sources: [
+                source('C8 Science Panel report', 'http://www.c8sciencepanel.org/pdfs/Probable_Link_C8_Cancer_16April2012_v2.pdf'),
+                source('Rosen et al. 2022, EHP (PubMed)', 'https://pubmed.ncbi.nlm.nih.gov/36069575/')
+              ]
             })
           ]
         })
@@ -512,14 +607,14 @@ export default spineData({
         experiential knowledge.
       `),
       banner: true,
-      impactsMeasured: ['Exposure through drinking water', 'PFAS measured in the blood of residents'],
+      impactsMeasured: ['Exposure through drinking water', 'PFAS measured in the blood of residents', 'Disease linked to PFAS exposure'],
       impactsConjectured: ['Experiential knowledge honored', 'Community standing'],
       links: [
         propLink({
-          name: 'Resident reports trigger investigation',
+          name: 'Resident reports could trigger investigation',
           claim: paragraph(`
-            Resident reports of suspicions and symptoms trigger investigation
-            before formal institutional detection.
+            Resident reports of suspicions and symptoms could trigger
+            investigation before formal institutional detection.
           `),
           strength: 'moderate',
           evidence: [
@@ -551,12 +646,38 @@ export default spineData({
           ]
         }),
         propLink({
-          name: 'Reports produce detection in this case',
+          name: 'Reports could produce detection in this case',
           claim: paragraph(`
             On the Cape Fear, resident reports would have produced earlier
             detection.
           `),
           strength: 'unstudied',
+          evidence: [
+            evidence({
+              finding: paragraph(`
+                Where residents sampled with a lab partner, they detected what
+                official monitoring missed: Flint residents collected water
+                samples from 269 homes with Virginia Tech running the analysis,
+                producing the dataset that exposed lead contamination official
+                sampling had not.
+              `),
+              grade: 'moderate',
+              quote: 'citizen science datasets collected without cheats represented the only internally consistent measures of water lead levels',
+              sources: [source('Roy and Edwards 2019, Citizen Science: Theory and Practice', 'https://theoryandpractice.citizenscienceassociation.org/articles/10.5334/cstp.154')]
+            }),
+            evidence({
+              finding: paragraph(`
+                A community sensor network in Imperial County, California
+                identified 1,426 fine-particle pollution episodes against 116
+                found by government monitors; half the community-detected
+                episodes never appeared in official data. Air, not water, and
+                sensors, not symptoms, but a measured detection gain.
+              `),
+              grade: 'moderate',
+              quote: 'Of the 1426 episodes identified by the community sensors, 723 (51%) were not observed by the government monitors',
+              sources: [source('Seto et al. 2019, IJERPH', 'https://www.mdpi.com/1660-4601/16/18/3268')]
+            })
+          ],
           counterEvidence: [
             evidence({
               finding: paragraph(`
@@ -571,17 +692,19 @@ export default spineData({
           ]
         }),
         propLink({
-          name: 'Detection to response to lower body burden',
+          name: 'Earlier detection could mean less exposure',
           claim: paragraph(`
-            Earlier detection produces earlier response, lower exposure, and
-            lower measured body burden.
+            Earlier detection could bring the response forward, lowering
+            exposure, the PFAS in residents' blood, and the disease risk it
+            carries.
           `),
           strength: 'moderate',
           evidence: [
             evidence({
               finding: paragraph(`
-                The post-2017 response function and serum decline kinetics are
-                measured in the case itself.
+                The speed of the post-2017 response and the decline in blood
+                levels after discharge controls are measured in the case
+                itself.
               `),
               grade: 'strong',
               sources: [source('Kotlarz et al. 2020, EHP', 'https://ehp.niehs.nih.gov/doi/10.1289/EHP6837')]
@@ -667,13 +790,13 @@ export default spineData({
         attaches.
       `),
       banner: true,
-      impactsMeasured: ['Exposure through drinking water', 'PFAS measured in the blood of residents', 'Filtration costs paid by water customers'],
+      impactsMeasured: ['Exposure through drinking water', 'PFAS measured in the blood of residents', 'Disease linked to PFAS exposure', 'Filtration costs paid by water customers'],
       impactsConjectured: ['Externalities borne knowingly rather than unknowingly', 'Procedural fairness'],
       links: [
         propLink({
-          name: 'Notice at approval produces public knowledge',
+          name: 'Notice at approval could produce public knowledge',
           claim: paragraph(`
-            A notification duty attached to the approval produces public
+            A notification duty attached to the approval could produce public
             knowledge from day one.
           `),
           strength: 'moderate',
@@ -763,8 +886,9 @@ export default spineData({
               finding: paragraph(`
                 Every measured disclosure success operates on listed, named
                 chemicals; PFAS entered TRI only in December 2019, and the
-                Fayetteville permit file named no chemical at all. Approval-time
-                naming is the load-bearing step.
+                Fayetteville permit file named no chemical at all. Naming the
+                chemical at approval is the step every disclosure regime
+                depends on.
               `),
               grade: 'moderate',
               sources: [source('NC DEQ letter, Nov. 16, 2017', 'https://files.nc.gov/ncdeq/GenX/Letter%20November%2011-16-17.pdf')]
@@ -774,16 +898,18 @@ export default spineData({
         propLink({
           name: 'Reduced discharge, lower exposure and cost',
           claim: paragraph(`
-            Reduced discharge lowers cumulative exposure, body burden, and the
-            filtration costs that fell on ratepayers.
+            Reduced discharge lowers cumulative exposure, the PFAS in
+            residents' blood and the disease risk it carries, and the
+            filtration costs that fell on water customers.
           `),
           strength: 'strong',
           evidence: [
             evidence({
               finding: paragraph(`
-                The serum declines after controls and the $82.8 million and
-                $158.7 million filtration bills are the measured quantities on
-                both sides of the counterfactual.
+                The declines in blood levels after controls and the $82.8
+                million and $158.7 million filtration bills give measured
+                numbers for what the exposure did and for what an earlier
+                cutoff would have avoided.
               `),
               grade: 'strong',
               sources: [source('Kotlarz et al. 2020, EHP', 'https://ehp.niehs.nih.gov/doi/10.1289/EHP6837')]
@@ -856,13 +982,13 @@ export default spineData({
         made statutory.
       `),
       banner: true,
-      impactsMeasured: ['Exposure through drinking water', 'PFAS measured in the blood of residents'],
+      impactsMeasured: ['Exposure through drinking water', 'PFAS measured in the blood of residents', 'Disease linked to PFAS exposure'],
       impactsConjectured: ['Journalism removed as a single point of failure', 'Institutional trust'],
       links: [
         propLink({
-          name: 'A trigger produces public knowledge',
+          name: 'A trigger could produce public knowledge',
           claim: paragraph(`
-            A statutory trigger converts regulator receipt of a qualifying
+            A statutory trigger could convert regulator receipt of a qualifying
             detection into public notice, in 2012 instead of 2017.
           `),
           strength: 'moderate',
@@ -923,17 +1049,18 @@ export default spineData({
           ]
         }),
         propLink({
-          name: 'Earlier response, avoided exposure',
+          name: 'Earlier response could avoid years of exposure',
           claim: paragraph(`
-            Earlier response avoids up to five years of exposure at mean 631
-            ng/L and brings the measured serum declines forward.
+            Earlier response could avoid up to five years of exposure at a mean
+            of 631 ng/L, bringing the measured declines in blood levels, and
+            the disease risk they carry, forward.
           `),
           strength: 'strong',
           evidence: [
             evidence({
               finding: paragraph(`
-                Archived pre-disclosure serum gives the burden the window
-                produced (PFMOAA median 42 ng/mL, the highest of 56 PFAS
+                Blood samples stored from before disclosure show what the
+                window produced (PFMOAA median 42 ng/mL, the highest of 56 PFAS
                 measured); post-control declines of 34 to 65 percent in six
                 months show the gain per year of earlier cutoff.
               `),
@@ -973,8 +1100,8 @@ export default spineData({
           authority: 'Journalism performing the missing function',
           outcome: paragraph(`
             Front-page story to state investigation in seven days, health goal
-            cut 99.8 percent in five weeks. The proposal is this story, made
-            statutory.
+            cut 99.8 percent in five weeks. This proposal writes that sequence
+            into law.
           `),
           strength: 'strong',
           sources: [source('Coastal Review', 'https://coastalreview.org/2022/06/vaughn-hagerty-the-reporter-who-broke-the-genx-story/')]
@@ -1010,10 +1137,10 @@ export default spineData({
       impactsConjectured: ['Legitimacy of the response', 'Repaired trust', 'Sustained study participation and calibrated protective behavior'],
       links: [
         propLink({
-          name: 'Independent panels produce findings that stick',
+          name: 'Independent panels could produce findings that stick',
           claim: paragraph(`
-            Independently appointed panels produce credible findings that carry
-            consequence.
+            Independently appointed panels could produce credible findings that
+            carry consequence.
           `),
           strength: 'moderate',
           evidence: [
@@ -1043,9 +1170,10 @@ export default spineData({
           ]
         }),
         propLink({
-          name: 'Independent verification builds trusted communication',
+          name: 'Independent verification could build trusted communication',
           claim: paragraph(`
-            Independent verification improves trusted communication of risk.
+            Independent verification could improve trusted communication of
+            risk.
           `),
           strength: 'weak',
           evidence: [
@@ -1058,16 +1186,46 @@ export default spineData({
               grade: 'weak',
               quote: 'Personal exposure report-back is a powerful tool for increasing understanding of environmental health',
               sources: [source('Brody et al. 2014', 'https://link.springer.com/content/pdf/10.1186/1476-069X-13-40.pdf')]
+            }),
+            evidence({
+              finding: paragraph(`
+                A randomized study of 135 cohort members found personal
+                exposure report-back raised concern about consumer product
+                chemicals and participants took exposure-reducing actions,
+                notably for PFAS; in a Nevada cohort, the share who did not
+                know how to reduce exposure fell from 79 to 35 percent after
+                report-back, and one urinary chemical marker fell
+                significantly.
+              `),
+              grade: 'moderate',
+              quote: 'report-back increased concern for consumer product chemicals',
+              sources: [
+                source('Boronow et al. 2023, EHP', 'https://ehp.niehs.nih.gov/doi/10.1289/EHP12565'),
+                source('Rochester et al. 2024, IJERPH', 'https://www.mdpi.com/1660-4601/21/7/905')
+              ]
             })
           ]
         }),
         propLink({
-          name: 'Trusted channels sustain engagement and outcomes',
+          name: 'Trusted channels could sustain engagement',
           claim: paragraph(`
-            A trusted channel sustains engagement, study participation, and
-            calibrated protective behavior, feeding measured outcomes.
+            A trusted channel could sustain engagement, study participation,
+            and calibrated protective behavior, feeding measured outcomes.
           `),
-          strength: 'unstudied',
+          strength: 'weak',
+          evidence: [
+            evidence({
+              finding: paragraph(`
+                The closest PFAS precedent: the court-created, independently
+                run C8 Health Project enrolled 69,030 exposed residents in 13
+                months, returning individual PFOA results to participants. The
+                trust mechanism is described, not causally isolated.
+              `),
+              grade: 'weak',
+              quote: 'Final study participation was 69,030, enrolled over a 13-month period in 2005-2006',
+              sources: [source('Frisbee et al. 2009, EHP (LSHTM record)', 'https://researchonline.lshtm.ac.uk/id/eprint/4315/')]
+            })
+          ],
           counterEvidence: [
             evidence({
               finding: paragraph(`
@@ -1149,9 +1307,9 @@ export default spineData({
       impactsConjectured: ['Durable accountability independent of any single order'],
       links: [
         propLink({
-          name: 'Federal funding builds local capacity',
+          name: 'Federal funding could build local capacity',
           claim: paragraph(`
-            Federal funding builds standing local monitoring, legal, and
+            Federal funding could build standing local monitoring, legal, and
             technical capacity.
           `),
           strength: 'moderate',
@@ -1180,9 +1338,9 @@ export default spineData({
           ]
         }),
         propLink({
-          name: 'Local capacity converts wins into standards',
+          name: 'Local capacity could convert wins into standards',
           claim: paragraph(`
-            Standing local capacity converts facility wins into statewide
+            Standing local capacity could convert facility wins into statewide
             standards.
           `),
           strength: 'weak',
@@ -1213,10 +1371,10 @@ export default spineData({
           ]
         }),
         propLink({
-          name: 'Standards protect the next community',
+          name: 'Standards could protect the next community',
           claim: paragraph(`
-            Once adopted, standards protect the next community before exposure,
-            not after.
+            Once adopted, standards could protect the next community before
+            exposure, not after.
           `),
           strength: 'moderate',
           evidence: [
@@ -1261,8 +1419,8 @@ export default spineData({
             Two decades of federal-local programs whose public record is
             dominated by reach counts; one fetched outcome finding on smoking
             declines. No instance of federally funded, locally designed
-            enforcement with measured outcomes was found anywhere; that absence
-            is itself the finding.
+            enforcement with measured outcomes was found anywhere; the absence
+            is a finding in its own right.
           `),
           strength: 'weak',
           sources: [source('CDC MMWR Supplement 2014', 'https://www.cdc.gov/mmwr/preview/mmwrhtml/su6301a2.htm')]
@@ -1293,8 +1451,9 @@ export default spineData({
         public assurances about how monitoring will happen and who verifies it.
         The 2009 order set a 99 percent capture requirement and no one checked
         for eight years; a review with public seats builds the constituency
-        that checks. This proposal and the notice-at-approval proposal split
-        the same moment: notice going out against the public coming in.
+        that checks. This proposal and the notice-at-approval proposal
+        intervene at the same moment; one sends notice out, the other brings
+        the public in.
       `),
       description: paragraph(`
         Approval of a discharge, drug, or technology seats affected-community
@@ -1302,14 +1461,14 @@ export default spineData({
         monitoring plan and demand its verification.
       `),
       banner: true,
-      impactsMeasured: ['Exposure through drinking water', 'PFAS measured in the blood of residents'],
+      impactsMeasured: ['Exposure through drinking water', 'PFAS measured in the blood of residents', 'Disease linked to PFAS exposure'],
       impactsConjectured: ['Assurances under uncertainty the public can hold', 'A standing constituency for verification'],
       links: [
         propLink({
-          name: 'Public seats produce monitoring commitments',
+          name: 'Public seats could produce monitoring commitments',
           claim: paragraph(`
-            Public seats in the approval review produce monitoring commitments
-            under uncertainty.
+            Public seats in the approval review could produce monitoring
+            commitments under uncertainty.
           `),
           strength: 'weak',
           evidence: [
@@ -1327,12 +1486,37 @@ export default spineData({
           ]
         }),
         propLink({
-          name: 'A public constituency gets the plan verified',
+          name: 'A public constituency could get the plan verified',
           claim: paragraph(`
-            A public constituency for the monitoring plan gets it verified,
-            closing the gap between an order's terms and anyone checking them.
+            A public constituency for the monitoring plan could get it
+            verified, closing the gap between an order's terms and anyone
+            checking them.
           `),
-          strength: 'unstudied',
+          strength: 'weak',
+          evidence: [
+            evidence({
+              finding: paragraph(`
+                An evaluation of 13 Good Neighbor Agreements between community
+                groups and polluting facilities found most achieved substantial
+                implementation of their monitoring and compliance commitments,
+                conditional on community leverage and resources.
+              `),
+              grade: 'moderate',
+              quote: 'The GNAs studied are generally quite effective',
+              sources: [source('Kenney et al. 2004, Natural Resources Law Center', 'https://scholar.law.colorado.edu/cgi/viewcontent.cgi?httpsredir=1&article=1018&context=books_reports_studies')]
+            }),
+            evidence({
+              finding: paragraph(`
+                Across more than 130,000 environmental citizen complaints in
+                Texas, complaint-triggered investigations increased regulator
+                monitoring and found more, and more severe, violations than
+                routine monitoring.
+              `),
+              grade: 'moderate',
+              quote: 'complaints are associated with sharp increases in regulator monitoring and enforcement',
+              sources: [source('Colmer, Evans and Shimshack 2023, CEP DP1903', 'https://ideas.repec.org/p/cep/cepdps/dp1903.html')]
+            })
+          ],
           counterEvidence: [
             evidence({
               finding: paragraph(`
@@ -1349,16 +1533,16 @@ export default spineData({
         propLink({
           name: 'Verified compliance shortens the exposure window',
           claim: paragraph(`
-            Verified compliance shortens the exposure window and lowers the PFAS
-            measured in residents' blood.
+            Verified compliance shortens the exposure window, lowering the PFAS
+            in residents' blood and the disease risk it carries.
           `),
           strength: 'strong',
           evidence: [
             evidence({
               finding: paragraph(`
-                Median serum fluoroethers declined 34 to 65 percent within six
-                months of discharge controls, the measured gain per year of
-                earlier enforcement.
+                Median fluoroether levels in blood declined 34 to 65 percent
+                within six months of discharge controls, the measured gain per
+                year of earlier enforcement.
               `),
               grade: 'strong',
               sources: [source('Kotlarz et al. 2020, EHP', 'https://ehp.niehs.nih.gov/doi/10.1289/EHP6837')]

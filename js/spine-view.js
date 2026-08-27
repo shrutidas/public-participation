@@ -7,7 +7,7 @@ import { FAILURE_LABEL } from './cases/helpers.js';
  * The timeline as the central spine.
  *
  * Every timeline entry is a box on a single chronological spine (blue).
- * Mechanisms that already existed sit on the left (green), each connected to
+ * Mechanisms that already existed sit on the left (gray), each connected to
  * the event where it should have fired, tagged with how it failed. Measured
  * impacts sit on the right (dark green), with arrows from the specific events
  * where the causal claim holds, each arrow carrying a strength flag. Proposed
@@ -94,7 +94,7 @@ export function renderSpineMap(el, caseObj, spine, sel = {}) {
   const expH = p => {
     const maxCards = Math.max(...p.links.map(lk =>
       Math.max((lk.evidence ?? []).length + (lk.counterEvidence ?? []).length, 1)));
-    return 200 + maxCards * 56;
+    return 200 + maxCards * 56 + (p.comparables?.length ? 44 : 0);
   };
 
   // Pass 2: vertical layout.
@@ -304,6 +304,7 @@ export function renderSpineMap(el, caseObj, spine, sel = {}) {
           d="M ${prev.x2} ${prev.cy} C ${prev.x2 + 80} ${prev.cy}, ${L.impX - 120} ${iy}, ${L.impX - 3} ${iy}"></path>`;
         drewTerm = true;
       }
+      let termBot = rowBot;
       if (drewTerm) {
         const tl = document.createElement('div');
         tl.className = 'sp-termlabel';
@@ -312,6 +313,20 @@ export function renderSpineMap(el, caseObj, spine, sel = {}) {
         tl.style.top = `${Math.round(prev.stackBot + 4)}px`;
         tl.style.width = `${prev.boxW + 40}px`;
         stage.appendChild(tl);
+        termBot = Math.max(termBot, prev.stackBot + 4 + tl.offsetHeight);
+      }
+      // The comparable real-world cases behind this chain, named on the map.
+      // Click opens the proposal's detail, where each case has its full record.
+      if ((p.comparables ?? []).length) {
+        const cl = document.createElement('button');
+        cl.className = 'sp-complist';
+        cl.dataset.pr = pi;
+        cl.innerHTML = `<span class="sp-complist-kick">Comparable cases:</span> ${p.comparables.map(c => c.name).join(' &middot; ')}`;
+        cl.style.left = `${startX}px`;
+        cl.style.top = `${Math.round(Math.max(rowBot, termBot) + 8)}px`;
+        cl.style.width = `${L.bandW}px`;
+        stage.appendChild(cl);
+        rowBot = Math.max(rowBot, termBot) + 8 + cl.offsetHeight;
       }
       rowY = rowBot + 26 + CHAIN_ROW_GAP;
     }
@@ -457,9 +472,10 @@ function propLinkDetail(spine, i, li) {
     <div class="cd-head"><span class="cd-id">${lk.name}</span>
       <span class="ev-grade gr-${lk.strength}">${STRENGTH_LABEL[lk.strength]}</span></div>
     <p class="cd-claim">${lk.claim}</p>
-    ${lk.strength === 'unstudied' ? `<p class="cd-claim"><em>No study was identified for this link. That absence is a finding, and it is what the flag records.</em></p>` : ''}
+    ${lk.strength === 'unstudied' ? `<p class="cd-claim"><em>No study tests this link directly.${(lk.evidence ?? []).length ? ' The evidence below comes from nearby cases and other domains.' : ''}</em></p>` : ''}
     ${evHtml(lk.evidence, 'for')}
     ${evHtml(lk.counterEvidence, 'counter')}
+    ${compHtml(p.comparables)}
   </div>`;
 }
 

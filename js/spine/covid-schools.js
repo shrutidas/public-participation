@@ -351,7 +351,7 @@ export default spineData({
           name: 'An assembly can be convened fast enough',
           claim: paragraph(`
             A sortition assembly can be convened and reach recommendations fast
-            enough to decide fall 2020 modality.
+            enough to decide how school would run in fall 2020.
           `),
           strength: 'moderate',
           evidence: [
@@ -380,13 +380,38 @@ export default spineData({
           ]
         }),
         propLink({
-          name: 'A binding remit gives non-union voices force',
+          name: 'A binding remit could give non-union voices force',
           claim: paragraph(`
-            A binding or quasi-binding remit gives parents and community members
-            force comparable to collective bargaining, so the assembly's
-            decision, not the bargained one, sets modality.
+            A binding or quasi-binding remit could give parents and community
+            members force comparable to collective bargaining, so the
+            assembly's decision, not the bargained one, sets how school runs.
           `),
-          strength: 'unstudied',
+          strength: 'weak',
+          evidence: [
+            evidence({
+              finding: paragraph(`
+                A 48-village randomized experiment in Indonesia compared binding
+                plebiscites against representative meetings for choosing local
+                projects: the binding format raised satisfaction, perceived
+                legitimacy, and willingness to contribute, even though the
+                chosen projects barely changed.
+              `),
+              grade: 'moderate',
+              quote: 'Plebiscites resulted in dramatically higher satisfaction among villagers, increased knowledge about the project, greater perceived benefits, and higher reported willingness to contribute',
+              sources: [source('Olken (NBER w14123)', 'https://www.nber.org/papers/w14123')]
+            }),
+            evidence({
+              finding: paragraph(`
+                Brazilian municipalities that gave citizens binding budget
+                authority shifted spending toward health and sanitation and cut
+                infant mortality by 1 to 2 per 1,000, the strongest measured
+                case of citizen participation with force behind it.
+              `),
+              grade: 'moderate',
+              quote: 'municipalities that adopted participatory budgeting registered a significant drop in infant mortality of between 1 and 2 infants for every 1,000 resident infants',
+              sources: [source('Gonçalves 2014', 'https://base.socioeco.org/docs/effects_of_participatory_budgeting.pdf')]
+            })
+          ],
           counterEvidence: [
             evidence({
               finding: paragraph(`
@@ -436,14 +461,32 @@ export default spineData({
           ]
         }),
         propLink({
-          name: 'Legitimacy holds enrollment, attendance, and confidence',
+          name: 'Legitimacy could hold enrollment, attendance, and confidence',
           claim: paragraph(`
-            The assembly's decision moves through two channels: its modality
-            choices directly change remote exposure and its measured harms, and
-            higher perceived legitimacy reduces exit and absence and holds
-            confidence in schools. The legitimacy channel is the unstudied one.
+            The assembly's decision could move through two channels: its
+            choices about how school runs directly change remote exposure and
+            its measured harms, and higher perceived legitimacy could reduce
+            exit and absence and hold confidence in schools. The legitimacy
+            channel is the unstudied one.
           `),
           strength: 'unstudied',
+          evidence: [
+            evidence({
+              finding: paragraph(`
+                Adjacent domains support the mechanism: in a national US
+                survey, perceived legitimacy of legal institutions predicted
+                compliance and willing cooperation, and in taxation, fair
+                process raised acceptance of personally disadvantageous
+                systemic changes.
+              `),
+              grade: 'weak',
+              quote: 'legitimacy - typically operationalized as the perceived obligation to obey and trust and confidence in the relevant institutions - plays an important role in achieving such compliance',
+              sources: [
+                source('Tyler and Jackson 2013 (SSRN)', 'https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2292517'),
+                source('Verboon and Goslinga 2018', 'https://link.springer.com/article/10.1007/s12144-017-9762-x')
+              ]
+            })
+          ],
           counterEvidence: [
             evidence({
               finding: paragraph(`
@@ -537,10 +580,10 @@ export default spineData({
       impactsConjectured: ['Trust in experts maintained', 'Local knowledge entering the option set'],
       links: [
         propLink({
-          name: 'Experts with the public widen the options',
+          name: 'Experts with the public could widen the options',
           claim: paragraph(`
             Structured early engagement between mapped experts and the public
-            expands the option set beyond the open-closed binary.
+            could expand the options beyond open against closed.
           `),
           strength: 'unstudied',
           evidence: [
@@ -604,12 +647,31 @@ export default spineData({
           ]
         }),
         propLink({
-          name: 'Safer options change the decision',
+          name: 'Safer options could change the decision',
           claim: paragraph(`
-            Safer options, credibly communicated, change the modality decision
+            Safer options, credibly communicated, could move the decision
             toward earlier in-person instruction.
           `),
-          strength: 'unstudied',
+          strength: 'weak',
+          evidence: [
+            evidence({
+              finding: paragraph(`
+                A randomized experiment with 2,150 Brazilian municipalities
+                found mayors update on research findings and that informing
+                them about an effective policy raised adoption by 10 percentage
+                points; in the case itself, test-to-stay evidence (a 1.5
+                percent secondary attack rate, up to 8,152 in-person days
+                saved in one district) preceded CDC's December 2021
+                endorsement of the less restrictive option.
+              `),
+              grade: 'moderate',
+              quote: 'up to 8,152 in-person learning days were saved among TTS participants',
+              sources: [
+                source('Hjort et al. (NBER w25941)', 'https://www.nber.org/papers/w25941'),
+                source('CDC MMWR 2021', 'https://www.cdc.gov/mmwr/volumes/70/wr/mm705152e2.htm')
+              ]
+            })
+          ],
           counterEvidence: [
             evidence({
               finding: paragraph(`
@@ -750,12 +812,30 @@ export default spineData({
           ]
         }),
         propLink({
-          name: 'Local decisions track local conditions',
+          name: 'Local decisions could track local conditions',
           claim: paragraph(`
-            Decentralized decisions track local COVID conditions rather than
-            politics.
+            Decentralized decisions with a structured deliberative step could
+            track local COVID conditions rather than politics.
           `),
           strength: 'unstudied',
+          evidence: [
+            evidence({
+              finding: paragraph(`
+                Each half of the link has adjacent support: after Bolivia's
+                1994 decentralization, municipal investment shifted toward
+                objective indicators of local need, and in the America in One
+                Room field experiment, structured deliberation produced large
+                depolarizing changes in policy attitudes. No study combines
+                the two in a crisis decision.
+              `),
+              grade: 'weak',
+              quote: 'These changes are strongly and positively related to objective indicators of need',
+              sources: [
+                source('Faguet 2004', 'https://socialserviceworkforce.org/wp-content/uploads/2024/03/Does-Decentralization-Increase-Gov-Responsiveness.pdf'),
+                source('Fishkin et al. 2021, APSR', 'https://www.cambridge.org/core/journals/american-political-science-review/article/is-deliberation-an-antidote-to-extreme-partisan-polarization-reflections-on-america-in-one-room/5DEFB6F8D944ECDE77A5E80C3346D4DE')
+              ]
+            })
+          ],
           counterEvidence: [
             evidence({
               finding: paragraph(`
@@ -774,10 +854,10 @@ export default spineData({
           ]
         }),
         propLink({
-          name: 'Variation generates learning in time to use it',
+          name: 'Variation could generate learning in time to use it',
           claim: paragraph(`
-            Regional variation generates outcome comparisons that inform later
-            decisions inside the decision window.
+            Regional variation could generate outcome comparisons that inform
+            later decisions inside the decision window.
           `),
           strength: 'contested',
           evidence: [
@@ -805,11 +885,11 @@ export default spineData({
           ]
         }),
         propLink({
-          name: 'Condition-tracking decisions cut remote exposure',
+          name: 'Condition-tracking could cut remote exposure',
           claim: paragraph(`
-            Informed by those comparisons, and where conditions allowed, staying
-            open was compatible with limited transmission, so condition-tracking
-            decisions would have cut remote exposure and its measured harms.
+            Where conditions allowed, staying open was compatible with limited
+            transmission, so decisions that tracked conditions could have cut
+            remote exposure and its measured harms.
           `),
           strength: 'moderate',
           evidence: [
@@ -958,10 +1038,10 @@ export default spineData({
           ]
         }),
         propLink({
-          name: 'Shared data heads off polarization',
+          name: 'Shared data could head off polarization',
           claim: paragraph(`
-            A shared local data layer aligns risk perception across groups and
-            heads off polarization.
+            A shared local data layer could align risk perception across groups
+            and head off polarization.
           `),
           strength: 'contested',
           evidence: [
@@ -990,12 +1070,28 @@ export default spineData({
           ]
         }),
         propLink({
-          name: 'Shared understanding holds confidence and enrollment',
+          name: 'Shared understanding could hold confidence and enrollment',
           claim: paragraph(`
-            Sustained shared understanding holds confidence in the deciding
-            institutions, reducing exit.
+            Sustained shared understanding could hold confidence in the
+            deciding institutions, reducing exit.
           `),
-          strength: 'unstudied'
+          strength: 'unstudied',
+          evidence: [
+            evidence({
+              finding: paragraph(`
+                The transparency-to-trust literature supports only a
+                conditional version: a systematic review of 187 studies finds
+                mixed, context-dependent effects of transparency on trust, and
+                an experiment found transparency raised perceived
+                trustworthiness only for some citizen subgroups.
+              `),
+              grade: 'weak',
+              sources: [
+                source('Cucciniello et al. 2017, PAR', 'https://onlinelibrary.wiley.com/doi/abs/10.1111/puar.12685'),
+                source('Grimmelikhuijsen and Meijer 2014, JPART', 'https://academic.oup.com/jpart/article-abstract/24/1/137/916830')
+              ]
+            })
+          ]
         })
       ],
       comparables: [
@@ -1127,11 +1223,29 @@ export default spineData({
           ]
         }),
         propLink({
-          name: 'Maintained trust reduces exit and absence',
+          name: 'Maintained trust could reduce exit and absence',
           claim: paragraph(`
-            Maintained trust reduces exit and absence.
+            Maintained trust could reduce exit and absence.
           `),
-          strength: 'unstudied',
+          strength: 'weak',
+          evidence: [
+            evidence({
+              finding: paragraph(`
+                The clearest causal case runs in reverse: the 1972 Tuskegee
+                disclosure raised medical mistrust among older Black men and
+                cut physician visits, with life expectancy at 45 falling by up
+                to 1.5 years. In schools, the Chicago trust studies found
+                low-trust schools saw virtually no improvement, and pandemic
+                exit tracked the district's instructional decision.
+              `),
+              grade: 'weak',
+              quote: 'life expectancy at age 45 for black men fell by up to 1.5 years in response to the disclosure',
+              sources: [
+                source('Alsan and Wanamaker (NBER w22323)', 'https://www.nber.org/papers/w22323'),
+                source('Musaddiq et al. (NBER w29262)', 'https://www.nber.org/papers/w29262')
+              ]
+            })
+          ],
           counterEvidence: [
             evidence({
               finding: paragraph(`
@@ -1145,13 +1259,27 @@ export default spineData({
           ]
         }),
         propLink({
-          name: 'Upstream voice reduces lawsuits and recalls',
+          name: 'Upstream voice could reduce lawsuits and recalls',
           claim: paragraph(`
-            The branch to the conjectured impact: binding upstream voice reduces
-            adversarial post-hoc participation, recalls, litigation, and board
-            conflict.
+            Binding upstream voice could reduce adversarial participation
+            after decisions: recalls, litigation, and board conflict. This is
+            the branch to the conjectured impact.
           `),
-          strength: 'unstudied',
+          strength: 'weak',
+          evidence: [
+            evidence({
+              finding: paragraph(`
+                After the University of Michigan health system began proactive
+                disclosure with offers of resolution, new claims and lawsuits
+                per month fell and legal defense spending dropped 61 percent, a
+                measured case of upstream engagement displacing litigation, in
+                medicine rather than school governance.
+              `),
+              grade: 'moderate',
+              quote: 'a 61 percent decrease in spending at the UMHS on legal defense costs',
+              sources: [source('Kachalia et al. 2010 (summary)', 'https://www.sciencedaily.com/releases/2010/08/100816204210.htm')]
+            })
+          ],
           counterEvidence: [
             evidence({
               finding: paragraph(`
