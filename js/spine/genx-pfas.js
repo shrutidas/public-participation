@@ -892,11 +892,7 @@ export default spineData({
           counterEvidence: [
             evidence({
               finding: paragraph(`
-                Every measured disclosure success operates on listed, named
-                chemicals; PFAS entered TRI only in December 2019, and the
-                Fayetteville permit file <strong>named no chemical at all</strong>. Naming the
-                chemical at approval is the step every disclosure regime
-                depends on.
+                Disclosure requirements depend on knowing which chemical is involved. PFAS was not added to the Toxic Release Inventory until December 2019, and the Fayetteville permit file <strong>did not identify the chemical at all</strong>. Without that information, regulators could not apply chemical-specific disclosure requirements.
               `),
               grade: 'moderate',
               sources: [source('North Carolina Department of Environmental Quality', 'https://files.nc.gov/ncdeq/GenX/Letter%20November%2011-16-17.pdf')]
