@@ -53,8 +53,7 @@ const total = chain({
     trust in a way that raised uptake</strong>, and one randomized test of the
     trusted-messenger mechanism returned a null result. The instruments with
     measured effects on uptake (mobile vaccination units, mandates, text
-    reminders) do not operate on trust. On the available record, the
-    total-harm case for trust-mediated participation is unsupported.
+    reminders) do not operate on trust. On the available record, the claim that trust-building participation reduced total harm is unsupported.
   `),
   links: [
 
@@ -250,11 +249,7 @@ const total = chain({
         }),
         evidence({
           finding: paragraph(`
-            In a Thailand study of 809 respondents (Healthcare, 2021), professional
-            trust (physicians, nurses, pharmacists) <strong>fully mediated</strong> the effect
-            of government trust on compliance; the direct effect of government trust
-            became statistically non-significant once professional trust was accounted
-            for (β falling from 0.133, p < 0.001, to 0.015, p > 0.05).
+            In a Thailand study of 809 respondents (Healthcare, 2021), trust in health professionals (physicians, nurses, pharmacists) <strong>fully explained</strong> the effect of government trust on compliance: once trust in professionals was accounted for, trust in government no longer predicted compliance on its own (β falling from 0.133, p < 0.001, to 0.015, p > 0.05).
           `),
           quote: paragraph(`
             professional trust was a full mediator between the relationship between
@@ -395,11 +390,7 @@ const total = chain({
         evidence({
           finding: paragraph(`
             A meta-analysis of community engagement in vaccination promotion (JMIR
-            Public Health and Surveillance, 2024) found <strong>a pooled rate difference of
-            +0.18 (95% CI 0.07–0.29)</strong>. Of 20 included studies (2006–2021),
-            only 5 were cluster RCTs and <strong>only one concerned COVID-19 vaccination;
-            that study was a single-group pre-post design with no control group</strong>.
-            I² = 98.4%.
+            Public Health and Surveillance, 2024) found engagement went with vaccination rates <strong>18 percentage points higher on average (95% CI 7 to 29)</strong>. But of the 20 included studies (2006–2021), only 5 were randomized, and only one concerned COVID-19 vaccination; that one tracked a single group before and after, with no control group. Results varied so widely across studies (I² = 98.4%) that the average is hard to interpret.
           `),
           quote: paragraph(`
             the random effects meta-analysis of between-group intervention effects
@@ -465,8 +456,7 @@ const total = chain({
         }),
         evidence({
           finding: paragraph(`
-            The canonical trusted-messenger design, a Popular Opinion Leader cluster
-            RCT for COVID vaccine information and uptake among Black adults with
+            The textbook trusted-messenger study, a Popular Opinion Leader cluster-randomized trial for COVID vaccine information and uptake among Black adults with
             rheumatic conditions in Boston and Chicago, <strong>began recruiting in
             February 2024</strong>, three years after the rollout, and had not reported
             results as of the protocol's publication.
@@ -717,8 +707,7 @@ const fair = chain({
     mostly <strong>access, not conviction</strong>, and access is what community
     infrastructure delivers. The attribution question remains unresolved: the
     best available longitudinal analysis finds the narrowing of the racial gap
-    was mediated by <em>knowledge diffusion within communities</em>, and explicitly
-    <em>not</em> by trust in CDC or by differential access.
+    was explained by <em>knowledge spreading within communities</em>, and explicitly <em>not</em> by trust in CDC or by differences in access.
   `),
   links: [
 
@@ -819,12 +808,7 @@ const fair = chain({
       evidence: [
         evidence({
           finding: paragraph(`
-            A multiverse analysis across 6,096 model specifications (PNAS Nexus,
-            2023) found the distance–uptake association negative in <strong>98% of
-            specifications</strong>, significant in 86%, robust to partisanship. A
-            quasi-experimental analysis of Chicago site openings found vaccination
-            rose after openings in 73% of specifications, and among seniors
-            <strong>all specifications showed positive effects</strong> (96% significant).
+            A PNAS Nexus study (2023) tested the link between distance and uptake 6,096 different ways: <strong>in 98% of the analyses, people living farther from a vaccination site were less likely to be vaccinated</strong> (significant in 86%), regardless of partisanship. When Chicago opened new sites, vaccination rose in 73% of the analyses, and among seniors every analysis showed a gain (96% significant).
           `),
           quote: paragraph(`
             vaccine uptake significantly increased after site opening in 560 of 768
@@ -860,9 +844,7 @@ const fair = chain({
             Affected communities decide where and how vaccination access is
             delivered: siting of mobile units, hours, locations, paid-time-off
             coordination. Of the proposals in this project, this is the one
-            whose mechanism rests on the strongest causal evidence: distance
-            reduced uptake in 98% of model specifications, and the mobile-unit
-            cluster RCT produced the largest measured uptake effect in the
+            whose mechanism rests on the strongest causal evidence: distance reduced uptake in 98 percent of the analyses, and the randomized trial of mobile units produced the largest measured uptake effect in the
             literature reviewed here. The design question the record leaves
             open is who chooses the sites, not whether sites work.
           `),
@@ -1051,8 +1033,7 @@ const fair = chain({
           finding: paragraph(`
             A national probability panel of more than 1,800 individuals (Annenberg
             Public Policy Center) tracked reported dose receipt April 2021 – July
-            2022 and tested five explanations for the narrowing. <strong>Only knowledge
-            mediated it.</strong> Trust in CDC correlated with vaccination at baseline but
+            2022 and tested five explanations for the narrowing. <strong>Only knowledge explained it.</strong> Trust in CDC correlated with vaccination at baseline but
             had <strong>no association with the change</strong> in coverage, and neither
             differential access nor media use explained the increase. The authors
             attribute the change to knowledge transmitted <em>from within the Black
@@ -1074,9 +1055,7 @@ const fair = chain({
             2021) found that after adjusting for education, household income, marital
             status, chronic conditions, trust in vaccine development, and perceived
             infection risk, <strong>no significant racial or ethnic differences in
-            initiation or completion remained</strong>. Disparities were mediated through
-            social and economic conditions, psychological influences, and chronic
-            health conditions.
+            initiation or completion remained</strong>. The disparities ran through social and economic conditions, psychological influences, and chronic health conditions.
           `),
           quote: paragraph(`
             After accounting for the mediators, there were no significant differences

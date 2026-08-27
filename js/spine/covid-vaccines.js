@@ -16,14 +16,12 @@ export default spineData({
       name: 'ACIP public comment',
       actor: 'CDC advisory committee, public commenters',
       failure: 'acted-no-effect',
-      note: 'Three-minute comments behind a committee whose own vote did not bind',
+      note: 'Three-minute comments to a committee whose own votes could be overruled',
       detail: paragraph(`
         ACIP meetings are open by webcast with written comments and three-minute
         oral slots. The ceiling on effect is visible one level up: in September
         2021 ACIP voted down boosters for occupational-risk adults and the CDC
-        director overruled the committee within hours. Where the statutory
-        committee's own vote did not bind, the public comment behind it had no
-        path to effect.
+        director overruled the committee within hours. Where the committee's own vote could be overruled, the public comment behind it had no path to effect.
       `),
       anchors: ['ACIP voted 11 to 0'],
       sources: [source('STAT', 'https://www.statnews.com/2021/10/07/cdc-director-defends-decision-to-overrule-expert-panel-on-covid-booster-shots-for-health-workers/')]
@@ -32,7 +30,7 @@ export default spineData({
       name: 'FDA advisory committee review',
       actor: 'VRBPAC',
       failure: 'partial',
-      note: 'The advisory body that most visibly narrowed a federal decision',
+      note: 'The one advisory committee whose votes visibly narrowed a federal decision',
       detail: paragraph(`
         VRBPAC voted 16 to 2 against boosters for everyone 16 and older, then 18
         to 0 for ages 65 and up and high risk; FDA's authorization tracked the
@@ -47,7 +45,7 @@ export default spineData({
       name: 'Notice-and-comment rulemaking',
       actor: 'OSHA, 122,485 commenters',
       failure: 'acted-no-effect',
-      note: 'Comments were filed against a rule already in force',
+      note: '122,485 comments arrived after the rule had already taken effect',
       detail: paragraph(`
         The emergency temporary standard took effect on publication while
         simultaneously serving as the proposal for a final standard, with
@@ -63,7 +61,7 @@ export default spineData({
       name: 'Congressional review',
       actor: 'US Senate',
       failure: 'partial',
-      note: 'Did not repeal the rule; entered the legitimacy record the Court used',
+      note: 'The Senate vote did not repeal the rule, but the Supreme Court took note of it',
       detail: paragraph(`
         The Senate voted 52 to 48 to disapprove the OSHA rule in December 2021.
         The vote did not repeal the rule, but it entered the record the Court's
@@ -77,7 +75,7 @@ export default spineData({
       name: 'Courts',
       actor: 'Federal courts, Supreme Court',
       failure: 'worked',
-      note: 'The mechanism that resolved the authority contest',
+      note: 'Judges, not public input, settled who had the authority to mandate',
       detail: paragraph(`
         Courts resolved the contest the deliberative channels never hosted: the
         large-employer rule was stayed, the healthcare-worker mandate allowed,
@@ -91,12 +89,11 @@ export default spineData({
       name: 'Union collective bargaining',
       actor: 'Police and municipal unions',
       failure: 'partial',
-      note: 'Binding voice only for unionized workforces; secured process, not reversal',
+      note: 'Only unionized workers could force negotiation; they won process, not reversal',
       detail: paragraph(`
         Police and municipal unions litigated mandate terms that had not been
         collectively bargained and secured process, such as exemption timelines,
-        rather than reversal. Bargaining gave binding voice only to unionized
-        workforces; the 84 million workers under the federal rule had no
+        rather than reversal. Bargaining forced negotiation only for unionized workforces; the 84 million workers under the federal rule had no
         equivalent channel.
       `),
       anchors: ['largest police union filed suit'],
@@ -106,7 +103,7 @@ export default spineData({
       name: 'City councils',
       actor: 'Municipal legislatures',
       failure: 'no-mechanism',
-      note: 'Mandate authority ran through executives and health officials',
+      note: 'Mayors and health officials issued the mandates; no city council voted',
       detail: paragraph(`
         No city council deliberation appears anywhere in the case record;
         municipal workforce mandates ran through mayoral and health-authority
@@ -121,7 +118,7 @@ export default spineData({
       name: 'Tribal consultation and self-governance',
       actor: 'Tribal governments, Indian Health Service',
       failure: 'worked',
-      note: 'Participation with formal authority produced the best group outcome',
+      note: 'Tribes with real decision power reached the highest vaccination rate of any group',
       detail: paragraph(`
         The November 2020 choice between state allocation and the IHS route let
         tribal governments set their own prioritization, and by July 2021
@@ -168,8 +165,7 @@ export default spineData({
       evidence: [
         evidence({
           finding: paragraph(`
-            Commonwealth Fund modeling of the first two years of the vaccine
-            program.
+            Commonwealth Fund modeling covers the program's first two years and estimates <strong>3.2 million deaths and 18.5 million hospitalizations averted</strong>.
           `),
           grade: 'strong',
           sources: [source('Commonwealth Fund', 'https://www.commonwealthfund.org/blog/2022/two-years-covid-vaccines-prevented-millions-deaths-hospitalizations')]
@@ -235,10 +231,7 @@ export default spineData({
       counterEvidence: [
         evidence({
           finding: paragraph(`
-            The Annenberg panel tested five explanations for the Black-White
-            narrowing and found <strong>only knowledge about safety and
-            efficacy mediated it</strong>; neither differential access nor media use explained the increase.
-            Attribution of the narrowing to the access push is unresolved.
+            The Annenberg panel tested five explanations for the Black-White narrowing and found <strong>only growing knowledge about vaccine safety and efficacy explained it</strong>; neither access nor media use did. Whether the access push deserves credit for the narrowing is unresolved.
           `),
           grade: 'moderate',
           sources: [source('Annenberg Public Policy Center', 'https://www.annenbergpublicpolicycenter.org/publication/what-caused-the-narrowing-of-black-white-covid-19-vaccination-disparity-in-the-us-a-test-of-5-hypotheses/')]
@@ -266,8 +259,7 @@ export default spineData({
       evidence: [
         evidence({
           finding: paragraph(`
-            Karaivanov et al. (2022) difference-in-differences estimates
-            across national mandates.
+            Karaivanov et al. (2022) compared regions before and after national mandate announcements and found <strong>weekly first doses rose 66 percent</strong> after announcement.
           `),
           grade: 'strong',
           sources: [source('Karaivanov et al. 2022', 'https://www.nature.com/articles/s41562-022-01363-1')]
@@ -278,8 +270,7 @@ export default spineData({
           finding: paragraph(`
             Rains et al. (PNAS 2024) found US state mandates <strong>did not
             influence uptake and depressed later booster and flu
-            vaccination</strong>; a published
-            reply letter contests the analysis and needs library retrieval.
+            vaccination</strong>; a published reply letter contests the analysis.
           `),
           grade: 'moderate',
           quote: 'COVID-19 vaccine adoption did not significantly change in the weeks before and after states implemented vaccine mandates',
@@ -340,11 +331,7 @@ export default spineData({
           counterEvidence: [
             evidence({
               finding: paragraph(`
-                The 2020 trust decline was partisan (<strong>Trump voters minus
-                0.8, significant; Biden voters minus 0.3, not</strong>), so a
-                general-public
-                transparency intervention may not reach the population whose
-                trust fell.
+                The 2020 trust decline was partisan (<strong>on a 10-point scale, Trump voters fell 0.8 points, a significant drop; Biden voters 0.3, not significant</strong>), so a transparency push aimed at the general public may not reach the people whose trust fell.
               `),
               grade: 'moderate',
               sources: [source('RAND Corporation', 'https://www.rand.org/pubs/research_reports/RRA308-12.html')]
@@ -528,9 +515,7 @@ export default spineData({
           counterEvidence: [
             evidence({
               finding: paragraph(`
-                In a preregistered experiment (N=606), requirements
-                <strong>strengthened vaccination intentions across groups and
-                reactance levels</strong> without any legitimacy-building step.
+                In a preregistered experiment (N=606), requirements <strong>strengthened vaccination intentions across all groups, including the participants most prone to pushing back</strong>, without any legitimacy-building step.
               `),
               grade: 'moderate',
               quote: 'Requirements strengthened vaccination intentions across racial and ethnic groups, across studies, and across levels of trait psychological reactance.',
@@ -540,8 +525,7 @@ export default spineData({
             }),
             evidence({
               finding: paragraph(`
-                The first large hospital mandate saw <strong>153 of 25,000
-                employees leave</strong>.
+                The first large hospital mandate worked without any deliberative step: only <strong>153 of 25,000 employees left</strong> rather than comply.
               `),
               grade: 'moderate',
               sources: [
@@ -754,9 +738,7 @@ export default spineData({
             evidence({
               finding: paragraph(`
                 Protect Chicago Plus: neighborhood task forces designed outreach
-                and distribution in 13 high-vulnerability zip codes; the
-                vaccination rate ratio moved <strong>from 0.58 to 0.92 in
-                eight weeks</strong>.
+                and distribution in 13 high-vulnerability zip codes; the neighborhoods' vaccination rate went <strong>from 58 percent of the citywide rate to 92 percent in eight weeks</strong>.
                 Unidos en Salud delivered 20,792 doses with 98.4% second-dose
                 completion, 70.5% Latinx clients.
               `),
@@ -769,10 +751,7 @@ export default spineData({
             }),
             evidence({
               finding: paragraph(`
-                Tribal self-governance is the one US case where the deciding
-                community held formal authority rather than advisory status, and
-                the group outcome <strong>led the nation by July 2021</strong>. Confounded by the
-                IHS supply channel and community cohesion.
+                Tribal self-governance is the one US case where the deciding community held real authority rather than an advisory role, and by July 2021 American Indian and Alaska Native people <strong>had the highest vaccination rate in the nation</strong>. Direct supply through the Indian Health Service and strong community cohesion may account for part of the result.
               `),
               grade: 'moderate',
               sources: [source('PBS NOVA', 'https://www.pbs.org/wgbh/nova/article/native-americans-highest-covid-vaccination-rate-us/')]
@@ -800,11 +779,7 @@ export default spineData({
           evidence: [
             evidence({
               finding: paragraph(`
-                The distance-uptake association is negative in 98% of 6,096
-                specifications; a Swiss mobile-vaccination cluster trial
-                <strong>moved uptake from 3.8% to 12.8%, a 3.4x effect</strong>.
-                The largest measured
-                uptake effects in the record run through access, not persuasion.
+                People living farther from a vaccination site were less likely to be vaccinated in 98 percent of 6,096 analyses; a Swiss randomized trial of mobile vaccination units <strong>moved uptake from 3.8% to 12.8%, a 3.4x effect</strong>. The largest measured uptake gains in the record come from making vaccination easier to reach, not from persuasion.
               `),
               grade: 'strong',
               sources: [source('Mazar et al. 2023', 'https://academic.oup.com/pnasnexus/article/2/12/pgad411/7459517')]
@@ -822,10 +797,7 @@ export default spineData({
           evidence: [
             evidence({
               finding: paragraph(`
-                By end of November 2021 at-least-one-dose coverage was similar
-                across groups; the specific failure the intervention targets is
-                documented, such as a federal site delivering <strong>nearly 3
-                of 4 doses to White recipients in a 33.8% White city</strong>.
+                By the end of November 2021 first-dose coverage was similar across racial groups; the failure the proposal targets is documented: one federal site delivered <strong>nearly 3 of 4 doses to White recipients in a city that is 33.8% White</strong>.
               `),
               grade: 'moderate',
               sources: [source('US Centers for Disease Control and Prevention', 'https://www.cdc.gov/mmwr/volumes/71/wr/mm7123a2.htm')]
@@ -834,10 +806,7 @@ export default spineData({
           counterEvidence: [
             evidence({
               finding: paragraph(`
-                The Annenberg panel found <strong>only safety-and-efficacy
-                knowledge mediated the observed narrowing</strong>; the racial
-                decomposition of
-                preventable deaths remains unestimated.
+                The Annenberg panel found the gap narrowed because <strong>knowledge about vaccine safety and efficacy spread</strong>, not because access improved; and no study breaks the preventable deaths down by race.
               `),
               grade: 'moderate',
               sources: [source('Annenberg Public Policy Center', 'https://www.annenbergpublicpolicycenter.org/publication/what-caused-the-narrowing-of-black-white-covid-19-vaccination-disparity-in-the-us-a-test-of-5-hypotheses/')]
@@ -856,8 +825,7 @@ export default spineData({
               finding: paragraph(`
                 Two independent estimates put preventable adult deaths at
                 <strong>232,000 to 234,000</strong> for June 2021 to March 2022;
-                both report by age, never
-                by race, so the equity share of the toll remains unestimated.
+                both report by age, never by race, so no one knows what share of those deaths the racial gap accounts for.
               `),
               grade: 'strong',
               sources: [source('Jia et al. 2023', 'https://link.springer.com/article/10.1007/s10654-023-01006-3')]
@@ -974,8 +942,7 @@ export default spineData({
             }),
             evidence({
               finding: paragraph(`
-                Oversight bodies <strong>documented the absence the proposal
-                fixes</strong>.
+                GAO <strong>documented the gap the proposal fixes</strong>: state and local officials had little to no information about how federal doses were allocated, and GAO had to recommend that the agencies start gathering stakeholder feedback in their program reviews.
               `),
               grade: 'moderate',
               sources: [
@@ -1007,10 +974,7 @@ export default spineData({
               finding: paragraph(`
                 A follow-up of 73 randomized nudge trials run with 67 US city
                 departments found cities adopted the tested treatment in later
-                communications in <strong>27 percent of cases</strong>, with
-                adoption driven
-                more by staff continuity than by the strength of the evidence.
-                Evidence travels into decisions, partially.
+                communications in <strong>27 percent of cases</strong>, with adoption driven more by whether the same staff were still there than by the strength of the evidence. Evidence does reach later decisions, but only partially.
               `),
               grade: 'moderate',
               quote: 'city departments adopt a nudge treatment in follow-on communication in 27% of cases',
@@ -1022,9 +986,7 @@ export default spineData({
                 optimistic published literature</strong>, finding that
                 behaviorally-informed communications “can increase vaccination
                 rates at scale but may have smaller, less reliable effects than
-                the published literature suggests”; that is the correction
-                service the proposal buys, and whether any agency reallocated
-                because of it was not identified.
+                the published literature suggests”; that reality check is what the proposal pays for, though no agency was identified changing its spending in response.
               `),
               grade: 'weak',
               caveat: 'Feasibility and correction evidence, not a test of decisions changing.',
@@ -1044,12 +1006,7 @@ export default spineData({
           evidence: [
             evidence({
               finding: paragraph(`
-                The nearest empirical anchor: in a randomized rollout in
-                Rwanda, tying health spending to measured service outputs
-                <strong>raised institutional deliveries and preventive child
-                visits</strong>,
-                and the design shows the incentive structure, not the money
-                alone, drove the gains.
+                The closest evidence is from Rwanda: in a randomized rollout, tying health funding to measured results <strong>raised the share of births in clinics and preventive child visits</strong>, and the design shows the incentive, not the money alone, drove the gains.
               `),
               grade: 'weak',
               quote: 'the results indicate that an equal amount of financial resources without the incentives would not have achieved the same gain in outcomes',

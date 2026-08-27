@@ -21,14 +21,13 @@ export default spineData({
       name: 'Local school boards and public comment',
       actor: 'Elected boards, district administrations',
       failure: 'acted-no-effect',
-      note: 'The venue existed everywhere; input had nowhere to bind',
+      note: 'Every district had public comment; boards were free to ignore it',
       detail: paragraph(`
         A formal decision venue with public comment existed in every district.
         Participation surged only after the decisions, largely in adversarial
         form: the share of students in high-participation districts rose from 6%
         to 49% between 2020 and 2022, and 21 of the 25 most conflictual months on
-        record came after January 2020. At decision time the channel carried
-        preference aggregation with no binding step.
+        record came after January 2020. At decision time the channel collected opinions, and nothing required boards to act on them.
       `),
       anchors: ['48 states left reopening modality'],
       sources: [source('Brookings Institution', 'https://www.brookings.edu/articles/the-revolt-of-the-public-school-parents/')]
@@ -37,12 +36,11 @@ export default spineData({
       name: 'State advisory councils',
       actor: 'Governors, appointed educators, parents, health officials',
       failure: 'acted-no-effect',
-      note: 'Fired at the right time, advisory only; effect never measured',
+      note: 'Met in time to shape the decision, but could only advise; no one measured its effect',
       detail: paragraph(`
         Michigan's Return to Learn Advisory Council convened in June 2020, at the
         right time to shape the fall decision, and produced the Return to School
-        Roadmap. It was appointed rather than representative and had no binding
-        remit; the record contains limited public information on whether its
+        Roadmap. It was appointed rather than representative, and its recommendations were advisory only; the record contains limited public information on whether its
         recommendations were followed, and critics argued they were not.
       `),
       anchors: ['Return to School Roadmap'],
@@ -52,12 +50,11 @@ export default spineData({
       name: 'Parent surveys and polls',
       actor: 'Districts, KFF, Gallup',
       failure: 'acted-no-effect',
-      note: 'Produced information for administrators, not obligations',
+      note: 'Surveys told officials what parents wanted; nothing required them to act on it',
       detail: paragraph(`
-        Surveys fired on time and were informative: KFF found 60% of parents
+        Surveys ran on time and were informative: KFF found 60% of parents
         preferred opening later, Gallup found a 36-28-36 split across in-person,
-        remote, and hybrid. The mechanism performed exactly as designed, and its
-        design had no binding step. District decisions then tracked partisanship
+        remote, and hybrid. The mechanism performed exactly as designed, and nothing in its design required districts to follow the results. District decisions then tracked partisanship
         and union strength, not surveyed preferences or case rates.
       `),
       anchors: ['60% of parents'],
@@ -70,14 +67,13 @@ export default spineData({
       name: 'Union collective bargaining',
       actor: 'AFT, NEA, local affiliates',
       failure: 'worked',
-      note: 'The one channel where stakeholder input could force the terms',
+      note: 'The only channel where districts had to negotiate, and only teachers had it',
       detail: paragraph(`
-        Bargaining fired with binding force for its principals: the UFT threat
+        Bargaining produced enforceable agreements for its members: the UFT threat
         delayed New York City's reopening from September 10 to September 21 and
         set testing terms and a closure trigger; Detroit's deal put teacher
         modality choice in members' hands. The systemic failure is the asymmetry:
-        this was the only stakeholder channel in the case whose input bound, and
-        only teachers held it.
+        this was the only stakeholder channel in the case whose input districts were required to honor, and only teachers held it.
       `),
       anchors: ['delayed in-person instruction to September 21', 'safety strikes'],
       sources: [source('K-12 Dive', 'https://www.k12dive.com/news/nyc-uft-reopening-agreement-delays-school-start-boosts-safety/584532/')]
@@ -86,13 +82,12 @@ export default spineData({
       name: 'Elections and recalls',
       actor: 'Voters, recall committees',
       failure: 'acted-no-effect',
-      note: 'Removed officeholders after the fact; no effect on the decisions it judged',
+      note: 'Removed officeholders a year or more after the decisions were already made',
       detail: paragraph(`
         The accountability channel arrived long after the decisions it judged. Of
         84 recall efforts in 2021, 16 reached a ballot and one member was removed.
         San Francisco removed all three commissioners by 69 to 76% margins, 14 to
-        20 months after the fall 2020 decisions. No mechanism existed to bind
-        before the decision.
+        20 months after the fall 2020 decisions. Nothing existed that could shape the decisions before they were made.
       `),
       anchors: ['recalled three Board of Education members'],
       sources: [source('Ballotpedia', 'https://news.ballotpedia.org/2021/11/08/school-board-recalls-in-2021/')]
@@ -101,12 +96,11 @@ export default spineData({
       name: 'Litigation',
       actor: 'City attorneys, parent plaintiffs, courts',
       failure: 'partial',
-      note: 'Added pressure after the decisions; effects entangled with vaccines',
+      note: 'Lawsuits came months after the decisions; their effect is tangled with vaccines',
       detail: paragraph(`
         San Francisco's suit against its own district was the first of its kind
         and preceded partial reopening, with effects entangled with the
-        vaccination timeline and state politics. Like recalls, litigation is a
-        post-hoc channel: it contested decisions made in mid-2020 from February
+        vaccination timeline and state politics. Like recalls, litigation is an after-the-fact channel: it contested decisions made in mid-2020 from February
         2021 onward.
       `),
       anchors: ['sued the city\'s own school district'],
@@ -116,7 +110,7 @@ export default spineData({
       name: 'Professional and federal guidance',
       actor: 'AAP, CDC',
       failure: 'acted-no-effect',
-      note: 'Decisions tracked politics and union strength, not guidance',
+      note: 'Districts followed politics and union strength, not expert guidance',
       detail: paragraph(`
         The AAP urged starting from the goal of physical presence in June 2020,
         ahead of the fall decisions; the CDC's Operational Strategy arrived
@@ -135,7 +129,7 @@ export default spineData({
       name: 'Public data infrastructure',
       actor: 'Federal statistics agencies',
       failure: 'no-mechanism',
-      note: 'No federal school-mode dataset; a private team built one 18 months late',
+      note: 'No federal dataset tracked school status; a university team built one 18 months late',
       detail: paragraph(`
         No federal dataset tracked which schools were open, hybrid, or remote.
         The COVID-19 School Data Hub, a small grant-funded team at Brown
@@ -208,9 +202,7 @@ export default spineData({
       evidence: [
         evidence({
           finding: paragraph(`
-            RAND's 2025 district survey and AEI's 2026 tracking report both
-            document <strong>persistence of elevated chronic absence</strong>
-            through 2024-25.
+            RAND's 2025 district survey and AEI's 2026 tracking report both find chronic absence <strong>still elevated in 2024-25</strong>: roughly 22 percent of students, against about 15 percent before the pandemic.
           `),
           grade: 'moderate',
           sources: [
@@ -220,10 +212,7 @@ export default spineData({
         }),
         evidence({
           finding: paragraph(`
-            Singer's dose-response analysis <strong>ties persistent absence
-            declines to months of remote exposure</strong>: no significant
-            decline at 1-3 months of remote-only instruction, meaningful
-            declines at 4 or more months, and the largest at 7-9 months.
+            Singer finds <strong>the longer a district stayed remote, the worse its students' attendance afterward</strong>: no significant attendance decline after 1-3 months of remote-only instruction, meaningful declines after 4 or more months, and the largest after 7-9 months.
           `),
           grade: 'moderate',
           quote: 'remote learning in 2020-21 led to persistent declines in post-pandemic attendance, with generally larger negative effects for students exposed to longer periods of remote learning',
@@ -247,9 +236,7 @@ export default spineData({
       counterEvidence: [
         evidence({
           finding: paragraph(`
-            One quarter of surveyed youth <strong>did not consider their own
-            chronic absence a problem</strong>, which points toward indifference as a competing
-            explanation alongside any trust-based account.
+            One quarter of surveyed youth <strong>said missing three weeks of school is mostly OK</strong>, which points toward indifference, not lost trust, as a competing explanation.
           `),
           grade: 'moderate',
           sources: [source('RAND Corporation', 'https://www.rand.org/pubs/research_reports/RRA956-34.html')]
@@ -356,10 +343,7 @@ export default spineData({
             Education Recovery Scorecard data through 2025, reported by the New
             York Times and reposted by Harvard CEPR, show scores stopped
             climbing in the mid-2010s, with <strong>reading losses from 2017 to
-            2019 matching the pandemic-era losses</strong>. Part of the post-2020 gap
-            reflects a longer decline rather than closure policy; the
-            mode-to-decline comparisons across districts are within-period and
-            are not touched by the pre-trend.
+            2019 matching the pandemic-era losses</strong>. Part of the post-2020 gap reflects a longer decline rather than closure policy; the studies tying remote instruction to larger losses compare districts over the same period, so the earlier decline does not weaken them.
           `),
           grade: 'moderate',
           quote: 'From 2017 to 2019, students lost as much ground in reading as they did during the pandemic',
@@ -376,8 +360,7 @@ export default spineData({
       anchor: 'Return to School Roadmap',
       where: 'State level; Michigan is the natural jurisdiction',
       when: paragraph(`
-        May to June 2020, with the remit fixed on the fall 2020 instructional
-        mode decision. Michigan already created an appointed advisory council in
+        May to June 2020, with its scope fixed on the fall 2020 instructional mode decision. Michigan already created an appointed advisory council in
         May 2020; the counterfactual is the same body selected by sortition and
         given a quasi-binding remit. An assembly seated after August 2020 misses
         the decision it exists to make; the actual Michigan sortition panel of
@@ -417,7 +400,7 @@ export default spineData({
           counterEvidence: [
             evidence({
               finding: paragraph(`
-                Reference-class timing runs long: the Irish assembly deliberated
+                Comparable assemblies took far longer: the Irish assembly deliberated
                 <strong>five sessions over six months</strong>; the French climate convention ran
                 nine months; the OECD stocktake of nearly 300 processes describes
                 convenings of at least one full day and often much longer.
@@ -524,8 +507,7 @@ export default spineData({
           evidence: [
             evidence({
               finding: paragraph(`
-                Adjacent domains support the mechanism: in a national US
-                survey, perceived legitimacy of legal institutions <strong>predicted
+                Evidence from other fields supports the mechanism: in a national US survey, perceived legitimacy of legal institutions <strong>predicted
                 compliance and willing cooperation</strong>, and in taxation, fair
                 process raised acceptance of personally disadvantageous
                 systemic changes.
@@ -534,7 +516,7 @@ export default spineData({
               quote: 'legitimacy - typically operationalized as the perceived obligation to obey and trust and confidence in the relevant institutions - plays an important role in achieving such compliance',
               sources: [
                 source('Tyler and Jackson 2013', 'https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2292517'),
-                source('Verboon and Goslinga 2018', 'https://link.springer.com/article/10.1007/s12144-017-9762-x')
+                source('Verboon and Goslinga 2018', 'https://www.sciencedirect.com/science/article/abs/pii/S1061951818301496')
               ]
             })
           ],
@@ -542,10 +524,7 @@ export default spineData({
             evidence({
               finding: paragraph(`
                 Parents were typically supportive of school handling at the time;
-                if contemporaneous perceived legitimacy did not collapse, a
-                legitimacy-repairing intervention has a smaller target than the
-                proposal assumes. The nearest analog, legitimacy and law
-                compliance in policing meta-analysis, is weak and out of domain.
+                if parents' sense of fair treatment did not collapse at the time, there is less for a legitimacy-repairing intervention to fix. The closest evidence, a meta-analysis of legitimacy and law compliance in policing, is weak and from a different field.
               `),
               grade: 'weak',
               sources: [source('Walters and Bolger 2019', 'https://link.springer.com/article/10.1007/s11292-018-9338-2')]
@@ -647,9 +626,7 @@ export default spineData({
                 with <strong>higher cognitive complexity</strong> to a citizen
                 assembly than to a parliamentary committee, and that assembly
                 members “demonstrate a deeper cognitively complex grasp of the
-                subject matter” — a measured interaction between forum design and
-                expert behavior. A process measure, analogical to
-                reopening decisions.
+                subject matter”. The study measures how experts explain, not what schools decide, and it comes from a different policy area than reopening.
               `),
               grade: 'weak',
               quote: 'Members of the Citizens\' Assembly demonstrate a deeper cognitively complex grasp of the subject matter',
@@ -659,11 +636,7 @@ export default spineData({
           counterEvidence: [
             evidence({
               finding: paragraph(`
-                District leaders imported generic public health authority rather
-                than mapping decision-specific expertise; no study tests whether
-                an expertise-mapped minipublic produces different reopening
-                options than surveys. Texas deliberative polls with utilities are
-                the analogical support, in a different domain.
+                District leaders leaned on general public health authority rather than seeking out the specific expertise the reopening decision required; no study tests whether an expert-informed minipublic produces different reopening options than surveys do. The closest support, the deliberative polls Texas utilities ran with their customers, comes from a different domain.
               `),
               grade: 'weak',
               sources: [source('National Civic League', 'https://www.nationalcivicleague.org/ncr-article/deliberative-polling-and-the-rise-of-wind-power-in-texas/')]
@@ -742,9 +715,7 @@ export default spineData({
             evidence({
               finding: paragraph(`
                 Across more than 10,000 districts, reopening decisions did not
-                track risk information. A 40-to-60% Trump-vote shift <strong>moved remote
-                probability 17 percentage points</strong> while the local case rate had a
-                trivial effect.
+                track risk information. Going from a 40 percent to a 60 percent Trump-vote district <strong>shifted the chance of remote instruction by 17 percentage points</strong>, while the local case rate had almost no effect.
               `),
               grade: 'strong',
               quote: 'The COVID case rate, while statistically significant, is substantively trivial in its effect on a district\'s course of action',
@@ -884,8 +855,7 @@ export default spineData({
             evidence({
               finding: paragraph(`
                 Directly observed: fall 2020 produced <strong>24% fully online, 51%
-                hybrid, 17% in-person</strong>. This link happened in the actual world; the
-                proposal cannot claim it as its own contribution.
+                hybrid, 17% in-person</strong>. Districts already decided locally, so the proposal cannot claim this variation as its own contribution.
               `),
               grade: 'strong',
               sources: [source('Honein et al. 2021', 'https://pmc.ncbi.nlm.nih.gov/articles/PMC8938683')]
@@ -902,9 +872,7 @@ export default spineData({
           evidence: [
             evidence({
               finding: paragraph(`
-                After Bolivia's 1994 decentralization, municipal investment
-                <strong>shifted toward objective indicators of local
-                need</strong>.
+                After Bolivia handed budget power to municipalities in 1994, local investment <strong>shifted toward the services each place measurably lacked</strong>, most strongly in education, water, and sanitation.
               `),
               grade: 'weak',
               quote: 'These changes are strongly and positively related to objective indicators of need',
@@ -952,10 +920,7 @@ export default spineData({
           evidence: [
             evidence({
               finding: paragraph(`
-                The variation did generate knowledge: the mode-effect studies all
-                exploit cross-district variation. The learning <strong>arrived in
-                2021-2023 publications</strong>, years after the decisions it could have
-                informed.
+                The variation did generate knowledge: every study measuring what remote instruction cost relies on districts having chosen differently. But the learning <strong>arrived in publications in 2021-2023</strong>, years after the decisions it could have informed.
               `),
               grade: 'moderate',
               sources: [source('Dee et al. 2021', 'https://www.nber.org/papers/w29156')]
@@ -1149,9 +1114,7 @@ export default spineData({
           evidence: [
             evidence({
               finding: paragraph(`
-                Information moved preferences at the margin: Biden voters' support
-                for in-person schooling ran 43% under alarming case framing
-                against 60% under pediatric-endorsement framing, <strong>a 17-point
+                How the same facts were presented moved opinion: Biden voters' support for in-person schooling was 43% when shown alarming case counts and 60% when shown pediatricians' endorsement of reopening, <strong>a 17-point
                 swing</strong>.
               `),
               grade: 'moderate',
@@ -1182,12 +1145,7 @@ export default spineData({
           evidence: [
             evidence({
               finding: paragraph(`
-                The transparency-to-trust literature supports only a
-                conditional version: a systematic review of 187 studies finds
-                <strong>mixed, context-dependent effects of transparency on
-                trust</strong>, and
-                an experiment found transparency raised perceived
-                trustworthiness only for some citizen subgroups.
+                Research on whether transparency builds trust supports only a conditional version of this link: a systematic review of 187 studies finds <strong>mixed, context-dependent effects</strong>, and an experiment found transparency raised perceived trustworthiness only for some groups of citizens.
               `),
               grade: 'weak',
               sources: [
@@ -1268,7 +1226,7 @@ export default spineData({
       `),
       banner: true,
       impactsMeasured: ['Confidence in public schools', 'Public school enrollment', 'Chronic absenteeism'],
-      impactsConjectured: ['Less adversarial post-hoc participation', 'Rebalancing against single-stakeholder capture'],
+      impactsConjectured: ['Less adversarial participation after decisions', 'Rebalancing against single-stakeholder capture'],
       links: [
         propLink({
           name: 'A standing parent body can govern competently',
@@ -1396,10 +1354,7 @@ export default spineData({
           counterEvidence: [
             evidence({
               finding: paragraph(`
-                Absence is <strong>elevated even for cohorts born after
-                closures</strong>, which
-                suggests a diffuse norm shift a district-level trust channel may
-                not reach.
+                Absence is <strong>elevated even among children born after the closures</strong>, which suggests a broad shift in attendance norms that rebuilding trust in a single district may not reach.
               `),
               grade: 'moderate',
               sources: [source('American Enterprise Institute', 'https://www.aei.org/research-products/report/from-attendance-crisis-to-chronic-condition-tracking-post-pandemic-chronic-absenteeism-into-2025/')]

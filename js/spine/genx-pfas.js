@@ -33,7 +33,7 @@ export default spineData({
       name: 'Consent order verification',
       actor: 'EPA, under the 2009 TSCA 5(e) order',
       failure: 'knew-no-act',
-      note: 'An order requiring 99% capture, with no scheduled check for eight years',
+      note: 'EPA required 99% capture but did not check compliance for eight years',
       detail: paragraph(`
         The 2009 consent order recognized insufficient information and potential
         unreasonable risk, required 99 percent capture, and contained no
@@ -49,13 +49,12 @@ export default spineData({
       name: 'Discharge permits and public comment',
       actor: 'NC DEQ and its predecessors, under the Clean Water Act',
       failure: 'did-not-know',
-      note: 'The permit file never named the chemical, so comment could not fire',
+      note: 'The permit file never named the chemical, so no one knew to object',
       detail: paragraph(`
         Permit applications contained no reference to GenX or to any chemical
         name, formula, or CAS number that would identify it. A retired DEQ
         supervisor said he would not have understood that the process generated
-        GenX as a byproduct. Public comment existed at every renewal and could
-        not fire on what the file never named. After 2017 the mechanism worked:
+        GenX as a byproduct. Public comment existed at every renewal, but no one could object to a chemical the file never named. After 2017 the mechanism worked:
         DEQ suspended the discharge provisions and ran the 2020 permit through
         draft, comment, and hearing.
       `),
@@ -66,7 +65,7 @@ export default spineData({
       name: 'Federal drinking water monitoring',
       actor: 'EPA, under UCMR3',
       failure: 'acted-no-effect',
-      note: 'The data were public; no notification duty attached',
+      note: 'The test results sat in a public database; no one had a duty to tell residents',
       detail: paragraph(`
         UCMR3 sampling ran 2013 to 2015 and the data were published. No duty to
         notify anyone attached to the results, and the link closed only when a
@@ -80,11 +79,10 @@ export default spineData({
       name: 'Drinking water violation notices',
       actor: 'Utilities, under the Safe Drinking Water Act',
       failure: 'no-mechanism',
-      note: '24-hour notice exists only for regulated contaminants',
+      note: 'The 24-hour warning rule covers only regulated chemicals, and GenX was unregulated',
       detail: paragraph(`
         The Public Notification Rule gives water suppliers 24 hours to notify
-        people about violations of existing drinking water regulations. GenX was
-        unregulated, so nothing in the rule could fire. No jurisdiction has been
+        people about violations of existing drinking water regulations. GenX was unregulated, so the rule required no notice at all. No jurisdiction has been
         identified with a detection-triggered notice law for unregulated
         contaminants.
       `),
@@ -95,7 +93,7 @@ export default spineData({
       name: 'Toxics release right-to-know',
       actor: 'EPCRA, the Toxics Release Inventory',
       failure: 'no-mechanism',
-      note: 'PFAS entered the inventory only in December 2019',
+      note: 'Disclosure rules cover only listed chemicals; PFAS were not listed until December 2019',
       detail: paragraph(`
         Every measured disclosure-regime success operates on listed, named
         chemicals. PFAS entered TRI only when the FY2020 National Defense
@@ -109,7 +107,7 @@ export default spineData({
       name: 'Worker safety rules',
       actor: 'OSHA',
       failure: 'no-mechanism',
-      note: 'No exposure standard existed; the reporting channel was weak',
+      note: 'OSHA had no PFAS exposure limit, and its complaint channel was unreliable',
       detail: paragraph(`
         No PFOA or GenX exposure standard existed at Washington Works or
         Fayetteville. The whistleblower channel that did exist was documented by
@@ -123,11 +121,9 @@ export default spineData({
       name: 'Citizen suits',
       actor: 'Cape Fear River Watch, SELC',
       failure: 'worked',
-      note: 'Available since the 1970s; fired in 2018 and moved the record',
+      note: 'The lawsuit could only come after disclosure; once filed, it won concrete changes',
       detail: paragraph(`
-        Citizen suits under the Clean Water Act and TSCA were available since
-        the 1970s and could not fire before disclosure. Once they fired, they
-        produced the highest documented efficacy in the case: plaintiff party
+        Citizen suits under the Clean Water Act and TSCA were available since the 1970s but could not be used before the pollution was disclosed. Once filed, they produced the highest documented efficacy in the case: plaintiff party
         status, independent enforcement authority over eleven provisions, a
         standing DEQ meeting obligation, a $12 million penalty, and 99 percent
         discharge reductions. The scope was one facility, not a standard.
@@ -215,8 +211,7 @@ export default spineData({
         }),
         evidence({
           finding: paragraph(`
-            After exposure ended in Arnsberg, Germany, PFOA left the blood with
-            a <strong>half-life of 3.26 years</strong>, which supports every
+            After exposure ended in Arnsberg, Germany, PFOA levels in residents' blood <strong>fell by half about every 3.26 years</strong>, which supports every
             chain's claim that an earlier cutoff would have lowered blood
             levels.
           `),
@@ -323,8 +318,7 @@ export default spineData({
       evidence: [
         evidence({
           finding: paragraph(`
-            Utility filtration costs and rate increases are documented in
-            contemporaneous reporting.
+            News reporting at the time documented the bills and who paid them: <strong>$82.8 million at CFPUA, funded through an 8 percent customer rate increase, and $158.7 million in Brunswick County</strong>.
           `),
           grade: 'strong',
           sources: [
@@ -355,8 +349,7 @@ export default spineData({
       evidence: [
         evidence({
           finding: paragraph(`
-            Consent order terms and compliance reductions are documented in the
-            order and state enforcement records.
+            The consent order and state enforcement records document the terms and the results: <strong>a $12 million penalty and 99 percent discharge reductions</strong>.
           `),
           grade: 'strong',
           sources: [source('Consent Order', 'https://capefearriverwatch.org/wp-content/uploads/2020/07/Consent-Order-file-stamped-and-fully-executed-b-w-.pdf')]
@@ -443,8 +436,7 @@ export default spineData({
           counterEvidence: [
             evidence({
               finding: paragraph(`
-                Employees bear net costs from whistleblowing, which suppresses
-                reporting absent strong protection; GAO found the existing OSHA
+                Blowing the whistle usually costs an employee more than it gains them, so few report without strong protection; GAO found the existing OSHA
                 whistleblower program <strong>lacked sufficient internal controls</strong>.
               `),
               grade: 'moderate',
@@ -476,10 +468,7 @@ export default spineData({
           counterEvidence: [
             evidence({
               finding: paragraph(`
-                The in-case sanction arrived <strong>24 years after the earliest
-                violation year</strong> and imposed no enforceable limits on continued
-                production; disclosure reaching only the agency might have
-                replicated the five-year stall the detection findings hit.
+                In this case the sanction arrived <strong>24 years after the earliest violation</strong> and set no enforceable limits on continued production; disclosure that reached only the agency might have sat for years, as the 2012 detection findings did.
               `),
               grade: 'moderate',
               sources: [source('US Environmental Protection Agency', 'https://www.epa.gov/archive/epapages/newsroom_archive/newsreleases/fdcb2f665cac66bb852570d7005d6665.html')]
@@ -530,8 +519,7 @@ export default spineData({
             evidence({
               finding: paragraph(`
                 Median fluoroether levels in blood <strong>declined 34 to 65 percent
-                within six months</strong> of discharge controls; PFOA's elimination
-                half-life after exposure ends is 3.26 years.
+                within six months</strong> of discharge controls; after exposure ends, PFOA levels in blood fall by half about every 3.26 years.
               `),
               grade: 'strong',
               sources: [source('Kotlarz et al. 2020', 'https://ehp.niehs.nih.gov/doi/10.1289/EHP6837')]
@@ -645,8 +633,7 @@ export default spineData({
             }),
             evidence({
               finding: paragraph(`
-                Woburn's community observation plus an academic study confirmed
-                a <strong>fourfold leukemia excess</strong>.
+                In Woburn, Massachusetts, parents counted the childhood leukemia cases in their neighborhood and pressed for an investigation; a Harvard study then confirmed children were developing leukemia at <strong>four times the expected rate</strong>, linked to two contaminated town wells.
               `),
               grade: 'moderate',
               sources: [
@@ -655,8 +642,7 @@ export default spineData({
             }),
             evidence({
               finding: paragraph(`
-                Tennant's cattle documentation <strong>pierced
-                concealment</strong> in the PFOA arc.
+                Wilbur Tennant, a West Virginia farmer, videotaped his cattle sickening and dying near a DuPont landfill; his documentation became the lawsuit whose court files <strong>forced DuPont's hidden PFOA studies into the open</strong>.
               `),
               grade: 'moderate',
               sources: [
@@ -667,8 +653,7 @@ export default spineData({
           counterEvidence: [
             evidence({
               finding: paragraph(`
-                Cancer-cluster base rates run hard against symptom-triggered
-                detection: “In the 108 CDC cancer cluster investigations that
+                Most community-reported cancer clusters turn out to have no identifiable environmental cause: “In the 108 CDC cancer cluster investigations that
                 resulted, no meaningful environmental causes explained any of
                 the clusters”.
               `),
@@ -704,8 +689,7 @@ export default spineData({
                 A community sensor network in Imperial County, California
                 identified <strong>1,426 fine-particle pollution episodes against 116
                 found by government monitors</strong>; half the community-detected
-                episodes never appeared in official data. Air, not water, and
-                sensors, not symptoms, but a measured detection gain.
+                episodes never appeared in official data. The setting differs, air rather than water and sensors rather than symptoms, but the detection gain is measured.
               `),
               grade: 'moderate',
               quote: 'Of the 1426 episodes identified by the community sensors, 723 (51%) were not observed by the government monitors',
@@ -736,8 +720,7 @@ export default spineData({
           evidence: [
             evidence({
               finding: paragraph(`
-                The speed of the post-2017 response and the decline in blood
-                levels after discharge controls are measured in this case.
+                This case supplies the measurement: after the June 2017 story the state acted within a week, and blood levels <strong>fell 34 to 65 percent within six months</strong> of discharge controls.
               `),
               grade: 'strong',
               sources: [source('Kotlarz et al. 2020', 'https://ehp.niehs.nih.gov/doi/10.1289/EHP6837')]
@@ -761,8 +744,7 @@ export default spineData({
           where: 'Tonawanda, NY', when: '2004-2013',
           authority: 'Resident sampling, then state study, then criminal enforcement',
           outcome: paragraph(`
-            Residents' bucket sampling found benzene and formaldehyde; the state
-            study confirmed the excess, and the company was convicted on 14 of 19
+            Starting in 2005, residents sampled their air with homemade bucket kits and found benzene and formaldehyde; the state's follow-up study confirmed the excess, and the company was convicted on 14 of 19
             charges with a $12.5 million penalty. Measured benzene fell 86
             percent at the industrial monitor and 68 percent at the residential
             monitor, and the estimated excess cancer risk at the industrial
@@ -771,7 +753,8 @@ export default spineData({
           strength: 'strong',
           sources: [
             source('New York State Department of Environmental Conservation', 'https://extapps.dec.ny.gov/docs/air_pdf/tonfact1011.pdf'),
-            source('US Department of Justice', 'https://www.justice.gov/archives/opa/pr/tonawanda-coke-and-manager-sentenced-violating-clean-air-act-and-resource-conservation-and')
+            source('US Department of Justice', 'https://www.justice.gov/archives/opa/pr/tonawanda-coke-and-manager-sentenced-violating-clean-air-act-and-resource-conservation-and'),
+            source('Citizen Science Community Resources', 'https://www.csresources.org/our-history')
           ]
         }),
         comparable({
@@ -779,12 +762,7 @@ export default spineData({
           where: 'Flint, MI', when: '2015',
           authority: 'Resident-collected samples with Virginia Tech',
           outcome: paragraph(`
-            Residents, sampling their own taps with Virginia Tech running the
-            analysis, returned 84 percent of 300 kits (252 samples; 269 homes
-            in the published analysis); the resident dataset contradicted
-            official sampling (90th percentile lead 25.2 ppb) and preceded the
-            January 2016 federal emergency and more than $600 million in
-            relief.
+            Residents sampled their own taps with Virginia Tech running the analysis and returned 84 percent of 300 kits (252 samples; 269 homes in the published analysis). Their data showed the water carried lead at hazardous levels, a 90th percentile of 25.2 ppb against the 15 ppb federal action level, while official sampling showed no violation. That finding preceded the January 2016 federal emergency and more than $600 million in relief.
           `),
           strength: 'strong',
           sources: [source('Flint Water Study', 'https://flintwaterstudy.org/information-for-flint-residents/results-for-citizen-testing-for-lead-300-kits/')]
@@ -794,9 +772,7 @@ export default spineData({
           where: 'Woburn, MA', when: '1970s-1986',
           authority: 'Community observation plus academic partnership',
           outcome: paragraph(`
-            Community observation and an academic partnership confirmed a
-            fourfold leukemia excess, which produced a settlement, a Superfund
-            cleanup, a state cleanup fund, and a state cancer registry.
+            Parents counted the childhood leukemia cases in their neighborhood; a Harvard study run with community volunteers confirmed children were developing leukemia at four times the expected rate. The confirmed cluster produced a settlement, a Superfund cleanup, a state cleanup fund, and a state cancer registry.
           `),
           strength: 'moderate',
           sources: [source('Dan Kennedy, Woburn Files', 'https://dankennedy.net/woburn-files/a-civil-action-the-real-story/')]
@@ -869,8 +845,7 @@ export default spineData({
             evidence({
               finding: paragraph(`
                 Drinking water violations raise <strong>bottled water sales 17 to 22
-                percent</strong>; industrial plant openings cut housing values 11 percent
-                within half a mile, evidence markets capitalize known risk.
+                percent</strong>; industrial plant openings cut nearby housing values 11 percent within half a mile. Both show people act on contamination risks once they know about them.
               `),
               grade: 'strong',
               quote: 'an increase in bottled water sales of 22 percent from violations due to microorganisms and 17 percent from violations due to elements and chemicals',
@@ -883,9 +858,7 @@ export default spineData({
           counterEvidence: [
             evidence({
               finding: paragraph(`
-                Avoidance is costly and regressive, and salience effects
-                <strong>concentrate within a mile of a plant</strong> while Cape Fear exposure ran
-                100 miles downstream.
+                Avoiding contaminated water costs money and burdens poor households most, and the measured responses <strong>concentrate within a mile of a plant</strong>, while Cape Fear exposure ran 100 miles downstream.
               `),
               grade: 'moderate',
               sources: [source('Currie et al. 2015', 'https://www.aeaweb.org/articles?id=10.1257%2Faer.20121656')]
@@ -1080,8 +1053,7 @@ export default spineData({
               finding: paragraph(`
                 The 2017 response ran on press amplification; whether a statutory
                 notice without a front page produces the same seven-day response
-                is untested. Mailed notices alone <strong>changed utility behavior 30 to
-                44 percent</strong>, a floor rather than the 2017 cliff.
+                is untested. Mailed notices alone <strong>cut utility violations 30 to 44 percent</strong>, a real but modest response next to the near-total one of 2017.
               `),
               grade: 'moderate',
               sources: [source('Bennear and Olmstead 2008', 'https://ideas.repec.org/a/eee/jeeman/v56y2008i2p117-130.html')]
@@ -1266,8 +1238,7 @@ export default spineData({
               finding: paragraph(`
                 The closest PFAS precedent: the court-created, independently
                 run C8 Health Project <strong>enrolled 69,030 exposed residents in 13
-                months</strong>, returning individual PFOA results to participants. The
-                trust mechanism is described, not causally isolated.
+                months</strong>, returning individual PFOA results to participants. The studies describe the trust mechanism; none tests whether it caused the enrollment.
               `),
               grade: 'weak',
               quote: 'Final study participation was 69,030, enrolled over a 13-month period in 2005-2006',
@@ -1410,11 +1381,10 @@ export default spineData({
           counterEvidence: [
             evidence({
               finding: paragraph(`
-                The in-case record is the strongest counter-evidence: nine years
+                This case's own record is the strongest counter-evidence: nine years
                 of the project's most extensive participation produced
                 <strong>remediation at one plant and no enforceable state standard</strong>, with
-                the House bill stalling in the Senate. Private enforcement also
-                crowds out public sanctions in the one large-n study.
+                the House bill stalling in the Senate. The one large statistical study also finds regulators pull back their own enforcement where private lawsuits are active.
               `),
               grade: 'moderate',
               sources: [source('Langpap and Shimshack 2010', 'https://ideas.repec.org/a/eee/jeeman/v59y2010i3p235-249.html')]
@@ -1529,9 +1499,7 @@ export default spineData({
               finding: paragraph(`
                 In Finnish and Swedish nuclear waste siting, host municipalities
                 held formal power at the approval decision with publicly funded
-                independent review, and both programs <strong>reached consented,
-                operating outcomes</strong> where non-consensual programs stalled.
-                Analogical: a different industry and decision type.
+                independent review, and both programs <strong>won community consent and are operating</strong>, where programs that imposed sites stalled. The analogy is imperfect: a different industry and a different kind of decision.
               `),
               grade: 'weak',
               sources: [source('Bellona', 'https://bellona.org/news/nuclear-issues/radioactive-waste-and-spent-nuclear-fuel/2016-08-21710')]

@@ -253,8 +253,7 @@ const harmReduction = chain({
       ],
       gaps: [
         paragraph(`
-          Litigation is the only instrument in this record that reliably pierced
-          concealment, and it required a farmer noticing dead cattle, an attorney
+          Litigation is the only instrument in this record that reliably forced hidden information into the open, and it required a farmer noticing dead cattle, an attorney
           working the matter for two decades, and a discovery order. No
           non-adversarial instrument was identified that performed the same function
           in this case.
@@ -540,18 +539,13 @@ const harmReduction = chain({
       from: 'The contamination is found, but kept inside agencies',
       to: 'PFAS measured in the blood of residents',
       claim: paragraph(`
-        The harm is quantified in serum, and the quantification exists because a
-        university built a study around a community, not because any regulator
-        required it.
+        The harm is measured in residents' blood, and the measurement exists because a university built a study around a community, not because any regulator required it.
       `),
       strength: 'strong',
       evidence: [
         evidence({
           finding: paragraph(`
-            In 344 Wilmington-area residents, Kotlarz et al. (2020) detected six
-            fluoroethers in serum; Nafion by-product 2 and PFO4DA appeared in more
-            than 99% of participants. Fluoroethers contributed <strong>23% of summed serum
-            PFAS</strong> (median summed PFAS 25.0 ng/mL). Four legacy PFAS were detected in
+            In 344 Wilmington-area residents, Kotlarz et al. (2020) detected six fluoroethers in residents' blood; Nafion by-product 2 and PFO4DA appeared in more than 99% of participants. Fluoroethers contributed <strong>23% of the total PFAS measured in blood</strong> (median summed PFAS 25.0 ng/mL). Four legacy PFAS were detected in
             <strong>≥97%</strong> of participants at levels above 2015–2016 NHANES national
             levels. In participants with repeated samples, median fluoroether levels
             declined 34–65% over six months once discharge controls were in place.
@@ -562,7 +556,7 @@ const harmReduction = chain({
             analytical method reporting limit (2 ng/mL).
           `),
           grade: 'strong',
-          caveat: 'GenX itself was not detected above the 2 ng/mL reporting limit in any participant; the serum burden reflects co-discharged fluoroethers rather than the compound the crisis is named for. NC State\'s press release reports slightly different figures (24% of measured PFAS; declines of 28–65%; three fluoroethers detected in over 85% of samples).',
+          caveat: 'GenX was not detected above the 2 ng/mL reporting limit in any participant; the blood levels reflect co-discharged fluoroethers rather than the compound the crisis is named for. NC State\'s press release reports slightly different figures (24% of measured PFAS; declines of 28–65%; three fluoroethers detected in over 85% of samples).',
           sources: [
             source('Kotlarz et al., Environ Health Perspect 128(7)', 'https://doi.org/10.1289/EHP6837'),
             source('Kotlarz et al. (PubMed Central)', 'https://pmc.ncbi.nlm.nih.gov/articles/PMC7375159/')
@@ -588,7 +582,7 @@ const harmReduction = chain({
         }),
         evidence({
           finding: paragraph(`
-            Analysis of 119 archived adult serum samples collected 2010–2016
+            Analysis of 119 archived adult blood samples collected 2010–2016
             (<strong>before disclosure</strong>) found PFMOAA at a median of 42 ng/mL, the
             highest of 56 PFAS measured, establishing internal PFAS levels in the population
             years before the June 2017 public disclosure.
@@ -603,9 +597,7 @@ const harmReduction = chain({
         evidence({
           finding: paragraph(`
             A companion analysis of the same cohort (Wilkie et al. 2023,
-            <em>Environmental Research</em>) examined demographic and residential
-            factors associated with serum PFAS concentrations in New Hanover County
-            residents, in a population whose legacy PFAS levels exceeded national
+            <em>Environmental Research</em>) examined which demographic and residential factors went with higher PFAS levels in the blood of New Hanover County residents, in a population whose legacy PFAS levels exceeded national
             reference levels.
           `),
           grade: 'moderate',

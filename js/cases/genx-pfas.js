@@ -9,7 +9,7 @@ export default caseStudy({
     This case shows how weak environmental governance allowed harm to continue for
     years. Industrial secrecy, fragmented regulation, and uncertain science delayed
     action, even as companies benefited economically and downstream communities faced
-    unequal and involuntary exposure risks.<br><br>Crucially, people do not need
+    unequal and involuntary exposure risks. Crucially, people do not need
     definitive proof of harm to act. When credible suspicion exists, especially
     supported by evidence from outside the affected area, communities have a right to
     respond and seek protection.

@@ -716,8 +716,7 @@ const legitimacy = chain({
             the other while everyone else held a survey.
           `),
           mechanism: paragraph(`
-            Binding upstream voice reduces adversarial post-hoc participation
-            and the trust damage that follows it.
+            A real say before the decision reduces adversarial participation after it, and the trust damage that follows.
           `),
           unstudied: true
         })
@@ -741,9 +740,7 @@ const legitimacy = chain({
       from: 'Confidence in public schools collapses',
       to: 'Chronic absence sticks',
       claim: paragraph(`
-        Post-pandemic chronic absenteeism tracks remote-learning exposure in
-        dose-response fashion, is associated with relational climate including
-        teacher-reported relationships with parents, and appears in cohorts that
+        Post-pandemic chronic absenteeism rises with how long students were remote, is associated with the quality of school relationships including teacher-reported relationships with parents, and appears in cohorts that
         entered school after closures ended, a pattern consistent with a
         family-level shift in attendance norms rather than students' own
         disrupted experience.

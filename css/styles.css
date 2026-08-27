@@ -1409,7 +1409,7 @@ body[data-view="chain"] #ctrl .fl,
 .fl-unstudied { border-color: #aa2a20; color: #aa2a20; background: #fbeceb; }
 
 /* Sidebar additions */
-.cd-kick-mech { color: #2f7d3f; }
+.cd-kick-mech { color: #6b6457; }
 .cd-kick-imp { color: #1e6b3c; }
 .cd-kick-prop { color: #c05621; }
 .sp-chainrow { display: flex; gap: 10px; align-items: flex-start; padding: 6px 8px; border-radius: 6px; cursor: pointer; list-style: none; }
@@ -1417,7 +1417,7 @@ body[data-view="chain"] #ctrl .fl,
 .sp-arrowrow { display: flex; gap: 10px; align-items: flex-start; padding: 4px 0; list-style: none; }
 .sp-comp { list-style: none; padding: 8px 10px; border: 1px solid #ddd5c8; border-radius: 8px; margin-bottom: 8px; background: #fbfaf7; }
 .sp-hintline { font-size: .72rem; color: #6d6455; }
-.g-mech { background: #ecf5ec; color: #1e5c2c; border: 1px solid #93c39e; }
+.g-mech { background: #f1efe9; color: #57524a; border: 1px solid #c9c3b6; }
 .g-imp { background: #e4efe7; color: #143d23; border: 1px solid #1e6b3c; }
 
 /* Key swatches for the spine legend */
