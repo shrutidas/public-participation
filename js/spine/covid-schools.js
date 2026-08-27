@@ -580,7 +580,7 @@ export default spineData({
             recommendations had no documented effect, and it convened after the fall
             decision window.
           `),
-          strength: 'weak',
+          strength: 'moderate',
           sources: [source('Carnegie Mellon University', 'https://www.cmu.edu/news/stories/archives/2021/august/citizens-assembly-algorithm.html')]
         })
       ],
