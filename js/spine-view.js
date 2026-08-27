@@ -69,25 +69,32 @@ export function renderSpineMap(el, caseObj, spine, sel = {}) {
     return box;
   });
 
-  // Proposal chips grouped by anchor entry.
-  const propAt = new Map(); // entryIdx -> [{p, pi}]
+  // Proposal boxes grouped by anchor entry, built and measured up front so
+  // the vertical layout can reserve real room for each stack.
+  const PROP_W = 232;
+  const propAt = new Map(); // entryIdx -> [{p, pi, el, h}]
   spine.proposals.forEach((p, pi) => {
     const i = anchorIndex(entries, p.anchor);
     if (i === -1) return;
-    (propAt.get(i) || propAt.set(i, []).get(i)).push({ p, pi });
+    const el = document.createElement('button');
+    el.className = `sp-propbox${openProp === pi ? ' on' : ''}`;
+    el.dataset.pr = pi;
+    el.title = p.method;
+    el.innerHTML = `<span class="sp-propbox-kick">Proposed intervention</span>${p.name}`;
+    el.style.width = `${PROP_W}px`;
+    el.style.visibility = 'hidden';
+    stage.appendChild(el);
+    (propAt.get(i) || propAt.set(i, []).get(i)).push({ p, pi, el, h: el.offsetHeight });
   });
 
-  // Measure a probe chip for stacking room.
-  const probe = document.createElement('button');
-  probe.className = 'sp-propchip';
-  probe.style.visibility = 'hidden';
-  probe.textContent = 'Probe';
-  stage.appendChild(probe);
-  const chipH = probe.offsetHeight || 26;
-  probe.remove();
-
-  // Expansion height for the open proposal's chain.
-  const EXP_H = 360;
+  // Expansion height for the open proposal's chain: the tallest link's full
+  // evidence stack (every evidence and counter-evidence card, uncollapsed).
+  let EXP_H = 0;
+  if (openProp != null && spine.proposals[openProp]) {
+    const maxCards = Math.max(...spine.proposals[openProp].links.map(lk =>
+      Math.max((lk.evidence ?? []).length + (lk.counterEvidence ?? []).length, 1)));
+    EXP_H = 200 + maxCards * 56;
+  }
 
   // Pass 2: vertical layout.
   const yTop = [];
@@ -95,8 +102,9 @@ export function renderSpineMap(el, caseObj, spine, sel = {}) {
   entries.forEach((e, i) => {
     yTop[i] = y;
     const h = entEls[i].offsetHeight;
-    const chips = (propAt.get(i) || []).length;
-    let gap = L.entryGap + (chips ? chips * (chipH + 6) + 8 : 0);
+    const list = propAt.get(i) || [];
+    const stackH = list.length ? list.reduce((a, x) => a + x.h + 8, 0) + 6 : 0;
+    let gap = L.entryGap + Math.max(0, stackH - h);
     if (openProp != null && propAt.get(i)?.some(x => x.pi === openProp)) gap += EXP_H;
     y += h + gap;
   });
@@ -154,19 +162,26 @@ export function renderSpineMap(el, caseObj, spine, sel = {}) {
     }
   });
 
-  // Impacts rail (right).
+  // Impacts rail (right). Each incoming arrow's strength renders as a pill
+  // inside the card itself, in arrow order (top arrow first); a dot marks
+  // counter-evidence on the impact. Click the card for the full record.
   let impBot = L.padTop;
-  const flagEls = [];
   spine.impacts.forEach((im, ii) => {
     const froms = im.from
       .map(f => ({ f, i: anchorIndex(entries, f.anchor) }))
-      .filter(x => x.i !== -1);
+      .filter(x => x.i !== -1)
+      .sort((a, b) => yTop[a.i] - yTop[b.i]);
     const targetY = froms.length ? Math.min(...froms.map(x => yTop[x.i])) : L.padTop;
+    const hasCtr = (im.counterEvidence ?? []).length > 0;
+    const pills = froms.map((x, k) =>
+      `<span class="sp-grade fl-${x.f.strength}">${STRENGTH_LABEL[x.f.strength]}${hasCtr && k === froms.length - 1 ? '<i class="sp-ctr" title="Counter-evidence exists"></i>' : ''}</span>`
+    ).join('');
     const d = document.createElement('div');
     d.className = 'sp-imp';
     d.dataset.i = ii;
     d.tabIndex = 0;
-    d.innerHTML = `<div class="sp-imp-kick">Measured impact</div><div class="sp-imp-name">${im.name}</div>`;
+    d.innerHTML = `<div class="sp-imp-kick">Measured impact</div><div class="sp-imp-name">${im.name}</div>
+      <div class="sp-imp-grades">${pills}</div>`;
     d.style.left = `${L.impX}px`;
     d.style.width = `${L.impW}px`;
     stage.appendChild(d);
@@ -175,55 +190,48 @@ export function renderSpineMap(el, caseObj, spine, sel = {}) {
     impBot = iy + d.offsetHeight + L.railGap;
     const ix = L.impX;
     const iyc = iy + d.offsetHeight / 2;
-    for (const { f, i } of froms) {
+    for (const { i } of froms) {
       const g = geo(i);
-      const midX = (g.x2 + ix) / 2;
       paths += `<path class="sp-edge sp-edge-imp" data-i="${ii}" marker-end="url(#sp-arw)"
         d="M ${g.x2} ${g.cy} C ${g.x2 + 120} ${g.cy}, ${ix - 160} ${iyc}, ${ix - 3} ${iyc}"></path>`;
-      // Strength flag pinned to the impact box's left edge, stacked per arrow.
-      flagEls.push({
-        cls: `sp-flag fl-${f.strength}`, data: { i: ii },
-        x: ix - 86, y: iy + 4 + flagEls.filter(fl => fl.data.i === ii).length * 24,
-        label: STRENGTH_LABEL[f.strength],
-        counter: (im.counterEvidence ?? []).length > 0
-      });
     }
   });
 
-  // Proposal chips, and the open proposal's expanded chain.
+  // Proposal boxes, the grouping bracket that alludes to their anchor event
+  // (a bracket, not an arrow: attachment, not causation), and the open
+  // proposal's expanded chain.
   for (const [i, list] of propAt) {
     const g = geo(i);
-    list.forEach(({ p, pi }, k) => {
-      const b = document.createElement('button');
-      b.className = `sp-propchip${openProp === pi ? ' on' : ''}`;
-      b.dataset.pr = pi;
-      b.title = p.method;
-      b.textContent = p.name;
-      b.style.left = `${L.spineX + 18}px`;
-      b.style.top = `${Math.round(g.bot + 8 + k * (chipH + 6))}px`;
-      b.style.maxWidth = `${L.spineW + 120}px`;
-      stage.appendChild(b);
-      if (openProp === pi) entEls[i].classList.add('sp-ent-prop');
-    });
+    const px = g.x2 + 46;
+    let py = g.top;
+    let openEl = null;
+    for (const rec of list) {
+      rec.el.style.left = `${px}px`;
+      rec.el.style.top = `${Math.round(py)}px`;
+      rec.el.style.visibility = 'visible';
+      // Dotted tie from the bracket to this box.
+      paths += `<path class="sp-edge sp-edge-allude-tie"
+        d="M ${g.x2 + 26} ${g.cy} C ${g.x2 + 36} ${g.cy}, ${px - 10} ${py + rec.h / 2}, ${px - 2} ${py + rec.h / 2}"></path>`;
+      if (openProp === rec.pi) {
+        entEls[i].classList.add('sp-ent-prop');
+        openEl = { x1: px, x2: px + PROP_W, cy: py + rec.h / 2, bot: py + rec.h };
+      }
+      py += rec.h + 8;
+    }
+    // The bracket hugs the anchor event's right edge, grouping it.
+    paths += `<path class="sp-edge sp-edge-allude"
+      d="M ${g.x2 + 8} ${g.top + 6} L ${g.x2 + 18} ${g.top + 6} L ${g.x2 + 18} ${g.bot - 6} L ${g.x2 + 8} ${g.bot - 6}"></path>
+      <path class="sp-edge sp-edge-allude" d="M ${g.x2 + 18} ${g.cy} L ${g.x2 + 26} ${g.cy}"></path>`;
 
     const open = list.find(x => x.pi === openProp);
     if (open) {
       const { p, pi } = open;
-      const chips = list.length;
-      const baseY = g.bot + 8 + chips * (chipH + 6) + 26;
+      const stackBot = py;
+      const baseY = Math.max(g.bot, stackBot) + 32;
       const n = p.links.length;
       const boxW = Math.min(176, Math.floor((L.bandW - (n - 1) * L.chainGap) / n));
       const startX = L.bandX;
       let prev = null;
-      if (p.banner) {
-        const bn = document.createElement('div');
-        bn.className = 'sp-banner';
-        bn.textContent = 'No study tests this chain end to end; each link is graded on its own evidence.';
-        bn.style.left = `${startX}px`;
-        bn.style.top = `${Math.round(baseY - 24)}px`;
-        bn.style.width = `${L.bandW}px`;
-        stage.appendChild(bn);
-      }
       p.links.forEach((lk, li) => {
         const bx = startX + li * (boxW + L.chainGap);
         const d = document.createElement('button');
@@ -242,53 +250,41 @@ export function renderSpineMap(el, caseObj, spine, sel = {}) {
           paths += `<path class="sp-edge sp-edge-chain" marker-end="url(#sp-arw)"
             d="M ${prev.x2} ${prev.cy} L ${bx - 3} ${cyc}"></path>`;
         } else {
-          // Arrow from the anchored entry into the first chain box.
+          // Arrow from the proposal box itself down into the first chain box.
+          const o = openEl ?? { x1: g.x2 - 40, bot: g.cy };
           paths += `<path class="sp-edge sp-edge-chain" marker-end="url(#sp-arw)"
-            d="M ${g.x2} ${g.cy} C ${g.x2 + 60} ${g.cy}, ${bx - 60} ${cyc}, ${bx - 3} ${cyc}"></path>`;
+            d="M ${o.x1 + 40} ${o.bot} C ${o.x1 + 40} ${o.bot + 34}, ${bx + boxW / 2} ${baseY - 44}, ${bx + boxW / 2} ${baseY - 3}"></path>`;
         }
         // The evidence itself hangs under the card, in red, as the original
-        // sketch proposed: one card for the lead evidence, one for the lead
-        // counter-evidence. Click either to read both sides in full.
+        // sketch proposed: every evidence and counter-evidence entry gets its
+        // own card, uncollapsed. Click any card to read the full record.
         let ey = baseY + h + 8;
-        const evTop = (lk.evidence ?? [])[0];
-        const ctTop = (lk.counterEvidence ?? [])[0];
-        if (evTop) {
+        const addCard = (kick, label, extraCls = '') => {
           const ec = document.createElement('button');
-          ec.className = 'sp-evcard';
+          ec.className = `sp-evcard${extraCls}`;
           ec.dataset.pr = pi;
           ec.dataset.pl = li;
-          ec.innerHTML = `<span class="sp-evcard-kick">Evidence</span>${evTop.srcs?.[0]?.l ?? 'Source'}`;
+          ec.innerHTML = `<span class="sp-evcard-kick">${kick}</span>${label}`;
           ec.style.left = `${bx}px`;
           ec.style.top = `${Math.round(ey)}px`;
           ec.style.width = `${boxW}px`;
           stage.appendChild(ec);
           ey += ec.offsetHeight + 5;
+        };
+        if ((lk.evidence ?? []).length) {
+          for (const ev of lk.evidence) addCard('Evidence', ev.srcs?.map(x => x.l).join('; ') || 'Source');
         } else if (lk.strength === 'unstudied') {
-          const ec = document.createElement('button');
-          ec.className = 'sp-evcard sp-evcard-un';
-          ec.dataset.pr = pi;
-          ec.dataset.pl = li;
-          ec.innerHTML = `<span class="sp-evcard-kick">Evidence</span>No study found`;
-          ec.style.left = `${bx}px`;
-          ec.style.top = `${Math.round(ey)}px`;
-          ec.style.width = `${boxW}px`;
-          stage.appendChild(ec);
-          ey += ec.offsetHeight + 5;
+          addCard('Evidence', 'No study found', ' sp-evcard-un');
         }
-        if (ctTop) {
-          const cc = document.createElement('button');
-          cc.className = 'sp-evcard sp-evcard-ctr';
-          cc.dataset.pr = pi;
-          cc.dataset.pl = li;
-          cc.innerHTML = `<span class="sp-evcard-kick">Counter</span>${ctTop.srcs?.[0]?.l ?? 'Source'}`;
-          cc.style.left = `${bx}px`;
-          cc.style.top = `${Math.round(ey)}px`;
-          cc.style.width = `${boxW}px`;
-          stage.appendChild(cc);
+        for (const ev of (lk.counterEvidence ?? [])) {
+          addCard('Counter', ev.srcs?.map(x => x.l).join('; ') || 'Source', ' sp-evcard-ctr');
         }
-        prev = { x2: bx + boxW, cy: cyc };
+        prev = { x2: bx + boxW, cy: cyc, bx, boxW, stackBot: ey };
       });
-      // Terminal arrows into the measured impact boxes.
+      // Terminal arrows into the measured impact boxes. Dashed and labeled:
+      // these are the proposal's INTENDED effects on the measured quantities,
+      // not documented causation like the solid event arrows.
+      let drewTerm = false;
       for (const name of p.impactsMeasured) {
         const ii = spine.impacts.findIndex(x => x.name === name);
         const box = stage.querySelector(`.sp-imp[data-i="${ii}"]`);
@@ -296,22 +292,21 @@ export function renderSpineMap(el, caseObj, spine, sel = {}) {
         const iy = parseFloat(box.style.top) + box.offsetHeight / 2;
         paths += `<path class="sp-edge sp-edge-chain sp-edge-term" marker-end="url(#sp-arw)"
           d="M ${prev.x2} ${prev.cy} C ${prev.x2 + 80} ${prev.cy}, ${L.impX - 120} ${iy}, ${L.impX - 3} ${iy}"></path>`;
+        drewTerm = true;
+      }
+      if (drewTerm) {
+        const tl = document.createElement('div');
+        tl.className = 'sp-termlabel';
+        tl.textContent = 'dashed arrows: intended effect';
+        tl.style.left = `${prev.bx}px`;
+        tl.style.top = `${Math.round(prev.stackBot + 4)}px`;
+        tl.style.width = `${prev.boxW + 40}px`;
+        stage.appendChild(tl);
       }
     }
   }
 
   svg.innerHTML = defs + paths;
-
-  for (const f of flagEls) {
-    const b = document.createElement('button');
-    b.className = f.cls;
-    if (f.data.i != null) b.dataset.i = f.data.i;
-    if (f.data.pr != null) { b.dataset.pr = f.data.pr; b.dataset.pl = f.data.pl; }
-    b.innerHTML = `${f.label}${f.counter ? '<i class="sp-ctr" title="Counter-evidence exists"></i>' : ''}`;
-    b.style.left = `${Math.round(f.x)}px`;
-    b.style.top = `${Math.round(f.y)}px`;
-    stage.appendChild(b);
-  }
 
   highlightSpine(el, sel);
 }
@@ -331,7 +326,7 @@ export function highlightSpine(el, sel = {}) {
   } else if (sel.kind === 'proplink') {
     on(`.sp-chainbox[data-pr="${sel.idx}"][data-pl="${sel.linkIdx}"]`);
   } else if (sel.kind === 'prop') {
-    on(`.sp-propchip[data-pr="${sel.idx}"]`);
+    on(`.sp-propbox[data-pr="${sel.idx}"]`);
   }
 }
 
@@ -416,7 +411,6 @@ function propDetail(spine, i) {
   return `<div class="cd">
     <div class="cd-kick cd-kick-prop">Proposed Intervention</div>
     <div class="cd-head"><span class="cd-id">${p.name}</span> <span class="pp-method">${p.method}</span></div>
-    ${p.banner ? `<div class="sp-banner sp-banner-inline">No study tests this chain end to end; each link is graded on its own evidence.</div>` : ''}
     <p class="cd-claim">${p.description}</p>
     <div class="ln-sec"><h4>If We Could Only Do This One Thing: When and Where</h4>
       <p class="cd-claim"><span class="act-label">Where:</span> ${p.where}</p>
@@ -455,9 +449,10 @@ function overview(caseObj, spine) {
   return `<div class="cd cd-intro">
     <div class="cd-hint">The timeline runs down the center in order. Mechanisms that already
       existed sit on the left, tagged with how they failed. Measured impacts sit on the
-      right; each arrow carries a strength flag you can click. Orange chips are the
-      proposed interventions from the design work, anchored where they would intervene;
-      click one to expand its causal chain, one at a time, with evidence at every link.</div>
+      right; each arrow carries a strength flag you can click. Orange boxes are the
+      proposed interventions from the design work, bracketed to the event where they
+      would intervene; click one to expand its causal chain, one at a time, with the
+      evidence on the cards.</div>
     <div class="cd-purpose">${caseObj.overview}</div>
     <div class="cd-sum">
       <span class="cd-sum-lbl">Timeline</span><div class="cd-sum-pills"><span class="g g-neutral">${caseObj.entries.length} Events</span></div>

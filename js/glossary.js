@@ -91,7 +91,7 @@ export const GLOSSARY = [
     views: ['spine'],
     countBy: 'proposal',
     items: [
-      { key: 'proposed', label: 'The Chain', desc: 'The full causal chain from intervention to outcome, one graded link at a time. A banner says when no study tests the chain end to end.' },
+      { key: 'proposed', label: 'The Chain', desc: 'The full causal chain from intervention to outcome, one graded link at a time; an unstudied link says so on its own card.' },
       { label: 'When and Where', desc: 'If we could only do this one thing: the specific point on the timeline and the jurisdiction where it would intervene.' },
       { label: 'Intended Impacts', desc: 'Measured impacts the chain reaches are separated from conjectured impacts nothing measures.' },
       { label: 'Comparables', desc: 'Real-world cases where something similar was tried, with measured outcomes where they exist and stated absences where they do not.' }
