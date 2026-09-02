@@ -164,9 +164,7 @@ function stored(k) { try { return localStorage.getItem(k) === '1'; } catch { ret
 
 function setRightPane(open) {
   el('ch-wrap').classList.toggle('no-right', !open);
-  el('right-show').hidden = open;
   el('right-hide').setAttribute('aria-expanded', String(open));
-  el('right-show').setAttribute('aria-expanded', String(open));
   store('pp-right-hidden', !open);
 }
 
@@ -413,6 +411,9 @@ function onHashChange() {
 }
 
 function select(kind, idx, linkIdx = null, evIdx = null, evKind = null, compIdx = null) {
+  // Picking something on the map is a request to read it, so a hidden detail
+  // pane comes back on its own rather than needing a second control.
+  setRightPane(true);
   navigate({ selKind: kind, selIdx: idx, linkIdx, evIdx, evKind, compIdx });
 }
 
@@ -439,7 +440,6 @@ function bindEvents() {
   });
 
   el('right-hide').addEventListener('click', () => setRightPane(false));
-  el('right-show').addEventListener('click', () => setRightPane(true));
   el('legend-hide').addEventListener('click', () => setLegend(false));
   el('legend-show').addEventListener('click', () => setLegend(true));
 

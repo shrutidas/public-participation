@@ -94,7 +94,7 @@ function entryBoxHtml(e, i, mechs) {
    in the interface. */
 function impactBoxHtml(im, ii) {
   return `<div class="sp-imp" data-i="${ii}" tabindex="0">
-    <div class="sp-imp-hd"><span class="sp-date sp-date-imp">${im.found}</span><span class="sp-imp-kick">Measured Impact</span></div>
+    <div class="sp-imp-hd"><span class="sp-date sp-date-imp">${im.found}</span></div>
     <div class="sp-imp-name">${im.name}</div>
     <div class="sp-imp-headline">${im.headline}</div>
   </div>`;
