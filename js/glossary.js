@@ -1,16 +1,18 @@
 /**
  * Every label used anywhere in the project, defined in one place.
  *
- * The spine map has four visual languages that are easy to confuse:
+ * The spine map runs in four labelled lanes:
  *
- *   BLUE BOXES: the timeline itself, every event in order.
- *   GREEN BOXES (left): oversight mechanisms that already existed, each
- *                tagged with how it failed to prevent the harm.
- *   DARK GREEN BOXES (right): measured impacts, with arrows from the
- *                specific events where the causal claim holds.
- *   ORANGE: proposed interventions from the design work, anchored where
- *                they would intervene; each expands into its causal chain,
- *                with a red evidence flag under every link.
+ *   MEASURED IMPACT: dark green cards in their own lane on the far left, each
+ *                at the date its finding was first published.
+ *   MAIN TIMELINE: white boxes, every event in order, showing the opening of
+ *                the entry. A star in an event's corner marks a mechanism that
+ *                already existed and should have caught it.
+ *   PROPOSED PUBLIC PARTICIPATION: purple boxes from the design work, tied to
+ *                the event they would intervene in, each carrying its mechanism
+ *                and the effects it aims at.
+ *   CAUSAL CHAIN & EVIDENCE: each proposal's chain running left to right, with
+ *                a red evidence card under every link.
  */
 
 /** A short orientation, rendered at the top of the Key panel. */
@@ -24,16 +26,16 @@ export const HOW_TO = [
     desc: 'The timeline runs down the center in chronological order: policy decisions, events, knowledge, public opinion, and participation, each tagged with its category. Click any event to read its full record and sources.'
   },
   {
-    title: 'The left rail: what already existed',
-    desc: 'Green boxes are the oversight and participation mechanisms that already existed in the ecosystem. Each connects to the event where it should have fired and carries a tag for how it failed: did not know, knew but did not act, acted with no effect, no mechanism existed, or worked.'
+    title: 'Stars: what already existed',
+    desc: 'A star in an event’s corner marks an oversight or participation mechanism that already existed and should have caught that event. Click the star to read why it did not work: did not know, knew but did not act, acted with no effect, no mechanism existed, or worked.'
   },
   {
-    title: 'The right rail: what was measured',
-    desc: 'Dark green boxes are the case’s measured impacts. An arrow connects an impact to a specific event only where a causal claim holds, and every arrow carries a strength flag you can click to see the evidence.'
+    title: 'Green: what was measured',
+    desc: 'Dark green cards sit in their own lane on the far left, each at the date its finding was first published. An arrow runs from the specific events where the causal claim holds, and every arrow carries a strength flag you can click to see the evidence.'
   },
   {
-    title: 'Orange: proposed public participation',
-    desc: 'Orange chips are the proposals from the 6/8 design work, anchored at the point on the timeline where they would intervene. Each proposal’s causal chain is drawn below the event where it would intervene: intervention to mechanism to measured impact, with an evidence flag under every link and counter-evidence kept at full strength.'
+    title: 'Purple: proposed public participation',
+    desc: 'The middle lane holds the proposals from the 6/8 design work, tied by a dotted bracket to the event they would intervene in. Each names its mechanism and the effects it aims at, linked to where those effects are measured on the timeline. The right lane runs the proposal’s causal chain left to right, with an evidence card under every link and counter-evidence kept at full strength.'
   },
   {
     title: 'Cite a specific view',
@@ -45,19 +47,19 @@ export const GLOSSARY = [
   {
     id: 'map',
     title: 'Reading the Spine Map',
-    note: 'The timeline is the argument’s backbone; everything else attaches to it.',
+    note: 'The timeline is the argument’s backbone; everything else attaches to it. Columns are labelled across the top and stay in place as you scroll.',
     views: ['spine'],
     items: [
-      { swatch: 'sp-ent', label: 'Timeline Event', desc: 'One dated event on the central spine, in chronological order. Its badge shows the category; click it for the full record and sources.' },
-      { swatch: 'sp-mech', label: 'Existing Mechanism', desc: 'An oversight or participation mechanism that already existed when the case ran. Connected to the event where it should have fired.' },
-      { swatch: 'sp-imp', label: 'Measured Impact', desc: 'An endpoint the record actually measures. Arrows point from the specific events where the causal claim holds; each arrow carries a strength flag.' },
-      { swatch: 'sp-prop', label: 'Proposed Public Participation', desc: 'A proposal from the 6/8 design work, anchored where it would intervene. Its causal chain is drawn below; click for the full record.' },
-      { swatch: 'sp-flag', label: 'Evidence Flag', desc: 'The strength grade for one causal claim. A dot on the flag means counter-evidence exists; click the flag to read both sides.' }
+      { swatch: 'sp-ent', label: 'Timeline Event', desc: 'One dated event in the Main Timeline lane, in chronological order. Its badge shows the category. The box shows the opening of the entry; click it for the whole record and its sources.' },
+      { swatch: 'sp-star', label: 'Existing Mechanism', desc: 'A star in an event’s corner: an oversight or participation mechanism that already existed and should have caught that event. Click the star to read why it did not work.' },
+      { swatch: 'sp-imp', label: 'Measured Impact', desc: 'An endpoint the record actually measures, in its own lane at the date the finding was first published. An arrow runs from the specific events where the causal claim holds; each arrow carries a strength flag.' },
+      { swatch: 'sp-prop', label: 'Proposed Public Participation', desc: 'A proposal from the 6/8 design work, tied to the event it would intervene in. Its mechanism and the effects it aims at sit under the box; its causal chain runs to the right.' },
+      { swatch: 'sp-flag', label: 'Evidence Card', desc: 'One piece of evidence under the chain link it supports, named by its source. A dashed card is counter-evidence. Click a card to read the finding, its strength grade, and the full record.' }
     ]
   },
   {
     id: 'failure',
-    title: 'How Existing Mechanisms Failed',
+    title: 'How Existing Mechanisms Failed (★)',
     note: 'The framing question for every case: what ecosystem was participation being added to, and why was it not enough?',
     views: ['spine'],
     countBy: 'failure',

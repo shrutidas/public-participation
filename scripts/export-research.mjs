@@ -217,6 +217,7 @@ for (const c of cases) {
         }
       };
       spineRow('Measured impact', {
+        Date: im.found,
         'Causal Chain Placement': im.from.map(f => `${plain(f.anchor)} -> ${im.name} (${f.strength})`).join('; '),
         'Key Finding': `${im.name}: ${plain(im.measures)}`,
         'Deep Link': `${base}/spine/i/${ii}`

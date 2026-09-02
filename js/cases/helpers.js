@@ -333,10 +333,15 @@ export function mechanism({ name, actor, failure, note, detail, anchors = [], so
   return { name, actor, failure, note, detail, anchors, srcs: sources.map(s => ({ l: s.label, u: s.url })) };
 }
 
-/** A measured impact attached to the spine, with causal arrows from specific events. */
-export function impact({ name, headline, measures, from = [], evidence: evid = [], counterEvidence = [] }) {
+/**
+ * A measured impact, placed on the timeline at `found` — the date the finding was
+ * first published — with causal arrows from the specific events where the claim holds.
+ */
+export function impact({ name, headline, found, measures, from = [], evidence: evid = [], counterEvidence = [] }) {
   if (!name?.trim()) throw new Error('Impact is missing a name');
   if (!headline?.trim()) throw new Error(`Impact "${name}" is missing a headline`);
+  if (!found?.trim()) throw new Error(`Impact "${name}" is missing a found date`);
+  if (!/\d{4}/.test(found)) throw new Error(`Impact "${name}" has a found date without a year: ${found}`);
   if (!measures?.trim()) throw new Error(`Impact "${name}" is missing a measures paragraph`);
   if (!from.length) throw new Error(`Impact "${name}" has no causal arrows (from)`);
   for (const f of from) {
@@ -345,7 +350,7 @@ export function impact({ name, headline, measures, from = [], evidence: evid = [
       throw new Error(`Impact "${name}" arrow has invalid strength "${f.strength}"`);
     }
   }
-  return { name, headline, measures, from, evidence: evid, counterEvidence };
+  return { name, headline, found, measures, from, evidence: evid, counterEvidence };
 }
 
 /** One link inside a proposed intervention's causal chain. */

@@ -150,6 +150,7 @@ export default spineData({
   impacts: [
     impact({
       name: 'Deaths and hospitalizations averted by vaccination',
+      found: '12/2022',
       headline: paragraph(`
         Vaccination prevented more than 3 million deaths and 18 million
         hospitalizations in the US in the program's first two years.
@@ -174,6 +175,7 @@ export default spineData({
     }),
     impact({
       name: 'Deaths among unvaccinated adults',
+      found: '04/2022',
       headline: paragraph(`
         Roughly 232,000 adult deaths between June 2021 and March 2022 would have
         been prevented by vaccination, per two independent estimates.
@@ -202,6 +204,7 @@ export default spineData({
     }),
     impact({
       name: 'The racial vaccination gap',
+      found: '06/2022',
       headline: paragraph(`
         The Black-White vaccination gap closed from about 14 points at the April
         2021 peak to 5 points by mid-2022; no one has estimated the mortality
@@ -240,6 +243,7 @@ export default spineData({
     }),
     impact({
       name: 'Vaccination uptake after mandates',
+      found: '06/2022',
       headline: paragraph(`
         First doses jumped 66% after mandate announcements abroad; US state
         mandates produced no detectable uptake change and preceded lower booster

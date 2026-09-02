@@ -151,6 +151,7 @@ export default spineData({
   impacts: [
     impact({
       name: 'Exposure through drinking water',
+      found: '11/2016',
       headline: paragraph(`
         Roughly 200,000 water customers, with up to 300,000 people downstream,
         drank water carrying GenX at a mean of 631 ng/L over a discharge window
@@ -179,6 +180,7 @@ export default spineData({
     }),
     impact({
       name: 'PFAS measured in the blood of residents',
+      found: '07/2020',
       headline: paragraph(`
         Fluoroethers made up about a quarter of summed PFAS in the blood of tested
         Wilmington residents; median levels fell 34 to 65 percent within six
@@ -225,6 +227,7 @@ export default spineData({
     }),
     impact({
       name: 'Disease linked to PFAS exposure',
+      found: '04/2012',
       headline: paragraph(`
         The PFAS in residents' blood is linked to disease: higher cholesterol
         measured in the Wilmington cohort, and kidney and testicular
@@ -302,6 +305,7 @@ export default spineData({
     }),
     impact({
       name: 'Filtration costs paid by water customers',
+      found: '06/2022',
       headline: paragraph(`
         Water customers paid for the cleanup: $82.8 million for carbon filtration
         in Wilmington funded by an 8 percent rate increase, and $158.7 million
@@ -330,6 +334,7 @@ export default spineData({
     }),
     impact({
       name: 'Discharge cut 99 percent, a $12 million penalty',
+      found: '02/2019',
       headline: paragraph(`
         The 2019 Consent Order cut air emissions 99 percent by the end of 2019,
         imposed a $12 million penalty, and delivered alternative drinking water
@@ -358,6 +363,7 @@ export default spineData({
     }),
     impact({
       name: 'Statewide rule adoption',
+      found: '05/2026',
       headline: paragraph(`
         Nine years of the case's most extensive participation produced
         remediation at one plant but no enforceable statewide standard, and the

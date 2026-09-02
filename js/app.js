@@ -1,6 +1,6 @@
 import { CAT, KEY_ORDER } from './categories.js';
 import { cases } from './cases/index.js';
-import { bindSourceLinks, srcHtml } from './util.js';
+import { bindSourceLinks, srcHtml, splitEntryText } from './util.js';
 import * as router from './router.js';
 import { renderSpineMap, renderSpineDetail, highlightSpine, anchorIndex } from './spine-view.js';
 import { GLOSSARY, TIMELINE_NOTE } from './glossary.js';
@@ -19,9 +19,11 @@ const SPINES = {
 const state = {
   cur: 0,
   view: null,          // 'spine' | 'timeline'
-  selKind: null,       // null | 'entry' | 'mech' | 'impact' | 'prop' | 'proplink'
+  selKind: null,       // null | 'entry' | 'mech' | 'impact' | 'prop' | 'proplink' | 'propev' | 'propcomp'
   selIdx: null,
   linkIdx: null,
+  evIdx: null,         // which evidence record, when a single one is selected
+  evKind: null,        // 'for' | 'counter'
   zoom: 1,             // spine map zoom level
   fitKey: null,        // which case the current zoom was auto-fitted to
   builtKey: null       // which case+expansion the map DOM is currently built for
@@ -35,7 +37,10 @@ const el = id => document.getElementById(id);
 const curCase = () => cases[state.cur];
 const curSpine = () => SPINES[curCase().slug] || null;
 const defaultView = c => (SPINES[c.slug] ? 'spine' : 'timeline');
-const curSel = () => ({ kind: state.selKind, idx: state.selIdx, linkIdx: state.linkIdx });
+const curSel = () => ({
+  kind: state.selKind, idx: state.selIdx, linkIdx: state.linkIdx,
+  evIdx: state.evIdx, evKind: state.evKind
+});
 
 /* Every proposal chain is always open, so the map DOM is rebuilt only when
    the case changes; every selection updates highlights in place. */
@@ -53,7 +58,8 @@ function route() {
   if (state.view === 'spine' && state.selKind != null) {
     r.selKind = state.selKind;
     r.selIdx = state.selIdx;
-    if (state.selKind === 'proplink') r.linkIdx = state.linkIdx;
+    if (state.selKind === 'proplink' || state.selKind === 'propev') r.linkIdx = state.linkIdx;
+    if (state.selKind === 'propev') { r.evIdx = state.evIdx; r.evKind = state.evKind; }
   }
   return r;
 }
@@ -80,6 +86,8 @@ function applyRoute() {
   state.selKind = null;
   state.selIdx = null;
   state.linkIdx = null;
+  state.evIdx = null;
+  state.evKind = null;
 
   if (state.view === 'spine' && r.selKind != null) {
     const sp = curSpine();
@@ -89,15 +97,23 @@ function applyRoute() {
       impact: sp.impacts.length,
       prop: sp.proposals.length,
       proplink: sp.proposals.length,
+      propev: sp.proposals.length,
       propcomp: sp.proposals.length
     };
     if (r.selIdx < (bounds[r.selKind] ?? 0)) {
       state.selKind = r.selKind;
       state.selIdx = r.selIdx;
-      if (r.selKind === 'proplink') {
+      if (r.selKind === 'proplink' || r.selKind === 'propev') {
         const links = sp.proposals[r.selIdx].links;
-        if (r.linkIdx < links.length) state.linkIdx = r.linkIdx;
-        else { state.selKind = 'prop'; canonical = false; }
+        if (r.linkIdx < links.length) {
+          state.linkIdx = r.linkIdx;
+          if (r.selKind === 'propev') {
+            const lk = links[r.linkIdx];
+            const list = r.evKind === 'counter' ? (lk.counterEvidence ?? []) : (lk.evidence ?? []);
+            if (r.evIdx < list.length) { state.evIdx = r.evIdx; state.evKind = r.evKind; }
+            else { state.selKind = 'proplink'; canonical = false; }
+          }
+        } else { state.selKind = 'prop'; canonical = false; }
       }
     } else {
       canonical = false;
@@ -203,27 +219,6 @@ function renderKey() {
 }
 
 /* ------------------------------ timeline --------------------------------- */
-
-function splitEntryText(text, maxLen = 150) {
-  const plain = text.replace(/<[^>]+>/g, '');
-  if (plain.length <= maxLen) return { lead: text, rest: null };
-  let cut = maxLen;
-  const sp = plain.lastIndexOf(' ', cut);
-  if (sp > maxLen * 0.55) cut = sp;
-  let plainSeen = 0;
-  let htmlCut = 0;
-  for (; htmlCut < text.length && plainSeen < cut; htmlCut++) {
-    if (text[htmlCut] === '<') {
-      while (htmlCut < text.length && text[htmlCut] !== '>') htmlCut++;
-    } else {
-      plainSeen++;
-    }
-  }
-  if (cut < plain.length && plain[cut] === ' ') {
-    while (htmlCut < text.length && /\s/.test(text[htmlCut])) htmlCut++;
-  }
-  return { lead: text.slice(0, htmlCut), rest: text.slice(htmlCut).trimStart() || null };
-}
 
 function entryTextHtml(text) {
   const { lead, rest } = splitEntryText(text);
@@ -390,8 +385,15 @@ function onHashChange() {
   render();
 }
 
-function select(kind, idx, linkIdx = null) {
-  navigate({ selKind: kind, selIdx: idx, linkIdx });
+function select(kind, idx, linkIdx = null, evIdx = null, evKind = null) {
+  navigate({ selKind: kind, selIdx: idx, linkIdx, evIdx, evKind });
+}
+
+/* Select a measured impact and bring it into view in the timeline lane. */
+function selectImpact(ii) {
+  select('impact', ii);
+  const box = el('ch-map').querySelector(`.sp-imp[data-i="${ii}"]`);
+  if (box) box.scrollIntoView({ block: 'center', inline: 'nearest', behavior: 'smooth' });
 }
 
 function bindEvents() {
@@ -417,10 +419,20 @@ function bindEvents() {
   // timeline are the only two view switches.
   for (const id of ['tl-expand', 'tl-back']) {
     el(id).addEventListener('click', () =>
-      navigate({ view: el(id).dataset.view, selKind: null, selIdx: null, linkIdx: null }));
+      navigate({ view: el(id).dataset.view, selKind: null, selIdx: null, linkIdx: null, evIdx: null, evKind: null }));
   }
 
   el('ch-map').addEventListener('click', e => {
+    // An effect link on a proposal jumps to where that impact is measured.
+    const go = e.target.closest('[data-goimp]');
+    if (go) { selectImpact(Number(go.dataset.goimp)); return; }
+    // One evidence card is one paper: select just that record.
+    const evc = e.target.closest('[data-ev]');
+    if (evc && evc.dataset.pr != null && evc.dataset.pl != null) {
+      select('propev', Number(evc.dataset.pr), Number(evc.dataset.pl),
+        Number(evc.dataset.ev), evc.dataset.evk);
+      return;
+    }
     const pl = e.target.closest('[data-pl]');
     if (pl && pl.dataset.pr != null) {
       select('proplink', Number(pl.dataset.pr), Number(pl.dataset.pl));
@@ -502,10 +514,19 @@ function bindEvents() {
   el('ch-detail').addEventListener('click', e => {
     const back = e.target.closest('[data-back]');
     if (back) {
-      if (back.dataset.back === 'prop') navigate({ selKind: 'prop', selIdx: state.selIdx, linkIdx: null });
-      else navigate({ selKind: null, selIdx: null, linkIdx: null });
+      if (back.dataset.back === 'link') {
+        navigate({ selKind: 'proplink', selIdx: state.selIdx, linkIdx: state.linkIdx, evIdx: null, evKind: null });
+      } else if (back.dataset.back === 'prop') {
+        navigate({ selKind: 'prop', selIdx: state.selIdx, linkIdx: null, evIdx: null, evKind: null });
+      } else {
+        navigate({ selKind: null, selIdx: null, linkIdx: null, evIdx: null, evKind: null });
+      }
       return;
     }
+    const goi = e.target.closest('[data-goimp]');
+    if (goi) { selectImpact(Number(goi.dataset.goimp)); return; }
+    const gom = e.target.closest('[data-gomech]');
+    if (gom) { select('mech', Number(gom.dataset.gomech)); return; }
     const row = e.target.closest('.sp-chainrow[data-pl]');
     if (row && (state.selKind === 'prop' || state.selKind === 'proplink')) {
       navigate({ selKind: 'proplink', selIdx: state.selIdx, linkIdx: Number(row.dataset.pl) });
@@ -555,7 +576,7 @@ function bindEvents() {
       if (el('drawer').classList.contains('open')) { setDrawer(false); return; }
       if (el('key-panel').classList.contains('open')) { setKeyPanel(false); return; }
       if (state.view === 'spine' && state.selKind != null) {
-        navigate({ selKind: null, selIdx: null, linkIdx: null });
+        navigate({ selKind: null, selIdx: null, linkIdx: null, evIdx: null, evKind: null });
       }
       return;
     }
@@ -573,7 +594,7 @@ function bindEvents() {
     const n = curCase().entries.length;
     const cur = state.selKind === 'entry' ? state.selIdx : (dir > 0 ? -1 : n);
     const next = Math.min(Math.max(cur + dir, 0), n - 1);
-    navigate({ selKind: 'entry', selIdx: next, linkIdx: null });
+    navigate({ selKind: 'entry', selIdx: next, linkIdx: null, evIdx: null, evKind: null });
     // Keep the selected event in view without disturbing zoom.
     const box = el('ch-map').querySelector(`.sp-ent[data-e="${next}"]`);
     if (box) box.scrollIntoView({ block: 'nearest', inline: 'nearest' });

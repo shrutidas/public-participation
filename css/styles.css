@@ -1308,40 +1308,86 @@ body[data-view="chain"] #ctrl .fl,
 
 .cd-intro .cd-hint { margin: 0 0 16px; }
 
-/* ======================= SPINE VIEW (second memo rework) =================== */
+/* ======================= SPINE VIEW (second memo rework) ===================
+   Three lanes: the main timeline (white), the proposed public participation
+   (purple, matching the Public Participation category badge), and each
+   proposal's causal chain with its evidence. Measured impacts (dark green) sit
+   inside the timeline lane at the date the finding was first published. Every
+   connector is straight: horizontal and vertical segments only. */
 
 .sp { position: relative; min-height: 100%; }
-.sp-edges { position: absolute; inset: 0; pointer-events: none; }
+.sp-edges { position: absolute; inset: 0; pointer-events: none; z-index: 1; }
+
+/* Lane bands and their sticky headers */
+.sp-band { position: absolute; top: 0; z-index: 0; border-radius: 10px; }
+.sp-band.lane-im { background: rgba(30,107,60,.05); }
+.sp-band.lane-tl { background: rgba(255,255,255,.5); }
+.sp-band.lane-pp { background: rgba(96,24,152,.045); }
+.sp-band.lane-ch { background: rgba(255,255,255,.28); }
+
+.sp-lanes {
+  position: sticky; top: 0; z-index: 6;
+  background: #f0ede6; border-bottom: 1px solid #ddd8ce;
+  box-shadow: 0 6px 10px -6px rgba(60,54,44,.28);
+}
+.sp-lane {
+  position: absolute; top: 9px; box-sizing: border-box;
+  font-size: .68rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase;
+  padding: 4px 10px; border-radius: 6px; text-align: center;
+}
+.sp-lane.lane-im { background: #e4efe7; border: 1px solid #1e6b3c; color: #143d23; }
+.sp-lane.lane-tl { background: #fff; border: 1px solid #b8b1a3; color: #4a4437; }
+.sp-lane.lane-pp { background: #f0e8fa; border: 1px solid #601898; color: #380c68; }
+.sp-lane.lane-ch { background: #fdf6f5; border: 1px solid #b3261e; color: #7a2018; }
 
 .sp-edge { fill: none; stroke-width: 2; }
-.sp-edge-spine { stroke: #2b6cb0; stroke-width: 2.5; }
-.sp-edge-mech { stroke: rgba(107,100,87,.45); }
-.sp-edge-mech.on { stroke: #6b6457; stroke-width: 2.5; }
-.sp-edge-imp { stroke: rgba(30,107,60,.5); }
-.sp-edge-imp.on { stroke: #1e6b3c; stroke-width: 2.5; }
-.sp-edge-chain { stroke: #c05621; stroke-width: 2.25; }
-.sp-edge-term { stroke-dasharray: none; }
+/* The spine is a white line; a faint casing underneath keeps it legible. */
+.sp-edge-spine-case { stroke: #cdc7ba; stroke-width: 4.5; }
+.sp-edge-spine { stroke: #fff; stroke-width: 2.5; }
+/* Impact arrows run a long way down the gutter, so they sit back until the
+   impact they belong to is selected. */
+.sp-edge-imp { stroke: rgba(30,107,60,.18); stroke-width: 1.4; }
+.sp-edge-imp.on { stroke: #1e6b3c; stroke-width: 2.6; }
+.sp-edge-chain { stroke: #601898; stroke-width: 2.25; }
 
+/* Timeline event boxes: white, so colour is reserved for meaning. */
 .sp-ent {
-  position: absolute; box-sizing: border-box; cursor: pointer;
-  background: #eef4fb; border: 1.5px solid #2b6cb0; border-radius: 8px;
-  padding: 8px 10px; font-size: .72rem; line-height: 1.35; color: #1c2333;
+  position: absolute; box-sizing: border-box; cursor: pointer; z-index: 2;
+  background: #fff; border: 1.5px solid #b8b1a3; border-radius: 8px;
+  padding: 8px 10px; font-size: .74rem; line-height: 1.35; color: #1c2333;
 }
-.sp-ent:hover { box-shadow: 0 2px 8px rgba(43,108,176,.25); }
-.sp-ent.sel { box-shadow: 0 0 0 3px rgba(43,108,176,.35); border-color: #1a4e85; }
-.sp-ent.sp-ent-prop { border-color: #c05621; box-shadow: 0 0 0 3px rgba(192,86,33,.3); }
-.sp-ent-hd { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; }
-.sp-date { font-weight: 700; font-size: .72rem; color: #1a4e85; white-space: nowrap; }
+.sp-ent:hover { box-shadow: 0 2px 8px rgba(90,83,71,.28); }
+.sp-ent.sel { box-shadow: 0 0 0 3px rgba(90,83,71,.32); border-color: #5a5347; }
+.sp-ent.sp-ent-prop { border-color: #601898; box-shadow: 0 0 0 3px rgba(96,24,152,.28); }
+.sp-ent-hd { display: flex; align-items: center; gap: 8px; margin-bottom: 5px; }
+.sp-ent-hd .ebadge { position: static; margin: 0; line-height: 1.4; transform: none; align-self: center; }
+.sp-date { font-weight: 700; font-size: .72rem; color: #4a4437; white-space: nowrap; }
+.sp-date-imp { color: #1e6b3c; }
 .sp-ent-txt { color: #333a45; }
-
-.sp-mech {
-  position: absolute; box-sizing: border-box; cursor: pointer;
-  background: #fff; border: 1.5px solid #8a8377; border-radius: 8px;
-  padding: 8px 10px; font-size: .72rem; line-height: 1.3; color: #33302a;
+/* The map box is a scannable opening line, so emphasis from the entry text is
+   flattened here; the sidebar keeps it. */
+.sp-ent-txt strong, .sp-ent-txt b { font-weight: inherit; color: inherit; }
+.sp-ent-more {
+  margin-top: 5px; font-size: .62rem; font-weight: 600; color: #a29a89;
+  letter-spacing: .01em;
 }
-.sp-mech:hover { box-shadow: 0 2px 8px rgba(107,100,87,.3); }
-.sp-mech.sel { box-shadow: 0 0 0 3px rgba(107,100,87,.4); border-color: #57524a; }
-.sp-mech-name { font-weight: 650; margin-bottom: 4px; }
+.sp-ent:hover .sp-ent-more, .sp-ent.sel .sp-ent-more { color: #4a4437; }
+
+/* A star marks a mechanism that already existed and should have caught this
+   event. It replaces the old left-hand mechanism rail. */
+.sp-ent-stars { position: absolute; top: -9px; right: -8px; display: flex; gap: 3px; z-index: 3; }
+.sp-star {
+  cursor: pointer; font-family: inherit; line-height: 1;
+  background: #fff; border: 1.5px solid #8a8377; border-radius: 50%;
+  width: 20px; height: 20px; font-size: .68rem; color: #6b6457;
+  display: inline-flex; align-items: center; justify-content: center;
+}
+.sp-star:hover { background: #f1efe9; border-color: #57524a; color: #33302a; }
+.sp-star.on { background: #57524a; border-color: #57524a; color: #fff; }
+.sp-star-static { border-radius: 50%; width: 20px; height: 20px; flex: 0 0 auto;
+  display: inline-flex; align-items: center; justify-content: center;
+  border: 1.5px solid #8a8377; color: #6b6457; font-size: .68rem; background: #fff; }
+
 .sp-failtag {
   display: inline-block; font-size: .62rem; font-weight: 700; letter-spacing: .02em;
   border-radius: 8px; padding: 3px 8px; border: 1px solid transparent;
@@ -1349,45 +1395,103 @@ body[data-view="chain"] #ctrl .fl,
 /* Failure tags are uniformly gray: the mode reads as text, not a color code. */
 .sp-failtag { background: #f1efe9; color: #57524a; border-color: #c9c3b6; }
 
+/* Measured impacts now sit inside the timeline lane, at the date the finding
+   was first published. */
 .sp-imp {
-  position: absolute; box-sizing: border-box; cursor: pointer;
+  position: absolute; box-sizing: border-box; cursor: pointer; z-index: 2;
   background: #e4efe7; border: 2px solid #1e6b3c; border-radius: 8px;
-  padding: 8px 10px; font-size: .72rem; color: #143d23;
+  padding: 8px 10px; font-size: .74rem; color: #143d23;
 }
 .sp-imp:hover { box-shadow: 0 2px 8px rgba(30,107,60,.3); }
 .sp-imp.sel { box-shadow: 0 0 0 3px rgba(30,107,60,.35); }
-.sp-imp-kick { font-size: .6rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: #1e6b3c; margin-bottom: 3px; }
-.sp-imp-name { font-weight: 650; line-height: 1.3; }
-.sp-imp-headline { font-size: .66rem; font-weight: 400; line-height: 1.4; color: #2c4a35; margin-top: 4px; }
-
-.sp-propchip {
-  position: absolute; box-sizing: border-box; cursor: pointer; text-align: left;
-  background: #fdf1e5; border: 1.5px dashed #c05621; border-radius: 999px;
-  padding: 4px 12px; font-size: .68rem; font-weight: 650; color: #8a3c12;
-  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-  font-family: inherit;
+.sp-imp-hd { display: flex; align-items: center; gap: 8px; margin-bottom: 5px; }
+.sp-imp-kick {
+  font-size: .58rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase;
+  color: #143d23; background: #fff; border: 1px solid #1e6b3c; border-radius: 8px; padding: 2px 7px;
+  line-height: 1.4; white-space: nowrap;
 }
-.sp-propchip:hover { background: #fbe4cd; }
-.sp-propchip.on, .sp-propchip.sel { background: #c05621; border-style: solid; color: #fff; }
+.sp-imp-name { font-weight: 700; line-height: 1.3; font-size: .78rem; }
+.sp-imp-headline { font-size: .7rem; font-weight: 400; line-height: 1.4; color: #2c4a35; margin-top: 4px; }
+.sp-imp-grades { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 6px; }
+
+/* Proposals and their chains: purple, matching the Public Participation badge. */
+.sp-propbox {
+  position: absolute; box-sizing: border-box; cursor: pointer; text-align: left; z-index: 2;
+  background: #f7f2fd; border: 1.5px dashed #601898; border-radius: 8px;
+  padding: 7px 10px; font-size: .74rem; line-height: 1.35; font-weight: 600;
+  color: #3f1170; font-family: inherit; white-space: normal;
+}
+.sp-propbox:hover { background: #efe4fb; }
+.sp-propbox.on, .sp-propbox.sel { border-style: solid; box-shadow: 0 0 0 3px rgba(96,24,152,.3); background: #efe4fb; }
+.sp-propbox-kick { display: block; font-size: .58rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: #601898; margin-bottom: 2px; }
+.sp-edge-allude { stroke: #601898; stroke-width: 1.8; fill: none; opacity: .85; }
+.sp-edge-allude-tie { stroke: #601898; stroke-width: 1.6; fill: none; stroke-dasharray: 2.5 4; opacity: .8; }
+
+/* The mechanism a proposal proposes, the effects it aims at, and a link to
+   where each effect is measured on the timeline. */
+.sp-propeff {
+  position: absolute; box-sizing: border-box; z-index: 2;
+  background: rgba(255,255,255,.9); border: 1px solid #c8b6e0; border-radius: 8px;
+  padding: 7px 10px; font-size: .72rem; line-height: 1.4; color: #3f1170;
+}
+.sp-eff-kick { font-size: .55rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: #7b46ac; margin-bottom: 2px; }
+.sp-eff-kick + .sp-eff-kick, .sp-efflink + .sp-eff-kick, .sp-eff-mech + .sp-eff-kick { margin-top: 7px; }
+.sp-eff-mech { font-weight: 650; }
+.sp-efflink {
+  display: flex; align-items: baseline; gap: 5px; width: 100%; text-align: left;
+  font-family: inherit; font-size: .72rem; line-height: 1.35; cursor: pointer;
+  background: #edf6f0; border: 1px solid #1e6b3c; border-radius: 6px;
+  color: #143d23; padding: 3px 7px; margin-top: 3px;
+}
+.sp-efflink:hover { background: #dcecdf; }
+.sp-efflink.is-off { border-style: dashed; color: #5a6b5f; cursor: default; }
+.sp-efflink-go { margin-left: auto; font-weight: 700; }
+.sp-eff-conj { margin-top: 7px; font-size: .68rem; color: #5c5468; }
+.sp-eff-conj-kick { font-weight: 700; }
+.sp-eff-none { font-size: .68rem; color: #5c5468; }
 
 .sp-chainbox {
-  position: absolute; box-sizing: border-box; cursor: pointer; text-align: center;
-  background: #fdf1e5; border: 1.5px solid #c05621; border-radius: 8px;
-  padding: 7px 8px; font-size: .68rem; line-height: 1.3; font-weight: 600; color: #6d3313;
+  position: absolute; box-sizing: border-box; cursor: pointer; text-align: center; z-index: 2;
+  background: #f7f2fd; border: 1.5px solid #601898; border-radius: 8px;
+  padding: 7px 8px; font-size: .7rem; line-height: 1.3; font-weight: 600; color: #3f1170;
   font-family: inherit;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px;
 }
-.sp-chainbox:hover { box-shadow: 0 2px 8px rgba(192,86,33,.3); }
-.sp-chainbox.on, .sp-chainbox.sel { box-shadow: 0 0 0 3px rgba(192,86,33,.4); }
+.sp-chainbox:hover { box-shadow: 0 2px 8px rgba(96,24,152,.3); }
+.sp-chainbox.on, .sp-chainbox.sel { box-shadow: 0 0 0 3px rgba(96,24,152,.35); }
 .sp-chain-un { border-style: dashed; }
+.sp-chain-name { display: block; }
 
-.sp-banner {
-  position: absolute; box-sizing: border-box; font-size: .62rem; font-style: italic;
-  color: #8a3c12;
+.sp-grade {
+  pointer-events: none;
+  display: inline-flex; align-items: center; gap: 4px;
+  font-size: .6rem; font-weight: 700; letter-spacing: .02em;
+  border: 1.5px solid currentColor; border-radius: 8px; padding: 3px 8px;
+  background: #fff;
 }
-.sp-banner-inline {
-  position: static; display: block; background: #fdf1e5; border: 1px dashed #c05621;
-  border-radius: 6px; padding: 6px 10px; margin: 8px 0; font-size: .72rem;
+.sp-grade.fl-unstudied { background: #fbeceb; }
+
+.sp-evcard {
+  position: absolute; box-sizing: border-box; cursor: pointer; text-align: left; z-index: 2;
+  background: #fff; border: 1.5px solid #b3261e; border-radius: 6px;
+  padding: 5px 9px; font-size: .74rem; line-height: 1.3; color: #7a2018;
+  font-family: inherit; white-space: normal; word-break: break-word;
 }
+.sp-evcard:hover { background: #fbeceb; }
+.sp-evcard.sel { background: #fbeceb; box-shadow: 0 0 0 3px rgba(179,38,30,.3); }
+.sp-evcard-kick { display: block; font-size: .55rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: #b3261e; }
+.sp-evcard-ctr { border-style: dashed; background: #fdf5f5; }
+.sp-evcard-un { color: #aa2a20; font-style: italic; }
+
+.sp-complist {
+  position: absolute; box-sizing: border-box; cursor: pointer; text-align: left; z-index: 2;
+  background: rgba(255,255,255,.85); border: 1px dashed #c9c3b6; border-radius: 6px;
+  padding: 5px 9px; font-size: .74rem; line-height: 1.35; color: #57524a;
+  font-family: inherit; white-space: normal; word-break: break-word;
+}
+.sp-complist:hover { background: #f7f5f0; border-color: #8a8377; }
+.sp-complist.sel { background: #f7f5f0; border-color: #57524a; border-style: solid; box-shadow: 0 0 0 3px rgba(107,100,87,.35); }
+.sp-complist-kick { font-weight: 800; letter-spacing: .04em; text-transform: uppercase; font-size: .64rem; color: #6b6457; margin-right: 2px; }
 
 .sp-flag {
   position: absolute; box-sizing: border-box; cursor: pointer;
@@ -1411,7 +1515,12 @@ body[data-view="chain"] #ctrl .fl,
 /* Sidebar additions */
 .cd-kick-mech { color: #6b6457; }
 .cd-kick-imp { color: #1e6b3c; }
-.cd-kick-prop { color: #c05621; }
+.cd-kick-prop { color: #601898; }
+.cd-kick-ev, .cd-kick-ctr { color: #b3261e; }
+.ev-quote {
+  margin: 10px 0; padding: 8px 12px; border-left: 3px solid #b3261e;
+  background: #fdf7f6; font-size: .82rem; line-height: 1.55; color: #4a2320; font-style: italic;
+}
 .sp-chainrow { display: flex; gap: 10px; align-items: flex-start; padding: 6px 8px; border-radius: 6px; cursor: pointer; list-style: none; }
 .sp-chainrow:hover { background: #f4f0ea; }
 .sp-arrowrow { display: flex; gap: 10px; align-items: flex-start; padding: 4px 0; list-style: none; }
@@ -1419,69 +1528,16 @@ body[data-view="chain"] #ctrl .fl,
 .sp-hintline { font-size: .72rem; color: #6d6455; }
 .g-mech { background: #f1efe9; color: #57524a; border: 1px solid #c9c3b6; }
 .g-imp { background: #e4efe7; color: #143d23; border: 1px solid #1e6b3c; }
+.g-prop { background: #f0e8fa; color: #380c68; border: 1px solid #601898; }
 
 /* Key swatches for the spine legend */
-.k-sw-sp-ent { background: #eef4fb; border: 1.5px solid #2b6cb0; }
-.k-sw-sp-mech { background: #fff; border: 1.5px solid #8a8377; }
+.k-sw-sp-ent { background: #fff; border: 1.5px solid #b8b1a3; }
+.k-sw-sp-star { background: #fff; border: 1.5px solid #8a8377; border-radius: 50%; position: relative; }
+.k-sw-sp-star::after {
+  content: '\2605'; position: absolute; inset: 0; display: flex;
+  align-items: center; justify-content: center; font-size: .62rem; color: #6b6457; line-height: 1;
+}
 .k-sw-sp-imp { background: #e4efe7; border: 2px solid #1e6b3c; }
-.k-sw-sp-prop { background: #fdf1e5; border: 1.5px dashed #c05621; }
+.k-sw-sp-prop { background: #f7f2fd; border: 1.5px dashed #601898; }
 .k-sw-sp-flag { background: #fff; border: 1.5px solid #b3261e; }
 .k-sw-sp-ctr { background: #fdf5f5; border: 1.5px dashed #b3261e; }
-
-/* Spine round 2: full-text cards, aligned headers, evidence on the graph */
-.sp-ent { font-size: .74rem; }
-.sp-ent-hd { align-items: center; margin-bottom: 5px; }
-.sp-ent-hd .ebadge { position: static; margin: 0; line-height: 1.4; transform: none; align-self: center; }
-.sp-ent-txt strong { color: #1c2333; }
-
-.sp-chainbox { display: flex; flex-direction: column; align-items: center; gap: 5px; }
-.sp-chain-name { display: block; }
-.sp-grade {
-  pointer-events: none;
-  display: inline-flex; align-items: center; gap: 4px;
-  font-size: .6rem; font-weight: 700; letter-spacing: .02em;
-  border: 1.5px solid currentColor; border-radius: 8px; padding: 3px 8px;
-  background: #fff;
-}
-.sp-grade.fl-unstudied { background: #fbeceb; }
-
-.sp-evcard {
-  position: absolute; box-sizing: border-box; cursor: pointer; text-align: left;
-  background: #fff; border: 1.5px solid #b3261e; border-radius: 6px;
-  padding: 5px 9px; font-size: .74rem; line-height: 1.3; color: #7a2018;
-  font-family: inherit; white-space: normal; word-break: break-word;
-}
-.sp-evcard:hover { background: #fbeceb; }
-.sp-evcard-kick { display: block; font-size: .55rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: #b3261e; }
-.sp-evcard-ctr { border-style: dashed; background: #fdf5f5; }
-.sp-evcard-un { color: #aa2a20; font-style: italic; }
-
-/* Terminal arrows: intended effects, not documented causation */
-.sp-edge-term { stroke-dasharray: 7 5; }
-
-/* Impact cards carry their arrow strengths as in-card pills */
-.sp-imp-grades { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 5px; }
-
-/* Proposal boxes (formerly chips) and the grouping bracket */
-.sp-propbox {
-  position: absolute; box-sizing: border-box; cursor: pointer; text-align: left;
-  background: #fdf1e5; border: 1.5px dashed #c05621; border-radius: 8px;
-  padding: 7px 10px; font-size: .7rem; line-height: 1.35; font-weight: 600;
-  color: #6d3313; font-family: inherit; white-space: normal;
-}
-.sp-propbox:hover { background: #fbe4cd; }
-.sp-propbox.on, .sp-propbox.sel { border-style: solid; box-shadow: 0 0 0 3px rgba(192,86,33,.35); background: #fbe4cd; }
-.sp-propbox-kick { display: block; font-size: .58rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: #c05621; margin-bottom: 2px; }
-.sp-edge-allude { stroke: #c05621; stroke-width: 2; fill: none; }
-.sp-edge-allude-tie { stroke: #c05621; stroke-width: 1.6; fill: none; stroke-dasharray: 2.5 4; opacity: .8; }
-
-/* Comparable real-world cases named on the map under each proposal chain */
-.sp-complist {
-  position: absolute; box-sizing: border-box; cursor: pointer; text-align: left;
-  background: rgba(255,255,255,.85); border: 1px dashed #c9c3b6; border-radius: 6px;
-  padding: 5px 9px; font-size: .74rem; line-height: 1.35; color: #57524a;
-  font-family: inherit; white-space: normal; word-break: break-word;
-}
-.sp-complist:hover { background: #f7f5f0; border-color: #8a8377; }
-.sp-complist.sel { background: #f7f5f0; border-color: #57524a; border-style: solid; box-shadow: 0 0 0 3px rgba(107,100,87,.35); }
-.sp-complist-kick { font-weight: 800; letter-spacing: .04em; text-transform: uppercase; font-size: .64rem; color: #6b6457; margin-right: 2px; }

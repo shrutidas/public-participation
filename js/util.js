@@ -30,3 +30,30 @@ export function bindSourceLinks(root = document) {
     openUrl(a.dataset.url);
   });
 }
+
+
+/**
+ * Split entry HTML into a lead of about `maxLen` visible characters and the
+ * rest, without cutting inside a tag. Used by the full timeline and by the
+ * spine map, where boxes show the lead and the sidebar shows the whole entry.
+ */
+export function splitEntryText(text, maxLen = 150) {
+  const plain = text.replace(/<[^>]+>/g, '');
+  if (plain.length <= maxLen) return { lead: text, rest: null };
+  let cut = maxLen;
+  const sp = plain.lastIndexOf(' ', cut);
+  if (sp > maxLen * 0.55) cut = sp;
+  let plainSeen = 0;
+  let htmlCut = 0;
+  for (; htmlCut < text.length && plainSeen < cut; htmlCut++) {
+    if (text[htmlCut] === '<') {
+      while (htmlCut < text.length && text[htmlCut] !== '>') htmlCut++;
+    } else {
+      plainSeen++;
+    }
+  }
+  if (cut < plain.length && plain[cut] === ' ') {
+    while (htmlCut < text.length && /\s/.test(text[htmlCut])) htmlCut++;
+  }
+  return { lead: text.slice(0, htmlCut), rest: text.slice(htmlCut).trimStart() || null };
+}

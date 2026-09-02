@@ -145,6 +145,7 @@ export default spineData({
   impacts: [
     impact({
       name: 'Public school enrollment',
+      found: '08/2021',
       headline: paragraph(`
         Public school enrollment fell by 1.4 million students between fall 2019 and
         fall 2020 and has not recovered; remote-only instruction caused a
@@ -183,6 +184,7 @@ export default spineData({
     }),
     impact({
       name: 'Chronic absenteeism',
+      found: '08/2025',
       headline: paragraph(`
         Chronic absenteeism stayed elevated long after schools reopened, with
         roughly 22% of students nationally missing a tenth or more of school
@@ -245,6 +247,7 @@ export default spineData({
     }),
     impact({
       name: 'Confidence in public schools',
+      found: '07/2022',
       headline: paragraph(`
         Confidence in public schools fell to 28% by 2022, concentrated almost
         entirely among Republicans, while parents kept rating their own schools
@@ -286,6 +289,7 @@ export default spineData({
     }),
     impact({
       name: 'Test scores',
+      found: '05/2022',
       headline: paragraph(`
         National test scores dropped significantly following the COVID-19
         pandemic, but recent studies show the downward trend actually began
