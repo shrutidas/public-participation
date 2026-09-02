@@ -1,6 +1,5 @@
 import { srcHtml, attr, splitEntryText } from './util.js';
 import { CAT } from './categories.js';
-import { STRENGTH_LABEL } from './chain-view.js';
 import { FAILURE_LABEL } from './cases/helpers.js';
 
 /* --------------------------------------------------------------------------
@@ -87,16 +86,17 @@ function entryBoxHtml(e, i, mechs) {
     ${stars ? `<div class="sp-ent-stars">${stars}</div>` : ''}
     <div class="sp-ent-hd"><span class="sp-date">${e.date}</span><span class="ebadge ${c.badge}">${c.label}</span></div>
     <div class="sp-ent-txt">${lead}${rest ? '&hellip;' : ''}</div>
-    ${rest ? '<div class="sp-ent-more">Full entry &rarr;</div>' : ''}
+    ${rest ? '<div class="sp-ent-more">Expand &rarr;</div>' : ''}
   </div>`;
 }
 
-function impactBoxHtml(im, ii, pills) {
+/* The card carries only the finding: strength grades are not shown anywhere
+   in the interface. */
+function impactBoxHtml(im, ii) {
   return `<div class="sp-imp" data-i="${ii}" tabindex="0">
     <div class="sp-imp-hd"><span class="sp-date sp-date-imp">${im.found}</span><span class="sp-imp-kick">Measured Impact</span></div>
     <div class="sp-imp-name">${im.name}</div>
     <div class="sp-imp-headline">${im.headline}</div>
-    ${pills ? `<div class="sp-imp-grades">${pills}</div>` : ''}
   </div>`;
 }
 
@@ -116,6 +116,15 @@ function propEffectsHtml(p, pi, impacts) {
       ? `<div class="sp-eff-conj"><span class="sp-eff-conj-kick">Conjectured, not measured:</span> ${p.impactsConjectured.join('; ')}</div>`
       : ''}
   </div>`;
+}
+
+/** One comparable case as its own box under the proposal it belongs to. */
+function compBoxHtml(c, pi, k) {
+  return `<button class="sp-compbox" data-pr="${pi}" data-pc="${k}">
+    <span class="sp-compbox-kick">Comparable Case</span>
+    <span class="sp-compbox-name">${c.name}</span>
+    <span class="sp-compbox-meta">${c.where} &middot; ${c.when}</span>
+  </button>`;
 }
 
 /**
@@ -174,10 +183,8 @@ export function renderSpineMap(el, caseObj, spine, sel = {}) {
     .map(f => ({ f, i: anchorIndex(entries, f.anchor) }))
     .filter(x => x.i !== -1));
   const imps = spine.impacts.map((im, ii) => {
-    const pills = impFroms[ii]
-      .map(x => `<span class="sp-grade fl-${x.f.strength}">${STRENGTH_LABEL[x.f.strength]}</span>`).join('');
     const d = document.createElement('div');
-    d.innerHTML = impactBoxHtml(im, ii, pills);
+    d.innerHTML = impactBoxHtml(im, ii);
     const box = d.firstElementChild;
     box.style.left = `${L.impX}px`;
     box.style.width = `${L.impW}px`;
@@ -218,8 +225,8 @@ export function renderSpineMap(el, caseObj, spine, sel = {}) {
       d.className = `sp-chainbox${lk.strength === 'unstudied' ? ' sp-chain-un' : ''}`;
       d.dataset.pr = pi;
       d.dataset.pl = li;
-      // No grade pill on the chain box: the grade lives on the evidence card
-      // and in the detail pane, not on the mechanism step itself.
+      // The box carries just its claim; a dashed border still marks a link no
+      // study tests directly.
       d.innerHTML = `<span class="sp-chain-name">${lk.name}</span>`;
       d.style.left = `${L.chainX + li * (boxW + L.chainGap)}px`;
       d.style.width = `${boxW}px`;
@@ -250,16 +257,17 @@ export function renderSpineMap(el, caseObj, spine, sel = {}) {
       return { el: d, cards, x: L.chainX + li * (boxW + L.chainGap), w: boxW };
     });
 
-    let comp = null;
-    if ((p.comparables ?? []).length) {
-      comp = document.createElement('button');
-      comp.className = 'sp-complist';
-      comp.dataset.pr = pi;
-      comp.innerHTML = `<span class="sp-complist-kick">Comparable cases:</span> ${p.comparables.map(c => c.name).join(' &middot; ')}`;
-      comp.style.left = `${L.chainX}px`;
-      comp.style.width = `${L.chainW}px`;
-      stage.appendChild(comp);
-    }
+    // Comparable cases: one box each, stacked under the proposal in its own
+    // lane, so a single real-world case can be clicked and read on its own.
+    const comps = (p.comparables ?? []).map((c, ci) => {
+      const d = document.createElement('div');
+      d.innerHTML = compBoxHtml(c, pi, ci);
+      const cb = d.firstElementChild;
+      cb.style.left = `${L.propX}px`;
+      cb.style.width = `${L.propW}px`;
+      stage.appendChild(cb);
+      return cb;
+    });
 
     // One height for every link box in a row, so the arrows between them are
     // exactly horizontal.
@@ -267,9 +275,8 @@ export function renderSpineMap(el, caseObj, spine, sel = {}) {
     for (const x of links) x.el.style.height = `${linkH}px`;
 
     const rec = {
-      p, pi, box, effEl, links, comp, linkH,
-      boxH: box.offsetHeight, effH: effEl.offsetHeight,
-      compH: comp ? comp.offsetHeight : 0
+      p, pi, box, effEl, links, comps, linkH,
+      boxH: box.offsetHeight, effH: effEl.offsetHeight
     };
     if (!propAt.has(i)) propAt.set(i, []);
     propAt.get(i).push(rec);
@@ -305,11 +312,15 @@ export function renderSpineMap(el, caseObj, spine, sel = {}) {
           }
           stackBot = Math.max(stackBot, ey);
         }
-        if (rec.comp) {
-          rec.comp.style.top = `${Math.round(stackBot + 8)}px`;
-          stackBot = stackBot + 8 + rec.compH;
+        // The comparables run straight down the proposal lane under the
+        // effects card, so each one sits beside the chain it speaks to.
+        let propBot = subY + rec.boxH + 6 + rec.effH;
+        for (const cb of rec.comps) {
+          propBot += 6;
+          cb.style.top = `${Math.round(propBot)}px`;
+          propBot += cb.offsetHeight;
         }
-        const subH = Math.max(rec.boxH + 6 + rec.effH, stackBot - subY);
+        const subH = Math.max(propBot - subY, stackBot - subY);
         subY += subH + L.subGap;
       }
       bot = Math.max(bot, subY - L.subGap);
@@ -435,7 +446,9 @@ export function highlightSpine(el, sel = {}) {
     on(`.sp-propbox[data-pr="${sel.idx}"]`);
     ringAnchor(sel.idx);
   } else if (sel.kind === 'propcomp') {
-    on(`.sp-complist[data-pr="${sel.idx}"]`);
+    on(sel.compIdx == null
+      ? `.sp-compbox[data-pr="${sel.idx}"]`
+      : `.sp-compbox[data-pr="${sel.idx}"][data-pc="${sel.compIdx}"]`);
     ringAnchor(sel.idx);
   }
 }
@@ -447,7 +460,6 @@ function evHtml(list, kind) {
   const heading = kind === 'counter' ? 'Counter-Evidence' : 'Evidence';
   const items = list.map(ev => `
     <li class="ev">
-      <span class="ev-grade gr-${ev.grade}">${STRENGTH_LABEL[ev.grade]}</span>
       <div class="ev-body">
         <div class="ev-finding">${ev.finding}</div>
         ${ev.caveat ? `<div class="ev-caveat">Caveat: ${ev.caveat}</div>` : ''}
@@ -496,7 +508,7 @@ function mechDetail(spine, i) {
 function impactDetail(spine, i) {
   const im = spine.impacts[i];
   const arrows = im.from.map(f => `
-    <li class="sp-arrowrow"><span class="ev-grade gr-${f.strength}">${STRENGTH_LABEL[f.strength]}</span>
+    <li class="sp-arrowrow">
       <div class="ev-body"><div class="ev-finding">From: ${f.anchor}${f.note ? ` <em>(${f.note})</em>` : ''}</div></div></li>`).join('');
   return `<div class="cd">
     <div class="cd-kick cd-kick-imp">Measured Impact</div>
@@ -515,7 +527,6 @@ function compHtml(list) {
   const items = list.map(c => `
     <li class="sp-comp">
       <div class="pa-hd"><span class="pa-name">${c.name}</span></div>
-      <div class="pa-grade"><span class="ev-grade gr-${c.strength}">${STRENGTH_LABEL[c.strength]}</span></div>
       <div class="pa-desc">${c.outcome}</div>
       <div class="pa-loc"><strong>Location:</strong> ${c.where} (${c.when})</div>
       ${c.srcs?.length ? `<div class="ev-srcs">${srcHtml(c.srcs)}</div>` : ''}
@@ -523,13 +534,27 @@ function compHtml(list) {
   return `<div class="ln-sec ln-sec-comp"><h4>Comparable Real-World Cases</h4><ul class="pa-list">${items}</ul></div>`;
 }
 
-function propCompDetail(spine, i) {
+function propCompDetail(spine, i, k) {
   const p = spine.proposals[i];
+  const c = k == null ? null : (p.comparables ?? [])[k];
+  if (!c) {
+    return `<div class="cd">
+      <button class="cd-back" data-back="prop">&larr; ${attr(p.name)}</button>
+      <div class="cd-kick cd-kick-prop">Proposed Public Participation</div>
+      <div class="cd-head"><span class="cd-id">${p.name}</span></div>
+      ${compHtml(p.comparables)}
+    </div>`;
+  }
   return `<div class="cd">
     <button class="cd-back" data-back="prop">&larr; ${attr(p.name)}</button>
-    <div class="cd-kick cd-kick-prop">Proposed Public Participation</div>
-    <div class="cd-head"><span class="cd-id">${p.name}</span></div>
-    ${compHtml(p.comparables)}
+    <div class="cd-kick cd-kick-comp">Comparable Real-World Case</div>
+    <div class="cd-head"><span class="cd-id">${c.name}</span></div>
+    <p class="cd-claim sp-hintline">Compared with: ${p.name}</p>
+    <div class="ln-sec">
+      <p class="cd-claim"><span class="act-label">Where:</span> ${c.where} (${c.when})</p>
+      <p class="cd-claim"><span class="act-label">Authority:</span> ${c.authority}</p></div>
+    <p class="cd-claim">${c.outcome}</p>
+    ${c.srcs?.length ? `<div class="ev-srcs">${srcHtml(c.srcs)}</div>` : ''}
   </div>`;
 }
 
@@ -537,7 +562,6 @@ function propDetail(spine, i) {
   const p = spine.proposals[i];
   const chainRows = p.links.map((lk, li) => `
     <li class="sp-chainrow" data-pl="${li}" tabindex="0">
-      <span class="ev-grade gr-${lk.strength}">${STRENGTH_LABEL[lk.strength]}</span>
       <div class="ev-body"><div class="ev-finding">${lk.name}</div></div>
     </li>`).join('');
   const effects = p.impactsMeasured.map(n => {
@@ -575,8 +599,7 @@ function propLinkDetail(spine, i, li) {
   return `<div class="cd">
     <button class="cd-back" data-back="prop">&larr; ${attr(p.name)}</button>
     <div class="cd-kick cd-kick-prop">Causal Link ${li + 1} of ${p.links.length}</div>
-    <div class="cd-head"><span class="cd-id">${lk.name}</span>
-      <span class="ev-grade gr-${lk.strength}">${STRENGTH_LABEL[lk.strength]}</span></div>
+    <div class="cd-head"><span class="cd-id">${lk.name}</span></div>
     <p class="cd-claim">${lk.claim}</p>
     ${lk.strength === 'unstudied' ? `<p class="cd-claim"><em>No study tests this link directly.${(lk.evidence ?? []).length ? ' The evidence below comes from nearby cases and other domains.' : ''}</em></p>` : ''}
     ${evHtml(lk.evidence, 'for')}
@@ -596,8 +619,7 @@ function propEvDetail(spine, i, li, k, kind) {
   return `<div class="cd">
     <button class="cd-back" data-back="link">&larr; ${attr(lk.name)}</button>
     <div class="cd-kick ${counter ? 'cd-kick-ctr' : 'cd-kick-ev'}">${counter ? 'Counter-Evidence' : 'Evidence'}</div>
-    <div class="cd-head"><span class="cd-id">${title}</span>
-      <span class="ev-grade gr-${ev.grade}">${STRENGTH_LABEL[ev.grade]}</span></div>
+    <div class="cd-head"><span class="cd-id">${title}</span></div>
     <p class="cd-claim sp-hintline">${counter ? 'Contests' : 'Supports'}: ${lk.name}</p>
     <p class="cd-claim">${ev.finding}</p>
     ${ev.quote ? `<blockquote class="ev-quote">${ev.quote}</blockquote>` : ''}
@@ -636,7 +658,7 @@ export function renderSpineDetail(el, caseObj, spine, sel = {}) {
   else if (sel.kind === 'prop') el.innerHTML = propDetail(spine, sel.idx);
   else if (sel.kind === 'proplink') el.innerHTML = propLinkDetail(spine, sel.idx, sel.linkIdx);
   else if (sel.kind === 'propev') el.innerHTML = propEvDetail(spine, sel.idx, sel.linkIdx, sel.evIdx, sel.evKind);
-  else if (sel.kind === 'propcomp') el.innerHTML = propCompDetail(spine, sel.idx);
+  else if (sel.kind === 'propcomp') el.innerHTML = propCompDetail(spine, sel.idx, sel.compIdx);
   else el.innerHTML = overview(caseObj, spine);
   el.scrollTop = 0;
 }

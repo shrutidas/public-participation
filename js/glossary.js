@@ -31,7 +31,7 @@ export const HOW_TO = [
   },
   {
     title: 'Green: what was measured',
-    desc: 'Dark green cards sit in their own lane on the far left, each at the date its finding was first published. An arrow runs from the specific events where the causal claim holds, and every arrow carries a strength flag you can click to see the evidence.'
+    desc: 'Dark green cards sit in their own lane on the far left, each at the date its finding was first published. An arrow runs from the specific events where the causal claim holds; click a card to see what it measures and the evidence behind it.'
   },
   {
     title: 'Purple: proposed public participation',
@@ -52,9 +52,9 @@ export const GLOSSARY = [
     items: [
       { swatch: 'sp-ent', label: 'Timeline Event', desc: 'One dated event in the Main Timeline lane, in chronological order. Its badge shows the category. The box shows the opening of the entry; click it for the whole record and its sources.' },
       { swatch: 'sp-star', label: 'Existing Mechanism', desc: 'A star in an event’s corner: an oversight or participation mechanism that already existed and should have caught that event. Click the star to read why it did not work.' },
-      { swatch: 'sp-imp', label: 'Measured Impact', desc: 'An endpoint the record actually measures, in its own lane at the date the finding was first published. An arrow runs from the specific events where the causal claim holds; each arrow carries a strength flag.' },
+      { swatch: 'sp-imp', label: 'Measured Impact', desc: 'An endpoint the record actually measures, in its own lane at the date the finding was first published. An arrow runs from the specific events where the causal claim holds.' },
       { swatch: 'sp-prop', label: 'Proposed Public Participation', desc: 'A proposal from the 6/8 design work, tied to the event it would intervene in. Its mechanism and the effects it aims at sit under the box; its causal chain runs to the right.' },
-      { swatch: 'sp-flag', label: 'Evidence Card', desc: 'One piece of evidence under the chain link it supports, named by its source. A dashed card is counter-evidence. Click a card to read the finding, its strength grade, and the full record.' }
+      { swatch: 'sp-flag', label: 'Evidence Card', desc: 'One piece of evidence under the chain link it supports, named by its source. A dashed card is counter-evidence. Click a card to read the finding and the full record.' }
     ]
   },
   {
@@ -70,20 +70,6 @@ export const GLOSSARY = [
       { key: 'no-mechanism', label: 'No Mechanism Existed', desc: 'There was no formal process for addressing the issue, so nothing required it to be considered or acted on.', eg: 'No school-mode dataset; no notice duty for unregulated contaminants' },
       { key: 'partial', label: 'Acted, Partial Effect', desc: 'Action was taken and changed part of the decision or outcome, but not all of it.', eg: 'Advisory committee votes that narrowed a federal authorization' },
       { key: 'worked', label: 'Worked', desc: 'The process was used and had the authority to affect the outcome. It remains on the map to show an important difference: some people had a formal way to influence the decision, while others did not.', eg: 'Union bargaining; courts; tribal self-governance; citizen suits' }
-    ]
-  },
-  {
-    id: 'strength',
-    title: 'Evidence Strength',
-    note: 'The scale the working document uses, applied to every flag on the map and every graded item in the sidebar.',
-    views: ['spine'],
-    countBy: 'strength',
-    items: [
-      { key: 'strong', label: 'Strong', desc: 'Directly measured, specific, and tightly connected to the claim.' },
-      { key: 'moderate', label: 'Substantial', desc: 'Relevant and supportive, but indirect, partial, or context-limited.' },
-      { key: 'weak', label: 'Weak', desc: 'Speculative, analogical, or clearly confounded.' },
-      { key: 'contested', label: 'Contested', desc: 'Credible evidence points both ways.' },
-      { key: 'unstudied', label: 'Unstudied', desc: 'Unable to identify substantive prior research.' }
     ]
   },
 ];

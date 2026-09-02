@@ -314,6 +314,27 @@ body[data-view="chain"] #ctrl .fl,
 #ch-wrap { display: none; flex: 1; overflow: hidden; }
 #ch-wrap.show { display: flex; }
 
+/* Both side panels fold away, so the map can have the whole window when it is
+   the thing being read: the detail pane to the right, the key downward. */
+#ch-wrap.no-right #ch-right { display: none; }
+#ch-wrap.no-right #ch-mapcol { flex: 1 1 100%; border-right: none; }
+#ch-mapcol.no-legend #ch-legend { display: none; }
+
+.pane-tog {
+  font-family: inherit; font-size: 0.6875rem; font-weight: 700;
+  padding: 5px 11px; border: 1.5px solid #b3aca0; border-radius: 5px;
+  background: #fff; color: #4a463f; cursor: pointer; align-self: center;
+}
+.pane-tog:hover { border-color: #1c2333; color: #1c2333; }
+#right-hide { margin: 0 0 6px 6px; }
+/* The reopen control floats over the map on the side the pane will come back
+   from, stacked above the zoom pill so it never lands on a lane header. */
+.pane-tog-float {
+  position: absolute; right: 12px; bottom: 52px; z-index: 8;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.14);
+}
+.pane-tog-strip { align-self: flex-start; margin-top: 12px; }
+
 #ch-mapcol {
   flex: 1 1 58%;
   min-width: 0;
@@ -655,7 +676,6 @@ body[data-view="chain"] #ctrl .fl,
 .pa[data-part]:focus-visible { outline: 2px solid #601898; outline-offset: 2px; }
 
 .pa-hd { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 7px; }
-.pa-grade { margin: -3px 0 7px; }
 .pa-date { font-size: 0.75rem; font-weight: 700; color: #444; letter-spacing: 0.02em; }
 .pa-name { font-size: 0.9375rem; font-weight: 600; color: #111; }
 .pa-kind {
@@ -1076,9 +1096,9 @@ body[data-view="chain"] #ctrl .fl,
 /* ---- chain right pane: Link Detail | Timeline ---- */
 
 #ch-right {
-  flex: 1 1 42%;
+  flex: 1 1 36%;
   min-width: 0;
-  max-width: 520px;
+  max-width: 430px;
   display: flex;
   flex-direction: column;
   background: #fff;
@@ -1115,7 +1135,36 @@ body[data-view="chain"] #ctrl .fl,
 
 #ch-detail {
   overflow-y: auto;
-  padding: 0 24px 40px;
+  padding: 0 20px 36px;
+}
+
+/* The pane is a reference column beside the map, not a second page: every
+   size runs one notch under the shared card styles, and the type is scoped
+   here so the full timeline view keeps its own reading size. */
+#ch-detail .cd-id { font-size: 1rem; }
+#ch-detail .cd-claim,
+#ch-detail .cd-outcome { font-size: 0.8125rem; line-height: 1.6; }
+#ch-detail .ev-finding,
+#ch-detail .pa-desc,
+#ch-detail .gap-list li { font-size: 0.8125rem; line-height: 1.55; }
+#ch-detail .pa-name { font-size: 0.875rem; }
+#ch-detail .cd-hint,
+#ch-detail .cd-flow,
+#ch-detail .cd-thesis,
+#ch-detail .ev-caveat,
+#ch-detail .pa-actors,
+#ch-detail .pp-mech,
+#ch-detail .ln-none { font-size: 0.75rem; }
+#ch-detail .ev-srcs a,
+#ch-detail .pa-loc,
+#ch-detail .pp-mech-note { font-size: 0.6875rem; }
+#ch-detail .ln-sec h4,
+#ch-detail .cd-kick { font-size: 0.625rem; }
+/* The sticky back button bleeds to the scrollport edge, so its negative
+   margin has to track the pane's padding. */
+#ch-detail .cd-back {
+  width: calc(100% + 40px); margin: 0 -20px 12px; padding: 12px 20px 10px;
+  font-size: 0.6875rem;
 }
 
 /* The pane's top spacing lives inside the content, so the sticky back
@@ -1412,7 +1461,6 @@ body[data-view="chain"] #ctrl .fl,
 }
 .sp-imp-name { font-weight: 700; line-height: 1.3; font-size: .78rem; }
 .sp-imp-headline { font-size: .7rem; font-weight: 400; line-height: 1.4; color: #2c4a35; margin-top: 4px; }
-.sp-imp-grades { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 6px; }
 
 /* Proposals and their chains: purple, matching the Public Participation badge. */
 .sp-propbox {
@@ -1462,15 +1510,6 @@ body[data-view="chain"] #ctrl .fl,
 .sp-chain-un { border-style: dashed; }
 .sp-chain-name { display: block; }
 
-.sp-grade {
-  pointer-events: none;
-  display: inline-flex; align-items: center; gap: 4px;
-  font-size: .6rem; font-weight: 700; letter-spacing: .02em;
-  border: 1.5px solid currentColor; border-radius: 8px; padding: 3px 8px;
-  background: #fff;
-}
-.sp-grade.fl-unstudied { background: #fbeceb; }
-
 .sp-evcard {
   position: absolute; box-sizing: border-box; cursor: pointer; text-align: left; z-index: 2;
   background: #fff; border: 1.5px solid #b3261e; border-radius: 6px;
@@ -1483,15 +1522,19 @@ body[data-view="chain"] #ctrl .fl,
 .sp-evcard-ctr { border-style: dashed; background: #fdf5f5; }
 .sp-evcard-un { color: #aa2a20; font-style: italic; }
 
-.sp-complist {
+/* Comparable cases: one box each, stacked under the proposal they belong to. */
+.sp-compbox {
   position: absolute; box-sizing: border-box; cursor: pointer; text-align: left; z-index: 2;
-  background: rgba(255,255,255,.85); border: 1px dashed #c9c3b6; border-radius: 6px;
-  padding: 5px 9px; font-size: .74rem; line-height: 1.35; color: #57524a;
+  background: rgba(255,255,255,.9); border: 1px dashed #c9c3b6; border-radius: 6px;
+  padding: 6px 9px; font-size: .72rem; line-height: 1.35; color: #57524a;
   font-family: inherit; white-space: normal; word-break: break-word;
 }
-.sp-complist:hover { background: #f7f5f0; border-color: #8a8377; }
-.sp-complist.sel { background: #f7f5f0; border-color: #57524a; border-style: solid; box-shadow: 0 0 0 3px rgba(107,100,87,.35); }
-.sp-complist-kick { font-weight: 800; letter-spacing: .04em; text-transform: uppercase; font-size: .64rem; color: #6b6457; margin-right: 2px; }
+.sp-compbox:hover { background: #f7f5f0; border-color: #8a8377; }
+.sp-compbox.sel { background: #f7f5f0; border-color: #57524a; border-style: solid; box-shadow: 0 0 0 3px rgba(107,100,87,.35); }
+.sp-compbox-kick { display: block; font-size: .55rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: #6b6457; margin-bottom: 2px; }
+.sp-compbox-name { display: block; font-weight: 650; color: #3d3a34; }
+.sp-compbox-meta { display: block; font-size: .66rem; color: #6b6457; margin-top: 2px; }
+.cd-kick-comp { color: #6b6457; }
 
 .sp-flag {
   position: absolute; box-sizing: border-box; cursor: pointer;

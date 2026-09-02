@@ -24,6 +24,7 @@ const state = {
   linkIdx: null,
   evIdx: null,         // which evidence record, when a single one is selected
   evKind: null,        // 'for' | 'counter'
+  compIdx: null,       // which comparable case, when a single one is selected
   zoom: 1,             // spine map zoom level
   fitKey: null,        // which case the current zoom was auto-fitted to
   builtKey: null       // which case+expansion the map DOM is currently built for
@@ -39,7 +40,7 @@ const curSpine = () => SPINES[curCase().slug] || null;
 const defaultView = c => (SPINES[c.slug] ? 'spine' : 'timeline');
 const curSel = () => ({
   kind: state.selKind, idx: state.selIdx, linkIdx: state.linkIdx,
-  evIdx: state.evIdx, evKind: state.evKind
+  evIdx: state.evIdx, evKind: state.evKind, compIdx: state.compIdx
 });
 
 /* Every proposal chain is always open, so the map DOM is rebuilt only when
@@ -60,6 +61,7 @@ function route() {
     r.selIdx = state.selIdx;
     if (state.selKind === 'proplink' || state.selKind === 'propev') r.linkIdx = state.linkIdx;
     if (state.selKind === 'propev') { r.evIdx = state.evIdx; r.evKind = state.evKind; }
+    if (state.selKind === 'propcomp') r.compIdx = state.compIdx;
   }
   return r;
 }
@@ -88,6 +90,7 @@ function applyRoute() {
   state.linkIdx = null;
   state.evIdx = null;
   state.evKind = null;
+  state.compIdx = null;
 
   if (state.view === 'spine' && r.selKind != null) {
     const sp = curSpine();
@@ -114,6 +117,10 @@ function applyRoute() {
             else { state.selKind = 'proplink'; canonical = false; }
           }
         } else { state.selKind = 'prop'; canonical = false; }
+      } else if (r.selKind === 'propcomp' && r.compIdx != null) {
+        const comps = sp.proposals[r.selIdx].comparables ?? [];
+        if (r.compIdx < comps.length) state.compIdx = r.compIdx;
+        else canonical = false;
       }
     } else {
       canonical = false;
@@ -149,6 +156,28 @@ function setDrawer(open) {
   el('nav-btn').setAttribute('aria-expanded', String(open));
 }
 
+/* The detail pane and the map key both fold away, so the map can have the
+   whole window. The choice is remembered between visits; storage is blocked
+   in some browsers, so every read and write is guarded. */
+function store(k, v) { try { localStorage.setItem(k, v ? '1' : '0'); } catch {} }
+function stored(k) { try { return localStorage.getItem(k) === '1'; } catch { return false; } }
+
+function setRightPane(open) {
+  el('ch-wrap').classList.toggle('no-right', !open);
+  el('right-show').hidden = open;
+  el('right-hide').setAttribute('aria-expanded', String(open));
+  el('right-show').setAttribute('aria-expanded', String(open));
+  store('pp-right-hidden', !open);
+}
+
+function setLegend(open) {
+  el('ch-mapcol').classList.toggle('no-legend', !open);
+  el('legend-show').hidden = open;
+  el('legend-hide').setAttribute('aria-expanded', String(open));
+  el('legend-show').setAttribute('aria-expanded', String(open));
+  store('pp-legend-hidden', !open);
+}
+
 function setKeyPanel(open) {
   el('key-panel').classList.toggle('open', open);
   el('key-panel').setAttribute('aria-hidden', String(!open));
@@ -158,17 +187,15 @@ function setKeyPanel(open) {
 
 /* -------------------------------- the key -------------------------------- */
 
+/* Strength grades are no longer shown anywhere in the interface, so the Key
+   counts only what it still displays. The grades stay in the data files. */
 function glossaryCounts() {
-  const strength = {}, failure = {}, proposal = {};
+  const failure = {}, proposal = {};
   for (const sp of Object.values(SPINES)) {
     for (const m of sp.mechanisms) failure[m.failure] = (failure[m.failure] || 0) + 1;
-    for (const im of sp.impacts) for (const f of im.from) strength[f.strength] = (strength[f.strength] || 0) + 1;
-    for (const p of sp.proposals) {
-      proposal.proposed = (proposal.proposed || 0) + 1;
-      for (const lk of p.links) strength[lk.strength] = (strength[lk.strength] || 0) + 1;
-    }
+    proposal.proposed = (proposal.proposed || 0) + sp.proposals.length;
   }
-  return { strength, failure, proposal };
+  return { failure, proposal };
 }
 
 function glossaryMark(item) {
@@ -385,8 +412,8 @@ function onHashChange() {
   render();
 }
 
-function select(kind, idx, linkIdx = null, evIdx = null, evKind = null) {
-  navigate({ selKind: kind, selIdx: idx, linkIdx, evIdx, evKind });
+function select(kind, idx, linkIdx = null, evIdx = null, evKind = null, compIdx = null) {
+  navigate({ selKind: kind, selIdx: idx, linkIdx, evIdx, evKind, compIdx });
 }
 
 /* Select a measured impact and bring it into view in the timeline lane. */
@@ -410,6 +437,11 @@ function bindEvents() {
     setDrawer(false);
     router.go({ caseSlug: b.dataset.case });
   });
+
+  el('right-hide').addEventListener('click', () => setRightPane(false));
+  el('right-show').addEventListener('click', () => setRightPane(true));
+  el('legend-hide').addEventListener('click', () => setLegend(false));
+  el('legend-show').addEventListener('click', () => setLegend(true));
 
   el('key-btn').addEventListener('click', () =>
     setKeyPanel(!el('key-panel').classList.contains('open')));
@@ -438,8 +470,9 @@ function bindEvents() {
       select('proplink', Number(pl.dataset.pr), Number(pl.dataset.pl));
       return;
     }
-    const cs = e.target.closest('.sp-complist');
-    if (cs) { select('propcomp', Number(cs.dataset.pr)); return; }
+    // One comparable case is one precedent: select just that box.
+    const cb = e.target.closest('.sp-compbox');
+    if (cb) { select('propcomp', Number(cb.dataset.pr), null, null, null, Number(cb.dataset.pc)); return; }
     const pr = e.target.closest('[data-pr]');
     if (pr) { select('prop', Number(pr.dataset.pr)); return; }
     const m = e.target.closest('[data-m]');
@@ -613,4 +646,6 @@ function bindEvents() {
 /* -------------------------------- boot ----------------------------------- */
 
 bindEvents();
+setRightPane(!stored('pp-right-hidden'));
+setLegend(!stored('pp-legend-hidden'));
 onHashChange();

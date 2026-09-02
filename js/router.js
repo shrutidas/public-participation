@@ -16,6 +16,7 @@
  *   #/case/<slug>/spine/pr/<i>/l/<j>/ev/<k>   one piece of evidence under that link
  *   #/case/<slug>/spine/pr/<i>/l/<j>/cev/<k>  one piece of counter-evidence
  *   #/case/<slug>/spine/pr/<i>/c          a proposal's comparable cases only
+ *   #/case/<slug>/spine/pr/<i>/c/<k>      one comparable case on its own
  * Legacy '#/case/<slug>/chain/...' URLs fall back to the spine map.
  */
 
@@ -27,7 +28,7 @@ export function parse(hash = window.location.hash) {
 
   const route = {
     caseSlug: null, view: null, selKind: null, selIdx: null,
-    linkIdx: null, evIdx: null, evKind: null
+    linkIdx: null, evIdx: null, evKind: null, compIdx: null
   };
   if (seg[0] !== 'case' || !seg[1]) return route;
 
@@ -62,13 +63,18 @@ export function parse(hash = window.location.hash) {
         }
       } else if (route.selKind === 'prop' && seg[5] === 'c') {
         route.selKind = 'propcomp';
+        // One comparable case on its own, so a single precedent can be cited.
+        if (seg[6] != null) {
+          const k = num(seg[6]);
+          if (k != null) route.compIdx = k;
+        }
       }
     }
   }
   return route;
 }
 
-export function build({ caseSlug, view, selKind, selIdx, linkIdx, evIdx, evKind } = {}) {
+export function build({ caseSlug, view, selKind, selIdx, linkIdx, evIdx, evKind, compIdx } = {}) {
   if (!caseSlug) return '#/';
   const seg = ['case', encodeURIComponent(caseSlug)];
   if (view) seg.push(view);
@@ -85,7 +91,10 @@ export function build({ caseSlug, view, selKind, selIdx, linkIdx, evIdx, evKind 
       if (selKind === 'propev' && evIdx != null) {
         seg.push(evKind === 'counter' ? 'cev' : 'ev', String(evIdx));
       }
-      if (selKind === 'propcomp') seg.push('c');
+      if (selKind === 'propcomp') {
+        seg.push('c');
+        if (compIdx != null) seg.push(String(compIdx));
+      }
     }
   }
   return '#/' + seg.join('/');
