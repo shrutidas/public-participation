@@ -315,15 +315,22 @@ export function renderSpineMap(el, caseObj, spine, sel = {}) {
     const entH = entEl[i].offsetHeight;
     let bot = y + entH;
 
-    // Impact cards stack beside their source event. A lone card centres on
-    // the event when it is shorter, so its arrow is one horizontal line.
+    // Impact cards stack beside their source event. The first card centres on
+    // the event so its arrow is one straight horizontal line. An impact card
+    // runs a few pixels taller than the event it answers, so the centring
+    // offset is usually negative; the card may rise into the row gap above,
+    // but no further than that.
     if (impAt.has(i)) {
       const list = impAt.get(i);
-      let iy = y + Math.max(0, (entH - list[0].box.offsetHeight) / 2);
+      const lift = (entH - list[0].box.offsetHeight) / 2;
+      let iy = y + Math.max(lift, -(L.rowGap - 10));
       for (const r of list) {
-        r.box.style.top = `${Math.round(iy)}px`;
-        r.cy = iy + r.box.offsetHeight / 2;
-        iy += r.box.offsetHeight + L.railGap;
+        const top = Math.round(iy);
+        r.box.style.top = `${top}px`;
+        // Measured from the drawn position, so the arrow meets the card's
+        // real centre rather than an unrounded one.
+        r.cy = top + r.box.offsetHeight / 2;
+        iy = top + r.box.offsetHeight + L.railGap;
       }
       bot = Math.max(bot, iy - L.railGap);
     }
@@ -405,7 +412,7 @@ export function renderSpineMap(el, caseObj, spine, sel = {}) {
   for (const r of imps) {
     const prim = primaryArrow(impFroms[r.ii]);
     for (const { i } of impFroms[r.ii]) {
-      const sy = yTop[i] + entEl[i].offsetHeight / 2;
+      const sy = Math.round(yTop[i]) + entEl[i].offsetHeight / 2;
       const isPrim = prim && prim.i === i;
       const cls = isPrim ? 'sp-edge-imp' : 'sp-edge-imp sp-edge-imp-alt';
       const endX = L.impX + L.impW + 4;
