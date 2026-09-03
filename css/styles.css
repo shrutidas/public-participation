@@ -1621,3 +1621,11 @@ body[data-view="chain"] #ctrl .fl,
 #ch-detail .cd-flow,
 #ch-detail .cd-claim strong,
 #ch-detail .sp-addressed strong { color: var(--sb-ink); }
+/* The mechanism question reads as a heading, not a kick. */
+#ch-detail .sp-addressed .cd-kick-mech,
+#ch-detail .cd > .cd-kick-mech:first-child {
+  font-size: .82rem; letter-spacing: .03em; line-height: 1.35; margin-bottom: 12px;
+}
+/* The map is a picture: no text selection, no context menu (see app.js).
+   The sidebars keep both. */
+#ch-mapcol, #ch-mapcol * { -webkit-user-select: none; user-select: none; }

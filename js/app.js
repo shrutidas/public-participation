@@ -418,6 +418,8 @@ function bindEvents() {
   el('nav-btn').addEventListener('click', () =>
     setDrawer(!el('drawer').classList.contains('open')));
   el('drawer-close').addEventListener('click', () => setDrawer(false));
+  // The map is a picture: no browser context menu over it. Sidebars keep it.
+  el('ch-mapcol').addEventListener('contextmenu', e => e.preventDefault());
   el('drawer-backdrop').addEventListener('click', () => setDrawer(false));
 
   el('drawer-cases').addEventListener('click', e => {
@@ -559,8 +561,6 @@ function bindEvents() {
     }
     const goi = e.target.closest('[data-goimp]');
     if (goi) { selectImpact(Number(goi.dataset.goimp)); return; }
-    const gom = e.target.closest('[data-gomech]');
-    if (gom) { select('mech', Number(gom.dataset.gomech)); return; }
     const row = e.target.closest('.sp-chainrow[data-pl]');
     if (row && (state.selKind === 'prop' || state.selKind === 'proplink')) {
       navigate({ selKind: 'proplink', selIdx: state.selIdx, linkIdx: Number(row.dataset.pl) });

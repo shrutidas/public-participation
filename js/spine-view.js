@@ -297,10 +297,27 @@ export function renderSpineMap(el, caseObj, spine, sel = {}) {
     propAt.get(i).push(rec);
   });
 
+  // A finding published in a gap between two events opens space in the
+  // timeline at that point, so the card sits at its date rather than beside
+  // the next event, which can be years later.
+  const laterKey = (e, k) => {
+    const ek = dkey(e.date);
+    return Number.isInteger(ek) ? ek > Math.floor(k) : ek > k;
+  };
+  const gapNeed = [], gapStart = [];
+  for (const r of imps) {
+    r.gap = r.row > 0 && r.row < entries.length && laterKey(entries[r.row], r.k);
+    if (r.gap) {
+      r.gapOff = gapNeed[r.row] || 0;
+      gapNeed[r.row] = r.gapOff + r.box.offsetHeight + L.railGap;
+    }
+  }
+
   // Pass 4: vertical layout, top to bottom.
   const yTop = [];
   let y = L.padTop;
   entries.forEach((e, i) => {
+    if (gapNeed[i]) { gapStart[i] = y - L.rowGap + L.railGap; y += gapNeed[i]; }
     yTop[i] = y;
     entEl[i].style.top = `${Math.round(y)}px`;
     let bot = y + entEl[i].offsetHeight;
@@ -348,7 +365,8 @@ export function renderSpineMap(el, caseObj, spine, sel = {}) {
   let railBot = L.padTop;
   let firstPost = true;
   for (const r of imps) {
-    let target = r.row < entries.length ? yTop[r.row] : timelineBot + L.rowGap;
+    let target = r.gap ? gapStart[r.row] + r.gapOff
+      : r.row < entries.length ? yTop[r.row] : timelineBot + L.rowGap;
     if (r.row >= entries.length && firstPost) { target = Math.max(target, railBot + 34); firstPost = false; }
     const iy = Math.max(target, railBot);
     r.box.style.top = `${Math.round(iy)}px`;
@@ -511,10 +529,11 @@ function entryDetail(caseObj, spine, i) {
     .filter(({ m }) => m.anchors.some(a => plain(e.text).includes(a)));
   // The mechanism record is folded into the event pane, so the reader gets
   // the answer without another click: the question, then "No. <one
-  // sentence>", then the detail and its source. The star still opens the
-  // mechanism on its own.
-  const answered = mechs.map(({ m, mi }) => `
-    <div class="sp-addressed" data-gomech="${mi}">
+  // sentence>", then the detail and its source. The block is not a link:
+  // clicking it used to jump to the mechanism view, which read as the
+  // screen changing for no reason. The map star still opens the mechanism.
+  const answered = mechs.map(({ m }) => `
+    <div class="sp-addressed">
       <div class="cd-kick cd-kick-mech">&#9733; Did any existing system or mechanism(s) address this?</div>
       <p class="cd-claim"><strong>${m.answer}.</strong> ${m.note}.</p>
       <p class="cd-claim">${m.detail}</p>
