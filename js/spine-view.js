@@ -550,9 +550,6 @@ function propDetail(spine, i) {
     <div class="cd-head"><span class="cd-id">${p.name}</span></div>
     <p class="cd-claim"><span class="act-label">Mechanism:</span> ${p.method}</p>
     <p class="cd-claim">${p.description}</p>
-    <div class="ln-sec">
-      <p class="cd-claim"><span class="act-label">Where:</span> ${p.where}</p>
-      <p class="cd-claim"><span class="act-label">When:</span> ${p.when}</p></div>
     ${p.srcs?.length ? `<div class="ev-srcs">${srcHtml(p.srcs)}</div>` : ''}
   </div>`;
 }
