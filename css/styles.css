@@ -1409,8 +1409,17 @@ body[data-view="chain"] #ctrl .fl,
 .sp-edge-spine { stroke: #fff; stroke-width: 2.5; }
 /* Impact arrows run a long way down the gutter, so they sit back until the
    impact they belong to is selected. */
-.sp-edge-imp { stroke: rgba(30,107,60,.18); stroke-width: 1.4; }
+.sp-edge-imp { stroke: rgba(30,107,60,.28); stroke-width: 1.6; }
+/* Secondary sources: drawn only while the impact or the event is selected. */
+.sp-edge-imp-alt { stroke: transparent; }
+.sp-edge-imp-alt:not(.on) { marker-end: none; }
 .sp-edge-imp.on { stroke: #1e6b3c; stroke-width: 2.6; }
+/* Rule above impacts published after the record ends. */
+.sp-postrule {
+  position: absolute; box-sizing: border-box;
+  border-top: 1.5px dashed #1e6b3c; padding-top: 3px;
+  font-size: .62rem; line-height: 1.25; color: #2c4a35; letter-spacing: .01em;
+}
 .sp-edge-chain { stroke: #b0146e; stroke-width: 2.25; }
 
 /* Timeline event boxes: white, so colour is reserved for meaning. */

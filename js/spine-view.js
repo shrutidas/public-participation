@@ -72,8 +72,19 @@ function dkey(s) {
  */
 function impactRow(entries, found) {
   const k = dkey(found);
-  const i = entries.findIndex(e => dkey(e.date) > k);
+  // A year-only entry ("2012") covers every month of that year.
+  const i = entries.findIndex(e => {
+    const ek = dkey(e.date);
+    return Number.isInteger(ek) ? ek >= Math.floor(k) : ek >= k;
+  });
   return i === -1 ? entries.length : i;
+}
+
+/* Arrow strength, best first. Ties go to the later event: the shorter arrow. */
+const RANK = { strong: 0, moderate: 1, weak: 2, contested: 3, unstudied: 4 };
+function primaryArrow(froms) {
+  return froms.slice().sort((a, b) =>
+    (RANK[a.f.strength] ?? 9) - (RANK[b.f.strength] ?? 9) || b.i - a.i)[0];
 }
 
 function entryBoxHtml(e, i, mechs) {
@@ -335,12 +346,27 @@ export function renderSpineMap(el, caseObj, spine, sel = {}) {
   // The impact rail: chronological placement first, pushed down only far
   // enough to clear the card above it.
   let railBot = L.padTop;
+  let firstPost = true;
   for (const r of imps) {
-    const target = r.row < entries.length ? yTop[r.row] : timelineBot + L.rowGap;
+    let target = r.row < entries.length ? yTop[r.row] : timelineBot + L.rowGap;
+    if (r.row >= entries.length && firstPost) { target = Math.max(target, railBot + 34); firstPost = false; }
     const iy = Math.max(target, railBot);
     r.box.style.top = `${Math.round(iy)}px`;
     r.cy = iy + r.box.offsetHeight / 2;
     railBot = iy + r.box.offsetHeight + L.railGap;
+  }
+
+  // Findings published after the record ends sit below it, under a rule that
+  // marks them as postscript rather than overflow.
+  const post = imps.filter(r => r.row >= entries.length);
+  if (post.length) {
+    const rule = document.createElement('div');
+    rule.className = 'sp-postrule';
+    rule.textContent = `Record ends ${entries[entries.length - 1].date}. Findings published later:`;
+    rule.style.left = `${L.impX}px`;
+    rule.style.width = `${L.impW}px`;
+    rule.style.top = `${Math.round(Math.min(...post.map(r => parseFloat(r.box.style.top))) - 22)}px`;
+    stage.appendChild(rule);
   }
 
   const totalH = Math.max(y - L.rowGap, railBot) + L.padBottom;
@@ -374,12 +400,17 @@ export function renderSpineMap(el, caseObj, spine, sel = {}) {
 
   // Impact arrows: out the left of the event where the causal claim holds,
   // across the gutter, and into the impact card. Right angles only.
+  // One arrow per impact is drawn by default, from its strongest source. The
+  // rest are in the SVG but hidden until either end is selected, so the map
+  // shows one line per finding and the detail shows them all.
   let lane = 0;
   for (const r of imps) {
+    const prim = primaryArrow(impFroms[r.ii]);
     for (const { i } of impFroms[r.ii]) {
       const sy = yTop[i] + entEl[i].offsetHeight / 2;
       const gx = L.gutImp + 10 + (lane++ % 6) * 7.5;
-      paths += `<path class="sp-edge sp-edge-imp" data-i="${r.ii}" data-src="${i}" marker-end="url(#sp-arw-imp)"
+      const cls = prim && prim.i === i ? 'sp-edge-imp' : 'sp-edge-imp sp-edge-imp-alt';
+      paths += `<path class="sp-edge ${cls}" data-i="${r.ii}" data-src="${i}" marker-end="url(#sp-arw-imp)"
         d="M ${L.spineX} ${sy} H ${gx} V ${r.cy} H ${L.impX + L.impW + 4}"></path>`;
     }
   }
