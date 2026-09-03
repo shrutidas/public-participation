@@ -921,25 +921,6 @@ body[data-view="chain"] #ctrl .fl,
 .mbt.on { background: #4a9fd5; color: #fff; }
 .mbt.disabled { opacity: 0.35; cursor: not-allowed; }
 
-#key-btn {
-  font-size: 0.75rem;
-  font-weight: 700;
-  padding: 7px 14px;
-  border-radius: 6px;
-  border: 1.5px solid #3f5c7d;
-  background: transparent;
-  color: #c2d2e2;
-  cursor: pointer;
-  font-family: inherit;
-  transition: all 0.15s;
-  flex-shrink: 0;
-}
-
-#key-btn:hover { background: #2b3d56; color: #fff; border-color: #6cb6e8; }
-#key-btn.on { background: #4a9fd5; border-color: #4a9fd5; color: #fff; }
-
-
-
 /* ---- drawer ---- */
 
 #drawer-backdrop {
@@ -1055,7 +1036,7 @@ body[data-view="chain"] #ctrl .fl,
 
 #key-panel {
   position: fixed;
-  top: 52px;
+  top: 0;
   right: 0;
   bottom: 0;
   width: 560px;
@@ -1065,7 +1046,7 @@ body[data-view="chain"] #ctrl .fl,
   box-shadow: -6px 0 24px rgba(0, 0, 0, 0.18);
   transform: translateX(100%);
   transition: transform 0.22s ease;
-  z-index: 30;
+  z-index: 70;
   display: flex;
   flex-direction: column;
 }
@@ -1086,15 +1067,17 @@ body[data-view="chain"] #ctrl .fl,
 
 #key-close {
   background: none;
-  border: none;
-  font-size: 1.3rem;
+  border: 1px solid #bdb7ac;
+  border-radius: 4px;
+  width: 26px; height: 26px;
+  font-size: 1.1rem;
   line-height: 1;
   color: #8a8377;
   cursor: pointer;
   padding: 0 4px;
 }
 
-#key-close:hover { color: #1a1a1a; }
+#key-close:hover { color: #1a1a1a; background: #ece8e0; border-color: #8a8377; }
 
 #key-panel #key-txt {
   overflow-y: auto;

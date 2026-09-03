@@ -180,7 +180,6 @@ function setLegend(open) {
 function setKeyPanel(open) {
   el('key-panel').classList.toggle('open', open);
   el('key-panel').setAttribute('aria-hidden', String(!open));
-  el('key-btn').classList.toggle('on', open);
   if (open) renderKey();
 }
 
@@ -427,8 +426,6 @@ function bindEvents() {
   el('legend-hide').addEventListener('click', () => setLegend(false));
   el('legend-show').addEventListener('click', () => setLegend(true));
 
-  el('key-btn').addEventListener('click', () =>
-    setKeyPanel(!el('key-panel').classList.contains('open')));
   el('key-close').addEventListener('click', () => setKeyPanel(false));
 
   // The Expand button in the split pane and the Back button in the full
