@@ -630,14 +630,18 @@ function overview(caseObj, spine) {
   const nImp = spine.impacts.length;
   const nPart = caseObj.entries.filter(e => e.cat === 'purple').length;
   return `<div class="cd cd-intro">
-    <div class="cd-hint">The timeline runs down the second lane in order. Each box shows the
-      opening of an entry; click it for the whole record. A star in an event's corner marks a
-      system or mechanism that already existed; click the star to read whether it addressed
-      the event. The far-left lane holds what the record later measured, each card at the date
-      its finding was first published, with an arrow from the events where the causal claim
-      holds. To the right sit the proposed public participation from the design work, each
-      tied to the event it would intervene in and carrying the effects it aims at, then each
-      proposal's causal chain running left to right with the evidence on the cards.</div>
+    <div class="cd-hint"><p>The timeline runs down the second lane from the left. Each box shows
+      the beginning of an entry; click it to open the full record. A star in the corner marks
+      an existing system or mechanism. Click the star to see whether that mechanism addressed
+      the event.</p>
+      <p>The far-left lane shows outcomes measured later in the record. Each
+      outcome sits beside the event its causal claim rests on most strongly, and shows the date
+      when its finding was first published. Arrows connect the outcomes to the events involved
+      in the causal claim.</p>
+      <p>The lanes to the right show proposed forms of public participation
+      from the design work. Each proposal is linked to the event it would address and lists the
+      outcomes it aims to affect. Its causal chain then runs from left to right, with supporting
+      evidence shown on the cards.</p></div>
     <div class="cd-sum">
       <span class="cd-sum-lbl">Timeline</span><div class="cd-sum-pills"><span class="g g-neutral">${caseObj.entries.length} Events</span></div>
       <span class="cd-sum-lbl">Participation</span><div class="cd-sum-pills"><span class="g g-actual">${nPart} Public Participation Events</span></div>

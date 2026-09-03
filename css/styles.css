@@ -1370,6 +1370,8 @@ body[data-view="chain"] #ctrl .fl,
 #tl-expand:hover { border-color: #1c2333; color: #1c2333; }
 
 .cd-intro .cd-hint { margin: 0 0 16px; }
+.cd-hint p { margin: 0; }
+.cd-hint p + p { margin-top: 9px; }
 
 /* ======================= SPINE VIEW (second memo rework) ===================
    Three lanes: the main timeline (white), the proposed public participation
@@ -1582,7 +1584,7 @@ body[data-view="chain"] #ctrl .fl,
 
 /* Key swatches for the spine legend */
 .k-sw-sp-ent { background: #fff; border: 1.5px solid #b8b1a3; }
-.k-sw-sp-star { background: #fff; border: 1.5px solid #8a8377; border-radius: 50%; position: relative; }
+.k-sw-sp-star { width: 18px; height: 18px; background: #fff; border: 1.5px solid #8a8377; border-radius: 50%; position: relative; }
 .k-sw-sp-star::after {
   content: '\2605'; position: absolute; inset: 0; display: flex;
   align-items: center; justify-content: center; font-size: .62rem; color: #6b6457; line-height: 1;
