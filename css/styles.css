@@ -1386,7 +1386,7 @@ body[data-view="chain"] #ctrl .fl,
 .sp-band.lane-im { background: rgba(30,107,60,.05); }
 .sp-band.lane-tl { background: rgba(255,255,255,.5); }
 .sp-band.lane-pp { background: rgba(96,24,152,.045); }
-.sp-band.lane-ch { background: rgba(255,255,255,.28); }
+.sp-band.lane-ch { background: rgba(176,20,110,.045); }
 
 .sp-lanes {
   position: sticky; top: 0; z-index: 6;
@@ -1401,7 +1401,7 @@ body[data-view="chain"] #ctrl .fl,
 .sp-lane.lane-im { background: #e4efe7; border: 1px solid #1e6b3c; color: #143d23; }
 .sp-lane.lane-tl { background: #fff; border: 1px solid #b8b1a3; color: #4a4437; }
 .sp-lane.lane-pp { background: #f0e8fa; border: 1px solid #601898; color: #380c68; }
-.sp-lane.lane-ch { background: #fdf6f5; border: 1px solid #b3261e; color: #7a2018; }
+.sp-lane.lane-ch { background: #fdf0f8; border: 1px solid #b0146e; color: #6e0b45; }
 
 .sp-edge { fill: none; stroke-width: 2; }
 /* The spine is a white line; a faint casing underneath keeps it legible. */

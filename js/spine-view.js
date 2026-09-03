@@ -400,7 +400,7 @@ export function renderSpineMap(el, caseObj, spine, sel = {}) {
       <path d="M 0 0 L 10 5 L 0 10 L 2.8 5 z" fill="${color}"${extra}></path></marker>`;
   const defs = `<defs>
     ${arw('spine', '#ffffff', 7, ' stroke="#b8b1a3" stroke-width="1.1"')}
-    ${arw('chain', '#601898', 8)}
+    ${arw('chain', '#b0146e', 8)}
     ${arw('imp', '#1e6b3c', 7, ' fill-opacity="0.55"')}</defs>`;
 
   let paths = '';
