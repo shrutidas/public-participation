@@ -478,28 +478,28 @@ function entryDetail(caseObj, spine, i) {
   const mechs = spine.mechanisms
     .map((m, mi) => ({ m, mi }))
     .filter(({ m }) => m.anchors.some(a => plain(e.text).includes(a)));
-  const starred = mechs.length ? `<div class="ln-sec"><h4>Did Any Existing System or Mechanism Address This?</h4>
-    <ul class="ev-list">${mechs.map(({ m, mi }) => `
-      <li class="sp-chainrow" data-gomech="${mi}" tabindex="0">
-        <span class="sp-star sp-star-static">&#9733;</span>
-        <div class="ev-body"><div class="ev-finding">${m.name}</div>
-          <div class="ev-caveat">${ADDRESSED[m.failure]}</div></div>
-      </li>`).join('')}</ul></div>` : '';
+  // The question sits above the Actors line at the same size, with the answer
+  // in bold right after it. One line per mechanism when an event has several;
+  // the starred name is the link to that mechanism's record.
+  const answered = mechs.map(({ m, mi }) => `
+    <div class="eact sp-addressed" data-gomech="${mi}" tabindex="0" role="button">
+      Did any existing system or mechanism address this? <strong>${ADDRESSED[m.failure]}</strong>
+      <span class="sp-addressed-who"><span class="sp-star sp-star-static">&#9733;</span> ${m.name}</span>
+    </div>`).join('');
   return `<div class="cd">
     <div class="cd-kick">Timeline Event</div>
     <div class="cd-head"><span class="cd-id">${e.date}</span> <span class="ebadge ${c.badge}">${c.label}</span></div>
     <p class="cd-claim">${e.text}</p>
+    ${answered}
     <div class="eact"><span class="act-label">Actors:</span> ${e.actors}</div>
     <div class="ev-srcs">${srcHtml(e.srcs)}</div>
-    ${starred}
   </div>`;
 }
 
 function mechDetail(spine, i) {
   const m = spine.mechanisms[i];
   return `<div class="cd">
-    <div class="cd-kick cd-kick-mech">&#9733; Did any existing system or mechanism(s) address this?</div>
-    <div class="cd-head"><span class="cd-id">${ADDRESSED[m.failure]}</span></div>
+    <div class="cd-head"><span class="cd-id cd-id-q">&#9733; Did any existing system or mechanism address this? <strong>${ADDRESSED[m.failure]}</strong></span></div>
     <div class="eact"><span class="act-label">Actor:</span> ${m.actor}</div>
     <p class="cd-claim"><strong>${m.note}.</strong></p>
     <p class="cd-claim">${m.detail}</p>

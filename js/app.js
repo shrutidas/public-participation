@@ -575,6 +575,8 @@ function bindEvents() {
 
   el('ch-detail').addEventListener('keydown', e => {
     if (e.key !== 'Enter' && e.key !== ' ') return;
+    const gom = e.target.closest('.sp-addressed[data-gomech]');
+    if (gom) { e.preventDefault(); gom.click(); return; }
     const row = e.target.closest('.sp-chainrow[data-pl]');
     if (row && (state.selKind === 'prop' || state.selKind === 'proplink')) {
       e.preventDefault();

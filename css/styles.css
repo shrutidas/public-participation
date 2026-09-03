@@ -559,6 +559,13 @@ body[data-view="chain"] #ctrl .fl,
 
 .cd .cd-claim { margin-bottom: 14px; }
 .cd .eact { margin: 14px 0 12px; }
+.sp-addressed { cursor: pointer; border-radius: 6px; }
+.cd-id-q { font-weight: 400; }
+.cd-id-q strong { font-weight: 800; }
+.sp-addressed strong { color: #222; }
+.sp-addressed-who { display: block; margin-top: 3px; color: #57524a; }
+.sp-addressed-who .sp-star-static { vertical-align: middle; }
+.sp-addressed:hover .sp-addressed-who, .sp-addressed:focus-visible .sp-addressed-who { text-decoration: underline; text-underline-offset: 2px; }
 .cd > .ev-srcs { margin-top: 14px; }
 .cd-about { border-top: 1px solid #e3ddd2; margin-top: 26px; padding-top: 18px; }
 
