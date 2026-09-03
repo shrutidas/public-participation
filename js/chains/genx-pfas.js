@@ -596,13 +596,13 @@ const harmReduction = chain({
         }),
         evidence({
           finding: paragraph(`
-            A companion analysis of the same cohort (Wilkie et al. 2023,
+            A companion analysis of the same cohort (Cuffney et al. 2023,
             <em>Environmental Research</em>) examined which demographic and residential factors went with higher PFAS levels in the blood of New Hanover County residents, in a population whose legacy PFAS levels exceeded national
             reference levels.
           `),
           grade: 'moderate',
           caveat: 'Cross-sectional analysis of a single cohort.',
-          sources: [source('Wilkie et al. 2023, Environmental Research (PMC)', 'https://pmc.ncbi.nlm.nih.gov/articles/PMC10591865/')]
+          sources: [source('Cuffney et al. 2023, Environmental Research (PMC)', 'https://pmc.ncbi.nlm.nih.gov/articles/PMC10591865/')]
         })
       ],
       participation: [],

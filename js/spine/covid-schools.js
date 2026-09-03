@@ -252,7 +252,7 @@ export default spineData({
             judgments parents made at the time.
           `),
           grade: 'moderate',
-          sources: [source('Singer et al. 2023', 'https://journals.sagepub.com/doi/10.1177/08959048231174881')]
+          sources: [source('Chalkbeat 2023 polling roundup', 'https://www.chalkbeat.org/2023/7/25/23806247/parents-schools-covid-anger-polling-satisfaction/')]
         })
       ]
     }),
@@ -450,13 +450,12 @@ export default spineData({
           evidence: [
             evidence({
               finding: paragraph(`
-                Evidence from other fields supports the mechanism. In a national US survey, perceived legitimacy of legal institutions predicted compliance and willing cooperation, with legitimacy playing “an important role in achieving such compliance”. In taxation, fair process raised acceptance of system changes that left the respondent worse off.
+                Evidence from other fields supports the mechanism. In a national US survey, perceived legitimacy of legal institutions predicted compliance and willing cooperation, with legitimacy playing “an important role in achieving such compliance”.
               `),
               grade: 'weak',
               quote: 'legitimacy - typically operationalized as the perceived obligation to obey and trust and confidence in the relevant institutions - plays an important role in achieving such compliance',
               sources: [
-                source('Tyler and Jackson 2013', 'https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2292517'),
-                source('Verboon and Goslinga 2018', 'https://www.sciencedirect.com/science/article/abs/pii/S1061951818301496')
+                source('Tyler and Jackson 2013', 'https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2292517')
               ]
             })
           ],

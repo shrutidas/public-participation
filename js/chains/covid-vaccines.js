@@ -907,7 +907,7 @@ const fair = chain({
           grade: 'moderate',
           sources: [
             source('HHS fact sheet', 'https://www.hhs.gov/sites/default/files/black-history-month-2022-fact-sheet.pdf'),
-            source('JAMA Network Open', 'https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2787869'),
+            source('JAMA Network Open', 'https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2787771'),
             source('BU School of Public Health summary', 'https://www.bu.edu/sph/news/articles/2022/health-centers-are-improving-covid-19-vaccine-equity-among-people-of-color')
           ]
         })

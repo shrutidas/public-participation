@@ -274,7 +274,7 @@ export default spineData({
           grade: 'strong',
           quote: 'PFOA levels decreased in all study participants from Arnsberg',
           sources: [
-            source('Brede et al. 2010', 'https://tera.org/Alliance%20for%20Risk/Workshop%20Xll/CaseSummaryPFOA.pdf')
+            source('TERA workshop summary of Brede et al. 2010', 'https://tera.org/Alliance%20for%20Risk/Workshop%20Xll/CaseSummaryPFOA.pdf')
           ]
         })
       ]
@@ -368,8 +368,8 @@ export default spineData({
           `),
           grade: 'strong',
           sources: [
-            source('WUNC', 'https://www.wunc.org/environment/2025-06-09/chemours-genx-cape-fear-river-pollution-pfas-wilmington'),
-            source('Port City Daily', 'https://portcitydaily.com/local-news/2022/06/24/brunswick-officials-celebrate-low-pfas-in-water-typically-achieved-through-reverse-osmosis/')
+            source('WUNC', 'https://www.wunc.org/politics/2025-04-17/wilmington-ted-davis-chemours-pfas-cape-fear'),
+            source('Port City Daily', 'https://portcitydaily.com/local-news/2022/10/11/cfpua-reports-pfas-free-water-with-new-filtration-system-online/')
           ]
         })
       ]
