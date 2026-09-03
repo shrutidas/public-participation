@@ -524,29 +524,12 @@ function impactDetail(spine, i) {
   </div>`;
 }
 
-function compHtml(list) {
-  if (!list?.length) return '';
-  const items = list.map(c => `
-    <li class="sp-comp">
-      <div class="pa-hd"><span class="pa-name">${c.name}</span></div>
-      <div class="pa-desc">${c.outcome}</div>
-      <div class="pa-loc"><strong>Location:</strong> ${c.where} (${c.when})</div>
-      ${c.srcs?.length ? `<div class="ev-srcs">${srcHtml(c.srcs)}</div>` : ''}
-    </li>`).join('');
-  return `<div class="ln-sec ln-sec-comp"><h4>Comparable Cases</h4><ul class="pa-list">${items}</ul></div>`;
-}
-
 function propCompDetail(spine, i, k) {
   const p = spine.proposals[i];
   const c = k == null ? null : (p.comparables ?? [])[k];
-  if (!c) {
-    return `<div class="cd">
-      <button class="cd-back" data-back="prop">&larr; ${attr(p.name)}</button>
-      <div class="cd-kick cd-kick-prop">Proposed Public Participation</div>
-      <div class="cd-head"><span class="cd-id">${p.name}</span></div>
-      ${compHtml(p.comparables)}
-    </div>`;
-  }
+  // Comparables show only one at a time, from their own box; a bare list
+  // route falls back to the proposal itself.
+  if (!c) return propDetail(spine, i);
   return `<div class="cd">
     <button class="cd-back" data-back="prop">&larr; ${attr(p.name)}</button>
     <div class="cd-kick cd-kick-comp">Comparable Case</div>
