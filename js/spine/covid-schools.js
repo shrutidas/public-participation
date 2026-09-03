@@ -174,8 +174,8 @@ export default spineData({
         }),
         evidence({
           finding: paragraph(`
-            NCES enrollment series: <strong>50.8 million (fall 2019) to 49.4
-            million (fall 2020)</strong>, then 49.4 to 49.6 million through 2022.
+            NCES enrollment series: 50.8 million (fall 2019) to 49.4
+            million (fall 2020), then 49.4 to 49.6 million through 2022.
           `),
           grade: 'strong',
           sources: [source('National Center for Education Statistics', 'https://nces.ed.gov/programs/coe/indicator/cga/public-school-enrollment')]
@@ -204,7 +204,7 @@ export default spineData({
       evidence: [
         evidence({
           finding: paragraph(`
-            RAND's 2025 district survey and AEI's 2026 tracking report both find chronic absence <strong>still elevated in 2024-25</strong>: roughly 22 percent of students, against about 15 percent before the pandemic.
+            RAND's 2025 district survey and AEI's 2026 tracking report both find chronic absence still elevated in 2024-25: roughly 22 percent of students, against about 15 percent before the pandemic.
           `),
           grade: 'moderate',
           sources: [
@@ -214,7 +214,7 @@ export default spineData({
         }),
         evidence({
           finding: paragraph(`
-            Singer finds <strong>the longer a district stayed remote, the worse its students' attendance afterward</strong>: no significant attendance decline after 1-3 months of remote-only instruction, meaningful declines after 4 or more months, and the largest after 7-9 months.
+            Singer finds the longer a district stayed remote, the worse its students' attendance afterward: no significant attendance decline after 1-3 months of remote-only instruction, meaningful declines after 4 or more months, and the largest after 7-9 months. Remote learning in 2020-21 “led to persistent declines in post-pandemic attendance, with generally larger negative effects for students exposed to longer periods of remote learning”.
           `),
           grade: 'moderate',
           quote: 'remote learning in 2020-21 led to persistent declines in post-pandemic attendance, with generally larger negative effects for students exposed to longer periods of remote learning',
@@ -224,9 +224,7 @@ export default spineData({
         }),
         evidence({
           finding: paragraph(`
-            The UChicago Consortium finds teacher-reported parent relationships
-            significantly related to school absence rates, <strong>stronger
-            after the pandemic than before</strong>.
+            The UChicago Consortium finds teachers' reports of their relationships with parents “significantly related to absence rates in their school in both middle grades and high schools”, and the relationship was “even stronger in post-pandemic years than before the pandemic”.
           `),
           grade: 'moderate',
           quote: 'Teachers\' reports of their relationships with parents were also significantly related to absence rates in their school in both middle grades and high schools. [...] even stronger in post-pandemic years than before the pandemic.',
@@ -238,7 +236,7 @@ export default spineData({
       counterEvidence: [
         evidence({
           finding: paragraph(`
-            One quarter of surveyed youth <strong>said missing three weeks of school is mostly OK</strong>, which points toward indifference, not lost trust, as a competing explanation.
+            One quarter of surveyed youth said missing three weeks of school is mostly OK, which points toward indifference, not lost trust, as a competing explanation.
           `),
           grade: 'moderate',
           sources: [source('RAND Corporation', 'https://www.rand.org/pubs/research_reports/RRA956-34.html')]
@@ -278,8 +276,8 @@ export default spineData({
         evidence({
           finding: paragraph(`
             Parents were typically supportive of how their schools handled the
-            pandemic in 2020-21, and <strong>PDK local school grades did not fall
-            through 2022</strong>. The damage appears in partisan, systemic measures with a lag,
+            pandemic in 2020-21, and PDK local school grades did not fall
+            through 2022. The damage appears in partisan, systemic measures with a lag,
             not in contemporaneous parent judgments.
           `),
           grade: 'moderate',
@@ -307,7 +305,7 @@ export default spineData({
         evidence({
           finding: paragraph(`
             Goldhaber et al. (2022) and Jack et al. (2023) tie remote and hybrid
-            mode to <strong>larger achievement declines</strong> across states
+            mode to larger achievement declines across states
             and districts.
           `),
           grade: 'strong',
@@ -318,8 +316,8 @@ export default spineData({
         }),
         evidence({
           finding: paragraph(`
-            Sweden kept primary schools open and saw <strong>no learning loss
-            across 97,073 students in grades 1-3</strong>, and even “students
+            Sweden kept primary schools open and saw no learning loss
+            across 97,073 students in grades 1-3, and even “students
             from low socio-economic backgrounds were not especially
             affected”.
           `),
@@ -332,8 +330,8 @@ export default spineData({
         evidence({
           finding: paragraph(`
             NAEP long-term trend age-9 scores fell 5 points in reading and 7 in
-            mathematics from 2020 to 2022, <strong>the first mathematics decline
-            in the series</strong>.
+            mathematics from 2020 to 2022, the first mathematics decline
+            in the series.
           `),
           grade: 'strong',
           sources: [
@@ -344,10 +342,7 @@ export default spineData({
       counterEvidence: [
         evidence({
           finding: paragraph(`
-            Education Recovery Scorecard data through 2025, reported by the New
-            York Times and reposted by Harvard CEPR, show scores stopped
-            climbing in the mid-2010s, with <strong>reading losses from 2017 to
-            2019 matching the pandemic-era losses</strong>. Part of the post-2020 gap reflects a longer decline rather than closure policy; the studies tying remote instruction to larger losses compare districts over the same period, so the earlier decline does not weaken them.
+            Education Recovery Scorecard data through 2025, reported by the New York Times and reposted by Harvard CEPR, show scores stopped climbing in the mid-2010s, with reading losses from 2017 to 2019 matching the pandemic-era losses: “From 2017 to 2019, students lost as much ground in reading as they did during the pandemic”. Part of the post-2020 gap reflects a longer decline rather than closure policy; the studies tying remote instruction to larger losses compare districts over the same period, so the earlier decline does not weaken them.
           `),
           grade: 'moderate',
           quote: 'From 2017 to 2019, students lost as much ground in reading as they did during the pandemic',
@@ -392,9 +387,7 @@ export default spineData({
           evidence: [
             evidence({
               finding: paragraph(`
-                The Ada Lovelace Institute ran rapid online deliberation with 28
-                members of the public on COVID-19 exit strategies <strong>during
-                May 2020, while the UK was in lockdown</strong>.
+                The Ada Lovelace Institute “conducted rapid, online deliberation with 28 members of the public on COVID-19 exit strategies” during May 2020, while the UK was in lockdown.
               `),
               grade: 'moderate',
               quote: 'conducted rapid, online deliberation with 28 members of the public on COVID-19 exit strategies',
@@ -405,7 +398,7 @@ export default spineData({
             evidence({
               finding: paragraph(`
                 Comparable assemblies took far longer: the Irish assembly deliberated
-                <strong>five sessions over six months</strong>; the French climate convention ran
+                five sessions over six months; the French climate convention ran
                 nine months; the OECD stocktake of nearly 300 processes describes
                 convenings of at least one full day and often much longer.
               `),
@@ -425,11 +418,7 @@ export default spineData({
           evidence: [
             evidence({
               finding: paragraph(`
-                A 48-village randomized experiment in Indonesia compared binding
-                plebiscites against representative meetings for choosing local
-                projects: the binding format <strong>raised satisfaction, perceived
-                legitimacy, and willingness to contribute</strong>, even though the
-                chosen projects barely changed.
+                A 48-village randomized experiment in Indonesia compared binding plebiscites against representative meetings for choosing local projects: the binding format raised satisfaction, perceived legitimacy, and willingness to contribute, even though the chosen projects barely changed. “Plebiscites resulted in dramatically higher satisfaction among villagers, increased knowledge about the project, greater perceived benefits, and higher reported willingness to contribute”.
               `),
               grade: 'moderate',
               quote: 'Plebiscites resulted in dramatically higher satisfaction among villagers, increased knowledge about the project, greater perceived benefits, and higher reported willingness to contribute',
@@ -437,10 +426,7 @@ export default spineData({
             }),
             evidence({
               finding: paragraph(`
-                Brazilian municipalities that gave citizens binding budget
-                authority shifted spending toward health and sanitation and <strong>cut
-                infant mortality by 1 to 2 per 1,000</strong>, the strongest measured
-                case of citizen participation with force behind it.
+                Brazilian municipalities that gave citizens binding budget authority shifted spending toward health and sanitation and “registered a significant drop in infant mortality of between 1 and 2 infants for every 1,000 resident infants”, the strongest measured case of citizen participation with force behind it.
               `),
               grade: 'moderate',
               quote: 'municipalities that adopted participatory budgeting registered a significant drop in infant mortality of between 1 and 2 infants for every 1,000 resident infants',
@@ -452,8 +438,8 @@ export default spineData({
               finding: paragraph(`
                 The nearest binding-adjacent pledge eroded under pressure: France's
                 president promised to implement 146 of 149 convention proposals;
-                the parliamentary bill <strong>incorporated an estimated
-                40%</strong>, and members
+                the parliamentary bill incorporated an estimated
+                40%, and members
                 rated government follow-through 3.3 out of 10.
               `),
               grade: 'moderate',
@@ -471,12 +457,7 @@ export default spineData({
           evidence: [
             evidence({
               finding: paragraph(`
-                Germann, Marien, and Muradova (Political Studies 2024; survey
-                experiment, N=1,309) find fairness perceptions <strong>rose 0.7
-                points, 27% of a standard deviation</strong>, though the gains are
-                “largely limited to situations in which their recommendations are
-                honored”. Collins (APSR 2021) finds exposure to deliberative
-                school board meetings raised trust in local officials.
+                Germann, Marien, and Muradova (Political Studies 2024; survey experiment, N=1,309) find fairness perceptions rose 0.7 points, 27% of a standard deviation: “Mini-publics increase legitimacy perceptions among the broader citizenry; however, these beneficial effects are largely limited to situations in which their recommendations are honored.” Collins (APSR 2021) finds exposure to deliberative school board meetings raised trust in local officials.
               `),
               grade: 'moderate',
               quote: 'Mini-publics increase legitimacy perceptions among the broader citizenry; however, these beneficial effects are largely limited to situations in which their recommendations are honored.',
@@ -489,8 +470,8 @@ export default spineData({
           counterEvidence: [
             evidence({
               finding: paragraph(`
-                In the same experiment the acceptance effect <strong>became insignificant
-                when recommendations were rejected</strong>, and referendums outperformed
+                In the same experiment the acceptance effect became insignificant
+                when recommendations were rejected, and referendums outperformed
                 mini-publics on both fairness and acceptance.
               `),
               grade: 'moderate',
@@ -511,10 +492,7 @@ export default spineData({
           evidence: [
             evidence({
               finding: paragraph(`
-                Evidence from other fields supports the mechanism: in a national US survey, perceived legitimacy of legal institutions <strong>predicted
-                compliance and willing cooperation</strong>, and in taxation, fair
-                process raised acceptance of personally disadvantageous
-                systemic changes.
+                Evidence from other fields supports the mechanism: in a national US survey, perceived legitimacy of legal institutions predicted compliance and willing cooperation, with legitimacy playing “an important role in achieving such compliance”; in taxation, fair process raised acceptance of personally disadvantageous systemic changes.
               `),
               grade: 'weak',
               quote: 'legitimacy - typically operationalized as the perceived obligation to obey and trust and confidence in the relevant institutions - plays an important role in achieving such compliance',
@@ -627,7 +605,7 @@ export default spineData({
               finding: paragraph(`
                 The one measured experts-with-public result: in the Irish
                 assembly, coding of 3,981 speech acts found experts communicated
-                with <strong>higher cognitive complexity</strong> to a citizen
+                with higher cognitive complexity to a citizen
                 assembly than to a parliamentary committee, and that assembly
                 members “demonstrate a deeper cognitively complex grasp of the
                 subject matter”. The study measures how experts explain, not what schools decide, and it comes from a different policy area than reopening.
@@ -672,8 +650,8 @@ export default spineData({
             evidence({
               finding: paragraph(`
                 Israel reopened in May 2020, lifted class-size limits two weeks
-                later, and <strong>closed schools by June 3 after 2,026 students and
-                staff tested positive</strong>. Mitigation quality, not the fact of reopening, carried
+                later, and closed schools by June 3 after 2,026 students and
+                staff tested positive. Mitigation quality, not the fact of reopening, carried
                 the risk. Sweden's open schools doubled teacher infection risk.
               `),
               grade: 'moderate',
@@ -693,8 +671,8 @@ export default spineData({
               finding: paragraph(`
                 A randomized experiment with 2,150 Brazilian municipalities
                 found mayors update on research findings: informing them about
-                an effective policy <strong>raised adoption by 10 percentage
-                points</strong>.
+                an effective policy raised adoption by 10 percentage
+                points.
               `),
               grade: 'moderate',
               sources: [
@@ -703,10 +681,7 @@ export default spineData({
             }),
             evidence({
               finding: paragraph(`
-                In this case, test-to-stay evidence preceded CDC's December 2021
-                endorsement of the less restrictive option: a 1.5 percent
-                secondary attack rate, and <strong>up to 8,152 in-person days
-                saved in one district</strong>.
+                In this case, test-to-stay evidence preceded CDC's December 2021 endorsement of the less restrictive option: a 1.5 percent secondary attack rate, and “up to 8,152 in-person learning days were saved among TTS participants” in one district.
               `),
               grade: 'moderate',
               quote: 'up to 8,152 in-person learning days were saved among TTS participants',
@@ -718,8 +693,7 @@ export default spineData({
           counterEvidence: [
             evidence({
               finding: paragraph(`
-                Across more than 10,000 districts, reopening decisions did not
-                track risk information. Going from a 40 percent to a 60 percent Trump-vote district <strong>shifted the chance of remote instruction by 17 percentage points</strong>, while the local case rate had almost no effect.
+                Across more than 10,000 districts, reopening decisions did not track risk information. Going from a 40 percent to a 60 percent Trump-vote district shifted the chance of remote instruction by 17 percentage points, while the local case rate had almost no effect: “The COVID case rate, while statistically significant, is substantively trivial in its effect on a district's course of action”.
               `),
               grade: 'strong',
               quote: 'The COVID case rate, while statistically significant, is substantively trivial in its effect on a district\'s course of action',
@@ -740,8 +714,8 @@ export default spineData({
           evidence: [
             evidence({
               finding: paragraph(`
-                Sweden kept primary schools open and saw <strong>no learning loss
-                across 97,073 students in grades 1-3</strong>, and even “students
+                Sweden kept primary schools open and saw no learning loss
+                across 97,073 students in grades 1-3, and even “students
                 from low socio-economic backgrounds were not especially
                 affected”.
               `),
@@ -754,8 +728,8 @@ export default spineData({
             evidence({
               finding: paragraph(`
                 US districts that offered remote-only instead of in-person
-                instruction in 2020-21 saw <strong>1.1 percentage points of extra
-                disenrollment</strong>, “a 42 percent increase in disenrollment
+                instruction in 2020-21 saw 1.1 percentage points of extra
+                disenrollment, “a 42 percent increase in disenrollment
                 from -2.6 to -3.7 percent”.
               `),
               grade: 'strong',
@@ -858,8 +832,8 @@ export default spineData({
           evidence: [
             evidence({
               finding: paragraph(`
-                Directly observed: fall 2020 produced <strong>24% fully online, 51%
-                hybrid, 17% in-person</strong>. Districts already decided locally, so the proposal cannot claim this variation as its own contribution.
+                Directly observed: fall 2020 produced 24% fully online, 51%
+                hybrid, 17% in-person. Districts already decided locally, so the proposal cannot claim this variation as its own contribution.
               `),
               grade: 'strong',
               sources: [source('Honein et al. 2021', 'https://pmc.ncbi.nlm.nih.gov/articles/PMC8938683')]
@@ -876,7 +850,7 @@ export default spineData({
           evidence: [
             evidence({
               finding: paragraph(`
-                After Bolivia handed budget power to municipalities in 1994, local investment <strong>shifted toward the services each place measurably lacked</strong>, most strongly in education, water, and sanitation.
+                After Bolivia handed budget power to municipalities in 1994, local investment shifted toward the services each place measurably lacked, most strongly in education, water, and sanitation; the authors find “these changes are strongly and positively related to objective indicators of need”.
               `),
               grade: 'weak',
               quote: 'These changes are strongly and positively related to objective indicators of need',
@@ -887,8 +861,8 @@ export default spineData({
             evidence({
               finding: paragraph(`
                 In the America in One Room field experiment, structured
-                deliberation produced <strong>large depolarizing changes in
-                policy attitudes</strong>. No study combines decentralized
+                deliberation produced large depolarizing changes in
+                policy attitudes. No study combines decentralized
                 authority with structured deliberation in a crisis decision.
               `),
               grade: 'weak',
@@ -900,10 +874,7 @@ export default spineData({
           counterEvidence: [
             evidence({
               finding: paragraph(`
-                This is the link that failed in the observed decentralization.
-                Across 10,000+ districts, decisions <strong>tracked partisanship and union
-                strength, not severity</strong>; whether adding a deliberative resolution
-                step changes this is unstudied.
+                This is the link that failed in the observed decentralization. Across 10,000+ districts, “decisions were more tied to local political partisanship and union strength than to COVID-19 severity”; whether adding a deliberative resolution step changes this is unstudied.
               `),
               grade: 'strong',
               quote: 'decisions were more tied to local political partisanship and union strength than to COVID-19 severity',
@@ -924,7 +895,7 @@ export default spineData({
           evidence: [
             evidence({
               finding: paragraph(`
-                The variation did generate knowledge: every study measuring what remote instruction cost relies on districts having chosen differently. But the learning <strong>arrived in publications in 2021-2023</strong>, years after the decisions it could have informed.
+                The variation did generate knowledge: every study measuring what remote instruction cost relies on districts having chosen differently. But the learning arrived in publications in 2021-2023, years after the decisions it could have informed.
               `),
               grade: 'moderate',
               sources: [source('Dee et al. 2021', 'https://www.nber.org/papers/w29156')]
@@ -953,10 +924,7 @@ export default spineData({
           evidence: [
             evidence({
               finding: paragraph(`
-                Sweden kept schools through grade 9 open with limited consequences
-                for overall transmission and no learning loss in grades 1-3;
-                <strong>Denmark reopened in April 2020 with no case
-                increase</strong>.
+                Sweden kept schools through grade 9 open, which had “limited consequences for the overall transmission of the virus” and no learning loss in grades 1-3; Denmark reopened in April 2020 with no case increase.
               `),
               grade: 'moderate',
               quote: 'keeping the former open had limited consequences for the overall transmission of the virus',
@@ -968,7 +936,7 @@ export default spineData({
               finding: paragraph(`
                 In Sweden, upper-secondary schools moved online in spring 2020
                 while lower-secondary schools stayed open, and open schools
-                <strong>doubled teacher infection risk</strong>: “the infection
+                doubled teacher infection risk: “the infection
                 rate doubled among lower-secondary teachers relative to
                 upper-secondary ones” (7th most affected of 124 occupations),
                 with partner risk up 30%.
@@ -1074,7 +1042,7 @@ export default spineData({
             evidence({
               finding: paragraph(`
                 A small grant-funded team assembled school-level mode data for
-                <strong>over 55,000 schools in 30 states</strong>, demonstrating
+                over 55,000 schools in 30 states, demonstrating
                 feasibility, 18 months late; until then, as the project put it,
                 “We have federal data on school operations for only the largest
                 districts in the country”.
@@ -1118,8 +1086,8 @@ export default spineData({
           evidence: [
             evidence({
               finding: paragraph(`
-                How the same facts were presented moved opinion: Biden voters' support for in-person schooling was 43% when shown alarming case counts and 60% when shown pediatricians' endorsement of reopening, <strong>a 17-point
-                swing</strong>.
+                How the same facts were presented moved opinion: Biden voters' support for in-person schooling was 43% when shown alarming case counts and 60% when shown pediatricians' endorsement of reopening, a 17-point
+                swing.
               `),
               grade: 'moderate',
               quote: 'a 17-point swing',
@@ -1129,8 +1097,8 @@ export default spineData({
           counterEvidence: [
             evidence({
               finding: paragraph(`
-                Misperception persisted despite ubiquitous public data: <strong>only 18% of US adults correctly estimated
-                hospitalization rates</strong>, and
+                Misperception persisted despite ubiquitous public data: only 18% of US adults correctly estimated
+                hospitalization rates, and
                 partisan risk perception diverged through a period of maximal data
                 availability.
               `),
@@ -1149,7 +1117,7 @@ export default spineData({
           evidence: [
             evidence({
               finding: paragraph(`
-                Research on whether transparency builds trust supports only a conditional version of this link: a systematic review of 187 studies finds <strong>mixed, context-dependent effects</strong>, and an experiment found transparency raised perceived trustworthiness only for some groups of citizens.
+                Research on whether transparency builds trust supports only a conditional version of this link: a systematic review of 187 studies finds mixed, context-dependent effects, and an experiment found transparency raised perceived trustworthiness only for some groups of citizens.
               `),
               grade: 'weak',
               sources: [
@@ -1242,11 +1210,7 @@ export default spineData({
           evidence: [
             evidence({
               finding: paragraph(`
-                Chicago Local School Councils: elected parent-majority councils at
-                500+ schools hire principals on performance contracts, set
-                improvement priorities, and determine budgets; research found <strong>most
-                are viable governance organizations</strong>, with 10-15% showing serious
-                shortcomings.
+                Chicago Local School Councils: elected parent-majority councils at 500+ schools hire principals on performance contracts, set improvement priorities, and determine budgets; research found “most LSCs are viable governance organizations that responsibly complete their mandated duties”, with 10-15% showing serious shortcomings.
               `),
               grade: 'moderate',
               quote: 'Most LSCs are viable governance organizations that responsibly complete their mandated duties',
@@ -1254,12 +1218,7 @@ export default spineData({
             }),
             evidence({
               finding: paragraph(`
-                The councils' highest-profile pandemic-era decision has now been
-                evaluated: Chicago Public Schools handed the 2020
-                police-in-schools decision to each school's council, and schools
-                that voted to remove officers saw <strong>no detrimental changes
-                in student disciplinary outcomes or perceptions of school
-                climate</strong>.
+                The councils' highest-profile pandemic-era decision has now been evaluated: Chicago Public Schools handed the 2020 police-in-schools decision to each school's council, and schools that voted to remove officers “removed SROs without detrimental changes in student disciplinary outcomes or perceptions of school climate”.
               `),
               grade: 'moderate',
               quote: 'Schools removed SROs without detrimental changes in student disciplinary outcomes or perceptions of school climate.',
@@ -1271,10 +1230,7 @@ export default spineData({
           counterEvidence: [
             evidence({
               finding: paragraph(`
-                Capacity strain is documented: when Chicago delegated the 2020
-                police vote, <strong>more than a fifth of the 72 schools with
-                officers lacked a council able to form a quorum</strong>, and
-                1,400 council seats sat empty after the 2022 elections.
+                Capacity strain is documented: when Chicago delegated the 2020 police vote, “more than a fifth of the 72 schools with police officers assigned to them either don't have LSCs at all or don't have enough members to form a quorum”, and 1,400 council seats sat empty after the 2022 elections.
               `),
               grade: 'moderate',
               quote: 'More than a fifth of the 72 schools with police officers assigned to them either don\'t have LSCs at all or don\'t have enough members to form a quorum',
@@ -1294,11 +1250,7 @@ export default spineData({
           evidence: [
             evidence({
               finding: paragraph(`
-                NYC participatory budgeting <strong>raised subsequent voting probability
-                8.4 points</strong>, most for underrepresented groups; Brazilian
-                participatory budgeting shifted spending to sanitation and health
-                with a reduction in infant mortality, across two independent
-                research teams.
+                NYC participatory budgeting “increased individuals' probability of voting by an average of 8.4 percentage points”, most for underrepresented groups; Brazilian participatory budgeting shifted spending to sanitation and health with a reduction in infant mortality, across two independent research teams.
               `),
               grade: 'moderate',
               quote: 'engaging with participatory budgeting increased individuals\' probability of voting by an average of 8.4 percentage points',
@@ -1311,11 +1263,7 @@ export default spineData({
           counterEvidence: [
             evidence({
               finding: paragraph(`
-                A preregistered experiment on civilian police review boards
-                (N=2,503) found no significant evidence that a standing oversight
-                body without binding authority raises perceived legitimacy, and
-                <strong>perceived legitimacy fell when the citizen body visibly
-                disagreed</strong> with the institution.
+                A preregistered experiment on civilian police review boards (N=2,503) found “no statistically significant evidence that the presence of a CRB increases aggregate perceptions of procedural legitimacy”, and perceived legitimacy fell when the citizen body visibly disagreed with the institution.
               `),
               grade: 'strong',
               quote: 'no statistically significant evidence that the presence of a CRB increases aggregate perceptions of procedural legitimacy',
@@ -1332,10 +1280,7 @@ export default spineData({
           evidence: [
             evidence({
               finding: paragraph(`
-                The clearest causal case runs in reverse: the 1972 Tuskegee
-                disclosure raised medical mistrust among older Black men and
-                cut physician visits, with <strong>life expectancy at 45
-                falling by up to 1.5 years</strong>.
+                The clearest causal case runs in reverse: the 1972 Tuskegee disclosure raised medical mistrust among older Black men and cut physician visits, and “life expectancy at age 45 for black men fell by up to 1.5 years in response to the disclosure”.
               `),
               grade: 'weak',
               quote: 'life expectancy at age 45 for black men fell by up to 1.5 years in response to the disclosure',
@@ -1345,8 +1290,8 @@ export default spineData({
             }),
             evidence({
               finding: paragraph(`
-                In schools, pandemic exit <strong>tracked the district's
-                instructional decision</strong>: families left the districts
+                In schools, pandemic exit tracked the district's
+                instructional decision: families left the districts
                 that stayed remote.
               `),
               grade: 'weak',
@@ -1358,7 +1303,7 @@ export default spineData({
           counterEvidence: [
             evidence({
               finding: paragraph(`
-                Absence is <strong>elevated even among children born after the closures</strong>, which suggests a broad shift in attendance norms that rebuilding trust in a single district may not reach.
+                Absence is elevated even among children born after the closures, which suggests a broad shift in attendance norms that rebuilding trust in a single district may not reach.
               `),
               grade: 'moderate',
               sources: [source('American Enterprise Institute', 'https://www.aei.org/research-products/report/from-attendance-crisis-to-chronic-condition-tracking-post-pandemic-chronic-absenteeism-into-2025/')]
@@ -1376,12 +1321,7 @@ export default spineData({
           evidence: [
             evidence({
               finding: paragraph(`
-                After the University of Michigan health system began proactive
-                disclosure with offers of resolution, new claims and lawsuits
-                per month fell and <strong>legal defense spending dropped 61
-                percent</strong>, a
-                measured case of upstream engagement displacing litigation, in
-                medicine rather than school governance.
+                After the University of Michigan health system began proactive disclosure with offers of resolution, new claims and lawsuits per month fell, with “a 61 percent decrease in spending at the UMHS on legal defense costs”, a measured case of upstream engagement displacing litigation, in medicine rather than school governance.
               `),
               grade: 'moderate',
               quote: 'a 61 percent decrease in spending at the UMHS on legal defense costs',
@@ -1392,8 +1332,8 @@ export default spineData({
             evidence({
               finding: paragraph(`
                 The adversarial surge is documented (84 recall efforts, the
-                litigation wave, <strong>the participation shift from 6% to
-                49%</strong>), but no
+                litigation wave, the participation shift from 6% to
+                49%), but no
                 study tests whether districts with stronger upstream channels saw
                 less of it.
               `),

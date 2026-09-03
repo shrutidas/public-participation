@@ -622,7 +622,6 @@ function propEvDetail(spine, i, li, k, kind) {
     <div class="cd-head"><span class="cd-id">${title}</span></div>
     <p class="cd-claim sp-hintline">${counter ? 'Contests' : 'Supports'}: ${lk.name}</p>
     <p class="cd-claim">${ev.finding}</p>
-    ${ev.quote ? `<blockquote class="ev-quote">${ev.quote}</blockquote>` : ''}
     ${ev.caveat ? `<div class="ev-caveat">Caveat: ${ev.caveat}</div>` : ''}
     <div class="ev-srcs">${srcHtml(ev.srcs)}</div>
   </div>`;

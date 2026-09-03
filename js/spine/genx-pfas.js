@@ -171,7 +171,7 @@ export default spineData({
         evidence({
           finding: paragraph(`
             Sun et al. (2016) quantified GenX in finished drinking water and
-            showed <strong>conventional treatment did not remove it</strong>.
+            showed conventional treatment did not remove it.
           `),
           grade: 'strong',
           sources: [source('Sun et al. 2016', 'https://pubs.acs.org/doi/10.1021/acs.estlett.6b00398')]
@@ -203,8 +203,8 @@ export default spineData({
         evidence({
           finding: paragraph(`
             Kotlarz et al. (2020) measured PFAS in blood from the GenX Exposure
-            Study cohort: samples stored from 2010 to 2016 showed <strong>PFMOAA
-            medians of 42 ng/mL</strong>.
+            Study cohort: samples stored from 2010 to 2016 showed PFMOAA
+            medians of 42 ng/mL.
           `),
           grade: 'strong',
           sources: [
@@ -213,9 +213,7 @@ export default spineData({
         }),
         evidence({
           finding: paragraph(`
-            After exposure ended in Arnsberg, Germany, PFOA levels in residents' blood <strong>fell by half about every 3.26 years</strong>, which supports every
-            chain's claim that an earlier cutoff would have lowered blood
-            levels.
+            After exposure ended in Arnsberg, Germany, “PFOA levels decreased in all study participants”, falling by half about every 3.26 years, which supports every chain's claim that an earlier cutoff would have lowered blood levels.
           `),
           grade: 'strong',
           quote: 'PFOA levels decreased in all study participants from Arnsberg',
@@ -252,10 +250,7 @@ export default spineData({
       evidence: [
         evidence({
           finding: paragraph(`
-            Rosen et al. (2022) measured lipids in 326 GenX Exposure Study
-            participants ages 6 to 86: PFOS and PFNA were associated with
-            higher total and non-HDL cholesterol, <strong>about 5 to 6 mg/dL per
-            quartile</strong>, with the largest associations in older adults.
+            Rosen et al. (2022) measured lipids in 326 GenX Exposure Study participants ages 6 to 86: “PFNA and PFOS were associated with higher levels of total and non-HDL cholesterol, with associations larger in magnitude among older adults”, about 5 to 6 mg/dL per quartile.
           `),
           grade: 'moderate',
           quote: 'PFNA and PFOS were associated with higher levels of total and non-HDL cholesterol, with associations larger in magnitude among older adults',
@@ -263,11 +258,7 @@ export default spineData({
         }),
         evidence({
           finding: paragraph(`
-            The C8 Science Panel, working from blood samples and health data on
-            about 69,000 PFOA-exposed residents, found <strong>probable links to six
-            conditions including kidney and testicular cancer</strong>; IARC classified
-            PFOA carcinogenic to humans in 2023, with limited human evidence
-            for renal cell and testicular cancer.
+            The C8 Science Panel, working from blood samples and health data on about 69,000 PFOA-exposed residents, found probable links to six conditions including kidney and testicular cancer; IARC classified PFOA carcinogenic to humans in 2023, with “limited evidence for cancer in humans (renal cell carcinoma and testicular cancer)”.
           `),
           grade: 'strong',
           quote: 'limited evidence for cancer in humans (renal cell carcinoma and testicular cancer)',
@@ -278,10 +269,7 @@ export default spineData({
         }),
         evidence({
           finding: paragraph(`
-            The 2024 GenX Exposure Study report to participants applies the
-            National Academies' screening thresholds: 97 percent of
-            participants sat above 2 ng/mL summed PFAS and <strong>12 percent above 20
-            ng/mL</strong>, the level at which medical monitoring is recommended.
+            The 2024 GenX Exposure Study report to participants applies the National Academies' screening thresholds, since “the NASEM published recommendations for medical monitoring of PFAS-exposed people based on the total (sum) concentration of 7 specific PFAS in blood”: 97 percent of participants sat above 2 ng/mL summed PFAS and 12 percent above 20 ng/mL, the level at which medical monitoring is recommended.
           `),
           grade: 'moderate',
           quote: 'the NASEM published recommendations for medical monitoring of PFAS-exposed people based on the total (sum) concentration of 7 specific PFAS in blood',
@@ -291,11 +279,7 @@ export default spineData({
       counterEvidence: [
         evidence({
           finding: paragraph(`
-            <strong>No human disease study of GenX exists</strong>: EPA's toxicity
-            assessment rests on animal studies, with the liver as the primary
-            target organ, and the cohort's cholesterol associations track
-            legacy PFAS rather than fluoroethers, two of which were associated
-            with higher HDL.
+            No human disease study of GenX exists: EPA's toxicity assessment rests on animal studies, in which “the liver is the primary target organ for toxicity from oral exposure”, and the cohort's cholesterol associations track legacy PFAS rather than fluoroethers, two of which were associated with higher HDL.
           `),
           grade: 'moderate',
           quote: 'the liver is the primary target organ for toxicity from oral exposure',
@@ -322,7 +306,7 @@ export default spineData({
       evidence: [
         evidence({
           finding: paragraph(`
-            News reporting at the time documented the bills and who paid them: <strong>$82.8 million at CFPUA, funded through an 8 percent customer rate increase, and $158.7 million in Brunswick County</strong>.
+            News reporting at the time documented the bills and who paid them: $82.8 million at CFPUA, funded through an 8 percent customer rate increase, and $158.7 million in Brunswick County.
           `),
           grade: 'strong',
           sources: [
@@ -354,7 +338,7 @@ export default spineData({
       evidence: [
         evidence({
           finding: paragraph(`
-            The consent order and state enforcement records document the terms and the results: <strong>a $12 million penalty and 99 percent discharge reductions</strong>.
+            The consent order and state enforcement records document the terms and the results: a $12 million penalty and 99 percent discharge reductions.
           `),
           grade: 'strong',
           sources: [source('Consent Order', 'https://capefearriverwatch.org/wp-content/uploads/2020/07/Consent-Order-file-stamped-and-fully-executed-b-w-.pdf')]
@@ -383,8 +367,8 @@ export default spineData({
       evidence: [
         evidence({
           finding: paragraph(`
-            The federal government <strong>rescinded regulatory determinations for four
-            PFAS substances</strong> in a May 2026 Federal Register notice; NC House Bill
+            The federal government rescinded regulatory determinations for four
+            PFAS substances in a May 2026 Federal Register notice; NC House Bill
             569 passed the House 104 to 3 and stalled in the Senate.
           `),
           grade: 'strong',
@@ -429,7 +413,7 @@ export default spineData({
             evidence({
               finding: paragraph(`
                 Across all reported frauds at large US firms 1996 to 2004,
-                employees were the <strong>single largest detector class</strong>:
+                employees were the single largest detector class:
                 “Only 6% of the frauds are revealed by the SEC and 14% by the
                 auditors. More important monitors are media (14%), industry
                 regulators (16%), and employees (19%).”
@@ -442,8 +426,7 @@ export default spineData({
           counterEvidence: [
             evidence({
               finding: paragraph(`
-                Blowing the whistle usually costs an employee more than it gains them, so few report without strong protection; GAO found the existing OSHA
-                whistleblower program <strong>lacked sufficient internal controls</strong>.
+                Blowing the whistle usually costs an employee more than it gains them, so few report without strong protection; GAO found “OSHA lacks sufficient internal controls to ensure that the whistleblower program operates as intended”.
               `),
               grade: 'moderate',
               quote: 'OSHA lacks sufficient internal controls to ensure that the whistleblower program operates as intended',
@@ -461,10 +444,7 @@ export default spineData({
           evidence: [
             evidence({
               finding: paragraph(`
-                3M's 1998 disclosure letter triggered EPA's first sustained look
-                at PFAS in blood and a compliance audit collecting over 700
-                studies; firms targeted by an OSHA retaliation complaint showed
-                <strong>measurably fewer irregularities for at least two years</strong> after.
+                3M's 1998 disclosure letter triggered EPA's first sustained look at PFAS in blood and a compliance audit collecting over 700 studies; firms targeted by an OSHA retaliation complaint showed measurably fewer irregularities afterward, and “those deterrent effects lasted for at least two full years after the whistleblower lodged the complaint”.
               `),
               grade: 'moderate',
               quote: 'those deterrent effects lasted for at least two full years after the whistleblower lodged the complaint',
@@ -474,7 +454,7 @@ export default spineData({
           counterEvidence: [
             evidence({
               finding: paragraph(`
-                In this case the sanction arrived <strong>24 years after the earliest violation</strong> and set no enforceable limits on continued production; disclosure that reached only the agency might have sat for years, as the 2012 detection findings did.
+                In this case the sanction arrived 24 years after the earliest violation and set no enforceable limits on continued production; disclosure that reached only the agency might have sat for years, as the 2012 detection findings did.
               `),
               grade: 'moderate',
               sources: [source('US Environmental Protection Agency', 'https://www.epa.gov/archive/epapages/newsroom_archive/newsreleases/fdcb2f665cac66bb852570d7005d6665.html')]
@@ -493,7 +473,7 @@ export default spineData({
               finding: paragraph(`
                 Once information became public in June 2017, DEQ suspended the
                 discharge-authorizing permit provisions effective November 30,
-                2017, and the 2019 order produced <strong>99 percent reductions</strong>. When
+                2017, and the 2019 order produced 99 percent reductions. When
                 the information arrived, the response came fast.
               `),
               grade: 'moderate',
@@ -504,8 +484,8 @@ export default spineData({
             evidence({
               finding: paragraph(`
                 The demonstrated response ran on public and press knowledge, not
-                regulator knowledge alone: regulators <strong>held the 2016 findings
-                without acting</strong>.
+                regulator knowledge alone: regulators held the 2016 findings
+                without acting.
               `),
               grade: 'moderate',
               sources: [source('Coastal Review', 'https://coastalreview.org/2022/06/vaughn-hagerty-the-reporter-who-broke-the-genx-story/')]
@@ -524,8 +504,8 @@ export default spineData({
           evidence: [
             evidence({
               finding: paragraph(`
-                Median fluoroether levels in blood <strong>declined 34 to 65 percent
-                within six months</strong> of discharge controls; after exposure ends, PFOA levels in blood fall by half about every 3.26 years.
+                Median fluoroether levels in blood declined 34 to 65 percent
+                within six months of discharge controls; after exposure ends, PFOA levels in blood fall by half about every 3.26 years.
               `),
               grade: 'strong',
               sources: [source('Kotlarz et al. 2020', 'https://ehp.niehs.nih.gov/doi/10.1289/EHP6837')]
@@ -533,8 +513,8 @@ export default spineData({
             evidence({
               finding: paragraph(`
                 The disease link is measured for PFOA at population scale: the
-                C8 Science Panel found probable links to <strong>kidney and testicular
-                cancer among about 69,000 exposed residents</strong>, and the Wilmington
+                C8 Science Panel found probable links to kidney and testicular
+                cancer among about 69,000 exposed residents, and the Wilmington
                 cohort shows PFAS-associated higher cholesterol. GenX
                 has no human disease study.
               `),
@@ -629,8 +609,8 @@ export default spineData({
             evidence({
               finding: paragraph(`
                 Over 50,000 citizen complaints to the Texas environmental
-                regulator <strong>increased inspections and notices of
-                violation</strong> at the targeted facilities.
+                regulator increased inspections and notices of
+                violation at the targeted facilities.
               `),
               grade: 'moderate',
               sources: [
@@ -639,7 +619,7 @@ export default spineData({
             }),
             evidence({
               finding: paragraph(`
-                In Woburn, Massachusetts, parents counted the childhood leukemia cases in their neighborhood and pressed for an investigation; a Harvard study then confirmed children were developing leukemia at <strong>four times the expected rate</strong>, linked to two contaminated town wells.
+                In Woburn, Massachusetts, parents counted the childhood leukemia cases in their neighborhood and pressed for an investigation; a Harvard study then confirmed children were developing leukemia at four times the expected rate, linked to two contaminated town wells.
               `),
               grade: 'moderate',
               sources: [
@@ -648,7 +628,7 @@ export default spineData({
             }),
             evidence({
               finding: paragraph(`
-                Wilbur Tennant, a West Virginia farmer, videotaped his cattle sickening and dying near a DuPont landfill; his documentation became the lawsuit whose court files <strong>forced DuPont's hidden PFOA studies into the open</strong>.
+                Wilbur Tennant, a West Virginia farmer, videotaped his cattle sickening and dying near a DuPont landfill; his documentation became the lawsuit whose court files forced DuPont's hidden PFOA studies into the open.
               `),
               grade: 'moderate',
               sources: [
@@ -679,8 +659,8 @@ export default spineData({
           evidence: [
             evidence({
               finding: paragraph(`
-                Where residents sampled with a lab partner, they <strong>detected what
-                official monitoring missed</strong>: Flint residents collected water
+                Where residents sampled with a lab partner, they detected what
+                official monitoring missed: Flint residents collected water
                 samples from 269 homes with Virginia Tech running the analysis,
                 producing the dataset that exposed lead contamination official
                 sampling had not; the authors report the citizen datasets were
@@ -692,10 +672,7 @@ export default spineData({
             }),
             evidence({
               finding: paragraph(`
-                A community sensor network in Imperial County, California
-                identified <strong>1,426 fine-particle pollution episodes against 116
-                found by government monitors</strong>; half the community-detected
-                episodes never appeared in official data. The setting differs, air rather than water and sensors rather than symptoms, but the detection gain is measured.
+                A community sensor network in Imperial County, California identified 1,426 fine-particle pollution episodes against 116 found by government monitors: “Of the 1426 episodes identified by the community sensors, 723 (51%) were not observed by the government monitors”. The setting differs, air rather than water and sensors rather than symptoms, but the detection gain is measured.
               `),
               grade: 'moderate',
               quote: 'Of the 1426 episodes identified by the community sensors, 723 (51%) were not observed by the government monitors',
@@ -706,8 +683,8 @@ export default spineData({
             evidence({
               finding: paragraph(`
                 GenX is odorless and tasteless at ng/L levels and produced no
-                acute observable signal; <strong>no documented resident report preceded
-                the 2012 detection</strong>. The first observable sign of a threat was a
+                acute observable signal; no documented resident report preceded
+                the 2012 detection. The first observable sign of a threat was a
                 published paper, not an experience.
               `),
               grade: 'moderate',
@@ -726,7 +703,7 @@ export default spineData({
           evidence: [
             evidence({
               finding: paragraph(`
-                This case supplies the measurement: after the June 2017 story the state acted within a week, and blood levels <strong>fell 34 to 65 percent within six months</strong> of discharge controls.
+                This case supplies the measurement: after the June 2017 story the state acted within a week, and blood levels fell 34 to 65 percent within six months of discharge controls.
               `),
               grade: 'strong',
               sources: [source('Kotlarz et al. 2020', 'https://ehp.niehs.nih.gov/doi/10.1289/EHP6837')]
@@ -735,7 +712,7 @@ export default spineData({
           counterEvidence: [
             evidence({
               finding: paragraph(`
-                Detection alone <strong>stalled inside agencies for five years</strong>; the
+                Detection alone stalled inside agencies for five years; the
                 response demonstrated in 2017 ran on press amplification.
               `),
               grade: 'moderate',
@@ -821,8 +798,8 @@ export default spineData({
             evidence({
               finding: paragraph(`
                 The machinery exists for regulated contaminants: the drinking
-                water Public Notification Rule gives suppliers <strong>24 hours for the
-                most serious violations</strong>.
+                water Public Notification Rule gives suppliers 24 hours for the
+                most serious violations.
               `),
               grade: 'moderate',
               sources: [source('US Environmental Protection Agency', 'https://www.epa.gov/dwreginfo/public-notification-rule')]
@@ -831,7 +808,7 @@ export default spineData({
           counterEvidence: [
             evidence({
               finding: paragraph(`
-                The rule <strong>does not address unregulated contaminants</strong>, and no
+                The rule does not address unregulated contaminants, and no
                 jurisdiction attaches public notice to a chemicals consent
                 order. As enacted policy, unstudied.
               `),
@@ -850,8 +827,7 @@ export default spineData({
           evidence: [
             evidence({
               finding: paragraph(`
-                Drinking water violations raise <strong>bottled water sales 17 to 22
-                percent</strong>; industrial plant openings cut nearby housing values 11 percent within half a mile. Both show people act on contamination risks once they know about them.
+                Drinking water violations raise bottled water sales, with “an increase in bottled water sales of 22 percent from violations due to microorganisms and 17 percent from violations due to elements and chemicals”; industrial plant openings cut nearby housing values 11 percent within half a mile. Both show people act on contamination risks once they know about them.
               `),
               grade: 'strong',
               quote: 'an increase in bottled water sales of 22 percent from violations due to microorganisms and 17 percent from violations due to elements and chemicals',
@@ -864,7 +840,7 @@ export default spineData({
           counterEvidence: [
             evidence({
               finding: paragraph(`
-                Avoiding contaminated water costs money and burdens poor households most, and the measured responses <strong>concentrate within a mile of a plant</strong>, while Cape Fear exposure ran 100 miles downstream.
+                Avoiding contaminated water costs money and burdens poor households most, and the measured responses concentrate within a mile of a plant, while Cape Fear exposure ran 100 miles downstream.
               `),
               grade: 'moderate',
               sources: [source('Currie et al. 2015', 'https://www.aeaweb.org/articles?id=10.1257%2Faer.20121656')]
@@ -881,7 +857,7 @@ export default spineData({
           evidence: [
             evidence({
               finding: paragraph(`
-                Disclosure requirements led to measurable changes in behavior. Mailed water quality reports <strong>reduced violations by 30–44% and severe health violations by 40–57%</strong>. In Massachusetts, companies required to report chemical use reduced on-site releases by 92%. In Germany, 61% of surveyed companies using listed substances reported replacing them with alternatives after they were listed under REACH.
+                Disclosure requirements led to measurable changes in behavior. Mailed water quality reports “reduced total violations by between 30% and 44%” and severe health violations by 40–57%. In Massachusetts, companies required to report chemical use reduced on-site releases by 92%. In Germany, 61% of surveyed companies using listed substances reported replacing them with alternatives after they were listed under REACH.
               `),
               grade: 'strong',
               quote: 'reduced total violations by between 30% and 44%',
@@ -894,7 +870,7 @@ export default spineData({
           counterEvidence: [
             evidence({
               finding: paragraph(`
-                Disclosure requirements depend on knowing which chemical is involved. PFAS was not added to the Toxic Release Inventory until December 2019, and the Fayetteville permit file <strong>did not identify the chemical at all</strong>. Without that information, regulators could not apply chemical-specific disclosure requirements.
+                Disclosure requirements depend on knowing which chemical is involved. PFAS was not added to the Toxic Release Inventory until December 2019, and the Fayetteville permit file did not identify the chemical at all. Without that information, regulators could not apply chemical-specific disclosure requirements.
               `),
               grade: 'moderate',
               sources: [source('North Carolina Department of Environmental Quality', 'https://files.nc.gov/ncdeq/GenX/Letter%20November%2011-16-17.pdf')]
@@ -912,8 +888,8 @@ export default spineData({
           evidence: [
             evidence({
               finding: paragraph(`
-                The declines in blood levels after controls and the <strong>$82.8
-                million and $158.7 million filtration bills</strong> give measured
+                The declines in blood levels after controls and the $82.8
+                million and $158.7 million filtration bills give measured
                 numbers for what the exposure did and for what an earlier
                 cutoff would have avoided.
               `),
@@ -1039,7 +1015,7 @@ export default spineData({
             evidence({
               finding: paragraph(`
                 Measured in the case: story June 7, 2017; state investigation
-                June 14; <strong>health goal lowered 99.8 percent in five weeks</strong>;
+                June 14; health goal lowered 99.8 percent in five weeks;
                 discharge cessation announced within two weeks.
               `),
               grade: 'strong',
@@ -1051,7 +1027,7 @@ export default spineData({
               finding: paragraph(`
                 The 2017 response ran on press amplification; whether a statutory
                 notice without a front page produces the same seven-day response
-                is untested. Mailed notices alone <strong>cut utility violations 30 to 44 percent</strong>, a real but modest response next to the near-total one of 2017.
+                is untested. Mailed notices alone cut utility violations 30 to 44 percent, a real but modest response next to the near-total one of 2017.
               `),
               grade: 'moderate',
               sources: [source('Bennear and Olmstead 2008', 'https://ideas.repec.org/a/eee/jeeman/v56y2008i2p117-130.html')]
@@ -1071,8 +1047,8 @@ export default spineData({
               finding: paragraph(`
                 Blood samples stored from before disclosure show what the
                 window produced (PFMOAA median 42 ng/mL, the highest of 56 PFAS
-                measured); <strong>post-control declines of 34 to 65 percent in six
-                months</strong> show the gain per year of earlier cutoff.
+                measured); post-control declines of 34 to 65 percent in six
+                months show the gain per year of earlier cutoff.
               `),
               grade: 'strong',
               sources: [source('Kotlarz et al. 2020', 'https://ehp.niehs.nih.gov/doi/10.1289/EHP6837')]
@@ -1163,8 +1139,8 @@ export default spineData({
                 delivered probable-link findings for six conditions, reporting
                 “there is a probable link between exposure to C8 (also known as
                 PFOA) and testicular cancer and kidney cancer”; the findings
-                carried <strong>automatic legal consequence for roughly 70,000
-                class members</strong> and became the evidentiary basis for
+                carried automatic legal consequence for roughly 70,000
+                class members and became the evidentiary basis for
                 later regulation.
               `),
               grade: 'moderate',
@@ -1176,7 +1152,7 @@ export default spineData({
             evidence({
               finding: paragraph(`
                 The C8 panel was appointed by a court, not chosen by the
-                community, and <strong>took seven years</strong>, a timescale mismatched to
+                community, and took seven years, a timescale mismatched to
                 emergency response. No directly community-chosen analog with
                 measured outcomes was identified.
               `),
@@ -1207,13 +1183,7 @@ export default spineData({
             }),
             evidence({
               finding: paragraph(`
-                A randomized study of 135 cohort members found personal
-                exposure report-back raised concern about consumer product
-                chemicals and participants took exposure-reducing actions,
-                notably for PFAS; in a Nevada cohort, the share who did not
-                know how to reduce exposure <strong>fell from 79 to 35 percent</strong> after
-                report-back, and one urinary chemical marker fell
-                significantly.
+                A randomized study of 135 cohort members found personal exposure “report-back increased concern for consumer product chemicals” and participants took exposure-reducing actions, notably for PFAS; in a Nevada cohort, the share who did not know how to reduce exposure fell from 79 to 35 percent after report-back, and one urinary chemical marker fell significantly.
               `),
               grade: 'moderate',
               quote: 'report-back increased concern for consumer product chemicals',
@@ -1234,9 +1204,7 @@ export default spineData({
           evidence: [
             evidence({
               finding: paragraph(`
-                The closest PFAS precedent: the court-created, independently
-                run C8 Health Project <strong>enrolled 69,030 exposed residents in 13
-                months</strong>, returning individual PFOA results to participants. The studies describe the trust mechanism; none tests whether it caused the enrollment.
+                The closest PFAS precedent: the court-created, independently run C8 Health Project returned individual PFOA results to participants, and “final study participation was 69,030, enrolled over a 13-month period in 2005-2006”. The studies describe the trust mechanism; none tests whether it caused the enrollment.
               `),
               grade: 'weak',
               quote: 'Final study participation was 69,030, enrolled over a 13-month period in 2005-2006',
@@ -1338,8 +1306,8 @@ export default spineData({
               finding: paragraph(`
                 Superfund technical assistance grants funded community advisors;
                 the NC legislature's $5 million to the Policy Collaboratory built
-                a network sampling <strong>190 surface water intakes and 158 municipal
-                wells</strong>, though that funding was state, not federal.
+                a network sampling 190 surface water intakes and 158 municipal
+                wells, though that funding was state, not federal.
               `),
               grade: 'moderate',
               sources: [source('US Government Accountability Office', 'https://www.gao.gov/products/t-rced-93-1')]
@@ -1348,7 +1316,7 @@ export default spineData({
           counterEvidence: [
             evidence({
               finding: paragraph(`
-                Grant uptake reached <strong>9 percent of eligible communities</strong> under a
+                Grant uptake reached 9 percent of eligible communities under a
                 lengthy, labor-intensive application process; Flint's funding was
                 reactive, arriving after exposure.
               `),
@@ -1367,8 +1335,8 @@ export default spineData({
           evidence: [
             evidence({
               finding: paragraph(`
-                Michigan adopted <strong>enforceable drinking water limits for seven
-                PFAS compounds</strong>, effective August 3, 2020, following its own
+                Michigan adopted enforceable drinking water limits for seven
+                PFAS compounds, effective August 3, 2020, following its own
                 facility-level crises; Woburn's aftermath produced a state
                 cleanup fund and cancer registry.
               `),
@@ -1381,7 +1349,7 @@ export default spineData({
               finding: paragraph(`
                 This case's own record is the strongest counter-evidence: nine years
                 of the project's most extensive participation produced
-                <strong>remediation at one plant and no enforceable state standard</strong>, with
+                remediation at one plant and no enforceable state standard, with
                 the House bill stalling in the Senate. The one large statistical study also finds regulators pull back their own enforcement where private lawsuits are active.
               `),
               grade: 'moderate',
@@ -1400,7 +1368,7 @@ export default spineData({
             evidence({
               finding: paragraph(`
                 Standards operate mechanically once adopted, and even
-                disclosure-only mandates <strong>cut violations 30 to 44 percent</strong>.
+                disclosure-only mandates cut violations 30 to 44 percent.
               `),
               grade: 'moderate',
               sources: [source('Bennear and Olmstead 2008', 'https://ideas.repec.org/a/eee/jeeman/v56y2008i2p117-130.html')]
@@ -1410,7 +1378,7 @@ export default spineData({
             evidence({
               finding: paragraph(`
                 Adoption does not guarantee persistence: the federal GenX limit
-                was <strong>proposed for rescission in May 2026</strong> on procedural grounds.
+                was proposed for rescission in May 2026 on procedural grounds.
               `),
               grade: 'moderate',
               sources: [source('Federal Register', 'https://www.federalregister.gov/documents/2026/05/20/2026-10085/rescission-of-regulatory-determinations-and-removal-of-related-provisions-for-four-pfas-substances')]
@@ -1497,7 +1465,7 @@ export default spineData({
               finding: paragraph(`
                 In Finnish and Swedish nuclear waste siting, host municipalities
                 held formal power at the approval decision with publicly funded
-                independent review, and both programs <strong>won community consent and are operating</strong>, where programs that imposed sites stalled. The analogy is imperfect: a different industry and a different kind of decision.
+                independent review, and both programs won community consent and are operating, where programs that imposed sites stalled. The analogy is imperfect: a different industry and a different kind of decision.
               `),
               grade: 'weak',
               sources: [source('Bellona', 'https://bellona.org/news/nuclear-issues/radioactive-waste-and-spent-nuclear-fuel/2016-08-21710')]
@@ -1515,10 +1483,7 @@ export default spineData({
           evidence: [
             evidence({
               finding: paragraph(`
-                An evaluation of 13 Good Neighbor Agreements between community
-                groups and polluting facilities found <strong>most achieved substantial
-                implementation</strong> of their monitoring and compliance commitments,
-                conditional on community leverage and resources.
+                An evaluation of 13 Good Neighbor Agreements between community groups and polluting facilities found most achieved substantial implementation of their monitoring and compliance commitments, conditional on community leverage and resources; “the GNAs studied are generally quite effective”.
               `),
               grade: 'moderate',
               quote: 'The GNAs studied are generally quite effective',
@@ -1526,10 +1491,7 @@ export default spineData({
             }),
             evidence({
               finding: paragraph(`
-                Across more than 130,000 environmental citizen complaints in
-                Texas, complaint-triggered investigations increased regulator
-                monitoring and <strong>found more, and more severe, violations</strong> than
-                routine monitoring.
+                Across more than 130,000 environmental citizen complaints in Texas, “complaints are associated with sharp increases in regulator monitoring and enforcement”, and complaint-triggered investigations found more, and more severe, violations than routine monitoring.
               `),
               grade: 'moderate',
               quote: 'complaints are associated with sharp increases in regulator monitoring and enforcement',
@@ -1540,8 +1502,8 @@ export default spineData({
             evidence({
               finding: paragraph(`
                 The baseline without a constituency is measured in this case: the
-                2009 order contained no scheduled verification, and EPA's <strong>first
-                on-site inspection came June 28, 2017</strong>, three weeks after the
+                2009 order contained no scheduled verification, and EPA's first
+                on-site inspection came June 28, 2017, three weeks after the
                 newspaper story.
               `),
               grade: 'strong',
@@ -1559,8 +1521,8 @@ export default spineData({
           evidence: [
             evidence({
               finding: paragraph(`
-                Median fluoroether levels in blood <strong>declined 34 to 65 percent
-                within six months</strong> of discharge controls, the measured gain per
+                Median fluoroether levels in blood declined 34 to 65 percent
+                within six months of discharge controls, the measured gain per
                 year of earlier enforcement.
               `),
               grade: 'strong',

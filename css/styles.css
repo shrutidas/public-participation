@@ -1552,10 +1552,6 @@ body[data-view="chain"] #ctrl .fl,
 .cd-kick-imp { color: #1e6b3c; }
 .cd-kick-prop { color: #601898; }
 .cd-kick-ev, .cd-kick-ctr { color: #b3261e; }
-.ev-quote {
-  margin: 10px 0; padding: 8px 12px; border-left: 3px solid #b3261e;
-  background: #fdf7f6; font-size: .82rem; line-height: 1.55; color: #4a2320; font-style: italic;
-}
 .sp-chainrow { display: flex; gap: 10px; align-items: flex-start; padding: 6px 8px; border-radius: 6px; cursor: pointer; list-style: none; }
 .sp-chainrow:hover { background: #f4f0ea; }
 .sp-arrowrow { display: flex; gap: 10px; align-items: flex-start; padding: 4px 0; list-style: none; }

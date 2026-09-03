@@ -166,7 +166,7 @@ export default spineData({
       evidence: [
         evidence({
           finding: paragraph(`
-            Commonwealth Fund modeling covers the program's first two years and estimates <strong>3.2 million deaths and 18.5 million hospitalizations averted</strong>.
+            Commonwealth Fund modeling covers the program's first two years and estimates 3.2 million deaths and 18.5 million hospitalizations averted.
           `),
           grade: 'strong',
           sources: [source('Commonwealth Fund', 'https://www.commonwealthfund.org/blog/2022/two-years-covid-vaccines-prevented-millions-deaths-hospitalizations')]
@@ -190,8 +190,8 @@ export default spineData({
       evidence: [
         evidence({
           finding: paragraph(`
-            Peterson-KFF estimated <strong>approximately 234,000 preventable
-            adult deaths</strong>; the European Journal of Epidemiology replication found at
+            Peterson-KFF estimated approximately 234,000 preventable
+            adult deaths; the European Journal of Epidemiology replication found at
             least 232,000 (95% CI 214,000 to 250,000).
           `),
           grade: 'strong',
@@ -223,7 +223,7 @@ export default spineData({
       evidence: [
         evidence({
           finding: paragraph(`
-            CDC MMWR reported <strong>the gap narrowing substantially by late 2021</strong>; the
+            CDC MMWR reported the gap narrowing substantially by late 2021; the
             largest measured uptake effects in the record run through access
             interventions, not persuasion.
           `),
@@ -234,7 +234,7 @@ export default spineData({
       counterEvidence: [
         evidence({
           finding: paragraph(`
-            The Annenberg panel tested five explanations for the Black-White narrowing and found <strong>only growing knowledge about vaccine safety and efficacy explained it</strong>; neither access nor media use did. Whether the access push deserves credit for the narrowing is unresolved.
+            The Annenberg panel tested five explanations for the Black-White narrowing and found only growing knowledge about vaccine safety and efficacy explained it; neither access nor media use did. Whether the access push deserves credit for the narrowing is unresolved.
           `),
           grade: 'moderate',
           sources: [source('Annenberg Public Policy Center', 'https://www.annenbergpublicpolicycenter.org/publication/what-caused-the-narrowing-of-black-white-covid-19-vaccination-disparity-in-the-us-a-test-of-5-hypotheses/')]
@@ -263,7 +263,7 @@ export default spineData({
       evidence: [
         evidence({
           finding: paragraph(`
-            Karaivanov et al. (2022) compared regions before and after national mandate announcements and found <strong>weekly first doses rose 66 percent</strong> after announcement.
+            Karaivanov et al. (2022) compared regions before and after national mandate announcements and found weekly first doses rose 66 percent after announcement.
           `),
           grade: 'strong',
           sources: [source('Karaivanov et al. 2022', 'https://www.nature.com/articles/s41562-022-01363-1')]
@@ -272,9 +272,7 @@ export default spineData({
       counterEvidence: [
         evidence({
           finding: paragraph(`
-            Rains et al. (PNAS 2024) found US state mandates <strong>did not
-            influence uptake and depressed later booster and flu
-            vaccination</strong>; a published reply letter contests the analysis.
+            Rains et al. (PNAS 2024) found “COVID-19 vaccine adoption did not significantly change in the weeks before and after states implemented vaccine mandates”, and that mandates depressed later booster and flu vaccination; a published reply letter contests the analysis.
           `),
           grade: 'moderate',
           quote: 'COVID-19 vaccine adoption did not significantly change in the weeks before and after states implemented vaccine mandates',
@@ -321,8 +319,8 @@ export default spineData({
               finding: paragraph(`
                 Petersen and colleagues, randomized studies with 13,000 Danish and
                 American participants: transparent communication about negative
-                vaccine features <strong>increased trust in health
-                authorities</strong>; vague reassurance lowered both acceptance
+                vaccine features increased trust in health
+                authorities; vague reassurance lowered both acceptance
                 and trust and fed conspiracy beliefs. The authors conclude that
                 “openness ensures long-term trust”, crucial “if we are to be
                 revaccinated, or in relation to the next major health crisis”.
@@ -335,7 +333,7 @@ export default spineData({
           counterEvidence: [
             evidence({
               finding: paragraph(`
-                The 2020 trust decline was partisan (<strong>on a 10-point scale, Trump voters fell 0.8 points, a significant drop; Biden voters 0.3, not significant</strong>), so a transparency push aimed at the general public may not reach the people whose trust fell.
+                The 2020 trust decline was partisan (on a 10-point scale, Trump voters fell 0.8 points, a significant drop; Biden voters 0.3, not significant), so a transparency push aimed at the general public may not reach the people whose trust fell.
               `),
               grade: 'moderate',
               sources: [source('RAND Corporation', 'https://www.rand.org/pubs/research_reports/RRA308-12.html')]
@@ -354,11 +352,7 @@ export default spineData({
           evidence: [
             evidence({
               finding: paragraph(`
-                Across 177 countries, higher government and interpersonal trust
-                had larger, statistically significant associations with
-                <strong>lower infection rates and higher vaccine
-                coverage</strong> in middle- and
-                high-income countries.
+                Across 177 countries, “measures of trust in the government and interpersonal trust, as well as less government corruption, had larger, statistically significant associations with lower standardised infection rates”, and with higher vaccine coverage in middle- and high-income countries.
               `),
               grade: 'moderate',
               quote: 'Measures of trust in the government and interpersonal trust, as well as less government corruption, had larger, statistically significant associations with lower standardised infection rates.',
@@ -368,15 +362,7 @@ export default spineData({
           counterEvidence: [
             evidence({
               finding: paragraph(`
-                Across 2,885 US counties, the Republican vote share had the
-                strongest association with the unvaccinated share, stronger than
-                income, education, or information environment. Randomized
-                messaging trials moved intent little, and a Fauci endorsement
-                reduced stated intent among conservatives. The one randomized
-                messenger intervention that moved actual uptake used a
-                partisan-congruent figure: a Trump endorsement ad across 2,032
-                counties raised doses by <strong>about 103 per county at about
-                $1 per dose</strong>.
+                Across 2,885 US counties, the Republican vote share had the strongest association with the unvaccinated share, stronger than income, education, or information environment. Randomized messaging trials moved intent little, and a Fauci endorsement reduced stated intent among conservatives. The one randomized messenger intervention that moved actual uptake used a partisan-congruent figure: a Trump endorsement ad across 2,032 counties “increased the number of vaccines in the average treated county by 103”, at about $1 per dose.
               `),
               grade: 'strong',
               quote: 'the campaign increased the number of vaccines in the average treated county by 103',
@@ -397,7 +383,7 @@ export default spineData({
             evidence({
               finding: paragraph(`
                 Two independent estimates put preventable adult deaths at
-                <strong>232,000 to 234,000</strong> for June 2021 to March 2022.
+                232,000 to 234,000 for June 2021 to March 2022.
               `),
               grade: 'strong',
               sources: [source('Jia et al. 2023', 'https://link.springer.com/article/10.1007/s10654-023-01006-3')]
@@ -467,10 +453,7 @@ export default spineData({
           evidence: [
             evidence({
               finding: paragraph(`
-                Survey experiment in Ireland (N=1,309): mini-public involvement
-                <strong>raised perceived procedural fairness 0.7 points and
-                acceptance 0.4 points</strong>, driven by citizens with low
-                political trust.
+                Survey experiment in Ireland (N=1,309): mini-public involvement raised perceived procedural fairness 0.7 points and acceptance 0.4 points, and “the legitimacy-generating effects of mini-publics are driven by citizens with low political trust”.
               `),
               grade: 'moderate',
               quote: 'The legitimacy-generating effects of mini-publics are driven by citizens with low political trust.',
@@ -480,8 +463,8 @@ export default spineData({
           counterEvidence: [
             evidence({
               finding: paragraph(`
-                The gain <strong>largely disappears when the recommendation is
-                rejected</strong>.
+                The gain largely disappears when the recommendation is
+                rejected.
                 For a government that intends to mandate regardless, convening an
                 assembly it may override carries a measured legitimacy downside.
               `),
@@ -500,13 +483,7 @@ export default spineData({
           evidence: [
             evidence({
               finding: paragraph(`
-                In a survey of 1,595 Australians during early COVID lockdowns,
-                felt duty to support the authorities was <strong>the dominant
-                predictor of compliance, far ahead of sanction risk</strong>; a
-                meta-analysis of
-                64 studies finds legitimacy beliefs predict compliance with the
-                law, with the effect running through legitimacy rather than
-                procedure directly.
+                In a survey of 1,595 Australians during early COVID lockdowns, “normative concerns regarding duty to support the authorities dominated compliance decisions”, far ahead of sanction risk; a meta-analysis of 64 studies finds legitimacy beliefs predict compliance with the law, with the effect running through legitimacy rather than procedure directly.
               `),
               grade: 'moderate',
               quote: 'normative concerns regarding duty to support the authorities dominated compliance decisions',
@@ -519,7 +496,7 @@ export default spineData({
           counterEvidence: [
             evidence({
               finding: paragraph(`
-                In a preregistered experiment (N=606), requirements <strong>strengthened vaccination intentions across all groups, including the participants most prone to pushing back</strong>, without any legitimacy-building step.
+                In a preregistered experiment (N=606), “requirements strengthened vaccination intentions across racial and ethnic groups, across studies, and across levels of trait psychological reactance”, that is, including the participants most prone to pushing back, without any legitimacy-building step.
               `),
               grade: 'moderate',
               quote: 'Requirements strengthened vaccination intentions across racial and ethnic groups, across studies, and across levels of trait psychological reactance.',
@@ -529,7 +506,7 @@ export default spineData({
             }),
             evidence({
               finding: paragraph(`
-                The first large hospital mandate worked without any deliberative step: only <strong>153 of 25,000 employees left</strong> rather than comply.
+                The first large hospital mandate worked without any deliberative step: only 153 of 25,000 employees left rather than comply.
               `),
               grade: 'moderate',
               sources: [
@@ -538,8 +515,7 @@ export default spineData({
             }),
             evidence({
               finding: paragraph(`
-                US state mandates produced <strong>no detectable uptake
-                change</strong> and depressed later booster and flu vaccination.
+                US state mandates produced no detectable uptake change, since “COVID-19 vaccine adoption did not significantly change in the weeks before and after states implemented vaccine mandates”, and depressed later booster and flu vaccination.
               `),
               grade: 'moderate',
               quote: 'COVID-19 vaccine adoption did not significantly change in the weeks before and after states implemented vaccine mandates',
@@ -562,7 +538,7 @@ export default spineData({
             evidence({
               finding: paragraph(`
                 National mandate announcements abroad were followed by
-                <strong>a 66% increase in weekly first doses</strong> and
+                a 66% increase in weekly first doses and
                 cumulative gains up to 12 points.
               `),
               grade: 'strong',
@@ -570,10 +546,7 @@ export default spineData({
             }),
             evidence({
               finding: paragraph(`
-                France's health pass, announced July 12, 2021: two-dose
-                coverage of the eligible population rose <strong>from 49
-                percent at announcement to 89 percent</strong> by mid-December
-                2021.
+                France's health pass, announced July 12, 2021: “the share of the eligible population vaccinated with two doses increased from 49% on 12 July to 89% by mid-December 2021”.
               `),
               grade: 'strong',
               quote: 'the share of the eligible population vaccinated with two doses increased from 49% on 12 July to 89% by mid-December 2021',
@@ -583,7 +556,7 @@ export default spineData({
           counterEvidence: [
             evidence({
               finding: paragraph(`
-                US state mandates produced <strong>no detectable change</strong> and depressed
+                US state mandates produced no detectable change and depressed
                 later booster and flu uptake.
               `),
               grade: 'moderate',
@@ -591,13 +564,7 @@ export default spineData({
             }),
             evidence({
               finding: paragraph(`
-                The same French health pass did not reduce hesitancy:
-                the share of vaccinated people with doubts about the vaccine
-                <strong>rose from 44 to 61 percent</strong> after
-                implementation, and coverage
-                lagged among the elderly, the poorest, and the most
-                marginalized, with only 86 percent of people over 80
-                vaccinated as of October 2021.
+                The same French health pass did not reduce hesitancy: “the share of vaccinated people with doubts about the vaccine increased from 44% to 61% after the health pass was implemented”, and coverage lagged among the elderly, the poorest, and the most marginalized, with only 86 percent of people over 80 vaccinated as of October 2021.
               `),
               grade: 'moderate',
               quote: 'the share of vaccinated people with doubts about the vaccine increased from 44% to 61% after the health pass was implemented',
@@ -614,7 +581,7 @@ export default spineData({
           evidence: [
             evidence({
               finding: paragraph(`
-                <strong>232,000 to 234,000 preventable adult deaths</strong>
+                232,000 to 234,000 preventable adult deaths
                 among the unvaccinated, June 2021 to March 2022.
               `),
               grade: 'strong',
@@ -741,10 +708,7 @@ export default spineData({
           evidence: [
             evidence({
               finding: paragraph(`
-                Protect Chicago Plus: neighborhood task forces designed outreach
-                and distribution in 13 high-vulnerability zip codes; the neighborhoods' vaccination rate went <strong>from 58 percent of the citywide rate to 92 percent in eight weeks</strong>.
-                Unidos en Salud delivered 20,792 doses with 98.4% second-dose
-                completion, 70.5% Latinx clients.
+                Protect Chicago Plus: “the city worked with each prioritized community to create a neighborhood task force composed of diverse representatives to design vaccine outreach and distribution strategies” in 13 high-vulnerability zip codes; the neighborhoods' vaccination rate went from 58 percent of the citywide rate to 92 percent in eight weeks. Unidos en Salud delivered 20,792 doses with 98.4% second-dose completion, 70.5% Latinx clients.
               `),
               grade: 'moderate',
               quote: 'The city worked with each prioritized community to create a neighborhood task force composed of diverse representatives to design vaccine outreach and distribution strategies.',
@@ -755,7 +719,7 @@ export default spineData({
             }),
             evidence({
               finding: paragraph(`
-                Tribal self-governance is the one US case where the deciding community held real authority rather than an advisory role, and by July 2021 American Indian and Alaska Native people <strong>had the highest vaccination rate in the nation</strong>. Direct supply through the Indian Health Service and strong community cohesion may account for part of the result.
+                Tribal self-governance is the one US case where the deciding community held real authority rather than an advisory role, and by July 2021 American Indian and Alaska Native people had the highest vaccination rate in the nation. Direct supply through the Indian Health Service and strong community cohesion may account for part of the result.
               `),
               grade: 'moderate',
               sources: [source('PBS NOVA', 'https://www.pbs.org/wgbh/nova/article/native-americans-highest-covid-vaccination-rate-us/')]
@@ -783,7 +747,7 @@ export default spineData({
           evidence: [
             evidence({
               finding: paragraph(`
-                People living farther from a vaccination site were less likely to be vaccinated in 98 percent of 6,096 analyses; a Swiss randomized trial of mobile vaccination units <strong>moved uptake from 3.8% to 12.8%, a 3.4x effect</strong>. The largest measured uptake gains in the record come from making vaccination easier to reach, not from persuasion.
+                People living farther from a vaccination site were less likely to be vaccinated in 98 percent of 6,096 analyses; a Swiss randomized trial of mobile vaccination units moved uptake from 3.8% to 12.8%, a 3.4x effect. The largest measured uptake gains in the record come from making vaccination easier to reach, not from persuasion.
               `),
               grade: 'strong',
               sources: [source('Mazar et al. 2023', 'https://academic.oup.com/pnasnexus/article/2/12/pgad411/7459517')]
@@ -801,7 +765,7 @@ export default spineData({
           evidence: [
             evidence({
               finding: paragraph(`
-                By the end of November 2021 first-dose coverage was similar across racial groups; the failure the proposal targets is documented: one federal site delivered <strong>nearly 3 of 4 doses to White recipients in a city that is 33.8% White</strong>.
+                By the end of November 2021 first-dose coverage was similar across racial groups; the failure the proposal targets is documented: one federal site delivered nearly 3 of 4 doses to White recipients in a city that is 33.8% White.
               `),
               grade: 'moderate',
               sources: [source('US Centers for Disease Control and Prevention', 'https://www.cdc.gov/mmwr/volumes/71/wr/mm7123a2.htm')]
@@ -810,7 +774,7 @@ export default spineData({
           counterEvidence: [
             evidence({
               finding: paragraph(`
-                The Annenberg panel found the gap narrowed because <strong>knowledge about vaccine safety and efficacy spread</strong>, not because access improved; and no study breaks the preventable deaths down by race.
+                The Annenberg panel found the gap narrowed because knowledge about vaccine safety and efficacy spread, not because access improved; and no study breaks the preventable deaths down by race.
               `),
               grade: 'moderate',
               sources: [source('Annenberg Public Policy Center', 'https://www.annenbergpublicpolicycenter.org/publication/what-caused-the-narrowing-of-black-white-covid-19-vaccination-disparity-in-the-us-a-test-of-5-hypotheses/')]
@@ -828,7 +792,7 @@ export default spineData({
             evidence({
               finding: paragraph(`
                 Two independent estimates put preventable adult deaths at
-                <strong>232,000 to 234,000</strong> for June 2021 to March 2022;
+                232,000 to 234,000 for June 2021 to March 2022;
                 both report by age, never by race, so no one knows what share of those deaths the racial gap accounts for.
               `),
               grade: 'strong',
@@ -936,8 +900,8 @@ export default spineData({
             evidence({
               finding: paragraph(`
                 The GSA Office of Evaluation Sciences runs randomized evaluations
-                embedded in federal health programs at <strong>samples over
-                55,000</strong>, demonstrating administrative feasibility.
+                embedded in federal health programs at samples over
+                55,000, demonstrating administrative feasibility.
               `),
               grade: 'moderate',
               sources: [
@@ -946,7 +910,7 @@ export default spineData({
             }),
             evidence({
               finding: paragraph(`
-                GAO <strong>documented the gap the proposal fixes</strong>: state and local officials had little to no information about how federal doses were allocated, and GAO had to recommend that the agencies start gathering stakeholder feedback in their program reviews.
+                GAO documented the gap the proposal fixes: state and local officials had little to no information about how federal doses were allocated, and GAO had to recommend that the agencies start gathering stakeholder feedback in their program reviews.
               `),
               grade: 'moderate',
               sources: [
@@ -965,10 +929,7 @@ export default spineData({
           evidence: [
             evidence({
               finding: paragraph(`
-                A randomized experiment with 2,150 Brazilian municipalities
-                found mayors pay to learn evaluation results, update their
-                beliefs, and that informing them about an effective policy
-                <strong>raised its adoption by 10 percentage points</strong>.
+                A randomized experiment with 2,150 Brazilian municipalities found mayors pay to learn evaluation results and update their beliefs, and that “informing mayors about research on a simple and effective policy, taxpayer reminder letters, increases the probability the policy is implemented by 10 percentage points”.
               `),
               grade: 'strong',
               quote: 'informing mayors about research on a simple and effective policy, taxpayer reminder letters, increases the probability the policy is implemented by 10 percentage points',
@@ -976,9 +937,7 @@ export default spineData({
             }),
             evidence({
               finding: paragraph(`
-                A follow-up of 73 randomized nudge trials run with 67 US city
-                departments found cities adopted the tested treatment in later
-                communications in <strong>27 percent of cases</strong>, with adoption driven more by whether the same staff were still there than by the strength of the evidence. Evidence does reach later decisions, but only partially.
+                A follow-up of 73 randomized nudge trials run with 67 US city departments found “city departments adopt a nudge treatment in follow-on communication in 27% of cases”, with adoption driven more by whether the same staff were still there than by the strength of the evidence. Evidence does reach later decisions, but only partially.
               `),
               grade: 'moderate',
               quote: 'city departments adopt a nudge treatment in follow-on communication in 27% of cases',
@@ -986,8 +945,8 @@ export default spineData({
             }),
             evidence({
               finding: paragraph(`
-                The OES portfolio's embedded evaluations <strong>corrected an
-                optimistic published literature</strong>, finding that
+                The OES portfolio's embedded evaluations corrected an
+                optimistic published literature, finding that
                 behaviorally-informed communications “can increase vaccination
                 rates at scale but may have smaller, less reliable effects than
                 the published literature suggests”; that reality check is what the proposal pays for, though no agency was identified changing its spending in response.
@@ -1010,7 +969,7 @@ export default spineData({
           evidence: [
             evidence({
               finding: paragraph(`
-                The closest evidence is from Rwanda: in a randomized rollout, tying health funding to measured results <strong>raised the share of births in clinics and preventive child visits</strong>, and the design shows the incentive, not the money alone, drove the gains.
+                The closest evidence is from Rwanda: in a randomized rollout, tying health funding to measured results raised the share of births in clinics and preventive child visits, and “the results indicate that an equal amount of financial resources without the incentives would not have achieved the same gain in outcomes”.
               `),
               grade: 'weak',
               quote: 'the results indicate that an equal amount of financial resources without the incentives would not have achieved the same gain in outcomes',

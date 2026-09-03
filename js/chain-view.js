@@ -304,7 +304,6 @@ function evidenceHtml(list, kind) {
       <span class="ev-grade gr-${ev.grade}">${STRENGTH_LABEL[ev.grade]}</span>
       <div class="ev-body">
         <div class="ev-finding">${ev.finding}</div>
-        ${ev.quote ? `<blockquote class="ev-quote">${ev.quote}</blockquote>` : ''}
         ${ev.caveat ? `<div class="ev-caveat">Caveat: ${ev.caveat}</div>` : ''}
         <div class="ev-srcs">${srcHtml(ev.srcs)}</div>
       </div>
