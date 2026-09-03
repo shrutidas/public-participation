@@ -312,7 +312,8 @@ body[data-view="chain"] #ctrl .fl,
   background: #fff; color: #4a463f; cursor: pointer; align-self: center;
 }
 .pane-tog:hover { border-color: #1c2333; color: #1c2333; }
-#right-hide { margin: 0 0 6px 6px; font-size: .8rem; line-height: 1; padding: 6px 9px; }
+#right-hide { margin: 0 0 6px 4px; font-size: .9rem; line-height: 1; padding: 6px 6px; border: none; background: none; color: #6b6457; }
+#right-hide:hover { color: #1c2333; background: none; }
 /* Open Key sits directly under the zoom pill, in the space the key vacated.
    The detail pane has no reopen button: clicking anything on the map brings
    it back, which is the same gesture that put something in it. */
@@ -508,10 +509,10 @@ body[data-view="chain"] #ctrl .fl,
 #legend-hide {
   position: absolute; top: 8px; right: 8px;
   width: 24px; height: 24px; padding: 0; line-height: 1;
-  background: none; border: 1px solid #bdb7ac; border-radius: 4px;
-  font-family: inherit; font-size: .8rem; font-weight: 700; color: #5a5347; cursor: pointer;
+  background: none; border: none; border-radius: 4px;
+  font-family: inherit; font-size: .9rem; font-weight: 700; color: #6b6457; cursor: pointer;
 }
-#legend-hide:hover { background: #d8d3c8; border-color: #8a8377; }
+#legend-hide:hover { color: #1c2333; }
 #ch-legend .lg-row:first-of-type { padding-right: 36px; }
 
 /* ---- shared grade / effect pills ---- */
@@ -1067,7 +1068,7 @@ body[data-view="chain"] #ctrl .fl,
 
 #key-close {
   background: none;
-  border: 1px solid #bdb7ac;
+  border: none;
   border-radius: 4px;
   width: 26px; height: 26px;
   font-size: 1.1rem;
@@ -1077,7 +1078,7 @@ body[data-view="chain"] #ctrl .fl,
   padding: 0 4px;
 }
 
-#key-close:hover { color: #1a1a1a; background: #ece8e0; border-color: #8a8377; }
+#key-close:hover { color: #1a1a1a; }
 
 #key-panel #key-txt {
   overflow-y: auto;
