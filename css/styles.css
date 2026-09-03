@@ -312,7 +312,7 @@ body[data-view="chain"] #ctrl .fl,
   background: #fff; color: #4a463f; cursor: pointer; align-self: center;
 }
 .pane-tog:hover { border-color: #1c2333; color: #1c2333; }
-#right-hide { margin: 0 0 6px 6px; }
+#right-hide { margin: 0 0 6px 6px; font-size: .8rem; line-height: 1; padding: 6px 9px; }
 /* Open Key sits directly under the zoom pill, in the space the key vacated.
    The detail pane has no reopen button: clicking anything on the map brings
    it back, which is the same gesture that put something in it. */
@@ -1355,6 +1355,8 @@ body[data-view="chain"] #ctrl .fl,
 }
 
 #tl-expand:hover { border-color: #1c2333; color: #1c2333; }
+#tl-expand { display: inline-flex; align-items: center; gap: 6px; }
+#tl-expand .ico-expand { flex: 0 0 auto; }
 
 .cd-intro .cd-hint { margin: 0 0 16px; }
 .cd-hint p { margin: 0; }
