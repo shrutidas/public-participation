@@ -189,12 +189,11 @@ function setKeyPanel(open) {
 /* Strength grades are no longer shown anywhere in the interface, so the Key
    counts only what it still displays. The grades stay in the data files. */
 function glossaryCounts() {
-  const failure = {}, proposal = {};
+  const proposal = {};
   for (const sp of Object.values(SPINES)) {
-    for (const m of sp.mechanisms) failure[m.failure] = (failure[m.failure] || 0) + 1;
     proposal.proposed = (proposal.proposed || 0) + sp.proposals.length;
   }
-  return { failure, proposal };
+  return { proposal };
 }
 
 function glossaryMark(item) {

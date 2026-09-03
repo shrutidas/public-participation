@@ -60,21 +60,6 @@ export const GLOSSARY = [
       { swatch: 'sp-flag', label: 'Evidence Card', desc: 'One piece of evidence under the chain link it supports, named by its source. A dashed card is counter-evidence. Click a card to read the finding and the full record.' }
     ]
   },
-  {
-    id: 'failure',
-    title: 'How Existing Mechanisms Failed (★)',
-    note: 'The framing question for every case: what ecosystem was participation being added to, and why was it not enough?',
-    views: ['spine'],
-    countBy: 'failure',
-    items: [
-      { key: 'did-not-know', label: 'Did Not Know', desc: 'The people responsible for the decision did not have the relevant information, often because it was never disclosed to them.', eg: 'Discharge permit reviewers reading a file that never named the chemical' },
-      { key: 'knew-no-act', label: 'Knew, Did Not Act', desc: 'The relevant information was available, but no action was taken.', eg: 'An unverified consent order; withheld federal data' },
-      { key: 'acted-no-effect', label: 'Acted, No Effect', desc: 'Action was taken, but it did not change the decision or outcome.', eg: 'Parent surveys; 122,485 comments on a rule already in force' },
-      { key: 'no-mechanism', label: 'No Mechanism Existed', desc: 'There was no formal process for addressing the issue, so nothing required it to be considered or acted on.', eg: 'No school-mode dataset; no notice duty for unregulated contaminants' },
-      { key: 'partial', label: 'Acted, Partial Effect', desc: 'Action was taken and changed part of the decision or outcome, but not all of it.', eg: 'Advisory committee votes that narrowed a federal authorization' },
-      { key: 'worked', label: 'Worked', desc: 'The process was used and had the authority to affect the outcome. It remains on the map to show an important difference: some people had a formal way to influence the decision, while others did not.', eg: 'Union bargaining; courts; tribal self-governance; citizen suits' }
-    ]
-  },
 ];
 
 /** The five timeline entry categories, defined in categories.js, described here. */
