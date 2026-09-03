@@ -1411,7 +1411,7 @@ body[data-view="chain"] #ctrl .fl,
    impact they belong to is selected. */
 .sp-edge-imp { stroke: rgba(30,107,60,.18); stroke-width: 1.4; }
 .sp-edge-imp.on { stroke: #1e6b3c; stroke-width: 2.6; }
-.sp-edge-chain { stroke: #601898; stroke-width: 2.25; }
+.sp-edge-chain { stroke: #b0146e; stroke-width: 2.25; }
 
 /* Timeline event boxes: white, so colour is reserved for meaning. */
 .sp-ent {
@@ -1506,13 +1506,13 @@ body[data-view="chain"] #ctrl .fl,
 
 .sp-chainbox {
   position: absolute; box-sizing: border-box; cursor: pointer; text-align: center; z-index: 2;
-  background: #f7f2fd; border: 1.5px solid #601898; border-radius: 8px;
-  padding: 7px 8px; font-size: .7rem; line-height: 1.3; font-weight: 600; color: #3f1170;
+  background: #fdf0f8; border: 1.5px solid #b0146e; border-radius: 8px;
+  padding: 7px 8px; font-size: .7rem; line-height: 1.3; font-weight: 600; color: #6e0b45;
   font-family: inherit;
   display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px;
 }
-.sp-chainbox:hover { box-shadow: 0 2px 8px rgba(96,24,152,.3); }
-.sp-chainbox.on, .sp-chainbox.sel { box-shadow: 0 0 0 3px rgba(96,24,152,.35); }
+.sp-chainbox:hover { box-shadow: 0 2px 8px rgba(176,20,110,.3); }
+.sp-chainbox.on, .sp-chainbox.sel { box-shadow: 0 0 0 3px rgba(176,20,110,.35); }
 .sp-chain-un { border-style: dashed; }
 .sp-chain-name { display: block; }
 
@@ -1565,6 +1565,7 @@ body[data-view="chain"] #ctrl .fl,
 .cd-kick-mech { color: #6b6457; }
 .cd-kick-imp { color: #1e6b3c; }
 .cd-kick-prop { color: #601898; }
+.cd-kick-chain { color: #b0146e; }
 .cd-kick-ev, .cd-kick-ctr { color: #b3261e; }
 .sp-chainrow { display: flex; gap: 10px; align-items: flex-start; padding: 6px 8px; border-radius: 6px; cursor: pointer; list-style: none; }
 .sp-chainrow:hover { background: #f4f0ea; }
@@ -1585,6 +1586,8 @@ body[data-view="chain"] #ctrl .fl,
 .k-sw-sp-imp { background: #e4efe7; border: 2px solid #1e6b3c; }
 .k-sw-sp-prop { background: #f7f2fd; border: 1.5px dashed #601898; }
 .k-sw-sp-flag { background: #fff; border: 1.5px solid #b3261e; }
+.k-sw-sp-chain { background: #fdf0f8; border: 1.5px solid #b0146e; }
+.k-sw-sp-chain-un { background: #fdf0f8; border: 1.5px dashed #b0146e; }
 .k-sw-sp-ctr { background: #fdf5f5; border: 1.5px dashed #b3261e; }
 
 /* One ink for every neutral text in the sidebar: titles, paragraphs, the

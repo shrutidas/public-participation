@@ -35,7 +35,7 @@ export const HOW_TO = [
   },
   {
     title: 'Purple: proposed public participation',
-    desc: 'The middle lane holds the proposals from the 6/8 design work, tied by a dotted bracket to the event they would intervene in. Each names its mechanism and the effects it aims at, linked to where those effects are measured on the timeline. The right lane runs the proposal’s causal chain left to right, with an evidence card under every link and counter-evidence kept at full strength.'
+    desc: 'The middle lane holds the proposals from the 6/8 design work, tied by a dotted bracket to the event they would intervene in. Each names its mechanism and the effects it aims at, linked to where those effects are measured on the timeline. The right lane runs the proposal’s causal chain left to right in magenta boxes, with an evidence card under every link and counter-evidence kept at full strength. A dashed box is a link no study tests directly.'
   },
   {
     title: 'Cite a specific view',
@@ -53,7 +53,9 @@ export const GLOSSARY = [
       { swatch: 'sp-ent', label: 'Timeline Event', desc: 'One dated event in the Main Timeline lane, in chronological order. Its badge shows the category. The box shows the opening of the entry; click it for the whole record and its sources.' },
       { swatch: 'sp-star', label: 'Existing Mechanism', desc: 'A star in an event’s corner: an oversight or participation mechanism that already existed and should have caught that event. Click the star to read whether it addressed the event: yes, partly, no, or mixed.' },
       { swatch: 'sp-imp', label: 'Measured Impact', desc: 'An endpoint the record actually measures, in its own lane at the date the finding was first published. An arrow runs from the specific events where the causal claim holds.' },
-      { swatch: 'sp-prop', label: 'Proposed Public Participation', desc: 'A proposal from the 6/8 design work, tied to the event it would intervene in. Its mechanism and the effects it aims at sit under the box; its causal chain runs to the right.' },
+      { swatch: 'sp-prop', label: 'Proposed Public Participation', desc: 'A proposal from the 6/8 design work, tied to the event it would intervene in. Its mechanism and the effects it aims at sit inside the card; its causal chain runs to the right.' },
+      { swatch: 'sp-chain', label: 'Causal Link', desc: 'One step in a proposal’s causal chain, in magenta, read left to right. Click it for the claim; the evidence cards sit under it on the map.' },
+      { swatch: 'sp-chain-un', label: 'Untested Causal Link', desc: 'A dashed magenta box marks a link no study tests directly. Its evidence cards come from nearby cases or other fields.' },
       { swatch: 'sp-flag', label: 'Evidence Card', desc: 'One piece of evidence under the chain link it supports, named by its source. A dashed card is counter-evidence. Click a card to read the finding and the full record.' }
     ]
   },

@@ -562,7 +562,7 @@ function propLinkDetail(spine, i, li) {
   const lk = p.links[li];
   return `<div class="cd">
     <button class="cd-back" data-back="prop">&larr; ${attr(p.name)}</button>
-    <div class="cd-kick cd-kick-prop">Causal Link ${li + 1} of ${p.links.length}</div>
+    <div class="cd-kick cd-kick-chain">Causal Link ${li + 1} of ${p.links.length}</div>
     <div class="cd-head"><span class="cd-id">${lk.name}</span></div>
     <p class="cd-claim">${lk.claim}</p>
     ${lk.strength === 'unstudied' ? `<p class="cd-claim"><em>No study tests this link directly.${(lk.evidence ?? []).length ? ' The evidence cards beside it on the map come from nearby cases and other domains.' : ''}</em></p>` : ''}
