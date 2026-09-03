@@ -100,22 +100,27 @@ function impactBoxHtml(im, ii) {
   </div>`;
 }
 
-/** The mechanism, the effects, and where each effect is measured on the timeline. */
-function propEffectsHtml(p, pi, impacts) {
+/** One proposal card: the intervention, the institutional mechanism that would
+   implement it, and the outcomes it aims at, each linked to where the timeline
+   measures it. The card classifies nothing; uncertainty lives in the chain and
+   the evidence. */
+function propBoxHtml(p, pi, impacts) {
   const links = p.impactsMeasured.map(n => {
     const ii = impacts.findIndex(x => x.name === n);
     return ii === -1 ? `<span class="sp-efflink is-off">${n}</span>`
       : `<button class="sp-efflink" data-goimp="${ii}">${n}<span class="sp-efflink-go">&#8599;</span></button>`;
   }).join('');
-  return `<div class="sp-propeff" data-pr="${pi}">
-    <div class="sp-eff-kick">Proposed Mechanism</div>
-    <div class="sp-eff-mech">${p.method}</div>
-    <div class="sp-eff-kick">Effects It Aims At</div>
-    ${links || '<div class="sp-eff-none">No measured impact in this case</div>'}
-    ${p.impactsConjectured.length
-      ? `<div class="sp-eff-conj"><span class="sp-eff-conj-kick">Conjectured, not measured:</span> ${p.impactsConjectured.join('; ')}</div>`
-      : ''}
-  </div>`;
+  return `<div class="sp-prop-head">
+      <span class="sp-propbox-kick">Proposed Public Participation</span>
+      <span class="sp-prop-title">${p.name}</span>
+    </div>
+    <div class="sp-prop-fields">
+      <div class="sp-eff-kick">Mechanism</div>
+      <div class="sp-eff-mech">${p.method}</div>
+      ${p.summary ? `<div class="sp-prop-sum">${p.summary}</div>` : ''}
+      <div class="sp-eff-kick">Effects it aims at</div>
+      ${links || '<div class="sp-eff-none">No measured impact in this case</div>'}
+    </div>`;
 }
 
 /** One comparable case as its own box under the proposal it belongs to. */
@@ -201,22 +206,18 @@ export function renderSpineMap(el, caseObj, spine, sel = {}) {
     const i = anchorIndex(entries, p.anchor);
     if (i === -1) return;
 
-    const box = document.createElement('button');
+    // A div rather than a button, because the effect links inside it are buttons.
+    const box = document.createElement('div');
     box.className = 'sp-propbox';
     box.dataset.pr = pi;
     box.dataset.ae = i;
-    box.title = p.method;
-    box.innerHTML = `<span class="sp-propbox-kick">Proposed Public Participation</span>${p.name}`;
+    box.tabIndex = 0;
+    box.setAttribute('role', 'button');
+    box.innerHTML = propBoxHtml(p, pi, spine.impacts);
     box.style.left = `${L.propX}px`;
     box.style.width = `${L.propW}px`;
     stage.appendChild(box);
-
-    const eff = document.createElement('div');
-    eff.innerHTML = propEffectsHtml(p, pi, spine.impacts);
-    const effEl = eff.firstElementChild;
-    effEl.style.left = `${L.propX}px`;
-    effEl.style.width = `${L.propW}px`;
-    stage.appendChild(effEl);
+    const head = box.querySelector('.sp-prop-head');
 
     const n = p.links.length;
     const boxW = Math.min(190, Math.floor((L.chainW - (n - 1) * L.chainGap) / n));
@@ -275,8 +276,11 @@ export function renderSpineMap(el, caseObj, spine, sel = {}) {
     for (const x of links) x.el.style.height = `${linkH}px`;
 
     const rec = {
-      p, pi, box, effEl, links, comps, linkH,
-      boxH: box.offsetHeight, effH: effEl.offsetHeight
+      p, pi, box, links, comps, linkH,
+      boxH: box.offsetHeight,
+      // The chain arrow leaves from the middle of the title block, not the
+      // middle of the whole card.
+      headCy: head.offsetTop + head.offsetHeight / 2
     };
     if (!propAt.has(i)) propAt.set(i, []);
     propAt.get(i).push(rec);
@@ -295,12 +299,11 @@ export function renderSpineMap(el, caseObj, spine, sel = {}) {
       for (const rec of propAt.get(i)) {
         rec.y = subY;
         rec.box.style.top = `${Math.round(subY)}px`;
-        rec.effEl.style.top = `${Math.round(subY + rec.boxH + 6)}px`;
-        rec.cy = subY + rec.boxH / 2;
+        rec.cy = subY + rec.headCy;
 
-        // The chain row centres on the proposal box, so the arrow out of the
-        // box and every arrow along the chain is one straight horizontal line.
-        const chainTop = subY + rec.boxH / 2 - rec.linkH / 2;
+        // The chain row centres on the card's title block, so the arrow out of
+        // the card and every arrow along the chain is one straight horizontal line.
+        const chainTop = rec.cy - rec.linkH / 2;
         let stackBot = chainTop + rec.linkH;
         for (const lk of rec.links) {
           lk.el.style.top = `${Math.round(chainTop)}px`;
@@ -313,8 +316,8 @@ export function renderSpineMap(el, caseObj, spine, sel = {}) {
           stackBot = Math.max(stackBot, ey);
         }
         // The comparables run straight down the proposal lane under the
-        // effects card, so each one sits beside the chain it speaks to.
-        let propBot = subY + rec.boxH + 6 + rec.effH;
+        // card, so each one sits beside the chain it speaks to.
+        let propBot = subY + rec.boxH;
         for (const cb of rec.comps) {
           propBot += 6;
           cb.style.top = `${Math.round(propBot)}px`;
@@ -560,34 +563,14 @@ function propCompDetail(spine, i, k) {
 
 function propDetail(spine, i) {
   const p = spine.proposals[i];
-  const chainRows = p.links.map((lk, li) => `
-    <li class="sp-chainrow" data-pl="${li}" tabindex="0">
-      <div class="ev-body"><div class="ev-finding">${lk.name}</div></div>
-    </li>`).join('');
-  const effects = p.impactsMeasured.map(n => {
-    const ii = spine.impacts.findIndex(x => x.name === n);
-    const im = ii === -1 ? null : spine.impacts[ii];
-    return `<li class="sp-chainrow" ${ii === -1 ? '' : `data-goimp="${ii}"`} tabindex="0">
-      <div class="ev-body"><div class="ev-finding">${n}</div>
-        ${im ? `<div class="ev-caveat">Measured on the timeline at ${im.found}</div>` : ''}</div>
-      ${ii === -1 ? '' : '<span class="sp-efflink-go">&#8599;</span>'}
-    </li>`;
-  }).join('');
   return `<div class="cd">
     <div class="cd-kick cd-kick-prop">Proposed Public Participation</div>
-    <div class="cd-head"><span class="cd-id">${p.name}</span> <span class="pp-method">${p.method}</span></div>
+    <div class="cd-head"><span class="cd-id">${p.name}</span></div>
+    <p class="cd-claim"><span class="act-label">Mechanism:</span> ${p.method}</p>
     <p class="cd-claim">${p.description}</p>
     <div class="ln-sec">
       <p class="cd-claim"><span class="act-label">Where:</span> ${p.where}</p>
       <p class="cd-claim"><span class="act-label">When:</span> ${p.when}</p></div>
-    <div class="ln-sec"><h4>The Causal Chain, Link by Link</h4>
-      <p class="cd-claim sp-hintline">Click a link to see its evidence and counter-evidence.</p>
-      <ul class="ev-list">${chainRows}</ul></div>
-    <div class="ln-sec"><h4>Effects It Aims At</h4>
-      ${effects ? `<p class="cd-claim sp-hintline">Click an effect to jump to where it is measured on the timeline.</p>
-        <ul class="ev-list">${effects}</ul>` : '<p class="cd-claim">No measured impact of this case sits on this chain.</p>'}
-      ${p.impactsConjectured.length ? `<p class="cd-claim"><span class="act-label">Conjectured, not measured:</span> ${p.impactsConjectured.join('; ')}</p>` : ''}
-    </div>
     ${compHtml(p.comparables)}
     ${p.srcs?.length ? `<div class="ev-srcs">${srcHtml(p.srcs)}</div>` : ''}
   </div>`;

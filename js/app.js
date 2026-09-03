@@ -454,6 +454,13 @@ function bindEvents() {
       navigate({ view: el(id).dataset.view, selKind: null, selIdx: null, linkIdx: null, evIdx: null, evKind: null }));
   }
 
+  // The proposal card is a div (its effect links are buttons), so Enter and
+  // Space open it the way they open a button.
+  el('ch-map').addEventListener('keydown', e => {
+    if ((e.key === 'Enter' || e.key === ' ') && e.target.matches('.sp-propbox')) {
+      e.preventDefault(); e.target.click();
+    }
+  });
   el('ch-map').addEventListener('click', e => {
     // An effect link on a proposal jumps to where that impact is measured.
     const go = e.target.closest('[data-goimp]');

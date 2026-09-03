@@ -284,8 +284,9 @@ export default spineData({
 
   proposals: [
     spineProposal({
-      name: 'Share all vaccine and case data, early and openly',
-      method: 'Open Data & Public Briefings',
+      name: 'Publish vaccine safety and case data early, with regular public briefings',
+      method: 'Mandatory open data and briefings',
+      summary: 'CDC commits to county-level open dashboards and recurring on-record briefings from the first week of the rollout, including unfavorable findings.',
       anchor: 'ACIP voted 11 to 0',
       where: 'Federal; CDC',
       when: paragraph(`
@@ -297,21 +298,16 @@ export default spineData({
         withheld booster and hospitalization data of 2021-22.
       `),
       description: paragraph(`
-        From the 6/8 session: if institutions adhere to a belief in the public's
-        capability for rationality and share meaningful information early, they
-        might head off the worst of polarization.
+        Require CDC to publish county-level vaccination, case, hospitalization, and adverse-event data on open dashboards, and to hold recurring on-record public briefings, from December 2020 through the rollout, including findings unfavorable to the vaccines. The duty falls on the federal agency; states and the public are users of the data. Briefings run on a fixed schedule with questions taken, and the agency must state what it does not yet know. This is a transparency commitment rather than a participation right. In 2021 CDC held two telebriefings, newspapers filled the county-data vacuum, and booster and hospitalization data were withheld in 2021-22. The randomized evidence suggests openness about negatives raises trust in the authorities even when it lowers short-run acceptance.
       `),
       banner: true,
       impactsMeasured: ['Deaths among unvaccinated adults'],
       impactsConjectured: ['Heading off polarization', 'The state, not a newspaper, performing the data function'],
       links: [
         propLink({
-          name: 'Openness sustains trust, with an acceptance dip',
+          name: 'Openness may sustain trust, at the cost of a short-run acceptance dip',
           claim: paragraph(`
-            Transparency and frequent briefing sustain institutional trust.
-            The randomized evidence adds a complication: transparent negative
-            communication raises trust while lowering short-run acceptance, so
-            the chain's first two arrows can point in opposite directions.
+            Transparent, frequent briefing may sustain trust in health authorities. The randomized evidence adds a complication: openness about negative vaccine features raises trust while lowering short-run acceptance, so the first two arrows can pull in opposite directions.
           `),
           strength: 'moderate',
           evidence: [
@@ -341,12 +337,9 @@ export default spineData({
           ]
         }),
         propLink({
-          name: 'Trust raises vaccination',
+          name: 'Trust in authorities may raise vaccination',
           claim: paragraph(`
-            Institutional trust raises uptake. The correlational record supports
-            it; no causal test of raising institutional trust to raise uptake
-            was identified, and the strongest US predictor of county uptake is
-            partisan identity.
+            Higher institutional trust is associated with higher uptake across countries. No causal test of raising trust to raise uptake was identified, and the strongest US county predictor is partisan identity.
           `),
           strength: 'moderate',
           evidence: [
@@ -376,7 +369,7 @@ export default spineData({
         propLink({
           name: 'Vaccination prevents deaths',
           claim: paragraph(`
-            Higher uptake prevents deaths among the unvaccinated.
+            Higher uptake prevents deaths among unvaccinated adults; this link is directly measured.
           `),
           strength: 'strong',
           evidence: [
@@ -423,8 +416,9 @@ export default spineData({
     }),
 
     spineProposal({
-      name: 'Public deliberation before any vaccine mandate',
-      method: 'Citizens Assembly, Minipublic',
+      name: 'Convene a citizens\' assembly before any vaccine mandate is imposed',
+      method: 'Deliberative forum before mandates',
+      summary: 'Before ordering a mandate, the federal government or a city convenes a randomly selected assembly on the value tradeoff and must publicly answer its recommendation.',
       anchor: 'majorities of Americans already supported',
       where: 'Federal, before the September 9, 2021 announcement; or New York City before its November 1 municipal mandate',
       when: paragraph(`
@@ -435,19 +429,16 @@ export default spineData({
         might decide not to vaccinate.
       `),
       description: paragraph(`
-        From the 6/8 session: convene a mini-public before any mandate, on the
-        value tradeoff rather than the science, with decentralized decisions
-        accepted.
+        Require the federal government, or a city considering its own mandate, to convene a randomly selected assembly of residents before imposing a vaccine mandate, with the assembly deciding the value question of whether and for whom to mandate, not the science, which is briefed to it. The convening authority keeps the final decision but must publish the assembly's recommendation and a written response before acting; participation is deliberative and advisory. Existing federal and state vaccination law and emergency-use rules stay in place, and regional variation is accepted: some places might choose not to mandate. Convened in June 2021 and reporting by late August, an assembly would have preceded Executive Order 14043 and the OSHA rule, both later cut down by the Senate and the Supreme Court.
       `),
       banner: true,
       impactsMeasured: ['Vaccination uptake after mandates', 'Deaths among unvaccinated adults'],
       impactsConjectured: ['Political legitimacy of science', 'Avoiding the authority fight that ran through courts', 'Regional self-determination'],
       links: [
         propLink({
-          name: 'Deliberation raises the decision\'s legitimacy',
+          name: 'Deliberation before the decision may raise its perceived legitimacy',
           claim: paragraph(`
-            A mini-public convened before the decision raises its perceived
-            legitimacy, especially among low-trust citizens.
+            A citizens' assembly convened before the decision may raise how legitimate the public finds it, especially among low-trust citizens; the effect is measured in survey experiments, not on a mandate.
           `),
           strength: 'moderate',
           evidence: [
@@ -474,10 +465,9 @@ export default spineData({
           ]
         }),
         propLink({
-          name: 'Legitimacy could improve compliance',
+          name: 'Higher legitimacy could improve compliance or reduce backlash',
           claim: paragraph(`
-            Perceived legitimacy could improve compliance with the mandate or
-            reduce backlash.
+            Perceived legitimacy could improve compliance with a mandate or reduce backlash; the evidence comes from policing and lockdown compliance, not vaccination.
           `),
           strength: 'weak',
           evidence: [
@@ -526,12 +516,9 @@ export default spineData({
           ]
         }),
         propLink({
-          name: 'A legitimate mandate could raise uptake',
+          name: 'A mandate with deliberative backing could raise uptake',
           claim: paragraph(`
-            A mandate carrying deliberative legitimacy could raise uptake at
-            least as much as one imposed without it, with less backlash. The
-            evidence below tests mandates alone; the deliberative increment is
-            untested.
+            A mandate carrying deliberative legitimacy could raise uptake at least as much as one imposed without it, with less backlash. The evidence tests mandates alone, with contested results; the deliberative increment is untested.
           `),
           strength: 'contested',
           evidence: [
@@ -573,9 +560,9 @@ export default spineData({
           ]
         }),
         propLink({
-          name: 'Uptake prevents deaths',
+          name: 'Higher uptake prevents deaths',
           claim: paragraph(`
-            Higher uptake prevents deaths.
+            Higher uptake prevents deaths; this link is directly measured.
           `),
           strength: 'strong',
           evidence: [
@@ -675,8 +662,9 @@ export default spineData({
     }),
 
     spineProposal({
-      name: 'Let communities design how vaccines reach them',
-      method: 'Community Advisory & Co-Design',
+      name: 'Let neighborhood task forces decide where and how vaccines are delivered',
+      method: 'Co-governance of vaccine delivery',
+      summary: 'City health departments hand siting, hours, and outreach decisions for equity allocations to task forces of residents and local organizations.',
       anchor: '20,792 doses',
       where: 'City and county level, at the siting of scarce supply',
       when: paragraph(`
@@ -688,21 +676,16 @@ export default spineData({
         the binding constraint shifted from supply to access logistics.
       `),
       description: paragraph(`
-        Affected communities decide where and how vaccination access is built:
-        siting, hours, mobile units, paid time off coordination. No study
-        isolates the co-design component from the supply prioritization it was
-        bundled with, which is what the end-to-end banner records.
+        Give neighborhood task forces of residents, community organizations, clinics, and employers shared authority over where, when, and how vaccines are delivered in high-vulnerability zip codes: site selection, hours, mobile units, and paid-time-off coordination. The city or county health department keeps control of supply, eligibility rules, and safety standards, and commits a share of doses to the task forces' plans. Task forces form in February 2021, when scarce federal supply was being sited, and again in April 2021 when the constraint became access. Decisions are shared, not advisory, and the department publishes uptake by zip code. Protect Chicago Plus launched January 25, 2021 on this model; no study separates its co-governance component from the supply prioritization bundled with it.
       `),
       banner: true,
       impactsMeasured: ['The racial vaccination gap', 'Deaths among unvaccinated adults'],
       impactsConjectured: ['Community ownership', 'Standing infrastructure for the next emergency'],
       links: [
         propLink({
-          name: 'Co-design could put access where the barriers are',
+          name: 'Task forces could put access where the barriers are',
           claim: paragraph(`
-            Community co-design could land access infrastructure where the
-            barriers actually are. The co-design component has not been
-            isolated from supply prioritization in any study.
+            Community task forces could place access infrastructure where the barriers actually are. The co-governance component has not been isolated from supply prioritization in any study.
           `),
           strength: 'moderate',
           evidence: [
@@ -740,8 +723,7 @@ export default spineData({
         propLink({
           name: 'Access raises uptake',
           claim: paragraph(`
-            Access infrastructure raises uptake. The best-measured link in the
-            case.
+            Access infrastructure raises uptake; the best-measured link in this case.
           `),
           strength: 'strong',
           evidence: [
@@ -755,11 +737,9 @@ export default spineData({
           ]
         }),
         propLink({
-          name: 'Equitable uptake could narrow the gap earlier',
+          name: 'Earlier equitable uptake could narrow the racial gap sooner',
           claim: paragraph(`
-            Equitable uptake could have narrowed the racial gap earlier than it
-            narrowed in fact, cutting the never-estimated mortality cost of the
-            spring 2021 lag.
+            Equitable uptake could have narrowed the racial vaccination gap earlier than it narrowed in fact; the mortality cost of the spring 2021 lag has never been estimated.
           `),
           strength: 'moderate',
           evidence: [
@@ -782,10 +762,9 @@ export default spineData({
           ]
         }),
         propLink({
-          name: 'Uptake prevents deaths',
+          name: 'Higher and earlier uptake prevents deaths',
           claim: paragraph(`
-            Higher and earlier uptake prevents deaths, including the
-            never-estimated excess deaths from the spring 2021 lag.
+            Higher and earlier uptake prevents deaths, including the unestimated excess deaths from the spring 2021 lag.
           `),
           strength: 'strong',
           evidence: [
@@ -866,8 +845,9 @@ export default spineData({
     }),
 
     spineProposal({
-      name: 'Fund evaluation alongside every outreach program',
-      method: 'Built-In Program Evaluation',
+      name: 'Require an independent evaluation with every community outreach grant',
+      method: 'Evaluation condition in grant terms',
+      summary: 'HHS makes a comparison-group evaluation a condition of each American Rescue Plan community-engagement award, with results published.',
       anchor: 'vaccine equity push',
       where: 'HHS, in the award terms of the American Rescue Plan community engagement funding',
       when: paragraph(`
@@ -879,21 +859,16 @@ export default spineData({
         and every downstream impact is conditional on someone acting on it.
       `),
       description: paragraph(`
-        Fund a counterfactual evaluation as a condition of every
-        community-engagement award, so $1.1 billion in participation
-        infrastructure does not persist in the record only as dollar figures
-        and dose counts. This proposal is the research team's addition, drawn
-        from the 6/8 session's question about whether available information is
-        used and shared, rather than an intervention proposed in the session.
+        Require HHS to make a comparison-group evaluation a condition of every American Rescue Plan community-engagement award, with results published, so that $1.1 billion in participation funding leaves effect estimates rather than dollar figures and dose counts. The duty falls on the funding agency and its grantees; the public's role is as reader of the published results. Award terms are set once, in March to April 2021, at obligation of the $323 million to community organizations, $250 million to local governments, and $500 million for community health workers. This is an accountability condition on public money rather than a participation right, and the research team added it from the June 8 session's question about whether information is used; it did not come from the session. Its direct product is evidence; every further effect depends on someone acting on it.
       `),
       banner: true,
       impactsMeasured: [],
       impactsConjectured: ['Effect estimates exist for the next emergency', 'Allocation shifts toward instruments with measured effects', 'Accountability for public money'],
       links: [
         propLink({
-          name: 'Requiring evaluation could produce evaluations',
+          name: 'Requiring evaluation in award terms could produce evaluations',
           claim: paragraph(`
-            Requiring evaluation in award terms could produce evaluations.
+            Award conditions could produce evaluations that otherwise would not exist; agencies that embedded evaluation did produce them, with smaller effects than the published literature suggested.
           `),
           strength: 'moderate',
           evidence: [
@@ -920,10 +895,9 @@ export default spineData({
           ]
         }),
         propLink({
-          name: 'Evidence could change later decisions',
+          name: 'Published effect estimates could change later spending',
           claim: paragraph(`
-            Effect estimates could change later allocation, within the pandemic
-            and in the next emergency.
+            Effect estimates could change later allocation, within the pandemic and in the next emergency. Cities and mayors do adopt evaluated policies, but partially, and no agency was identified changing its spending in response.
           `),
           strength: 'moderate',
           evidence: [
@@ -961,9 +935,7 @@ export default spineData({
         propLink({
           name: 'Better allocation could raise uptake',
           claim: paragraph(`
-            Reallocation toward measured instruments could raise uptake and
-            lower deaths. Conjectured by construction; no study can exist for a
-            policy not adopted.
+            Reallocation toward instruments with measured effects could raise uptake and lower deaths. No study can exist for a policy that was not adopted.
           `),
           strength: 'unstudied',
           evidence: [

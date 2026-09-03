@@ -388,7 +388,7 @@ export function comparable({ name, where, when, authority, outcome, strength, so
  * tests end to end; per-link grades still render underneath.
  */
 export function spineProposal({
-  name, method, anchor, when, where, description,
+  name, method, summary = '', anchor, when, where, description,
   banner = true, impactsMeasured = [], impactsConjectured = [],
   links = [], comparables = [], sources = []
 }) {
@@ -401,7 +401,7 @@ export function spineProposal({
   if (!links.length) throw new Error(`Spine proposal "${name}" has no chain links`);
   checkSources(sources, `Spine proposal "${name}"`);
   return {
-    name, method, anchor, when, where, description,
+    name, method, summary, anchor, when, where, description,
     banner: Boolean(banner), impactsMeasured, impactsConjectured,
     links, comparables, srcs: sources.map(s => ({ l: s.label, u: s.url }))
   };

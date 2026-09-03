@@ -380,8 +380,9 @@ export default spineData({
 
   proposals: [
     spineProposal({
-      name: 'Give workers a protected way to report chemical risks',
-      method: 'Worker Committees & Protected Disclosure',
+      name: 'Give plant workers a protected channel to report chemical hazards to regulators',
+      method: 'Protected worker reporting channel',
+      summary: 'Workers can report substantial-risk findings directly to EPA through a channel with anti-retaliation protection and a duty on the agency to act.',
       anchor: 'continued exposure is not tolerable',
       where: 'Congress and EPA, with worker anti-retaliation machinery as the shield',
       when: paragraph(`
@@ -394,9 +395,7 @@ export default spineData({
         touches this river.
       `),
       description: paragraph(`
-        From the 6/8 session: a mechanism for involving workers in oversight.
-        DuPont observed unusual medical issues among its own workers, who saw
-        the harm first and had no say.
+        Give workers at chemical plants a protected channel to report substantial-risk findings directly to EPA, with anti-retaliation protection and a duty on the agency to log, investigate, and publish what it receives, within existing trade-secret and occupational-safety law. Congress writes the duty into the chemicals statute; EPA and the OSHA whistleblower program administer it. Any worker can file at any time, and the report triggers a required agency response, so participation is binding on the regulator rather than advisory. The agency publishes its findings. The intervention dates to 1980, when DuPont had confirmed elevated PFOA in its own workers, concluded internally that continued exposure was not tolerable, and began discharging into the Cape Fear, while the workers who saw the harm first had no channel.
       `),
       banner: true,
       impactsMeasured: ['Exposure through drinking water', 'PFAS measured in the blood of residents', 'Disease linked to PFAS exposure'],
@@ -405,8 +404,7 @@ export default spineData({
         propLink({
           name: 'A protected channel could produce more disclosures',
           claim: paragraph(`
-            A protected, structured worker reporting channel could produce more
-            disclosures of concealed findings.
+            A protected, structured reporting channel could produce more disclosures of concealed findings; employees are the largest single detector of corporate fraud, but few report without strong protection.
           `),
           strength: 'moderate',
           evidence: [
@@ -437,8 +435,7 @@ export default spineData({
         propLink({
           name: 'Disclosure could reach and move the regulator',
           claim: paragraph(`
-            Worker disclosure could reach the regulator and produce scrutiny
-            decades before litigation discovery did.
+            Worker disclosure could reach the regulator and produce scrutiny decades before litigation discovery did; 3M's 1998 disclosure did trigger EPA's first sustained look at PFAS.
           `),
           strength: 'moderate',
           evidence: [
@@ -464,8 +461,7 @@ export default spineData({
         propLink({
           name: 'Earlier information could mean earlier control',
           claim: paragraph(`
-            A regulator that knew earlier could have controlled the discharge
-            earlier.
+            A regulator that knew earlier could have controlled the discharge earlier; this depends on the agency acting, which in this record took years even after disclosure.
           `),
           strength: 'moderate',
           evidence: [
@@ -493,12 +489,9 @@ export default spineData({
           ]
         }),
         propLink({
-          name: 'Less exposure could mean less disease',
+          name: 'Less exposure means less PFAS in blood and lower disease risk',
           claim: paragraph(`
-            An earlier cutoff lowers cumulative exposure and the PFAS in
-            residents' blood. The blood levels matter because PFAS exposure is
-            linked to disease: higher cholesterol, thyroid disease, and kidney
-            and testicular cancer.
+            An earlier cutoff lowers cumulative exposure and the PFAS in residents' blood, and PFAS exposure is linked to higher cholesterol, thyroid disease, and kidney and testicular cancer; these links are measured.
           `),
           strength: 'strong',
           evidence: [
@@ -573,8 +566,9 @@ export default spineData({
     }),
 
     spineProposal({
-      name: 'Let residents report early signs of contamination',
-      method: 'Participatory Science & Community Reporting',
+      name: 'Let residents report contamination signs and require an investigation',
+      method: 'Resident reporting with investigation trigger',
+      summary: 'Residents can report suspected contamination to a standing local body that must investigate, with community water sampling run alongside a laboratory partner.',
       anchor: 'cattle deaths',
       where: 'EPA Region 3 and West Virginia for the documented 1998 signal; NC DEQ and CFPUA for a 2013-2015 Cape Fear deployment',
       when: paragraph(`
@@ -589,20 +583,16 @@ export default spineData({
         1998 anchor or move to the 2012 detection is a pending call.
       `),
       description: paragraph(`
-        From the 6/8 session, anchored to 1998: local meetings, information
-        spreading, and crowdsourced data collection at the first sign of a
-        threat, with a standing institution that treats resident reports as
-        experiential knowledge.
+        Give residents a standing local body, run with the state environmental agency and the water utility, that must investigate resident reports of suspected contamination and support community water sampling with a laboratory partner. Anyone can report; the body must respond in writing within a set time and publish sampling results. Participation is a binding trigger for investigation, not a decision right, and state and federal water standards still govern the response. The 1998 anchor is Wilbur Tennant's documentation of cattle deaths in West Virginia, the first time someone in this record noticed something was off. On the Cape Fear, GenX at parts-per-trillion levels gave residents nothing to observe before 2012; a 2013 to 2015 community sampling program, once federal monitoring data existed, is the defensible local deployment.
       `),
       banner: true,
       impactsMeasured: ['Exposure through drinking water', 'PFAS measured in the blood of residents', 'Disease linked to PFAS exposure'],
       impactsConjectured: ['Experiential knowledge honored', 'Community standing'],
       links: [
         propLink({
-          name: 'Resident reports could trigger investigation',
+          name: 'Resident reports could trigger investigation before official detection',
           claim: paragraph(`
-            Resident reports of suspicions and symptoms could trigger
-            investigation before formal institutional detection.
+            Resident reports of suspicions and symptoms could trigger investigation before formal institutional detection; most reported cancer clusters find no environmental cause, so the trigger must tolerate false alarms.
           `),
           strength: 'moderate',
           evidence: [
@@ -650,10 +640,9 @@ export default spineData({
           ]
         }),
         propLink({
-          name: 'Reports could produce detection in this case',
+          name: 'Reports could have produced earlier detection on the Cape Fear',
           claim: paragraph(`
-            On the Cape Fear, resident reports would have produced earlier
-            detection.
+            On the Cape Fear, resident reports would have produced earlier detection only if there was something to observe; before 2012 there was not, so this link depends on community sampling with a laboratory partner.
           `),
           strength: 'unstudied',
           evidence: [
@@ -695,9 +684,7 @@ export default spineData({
         propLink({
           name: 'Earlier detection could mean less exposure',
           claim: paragraph(`
-            Earlier detection could bring the response forward, lowering
-            exposure, the PFAS in residents' blood, and the disease risk it
-            carries.
+            Earlier detection could bring the response forward, lowering exposure, the PFAS in residents' blood, and the disease risk it carries.
           `),
           strength: 'moderate',
           evidence: [
@@ -765,8 +752,9 @@ export default spineData({
     }),
 
     spineProposal({
-      name: 'Warn the public when chemical discharge is approved',
-      method: 'Statutory Right-to-Know',
+      name: 'Notify downstream residents whenever a chemical discharge is approved',
+      method: 'Statutory notice at discharge approval',
+      summary: 'Every approval to discharge a chemical carries a duty to notify affected water users and attach a public local monitoring plan.',
       anchor: 'insufficient information and potential unreasonable risk',
       where: 'EPA Office of Chemical Safety and Pollution Prevention; the 1980 permit is the earlier anchor',
       when: paragraph(`
@@ -779,19 +767,16 @@ export default spineData({
         commenter could act on.
       `),
       description: paragraph(`
-        From the 6/8 session: every time a company starts discharging under an
-        approval, the affected public is notified and a local monitoring plan
-        attaches.
+        Require EPA, whenever it approves the manufacture or discharge of a chemical, to notify the downstream public by name of the substance and attach a public local monitoring plan, within existing trade-secret law. The duty falls on the agency and the permit holder; affected water users, utilities, and local governments receive the notice and the monitoring results. Notice is mandatory and immediate at approval; the public's role is to receive, monitor, and act, not to decide. Federal and state discharge standards stay in place. The 2009 consent order is the moment the federal government both recognized potential unreasonable risk from GenX and authorized its manufacture; notice attached to that order would have reached every affected water user eight years before the June 2017 newspaper story. The 1980 permit file contained no chemical name a commenter could act on.
       `),
       banner: true,
       impactsMeasured: ['Exposure through drinking water', 'PFAS measured in the blood of residents', 'Disease linked to PFAS exposure', 'Filtration costs paid by water customers'],
       impactsConjectured: ['Externalities borne knowingly rather than unknowingly', 'Procedural fairness'],
       links: [
         propLink({
-          name: 'Notice at approval could produce public knowledge',
+          name: 'Notice at approval could produce public knowledge from day one',
           claim: paragraph(`
-            A notification duty attached to the approval could produce public
-            knowledge from day one.
+            A notification duty attached to the approval could produce public knowledge from day one; in this record the approval file gave the public nothing to act on.
           `),
           strength: 'moderate',
           evidence: [
@@ -820,8 +805,7 @@ export default spineData({
         propLink({
           name: 'Public knowledge changes behavior',
           claim: paragraph(`
-            Public knowledge changes behavior: monitoring, avoidance, market and
-            political pressure.
+            Public knowledge of contamination changes behavior: avoidance, monitoring, market and political pressure; measured in bottled water sales and housing prices.
           `),
           strength: 'strong',
           evidence: [
@@ -850,8 +834,7 @@ export default spineData({
         propLink({
           name: 'Disclosure pressure reduces discharges',
           claim: paragraph(`
-            Disclosure pressure reduces firm discharges before enforcement
-            arrives.
+            Disclosure requirements reduce firm discharges before enforcement arrives; measured in water-quality reporting and chemical-use disclosure.
           `),
           strength: 'strong',
           evidence: [
@@ -878,11 +861,9 @@ export default spineData({
           ]
         }),
         propLink({
-          name: 'Reduced discharge, lower exposure and cost',
+          name: 'Reduced discharge lowers exposure, blood levels, and filtration costs',
           claim: paragraph(`
-            Reduced discharge lowers cumulative exposure, the PFAS in
-            residents' blood and the disease risk it carries, and the
-            filtration costs that fell on water customers.
+            Reduced discharge lowers cumulative exposure, the PFAS in residents' blood, the disease risk it carries, and the filtration costs that fell on water customers.
           `),
           strength: 'strong',
           evidence: [
@@ -947,8 +928,9 @@ export default spineData({
     }),
 
     spineProposal({
-      name: 'A law that forces public notice when contamination is found',
-      method: 'Right-to-Know Trigger',
+      name: 'Require public notice when a contaminant is detected in drinking water',
+      method: 'Statutory notice triggered by detection',
+      summary: 'When a peer-reviewed detection above a threshold reaches a regulator, the agency must notify the affected public within weeks.',
       anchor: 'stayed inside agencies and journals',
       where: 'Congress writing the duty into the drinking water or chemicals statute; EPA executing; NC DEQ for the state-scale fallback',
       when: paragraph(`
@@ -962,19 +944,16 @@ export default spineData({
         link that failed.
       `),
       description: paragraph(`
-        A notification requirement that fires when a peer-reviewed detection
-        above a threshold reaches a regulator: the June 2017 newspaper story,
-        made statutory.
+        Require a regulator that receives a peer-reviewed detection of a contaminant above a set threshold in drinking water to notify the affected public within weeks, whether or not the substance is yet regulated. Congress writes the duty into the drinking-water or chemicals statute; EPA executes it, with the state agency as the fallback trigger. The public's role is to receive notice; utilities and local governments then act under existing standards. Notice is mandatory, not discretionary. On the Cape Fear, EPA's own researchers detected GenX in August 2012 and the finding stayed inside agencies and journals until a newspaper story in June 2017. A federal trigger on the 2012 detection cuts five years of exposure; a state trigger on the November 2016 quantified paper still cuts about seven months. This makes the disclosure institutional rather than journalistic.
       `),
       banner: true,
       impactsMeasured: ['Exposure through drinking water', 'PFAS measured in the blood of residents', 'Disease linked to PFAS exposure'],
       impactsConjectured: ['Journalism removed as a single point of failure', 'Institutional trust'],
       links: [
         propLink({
-          name: 'A trigger could produce public knowledge',
+          name: 'A statutory trigger could turn a detection into public notice',
           claim: paragraph(`
-            A statutory trigger could convert regulator receipt of a qualifying
-            detection into public notice, in 2012 instead of 2017.
+            A statutory trigger could convert a regulator's receipt of a qualifying detection into public notice, in 2012 instead of 2017; the 24-hour machinery exists for regulated contaminants, and one reporter performed the function once by browsing public data.
           `),
           strength: 'moderate',
           evidence: [
@@ -1005,10 +984,9 @@ export default spineData({
           ]
         }),
         propLink({
-          name: 'Public knowledge produces rapid response',
+          name: 'Public knowledge produces rapid agency response',
           claim: paragraph(`
-            Public knowledge produces rapid agency response on the demonstrated
-            timetable.
+            Once the public knew, agency response followed within weeks; this timetable is directly observed in 2017.
           `),
           strength: 'strong',
           evidence: [
@@ -1037,9 +1015,7 @@ export default spineData({
         propLink({
           name: 'Earlier response could avoid years of exposure',
           claim: paragraph(`
-            Earlier response could avoid up to five years of exposure at a mean
-            of 631 ng/L, bringing the measured declines in blood levels, and
-            the disease risk they carry, forward.
+            Earlier response could avoid up to five years of exposure at a mean of 631 ng/L, bringing forward the measured declines in blood levels and the disease risk they carry.
           `),
           strength: 'strong',
           evidence: [
@@ -1100,8 +1076,9 @@ export default spineData({
     }),
 
     spineProposal({
-      name: 'Let the public choose experts to review the health evidence',
-      method: 'Independent Science Review',
+      name: 'Let affected residents appoint independent experts to verify health data',
+      method: 'Community-appointed independent review',
+      summary: 'In an emergency health assessment, community-appointed reviewers can split water and blood samples and publish their own findings.',
       anchor: 'State action began only after public disclosure',
       where: 'NC DHHS and NC DEQ',
       when: paragraph(`
@@ -1113,23 +1090,16 @@ export default spineData({
         with authority to split samples.
       `),
       description: paragraph(`
-        From the 6/8 session: let the public appoint its own experts to
-        independently verify blood panels and water analyses and translate
-        findings through a trusted channel. The session framed this as a fork:
-        either the public trusts the input process, or a mechanism exists to
-        route around authorities it does not trust. Community-appointed
-        reviewers with split-sample authority are that bypass, the civilian
-        counterpart of the worker channel's third-party receipt.
+        Give affected residents the right, whenever the state sets an emergency health screening level or returns exposure results, to appoint their own reviewers who can split water and blood samples, verify the state's analysis, and publish findings through a channel the community chose. The state health and environmental departments keep authority over the screening level and the response; the reviewers' role is verification and translation, and the state must answer their findings in writing. The affected community makes the appointments, paid by the responsible party or the state. In June to July 2017 in Wilmington, the state's health screening number moved from 71,000 to 140 parts per trillion in five weeks, and a key meeting between regulators, Chemours, and officials was closed to the public. The June 8 session framed this as the route around authorities the public distrusts.
       `),
       banner: true,
       impactsMeasured: [],
       impactsConjectured: ['Legitimacy of the response', 'Repaired trust', 'Sustained study participation and calibrated protective behavior'],
       links: [
         propLink({
-          name: 'Independent panels could produce findings that stick',
+          name: 'Community-appointed panels could produce findings that carry weight',
           claim: paragraph(`
-            Independently appointed panels could produce credible findings that
-            carry consequence.
+            Independently appointed panels could produce credible findings that carry consequence; the C8 Science Panel, jointly appointed under a court settlement, is the precedent.
           `),
           strength: 'moderate',
           evidence: [
@@ -1162,10 +1132,9 @@ export default spineData({
           ]
         }),
         propLink({
-          name: 'Independent verification could build trusted communication',
+          name: 'Independent verification could build a trusted channel for risk information',
           claim: paragraph(`
-            Independent verification could improve trusted communication of
-            risk.
+            Independent verification could improve trusted communication of risk; the report-back literature documents intentions and self-reports, not measured outcomes.
           `),
           strength: 'weak',
           evidence: [
@@ -1195,10 +1164,9 @@ export default spineData({
           ]
         }),
         propLink({
-          name: 'Trusted channels could sustain engagement',
+          name: 'A trusted channel could sustain study participation and protective behavior',
           claim: paragraph(`
-            A trusted channel could sustain engagement, study participation,
-            and calibrated protective behavior, feeding measured outcomes.
+            A trusted channel could sustain engagement, study participation, and calibrated protective behavior; the C8 Health Project enrolled 69,030 residents, but no study tests whether trust caused it.
           `),
           strength: 'weak',
           evidence: [
@@ -1272,8 +1240,9 @@ export default spineData({
     }),
 
     spineProposal({
-      name: 'Federal funding for locally designed enforcement',
-      method: 'Federal Funding, Local Design',
+      name: 'Fund standing local monitoring and legal capacity with federal grants',
+      method: 'Federally funded citizen oversight capacity',
+      summary: 'A federal grant program pays for community-governed monitoring, technical, and legal staff whose deliverable is a petition for a statewide standard.',
       anchor: 'public notice and comment',
       where: 'Congress and EPA for the funding; the NC Environmental Management Commission for the standard-setting it must feed',
       when: paragraph(`
@@ -1286,19 +1255,16 @@ export default spineData({
         shows why the state layer must hold it.
       `),
       description: paragraph(`
-        From the 6/8 session: federally funded programs whose enforcement and
-        implementation are locally designed, so facility-level wins convert
-        into protections that reach the next community.
+        Create a federal grant program that funds standing, community-governed monitoring, technical, and legal capacity in affected regions, with a deliverable of petition-ready proposals for statewide standards rather than another facility-specific order. Congress and EPA fund it; a local board of residents, utilities, and local governments directs the work; the state Environmental Management Commission remains the body that adopts standards. Residents' role is oversight of implementation and of the data, and the board must publish its monitoring results and petitions. The anchor is February 2019, when the Consent Order created facility-scoped machinery, citizen enforcement, a sampling network, and the exposure study, with no bridge to rulemaking. The 2024 to 2026 federal reversal on PFAS limits shows why a state layer must hold the standard.
       `),
       banner: true,
       impactsMeasured: ['Statewide rule adoption'],
       impactsConjectured: ['Durable accountability independent of any single order'],
       links: [
         propLink({
-          name: 'Federal funding could build local capacity',
+          name: 'Federal funding could build standing local capacity',
           claim: paragraph(`
-            Federal funding could build standing local monitoring, legal, and
-            technical capacity.
+            Federal funding could build standing local monitoring, legal, and technical capacity; the evidence comes from Good Neighbor Agreements, where implementation depended on community leverage and resources.
           `),
           strength: 'moderate',
           evidence: [
@@ -1326,10 +1292,9 @@ export default spineData({
           ]
         }),
         propLink({
-          name: 'Local capacity could convert wins into standards',
+          name: 'Local capacity could turn facility wins into statewide standards',
           claim: paragraph(`
-            Standing local capacity could convert facility wins into statewide
-            standards.
+            Standing local capacity could convert facility-level wins into statewide standards through petitions; this route is weakly evidenced and depends on the state commission acting.
           `),
           strength: 'weak',
           evidence: [
@@ -1358,10 +1323,9 @@ export default spineData({
           ]
         }),
         propLink({
-          name: 'Standards could protect the next community',
+          name: 'Adopted standards could protect the next community before exposure',
           claim: paragraph(`
-            Once adopted, standards could protect the next community before
-            exposure, not after.
+            Once adopted, standards could protect the next community before exposure rather than after; North Carolina's own rule adoption is the measured case.
           `),
           strength: 'moderate',
           evidence: [
@@ -1430,8 +1394,9 @@ export default spineData({
     }),
 
     spineProposal({
-      name: 'Put the public inside the chemical approval review',
-      method: 'Stakeholder Participation in Initial Review',
+      name: 'Seat affected residents in the review that approves a chemical discharge',
+      method: 'Community seats in permit review',
+      summary: 'Representatives of downstream communities sit on the initial approval review with standing to set the monitoring plan and demand its verification.',
       anchor: 'insufficient information and potential unreasonable risk',
       where: 'EPA Office of Chemical Safety and Pollution Prevention, with the review body seated from affected downstream communities',
       when: paragraph(`
@@ -1445,19 +1410,16 @@ export default spineData({
         the public in.
       `),
       description: paragraph(`
-        Approval of a discharge, drug, or technology seats affected-community
-        representatives inside the initial review, with standing to set the
-        monitoring plan and demand its verification.
+        Give representatives of downstream communities designated seats in EPA's initial review of a chemical discharge, with standing to set the monitoring plan and to demand its verification, while the agency keeps the approval decision. The seats are filled from affected water systems and residents before the review opens; representatives see the same submissions as the agency, within trade-secret law, and their monitoring conditions bind the permit. Participation is shared over monitoring and advisory over approval, and the agency must publish the plan and each verification. The anchor is the 2009 consent order, which set a 99 percent capture requirement that no one checked for eight years. The June 8 session described an FDA-like initial review that involves the public; this proposal and the notice-at-approval proposal intervene at the same moment, one sending notice out, the other bringing the public in.
       `),
       banner: true,
       impactsMeasured: ['Exposure through drinking water', 'PFAS measured in the blood of residents', 'Disease linked to PFAS exposure'],
       impactsConjectured: ['Assurances under uncertainty the public can hold', 'A standing constituency for verification'],
       links: [
         propLink({
-          name: 'Public seats could produce monitoring commitments',
+          name: 'Public seats could produce monitoring commitments under uncertainty',
           claim: paragraph(`
-            Public seats in the approval review could produce monitoring
-            commitments under uncertainty.
+            Community seats in the approval review could produce monitoring commitments where the science is uncertain; the closest evidence is negotiated agreements, not permit reviews.
           `),
           strength: 'weak',
           evidence: [
@@ -1475,9 +1437,7 @@ export default spineData({
         propLink({
           name: 'A public constituency could get the plan verified',
           claim: paragraph(`
-            A public constituency for the monitoring plan could get it
-            verified, closing the gap between an order's terms and anyone
-            checking them.
+            A standing public constituency for the monitoring plan could get it verified, closing the gap between an order's terms and anyone checking them; citizen complaints in Texas did raise regulator monitoring.
           `),
           strength: 'weak',
           evidence: [
@@ -1514,8 +1474,7 @@ export default spineData({
         propLink({
           name: 'Verified compliance shortens the exposure window',
           claim: paragraph(`
-            Verified compliance shortens the exposure window, lowering the PFAS
-            in residents' blood and the disease risk it carries.
+            Verified compliance shortens the exposure window, lowering the PFAS in residents' blood and the disease risk it carries; this link is measured.
           `),
           strength: 'strong',
           evidence: [

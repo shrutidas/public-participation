@@ -354,8 +354,9 @@ export default spineData({
 
   proposals: [
     spineProposal({
-      name: 'Regional citizen assemblies that can decide school reopening',
-      method: 'Citizens Assembly (Sortition, Rotation, Confederal)',
+      name: 'Let a randomly selected citizens\' assembly decide how schools reopen',
+      method: 'Citizens\' assembly with decision authority',
+      summary: 'A state-convened assembly of randomly selected residents sets the fall instructional mode, and the state must adopt its decision or publicly explain why not.',
       anchor: 'Return to School Roadmap',
       where: 'State level; Michigan is the natural jurisdiction',
       when: paragraph(`
@@ -366,22 +367,16 @@ export default spineData({
         November 2020 demonstrates that failure mode.
       `),
       description: paragraph(`
-        From the 6/8 design session: citizen assemblies convened regionally with
-        real decision power over reopening, in place of advisory bodies whose
-        recommendations could be shelved. The session named three routes to
-        representativeness: sortition, confederal distribution, and short-term
-        rotation, in which membership turns over on a fixed schedule so no
-        cohort hardens into an incumbent class.
+        Give a randomly selected assembly of residents, convened by the state, authority to set the fall 2020 instructional mode for its region, within state public-health orders and civil-rights law. The state health department convenes the assembly in May 2020; members are drawn by lot from the region's residents, with seats rotating on a fixed schedule so no cohort becomes an incumbent class. Members hear from public-health, education, and building-safety experts, deliberate over several weeks, and vote. The decision binds districts unless the state publishes written reasons for overriding it, and the state must publish the evidence the assembly saw. Michigan created an appointed advisory council in May 2020 and seated a sortition panel only in November, after the decision it would have informed had passed.
       `),
       banner: true,
       impactsMeasured: ['Public school enrollment', 'Chronic absenteeism', 'Confidence in public schools'],
       impactsConjectured: ['Depolarization of the decision', 'Cross-regional learning'],
       links: [
         propLink({
-          name: 'An assembly can be convened fast enough',
+          name: 'An assembly could be convened in time',
           claim: paragraph(`
-            A sortition assembly can be convened and reach recommendations fast
-            enough to decide how school would run in fall 2020.
+            A randomly selected assembly could be convened and reach a decision between May and August 2020, in time to set how school runs that fall. This depends on a convening authority acting by May; the assemblies studied took two to five months.
           `),
           strength: 'moderate',
           evidence: [
@@ -408,11 +403,9 @@ export default spineData({
           ]
         }),
         propLink({
-          name: 'A binding remit could give non-union voices force',
+          name: 'A binding decision rule could give parents and community members force',
           claim: paragraph(`
-            A binding or quasi-binding remit could give parents and community
-            members force comparable to collective bargaining, so the
-            assembly's decision, not the bargained one, sets how school runs.
+            A binding or must-answer decision rule could give parents and community members weight comparable to collective bargaining, so the assembly's choice, not the bargained one, sets how school runs. No assembly has held this authority over a school decision.
           `),
           strength: 'weak',
           evidence: [
@@ -448,10 +441,9 @@ export default spineData({
           ]
         }),
         propLink({
-          name: 'Assemblies raise perceived legitimacy',
+          name: 'An assembly process may raise the decision\'s perceived legitimacy',
           claim: paragraph(`
-            An assembly process raises perceived legitimacy of the decision among
-            the wider public.
+            An assembly process may raise how legitimate the wider public finds the decision, where the assembly's recommendation is honored; the gains shrink or reverse when it is shelved.
           `),
           strength: 'moderate',
           evidence: [
@@ -480,13 +472,9 @@ export default spineData({
           ]
         }),
         propLink({
-          name: 'Legitimacy could hold enrollment, attendance, and confidence',
+          name: 'Higher legitimacy could hold enrollment, attendance, and confidence',
           claim: paragraph(`
-            The assembly's decision could move through two channels: its
-            choices about how school runs directly change remote exposure and
-            its measured harms, and higher perceived legitimacy could reduce
-            exit and absence and hold confidence in schools. The legitimacy
-            channel is the unstudied one.
+            The assembly's decision could act through two routes: its choice of instructional mode directly changes remote exposure and its measured harms, and higher perceived legitimacy could reduce exit and absence and hold confidence in schools. The legitimacy route is not tested in any school setting.
           `),
           strength: 'unstudied',
           evidence: [
@@ -570,8 +558,9 @@ export default spineData({
     }),
 
     spineProposal({
-      name: 'Bring experts and the public together on safer reopening',
-      method: 'Minipublic with Mapped Expertise',
+      name: 'Convene parents, teachers, and experts to design safer ways to reopen',
+      method: 'Deliberative forum with expert briefings',
+      summary: 'A district-convened forum of residents and educators works with ventilation, epidemiology, and child-development experts to produce reopening options the board must answer.',
       anchor: 'physical presence in school',
       where: 'District or county level, in the large urban districts that chose remote-only fall starts',
       when: paragraph(`
@@ -584,20 +573,16 @@ export default spineData({
         months earlier.
       `),
       description: paragraph(`
-        From the 6/8 session: bring the public into engagement with mapped
-        expertise (ventilation and building design, epidemiology, behavioral
-        science, early childhood education) so the option set is wider than
-        open against closed.
+        Give a district-convened forum of parents, teachers, and residents, briefed by ventilation, epidemiology, behavioral-science, and early-childhood experts, the standing to put reopening options before the school board, which must respond to each in writing. The district or county convenes the forum in April 2020, before the fall decision. Members are recruited to reflect the district's families, meet over four to eight weeks, and work from a written map of what each field knows and does not know. The forum's product is a ranked set of options, such as outdoor classes, ventilation upgrades, and returning the youngest grades first, with costs attached. The board keeps the decision; the forum is advisory, but its options and the board's reasons are published. In 2020, large urban districts chose between open and closed with no such option set.
       `),
       banner: true,
       impactsMeasured: ['Test scores', 'Public school enrollment', 'Chronic absenteeism'],
       impactsConjectured: ['Trust in experts maintained', 'Local knowledge entering the option set'],
       links: [
         propLink({
-          name: 'Experts with the public could widen the options',
+          name: 'A forum with experts could widen the options beyond open or closed',
           claim: paragraph(`
-            Structured early engagement between mapped experts and the public
-            could expand the options beyond open against closed.
+            Structured early work between briefed experts and residents could put options on the table, such as outdoor classes, ventilation upgrades, and staged returns, that the open-or-closed debate of 2020 did not. No study tests this in a school-reopening setting.
           `),
           strength: 'unstudied',
           evidence: [
@@ -626,10 +611,9 @@ export default spineData({
           ]
         }),
         propLink({
-          name: 'Ventilation and outdoor options make school safer',
+          name: 'Ventilation and outdoor options make in-person school safer',
           claim: paragraph(`
-            Ventilation and outdoor options make in-person school materially
-            safer.
+            Mechanical ventilation and outdoor instruction lower in-school transmission risk; this link is directly measured.
           `),
           strength: 'strong',
           evidence: [
@@ -660,10 +644,9 @@ export default spineData({
           ]
         }),
         propLink({
-          name: 'Safer options could change the decision',
+          name: 'Safer options could move the decision toward in-person school',
           claim: paragraph(`
-            Safer options, credibly communicated, could move the decision
-            toward earlier in-person instruction.
+            Where the board finds the safer options credible and affordable, they could move the decision toward earlier in-person instruction. This depends on cost, trust in the forum, and the politics that in 2020 outweighed local case rates.
           `),
           strength: 'weak',
           evidence: [
@@ -707,8 +690,7 @@ export default spineData({
         propLink({
           name: 'More in-person school reduces measured harm',
           claim: paragraph(`
-            More in-person instruction reduces learning loss, disenrollment, and
-            later absence.
+            More in-person instruction reduces learning loss, disenrollment, and later chronic absence; this link is directly measured across districts.
           `),
           strength: 'strong',
           evidence: [
@@ -802,8 +784,9 @@ export default spineData({
     }),
 
     spineProposal({
-      name: 'Let each district make its own reopening decision',
-      method: 'Confederal Decision-Making',
+      name: 'Let elected school boards decide reopening after a public deliberative step',
+      method: 'Devolved local authority with public deliberation',
+      summary: 'States hand the fall decision to elected school boards, require a facilitated public session before the vote, and publish outcome comparisons across districts.',
       anchor: '48 states left reopening modality',
       where: 'State legislatures and governors, at the delegation decision',
       when: paragraph(`
@@ -815,18 +798,16 @@ export default spineData({
         closure waves.
       `),
       description: paragraph(`
-        From the 6/8 session: decentralize decision-making as well as
-        implementation, bringing people into a room to resolve differences and
-        letting regions compare outcomes.
+        Give locally elected school boards authority to decide whether and how schools reopen, within statewide public-health guardrails, on condition that each board holds a facilitated public session with parents, staff, and health officials before it votes, and publishes its reasons. The state legislature or governor sets the delegation between June and August 2020, keeps statewide closure thresholds, and requires every district to report its instructional mode and case data to a public comparison. The public session is deliberative rather than binding: the board decides, but must answer the concerns raised. In 2020, 48 states left the choice to districts without a required resolution process or any organized comparison of results, and district decisions tracked partisanship and union strength more than local case rates.
       `),
       banner: true,
       impactsMeasured: ['Test scores', 'Public school enrollment'],
       impactsConjectured: ['Outcome comparisons across regions', 'Less appeal-to-the-top politics'],
       links: [
         propLink({
-          name: 'Decentralizing produces regional variation',
+          name: 'Delegation to districts produces regional variation',
           claim: paragraph(`
-            Decentralizing the decision produces regional variation in modality.
+            Delegating the decision to districts produces variation in instructional mode across regions; this happened in fall 2020 and is directly observed.
           `),
           strength: 'strong',
           evidence: [
@@ -841,10 +822,9 @@ export default spineData({
           ]
         }),
         propLink({
-          name: 'Local decisions could track local conditions',
+          name: 'A deliberative step could make local decisions track local conditions',
           claim: paragraph(`
-            Decentralized decisions with a structured deliberative step could
-            track local COVID conditions rather than politics.
+            A required public session before the vote could make district decisions track local COVID conditions rather than politics. In the observed delegation, without that step, decisions tracked partisanship and union strength; whether the step changes this is untested.
           `),
           strength: 'unstudied',
           evidence: [
@@ -886,10 +866,9 @@ export default spineData({
           ]
         }),
         propLink({
-          name: 'Variation could generate learning in time to use it',
+          name: 'Variation could produce comparisons in time to use them',
           claim: paragraph(`
-            Regional variation could generate outcome comparisons that inform
-            later decisions inside the decision window.
+            Published outcome comparisons across districts could inform later decisions inside the decision window. This depends on comparable data existing in time; no school-mode dataset existed until September 2021.
           `),
           strength: 'contested',
           evidence: [
@@ -914,11 +893,9 @@ export default spineData({
           ]
         }),
         propLink({
-          name: 'Condition-tracking could cut remote exposure',
+          name: 'Decisions that track conditions could cut remote exposure',
           claim: paragraph(`
-            Where conditions allowed, staying open was compatible with limited
-            transmission, so decisions that tracked conditions could have cut
-            remote exposure and its measured harms.
+            Where conditions allowed, staying open was compatible with limited transmission, so decisions that tracked conditions could have reduced remote exposure and its measured harms.
           `),
           strength: 'moderate',
           evidence: [
@@ -1012,8 +989,9 @@ export default spineData({
     }),
 
     spineProposal({
-      name: 'Share local case and school data from the first weeks',
-      method: 'Open Data & Public Communication',
+      name: 'Publish local case, hospital, and school data from the first weeks',
+      method: 'Mandatory open data publication',
+      summary: 'State health and education agencies must publish county-level case, hospital, and school-mode data weekly, with a plain statement of what is and is not known.',
       anchor: '49 states suspended in-person',
       where: 'State health departments jointly with state education agencies',
       when: paragraph(`
@@ -1024,18 +1002,16 @@ export default spineData({
         that vacuum.
       `),
       description: paragraph(`
-        From the 6/8 session: make hospitalization and death rates public from
-        the first weeks, laddered from local to national, with experts stating
-        what is and is not known.
+        Require state health departments, jointly with state education agencies, to publish county-level case, hospitalization, death, and school-operating-mode data every week from March 2020, with a plain statement of what is known and what is not. The duty falls on the agencies; the public's role is as reader, and any resident, journalist, or school board can use the same figures. Publication is mandatory and on a fixed schedule, and the agencies must publish their uncertainty and revise openly. Statewide health orders stay in place. This is a transparency measure rather than a participation right, and it sits on the map because the other proposals depend on it: in 2020 no federal school-mode dataset existed, the COVID-19 School Data Hub launched only in September 2021, and newspapers filled the county-data gap.
       `),
       banner: true,
       impactsMeasured: ['Confidence in public schools', 'Public school enrollment'],
       impactsConjectured: ['Heading off polarization', 'Treating citizens as capable of reasoning'],
       links: [
         propLink({
-          name: 'Early local data publication is feasible',
+          name: 'Early local data publication is feasible and fills a real gap',
           claim: paragraph(`
-            Early local data publication is feasible and fills a real gap.
+            States could publish county and school-level data from the first weeks; a small grant-funded team later assembled school-mode data for 55,000 schools, and in 2020 no such dataset existed.
           `),
           strength: 'moderate',
           evidence: [
@@ -1054,10 +1030,9 @@ export default spineData({
           ]
         }),
         propLink({
-          name: 'Honest uncertainty does not cost trust',
+          name: 'Publishing uncertainty need not cost trust',
           claim: paragraph(`
-            Communicating data, including uncertainty, does not erode trust in
-            the data or its source.
+            Publishing data with its uncertainty stated does not appear to reduce trust in the data or its source; the experiments come from news and survey settings, not school decisions.
           `),
           strength: 'moderate',
           evidence: [
@@ -1077,10 +1052,9 @@ export default spineData({
           ]
         }),
         propLink({
-          name: 'Shared data could head off polarization',
+          name: 'Shared data could narrow the gap in how groups see the risk',
           claim: paragraph(`
-            A shared local data layer could align risk perception across groups
-            and head off polarization.
+            A shared local data layer could align risk perception across groups and slow polarization. This is contested: how the same facts were framed moved opinion by 17 points, so shared data alone may not do it.
           `),
           strength: 'contested',
           evidence: [
@@ -1110,8 +1084,7 @@ export default spineData({
         propLink({
           name: 'Shared understanding could hold confidence and enrollment',
           claim: paragraph(`
-            Sustained shared understanding could hold confidence in the
-            deciding institutions, reducing exit.
+            Sustained shared understanding could hold confidence in the deciding institutions and reduce exit. No study tests this route.
           `),
           strength: 'unstudied',
           evidence: [
@@ -1174,8 +1147,9 @@ export default spineData({
     }),
 
     spineProposal({
-      name: 'Give parents a real say before closure decisions',
-      method: 'Stakeholder Participation, Standing Binding Channel',
+      name: 'Give parents and community members a binding say before school closures',
+      method: 'Standing council with binding consultation',
+      summary: 'A standing council of parents, educators, business owners, and health experts must be consulted before closure or reopening decisions, and its vote carries required consequences.',
       anchor: 'safety strikes',
       where: 'Large urban districts with the sharpest bargaining asymmetry; Chicago already had the statutory infrastructure',
       when: paragraph(`
@@ -1188,23 +1162,16 @@ export default spineData({
         its pandemic role has been identified.
       `),
       description: paragraph(`
-        The design implication the 6/8 session drew from this case: a standing
-        community process with binding elements, in place before decisions
-        arrive, so participation does not relocate to lawsuits and recalls after
-        them. The session specified the seats: small business owners, educators,
-        public health experts, and community leaders sit alongside parents, so
-        the body that binds is not a single-constituency channel. Small business
-        is the constituency the 2020 record left without any channel at all.
+        Give a standing school- or district-level council, with seats for parents, educators, small business owners, public-health experts, and community leaders, a binding role in closure and reopening decisions, within state health orders and collective-bargaining law. Councils are elected or appointed by constituency before any crisis; the district must bring each closure decision to them, and a council vote either sets the decision or obliges the board to publish written reasons for overriding it. Participation is binding in that sense, not advisory. The council sees the same case data the district uses, and its votes are published. Chicago's Local School Councils show the form existed in statute in 2020; small business was the constituency the 2020 record left without any channel, while parents' participation relocated to lawsuits and recall campaigns.
       `),
       banner: true,
       impactsMeasured: ['Confidence in public schools', 'Public school enrollment', 'Chronic absenteeism'],
       impactsConjectured: ['Less adversarial participation after decisions', 'Rebalancing against single-stakeholder capture'],
       links: [
         propLink({
-          name: 'A standing parent body can govern competently',
+          name: 'A standing council can govern schools competently',
           claim: paragraph(`
-            A standing parent-community body with binding elements can govern
-            schools competently at scale.
+            A standing parent-community body with binding elements can govern schools competently at scale; Chicago's councils are the measured case, with a minority showing serious shortcomings and quorum failures.
           `),
           strength: 'moderate',
           evidence: [
@@ -1242,9 +1209,9 @@ export default spineData({
           ]
         }),
         propLink({
-          name: 'Binding voice raises trust and engagement',
+          name: 'A binding role before decisions may raise trust and engagement',
           claim: paragraph(`
-            Upstream binding voice raises trust and downstream civic engagement.
+            Having a binding voice before decisions may raise trust in the institution and later civic engagement; the measured cases come from participatory budgeting and school councils, not closure decisions.
           `),
           strength: 'moderate',
           evidence: [
@@ -1274,7 +1241,7 @@ export default spineData({
         propLink({
           name: 'Maintained trust could reduce exit and absence',
           claim: paragraph(`
-            Maintained trust could reduce exit and absence.
+            Where trust holds, families may be less likely to leave the district or keep children home; this route is not tested in schools.
           `),
           strength: 'weak',
           evidence: [
@@ -1311,11 +1278,9 @@ export default spineData({
           ]
         }),
         propLink({
-          name: 'Upstream voice could reduce lawsuits and recalls',
+          name: 'A voice before decisions could reduce lawsuits and recalls',
           claim: paragraph(`
-            Binding upstream voice could reduce adversarial participation
-            after decisions: recalls, litigation, and board conflict. This is
-            the branch to the conjectured impact.
+            A binding voice before decisions could reduce adversarial participation after them, such as recalls, litigation, and board conflict; the closest evidence comes from medical disclosure, not school governance.
           `),
           strength: 'weak',
           evidence: [
