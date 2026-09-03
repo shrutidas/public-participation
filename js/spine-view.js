@@ -533,7 +533,7 @@ function compHtml(list) {
       <div class="pa-loc"><strong>Location:</strong> ${c.where} (${c.when})</div>
       ${c.srcs?.length ? `<div class="ev-srcs">${srcHtml(c.srcs)}</div>` : ''}
     </li>`).join('');
-  return `<div class="ln-sec ln-sec-comp"><h4>Comparable Real-World Cases</h4><ul class="pa-list">${items}</ul></div>`;
+  return `<div class="ln-sec ln-sec-comp"><h4>Comparable Cases</h4><ul class="pa-list">${items}</ul></div>`;
 }
 
 function propCompDetail(spine, i, k) {
@@ -549,7 +549,7 @@ function propCompDetail(spine, i, k) {
   }
   return `<div class="cd">
     <button class="cd-back" data-back="prop">&larr; ${attr(p.name)}</button>
-    <div class="cd-kick cd-kick-comp">Comparable Real-World Case</div>
+    <div class="cd-kick cd-kick-comp">Comparable Case</div>
     <div class="cd-head"><span class="cd-id">${c.name}</span></div>
     <p class="cd-claim sp-hintline">Compared with: ${p.name}</p>
     <div class="ln-sec">
@@ -570,7 +570,6 @@ function propDetail(spine, i) {
     <div class="ln-sec">
       <p class="cd-claim"><span class="act-label">Where:</span> ${p.where}</p>
       <p class="cd-claim"><span class="act-label">When:</span> ${p.when}</p></div>
-    ${compHtml(p.comparables)}
     ${p.srcs?.length ? `<div class="ev-srcs">${srcHtml(p.srcs)}</div>` : ''}
   </div>`;
 }
@@ -586,7 +585,6 @@ function propLinkDetail(spine, i, li) {
     ${lk.strength === 'unstudied' ? `<p class="cd-claim"><em>No study tests this link directly.${(lk.evidence ?? []).length ? ' The evidence below comes from nearby cases and other domains.' : ''}</em></p>` : ''}
     ${evHtml(lk.evidence, 'for')}
     ${evHtml(lk.counterEvidence, 'counter')}
-    ${compHtml(p.comparables)}
   </div>`;
 }
 
