@@ -28,7 +28,7 @@ export default caseStudy({
     entry({
       date: '07/2020',
       category: 'blue',
-      actors: 'Gallup',
+      actors: 'US adults, bipartisan voters',
       text:       paragraph(`
         Gallup first asked in July 2020 whether Americans would take an FDA-approved COVID vaccine at no cost.
         Only 50% said yes, roughly the same rate as flu vaccine uptake. The <strong>partisan gap</strong> was already present.
