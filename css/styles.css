@@ -1501,6 +1501,8 @@ body[data-view="chain"] #ctrl .fl,
 /* Fields inside the proposal card. */
 .sp-eff-kick { font-size: .55rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: #7b46ac; margin-bottom: 2px; }
 .sp-eff-kick + .sp-eff-kick, .sp-efflink + .sp-eff-kick, .sp-eff-mech + .sp-eff-kick, .sp-prop-sum + .sp-eff-kick { margin-top: 7px; }
+/* Room between the Effects kick and its first button. */
+.sp-eff-kick + .sp-efflink { margin-top: 6px; }
 .sp-eff-mech { font-weight: 650; }
 .sp-efflink {
   display: flex; align-items: baseline; gap: 5px; width: 100%; text-align: left;
