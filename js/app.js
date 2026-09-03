@@ -365,10 +365,6 @@ function zoomAt(clientX, clientY, factor) {
 
 /* ------------------------------- render ---------------------------------- */
 
-function updateCount() {
-  const n = vis().length;
-  el('cnt').textContent = `${n} entr${n === 1 ? 'y' : 'ies'}`;
-}
 
 function render() {
   renderTopBar();
@@ -379,7 +375,6 @@ function render() {
 
   if (state.view === 'timeline') {
     renderTimeline();
-    updateCount();
   } else {
     renderSpine();
   }
@@ -597,7 +592,6 @@ function bindEvents() {
       else b.classList.toggle('off', !filt[df]);
     });
     renderTimeline();
-    updateCount();
   });
 
   document.addEventListener('keydown', e => {
