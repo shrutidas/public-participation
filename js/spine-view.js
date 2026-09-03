@@ -127,8 +127,7 @@ function propBoxHtml(p, pi, impacts) {
     </div>
     <div class="sp-prop-fields">
       <div class="sp-eff-kick">Mechanism</div>
-      <div class="sp-eff-mech">${p.method}</div>
-      ${p.summary ? `<div class="sp-prop-sum">${p.summary}</div>` : ''}
+      ${p.summary ? `<div class="sp-prop-sum">${p.summary}</div>` : `<div class="sp-eff-mech">${p.method}</div>`}
       <div class="sp-eff-kick">Effects it aims at</div>
       ${links || '<div class="sp-eff-none">No measured impact in this case</div>'}
     </div>`;

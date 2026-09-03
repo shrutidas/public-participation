@@ -754,7 +754,7 @@ export default spineData({
     spineProposal({
       name: 'Let elected school boards decide reopening after a public deliberative step',
       method: 'Devolved local authority with public deliberation',
-      summary: 'States hand the fall decision to elected school boards, require a facilitated public session before the vote, and publish outcome comparisons across districts.',
+      summary: 'States hand the Fall 2020 reopening decision to elected school boards, require a facilitated public session before the vote, and publish outcome comparisons across districts.',
       anchor: '48 states left reopening modality',
       where: 'State legislatures and governors, at the delegation decision',
       when: paragraph(`
