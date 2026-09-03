@@ -641,6 +641,7 @@ function overview(caseObj, spine) {
   const nProp = spine.proposals.length;
   const nMech = spine.mechanisms.length;
   const nImp = spine.impacts.length;
+  const nPart = caseObj.entries.filter(e => e.cat === 'purple').length;
   return `<div class="cd cd-intro">
     <div class="cd-hint">The timeline runs down the second lane in order. Each box shows the
       opening of an entry; click it for the whole record. A star in an event's corner marks a
@@ -652,6 +653,7 @@ function overview(caseObj, spine) {
       proposal's causal chain running left to right with the evidence on the cards.</div>
     <div class="cd-sum">
       <span class="cd-sum-lbl">Timeline</span><div class="cd-sum-pills"><span class="g g-neutral">${caseObj.entries.length} Events</span></div>
+      <span class="cd-sum-lbl">Participation</span><div class="cd-sum-pills"><span class="g g-actual">${nPart} Public Participation Events</span></div>
       <span class="cd-sum-lbl">Starred</span><div class="cd-sum-pills"><span class="g g-mech">${nMech} Existing Mechanisms</span></div>
       <span class="cd-sum-lbl">Measured</span><div class="cd-sum-pills"><span class="g g-imp">${nImp} Measured Impacts</span></div>
       <span class="cd-sum-lbl">Proposed</span><div class="cd-sum-pills"><span class="g g-prop">${nProp} Proposed Public Participation</span></div>
