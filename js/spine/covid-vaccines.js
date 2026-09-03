@@ -16,12 +16,10 @@ export default spineData({
       name: 'ACIP public comment',
       actor: 'CDC advisory committee, public commenters',
       failure: 'acted-no-effect',
-      note: 'Three-minute comments to a committee whose own votes could be overruled',
+      answer: 'The evidence is mixed',
+      note: 'The committee took public comments before each vaccine vote, but the record does not show whether any comment changed a vote, and the CDC director could overrule the committee',
       detail: paragraph(`
-        ACIP meetings are open by webcast with written comments and three-minute
-        oral slots. The ceiling on effect is visible one level up: in September
-        2021 ACIP voted down boosters for occupational-risk adults and the CDC
-        director overruled the committee within hours. Where the committee's own vote could be overruled, the public comment behind it had no path to effect.
+        The Advisory Committee on Immunization Practices (ACIP) advises the Centers for Disease Control and Prevention (CDC) on vaccine recommendations. Its meetings ran by open webcast from December 2020 onward. Anyone could file a written comment or sign up for a three-minute oral slot, so commenters selected themselves. The committee could only recommend, and the CDC director made the final decision. In September 2021 ACIP voted against boosters for adults at occupational risk, and the CDC director overruled the committee within hours. The record does not show whether any public comment changed a committee vote. No study measured the effect of the comment process.
       `),
       anchors: ['ACIP voted 11 to 0'],
       sources: [source('STAT', 'https://www.statnews.com/2021/10/07/cdc-director-defends-decision-to-overrule-expert-panel-on-covid-booster-shots-for-health-workers/')]
@@ -30,13 +28,9 @@ export default spineData({
       name: 'FDA advisory committee review',
       actor: 'Vaccines and Related Biological Products Advisory Committee (VRBPAC)',
       failure: 'partial',
-      note: 'The one advisory committee whose votes visibly narrowed a federal decision',
+      note: 'The FDA advisory committee narrowed the booster authorization in September 2021, but it could only recommend, and the occupational category widened again at the CDC step',
       detail: paragraph(`
-        VRBPAC voted 16 to 2 against boosters for everyone 16 and older, then 18
-        to 0 for ages 65 and up and high risk; FDA's authorization tracked the
-        narrowed recommendation before the occupational category widened again
-        at the CDC step. Of the case's advisory mechanisms, the one that most
-        visibly constrained a federal decision.
+        The Food and Drug Administration (FDA) convened its Vaccines and Related Biological Products Advisory Committee (VRBPAC) in September 2021 to review the Pfizer booster application. The members are outside experts the FDA appoints. The committee could only advise. It voted 16 to 2 against boosters for everyone 16 and older, then 18 to 0 for people 65 and older and people at high risk. The FDA followed the narrowed recommendation in its authorization. The Centers for Disease Control and Prevention (CDC) then widened the occupational category. Of the advisory bodies in this case, this committee changed a federal decision most visibly. No study measured whether the narrowing changed uptake or trust.
       `),
       anchors: ['full approval to Pfizer'],
       sources: [source('Healio', 'https://www.healio.com/news/infectious-disease/20210917/fda-committee-votes-against-blanket-recommendation-for-covid19-vaccine-boosters')]
@@ -45,14 +39,9 @@ export default spineData({
       name: 'Notice-and-comment rulemaking',
       actor: 'OSHA, 122,485 commenters',
       failure: 'acted-no-effect',
-      note: '122,485 comments arrived after the rule had already taken effect',
+      note: 'OSHA took 122,485 public comments on its vaccine rule, but the rule had already taken effect, and the Supreme Court stayed it before any comment could change it',
       detail: paragraph(`
-        The emergency temporary standard took effect on publication while
-        simultaneously serving as the proposal for a final standard, with
-        comments due a month later. 122,485 comments arrived against a rule
-        already in force, and the Supreme Court stayed the rule before any final
-        standard could reflect them. The emergency instrument sequenced
-        participation after the decision.
+        The Occupational Safety and Health Administration (OSHA) published its emergency temporary standard in November 2021. The rule took effect on publication. The same document served as the proposal for a final standard, with comments due a month later. Anyone could comment, and 122,485 people and organizations did. The comment process was consultative. The rule was already in force when the comments arrived. The Supreme Court stayed the rule in January 2022 before OSHA issued any final standard. The record does not show that any comment changed the rule. The emergency instrument put participation after the decision.
       `),
       anchors: ['122,485 comments'],
       sources: [source('Federal Register', 'https://www.federalregister.gov/documents/2021/11/05/2021-23643/covid-19-vaccination-and-testing-emergency-temporary-standard')]
@@ -61,12 +50,9 @@ export default spineData({
       name: 'Congressional review',
       actor: 'US Senate',
       failure: 'partial',
-      note: 'The Senate vote did not repeal the rule, but the Supreme Court took note of it',
+      note: 'The Senate voted to disapprove the OSHA rule in December 2021, and the Supreme Court noted that vote, but the vote did not repeal the rule',
       detail: paragraph(`
-        The Senate voted 52 to 48 to disapprove the OSHA rule in December 2021.
-        The vote did not repeal the rule, but it entered the record the Court's
-        majority drew on: one chamber had affirmatively rejected the agency
-        rule.
+        The Senate can vote to disapprove an agency rule. In December 2021 it voted 52 to 48 to disapprove the Occupational Safety and Health Administration (OSHA) vaccine rule. Elected senators cast the votes. The vote could review the rule but could not repeal it on its own, and the rule stayed in force. The vote did enter the record. In January 2022 the Supreme Court majority noted that one chamber had affirmatively rejected the agency rule. The record does not show how much weight the vote carried in the Court's decision.
       `),
       anchors: ['disapprove the OSHA regulation'],
       sources: [source('US Supreme Court', 'https://www.supremecourt.gov/opinions/21pdf/21a244_hgci.pdf')]
@@ -75,12 +61,9 @@ export default spineData({
       name: 'Courts',
       actor: 'Federal courts, Supreme Court',
       failure: 'worked',
-      note: 'Judges, not public input, settled who had the authority to mandate',
+      note: 'Federal courts settled who had the authority to mandate, and the agencies had to follow their rulings, but no public deliberation fed into them',
       detail: paragraph(`
-        Courts resolved the contest the deliberative channels never hosted: the
-        large-employer rule was stayed, the healthcare-worker mandate allowed,
-        Maine's no-exemption mandate left standing. Resolution ran judicial, not
-        deliberative.
+        Workers, states, businesses, and unions sued over the mandates from fall 2021. Federal judges and the Supreme Court decided the cases. The parties were whoever had standing to sue, and judges hold decision-making power. In November 2021 the Court declined to block Maine's no-exemption mandate. In January 2022 it stayed the large-employer rule and allowed the healthcare-worker mandate. The rulings took effect at once. Courts settled the question of authority that no deliberative process ever addressed. No study measured whether the rulings changed public trust or uptake.
       `),
       anchors: ['clearer congressional authorization'],
       sources: [source('US Supreme Court', 'https://www.supremecourt.gov/opinions/21pdf/21a244_hgci.pdf')]
@@ -89,12 +72,9 @@ export default spineData({
       name: 'Union collective bargaining',
       actor: 'Police and municipal unions',
       failure: 'partial',
-      note: 'Only unionized workers could force negotiation; they won process, not reversal',
+      note: 'Police and municipal unions forced cities to negotiate mandate terms, but they won exemption timelines and process, not reversal',
       detail: paragraph(`
-        Police and municipal unions litigated mandate terms that had not been
-        collectively bargained and secured process, such as exemption timelines,
-        rather than reversal. Bargaining forced negotiation only for unionized workforces; the 84 million workers under the federal rule had no
-        equivalent channel.
+        Police and municipal unions sued in October 2021 over mandate terms that cities had not bargained with them. The union members were the workers the mandates covered. Bargaining gave the unions a consultative role with legal force behind it. They won process, such as time to seek exemptions. They did not reverse any mandate. Only unionized workforces had this channel. The 84 million workers under the federal rule had no equivalent way to force negotiation. The record does not show whether the negotiated terms changed vaccination rates.
       `),
       anchors: ['largest police union filed suit'],
       sources: [source('New York Times', 'https://www.nytimes.com/2021/10/25/nyregion/nypd-police-covid-vaccine-mandate-deblasio.html')]
@@ -103,13 +83,9 @@ export default spineData({
       name: 'City councils',
       actor: 'Municipal legislatures',
       failure: 'no-mechanism',
-      note: 'Mayors and health officials issued the mandates; no city council voted',
+      note: 'Mayors and health officials issued the municipal mandates by order, and no city council voted on them',
       detail: paragraph(`
-        No city council deliberation appears anywhere in the case record;
-        municipal workforce mandates ran through mayoral and health-authority
-        orders contested by unions and courts. This coding rests on absence from
-        the case record, not legal research into charter authority, and is
-        flagged for review.
+        No city council debated or voted on a workforce vaccine mandate anywhere in the case record. Mayors and health authorities issued the mandates by order in fall 2021. Unions and courts then contested them. Council members are elected and hold legislative power, but the record shows no council using it here. This coding rests on absence from the case record. It does not rest on legal research into what each city charter allowed, and it is flagged for review.
       `),
       anchors: ['largest police union filed suit'],
       sources: []
@@ -118,13 +94,9 @@ export default spineData({
       name: 'Tribal consultation and self-governance',
       actor: 'Tribal governments, Indian Health Service',
       failure: 'worked',
-      note: 'Tribes with real decision power reached the highest vaccination rate of any group',
+      note: 'Tribal governments that chose the Indian Health Service route set their own vaccine priorities, and by July 2021 American Indian and Alaska Native people had the highest vaccination rate of any US group',
       detail: paragraph(`
-        The November 2020 choice between state allocation and the IHS route let
-        tribal governments set their own prioritization, and by July 2021
-        American Indian and Alaska Native people had the highest vaccination
-        rate of any group. The case's clearest instance of participation with
-        formal authority producing a measured favorable endpoint.
+        In November 2020 each tribal government chose between state allocation and the Indian Health Service (IHS) route for vaccine supply. Elected tribal governments made the choice. Those that chose IHS held decision-making power over their own prioritization, and many protected elders, language keepers, and teachers first. By July 2021 American Indian and Alaska Native people had the highest vaccination rate of any US group. This is the clearest case in the record of a community with formal authority reaching a measured favorable result. No study separates the effect of tribal authority from the direct supply channel and community cohesion.
       `),
       anchors: ['Indian Health Service route'],
       sources: [source('PBS NOVA', 'https://www.pbs.org/wgbh/nova/article/native-americans-highest-covid-vaccination-rate-us/')]
@@ -133,14 +105,9 @@ export default spineData({
       name: 'Federal data transparency',
       actor: 'CDC',
       failure: 'knew-no-act',
-      note: 'Collected booster and hospitalization data and withheld it for a year',
+      note: 'The CDC collected booster and hospitalization data in 2021 and withheld much of it for more than a year',
       detail: paragraph(`
-        CDC collected booster effectiveness data for adults 18 to 49,
-        hospitalization breakdowns by vaccination status, and wastewater
-        surveillance, and did not publish them for over a year, citing concern
-        the public could misinterpret the findings. The agency judged
-        transparency risky; no study measures the trust cost of the
-        withholding.
+        The Centers for Disease Control and Prevention (CDC) collected booster effectiveness data for adults 18 to 49, hospitalization breakdowns by vaccination status, and wastewater surveillance during 2021. Agency staff collected and held the data, and no outside body took part. The CDC had full power to publish. It did not publish these data for over a year and said the public could misinterpret the findings. Newspapers and universities filled part of the gap with their own trackers. No study measured what the withholding cost in public trust.
       `),
       anchors: ['changing recommendations had confused'],
       sources: [source('New York Times', 'https://www.nacwa.org/news-publications/news-detail/2022/02/22/the-c.d.c.-isn-t-publishing-large-portions-of-the-covid-data-it-collects')]
@@ -166,7 +133,7 @@ export default spineData({
       evidence: [
         evidence({
           finding: paragraph(`
-            Commonwealth Fund modeling covers the program's first two years and estimates 3.2 million deaths and 18.5 million hospitalizations averted.
+            Commonwealth Fund modeling covers the program's first two years. It estimates 3.2 million deaths and 18.5 million hospitalizations averted.
           `),
           grade: 'strong',
           sources: [source('Commonwealth Fund', 'https://www.commonwealthfund.org/blog/2022/two-years-covid-vaccines-prevented-millions-deaths-hospitalizations')]
@@ -177,12 +144,12 @@ export default spineData({
       name: 'Deaths among unvaccinated adults',
       found: '04/2022',
       headline: paragraph(`
-        Roughly 232,000 adult deaths between June 2021 and March 2022 would have
-        been prevented by vaccination, per two independent estimates.
+        Vaccination would have prevented roughly 232,000 adult deaths between
+        June 2021 and March 2022, per two independent estimates.
       `),
       measures: paragraph(`
-        Roughly 232,000 to 234,000 adult deaths between June 2021 and March 2022
-        would have been prevented by vaccination, per two independent estimates.
+        Vaccination would have prevented roughly 232,000 to 234,000 adult deaths
+        between June 2021 and March 2022, per two independent estimates.
       `),
       from: [
         { anchor: 'Eligibility expands to all US adults', strength: 'moderate', note: 'A marker, not a cause: once supply stopped binding, the remaining gap was behavioral' }
@@ -191,7 +158,7 @@ export default spineData({
         evidence({
           finding: paragraph(`
             Peterson-KFF estimated approximately 234,000 preventable
-            adult deaths; the European Journal of Epidemiology replication found at
+            adult deaths. The European Journal of Epidemiology replication found at
             least 232,000 (95% CI 214,000 to 250,000).
           `),
           grade: 'strong',
@@ -207,14 +174,14 @@ export default spineData({
       found: '06/2022',
       headline: paragraph(`
         The Black-White vaccination gap closed from about 14 points at the April
-        2021 peak to 5 points by mid-2022; no one has estimated the mortality
+        2021 peak to 5 points by mid-2022. No one has estimated the mortality
         cost of the spring 2021 lag by race.
       `),
       measures: paragraph(`
         The Black-White vaccination gap fell from about 14 points at the April
-        2021 peak to 5 points by July 2022; by end of November 2021,
-        at-least-one-dose coverage was similar across groups. The mortality cost
-        of the spring 2021 lag has never been estimated by race.
+        2021 peak to 5 points by July 2022. By the end of November 2021,
+        at-least-one-dose coverage was similar across groups. No one has
+        estimated the mortality cost of the spring 2021 lag by race.
       `),
       from: [
         { anchor: '20,792 doses', strength: 'weak', note: 'A local exemplar; one neighborhood site cannot carry a national narrowing' },
@@ -223,9 +190,9 @@ export default spineData({
       evidence: [
         evidence({
           finding: paragraph(`
-            CDC MMWR reported the gap narrowing substantially by late 2021; the
-            largest measured uptake effects in the record run through access
-            interventions, not persuasion.
+            The CDC's Morbidity and Mortality Weekly Report showed the gap
+            narrowing substantially by late 2021. The largest measured uptake
+            effects in the record come from access interventions, not persuasion.
           `),
           grade: 'moderate',
           sources: [source('US Centers for Disease Control and Prevention', 'https://www.cdc.gov/mmwr/volumes/71/wr/mm7123a2.htm')]
@@ -234,7 +201,7 @@ export default spineData({
       counterEvidence: [
         evidence({
           finding: paragraph(`
-            The Annenberg panel tested five explanations for the Black-White narrowing and found only growing knowledge about vaccine safety and efficacy explained it; neither access nor media use did. Whether the access push deserves credit for the narrowing is unresolved.
+            The Annenberg panel tested five explanations for the Black-White narrowing. Only growing knowledge about vaccine safety and efficacy explained it; neither access nor media use did. The record does not settle whether the access push deserves credit for the narrowing.
           `),
           grade: 'moderate',
           sources: [source('Annenberg Public Policy Center', 'https://www.annenbergpublicpolicycenter.org/publication/what-caused-the-narrowing-of-black-white-covid-19-vaccination-disparity-in-the-us-a-test-of-5-hypotheses/')]
@@ -250,12 +217,12 @@ export default spineData({
         and flu vaccination.
       `),
       measures: paragraph(`
-        Mandate announcements abroad were followed by a 66% increase in weekly
-        first doses and cumulative gains of 5 to 12 points (Canada, France,
-        Italy, Germany). US state mandates produced no detectable uptake change
-        and were followed by lower booster and flu vaccination. The federal
-        rule was stayed before enforcement, so the US evidence comes from
-        state mandates.
+        Weekly first doses rose 66% after mandate announcements abroad, with
+        cumulative gains of 5 to 12 points (Canada, France, Italy, Germany).
+        US state mandates produced no detectable uptake change, and booster
+        and flu vaccination fell afterward. The Supreme Court stayed the
+        federal rule before enforcement, so the US evidence comes from state
+        mandates.
       `),
       from: [
         { anchor: 'roughly 100 million Americans', strength: 'contested', note: 'Strong abroad, null in the US; the jurisdictional split is unstudied' }
@@ -263,7 +230,7 @@ export default spineData({
       evidence: [
         evidence({
           finding: paragraph(`
-            Karaivanov et al. (2022) compared regions before and after national mandate announcements and found weekly first doses rose 66 percent after announcement.
+            Karaivanov et al. (2022) compared regions before and after national mandate announcements. Weekly first doses rose 66 percent after announcement.
           `),
           grade: 'strong',
           sources: [source('Karaivanov et al. 2022', 'https://www.nature.com/articles/s41562-022-01363-1')]
@@ -272,7 +239,7 @@ export default spineData({
       counterEvidence: [
         evidence({
           finding: paragraph(`
-            Rains et al. (PNAS 2024) found “COVID-19 vaccine adoption did not significantly change in the weeks before and after states implemented vaccine mandates”, and that mandates depressed later booster and flu vaccination; a published reply letter contests the analysis.
+            Rains et al. (PNAS 2024) found “COVID-19 vaccine adoption did not significantly change in the weeks before and after states implemented vaccine mandates”. They also found that mandates depressed later booster and flu vaccination. A published reply letter contests the analysis.
           `),
           grade: 'moderate',
           quote: 'COVID-19 vaccine adoption did not significantly change in the weeks before and after states implemented vaccine mandates',
@@ -298,7 +265,7 @@ export default spineData({
         withheld booster and hospitalization data of 2021-22.
       `),
       description: paragraph(`
-        Require CDC to publish county-level vaccination, case, hospitalization, and adverse-event data on open dashboards, and to hold recurring on-record public briefings, from December 2020 through the rollout, including findings unfavorable to the vaccines. The duty falls on the federal agency; states and the public are users of the data. Briefings run on a fixed schedule with questions taken, and the agency must state what it does not yet know. This is a transparency commitment rather than a participation right. In 2021 CDC held two telebriefings, newspapers filled the county-data vacuum, and booster and hospitalization data were withheld in 2021-22. The randomized evidence suggests openness about negatives raises trust in the authorities even when it lowers short-run acceptance.
+        Require CDC to publish county-level vaccination, case, hospitalization, and adverse-event data on open dashboards from December 2020 through the rollout. Require recurring on-record public briefings, including findings unfavorable to the vaccines. The duty falls on the federal agency; states and the public are users of the data. Briefings run on a fixed schedule with questions taken, and the agency must state what it does not yet know. This is a transparency commitment. It does not create a participation right. In 2021 CDC held two telebriefings, newspapers filled the county-data vacuum, and CDC withheld booster and hospitalization data in 2021-22. The randomized evidence suggests openness about negatives raises trust in the authorities even when it lowers short-run acceptance.
       `),
       banner: true,
       impactsMeasured: ['Deaths among unvaccinated adults'],
@@ -313,13 +280,13 @@ export default spineData({
           evidence: [
             evidence({
               finding: paragraph(`
-                Petersen and colleagues, randomized studies with 13,000 Danish and
-                American participants: transparent communication about negative
-                vaccine features increased trust in health
-                authorities; vague reassurance lowered both acceptance
-                and trust and fed conspiracy beliefs. The authors conclude that
-                “openness ensures long-term trust”, crucial “if we are to be
-                revaccinated, or in relation to the next major health crisis”.
+                Petersen and colleagues ran randomized studies with 13,000 Danish and
+                American participants. Transparent communication about negative
+                vaccine features increased trust in health authorities. Vague
+                reassurance lowered both acceptance and trust and fed conspiracy
+                beliefs. The authors conclude that “openness ensures long-term
+                trust”, crucial “if we are to be revaccinated, or in relation to
+                the next major health crisis”.
               `),
               grade: 'strong',
               quote: 'Openness ensures long-term trust, and this is crucial if we are to be revaccinated, or in relation to the next major health crisis.',
@@ -329,7 +296,7 @@ export default spineData({
           counterEvidence: [
             evidence({
               finding: paragraph(`
-                The 2020 trust decline was partisan (on a 10-point scale, Trump voters fell 0.8 points, a significant drop; Biden voters 0.3, not significant), so a transparency push aimed at the general public may not reach the people whose trust fell.
+                The 2020 trust decline was partisan. On a 10-point scale, Trump voters fell 0.8 points, a significant drop; Biden voters fell 0.3, not significant. A transparency push aimed at the general public may not reach the people whose trust fell.
               `),
               grade: 'moderate',
               sources: [source('RAND Corporation', 'https://www.rand.org/pubs/research_reports/RRA308-12.html')]
@@ -339,7 +306,7 @@ export default spineData({
         propLink({
           name: 'Trust in authorities may raise vaccination',
           claim: paragraph(`
-            Higher institutional trust is associated with higher uptake across countries. No causal test of raising trust to raise uptake was identified, and the strongest US county predictor is partisan identity.
+            Higher institutional trust goes with higher uptake across countries. No study tests whether raising trust raises uptake, and the strongest US county predictor is partisan identity.
           `),
           strength: 'moderate',
           evidence: [
@@ -355,7 +322,7 @@ export default spineData({
           counterEvidence: [
             evidence({
               finding: paragraph(`
-                Across 2,885 US counties, the Republican vote share had the strongest association with the unvaccinated share, stronger than income, education, or information environment. Randomized messaging trials moved intent little, and a Fauci endorsement reduced stated intent among conservatives. The one randomized messenger intervention that moved actual uptake used a partisan-congruent figure: a Trump endorsement ad across 2,032 counties “increased the number of vaccines in the average treated county by 103”, at about $1 per dose.
+                Across 2,885 US counties, the Republican vote share had the strongest association with the unvaccinated share, stronger than income, education, or information environment. Randomized messaging trials moved intent little, and a Fauci endorsement reduced stated intent among conservatives. Only one randomized messenger intervention moved actual uptake, and it used a partisan-matched figure. A Trump endorsement ad across 2,032 counties “increased the number of vaccines in the average treated county by 103”, at about $1 per dose.
               `),
               grade: 'strong',
               quote: 'the campaign increased the number of vaccines in the average treated county by 103',
@@ -369,7 +336,7 @@ export default spineData({
         propLink({
           name: 'Vaccination prevents deaths',
           claim: paragraph(`
-            Higher uptake prevents deaths among unvaccinated adults; this link is directly measured.
+            Higher uptake prevents deaths among unvaccinated adults. Studies measure this link directly.
           `),
           strength: 'strong',
           evidence: [
@@ -390,10 +357,11 @@ export default spineData({
           where: 'Taiwan', when: '2020',
           authority: 'National government practice',
           outcome: paragraph(`
-            Taiwan’s government held daily CECC briefings with app-based case
-            updates, and government sources scored highest on credibility in a
-            national survey. The evidence is correlational: a single survey in a
-            confounded national context.
+            Taiwan’s government held daily Central Epidemic Command Center (CECC)
+            briefings with app-based case updates. Government sources scored
+            highest on credibility in a national survey. The evidence shows
+            correlation only: a single survey in one country, where many other
+            factors could explain the result.
           `),
           strength: 'weak',
           sources: [source('Yueh et al. 2022', 'https://www.nature.com/articles/s41598-022-20312-6')]
@@ -404,9 +372,9 @@ export default spineData({
           authority: 'Private substitution for a state function',
           outcome: paragraph(`
             Newspapers and universities ran the national case-data function the
-            state did not, proving it was performable at scale; the Times ended
-            its tracker in 2023 when agencies reported less frequently and less
-            reliably. No trust consequence was measured.
+            state did not. They proved the job could be done at scale. The Times
+            ended its tracker in 2023 when agencies reported less often and less
+            reliably. No one measured the trust consequence.
           `),
           strength: 'moderate',
           sources: [source('New York Times', 'https://www.nacwa.org/news-publications/news-detail/2022/02/22/the-c.d.c.-isn-t-publishing-large-portions-of-the-covid-data-it-collects')]
@@ -429,7 +397,7 @@ export default spineData({
         might decide not to vaccinate.
       `),
       description: paragraph(`
-        Require the federal government, or a city considering its own mandate, to convene a randomly selected assembly of residents before imposing a vaccine mandate, with the assembly deciding the value question of whether and for whom to mandate, not the science, which is briefed to it. The convening authority keeps the final decision but must publish the assembly's recommendation and a written response before acting; participation is deliberative and advisory. Existing federal and state vaccination law and emergency-use rules stay in place, and regional variation is accepted: some places might choose not to mandate. Convened in June 2021 and reporting by late August, an assembly would have preceded Executive Order 14043 and the OSHA rule, both later cut down by the Senate and the Supreme Court.
+        Require the federal government, or a city considering its own mandate, to convene a randomly selected assembly of residents before imposing a vaccine mandate. Experts brief the assembly on the science. The assembly decides the value question: whether to mandate, and for whom. The convening authority keeps the final decision but must publish the assembly's recommendation and a written response before acting. Participation is deliberative and advisory. Existing federal and state vaccination law and emergency-use rules stay in place. The proposal accepts regional variation: some places might choose not to mandate. An assembly convened in June 2021 and reporting by late August would have preceded Executive Order 14043 and the OSHA rule. The Senate and the Supreme Court later cut down both.
       `),
       banner: true,
       impactsMeasured: ['Vaccination uptake after mandates', 'Deaths among unvaccinated adults'],
@@ -438,13 +406,13 @@ export default spineData({
         propLink({
           name: 'Deliberation before the decision may raise its perceived legitimacy',
           claim: paragraph(`
-            A citizens' assembly convened before the decision may raise how legitimate the public finds it, especially among low-trust citizens; the effect is measured in survey experiments, not on a mandate.
+            A citizens' assembly convened before the decision may raise how legitimate the public finds it, especially among low-trust citizens. Survey experiments measure the effect; no study measures it on a mandate.
           `),
           strength: 'moderate',
           evidence: [
             evidence({
               finding: paragraph(`
-                Survey experiment in Ireland (N=1,309): mini-public involvement raised perceived procedural fairness 0.7 points and acceptance 0.4 points, and “the legitimacy-generating effects of mini-publics are driven by citizens with low political trust”.
+                A survey experiment in Ireland (N=1,309) found that mini-public involvement raised perceived procedural fairness 0.7 points and acceptance 0.4 points. It found that “the legitimacy-generating effects of mini-publics are driven by citizens with low political trust”.
               `),
               grade: 'moderate',
               quote: 'The legitimacy-generating effects of mini-publics are driven by citizens with low political trust.',
@@ -454,10 +422,10 @@ export default spineData({
           counterEvidence: [
             evidence({
               finding: paragraph(`
-                The gain largely disappears when the recommendation is
-                rejected.
-                For a government that intends to mandate regardless, convening an
-                assembly it may override carries a measured legitimacy downside.
+                The gain largely disappears when the government rejects the
+                recommendation. A government that intends to mandate regardless
+                would convene an assembly it may override, and that carries a
+                measured legitimacy downside.
               `),
               grade: 'moderate',
               sources: [source('Germann et al. 2024', 'https://journals.sagepub.com/doi/10.1177/00323217221137444')]
@@ -467,13 +435,13 @@ export default spineData({
         propLink({
           name: 'Higher legitimacy could improve compliance or reduce backlash',
           claim: paragraph(`
-            Perceived legitimacy could improve compliance with a mandate or reduce backlash; the evidence comes from policing and lockdown compliance, not vaccination.
+            Perceived legitimacy could improve compliance with a mandate or reduce backlash. The evidence comes from policing and lockdown compliance; no study tests it on vaccination.
           `),
           strength: 'weak',
           evidence: [
             evidence({
               finding: paragraph(`
-                In a survey of 1,595 Australians during early COVID lockdowns, “normative concerns regarding duty to support the authorities dominated compliance decisions”, far ahead of sanction risk; a meta-analysis of 64 studies finds legitimacy beliefs predict compliance with the law, with the effect running through legitimacy rather than procedure directly.
+                In a survey of 1,595 Australians during early COVID lockdowns, “normative concerns regarding duty to support the authorities dominated compliance decisions”, far ahead of sanction risk. A meta-analysis of 64 studies finds that legitimacy beliefs predict compliance with the law. The effect runs through legitimacy, not directly through procedure.
               `),
               grade: 'moderate',
               quote: 'normative concerns regarding duty to support the authorities dominated compliance decisions',
@@ -486,7 +454,7 @@ export default spineData({
           counterEvidence: [
             evidence({
               finding: paragraph(`
-                In a preregistered experiment (N=606), “requirements strengthened vaccination intentions across racial and ethnic groups, across studies, and across levels of trait psychological reactance”, that is, including the participants most prone to pushing back, without any legitimacy-building step.
+                In a preregistered experiment (N=606), “requirements strengthened vaccination intentions across racial and ethnic groups, across studies, and across levels of trait psychological reactance”. That includes the participants most prone to pushing back, and the study used no legitimacy-building step.
               `),
               grade: 'moderate',
               quote: 'Requirements strengthened vaccination intentions across racial and ethnic groups, across studies, and across levels of trait psychological reactance.',
@@ -496,7 +464,7 @@ export default spineData({
             }),
             evidence({
               finding: paragraph(`
-                The first large hospital mandate worked without any deliberative step: only 153 of 25,000 employees left rather than comply.
+                The first large hospital mandate worked without any deliberative step. Only 153 of 25,000 employees left instead of complying.
               `),
               grade: 'moderate',
               sources: [
@@ -505,7 +473,7 @@ export default spineData({
             }),
             evidence({
               finding: paragraph(`
-                US state mandates produced no detectable uptake change, since “COVID-19 vaccine adoption did not significantly change in the weeks before and after states implemented vaccine mandates”, and depressed later booster and flu vaccination.
+                US state mandates produced no detectable uptake change: “COVID-19 vaccine adoption did not significantly change in the weeks before and after states implemented vaccine mandates”. Mandates also depressed later booster and flu vaccination.
               `),
               grade: 'moderate',
               quote: 'COVID-19 vaccine adoption did not significantly change in the weeks before and after states implemented vaccine mandates',
@@ -518,22 +486,21 @@ export default spineData({
         propLink({
           name: 'A mandate with deliberative backing could raise uptake',
           claim: paragraph(`
-            A mandate carrying deliberative legitimacy could raise uptake at least as much as one imposed without it, with less backlash. The evidence tests mandates alone, with contested results; the deliberative increment is untested.
+            A mandate carrying deliberative legitimacy could raise uptake at least as much as one imposed without it, with less backlash. The evidence tests mandates alone, with contested results. No study tests the added effect of deliberation.
           `),
           strength: 'contested',
           evidence: [
             evidence({
               finding: paragraph(`
-                National mandate announcements abroad were followed by
-                a 66% increase in weekly first doses and
-                cumulative gains up to 12 points.
+                Weekly first doses rose 66% after national mandate announcements
+                abroad, with cumulative gains up to 12 points.
               `),
               grade: 'strong',
               sources: [source('Karaivanov et al. 2022', 'https://www.nature.com/articles/s41562-022-01363-1')]
             }),
             evidence({
               finding: paragraph(`
-                France's health pass, announced July 12, 2021: “the share of the eligible population vaccinated with two doses increased from 49% on 12 July to 89% by mid-December 2021”.
+                France announced its health pass on July 12, 2021. After that, “the share of the eligible population vaccinated with two doses increased from 49% on 12 July to 89% by mid-December 2021”.
               `),
               grade: 'strong',
               quote: 'the share of the eligible population vaccinated with two doses increased from 49% on 12 July to 89% by mid-December 2021',
@@ -551,7 +518,7 @@ export default spineData({
             }),
             evidence({
               finding: paragraph(`
-                The same French health pass did not reduce hesitancy: “the share of vaccinated people with doubts about the vaccine increased from 44% to 61% after the health pass was implemented”, and coverage lagged among the elderly, the poorest, and the most marginalized, with only 86 percent of people over 80 vaccinated as of October 2021.
+                The same French health pass did not reduce hesitancy: “the share of vaccinated people with doubts about the vaccine increased from 44% to 61% after the health pass was implemented”. Coverage lagged among the elderly, the poorest, and the most marginalized. Only 86 percent of people over 80 were vaccinated as of October 2021.
               `),
               grade: 'moderate',
               quote: 'the share of vaccinated people with doubts about the vaccine increased from 44% to 61% after the health pass was implemented',
@@ -562,14 +529,14 @@ export default spineData({
         propLink({
           name: 'Higher uptake prevents deaths',
           claim: paragraph(`
-            Higher uptake prevents deaths; this link is directly measured.
+            Higher uptake prevents deaths. Studies measure this link directly.
           `),
           strength: 'strong',
           evidence: [
             evidence({
               finding: paragraph(`
-                232,000 to 234,000 preventable adult deaths
-                among the unvaccinated, June 2021 to March 2022.
+                Two independent estimates put preventable adult deaths among the
+                unvaccinated at 232,000 to 234,000 for June 2021 to March 2022.
               `),
               grade: 'strong',
               sources: [source('Jia et al. 2023', 'https://link.springer.com/article/10.1007/s10654-023-01006-3')]
@@ -584,9 +551,10 @@ export default spineData({
           authority: 'Advisory to the Health Ministry during rollout',
           outcome: paragraph(`
             35 randomly selected citizens advised the French Health Ministry
-            over seven working sessions, answering its questions including on
-            mandates. It is the one national case of deliberation running
-            alongside a vaccination campaign; no outcome evaluation exists.
+            over seven working sessions. They answered the ministry's questions,
+            including on mandates. It is the one national case of deliberation
+            running alongside a vaccination campaign. No outcome evaluation
+            exists.
           `),
           strength: 'weak',
           sources: [source('Missions Publiques', 'https://missionspubliques.org/pf/le-collectif-citoyen-sur-la-campagne-vaccinale-covid-19')]
@@ -596,11 +564,11 @@ export default spineData({
           where: 'France', when: '2016-2018',
           authority: 'Consultative process preceding a parliamentary mandate',
           outcome: paragraph(`
-            France ran a national vaccination consultation in 2016 and then passed the
-            2018 law extending infant mandates from 3 to 11 vaccines, the one located
-            instance of the exact sequence. The critical literature disputes that the
-            recommendation came from the citizen jury, and Ward et al. (2022) report
-            the extension drew no public backlash while leaving French vaccine
+            France ran a national vaccination consultation in 2016. In 2018 it
+            passed a law extending infant mandates from 3 to 11 vaccines. This is
+            the one located instance of the exact sequence. Critics dispute that
+            the recommendation came from the citizen jury. Ward et al. (2022)
+            report the extension drew no public backlash and left French vaccine
             confidence low.
           `),
           strength: 'moderate',
@@ -612,11 +580,12 @@ export default spineData({
           authority: 'Pre-commitment honored against the convener\'s position',
           outcome: paragraph(`
             471 citizens, selected by stratified random sampling from a pool of
-            20,000 across 160 strata, deliberated September 13 to October 15,
-            2017; 59.5% supported resuming construction while 53.2% favored
-            reducing nuclear power long term, and the government reversed its own
-            policy on the result within a week. The direction of coercion ran
-            opposite to a mandate, which is a pending admissibility call.
+            20,000 across 160 strata, deliberated from September 13 to October
+            15, 2017. 59.5% supported resuming construction, while 53.2% favored
+            reducing nuclear power long term. The government reversed its own
+            policy on the result within a week. The coercion here ran the
+            opposite way from a mandate, so whether the case counts as a
+            comparable is still an open call.
           `),
           strength: 'moderate',
           sources: [source('Participedia', 'https://participedia.net/case/6875')]
@@ -627,11 +596,11 @@ export default spineData({
           authority: 'Quasi-binding presidential promise to pass proposals without filter, eroded',
           outcome: paragraph(`
             The president promised to pass the convention’s proposals without
-            filter. Tracking of all 149 recommendations found 20 percent
-            implemented and 51 percent implemented in modified form, with
-            roughly 29 percent dropped; the government was selective, favoring
-            incentives over regulation and responding more to detailed
-            recommendations. It is the measured record of what a binding
+            filter. Tracking of all 149 recommendations found the government
+            implemented 20 percent, implemented 51 percent in modified form, and
+            dropped roughly 29 percent. The government was selective: it favored
+            incentives over regulation and responded more to detailed
+            recommendations. This is the measured record of what a binding
             promise is worth when a government keeps the final word.
           `),
           strength: 'strong',
@@ -642,14 +611,14 @@ export default spineData({
           where: 'Calgary, Canada', when: '2011-2025',
           authority: 'Council decision, then plebiscite, both binding',
           outcome: paragraph(`
-            City council discontinued fluoridation in 2011. A
-            controlled-comparison cohort study seven years later measured
-            primary-tooth caries prevalence of 64.8 percent in Calgary against
-            55.1 percent in Edmonton, which continued fluoridation. A 2021
-            plebiscite produced 62 percent support for reinstating fluoride, and
-            fluoride returned June 30, 2025. Public decision channels plus
-            measured outcomes self-corrected on a decade timescale, at the price
-            of a decade of excess childhood caries.
+            City council discontinued fluoridation in 2011. Seven years later, a
+            controlled-comparison cohort study found tooth decay in the primary
+            teeth of 64.8 percent of Calgary children, against 55.1 percent in
+            Edmonton, which continued fluoridation. A 2021 plebiscite produced
+            62 percent support for reinstating fluoride, and fluoride returned
+            June 30, 2025. Public decision channels plus measured outcomes
+            self-corrected over a decade, at the price of a decade of extra
+            childhood tooth decay.
           `),
           strength: 'strong',
           sources: [
@@ -676,7 +645,7 @@ export default spineData({
         the binding constraint shifted from supply to access logistics.
       `),
       description: paragraph(`
-        Give neighborhood task forces of residents, community organizations, clinics, and employers shared authority over where, when, and how vaccines are delivered in high-vulnerability zip codes: site selection, hours, mobile units, and paid-time-off coordination. The city or county health department keeps control of supply, eligibility rules, and safety standards, and commits a share of doses to the task forces' plans. Task forces form in February 2021, when scarce federal supply was being sited, and again in April 2021 when the constraint became access. Decisions are shared, not advisory, and the department publishes uptake by zip code. Protect Chicago Plus launched January 25, 2021 on this model; no study separates its co-governance component from the supply prioritization bundled with it.
+        Give neighborhood task forces of residents, community organizations, clinics, and employers shared authority over where, when, and how vaccines are delivered in high-vulnerability zip codes. That covers site selection, hours, mobile units, and paid-time-off coordination. The city or county health department keeps control of supply, eligibility rules, and safety standards, and commits a share of doses to the task forces' plans. Task forces form in February 2021, when agencies were siting scarce federal supply, and again in April 2021 when the constraint became access. The task forces hold shared decision power, and the department publishes uptake by zip code. Protect Chicago Plus launched January 25, 2021 on this model. No study separates its co-governance component from the supply prioritization bundled with it.
       `),
       banner: true,
       impactsMeasured: ['The racial vaccination gap', 'Deaths among unvaccinated adults'],
@@ -685,13 +654,13 @@ export default spineData({
         propLink({
           name: 'Task forces could put access where the barriers are',
           claim: paragraph(`
-            Community task forces could place access infrastructure where the barriers actually are. The co-governance component has not been isolated from supply prioritization in any study.
+            Community task forces could place access infrastructure where the barriers actually are. No study separates the co-governance component from supply prioritization.
           `),
           strength: 'moderate',
           evidence: [
             evidence({
               finding: paragraph(`
-                Protect Chicago Plus: “the city worked with each prioritized community to create a neighborhood task force composed of diverse representatives to design vaccine outreach and distribution strategies” in 13 high-vulnerability zip codes; the neighborhoods' vaccination rate went from 58 percent of the citywide rate to 92 percent in eight weeks. Unidos en Salud delivered 20,792 doses with 98.4% second-dose completion, 70.5% Latinx clients.
+                Under Protect Chicago Plus, “the city worked with each prioritized community to create a neighborhood task force composed of diverse representatives to design vaccine outreach and distribution strategies” in 13 high-vulnerability zip codes. The neighborhoods' vaccination rate rose from 58 percent of the citywide rate to 92 percent in eight weeks. Unidos en Salud delivered 20,792 doses with 98.4% second-dose completion, and 70.5% of its clients were Latinx.
               `),
               grade: 'moderate',
               quote: 'The city worked with each prioritized community to create a neighborhood task force composed of diverse representatives to design vaccine outreach and distribution strategies.',
@@ -702,7 +671,7 @@ export default spineData({
             }),
             evidence({
               finding: paragraph(`
-                Tribal self-governance is the one US case where the deciding community held real authority rather than an advisory role, and by July 2021 American Indian and Alaska Native people had the highest vaccination rate in the nation. Direct supply through the Indian Health Service and strong community cohesion may account for part of the result.
+                Tribal self-governance is the one US case where the deciding community held real authority instead of an advisory role. By July 2021 American Indian and Alaska Native people had the highest vaccination rate in the nation. Direct supply through the Indian Health Service and strong community cohesion may account for part of the result.
               `),
               grade: 'moderate',
               sources: [source('PBS NOVA', 'https://www.pbs.org/wgbh/nova/article/native-americans-highest-covid-vaccination-rate-us/')]
@@ -712,8 +681,8 @@ export default spineData({
             evidence({
               finding: paragraph(`
                 No study compares community-chosen siting against agency-chosen
-                siting holding supply constant. The component remains untested
-                in isolation.
+                siting while holding supply constant. No study tests the
+                component on its own.
               `),
               grade: 'moderate',
               sources: [source('Marquez et al. 2021', 'https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0257111')]
@@ -723,13 +692,13 @@ export default spineData({
         propLink({
           name: 'Access raises uptake',
           claim: paragraph(`
-            Access infrastructure raises uptake; the best-measured link in this case.
+            Access infrastructure raises uptake; this is the best-measured link in this case.
           `),
           strength: 'strong',
           evidence: [
             evidence({
               finding: paragraph(`
-                People living farther from a vaccination site were less likely to be vaccinated in 98 percent of 6,096 analyses; a Swiss randomized trial of mobile vaccination units moved uptake from 3.8% to 12.8%, a 3.4x effect. The largest measured uptake gains in the record come from making vaccination easier to reach, not from persuasion.
+                People living farther from a vaccination site were less likely to be vaccinated in 98 percent of 6,096 analyses. A Swiss randomized trial of mobile vaccination units moved uptake from 3.8% to 12.8%, a 3.4x effect. The largest measured uptake gains in the record come from making vaccination easier to reach. Persuasion campaigns did not match those gains.
               `),
               grade: 'strong',
               sources: [source('Mazar et al. 2023', 'https://academic.oup.com/pnasnexus/article/2/12/pgad411/7459517')]
@@ -739,13 +708,13 @@ export default spineData({
         propLink({
           name: 'Earlier equitable uptake could narrow the racial gap sooner',
           claim: paragraph(`
-            Equitable uptake could have narrowed the racial vaccination gap earlier than it narrowed in fact; the mortality cost of the spring 2021 lag has never been estimated.
+            Equitable uptake could have narrowed the racial vaccination gap earlier than it narrowed in fact. No one has estimated the mortality cost of the spring 2021 lag.
           `),
           strength: 'moderate',
           evidence: [
             evidence({
               finding: paragraph(`
-                By the end of November 2021 first-dose coverage was similar across racial groups; the failure the proposal targets is documented: one federal site delivered nearly 3 of 4 doses to White recipients in a city that is 33.8% White.
+                By the end of November 2021 first-dose coverage was similar across racial groups. The record documents the failure the proposal targets: one federal site delivered nearly 3 of 4 doses to White recipients in a city that is 33.8% White.
               `),
               grade: 'moderate',
               sources: [source('US Centers for Disease Control and Prevention', 'https://www.cdc.gov/mmwr/volumes/71/wr/mm7123a2.htm')]
@@ -754,7 +723,7 @@ export default spineData({
           counterEvidence: [
             evidence({
               finding: paragraph(`
-                The Annenberg panel found the gap narrowed because knowledge about vaccine safety and efficacy spread, not because access improved; and no study breaks the preventable deaths down by race.
+                The Annenberg panel found the gap narrowed because knowledge about vaccine safety and efficacy spread, not because access improved. No study breaks the preventable deaths down by race.
               `),
               grade: 'moderate',
               sources: [source('Annenberg Public Policy Center', 'https://www.annenbergpublicpolicycenter.org/publication/what-caused-the-narrowing-of-black-white-covid-19-vaccination-disparity-in-the-us-a-test-of-5-hypotheses/')]
@@ -771,8 +740,9 @@ export default spineData({
             evidence({
               finding: paragraph(`
                 Two independent estimates put preventable adult deaths at
-                232,000 to 234,000 for June 2021 to March 2022;
-                both report by age, never by race, so no one knows what share of those deaths the racial gap accounts for.
+                232,000 to 234,000 for June 2021 to March 2022. Both report by
+                age, never by race, so no one knows what share of those deaths
+                the racial gap accounts for.
               `),
               grade: 'strong',
               sources: [source('Jia et al. 2023', 'https://link.springer.com/article/10.1007/s10654-023-01006-3')]
@@ -787,9 +757,9 @@ export default spineData({
           authority: 'Neighborhood task forces with city supply priority',
           outcome: paragraph(`
             Neighborhood task forces, backed by city supply priority, designed
-            outreach and distribution in 13 high-vulnerability zip codes, and
-            the coverage rate ratio rose from 0.58 to 0.92 in eight weeks.
-            There was no randomization, and co-design was bundled with supply.
+            outreach and distribution in 13 high-vulnerability zip codes. The
+            coverage rate ratio rose from 0.58 to 0.92 in eight weeks. The study
+            had no randomization, and co-design came bundled with supply.
           `),
           strength: 'moderate',
           sources: [source('Johnson et al. 2023', 'https://journals.sagepub.com/doi/full/10.1177/00333549221143093')]
@@ -799,13 +769,14 @@ export default spineData({
           where: 'Uganda', when: '2004-2005',
           authority: 'Randomized; communities set monitoring priorities',
           outcome: paragraph(`
-            In a randomized trial where communities set clinic monitoring
-            priorities, under-5 mortality fell 33 percent (90 percent CI 8 to
-            64 percent, roughly 550 averted deaths) and utilization rose 20% in
-            treatment communities, with infant weight-for-age up 0.14 z. It is
-            the cleanest causal chain from a designed community-voice
-            instrument to a mortality endpoint; the wide interval is the honest
-            bridge to a larger replication that found much weaker effects.
+            In a randomized trial, communities set clinic monitoring priorities.
+            Under-5 mortality fell 33 percent (90 percent CI 8 to 64 percent,
+            roughly 550 averted deaths), clinic use rose 20% in treatment
+            communities, and infant weight-for-age rose 0.14 standard
+            deviations. This is the cleanest causal chain from a designed
+            community-voice instrument to a mortality endpoint. The wide
+            interval is the honest bridge to a larger replication that found
+            much weaker effects.
           `),
           strength: 'strong',
           sources: [source('Björkman and Svensson 2009', 'https://www.jakobsvensson.com/uploads/9/9/1/0/99107788/124-2-735.pdf')]
@@ -815,11 +786,11 @@ export default spineData({
           where: 'United States', when: '11/2020 onward',
           authority: 'Formal allocation authority, own supply channel',
           outcome: paragraph(`
-            Tribes that chose the IHS supply route held formal allocation
-            authority, and reached the highest group vaccination rate in the
-            country by July 2021 (45.5% one-dose against 33.7% for White
-            Americans). Whether it belongs under co-design or devolved
-            authority is a pending category call.
+            Tribes that chose the Indian Health Service (IHS) supply route held
+            formal allocation authority. They reached the highest group
+            vaccination rate in the country by July 2021 (45.5% one-dose
+            against 33.7% for White Americans). Whether the case belongs under
+            co-design or devolved authority is still an open call.
           `),
           strength: 'moderate',
           sources: [source('PBS NOVA', 'https://www.pbs.org/wgbh/nova/article/native-americans-highest-covid-vaccination-rate-us/')]
@@ -831,11 +802,10 @@ export default spineData({
           outcome: paragraph(`
             SMAC deployed nearly 2,500 community mobilizers across all 14
             districts, reached over 12,000 communities, and engaged 2,113,902
-            community members, with communities producing their own action plans
-            and feedback loops to responders. The authors state the data were
-            self-reported by communities and collected by community mobilizers,
-            which may have resulted in reporting bias, and no experimental
-            control exists.
+            community members. Communities produced their own action plans and
+            feedback loops to responders. The authors state that communities
+            self-reported the data and community mobilizers collected them, so
+            reporting bias is possible. No experimental control exists.
           `),
           strength: 'moderate',
           sources: [source('Bedson et al. 2019', 'https://www.biorxiv.org/content/10.1101/661959v1.full.pdf')]
@@ -859,7 +829,7 @@ export default spineData({
         and every downstream impact is conditional on someone acting on it.
       `),
       description: paragraph(`
-        Require HHS to make a comparison-group evaluation a condition of every American Rescue Plan community-engagement award, with results published, so that $1.1 billion in participation funding leaves effect estimates rather than dollar figures and dose counts. The duty falls on the funding agency and its grantees; the public's role is as reader of the published results. Award terms are set once, in March to April 2021, at obligation of the $323 million to community organizations, $250 million to local governments, and $500 million for community health workers. This is an accountability condition on public money rather than a participation right, and the research team added it from the June 8 session's question about whether information is used; it did not come from the session. Its direct product is evidence; every further effect depends on someone acting on it.
+        Require HHS to make a comparison-group evaluation a condition of every American Rescue Plan community-engagement award, with results published. That way $1.1 billion in participation funding leaves effect estimates, not just dollar figures and dose counts. The duty falls on the funding agency and its grantees; the public's role is as reader of the published results. HHS sets award terms once, in March to April 2021, at obligation of the $323 million to community organizations, $250 million to local governments, and $500 million for community health workers. This is an accountability condition on public money. It does not create a participation right. The research team added it from the June 8 session's question about whether information is used; it did not come from the session. Its direct product is evidence; every further effect depends on someone acting on it.
       `),
       banner: true,
       impactsMeasured: [],
@@ -868,7 +838,7 @@ export default spineData({
         propLink({
           name: 'Requiring evaluation in award terms could produce evaluations',
           claim: paragraph(`
-            Award conditions could produce evaluations that otherwise would not exist; agencies that embedded evaluation did produce them, with smaller effects than the published literature suggested.
+            Award conditions could produce evaluations that otherwise would not exist. Agencies that embedded evaluation did produce them, with smaller effects than the published literature suggested.
           `),
           strength: 'moderate',
           evidence: [
@@ -876,7 +846,7 @@ export default spineData({
               finding: paragraph(`
                 The GSA Office of Evaluation Sciences runs randomized evaluations
                 embedded in federal health programs at samples over
-                55,000, demonstrating administrative feasibility.
+                55,000. That shows the approach is administratively feasible.
               `),
               grade: 'moderate',
               sources: [
@@ -885,7 +855,7 @@ export default spineData({
             }),
             evidence({
               finding: paragraph(`
-                GAO documented the gap the proposal fixes: state and local officials had little to no information about how federal doses were allocated, and GAO had to recommend that the agencies start gathering stakeholder feedback in their program reviews.
+                The Government Accountability Office (GAO) documented the gap the proposal fixes. State and local officials had little to no information about how the federal government allocated doses. GAO had to recommend that the agencies start gathering stakeholder feedback in their program reviews.
               `),
               grade: 'moderate',
               sources: [
@@ -897,13 +867,13 @@ export default spineData({
         propLink({
           name: 'Published effect estimates could change later spending',
           claim: paragraph(`
-            Effect estimates could change later allocation, within the pandemic and in the next emergency. Cities and mayors do adopt evaluated policies, but partially, and no agency was identified changing its spending in response.
+            Effect estimates could change later allocation, within the pandemic and in the next emergency. Cities and mayors do adopt evaluated policies, but only partially, and the research found no agency that changed its spending in response.
           `),
           strength: 'moderate',
           evidence: [
             evidence({
               finding: paragraph(`
-                A randomized experiment with 2,150 Brazilian municipalities found mayors pay to learn evaluation results and update their beliefs, and that “informing mayors about research on a simple and effective policy, taxpayer reminder letters, increases the probability the policy is implemented by 10 percentage points”.
+                A randomized experiment with 2,150 Brazilian municipalities found that mayors pay to learn evaluation results and update their beliefs. It also found that “informing mayors about research on a simple and effective policy, taxpayer reminder letters, increases the probability the policy is implemented by 10 percentage points”.
               `),
               grade: 'strong',
               quote: 'informing mayors about research on a simple and effective policy, taxpayer reminder letters, increases the probability the policy is implemented by 10 percentage points',
@@ -911,7 +881,7 @@ export default spineData({
             }),
             evidence({
               finding: paragraph(`
-                A follow-up of 73 randomized nudge trials run with 67 US city departments found “city departments adopt a nudge treatment in follow-on communication in 27% of cases”, with adoption driven more by whether the same staff were still there than by the strength of the evidence. Evidence does reach later decisions, but only partially.
+                A follow-up of 73 randomized nudge trials run with 67 US city departments found “city departments adopt a nudge treatment in follow-on communication in 27% of cases”. Whether the same staff were still there drove adoption more than the strength of the evidence did. Evidence does reach later decisions, but only partially.
               `),
               grade: 'moderate',
               quote: 'city departments adopt a nudge treatment in follow-on communication in 27% of cases',
@@ -919,14 +889,15 @@ export default spineData({
             }),
             evidence({
               finding: paragraph(`
-                The OES portfolio's embedded evaluations corrected an
-                optimistic published literature, finding that
-                behaviorally-informed communications “can increase vaccination
-                rates at scale but may have smaller, less reliable effects than
-                the published literature suggests”; that reality check is what the proposal pays for, though no agency was identified changing its spending in response.
+                The OES portfolio's embedded evaluations corrected an optimistic
+                published literature. They found that behaviorally-informed
+                communications “can increase vaccination rates at scale but may
+                have smaller, less reliable effects than the published literature
+                suggests”. That reality check is what the proposal pays for. The
+                research found no agency that changed its spending in response.
               `),
               grade: 'weak',
-              caveat: 'Feasibility and correction evidence, not a test of decisions changing.',
+              caveat: 'This shows feasibility and correction. It does not test whether decisions changed.',
               quote: 'behaviorally-informed direct communications can increase vaccination rates at scale but may have smaller, less reliable effects than the published literature suggests',
               sources: [source('Office of Evaluation Sciences', 'https://oes.gsa.gov/vaccines/')]
             })
@@ -935,13 +906,13 @@ export default spineData({
         propLink({
           name: 'Better allocation could raise uptake',
           claim: paragraph(`
-            Reallocation toward instruments with measured effects could raise uptake and lower deaths. No study can exist for a policy that was not adopted.
+            Reallocation toward instruments with measured effects could raise uptake and lower deaths. No study can exist for a policy that no one adopted.
           `),
           strength: 'unstudied',
           evidence: [
             evidence({
               finding: paragraph(`
-                The closest evidence is from Rwanda: in a randomized rollout, tying health funding to measured results raised the share of births in clinics and preventive child visits, and “the results indicate that an equal amount of financial resources without the incentives would not have achieved the same gain in outcomes”.
+                The closest evidence comes from Rwanda. In a randomized rollout, tying health funding to measured results raised the share of births in clinics and preventive child visits. The authors state that “the results indicate that an equal amount of financial resources without the incentives would not have achieved the same gain in outcomes”.
               `),
               grade: 'weak',
               quote: 'the results indicate that an equal amount of financial resources without the incentives would not have achieved the same gain in outcomes',
@@ -956,13 +927,14 @@ export default spineData({
           where: 'Mexico', when: '1997 onward',
           authority: 'Evaluation designed into the rollout, external evaluator',
           outcome: paragraph(`
-            Mexico rolled out the Progresa cash-transfer program with randomized phased
-            entry and IFPRI as external evaluator, producing measured impacts
-            (consumption up 22%, child malnutrition down 17.2%, secondary enrollment up
-            11% for girls and 7.5% for boys); the program survived a change of
+            Mexico rolled out the Progresa cash-transfer program with randomized
+            phased entry and the International Food Policy Research Institute
+            (IFPRI) as external evaluator. The evaluation measured consumption up
+            22%, child malnutrition down 17.2%, and secondary enrollment up 11%
+            for girls and 7.5% for boys. The program survived a change of
             government. Estimated benefit-cost ratios of the evaluation
-            considerably exceed one, the one figure about buying evaluation rather
-            than about the program.
+            considerably exceed one, the one figure about buying evaluation
+            instead of about the program.
           `),
           strength: 'strong',
           sources: [
@@ -975,10 +947,11 @@ export default spineData({
           where: 'United States', when: '2021 onward',
           authority: 'Embedded randomized evaluation in federal delivery',
           outcome: paragraph(`
-            OES ran randomized evaluations embedded in federal vaccination
-            delivery, measuring effects of 0.27 and 0.7 percentage points from
-            letter and postcard reminders at scale; the CVS megastudy added
-            +1.05 points on boosters across 3.66 million patients.
+            The Office of Evaluation Sciences (OES) ran randomized evaluations
+            embedded in federal vaccination delivery. It measured effects of
+            0.27 and 0.7 percentage points from letter and postcard reminders
+            at scale. The CVS megastudy added +1.05 points on boosters across
+            3.66 million patients.
           `),
           strength: 'strong',
           sources: [source('Office of Evaluation Sciences', 'https://oes.gsa.gov/vaccines/')]

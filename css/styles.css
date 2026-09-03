@@ -559,13 +559,7 @@ body[data-view="chain"] #ctrl .fl,
 
 .cd .cd-claim { margin-bottom: 14px; }
 .cd .eact { margin: 14px 0 12px; }
-.sp-addressed { cursor: pointer; border-radius: 6px; }
-.cd-id-q { font-weight: 400; }
-.cd-id-q strong { font-weight: 800; }
-.sp-addressed strong { color: #222; }
-.sp-addressed-who { display: block; margin-top: 3px; color: #57524a; }
-.sp-addressed-who .sp-star-static { vertical-align: middle; }
-.sp-addressed:hover .sp-addressed-who, .sp-addressed:focus-visible .sp-addressed-who { text-decoration: underline; text-underline-offset: 2px; }
+.sp-addressed { margin-top: 18px; padding-top: 12px; border-top: 1px solid #e2ddd3; }
 .cd > .ev-srcs { margin-top: 14px; }
 .cd-about { border-top: 1px solid #e3ddd2; margin-top: 26px; padding-top: 18px; }
 
@@ -838,7 +832,7 @@ body[data-view="chain"] #ctrl .fl,
   background: #1c2333;
   color: #fff;
   padding: 0 16px 0 10px;
-  height: 52px;
+  height: 64px;
   flex-shrink: 0;
 }
 
@@ -873,14 +867,31 @@ body[data-view="chain"] #ctrl .fl,
 }
 
 #top-num {
-  font-size: 0.625rem;
+  font-size: 0.6875rem;
   font-weight: 700;
   letter-spacing: 0.06em;
   color: #92aac4;
+  margin-bottom: 5px;
 }
+#top-title-row { display: flex; align-items: center; gap: 10px; min-width: 0; }
+.top-info { position: relative; display: inline-flex; flex-shrink: 0; }
+#top-info-btn {
+  width: 20px; height: 20px; border-radius: 50%; border: 1.5px solid #6c86a5; background: transparent;
+  color: #c2d2e2; font: italic 700 0.75rem Georgia, "Times New Roman", serif; line-height: 1;
+  cursor: pointer; padding: 0; display: inline-flex; align-items: center; justify-content: center;
+}
+#top-info-btn:hover, .top-info.pinned #top-info-btn { background: #2b3d56; color: #fff; border-color: #6cb6e8; }
+#top-info-pop {
+  display: none; position: absolute; top: calc(100% + 10px); left: 50%; transform: translateX(-24px);
+  width: min(560px, calc(100vw - 40px)); max-height: 60vh; overflow-y: auto; z-index: 60;
+  background: #fff; color: #1e2d45; border: 1px solid #b8c6da; border-radius: 8px;
+  padding: 14px 18px; font-size: 0.8125rem; line-height: 1.6; font-weight: 400; white-space: normal;
+  box-shadow: 0 8px 24px rgba(0,0,0,.18);
+}
+.top-info:hover #top-info-pop, .top-info:focus-within #top-info-pop, .top-info.pinned #top-info-pop { display: block; }
 
 #top-title {
-  font-size: 0.875rem;
+  font-size: 1rem;
   font-weight: 600;
   color: #fff;
   white-space: nowrap;

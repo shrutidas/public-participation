@@ -135,6 +135,7 @@ function renderTopBar() {
   const c = curCase();
   el('top-num').textContent = c.num;
   el('top-title').textContent = c.title;
+  el('top-info-pop').innerHTML = c.overview;
   // Cases without a spine live in the full timeline and have no map to return to.
   el('tl-back').classList.toggle('hide', !curSpine());
 }
@@ -266,9 +267,6 @@ function entryHtml(e, extraClass = '') {
 }
 
 function renderTimeline() {
-  el('tl-ov').innerHTML = `<div class="tl-ov-inner">
-    <span class="cd-tag">Case Overview</span>${curCase().overview}
-  </div>`;
   document.querySelector('#tl-wrap .tl-inner').innerHTML =
     curCase().entries.map(e => entryHtml(e)).join('');
 }
@@ -276,20 +274,10 @@ function renderTimeline() {
 /* The right pane always shows the detail; the full timeline opens through
    the Expand Timeline button. */
 
-/* About This Case: a toggle bar under the top bar, over the map. */
-let aboutOpen = false;
-
-function renderAboutBar() {
-  el('ch-sel').innerHTML = `
-    <button id="sp-about-btn" class="ov-toggle${aboutOpen ? ' on' : ''}" aria-expanded="${aboutOpen}">About This Case</button>
-    <div id="sp-about-panel" class="tl-ov-inner sp-about-panel"${aboutOpen ? '' : ' hidden'}>${curCase().overview}</div>`;
-}
-
 function renderSpine() {
   const c = curCase();
   const sp = curSpine();
   const map = el('ch-map');
-  renderAboutBar();
   if (!sp) {
     map.innerHTML = `<div class="empty-msg">No spine has been mapped for this case yet.</div>`;
     el('ch-detail').innerHTML = '';
@@ -541,10 +529,16 @@ function bindEvents() {
     else zoomAt(cx, cy, b.dataset.zoom === 'in' ? 1 + ZOOM.step : 1 / (1 + ZOOM.step));
   });
 
-  el('ch-sel').addEventListener('click', e => {
-    if (!e.target.closest('#sp-about-btn')) return;
-    aboutOpen = !aboutOpen;
-    renderAboutBar();
+  // About this case: an info popover beside the title. Hover and focus show
+  // it through CSS; a click pins it open (for touch) until the next click away.
+  el('top-info-btn').addEventListener('click', e => {
+    e.stopPropagation();
+    const on = el('top-info-btn').parentElement.classList.toggle('pinned');
+    el('top-info-btn').setAttribute('aria-expanded', String(on));
+  });
+  document.addEventListener('click', () => {
+    el('top-info-btn').parentElement.classList.remove('pinned');
+    el('top-info-btn').setAttribute('aria-expanded', 'false');
   });
 
   document.addEventListener('click', e => {
@@ -575,8 +569,6 @@ function bindEvents() {
 
   el('ch-detail').addEventListener('keydown', e => {
     if (e.key !== 'Enter' && e.key !== ' ') return;
-    const gom = e.target.closest('.sp-addressed[data-gomech]');
-    if (gom) { e.preventDefault(); gom.click(); return; }
     const row = e.target.closest('.sp-chainrow[data-pl]');
     if (row && (state.selKind === 'prop' || state.selKind === 'proplink')) {
       e.preventDefault();
@@ -591,10 +583,6 @@ function bindEvents() {
   });
 
   document.querySelector('.tl-toolbar').addEventListener('click', e => {
-    if (e.target.closest('[data-ov]')) {
-      document.querySelector('.tl-scroll').scrollTo({ top: 0, behavior: 'smooth' });
-      return;
-    }
     const f = e.target.closest('[data-f]');
     if (!f) return;
     const k = f.dataset.f;

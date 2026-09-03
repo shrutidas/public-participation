@@ -16,7 +16,13 @@
   </button>
   <div id="top-case">
     <span id="top-num"></span>
-    <span id="top-title"></span>
+    <span id="top-title-row">
+      <span id="top-title"></span>
+      <span class="top-info">
+        <button id="top-info-btn" aria-label="About this case" aria-expanded="false" aria-controls="top-info-pop">i</button>
+        <div id="top-info-pop" role="tooltip"></div>
+      </span>
+    </span>
   </div>
   <button id="key-btn">Key</button>
 </header>
@@ -41,7 +47,6 @@
 <div id="tl-wrap">
   <div class="tl-toolbar">
     <button class="tl-back" id="tl-back" data-view="spine">&larr; Back to Map</button>
-    <button class="ov-toggle" data-ov>About This Case</button>
     <span class="vsep"></span>
     <button class="fl fl-all" data-f="all">All</button>
     <button class="fl fl-red" data-f="red">Policy</button>
@@ -52,7 +57,6 @@
     <span id="cnt"></span>
   </div>
   <div class="tl-scroll">
-    <div id="tl-ov" class="tl-ov"></div>
     <div class="tl-inner"></div>
   </div>
 </div>

@@ -1,6 +1,6 @@
 import { srcHtml, attr, splitEntryText } from './util.js';
 import { CAT } from './categories.js';
-import { ADDRESSED } from './cases/helpers.js';
+
 
 /* --------------------------------------------------------------------------
  * The timeline as the central spine, drawn in four labelled lanes.
@@ -80,8 +80,8 @@ function entryBoxHtml(e, i, mechs) {
   const c = CAT[e.cat];
   const { lead, rest } = splitEntryText(e.text, BOX_CHARS);
   const stars = mechs.map(m =>
-    `<button class="sp-star" data-m="${m.mi}" title="${attr(`${m.name} — addressed this? ${ADDRESSED[m.failure]}`)}"
-      aria-label="${attr(`Existing mechanism: ${m.name}. Did it address this? ${ADDRESSED[m.failure]}`)}">&#9733;</button>`).join('');
+    `<button class="sp-star" data-m="${m.mi}" title="${attr(`${m.name} — addressed this? ${m.answer}`)}"
+      aria-label="${attr(`Existing mechanism: ${m.name}. Did it address this? ${m.answer}`)}">&#9733;</button>`).join('');
   return `<div class="sp-ent" data-e="${i}" tabindex="0">
     ${stars ? `<div class="sp-ent-stars">${stars}</div>` : ''}
     <div class="sp-ent-hd"><span class="sp-date">${e.date}</span><span class="ebadge ${c.badge}">${c.label}</span></div>
@@ -168,7 +168,7 @@ export function renderSpineMap(el, caseObj, spine, sel = {}) {
       const i = anchorIndex(entries, a);
       if (i === -1) continue;
       if (!mechAt.has(i)) mechAt.set(i, []);
-      if (!mechAt.get(i).some(x => x.mi === mi)) mechAt.get(i).push({ mi, name: m.name, failure: m.failure });
+      if (!mechAt.get(i).some(x => x.mi === mi)) mechAt.get(i).push({ mi, name: m.name, failure: m.failure, answer: m.answer });
     }
   });
 
@@ -478,31 +478,34 @@ function entryDetail(caseObj, spine, i) {
   const mechs = spine.mechanisms
     .map((m, mi) => ({ m, mi }))
     .filter(({ m }) => m.anchors.some(a => plain(e.text).includes(a)));
-  // The question sits above the Actors line at the same size, with the answer
-  // in bold right after it. One line per mechanism when an event has several;
-  // the starred name is the link to that mechanism's record.
+  // The mechanism record is folded into the event pane, so the reader gets
+  // the answer without another click: the question, then "No. <one
+  // sentence>", then the detail and its source. The star still opens the
+  // mechanism on its own.
   const answered = mechs.map(({ m, mi }) => `
-    <div class="eact sp-addressed" data-gomech="${mi}" tabindex="0" role="button">
-      Did any existing system or mechanism address this? <strong>${ADDRESSED[m.failure]}</strong>
-      <span class="sp-addressed-who"><span class="sp-star sp-star-static">&#9733;</span> ${m.name}</span>
+    <div class="sp-addressed" data-gomech="${mi}">
+      <div class="cd-kick cd-kick-mech">&#9733; Did any existing system or mechanism(s) address this?</div>
+      <p class="cd-claim"><strong>${m.answer}.</strong> ${m.note}.</p>
+      <p class="cd-claim">${m.detail}</p>
+      ${m.srcs?.length ? `<div class="ev-srcs">${srcHtml(m.srcs)}</div>` : ''}
     </div>`).join('');
   return `<div class="cd">
     <div class="cd-kick">Timeline Event</div>
     <div class="cd-head"><span class="cd-id">${e.date}</span> <span class="ebadge ${c.badge}">${c.label}</span></div>
     <p class="cd-claim">${e.text}</p>
-    ${answered}
     <div class="eact"><span class="act-label">Actors:</span> ${e.actors}</div>
     <div class="ev-srcs">${srcHtml(e.srcs)}</div>
+    ${answered}
   </div>`;
 }
 
 function mechDetail(spine, i) {
   const m = spine.mechanisms[i];
   return `<div class="cd">
-    <div class="cd-head"><span class="cd-id cd-id-q">&#9733; Did any existing system or mechanism address this? <strong>${ADDRESSED[m.failure]}</strong></span></div>
-    <div class="eact"><span class="act-label">Actor:</span> ${m.actor}</div>
-    <p class="cd-claim"><strong>${m.note}.</strong></p>
+    <div class="cd-kick cd-kick-mech">&#9733; Did any existing system or mechanism(s) address this?</div>
+    <p class="cd-claim"><strong>${m.answer}.</strong> ${m.note}.</p>
     <p class="cd-claim">${m.detail}</p>
+    <div class="eact"><span class="act-label">Actor:</span> ${m.actor}</div>
     ${m.srcs?.length ? `<div class="ev-srcs">${srcHtml(m.srcs)}</div>` : ''}
   </div>`;
 }
@@ -562,9 +565,7 @@ function propLinkDetail(spine, i, li) {
     <div class="cd-kick cd-kick-prop">Causal Link ${li + 1} of ${p.links.length}</div>
     <div class="cd-head"><span class="cd-id">${lk.name}</span></div>
     <p class="cd-claim">${lk.claim}</p>
-    ${lk.strength === 'unstudied' ? `<p class="cd-claim"><em>No study tests this link directly.${(lk.evidence ?? []).length ? ' The evidence below comes from nearby cases and other domains.' : ''}</em></p>` : ''}
-    ${evHtml(lk.evidence, 'for')}
-    ${evHtml(lk.counterEvidence, 'counter')}
+    ${lk.strength === 'unstudied' ? `<p class="cd-claim"><em>No study tests this link directly.${(lk.evidence ?? []).length ? ' The evidence cards beside it on the map come from nearby cases and other domains.' : ''}</em></p>` : ''}
   </div>`;
 }
 

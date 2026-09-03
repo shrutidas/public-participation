@@ -324,12 +324,13 @@ export const ADDRESSED = {
   'knew-no-act': 'No',
   'acted-no-effect': 'No',
   'no-mechanism': 'No',
-  'partial': 'Partially',
+  'partial': 'Partly',
   'worked': 'Yes'
 };
+export const ANSWERS = ['Yes', 'Partly', 'No', 'The evidence is mixed'];
 
 /** An oversight or participation mechanism that already existed in the ecosystem. */
-export function mechanism({ name, actor, failure, note, detail, anchors = [], sources = [] }) {
+export function mechanism({ name, actor, failure, answer, note, detail, anchors = [], sources = [] }) {
   if (!name?.trim()) throw new Error('Mechanism is missing a name');
   if (!actor?.trim()) throw new Error(`Mechanism "${name}" is missing an actor`);
   if (!VALID_FAILURES.includes(failure)) {
@@ -340,8 +341,13 @@ export function mechanism({ name, actor, failure, note, detail, anchors = [], so
   if (!note?.trim()) throw new Error(`Mechanism "${name}" is missing a note`);
   if (!detail?.trim()) throw new Error(`Mechanism "${name}" is missing a detail paragraph`);
   if (!anchors.length) throw new Error(`Mechanism "${name}" has no timeline anchors`);
+  if (answer != null && !ANSWERS.includes(answer)) {
+    throw new Error(`Mechanism "${name}" has an invalid answer "${answer}". Use one of: ${ANSWERS.join(', ')}`);
+  }
   checkSources(sources, `Mechanism "${name}"`);
-  return { name, actor, failure, note, detail, anchors, srcs: sources.map(s => ({ l: s.label, u: s.url })) };
+  // `answer` overrides the failure-code default, for records where the honest
+  // answer is "The evidence is mixed".
+  return { name, actor, failure, answer: answer ?? ADDRESSED[failure], note, detail, anchors, srcs: sources.map(s => ({ l: s.label, u: s.url })) };
 }
 
 /**
