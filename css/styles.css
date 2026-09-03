@@ -1121,7 +1121,7 @@ body[data-view="chain"] #ctrl .fl,
 
 .rt:hover { color: #1a1a1a; }
 .rt.on { color: #16202f; border-bottom-color: #4a9fd5; }
-.rt-label { font-size: 0.75rem; font-weight: 700; padding: 7px 14px 7px 0; color: #16202f; border-bottom: 2.5px solid #4a9fd5; }
+.rt-label { font-size: 0.75rem; font-weight: 700; padding: 7px 14px 7px 0; color: #16202f; }
 
 .rt-pane { display: none; flex: 1; min-height: 0; }
 .rt-pane.show { display: block; }
