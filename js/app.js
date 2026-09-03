@@ -211,7 +211,7 @@ function renderKey() {
     <div class="k-grid">${KEY_ORDER.map(k => {
       const c = CAT[k];
       return `<div class="k-item">
-        <div class="k-mark"><span class="g ${c.badge}">${c.label}</span></div>
+        <div class="k-mark"><span class="catlab cat-${c.badge}">${c.label}</span></div>
         <div class="k-body"><div class="k-title">${c.title}</div>
           ${c.questions ? `<div class="k-desc">${c.questions}</div>` : ''}</div>
       </div>`;
@@ -254,7 +254,7 @@ function entryHtml(e, extraClass = '') {
   return `<div class="ent cat-${e.cat}${filt[e.cat] ? '' : ' hidden'}${extraClass}">
     <div class="ehd" data-toggle="entry">
       <div class="edate">${e.date}</div>
-      <div class="e-mid"><span class="ebadge ${CAT[e.cat].badge}">${CAT[e.cat].label}</span>${entryTextHtml(e.text)}</div>
+      <div class="e-mid"><span class="catlab catlab-bare cat-${CAT[e.cat].badge}">${CAT[e.cat].label}</span>${entryTextHtml(e.text)}</div>
       <div class="earr">▶</div>
     </div>
     <div class="ebd">

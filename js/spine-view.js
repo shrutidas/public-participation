@@ -94,7 +94,7 @@ function entryBoxHtml(e, i, mechs) {
       aria-label="${attr(`Existing mechanism: ${m.name}. Did it address this? ${m.answer}`)}">&#9733;</button>`).join('');
   return `<div class="sp-ent" data-e="${i}" tabindex="0">
     ${stars ? `<div class="sp-ent-stars">${stars}</div>` : ''}
-    <div class="sp-ent-hd"><span class="sp-date">${e.date}</span><span class="ebadge ${c.badge}">${c.label}</span></div>
+    <div class="sp-ent-hd"><span class="catlab cat-${c.badge}">${c.label}</span><span class="sp-date">${e.date}</span></div>
     <div class="sp-ent-txt">${lead}${rest ? '&hellip;' : ''}</div>
     ${rest ? '<div class="sp-ent-more">Expand &rarr;</div>' : ''}
   </div>`;
@@ -527,7 +527,7 @@ function entryDetail(caseObj, spine, i) {
     </div>`).join('');
   return `<div class="cd">
     <div class="cd-kick">Timeline Event</div>
-    <div class="cd-head"><span class="cd-id">${e.date}</span> <span class="ebadge ${c.badge}">${c.label}</span></div>
+    <div class="cd-head"><span class="catlab catlab-lg cat-${c.badge}">${c.label}</span> <span class="cd-id">${e.date}</span></div>
     <p class="cd-claim">${e.text}</p>
     <div class="eact"><span class="act-label">Actors:</span> ${e.actors}</div>
     <div class="ev-srcs">${srcHtml(e.srcs)}</div>

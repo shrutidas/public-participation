@@ -172,22 +172,6 @@ body {
   line-height: 1.45;
 }
 
-.ebadge {
-  display: inline-block;
-  font-size: 0.6875rem;
-  font-weight: 700;
-  padding: 3px 8px;
-  border-radius: 8px;
-  letter-spacing: 0.03em;
-  margin-bottom: 6px;
-}
-
-.br { background: #faeaea; color: #6e1510; border: 1px solid #aa2a20; }
-.bo { background: #fef0e2; color: #612800; border: 1px solid #a84e08; }
-.bg { background: #e5f5ec; color: #0c4520; border: 1px solid #177038; }
-.bb { background: #e3eef8; color: #09386a; border: 1px solid #1258a0; }
-.bp { background: #f0e8fa; color: #380c68; border: 1px solid #601898; }
-
 .etxt {
   font-size: 0.9375rem;
   line-height: 1.55;
@@ -515,6 +499,28 @@ body[data-view="chain"] #ctrl .fl,
 #legend-hide:hover { color: #1c2333; }
 #ch-legend .lg-row:first-of-type { padding-right: 36px; }
 
+/* ---- category label ---- */
+
+/* The entry category is a coloured dot and a small caps label, not an outlined
+   pill. A bordered chip inside a bordered card reads as a box in a box, and a
+   second bold at the date's size leaves neither element leading. */
+.catlab {
+  display: inline-flex; align-items: center; gap: 5px; white-space: nowrap;
+  font-size: .62rem; font-weight: 800; letter-spacing: .07em; text-transform: uppercase;
+}
+.catlab::before { content: ""; flex: 0 0 auto; width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+.catlab-lg { font-size: .68rem; }
+.catlab-lg::before { width: 8px; height: 8px; }
+/* In the flat timeline the row already carries a coloured rail, so the dot
+   would repeat it. */
+.catlab-bare::before { display: none; }
+.catlab-bare { margin-bottom: 6px; }
+.cat-br { color: #aa2a20; }
+.cat-bo { color: #8a3f06; }
+.cat-bg { color: #146030; }
+.cat-bb { color: #1258a0; }
+.cat-bp { color: #601898; }
+
 /* ---- shared grade / effect pills ---- */
 
 .g {
@@ -595,7 +601,7 @@ body[data-view="chain"] #ctrl .fl,
   border-radius: 6px; font-size: 0.8125rem; line-height: 1.55; color: #6a6255;
 }
 
-.cd-head { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-bottom: 11px; }
+.cd-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px; margin-bottom: 11px; }
 .cd-id { font-size: 1.125rem; font-weight: 700; color: #16202f; letter-spacing: 0.02em; }
 .cd-branch { font-size: 0.6875rem; color: #8a8377; font-weight: 600; letter-spacing: 0.04em; }
 
@@ -1316,20 +1322,22 @@ body[data-view="chain"] #ctrl .fl,
 
 /* ---- single-timeline navigation ---- */
 
+/* Same quiet outline as the View Timeline button: navigation is not a
+   coloured call to action. */
 .tl-back {
   margin-left: auto;
-  font-size: 0.75rem;
+  font-size: 0.6875rem;
   font-weight: 700;
   padding: 5px 12px;
   border-radius: 5px;
-  border: 1.5px solid #1258a0;
-  background: #e3eef8;
-  color: #09386a;
+  border: 1.5px solid #b3aca0;
+  background: #fff;
+  color: #4a463f;
   cursor: pointer;
   font-family: inherit;
 }
 
-.tl-back:hover { background: #bed4ee; }
+.tl-back:hover { border-color: #1c2333; color: #1c2333; }
 .tl-back.hide { display: none; }
 
 #tl-expand {
@@ -1406,9 +1414,8 @@ body[data-view="chain"] #ctrl .fl,
 .sp-ent:hover { box-shadow: 0 2px 8px rgba(90,83,71,.28); }
 .sp-ent.sel { box-shadow: 0 0 0 3px rgba(90,83,71,.32); border-color: #5a5347; }
 .sp-ent.sp-ent-prop { border-color: #601898; box-shadow: 0 0 0 3px rgba(96,24,152,.28); }
-.sp-ent-hd { display: flex; align-items: center; gap: 8px; margin-bottom: 5px; }
-.sp-ent-hd .ebadge { position: static; margin: 0; line-height: 1.4; transform: none; align-self: center; }
-.sp-date { font-weight: 700; font-size: .72rem; color: #4a4437; white-space: nowrap; }
+.sp-ent-hd { display: flex; align-items: baseline; gap: 10px; margin-bottom: 5px; }
+.sp-date { font-weight: 600; font-size: .66rem; color: #8a8377; white-space: nowrap; letter-spacing: .02em; }
 .sp-date-imp { color: #1e6b3c; }
 .sp-ent-txt { color: #333a45; }
 /* The map box is a scannable opening line, so emphasis from the entry text is

@@ -51,7 +51,7 @@ export const GLOSSARY = [
     note: 'The timeline is the argument’s backbone; everything else attaches to it. Columns are labelled across the top and stay in place as you scroll.',
     views: ['spine'],
     items: [
-      { swatch: 'sp-ent', label: 'Timeline Event', desc: 'One dated event in the Main Timeline lane, in chronological order. Its badge shows the category. The box shows the opening of the entry; click it for the whole record and its sources.' },
+      { swatch: 'sp-ent', label: 'Timeline Event', desc: 'One dated event in the Main Timeline lane, in chronological order. A coloured dot and label name its category. The box shows the opening of the entry; click it for the whole record and its sources.' },
       { swatch: 'sp-star', label: 'Existing Mechanism', desc: 'A star in an event’s corner: an oversight or participation mechanism that already existed and should have caught that event. Click the star to read whether it addressed the event: yes, partly, no, or mixed.' },
       { swatch: 'sp-imp', label: 'Measured Impact', desc: 'An endpoint the record actually measures, in its own lane beside its strongest source event. The date on the card is when the finding was first published. Select the card or the event to see every source.' },
       { swatch: 'sp-prop', label: 'Proposed Public Participation', desc: 'A proposal from the 6/8 design work, tied to the event it would intervene in. Its mechanism and the effects it aims at sit inside the card; its causal chain runs to the right.' },
