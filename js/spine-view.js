@@ -385,10 +385,15 @@ export function renderSpineMap(el, caseObj, spine, sel = {}) {
   const arw = (id, color, size, extra = '') => `<marker id="sp-arw-${id}" viewBox="0 0 10 10" refX="9" refY="5"
       markerWidth="${size}" markerHeight="${size}" orient="auto-start-reverse">
       <path d="M 0 0 L 10 5 L 0 10 L 2.8 5 z" fill="${color}"${extra}></path></marker>`;
+  // Impact connectors end in a node rather than an arrowhead: the card states
+  // an outcome the record measures, not a further step in the chain.
+  const dot = (id, color, size, extra = '') => `<marker id="sp-dot-${id}" viewBox="0 0 10 10" refX="5" refY="5"
+      markerWidth="${size}" markerHeight="${size}">
+      <circle cx="5" cy="5" r="4.2" fill="${color}"${extra}></circle></marker>`;
   const defs = `<defs>
     ${arw('spine', '#ffffff', 7, ' stroke="#b8b1a3" stroke-width="1.1"')}
     ${arw('chain', '#b0146e', 8)}
-    ${arw('imp', '#1e6b3c', 7, ' fill-opacity="0.55"')}</defs>`;
+    ${dot('imp', '#1e6b3c', 5, ' fill-opacity="0.75"')}</defs>`;
 
   let paths = '';
   const cx = L.spineX + L.spineW / 2;
@@ -415,14 +420,16 @@ export function renderSpineMap(el, caseObj, spine, sel = {}) {
       const sy = Math.round(yTop[i]) + entEl[i].offsetHeight / 2;
       const isPrim = prim && prim.i === i;
       const cls = isPrim ? 'sp-edge-imp' : 'sp-edge-imp sp-edge-imp-alt';
-      const endX = L.impX + L.impW + 4;
+      // The node sits just clear of the card, which is painted above the edge
+      // layer: centred on the border, half of it would be hidden.
+      const endX = L.impX + L.impW + 5;
       let d;
       if (Math.abs(sy - r.cy) < 1) d = `M ${L.spineX} ${sy} H ${endX}`;
       else {
         const gx = isPrim ? L.gutImp + 30 : L.gutImp + 6 + (lane++ % 4) * 6;
         d = `M ${L.spineX} ${sy} H ${gx} V ${r.cy} H ${endX}`;
       }
-      paths += `<path class="sp-edge ${cls}" data-i="${r.ii}" data-src="${i}" marker-end="url(#sp-arw-imp)" d="${d}"></path>`;
+      paths += `<path class="sp-edge ${cls}" data-i="${r.ii}" data-src="${i}" marker-end="url(#sp-dot-imp)" d="${d}"></path>`;
     }
   }
 
@@ -527,7 +534,7 @@ function entryDetail(caseObj, spine, i) {
   // screen changing for no reason. The map star still opens the mechanism.
   const answered = mechs.map(({ m }) => `
     <div class="sp-addressed">
-      <div class="cd-kick cd-kick-mech">&#9733; Did any existing system or mechanism(s) address this?</div>
+      <div class="cd-kick cd-kick-mech">&#9733; Did any existing mechanism address this?</div>
       <p class="cd-claim"><strong>${m.answer}.</strong> ${m.note}.</p>
       <p class="cd-claim">${m.detail}</p>
       ${m.srcs?.length ? `<div class="ev-srcs">${srcHtml(m.srcs)}</div>` : ''}
@@ -545,7 +552,7 @@ function entryDetail(caseObj, spine, i) {
 function mechDetail(spine, i) {
   const m = spine.mechanisms[i];
   return `<div class="cd">
-    <div class="cd-kick cd-kick-mech">&#9733; Did any existing system or mechanism(s) address this?</div>
+    <div class="cd-kick cd-kick-mech">&#9733; Did any existing mechanism address this?</div>
     <p class="cd-claim"><strong>${m.answer}.</strong> ${m.note}.</p>
     <p class="cd-claim">${m.detail}</p>
     <div class="eact"><span class="act-label">Actor:</span> ${m.actor}</div>
