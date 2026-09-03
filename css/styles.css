@@ -1586,3 +1586,26 @@ body[data-view="chain"] #ctrl .fl,
 .k-sw-sp-prop { background: #f7f2fd; border: 1.5px dashed #601898; }
 .k-sw-sp-flag { background: #fff; border: 1.5px solid #b3261e; }
 .k-sw-sp-ctr { background: #fdf5f5; border: 1.5px dashed #b3261e; }
+
+/* One ink for every neutral text in the sidebar: titles, paragraphs, the
+   Actors line, kicks, and headers all share it. Semantic colors (purple
+   proposal, green impact, red evidence, orange caveat) stay. */
+:root { --sb-ink: #3a3f47; }
+#ch-detail .cd-id,
+#ch-detail .cd-claim,
+#ch-detail .cd-outcome,
+#ch-detail .ev-finding,
+#ch-detail .pa-desc,
+#ch-detail .pa-name,
+#ch-detail .pa-loc,
+#ch-detail .eact,
+#ch-detail .act-label,
+#ch-detail .cd-kick,
+#ch-detail .cd-kick-mech,
+#ch-detail .cd-kick-comp,
+#ch-detail .ln-sec h4,
+#ch-detail .cd-hint,
+#ch-detail .sp-hintline,
+#ch-detail .cd-flow,
+#ch-detail .cd-claim strong,
+#ch-detail .sp-addressed strong { color: var(--sb-ink); }
