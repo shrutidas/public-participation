@@ -270,7 +270,7 @@ function renderTimeline() {
 }
 
 /* The right pane always shows the detail; the full timeline opens through
-   the Expand Timeline button. */
+   the View Timeline button. */
 
 function renderSpine() {
   const c = curCase();
