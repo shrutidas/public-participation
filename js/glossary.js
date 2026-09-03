@@ -4,7 +4,8 @@
  * The spine map runs in four labelled lanes:
  *
  *   MEASURED IMPACT: dark green cards in their own lane on the far left, each
- *                at the date its finding was first published.
+ *                level with its strongest source event. The card carries the
+ *                date its finding was first published.
  *   MAIN TIMELINE: white boxes, every event in order, showing the opening of
  *                the entry. A star in an event's corner marks a mechanism that
  *                already existed and should have caught it.
@@ -31,7 +32,7 @@ export const HOW_TO = [
   },
   {
     title: 'Green: what was measured',
-    desc: 'Dark green cards sit in their own lane on the far left, each at the date its finding was first published. An arrow runs from the specific events where the causal claim holds; click a card to see what it measures and the evidence behind it.'
+    desc: 'Dark green cards sit in their own lane on the far left, each level with the event where its causal claim is strongest. The date on the card is when the finding was first published. Click a card to see what it measures and the evidence behind it.'
   },
   {
     title: 'Purple: proposed public participation',
@@ -52,7 +53,7 @@ export const GLOSSARY = [
     items: [
       { swatch: 'sp-ent', label: 'Timeline Event', desc: 'One dated event in the Main Timeline lane, in chronological order. Its badge shows the category. The box shows the opening of the entry; click it for the whole record and its sources.' },
       { swatch: 'sp-star', label: 'Existing Mechanism', desc: 'A star in an event’s corner: an oversight or participation mechanism that already existed and should have caught that event. Click the star to read whether it addressed the event: yes, partly, no, or mixed.' },
-      { swatch: 'sp-imp', label: 'Measured Impact', desc: 'An endpoint the record actually measures, in its own lane at the date the finding was first published. One arrow runs from its strongest source event. Select the card or the event to see every source.' },
+      { swatch: 'sp-imp', label: 'Measured Impact', desc: 'An endpoint the record actually measures, in its own lane beside its strongest source event. The date on the card is when the finding was first published. Select the card or the event to see every source.' },
       { swatch: 'sp-prop', label: 'Proposed Public Participation', desc: 'A proposal from the 6/8 design work, tied to the event it would intervene in. Its mechanism and the effects it aims at sit inside the card; its causal chain runs to the right.' },
       { swatch: 'sp-chain', label: 'Causal Link', desc: 'One step in a proposal’s causal chain, in magenta, read left to right. Click it for the claim; the evidence cards sit under it on the map.' },
       { swatch: 'sp-chain-un', label: 'Untested Causal Link', desc: 'A dashed magenta box marks a link no study tests directly. Its evidence cards come from nearby cases or other fields.' },

@@ -66,9 +66,8 @@ function dkey(s) {
 }
 
 /**
- * Where an impact belongs in the chronology: the index of the first entry
- * dated later than the impact was first published, so the card lands beside
- * the point in the record where the finding arrived.
+ * Fallback placement for an impact with no anchored source: the index of the
+ * first entry dated later than the finding was first published.
  */
 function impactRow(entries, found) {
   const k = dkey(found);
@@ -193,7 +192,11 @@ export function renderSpineMap(el, caseObj, spine, sel = {}) {
     return box;
   });
 
-  // Pass 2: the impact cards, and where each one belongs in the chronology.
+  // Pass 2: the impact cards. Each one sits level with its strongest source
+  // event, the way a proposal sits level with the event it intervenes in, so
+  // the arrow between them is short and horizontal. The found date stays on
+  // the card. An impact with no anchored source falls back to the row where
+  // its finding was published.
   const impFroms = spine.impacts.map(im => im.from
     .map(f => ({ f, i: anchorIndex(entries, f.anchor) }))
     .filter(x => x.i !== -1));
@@ -204,10 +207,17 @@ export function renderSpineMap(el, caseObj, spine, sel = {}) {
     box.style.left = `${L.impX}px`;
     box.style.width = `${L.impW}px`;
     stage.appendChild(box);
-    return { ii, box, row: impactRow(entries, im.found), k: dkey(im.found) };
+    const prim = primaryArrow(impFroms[ii]);
+    const row = prim ? prim.i : Math.min(impactRow(entries, im.found), entries.length - 1);
+    return { ii, box, row, k: dkey(im.found) };
   }).sort((a, b) => a.row - b.row || a.k - b.k);
   const impEl = [];
   for (const r of imps) impEl[r.ii] = r.box;
+  const impAt = new Map();
+  for (const r of imps) {
+    if (!impAt.has(r.row)) impAt.set(r.row, []);
+    impAt.get(r.row).push(r);
+  }
 
   // Pass 3: build and measure every proposal, its effects card, its chain
   // boxes, its evidence cards, and its comparables strip.
@@ -296,30 +306,27 @@ export function renderSpineMap(el, caseObj, spine, sel = {}) {
     propAt.get(i).push(rec);
   });
 
-  // A finding published in a gap between two events opens space in the
-  // timeline at that point, so the card sits at its date rather than beside
-  // the next event, which can be years later.
-  const laterKey = (e, k) => {
-    const ek = dkey(e.date);
-    return Number.isInteger(ek) ? ek > Math.floor(k) : ek > k;
-  };
-  const gapNeed = [], gapStart = [];
-  for (const r of imps) {
-    r.gap = r.row > 0 && r.row < entries.length && laterKey(entries[r.row], r.k);
-    if (r.gap) {
-      r.gapOff = gapNeed[r.row] || 0;
-      gapNeed[r.row] = r.gapOff + r.box.offsetHeight + L.railGap;
-    }
-  }
-
   // Pass 4: vertical layout, top to bottom.
   const yTop = [];
   let y = L.padTop;
   entries.forEach((e, i) => {
-    if (gapNeed[i]) { gapStart[i] = y - L.rowGap + L.railGap; y += gapNeed[i]; }
     yTop[i] = y;
     entEl[i].style.top = `${Math.round(y)}px`;
-    let bot = y + entEl[i].offsetHeight;
+    const entH = entEl[i].offsetHeight;
+    let bot = y + entH;
+
+    // Impact cards stack beside their source event. A lone card centres on
+    // the event when it is shorter, so its arrow is one horizontal line.
+    if (impAt.has(i)) {
+      const list = impAt.get(i);
+      let iy = y + Math.max(0, (entH - list[0].box.offsetHeight) / 2);
+      for (const r of list) {
+        r.box.style.top = `${Math.round(iy)}px`;
+        r.cy = iy + r.box.offsetHeight / 2;
+        iy += r.box.offsetHeight + L.railGap;
+      }
+      bot = Math.max(bot, iy - L.railGap);
+    }
 
     if (propAt.has(i)) {
       let subY = y;
@@ -359,34 +366,7 @@ export function renderSpineMap(el, caseObj, spine, sel = {}) {
   });
   const timelineBot = y - L.rowGap;
 
-  // The impact rail: chronological placement first, pushed down only far
-  // enough to clear the card above it.
-  let railBot = L.padTop;
-  let firstPost = true;
-  for (const r of imps) {
-    let target = r.gap ? gapStart[r.row] + r.gapOff
-      : r.row < entries.length ? yTop[r.row] : timelineBot + L.rowGap;
-    if (r.row >= entries.length && firstPost) { target = Math.max(target, railBot + 34); firstPost = false; }
-    const iy = Math.max(target, railBot);
-    r.box.style.top = `${Math.round(iy)}px`;
-    r.cy = iy + r.box.offsetHeight / 2;
-    railBot = iy + r.box.offsetHeight + L.railGap;
-  }
-
-  // Findings published after the record ends sit below it, under a rule that
-  // marks them as postscript rather than overflow.
-  const post = imps.filter(r => r.row >= entries.length);
-  if (post.length) {
-    const rule = document.createElement('div');
-    rule.className = 'sp-postrule';
-    rule.textContent = `Record ends ${entries[entries.length - 1].date}. Findings published later:`;
-    rule.style.left = `${L.impX}px`;
-    rule.style.width = `${L.impW}px`;
-    rule.style.top = `${Math.round(Math.min(...post.map(r => parseFloat(r.box.style.top))) - 22)}px`;
-    stage.appendChild(rule);
-  }
-
-  const totalH = Math.max(y - L.rowGap, railBot) + L.padBottom;
+  const totalH = y - L.rowGap + L.padBottom;
   stage.style.height = `${totalH}px`;
   for (const b of bands) b.style.height = `${Math.round(totalH)}px`;
   svg.setAttribute('viewBox', `0 0 ${L.canvasW} ${Math.round(totalH)}`);
@@ -416,19 +396,26 @@ export function renderSpineMap(el, caseObj, spine, sel = {}) {
   }
 
   // Impact arrows: out the left of the event where the causal claim holds,
-  // across the gutter, and into the impact card. Right angles only.
-  // One arrow per impact is drawn by default, from its strongest source. The
-  // rest are in the SVG but hidden until either end is selected, so the map
-  // shows one line per finding and the detail shows them all.
+  // across the gutter, and into the impact card. The primary arrow runs to a
+  // card sitting level with its source, so it is a straight horizontal line
+  // (with a short jog in the gutter when cards stack). The other sources are
+  // in the SVG but hidden until either end is selected, so the map shows one
+  // line per finding and the detail shows them all.
   let lane = 0;
   for (const r of imps) {
     const prim = primaryArrow(impFroms[r.ii]);
     for (const { i } of impFroms[r.ii]) {
       const sy = yTop[i] + entEl[i].offsetHeight / 2;
-      const gx = L.gutImp + 10 + (lane++ % 6) * 7.5;
-      const cls = prim && prim.i === i ? 'sp-edge-imp' : 'sp-edge-imp sp-edge-imp-alt';
-      paths += `<path class="sp-edge ${cls}" data-i="${r.ii}" data-src="${i}" marker-end="url(#sp-arw-imp)"
-        d="M ${L.spineX} ${sy} H ${gx} V ${r.cy} H ${L.impX + L.impW + 4}"></path>`;
+      const isPrim = prim && prim.i === i;
+      const cls = isPrim ? 'sp-edge-imp' : 'sp-edge-imp sp-edge-imp-alt';
+      const endX = L.impX + L.impW + 4;
+      let d;
+      if (Math.abs(sy - r.cy) < 1) d = `M ${L.spineX} ${sy} H ${endX}`;
+      else {
+        const gx = isPrim ? L.gutImp + 30 : L.gutImp + 6 + (lane++ % 4) * 6;
+        d = `M ${L.spineX} ${sy} H ${gx} V ${r.cy} H ${endX}`;
+      }
+      paths += `<path class="sp-edge ${cls}" data-i="${r.ii}" data-src="${i}" marker-end="url(#sp-arw-imp)" d="${d}"></path>`;
     }
   }
 
