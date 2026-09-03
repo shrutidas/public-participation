@@ -1,6 +1,6 @@
 import { srcHtml, attr, splitEntryText } from './util.js';
 import { CAT } from './categories.js';
-import { FAILURE_LABEL } from './cases/helpers.js';
+import { ADDRESSED } from './cases/helpers.js';
 
 /* --------------------------------------------------------------------------
  * The timeline as the central spine, drawn in four labelled lanes.
@@ -80,8 +80,8 @@ function entryBoxHtml(e, i, mechs) {
   const c = CAT[e.cat];
   const { lead, rest } = splitEntryText(e.text, BOX_CHARS);
   const stars = mechs.map(m =>
-    `<button class="sp-star" data-m="${m.mi}" title="${attr(`${m.name} — ${FAILURE_LABEL[m.failure]}`)}"
-      aria-label="${attr(`Mechanism that should have caught this: ${m.name}`)}">&#9733;</button>`).join('');
+    `<button class="sp-star" data-m="${m.mi}" title="${attr(`${m.name} — addressed this? ${ADDRESSED[m.failure]}`)}"
+      aria-label="${attr(`Existing mechanism: ${m.name}. Did it address this? ${ADDRESSED[m.failure]}`)}">&#9733;</button>`).join('');
   return `<div class="sp-ent" data-e="${i}" tabindex="0">
     ${stars ? `<div class="sp-ent-stars">${stars}</div>` : ''}
     <div class="sp-ent-hd"><span class="sp-date">${e.date}</span><span class="ebadge ${c.badge}">${c.label}</span></div>
@@ -478,12 +478,12 @@ function entryDetail(caseObj, spine, i) {
   const mechs = spine.mechanisms
     .map((m, mi) => ({ m, mi }))
     .filter(({ m }) => m.anchors.some(a => plain(e.text).includes(a)));
-  const starred = mechs.length ? `<div class="ln-sec"><h4>Mechanisms That Should Have Caught This</h4>
+  const starred = mechs.length ? `<div class="ln-sec"><h4>Did Any Existing System or Mechanism Address This?</h4>
     <ul class="ev-list">${mechs.map(({ m, mi }) => `
       <li class="sp-chainrow" data-gomech="${mi}" tabindex="0">
         <span class="sp-star sp-star-static">&#9733;</span>
         <div class="ev-body"><div class="ev-finding">${m.name}</div>
-          <div class="ev-caveat">${FAILURE_LABEL[m.failure]}</div></div>
+          <div class="ev-caveat">${ADDRESSED[m.failure]}</div></div>
       </li>`).join('')}</ul></div>` : '';
   return `<div class="cd">
     <div class="cd-kick">Timeline Event</div>
@@ -498,9 +498,8 @@ function entryDetail(caseObj, spine, i) {
 function mechDetail(spine, i) {
   const m = spine.mechanisms[i];
   return `<div class="cd">
-    <div class="cd-kick cd-kick-mech">&#9733; Mechanism That Should Have Caught This</div>
-    <div class="cd-head"><span class="cd-id">${m.name}</span></div>
-    <p class="cd-flow"><span class="sp-failtag ft-${m.failure}">${FAILURE_LABEL[m.failure]}</span></p>
+    <div class="cd-kick cd-kick-mech">&#9733; Did any existing system or mechanism(s) address this?</div>
+    <div class="cd-head"><span class="cd-id">${ADDRESSED[m.failure]}</span></div>
     <div class="eact"><span class="act-label">Actor:</span> ${m.actor}</div>
     <p class="cd-claim"><strong>${m.note}.</strong></p>
     <p class="cd-claim">${m.detail}</p>
@@ -617,15 +616,15 @@ function overview(caseObj, spine) {
   return `<div class="cd cd-intro">
     <div class="cd-hint">The timeline runs down the second lane in order. Each box shows the
       opening of an entry; click it for the whole record. A star in an event's corner marks a
-      mechanism that already existed and should have caught it; click the star to read why it
-      did not. The far-left lane holds what the record later measured, each card at the date
+      system or mechanism that already existed; click the star to read whether it addressed
+      the event. The far-left lane holds what the record later measured, each card at the date
       its finding was first published, with an arrow from the events where the causal claim
       holds. To the right sit the proposed public participation from the design work, each
       tied to the event it would intervene in and carrying the effects it aims at, then each
       proposal's causal chain running left to right with the evidence on the cards.</div>
     <div class="cd-sum">
       <span class="cd-sum-lbl">Timeline</span><div class="cd-sum-pills"><span class="g g-neutral">${caseObj.entries.length} Events</span></div>
-      <span class="cd-sum-lbl">Starred</span><div class="cd-sum-pills"><span class="g g-mech">${nMech} Mechanisms That Should Have Worked</span></div>
+      <span class="cd-sum-lbl">Starred</span><div class="cd-sum-pills"><span class="g g-mech">${nMech} Existing Mechanisms</span></div>
       <span class="cd-sum-lbl">Measured</span><div class="cd-sum-pills"><span class="g g-imp">${nImp} Measured Impacts</span></div>
       <span class="cd-sum-lbl">Proposed</span><div class="cd-sum-pills"><span class="g g-prop">${nProp} Proposed Public Participation</span></div>
     </div>

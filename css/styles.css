@@ -264,7 +264,7 @@ body {
 }
 
 .esrcs a {
-  font-size: 0.8125rem;
+  font-size: 0.875rem;
   color: #1258a0;
   text-decoration: none;
   background: #e3eef8;
@@ -658,7 +658,7 @@ body[data-view="chain"] #ctrl .fl,
 .ev-srcs { display: flex; flex-direction: column; align-items: flex-start; gap: 3px; margin-top: 7px; }
 .pa-loc { font-size: 0.75rem; color: #555; margin-top: 7px; }
 .ev-srcs a {
-  font-size: 0.75rem; color: #1258a0; text-decoration: underline;
+  font-size: 0.875rem; color: #1258a0; text-decoration: underline;
   text-underline-offset: 2px; background: transparent; padding: 1px 0;
   border: none; cursor: pointer;
 }
@@ -1152,7 +1152,6 @@ body[data-view="chain"] #ctrl .fl,
 #ch-detail .pa-actors,
 #ch-detail .pp-mech,
 #ch-detail .ln-none { font-size: 0.75rem; }
-#ch-detail .ev-srcs a,
 #ch-detail .pa-loc,
 #ch-detail .pp-mech-note { font-size: 0.6875rem; }
 #ch-detail .ln-sec h4,

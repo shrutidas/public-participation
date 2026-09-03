@@ -27,7 +27,7 @@ export const HOW_TO = [
   },
   {
     title: 'Stars: what already existed',
-    desc: 'A star in an event’s corner marks an oversight or participation mechanism that already existed and should have caught that event. Click the star to read why it did not work: did not know, knew but did not act, acted with no effect, no mechanism existed, or worked.'
+    desc: 'A star in an event’s corner marks an oversight or participation mechanism that already existed and should have caught that event. Click the star to read whether it addressed the event: yes, no, or partially, and why.'
   },
   {
     title: 'Green: what was measured',
@@ -51,7 +51,7 @@ export const GLOSSARY = [
     views: ['spine'],
     items: [
       { swatch: 'sp-ent', label: 'Timeline Event', desc: 'One dated event in the Main Timeline lane, in chronological order. Its badge shows the category. The box shows the opening of the entry; click it for the whole record and its sources.' },
-      { swatch: 'sp-star', label: 'Existing Mechanism', desc: 'A star in an event’s corner: an oversight or participation mechanism that already existed and should have caught that event. Click the star to read why it did not work.' },
+      { swatch: 'sp-star', label: 'Existing Mechanism', desc: 'A star in an event’s corner: an oversight or participation mechanism that already existed and should have caught that event. Click the star to read whether it addressed the event: yes, no, or partially.' },
       { swatch: 'sp-imp', label: 'Measured Impact', desc: 'An endpoint the record actually measures, in its own lane at the date the finding was first published. An arrow runs from the specific events where the causal claim holds.' },
       { swatch: 'sp-prop', label: 'Proposed Public Participation', desc: 'A proposal from the 6/8 design work, tied to the event it would intervene in. Its mechanism and the effects it aims at sit under the box; its causal chain runs to the right.' },
       { swatch: 'sp-flag', label: 'Evidence Card', desc: 'One piece of evidence under the chain link it supports, named by its source. A dashed card is counter-evidence. Click a card to read the finding and the full record.' }

@@ -28,7 +28,7 @@ export default spineData({
     }),
     mechanism({
       name: 'FDA advisory committee review',
-      actor: 'VRBPAC',
+      actor: 'Vaccines and Related Biological Products Advisory Committee (VRBPAC)',
       failure: 'partial',
       note: 'The one advisory committee whose votes visibly narrowed a federal decision',
       detail: paragraph(`

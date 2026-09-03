@@ -317,6 +317,17 @@ export const FAILURE_LABEL = {
   'worked': 'Worked'
 };
 
+/** The one-word answer the interface gives to "Did any existing system or
+    mechanism address this?" for each failure mode. */
+export const ADDRESSED = {
+  'did-not-know': 'No',
+  'knew-no-act': 'No',
+  'acted-no-effect': 'No',
+  'no-mechanism': 'No',
+  'partial': 'Partially',
+  'worked': 'Yes'
+};
+
 /** An oversight or participation mechanism that already existed in the ecosystem. */
 export function mechanism({ name, actor, failure, note, detail, anchors = [], sources = [] }) {
   if (!name?.trim()) throw new Error('Mechanism is missing a name');
