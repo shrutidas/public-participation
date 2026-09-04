@@ -179,7 +179,11 @@ export default spineData({
         facility and set no statewide standard.
       `),
       anchors: ['citizen-suit strategies'],
-      sources: [source('North Carolina Department of Environmental Quality', 'https://www.deq.nc.gov/news/key-issues/genx-investigation/chemours-consent-order')]
+      sources: [
+        source('North Carolina Department of Environmental Quality', 'https://www.deq.nc.gov/news/key-issues/genx-investigation/chemours-consent-order'),
+        source('SELC', 'https://www.selc.org/wp-content/uploads/2022/12/2022-12-05-SELC-timeline-NC-GenX-PFAS-pollution-Chemours.pdf'),
+        source('Consent Order', 'https://capefearriverwatch.org/wp-content/uploads/2020/07/Consent-Order-file-stamped-and-fully-executed-b-w-.pdf')
+      ]
     }),
     mechanism({
       name: 'Public comment on the consent order',
@@ -258,13 +262,26 @@ export default spineData({
       evidence: [
         evidence({
           finding: paragraph(`
-            Kotlarz et al. (2020) measured PFAS in blood from the GenX Exposure
-            Study cohort: samples stored from 2010 to 2016 showed PFMOAA
-            medians of 42 ng/mL.
+            Kotlarz et al. (2020) measured PFAS in blood from 344 Wilmington
+            residents in the GenX Exposure Study cohort. In participants sampled
+            twice, median fluoroether levels fell 34 to 65 percent in six months.
           `),
           grade: 'strong',
           sources: [
             source('Kotlarz et al. 2020', 'https://ehp.niehs.nih.gov/doi/10.1289/EHP6837')
+          ]
+        }),
+        evidence({
+          finding: paragraph(`
+            A later NC State analysis of 119 archived blood samples collected
+            from Wilmington residents between 2010 and 2016 found PFMOAA at a
+            median of 42 ng/mL, the highest of 56 PFAS measured. The samples
+            predate the 2017 disclosure.
+          `),
+          grade: 'moderate',
+          quote: 'PFMOAA had the highest median concentration at 42 nanograms per milliliter (ng/mL)',
+          sources: [
+            source('NC State News', 'https://news.ncsu.edu/2025/10/high-levels-of-short-chain-pfas-found-in-wilmington-residents-blood/')
           ]
         }),
         evidence({
@@ -321,6 +338,7 @@ export default spineData({
           quote: 'limited evidence for cancer in humans (renal cell carcinoma and testicular cancer)',
           sources: [
             source('C8 Science Panel', 'http://www.c8sciencepanel.org/pdfs/Probable_Link_C8_Cancer_16April2012_v2.pdf'),
+            source('Boston et al. 2025', 'https://www.frontiersin.org/journals/public-health/articles/10.3389/fpubh.2025.1532277/full'),
             source('International Agency for Research on Cancer', 'https://www.iarc.who.int/news-events/iarc-monographs-evaluate-the-carcinogenicity-of-perfluorooctanoic-acid-pfoa-and-perfluorooctanesulfonic-acid-pfos')
           ]
         }),
@@ -368,6 +386,7 @@ export default spineData({
           `),
           grade: 'strong',
           sources: [
+            source('WUNC', 'https://www.wunc.org/politics/2025-05-09/chemours-pay-pfas-removal-nc-house-bill'),
             source('WUNC', 'https://www.wunc.org/politics/2025-04-17/wilmington-ted-davis-chemours-pfas-cape-fear'),
             source('Port City Daily', 'https://portcitydaily.com/local-news/2022/10/11/cfpua-reports-pfas-free-water-with-new-filtration-system-online/')
           ]
@@ -559,7 +578,10 @@ export default spineData({
                 within six months of discharge controls; after exposure ends, PFOA levels in blood fall by half about every 3.26 years.
               `),
               grade: 'strong',
-              sources: [source('Kotlarz et al. 2020', 'https://ehp.niehs.nih.gov/doi/10.1289/EHP6837')]
+              sources: [
+                source('Kotlarz et al. 2020', 'https://ehp.niehs.nih.gov/doi/10.1289/EHP6837'),
+                source('TERA workshop summary of Brede et al. 2010', 'https://tera.org/Alliance%20for%20Risk/Workshop%20Xll/CaseSummaryPFOA.pdf')
+              ]
             }),
             evidence({
               finding: paragraph(`
@@ -753,7 +775,10 @@ export default spineData({
                 This case supplies the measurement. After the June 2017 story the state acted within a week, and blood levels fell 34 to 65 percent within six months of discharge controls.
               `),
               grade: 'strong',
-              sources: [source('Kotlarz et al. 2020', 'https://ehp.niehs.nih.gov/doi/10.1289/EHP6837')]
+              sources: [
+                source('WRAL', 'https://www.wral.com/story/timeline-tracking-the-route-of-genx-in-the-cape-fear-river/16869639/'),
+                source('Kotlarz et al. 2020', 'https://ehp.niehs.nih.gov/doi/10.1289/EHP6837')
+              ]
             })
           ],
           counterEvidence: [
@@ -775,8 +800,8 @@ export default spineData({
           authority: 'Resident sampling, then state study, then criminal enforcement',
           outcome: paragraph(`
             Starting in 2005, residents sampled their air with homemade bucket
-            kits and found benzene and formaldehyde. The state's follow-up
-            study confirmed the excess. A jury convicted the company on 14 of
+            kits and found benzene. The state's follow-up study, begun in July
+            2007, found elevated benzene and formaldehyde. A jury convicted the company on 14 of
             19 charges, with a $12.5 million penalty. Measured benzene fell 86
             percent at the industrial monitor and 68 percent at the residential
             monitor. The estimated excess cancer risk at the industrial
@@ -886,10 +911,13 @@ export default spineData({
           counterEvidence: [
             evidence({
               finding: paragraph(`
-                Avoiding contaminated water costs money and burdens poor households most. The measured responses concentrate within a mile of a plant, while Cape Fear exposure ran 100 miles downstream.
+                Avoiding contaminated water costs money: bottled water bought in response to violations cost about $60 million nationwide in 2005. The measured responses concentrate within a mile of a plant, while Cape Fear exposure ran 100 miles downstream.
               `),
               grade: 'moderate',
-              sources: [source('Currie et al. 2015', 'https://www.aeaweb.org/articles?id=10.1257%2Faer.20121656')]
+              sources: [
+                source('Graff Zivin et al. 2011', 'https://www.nber.org/papers/w16695'),
+                source('Currie et al. 2015', 'https://www.aeaweb.org/articles?id=10.1257%2Faer.20121656')
+              ]
             })
           ]
         }),
@@ -908,7 +936,8 @@ export default spineData({
               quote: 'reduced total violations by between 30% and 44%',
               sources: [
                 source('Bennear and Olmstead 2008', 'https://ideas.repec.org/a/eee/jeeman/v56y2008i2p117-130.html'),
-                source('Toxics Use Reduction Institute', 'https://www.turi.org/wp-content/uploads/2024/03/TURAOverview.June2018.pdf')
+                source('Toxics Use Reduction Institute', 'https://www.turi.org/wp-content/uploads/2024/03/TURAOverview.June2018.pdf'),
+                source('Journal of Business Chemistry', 'https://www.businesschemistry.org/article/impacts-of-the-reach-candidate-list-of-substances-subject-to-authorisation-the-reputation-mechanism-and-empirical-results-on-behavioral-adaptations-of-german-supply-chain-actors/')
               ]
             })
           ],
@@ -937,7 +966,10 @@ export default spineData({
                 cutoff would have avoided.
               `),
               grade: 'strong',
-              sources: [source('Kotlarz et al. 2020', 'https://ehp.niehs.nih.gov/doi/10.1289/EHP6837')]
+              sources: [
+                source('Kotlarz et al. 2020', 'https://ehp.niehs.nih.gov/doi/10.1289/EHP6837'),
+                source('WUNC', 'https://www.wunc.org/politics/2025-05-09/chemours-pay-pfas-removal-nc-house-bill')
+              ]
             })
           ]
         })
@@ -1092,7 +1124,10 @@ export default spineData({
                 after controls show the gain per year of earlier cutoff.
               `),
               grade: 'strong',
-              sources: [source('Kotlarz et al. 2020', 'https://ehp.niehs.nih.gov/doi/10.1289/EHP6837')]
+              sources: [
+                source('NC State News', 'https://news.ncsu.edu/2025/10/high-levels-of-short-chain-pfas-found-in-wilmington-residents-blood/'),
+                source('Kotlarz et al. 2020', 'https://ehp.niehs.nih.gov/doi/10.1289/EHP6837')
+              ]
             })
           ]
         })
@@ -1174,12 +1209,15 @@ export default spineData({
                 delivered probable-link findings for six conditions, reporting
                 “there is a probable link between exposure to C8 (also known as
                 PFOA) and testicular cancer and kidney cancer”. The findings
-                carried automatic legal consequence for roughly 70,000 class
-                members and became the evidence base for later regulation.
+                carried automatic legal consequence: DuPont agreed not to contest
+                general causation for those diseases in class members' suits.
               `),
               grade: 'moderate',
               quote: 'there is a probable link between exposure to C8 (also known as PFOA) and testicular cancer and kidney cancer',
-              sources: [source('C8 Science Panel', 'http://www.c8sciencepanel.org/pdfs/Probable_Link_C8_Cancer_16April2012_v2.pdf')]
+              sources: [
+                source('C8 Science Panel', 'http://www.c8sciencepanel.org/pdfs/Probable_Link_C8_Cancer_16April2012_v2.pdf'),
+                source('In re DuPont C-8 Personal Injury Litigation, S.D. Ohio 2016', 'https://caselaw.findlaw.com/court/us-dis-crt-s-d-ohi-eas-div/1967795.html')
+              ]
             })
           ],
           counterEvidence: [
@@ -1216,10 +1254,9 @@ export default spineData({
             }),
             evidence({
               finding: paragraph(`
-                A randomized study of 135 cohort members found personal exposure “report-back increased concern for consumer product chemicals”, and participants took steps to reduce exposure, notably for PFAS. In a Nevada cohort, the share who did not know how to reduce exposure fell from 79 to 35 percent after report-back, and one urinary chemical marker fell significantly.
+                Boronow et al. (2023) tested how returning individual or study-wide exposure results changed participants' knowledge, concern, and exposure-reducing behavior for endocrine-disrupting chemicals. In a Nevada cohort, the share who did not know how to reduce exposure fell from 79 to 35 percent after report-back, and one urinary chemical marker fell significantly.
               `),
               grade: 'moderate',
-              quote: 'report-back increased concern for consumer product chemicals',
               sources: [
                 source('Boronow et al. 2023', 'https://ehp.niehs.nih.gov/doi/10.1289/EHP12565'),
                 source('Rochester et al. 2024', 'https://www.mdpi.com/1660-4601/21/7/905')
@@ -1248,11 +1285,10 @@ export default spineData({
               finding: paragraph(`
                 The measured exposure reductions in this case flowed from
                 litigation, enforcement, and comment, not from any expert-review
-                body. No study attributes the exposure study's growth from 344
-                to 1,020 participants to any communication design.
+                body.
               `),
               grade: 'moderate',
-              sources: [source('GenX Exposure Study', 'https://genxstudy.ncsu.edu/study-overview')]
+              sources: [source('Consent Order', 'https://capefearriverwatch.org/wp-content/uploads/2020/07/Consent-Order-file-stamped-and-fully-executed-b-w-.pdf')]
             })
           ]
         })
@@ -1263,15 +1299,18 @@ export default spineData({
           where: 'West Virginia and Ohio', when: '2005-2012',
           authority: 'Appointed jointly by both sides; findings carried automatic legal consequence',
           outcome: paragraph(`
-            The panel, appointed jointly by both sides, delivered probable-link
-            findings for six conditions. It built on a companion health project
-            that collected blood samples and questionnaires from about 69,000
-            exposed residents. The findings barred DuPont from denying
-            causation for class members, and DuPont then funded medical
-            monitoring.
+            The panel, three epidemiologists jointly selected by DuPont and the
+            class, delivered probable-link findings for six conditions. It built
+            on a companion health project that collected blood samples and
+            questionnaires from about 69,000 exposed residents. Under the
+            settlement, DuPont agreed not to contest general causation for the
+            linked diseases in class members' injury suits.
           `),
           strength: 'strong',
-          sources: [source('C8 Science Panel', 'http://www.c8sciencepanel.org/pdfs/Probable_Link_C8_Cancer_16April2012_v2.pdf')]
+          sources: [
+            source('C8 Science Panel', 'http://www.c8sciencepanel.org/pdfs/Probable_Link_C8_Cancer_16April2012_v2.pdf'),
+            source('In re DuPont C-8 Personal Injury Litigation, S.D. Ohio 2016', 'https://caselaw.findlaw.com/court/us-dis-crt-s-d-ohi-eas-div/1967795.html')
+          ]
         }),
         comparable({
           name: 'Stillwater Good Neighbor Agreement',

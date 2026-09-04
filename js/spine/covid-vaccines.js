@@ -110,7 +110,10 @@ export default spineData({
         The Centers for Disease Control and Prevention (CDC) collected booster effectiveness data for adults 18 to 49, hospitalization breakdowns by vaccination status, and wastewater surveillance during 2021. Agency staff collected and held the data, and no outside body took part. The CDC had full power to publish. It did not publish these data for over a year and said the public could misinterpret the findings. Newspapers and universities filled part of the gap with their own trackers. No study measured what the withholding cost in public trust.
       `),
       anchors: ['changing recommendations had confused'],
-      sources: [source('New York Times', 'https://www.nacwa.org/news-publications/news-detail/2022/02/22/the-c.d.c.-isn-t-publishing-large-portions-of-the-covid-data-it-collects')]
+      sources: [
+        source('NACWA (New York Times excerpt)', 'https://www.nacwa.org/news-publications/news-detail/2022/02/22/the-c.d.c.-isn-t-publishing-large-portions-of-the-covid-data-it-collects'),
+        source('CBN News', 'https://cbn.com/news/politics/cdc-withheld-important-covid-19-data-america-report-says')
+      ]
     })
   ],
 
@@ -322,7 +325,7 @@ export default spineData({
           counterEvidence: [
             evidence({
               finding: paragraph(`
-                Across 2,885 US counties, the Republican vote share had the strongest association with the unvaccinated share, stronger than income, education, or information environment. Randomized messaging trials moved intent little, and a Fauci endorsement reduced stated intent among conservatives. Only one randomized messenger intervention moved actual uptake, and it used a partisan-matched figure. A Trump endorsement ad across 2,032 counties “increased the number of vaccines in the average treated county by 103”, at about $1 per dose.
+                Across 2,885 US counties, the Republican vote share had the strongest association with the unvaccinated share, stronger than income, education, or information environment. Randomized messaging trials moved intent little, and a Fauci endorsement reduced stated intent among conservatives. Only one randomized messenger intervention moved actual uptake, and it used a partisan-matched figure. A Trump endorsement ad campaign across 1,014 treated counties “increased the number of vaccines in the average treated county by 103”, at about $1 per dose (Larsen et al. 2022).
               `),
               grade: 'strong',
               quote: 'the campaign increased the number of vaccines in the average treated county by 103',
@@ -372,12 +375,16 @@ export default spineData({
           authority: 'Private substitution for a state function',
           outcome: paragraph(`
             Newspapers and universities ran the national case-data function the
-            state did not. They proved the job could be done at scale. The Times
-            ended its tracker in 2023 when agencies reported less often and less
-            reliably. No one measured the trust consequence.
+            state did not. They proved the job could be done at scale. In early 2023
+            the Times stopped collecting its own data and Johns Hopkins closed its
+            tracker, because local agencies reported cases and deaths less often and
+            less completely. No one measured the trust consequence.
           `),
           strength: 'moderate',
-          sources: [source('New York Times', 'https://www.nacwa.org/news-publications/news-detail/2022/02/22/the-c.d.c.-isn-t-publishing-large-portions-of-the-covid-data-it-collects')]
+          sources: [
+            source('NACWA (New York Times excerpt)', 'https://www.nacwa.org/news-publications/news-detail/2022/02/22/the-c.d.c.-isn-t-publishing-large-portions-of-the-covid-data-it-collects'),
+            source('COVID-19 Data Dispatch', 'https://coviddatadispatch.com/2023/02/12/two-major-covid-19-trackers-stop-data-collection/')
+          ]
         })
       ],
       sources: []
@@ -441,7 +448,7 @@ export default spineData({
           evidence: [
             evidence({
               finding: paragraph(`
-                In a survey of 1,595 Australians during early COVID lockdowns, “normative concerns regarding duty to support the authorities dominated compliance decisions”, far ahead of sanction risk. A meta-analysis of 64 studies finds that legitimacy beliefs predict compliance with the law. The effect runs through legitimacy, not directly through procedure.
+                In a survey of 1,595 Australians during early COVID lockdowns, “normative concerns regarding duty to support the authorities dominated compliance decisions”, far ahead of sanction risk (Murphy et al. 2020). A meta-analysis of 64 studies finds that legitimacy beliefs predict compliance with the law (Walters and Bolger 2019). The effect runs through legitimacy, not directly through procedure.
               `),
               grade: 'moderate',
               quote: 'normative concerns regarding duty to support the authorities dominated compliance decisions',

@@ -46,17 +46,16 @@ export default caseStudy({
       category: 'green',
       actors: 'Academic Researchers',
       text:       paragraph(`
-        Researchers now identify the early 2010s as a major inflection point for the mass adoption of 
-        visually-driven platforms like Instagram and Snapchat.
-        Analysis of ~17,000 individuals continuously from 2001 onward, found that the share of young women ages 15–24 
-        reporting good mental health was stable through 2011, then fell sharply from 73% to 62% by 2022.
-        Another study 11,876 children similarly found that <strong>increases in social media use during early adolescence 
+        Researchers now identify the early 2010s as a major inflection point, when visually-driven platforms like
+        Instagram and Snapchat took off.
+        Analysis of the HILDA survey, which tracks more than 17,000 Australians each year from 2001 onward, found that the mental health scores of young women ages 15–24
+        were stable through 2011, then fell from 73% to 62% by 2022.
+        Another study of 11,876 children similarly found that <strong>increases in social media use during early adolescence
         predicted greater depressive symptoms one year later</strong>.
       `),
       sources: [
-        source('PudMed', 'https://pmc.ncbi.nlm.nih.gov/articles/PMC10294999/'),
+        source('SBS News', 'https://www.sbs.com.au/news/article/strikingly-low/djrl43rwz'),
         source('PubMed', 'https://pubmed.ncbi.nlm.nih.gov/40397441/'),
-        source('Pew Research', 'https://www.pewresearch.org/internet/2015/10/08/social-networking-usage-2005-2015/'),
       ],
     }),
 
@@ -205,7 +204,7 @@ export default caseStudy({
         Senate holds series of hearings on Facebook and Instagram.   
         Senator Richard Blumenthal convened the Senate Commerce Subcommittee on Consumer Protection hearing titled 
         "Protecting Kids Online: Facebook, Instagram, and Mental Health Harms".
-        Antigone Davis, the Head of Global Safety at Facebook, was the primary witness and the first Facebook executive compelled to testify on teen mental health specifically.
+        Antigone Davis, the Head of Global Safety at Facebook, was the primary witness.
       `),
       sources: [
         source('Senate Commerce', 'https://www.commerce.senate.gov/meetings/subcommittee-protecting-kids-online-facebook-instagram-and-mental-health-harms/'),
@@ -218,12 +217,16 @@ export default caseStudy({
       category: 'red',
       actors: 'Senate Commerce Subcommittee',
       text:       paragraph(`
-        Senators Markey and Blumenthal introduce the KIDS Act (Kids Internet Design and Safety Act). The bill was meant to <strong>ban manipulative design features</strong> for
-        minors (autoplay, endless scroll, streaks, like counts, push‑notification nags) and to extend protections against targeted ads up to age 15 on platforms 
-        “reasonably likely” to be used by kids. It was introduced in 2020 and reintroduced in September 2021 after the Facebook Files, but <strong>never advanced out of 
-        committee and never got a floor vote</strong> in either chamber during that Congress .
+        Senators Markey and Blumenthal reintroduce the KIDS Act (Kids Internet Design and Safety Act). The bill would <strong>ban manipulative design features</strong> for
+        users under 16 (autoplay, push alerts, badges that reward time spent, like buttons and follower counts) and extend protections against manipulative marketing
+        to 13–15 year olds on platforms with reasonable evidence of use by kids 15 or under. It was first introduced in March 2020 and reintroduced on September 30, 2021,
+        the day of the Senate Commerce hearing on Facebook's research into harms to children.
       `),
-      sources: [source('Senate Commerce', 'https://www.commerce.senate.gov/meetings/subcommittee-protecting-kids-online-facebook-instagram-and-mental-health-harms/')],
+      sources: [
+        source('Sen. Markey', 'https://www.markey.senate.gov/news/press-releases/senators-markey-and-blumenthal-rep-castor-reintroduce-legislation-to-protect-children-and-teens-from-online-manipulation-and-harm'),
+        source('Sen. Markey', 'https://www.markey.senate.gov/news/press-releases/senators-markey-and-blumenthal-introduce-first-of-its-kind-legislation-to-protect-children-online-from-harmful-content-design-features_'),
+        source('Fairplay', 'https://fairplayforkids.org/the-kids-act-imagines-a-whole-new-internet-for-children-and-teens/'),
+      ],
     }),
 
     entry({
@@ -342,14 +345,17 @@ export default caseStudy({
       category: 'purple',
       actors: 'Meta, Stanford DDL, Behavioral Insights Team',
       text:       paragraph(`
-        Stanford DDL and Meta's Behavioral Insights Team conduct another structured deliberative process.
-        Approximately 1,500 people the USA, Germany, Spain, and Brazil engage in two online
-        sessions with AI-moderated small-group deliberation. Strong cross-national
-        preference for transparency and human override options. Concern is brought up about <strong>AI
-        chatbots providing emotional support to children without safeguards</strong>. Results are
+        Stanford DDL, Meta, and the Behavioural Insights Team conduct another structured deliberative process, this time on AI chatbots.
+        1,545 people from the USA, Germany, Spain, and Brazil engage in two online
+        sessions with AI-moderated small-group deliberation. Participants across all four countries
+        want developers to build chatbots with <strong>transparency and control features</strong>. Results are
         publicly released.
       `),
-      sources: [source('Stanford Deliberation', 'https://deliberation.stanford.edu/meta-community-forum-generative-ai-results')],
+      sources: [
+        source('Stanford Deliberation', 'https://deliberation.stanford.edu/meta-community-forum-generative-ai-results'),
+        source('Democracy Technologies', 'https://democracy-technologies.org/ai-data/meta-community-forums-generative-ai-data/'),
+        source('Meta Newsroom', 'https://about.fb.com/news/2024/04/leading-the-way-in-governance-innovation-with-community-forums-on-ai/'),
+      ],
     }),
 
     entry({
@@ -371,15 +377,19 @@ export default caseStudy({
       category: 'red',
       actors: 'FTC',
       text:       paragraph(`
-        The FTC opened a formal 60-day public comment window that drew approximately 300 formal comments for <strong>amendments 
-        to the Children’s Online Privacy Protection Rule (COPPA)</strong>.
-        The Commission voted to finalize COPPA with three concrete new requirements: a separate, 
+        The FTC proposed <strong>amendments to the Children’s Online Privacy Protection Rule (COPPA)</strong> and opened a 60-day public comment window,
+        which drew nearly 300 comments.
+        The proposal carried three concrete new requirements: a separate,
         unbundled opt-in consent specifically for targeted advertising
-        (meaning a parent could consent to an app while refusing ad monetization of their child's data), 
-        a mandatory written data retention policy prohibiting indefinite storage of children’s personal information, 
-        and expanded definitions of "personal information" to include biometric identifiers. 
+        (meaning a parent could consent to an app while refusing ad monetization of their child's data),
+        a mandatory written data retention policy prohibiting indefinite storage of children’s personal information,
+        and expanded definitions of "personal information" to include biometric identifiers.
+        The Commission voted 5–0 to finalize the rule in January 2025.
       `),
-      sources: [source('FTC', 'https://www.ftc.gov/news-events/news/press-releases/2023/12/ftc-proposes-strengthening-childrens-privacy-rule-further-limit-companies-ability-monetize-childrens')],
+      sources: [
+        source('FTC', 'https://www.ftc.gov/news-events/news/press-releases/2023/12/ftc-proposes-strengthening-childrens-privacy-rule-further-limit-companies-ability-monetize-childrens'),
+        source('FTC', 'https://www.ftc.gov/news-events/news/press-releases/2025/01/ftc-finalizes-changes-childrens-privacy-rule-limiting-companies-ability-monetize-kids-data'),
+      ],
     }),
 
     entry({
@@ -401,12 +411,15 @@ export default caseStudy({
       text:       paragraph(`
         Pew Research found that 48% of teens say <strong>social media has a mostly negative
         effect on people their age</strong>, up from 32% in 2022. Only 11% view it as mostly
-        positive for peers. 50% of parents believe their child's mental health
-        suffered in the past 12 months because of social media use. The number of
-        Americans saying social media has a positive influence on children’s mental
+        positive for peers. Parents share the worry. A 2023 Harris Poll for Nationwide Children's Hospital found that 50% of parents believe their child's mental health
+        suffered in the past 12 months because of social media use. In the same poll, the share of
+        Americans saying children's social media use has a positive influence on their mental
         health fell to 35%, down from 43% in 2022.
       `),
-      sources: [source('Pew Research', 'https://www.pewresearch.org/wp-content/uploads/sites/20/2025/04/PI_2025.04.22_teens-social-media-mental-health_REPORT.pdf')],
+      sources: [
+        source('Pew Research', 'https://www.pewresearch.org/wp-content/uploads/sites/20/2025/04/PI_2025.04.22_teens-social-media-mental-health_REPORT.pdf'),
+        source('Nationwide Children\'s', 'https://www.nationwidechildrens.org/newsroom/news-releases/2023/05/oos_socialmedia_mmr'),
+      ],
     }),
 
     entry({
@@ -458,9 +471,7 @@ export default caseStudy({
         organizations, including the National PTA, ConnectSafely, and the Family Online
         Safety Institute, then <strong>cited those same groups as independent third-party
         endorsers in regulatory filings and congressional testimony, without disclosing
-        the funding relationship</strong>. The strategy systematically directed public attention
-        toward digital-literacy solutions and individual parental responsibility, and
-        away from <strong>platform design as the source of harm</strong>.
+        the funding relationship</strong>.
       `),
       sources: [
         source('The Next Web', 'https://thenextweb.com/news/meta-google-fund-us-kids-groups-conflict-of-interest'),

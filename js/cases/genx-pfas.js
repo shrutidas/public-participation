@@ -22,13 +22,16 @@ export default caseStudy({
       actors: 'DuPont, 3M',
       text:       paragraph(`
         DuPont began using PFOA (perfluorooctanoic acid), a type of PFAS "forever"
-        chemical, at Washington Works in West Virginia to make Teflon coatings.
-        The chemical was also known as C8, and 3M was the chief supplier.
-        Discharge into the Ohio River began. <strong>No regulatory disclosure required</strong>.
-        The public and downstream communities knew nothing about the chemicals in
-        use or released.
+        chemical, at Washington Works in Parkersburg, West Virginia to make Teflon
+        coatings. The chemical was also known as C8, and DuPont bought it from 3M.
+        The plant's C8 waste reached the Ohio River. <strong>No regulatory disclosure required</strong>:
+        US environmental laws did not exist until the 1970s, and as late as 1998
+        virtually no one outside DuPont and 3M had heard of C8.
       `),
-      sources: [source('SearchlightNM', 'https://searchlightnm.org/toxic-timeline-a-brief-history-of-pfas')],
+      sources: [
+        source('SearchlightNM', 'https://searchlightnm.org/toxic-timeline-a-brief-history-of-pfas'),
+        source('Earth Island Journal', 'https://www.earthisland.org/journal/index.php/magazine/entry/teflons_toxic_legacy/'),
+      ],
     }),
 
     entry({
@@ -49,13 +52,17 @@ export default caseStudy({
       category: 'green',
       actors: 'DuPont, 3M Epidemiology Teams',
       text:       paragraph(`
-        DuPont found high concentrations of PFOA in the blood of Washington Works
-        factory workers. TSCA Section 8(e) required the company to report
-        substantial risks, and <strong>the company did not report this to EPA</strong>. 3M's
-        own health studies of workers reported no adverse effects, a framing both
-        companies used for years to deflect concern.
+        DuPont began a testing program in 1978 and by 1980 had found elevated
+        levels of PFOA in the blood of Washington Works factory workers. TSCA
+        Section 8(e) required the company to report substantial risks, and
+        <strong>the company did not report this to EPA</strong>. 3M's own health studies
+        of workers reported no adverse effects, a framing both companies used for
+        years to deflect concern.
       `),
-      sources: [source('EWG EPA Timeline', 'https://static.ewg.org/reports/2020/pfas-epa-timeline/EPA-PFAS-Timeline-10-21.pdf')],
+      sources: [
+        source('EWG EPA Timeline', 'https://static.ewg.org/reports/2020/pfas-epa-timeline/EPA-PFAS-Timeline-10-21.pdf'),
+        source('Levin Law', 'https://levinlaw.com/dupont-c8-and-health'),
+      ],
     }),
 
     entry({
@@ -346,13 +353,20 @@ export default caseStudy({
       actors: 'CFPUA Board, Independent Reviewers',
       text:       paragraph(`
         The Cape Fear Public Utility Authority (CFPUA) Board of Directors held a
-        special public meeting and passed two unanimous resolutions: (1) Chemours
-        must completely remove GenX from the river, and (2) CFPUA may take legal
-        action if it does not. The board appointed independent reviewers to examine
-        CFPUA's <strong>communication failures</strong>. The review concluded communication
-        was appropriate, a conclusion the public and press widely criticized.
+        special meeting on June 16, 2017 and passed two resolutions. The first
+        asked Chemours to cease all discharges containing fluorochemical compounds
+        until DHHS and EPA determined what levels were safe. The second authorized
+        CFPUA's independent environmental counsel to take whatever actions it
+        deemed necessary. The board chairman also called for an internal review of
+        the utility's <strong>communication</strong> on GenX, led by the board's
+        co-chairwoman and a former board attorney. The review concluded that staff
+        had acted appropriately. The reviewers did not interview the utility's
+        former communications chief.
       `),
-      sources: [source('Port City Daily', 'https://portcitydaily.com/local-news/2017/06/22/cfpua-wraps-review-of-communication-practices-doesnt-talk-to-former-communication-chief-news')],
+      sources: [
+        source('Port City Daily', 'https://portcitydaily.com/local-news/2017/06/17/news-cfpua-board-calls-for-chemours-to-stop-dumping-genx-into-cape-fear-river/'),
+        source('Port City Daily', 'https://portcitydaily.com/local-news/2017/06/22/cfpua-wraps-review-of-communication-practices-doesnt-talk-to-former-communication-chief-news'),
+      ],
     }),
 
     entry({
@@ -418,13 +432,18 @@ export default caseStudy({
       category: 'purple',
       actors: 'NC State (Knappe, Hoppin, et al.), 344 Wilmington Volunteers, NIEHS',
       text:       paragraph(`
-        NC State University launched the GenX Exposure Study and collected blood,
-        urine, and tap water samples from 344 New Hanover County residents. NIEHS
-        funded the study, and researchers designed it with <strong>community input</strong>.
-        The study committed to return results to participants at community
-        meetings first, before broader publication.
+        NC State University launched the GenX Exposure Study in November 2017 and
+        collected blood, urine, and tap water samples from 344 New Hanover County
+        residents. NIEHS funded the study, and researchers ran it with
+        <strong>community partners</strong>, Cape Fear River Watch and the New Hanover
+        County Health Department. The study committed to share all results with
+        both the community as a whole and each individual participant.
       `),
-      sources: [source('GenX Study', 'https://genxstudy.ncsu.edu/study-overview')],
+      sources: [
+        source('GenX Study', 'https://genxstudy.ncsu.edu/study-overview'),
+        source('GenX Study timeline', 'https://genxstudy.ncsu.edu/study-timeline/'),
+        source('NC State News', 'https://news.ncsu.edu/2017/11/genx-study/'),
+      ],
     }),
 
     entry({
@@ -432,15 +451,14 @@ export default caseStudy({
       category: 'purple',
       actors: 'Emily Donovan, Kemp Burdette, Community Activists',
       text:       paragraph(`
-        Advocacy groups formed across the state. Local mother Emily Donovan
-        co-founded Clean Cape Fear with riverkeeper Kemp Burdette and others. A
-        Facebook group, "Stop GenX in Our Water," grew to over 9,000 members within
-        weeks. Cape Fear River Watch, the Brunswick Environmental Action Team, and
-        the New Hanover County NAACP's Environmental Climate Justice chapter
-        together mobilized thousands of North Carolinians. The groups demanded four
-        things: Chemours must pay for cleanup, federal law must regulate PFAS as a
-        class, the state must replace voluntary agreements with <strong>legally binding
-        limits</strong>, and residents must receive full transparency on health effects.
+        Advocacy groups formed across the region. Local mother Emily Donovan
+        formed Clean Cape Fear with riverkeeper Kemp Burdette and six others. A
+        Facebook group, "Stop GenX in Our Water," had more than 9,000 members by
+        August 2017. Cape Fear River Watch, the Brunswick Environmental Action
+        Team, and the NAACP's Environmental Climate Justice program also organized
+        around GenX. Clean Cape Fear later petitioned Congress to <strong>regulate
+        PFAS as a class</strong> and to designate PFAS as hazardous substances under
+        CERCLA so that manufacturers pay for cleanup.
       `),
       sources: [
         source('Action Network', 'https://actionnetwork.org/petitions/sign-our-letter-telling-congress-enough-stop-harmful-spread-of-pfas'),
@@ -453,13 +471,17 @@ export default caseStudy({
       category: 'red',
       actors: 'NC DEQ, Cape Fear River Watch',
       text:       paragraph(`
-        DEQ amended its complaint after it discovered PFAS air emissions. Cape Fear
-        River Watch and SELC pursued <strong>citizen-suit strategies under the Clean
-        Water Act and TSCA.</strong> The problem expanded from river discharge to multiple
-        pathways, including air, groundwater, surface water, stormwater, seeps, and
-        wells.
+        DEQ amended its complaint in April 2018 after it discovered that Chemours
+        also released PFAS through air emissions. On May 7, 2018, SELC sent
+        Chemours a notice of intent to sue on behalf of Cape Fear River Watch, as
+        Cape Fear River Watch and SELC pursued <strong>citizen-suit strategies under
+        the Clean Water Act and TSCA.</strong> The problem expanded from river discharge
+        to air, surface water, groundwater, and private drinking water wells.
       `),
-      sources: [source('NC DEQ', 'https://www.deq.nc.gov/news/key-issues/genx-investigation/chemours-consent-order')],
+      sources: [
+        source('SELC', 'https://www.selc.org/wp-content/uploads/2022/12/2022-12-05-SELC-timeline-NC-GenX-PFAS-pollution-Chemours.pdf'),
+        source('NC DEQ', 'https://www.deq.nc.gov/news/key-issues/genx-investigation/chemours-consent-order'),
+      ],
     }),
 
     entry({

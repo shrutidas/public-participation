@@ -290,8 +290,7 @@ const harmReduction = chain({
           `),
           grade: 'strong',
           sources: [
-            source('EPA Office of Inspector General', 'https://www.epa.gov/sites/default/files/2020-05/documents/_epaoig_20200528-20-e-0177_0.pdf'),
-            source('EPA OIG notification memo, Sept. 23, 2019', 'https://www.epa.gov/sites/default/files/2019-09/documents/_epaoig_notificationmemo_9-23-19_dupont.pdf')
+            source('EPA Office of Inspector General', 'https://www.epa.gov/sites/default/files/2020-05/documents/_epaoig_20200528-20-e-0177_0.pdf')
           ]
         }),
         evidence({
@@ -906,10 +905,11 @@ const harmReduction = chain({
             communities that were not parties to the original negotiation.
           `),
           quote: paragraph(`
-            analyze the Facility's contribution of PFAS to raw water intakes of
-            downstream public utilities [...] a minimum of 20 years or until such
-            time as Chemours demonstrates that each PFAS in Attachment C is below an
-            applicable health advisory, whichever is later
+            Chemours must submit an analysis of the Facility's contributions of PFAS
+            to the raw water intakes of downstream public utilities. [...] a minimum
+            of 20 years or until such time as Chemours demonstrates that each PFAS
+            in Attachment C is below an applicable health advisory, whichever is
+            later
           `),
           grade: 'strong',
           sources: [source('DEQ Response to Public Comment', 'https://www.deq.nc.gov/genx/2019-02-20-final-deq-response-comments-proposed-consent/download')]
@@ -1042,14 +1042,16 @@ const harmReduction = chain({
           kind: 'service',
           actors: 'Emily Donovan, community organizers',
           description: paragraph(`
-            A grassroots community advocacy organization that has since functioned as
-            a standing community voice in state rulemaking. At the 2026 EMC
-            proceedings on PFAS minimization rules, co-founder Emily Donovan objected
+            Emily Donovan formed the all-volunteer grassroots group in 2017 with
+            riverkeeper Kemp Burdette and six others, and she still leads it. It has
+            since functioned as a standing community voice in state rulemaking. At
+            the 2026 EMC proceedings on PFAS minimization rules, Donovan objected
             that the approach is voluntary: "There's no due date that says, 'you've
             got to stop these releases by this point in time.'"
           `),
           effect: 'partial',
           sources: [
+            source('Coastal Review', 'https://coastalreview.org/2017/08/genx-response-activists-rally-clean-water/'),
             source('Clean Cape Fear', 'https://www.cleancapefear.org/'),
             source('WUNC, May 2026', 'https://www.wunc.org/environment/2026-05-14/pfas-dioxane-water-pollution-monitoring-minimization-emc-deq')
           ]
@@ -1073,15 +1075,11 @@ const harmReduction = chain({
             Bernard Citizens for Environmental Quality and the Louisiana Bucket
             Brigade across the street from ExxonMobil's Chalmette refinery in St.
             Bernard Parish, publishes public air monitoring data updated "every single
-            minute." Yale Climate Connections reporting (2025) credits independent
-            bucket sampling with documenting emissions above officially estimated
-            levels and contributing to new EPA fenceline air-quality monitoring
-            standards.
+            minute."
           `),
           effect: 'partial',
           sources: [
             source('Louisiana Bucket Brigade', 'https://labucketbrigade.org/pollution-tools-resources/the-bucket/'),
-            source('Yale Climate Connections', 'https://yaleclimateconnections.org/2025/12/the-epa-let-companies-estimate-their-own-pollution-levels-we-discovered-real-emissions-are-far-worse/'),
             source('Chalmette Air Monitoring Project', 'https://airmonitorchalmette.com/')
           ]
         })

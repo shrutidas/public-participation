@@ -21,7 +21,65 @@ Read the CLAIM UNSUPPORTED and QUOTE MISMATCH lists as one worklist. Each note n
 - Corrected the JAMA Network Open article ID for the health center study from 2787869 to 2787771.
 - Removed the sciencedirect source and the taxation sentence from the schools legitimacy card. The PII resolves to a corporate tax compliance paper by Sigle and others, not Verboon and Goslinga, and the sentence had no support.
 
-Not fixed in this commit: the 27 CLAIM UNSUPPORTED and 44 QUOTE MISMATCH rows. Most need a judgment call per card. Move the quote to the right source, drop the quote, drop the fact, or add a source. That is 71 edits across all three data layers. Ask before doing them in one pass.
+## Repair pass, 2026-09-04
+
+The 71 CLAIM UNSUPPORTED and QUOTE MISMATCH rows were repaired in a second pass, one agent per case, each fetching every page it cited. The rule for an unsupported fact with no source after two searches was to cut the sentence. The worklist now has two more columns, Repair and Repair Notes, with the fix shape and the exact text removed for every row.
+
+Fix shapes across 72 case-rows (one URL spans two cases):
+
+- A, quote moved to the source that carries it, 33. In 13 of these the right source was already first on the card and no text changed.
+- B, quote replaced with the page's confirmed wording, 12.
+- C, fact re-sourced from a page fetched in this pass, 15.
+- C, fact cut, 9 rows, 18 rows with some text removed in total.
+- Skipped, 3. Two were duplicates handled from another case file. One (the sciencedirect PII) had already been removed in the first commit.
+
+33 sources were added. Every one was fetched during the pass. The full list is in the Repair Notes column.
+
+### What was cut
+
+- [covid-schools] `https://stacks.cdc.gov/view/cdc/11425`
+  - Removed: Fauci repeatedly emphasized flattening the curve, avoided specifying school closure policy, and deferred to governors on reopening. He acknowledged that science had 'not definitive evidence' on children as vectors. School planning documents in all 50 states built in the 6-foot social distancing guidance, which later proved to have no clinical trial basis.
+- [covid-schools] `https://www.nytimes.com/article/flatten-curve-coronavirus.html`
+  - Removed: Fauci repeatedly emphasized flattening the curve, avoided specifying school closure policy, and deferred to governors on reopening. He acknowledged that science had 'not definitive evidence' on children as vectors. School planning documents in all 50 states built in the 6-foot social distancing guidance, which later proved to have no clinical trial basis.
+- [covid-schools] `https://www.nbcnews.com/news/us-news/san-francisco-sues-its-own-school-district-demands-restart-person-n1256639`
+  - Removed: The National School Boards Association said it believed the suit was "the first civil action filed by a city against a district over Covid-19 closings." | It was the first suit of its kind by a city against its own district. | It appears to be the first civil action a city filed against a district over COVID-19 closings.
+- [covid-schools] `https://www.pewresearch.org/science/2023/11/14/americans-trust-in-scientists-positive-views-of-science-continue-to-decline/`
+  - Removed: then recovered to 76% (2024) and 77% (January 2026)
+- [meta-youth] `https://deliberation.stanford.edu/meta-community-forum-generative-ai-results`
+  - Removed: Strong cross-national preference for transparency and human override options. Concern is brought up about AI chatbots providing emotional support to children without safeguards.
+- [meta-youth] `https://www.commerce.senate.gov/meetings/subcommittee-protecting-kids-online-facebook-instagram-and-mental-health-harms/`
+  - Removed: and the first Facebook executive compelled to testify on teen mental health specifically. | but never advanced out of committee and never got a floor vote in either chamber during that Congress.
+- [meta-youth] `https://www.reuters.com/legal/litigation/meta-google-fund-us-kids-groups-critics-warn-social-media-risk-2026-05-14/`
+  - Removed: The strategy systematically directed public attention toward digital-literacy solutions and individual parental responsibility, and away from platform design as the source of harm.
+- [genx-pfas] `https://actionnetwork.org/petitions/sign-our-letter-telling-congress-enough-stop-harmful-spread-of-pfas`
+  - Removed: grew to over 9,000 members within weeks. [...] together mobilized thousands of North Carolinians. The groups demanded four things: Chemours must pay for cleanup, federal law must regulate PFAS as a class, the state must replace voluntary agreements with legally binding limits, and residents must receive full transparency on health effects.
+- [genx-pfas] `https://genxstudy.ncsu.edu/study-overview`
+  - Removed: No study attributes the exposure study's growth from 344 to 1,020 participants to any communication design. || The study committed to return results to participants at community meetings first, before broader publication.
+- [genx-pfas] `https://portcitydaily.com/local-news/2017/06/22/cfpua-wraps-review-of-communication-practices-doesnt-talk-to-former-communication-chief-news`
+  - Removed: passed two unanimous resolutions: (1) Chemours must completely remove GenX from the river, and (2) CFPUA may take legal action if it does not. [...] a conclusion the public and press widely criticized.
+- [genx-pfas] `https://searchlightnm.org/toxic-timeline-a-brief-history-of-pfas`
+  - Removed: Discharge into the Ohio River began. [...] The public and downstream communities knew nothing about the chemicals in use or released.
+- [genx-pfas] `https://yaleclimateconnections.org/2025/12/the-epa-let-companies-estimate-their-own-pollution-levels-we-discovered-real-emissions-are-far-worse/`
+  - Removed: Yale Climate Connections reporting (2025) credits independent bucket sampling with documenting emissions above officially estimated levels and contributing to new EPA fenceline air-quality monitoring standards.
+- [genx-pfas] `http://www.c8sciencepanel.org/pdfs/Probable_Link_C8_Cancer_16April2012_v2.pdf`
+  - Removed: and DuPont then funded medical monitoring. || and became the evidence base for later regulation.
+- [genx-pfas] `https://www.aeaweb.org/articles?id=10.1257%2Faer.20121656`
+  - Removed: and burdens poor households most
+- [genx-pfas] `https://www.mdpi.com/1660-4601/21/7/905`
+  - Removed: A randomized study of 135 cohort members found personal exposure "report-back increased concern for consumer product chemicals", and participants took steps to reduce exposure, notably for PFAS.
+- [covid-vaccines] `https://news.gallup.com/poll/317018/one-three-americans-not-covid-vaccine.aspx`
+  - Removed: Only 50% said yes, roughly the same rate as flu vaccine uptake. Democrats and Republicans were both cautious, but for different reasons. Democrats worried about political interference in FDA; Republicans worried about government overreach.
+- [covid-vaccines] `https://www.cdc.gov/covid/php/surveillance/index.html`
+  - Removed: By late June, the US had administered 323.3 million total doses. 179.3 million people (54%) had at least one dose and 153 million (46%) were fully vaccinated. Among adults 65+, 87% had at least one dose.
+- [covid-vaccines] `https://www.kff.org/covid-19/kff-covid-19-vaccine-monitor-dashboard/`
+  - Removed: because their preferred leaders now ran the agencies
+
+### Corrections made along the way
+
+- COVID vaccines: the Does v. Mills refusal is dated 29 Oct 2021, not November. The Dong et al. treated-county count is 1,014, not 2,032. The late-June 2021 vaccination figures now come from CDC's own 1 Jul 2021 weekly review and the entry moved to 07/2021.
+- GenX: the C8 lead plaintiff is Jack W. Leach. The Kotlarz 2020 card no longer carries the PFMOAA figure, which comes from the 2025 NC State historical-serum paper and is now cited to it.
+- Meta youth: the Stanford forum had 1,545 participants. The KIDS Act covers children under 16, with marketing protections for ages 13 to 15. The FTC entry now separates the Dec 2023 proposal from the Jan 2025 final rule.
+- COVID schools: "first suit of its kind by a city against its own district" is now NBC's hedged wording, since the NSBA quote could not be found on any fetched page.
 
 ## FABRICATED (1)
 

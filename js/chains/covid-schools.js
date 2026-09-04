@@ -235,8 +235,8 @@ const legitimacy = chain({
       evidence: [
         evidence({
           finding: paragraph(`
-            DeAngelis and Makridis (2020; published in Social Science Quarterly,
-            2021), using reopening decisions of 835 US districts, found districts
+            DeAngelis and Makridis (Social Science Quarterly, 2021), using
+            reopening decisions of 835 US districts, found districts
             in locations with stronger teachers' unions were substantially less
             likely to reopen in person in fall 2020, robust to four measures of
             union strength; <strong>measures of COVID-19 risk were not correlated with
@@ -245,16 +245,15 @@ const legitimacy = chain({
             "strongly associated with unionization."
           `),
           quote: paragraph(`
-            we find that school districts in locations with stronger teachers'
+            We find that school districts in locations with stronger teachers'
             unions are less likely to reopen in person even after we control
-            semi-parametrically for differences in local demographic characteristics.
-            [...] We also do not find evidence to suggest that measures of COVID-19
-            risk are correlated with school reopening decisions.
+            semiparametrically for differences in local demographic characteristics.
+            [...] We do not find evidence that measures of COVID-19 risk are
+            correlated with school reopening decisions.
           `),
           grade: 'moderate',
           caveat: 'Correlational cross-section of district decisions; no causal identification.',
-          sources: [source('DeAngelis & Makridis (SSRN)', 'https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3684867'),
-            source('DeAngelis & Makridis, Social Science Quarterly 102(5), 2266-2284', 'https://ideas.repec.org/a/bla/socsci/v102y2021i5p2266-2284.html')]
+          sources: [source('DeAngelis & Makridis, Social Science Quarterly 102(5), 2266-2284', 'https://ideas.repec.org/a/bla/socsci/v102y2021i5p2266-2284.html')]
         }),
         evidence({
           finding: paragraph(`
@@ -299,13 +298,13 @@ const legitimacy = chain({
             council approved a resolution supporting local and state "safety
             strikes," considered case by case, if schools reopened without adequate
             safety measures. Detroit's rank-and-file members voted in August to
-            authorize a strike; the UFT president threatened both litigation and a
-            strike over New York City's September reopening.
+            authorize a strike, with 91% voting yes; the UFT president threatened
+            both litigation and a strike over New York City's September reopening.
           `),
           effect: 'moved',
           sources: [
             source('NPR (UFT)', 'https://www.npr.org/sections/coronavirus-live-updates/2020/08/19/903927057/nyc-teacher-unions-prepared-to-strike-if-safety-demands-are-not-met'),
-            source('Marianno et al., Power in a Pandemic (AERA Open)', 'https://journals.sagepub.com/doi/pdf/10.1177/23328584221074337'),
+            source('Chalkbeat Detroit', 'https://www.chalkbeat.org/detroit/2020/8/19/21376419/detroit-teachers-vote-to-ok-strike-over-covid-concerns/'),
             source('The 74 (AFT resolution)', 'https://www.the74million.org/video-american-federation-of-teachers-authorizes-educator-safety-strikes-if-schools-reopen-this-fall-without-adequate-safety-measures/')
           ]
         }),
@@ -508,17 +507,25 @@ const legitimacy = chain({
           finding: paragraph(`
             The PDK Poll (annual since 1969) shows <strong>no decline through 2022</strong>:
             54% of Americans gave their local schools an A or B grade in 2022,
-            against 53% in 2013, before falling to 43% in 2025. The measure closest
-            in time to the closure decisions registered no immediate decline.
+            before falling to 43% in 2025. The measure closest in time to the
+            closure decisions registered no immediate decline.
           `),
           quote: paragraph(`
             43 percent of Americans give their local schools an A or B grade (down
             from 54 percent in 2022)
           `),
           grade: 'strong',
+          sources: [source('CSBA on PDK 2025', 'https://blog.csba.org/pdk-poll-25/')]
+        }),
+        evidence({
+          finding: paragraph(`
+            The longer PDK series shows 53% giving local schools an A or B in
+            2013 and 44% in 2019, so the 2022 reading of 54% sat above both. The
+            2025 figure of 43% is a ten-point drop from 2013.
+          `),
+          grade: 'strong',
           sources: [source('PDK 2019 topline', 'https://pdkpoll.org/wp-content/uploads/2020/10/PDKPoll2019Topline.pdf'),
-            source('PDK 2025 results', 'https://www.ednc.org/08-21-2025-how-do-people-feel-about-public-schools-and-education-policy-national-survey-gives-insight/'),
-            source('CSBA on PDK 2025', 'https://blog.csba.org/pdk-poll-25/')]
+            source('EdNC on PDK 2025', 'https://www.ednc.org/08-21-2025-how-do-people-feel-about-public-schools-and-education-policy-national-survey-gives-insight/')]
         }),
         evidence({
           finding: paragraph(`
@@ -661,14 +668,15 @@ const legitimacy = chain({
           description: paragraph(`
             City Attorney Dennis Herrera sued the San Francisco Board of Education,
             SFUSD, and Superintendent Vincent Matthews, "demanding the restart of
-            in-person instruction for more than 52,000 students." The National
-            School Boards Association said it believed the suit was "the first
-            civil action filed by a city against a district over Covid-19
-            closings." The city later expanded the suit with state constitutional
-            claims.
+            in-person instruction for more than 52,000 students." NBC News
+            reported it could be "the first such case in the nation." On February
+            9, 2021, the city expanded the suit, alleging that the district was
+            violating students' right under the California Constitution to attend
+            public school and discriminating against them on the basis of wealth.
           `),
           effect: 'partial',
-          sources: [source('NBC News', 'https://www.nbcnews.com/news/us-news/san-francisco-sues-its-own-school-district-demands-restart-person-n1256639')]
+          sources: [source('NBC News', 'https://www.nbcnews.com/news/us-news/san-francisco-sues-its-own-school-district-demands-restart-person-n1256639'),
+            source('SF City Attorney', 'https://www.sfcityattorney.org/2021/02/09/herrera-expands-lawsuit-adds-constitutional-violations-against-sf-school-district/')]
         }),
         participation({
           date: '2021',
@@ -777,8 +785,7 @@ const legitimacy = chain({
             chronically absent nearly doubled from 24% in 2019 to 45% in 2022.
           `),
           grade: 'moderate',
-          sources: [source('UChicago Consortium, Connection, Trust, and Learning', 'https://consortium.uchicago.edu/sites/default/files/2026-01/Connection,%20Trust,%20and%20Learning-Jan26-Consortium.pdf'),
-            source('Overdeck Family Foundation research summary', 'https://overdeck.org/research-repository/chronic-absenteeism/connection-trust-learning-student-attendance-in-the-middle-and-high-school-grades-following-the-covid-19-pandemic/')]
+          sources: [source('UChicago Consortium, Connection, Trust, and Learning', 'https://consortium.uchicago.edu/sites/default/files/2026-01/Connection,%20Trust,%20and%20Learning-Jan26-Consortium.pdf')]
         }),
         evidence({
           finding: paragraph(`
@@ -878,10 +885,10 @@ const legitimacy = chain({
       counterEvidence: [
         evidence({
           finding: paragraph(`
-            Pew confidence in scientists fell 87% (April 2020) → 73% (October 2023),
-            then <strong>recovered to 76% (2024) and 77% (January 2026)</strong>. The recovery
-            runs opposite to the Gallup school-confidence series, which shows no
-            comparable rebound over the same period.
+            Pew confidence in scientists fell from 87% (April 2020) and had
+            <strong>recovered to 77% by January 2026</strong>. The recovery runs opposite
+            to the Gallup school-confidence series, which shows no comparable
+            rebound over the same period.
           `),
           quote: paragraph(`
             At the onset of the COVID-19 pandemic in April 2020, 87% of U.S. adults
@@ -890,15 +897,38 @@ const legitimacy = chain({
             have a great deal (28%) or fair amount of confidence (49%) in scientists
           `),
           grade: 'strong',
-          sources: [source('Pew 2026', 'https://www.pewresearch.org/science/2026/01/15/americans-confidence-in-scientists/'),
-            source('Pew 2023', 'https://www.pewresearch.org/science/2023/11/14/americans-trust-in-scientists-positive-views-of-science-continue-to-decline/')]
+          sources: [source('Pew 2026', 'https://www.pewresearch.org/science/2026/01/15/americans-confidence-in-scientists/')]
+        }),
+        evidence({
+          finding: paragraph(`
+            The low point came in October 2023, when Pew found <strong>73%</strong> of
+            U.S. adults had a great deal or fair amount of confidence in scientists.
+          `),
+          quote: paragraph(`
+            73% of U.S. adults have a great deal or fair amount of confidence in
+            scientists to act in the public's best interests
+          `),
+          grade: 'strong',
+          sources: [source('Pew 2023', 'https://www.pewresearch.org/science/2023/11/14/americans-trust-in-scientists-positive-views-of-science-continue-to-decline/')]
         }),
         evidence({
           finding: paragraph(`
             Pew's reports on the decline do not analyze schools, education policy,
-            or closures as a factor; the 2023 report records Republican views that
-            the pandemic response gave too little priority to "meeting the needs of
-            K-12 students" but does not connect the trust decline to school policy.
+            or closures as a factor; the 2023 report records that large shares of
+            Republicans said the pandemic response gave too little priority to
+            "meeting the needs of K-12 students" but does not connect the trust
+            decline to school policy.
+          `),
+          quote: paragraph(`
+            large shares said too little priority was given to respecting
+            individuals' choices, supporting businesses and economic activity, and
+            meeting the needs of K-12 students
+          `),
+          grade: 'strong',
+          sources: [source('Pew 2023', 'https://www.pewresearch.org/science/2023/11/14/americans-trust-in-scientists-positive-views-of-science-continue-to-decline/')]
+        }),
+        evidence({
+          finding: paragraph(`
             The largest recent academic treatment (PLOS One, 2025; 10,000
             respondents across more than 25 countries) finds information source is
             the strongest predictor of trust change and does not examine education
@@ -911,8 +941,7 @@ const legitimacy = chain({
             largest decline.
           `),
           grade: 'strong',
-          sources: [source('PLOS One 2025', 'https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0328075'),
-            source('Pew 2023', 'https://www.pewresearch.org/science/2023/11/14/americans-trust-in-scientists-positive-views-of-science-continue-to-decline/')]
+          sources: [source('PLOS One 2025', 'https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0328075')]
         })
       ],
       participation: [],
@@ -985,10 +1014,12 @@ const legitimacy = chain({
             populations.
           `),
           quote: paragraph(`
-            Pass rates declined from 2019 to 2021: an average decline of 12.8
-            percentage points in math and 6.8 in English language arts (ELA).
-            [...] districts with full in-person learning had significantly smaller
-            declines in pass rates (13.4 p.p. in math, 8.3 p.p. in ELA).
+            Pass rates declined from 2019 to 2021: an average of 12.8 percentage
+            points in math and 6.8 in English language arts (ELA). [...] we
+            estimate that districts with full in-person learning had significantly
+            smaller declines (13.4 pp in math, 8.3 in ELA). The value to in-person
+            learning was larger for districts with larger populations of Black
+            students.
           `),
           grade: 'moderate',
           caveat: 'Cross-district association between schooling mode and pass rates with controls; schooling mode was not randomly assigned.',

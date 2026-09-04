@@ -53,15 +53,21 @@ export default caseStudy({
       category: 'red',
       actors: 'Fauci, CDC, White House Coronavirus Task Force',
       text:       paragraph(`
-        Fauci repeatedly emphasized <strong>flattening the curve</strong>, avoided specifying school
-        closure policy, and deferred to governors on reopening. He acknowledged that
-        science had 'not definitive evidence' on children as vectors. School planning
-        documents in all 50 states built in the 6-foot social distancing guidance,
-        which later proved to have no clinical trial basis.
+        The public case for closures rested on <strong>flattening the curve</strong>: slowing
+        spread so hospitals could cope. Fauci did not prescribe a national school policy.
+        In May 2020 he told the Senate that reopening depended on conditions in each region, and
+        that “we don't know everything about this virus and we really better be pretty
+        careful, particularly when it comes to children.” Six-foot distancing shaped
+        school plans, and many schools lacked the space to keep students that far apart.
+        In 2024 Fauci told a House subcommittee the six-foot rule “sort of just appeared”
+        and was not based on data.
       `),
       sources: [
         source('NYT', 'https://www.nytimes.com/article/flatten-curve-coronavirus.html'),
-        source('CDC', 'https://stacks.cdc.gov/view/cdc/11425'),
+        source('Education Week', 'https://www.edweek.org/education/trump-fauci-and-reopening-schools-what-you-need-to-know/2020/05'),
+        source('PBS NewsHour', 'https://www.pbs.org/newshour/politics/watch-fauci-warns-u-s-must-not-be-cavalier-in-assuming-children-immune-to-virus'),
+        source('Chalkbeat', 'https://www.chalkbeat.org/2021/3/19/22340072/cdc-six-three-feet-distancing-schools-covid/'),
+        source('PolitiFact', 'https://politifact.com/article/2024/jun/06/did-fauci-say-he-made-up-covid-19-rules-on-social/'),
       ],
     }),
 
@@ -321,11 +327,14 @@ export default caseStudy({
       text:       paragraph(`
         San Francisco's city attorney <strong>sued the city's own school district</strong>,
         demanding the restart of in-person instruction for more than 52,000
-        students. It appears to be the first civil action a city filed against a
-        district over COVID-19 closings. Participation arrived as litigation,
-        after the decisions.
+        students. NBC News reported it could be “the first such case in the
+        nation.” Days later the city added claims under the California
+        Constitution. Participation arrived as litigation, after the decisions.
       `),
-      sources: [source('NBC News', 'https://www.nbcnews.com/news/us-news/san-francisco-sues-its-own-school-district-demands-restart-person-n1256639')],
+      sources: [
+        source('NBC News', 'https://www.nbcnews.com/news/us-news/san-francisco-sues-its-own-school-district-demands-restart-person-n1256639'),
+        source('SF City Attorney', 'https://www.sfcityattorney.org/2021/02/09/herrera-expands-lawsuit-adds-constitutional-violations-against-sf-school-district/'),
+      ],
     }),
 
     entry({

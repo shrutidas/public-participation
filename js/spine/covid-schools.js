@@ -85,7 +85,7 @@ export default spineData({
       answer: 'The evidence is mixed',
       note: 'Lawsuits contested the decisions months after the fact, and the record cannot separate their effect from vaccination and state politics',
       detail: paragraph(`
-        San Francisco’s city attorney sued the city’s own school district in February 2021, demanding a return to in-person instruction for more than 52,000 students. It was the first suit of its kind by a city against its own district. Parent plaintiffs filed suits elsewhere. Courts had decision-making power over the claims before them. The district partially reopened after the suit. Teacher vaccination and state politics moved at the same time, so the record cannot separate the lawsuit’s effect. Like recalls, litigation came after the fact. It contested decisions made in mid-2020 from February 2021 onward.
+        San Francisco’s city attorney sued the city’s own school district in February 2021, demanding a return to in-person instruction for more than 52,000 students. NBC News reported it could be the first such case in the nation. Parent plaintiffs filed suits elsewhere. Courts had decision-making power over the claims before them. The district partially reopened after the suit. Teacher vaccination and state politics moved at the same time, so the record cannot separate the lawsuit’s effect. Like recalls, litigation came after the fact. It contested decisions made in mid-2020 from February 2021 onward.
       `),
       anchors: ['sued the city\'s own school district'],
       sources: [source('NBC News', 'https://www.nbcnews.com/news/us-news/san-francisco-sues-its-own-school-district-demands-restart-person-n1256639')]
@@ -419,13 +419,22 @@ export default spineData({
           evidence: [
             evidence({
               finding: paragraph(`
-                Germann, Marien, and Muradova (Political Studies 2024; survey experiment, N=1,309) find fairness perceptions rose 0.7 points, or 27% of a standard deviation. “Mini-publics increase legitimacy perceptions among the broader citizenry; however, these beneficial effects are largely limited to situations in which their recommendations are honored.” Collins (American Political Science Review 2021) finds that exposure to deliberative school board meetings raised trust in local officials.
+                Germann, Marien, and Muradova (Political Studies 2024; survey experiment, N=1,309) find fairness perceptions rose 0.7 points, or 27% of a standard deviation. “Mini-publics increase legitimacy perceptions among the broader citizenry; however, these beneficial effects are largely limited to situations in which their recommendations are honored.”
               `),
               grade: 'moderate',
               quote: 'Mini-publics increase legitimacy perceptions among the broader citizenry; however, these beneficial effects are largely limited to situations in which their recommendations are honored.',
               sources: [
-                source('Germann et al. 2024', 'https://journals.sagepub.com/doi/10.1177/00323217221137444'),
-                source('Collins 2021', 'https://home.watson.brown.edu/news/2021-08-06/does-meeting-style-matter-effects-exposure-participatory-and-deliberative-school')
+                source('Germann et al. 2024', 'https://journals.sagepub.com/doi/10.1177/00323217221137444')
+              ]
+            }),
+            evidence({
+              finding: paragraph(`
+                Collins (American Political Science Review 2021) finds that exposure to deliberative school board meetings raised trust in local officials. Viewing “the more participatory and deliberative school board meetings led to increased trust in local officials and a stronger willingness to attend school board meetings in the future”.
+              `),
+              grade: 'moderate',
+              quote: 'The experience of viewing the more participatory and deliberative school board meetings led to increased trust in local officials and a stronger willingness to attend school board meetings in the future.',
+              sources: [
+                source('Watson Institute on Collins 2021', 'https://home.watson.brown.edu/news/2021-08-06/does-meeting-style-matter-effects-exposure-participatory-and-deliberative-school')
               ]
             })
           ],
@@ -1010,14 +1019,17 @@ export default spineData({
               finding: paragraph(`
                 van der Bles et al. (Proceedings of the National Academy of Sciences 2020) ran five experiments with 5,780
                 participants, including a BBC News field experiment on
-                numeric-range uncertainty. They found “little to no negative
-                effect on levels of trust in the data itself, those who provided
-                it (e.g. civil servants) or those reporting it (e.g.
-                journalists)”.
+                numeric-range uncertainty. People noticed the uncertainty, but the
+                authors “observed only a small decrease in trust in numbers and
+                trustworthiness of the source, and mostly for verbal uncertainty
+                communication”.
               `),
               grade: 'moderate',
-              quote: 'little to no negative effect on levels of trust in the data itself, those who provided it (e.g. civil servants) or those reporting it (e.g. journalists)',
-              sources: [source('van der Bles et al. 2020', 'https://pubmed.ncbi.nlm.nih.gov/32205438/')]
+              quote: 'we observed only a small decrease in trust in numbers and trustworthiness of the source, and mostly for verbal uncertainty communication',
+              sources: [
+                source('van der Bles et al. 2020', 'https://pubmed.ncbi.nlm.nih.gov/32205438/'),
+                source('van der Bles et al. 2020 (University of Groningen)', 'https://research.rug.nl/en/publications/the-effects-of-communicating-uncertainty-on-public-trust-in-facts/')
+              ]
             })
           ]
         }),
@@ -1030,10 +1042,10 @@ export default spineData({
           evidence: [
             evidence({
               finding: paragraph(`
-                The presentation of the same facts moved opinion. Biden voters’ support for in-person schooling was 43% when they saw alarming case counts and 60% when they saw pediatricians’ endorsement of reopening, a 17-point swing.
+                The presentation of the same facts moved opinion. Biden voters’ support for in-person schooling ran from 43% to 60% depending on the news segment they read, a 17-point swing. “The percentage of Biden voters who support re-opening schools to in-person learning is as low as 43% to as high as 60%, depending on which news segment we assigned them to read.” Record case counts cut support most; the pediatricians’ recommendation for in-person school raised it most.
               `),
               grade: 'moderate',
-              quote: 'a 17-point swing',
+              quote: 'The percentage of Biden voters who support re-opening schools to in-person learning is as low as 43% to as high as 60%, depending on which news segment we assigned them to read.',
               sources: [source('Brookings Institution', 'https://www.brookings.edu/articles/how-misinformation-is-distorting-covid-policies-and-behaviors/')]
             })
           ],
@@ -1165,12 +1177,21 @@ export default spineData({
           counterEvidence: [
             evidence({
               finding: paragraph(`
-                The record documents capacity strain. When Chicago delegated the 2020 police vote, “more than a fifth of the 72 schools with police officers assigned to them either don't have LSCs at all or don't have enough members to form a quorum”. After the 2022 elections, 1,400 council seats sat empty.
+                The record documents capacity strain. When Chicago delegated the 2020 police vote, “more than a fifth of the 72 schools with police officers assigned to them either don't have LSCs at all or don't have enough members to form a quorum”.
               `),
               grade: 'moderate',
               quote: 'More than a fifth of the 72 schools with police officers assigned to them either don\'t have LSCs at all or don\'t have enough members to form a quorum',
               sources: [
-                source('WBEZ Chicago', 'https://www.npr.org/local/309/2020/07/14/890756361/20-of-schools-lack-enough-local-school-council-members-to-vote-on-keeping-police'),
+                source('WBEZ Chicago', 'https://www.npr.org/local/309/2020/07/14/890756361/20-of-schools-lack-enough-local-school-council-members-to-vote-on-keeping-police')
+              ]
+            }),
+            evidence({
+              finding: paragraph(`
+                Vacancies persisted. After the April 2022 council elections, “more than 1,400 LSC seats remain empty at hundreds of schools”.
+              `),
+              grade: 'moderate',
+              quote: 'After high voter turnout in the April election, more than 1,400 LSC seats remain empty at hundreds of schools.',
+              sources: [
                 source('Chalkbeat Chicago', 'https://www.chalkbeat.org/chicago/2022/9/1/23333494/chicago-public-schools-local-school-councils-vacancies-raise-your-hand/')
               ]
             })
@@ -1185,13 +1206,22 @@ export default spineData({
           evidence: [
             evidence({
               finding: paragraph(`
-                New York City participatory budgeting “increased individuals' probability of voting by an average of 8.4 percentage points”, most of all for underrepresented groups. Brazilian participatory budgeting shifted spending to sanitation and health and reduced infant mortality, a result two independent research teams found.
+                New York City participatory budgeting “increased individuals' probability of voting by an average of 8.4 percentage points”, most of all for underrepresented groups.
               `),
               grade: 'moderate',
               quote: 'engaging with participatory budgeting increased individuals\' probability of voting by an average of 8.4 percentage points',
               sources: [
-                source('Johnson, Carlson, and Reynolds 2023', 'https://link.springer.com/article/10.1007/s11109-021-09679-w'),
-                source('Touchton and Wampler 2014', 'https://scholarworks.boisestate.edu/polsci_facpubs/146/')
+                source('Johnson, Carlson, and Reynolds 2023', 'https://link.springer.com/article/10.1007/s11109-021-09679-w')
+              ]
+            }),
+            evidence({
+              finding: paragraph(`
+                Brazilian participatory budgeting shifted spending to sanitation and health and reduced infant mortality, a result two independent research teams found.
+              `),
+              grade: 'moderate',
+              sources: [
+                source('Touchton and Wampler 2014', 'https://scholarworks.boisestate.edu/polsci_facpubs/146/'),
+                source('Gonçalves 2014', 'https://ideas.repec.org/a/eee/wdevel/v53y2014icp94-110.html')
               ]
             })
           ],

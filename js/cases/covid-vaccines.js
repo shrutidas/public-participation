@@ -30,12 +30,16 @@ export default caseStudy({
       category: 'blue',
       actors: 'US adults, bipartisan voters',
       text:       paragraph(`
-        Gallup first asked in July 2020 whether Americans would take an FDA-approved COVID vaccine at no cost.
-        Only 50% said yes, roughly the same rate as flu vaccine uptake. The <strong>partisan gap</strong> was already present.
-        Democrats and Republicans were both cautious, but for different reasons.
-        Democrats worried about political interference in FDA; Republicans worried about government overreach.
+        Gallup first asked in July 2020 whether Americans would take a free, FDA-approved COVID vaccine.
+        65% said yes and 35% said no, close to the split Gallup found for the new polio vaccine in 1954.
+        The <strong>partisan gap</strong> was already present: 81% of Democrats said yes against 47% of Republicans.
+        By September 2020, 85% of Democrats and 35% of Republicans told KFF they worried that political
+        pressure from the Trump administration would lead the FDA to rush approval.
       `),
-      sources: [source('Gallup', 'https://news.gallup.com/poll/317018/one-three-americans-not-covid-vaccine.aspx')],
+      sources: [
+        source('Gallup', 'https://news.gallup.com/poll/317018/one-three-americans-not-covid-vaccine.aspx'),
+        source('KFF', 'https://www.kff.org/health-information-trust/poll-most-americans-worry-political-pressure-will-lead-to-premature-approval-of-a-covid-19-vaccine-half-say-they-would-not-get-a-free-vaccine-approved-before-election-day/'),
+      ],
     }),
 
     entry({
@@ -107,7 +111,10 @@ export default caseStudy({
         42 days ahead of the 100-day deadline. The US was averaging 2.5 million shots per
         day at this point.
       `),
-      sources: [source('NPR', 'https://www.npr.org/2021/03/18/978840432/biden-administration-to-meet-goal-of-100-million-vaccine-doses-on-friday')],
+      sources: [
+        source('NPR', 'https://www.npr.org/2021/03/18/978840432/biden-administration-to-meet-goal-of-100-million-vaccine-doses-on-friday'),
+        source('NBC News', 'https://www.nbcnews.com/politics/white-house/biden-100-million-vaccinations-milestone-n1261583'),
+      ],
     }),
 
     entry({
@@ -152,15 +159,15 @@ export default caseStudy({
     }),
 
     entry({
-      date: '06/2021',
+      date: '07/2021',
       category: 'orange',
       actors: 'CDC',
       text:       paragraph(`
-        By late June, the US had administered 323.3 million total doses. 179.3 million
-        people (54%) had at least one dose and 153 million (46%) were <strong>fully vaccinated</strong>.
-        Among adults 65+, 87% had at least one dose.
+        By July 1, the US had administered 328.2 million total doses. 181.3 million
+        people (54.6%) had at least one dose and 155.9 million (47.0%) were <strong>fully vaccinated</strong>.
+        Among people 65 and older, 88.2% had at least one dose.
       `),
-      sources: [source('CDC', 'https://www.cdc.gov/covid/php/surveillance/index.html')],
+      sources: [source('CDC COVID Data Tracker Weekly Review', 'https://stacks.cdc.gov/view/cdc/107687/cdc_107687_DS1.pdf')],
     }),
 
     entry({
@@ -308,13 +315,16 @@ export default caseStudy({
         country, triggering waves of litigation. Courts have to decide whether
         Jacobson v. Massachusetts (the 1905 smallpox precedent) applies, whether
         Title VII requires religious accommodation, and whether emergency use
-        authorization (EUA) status changes the analysis. In November 2021 the Supreme
+        authorization (EUA) status changes the analysis. On October 29, 2021 the Supreme
         Court refuses, by a 6–3 vote in Does v. Mills, to block Maine's healthcare
-        worker mandate, the only one that offered no religious exemption.
+        worker mandate, which offered no religious exemption.
       `),
       sources: [
         source('SSRGA', 'https://ssrga.com/bresky_blog/recent-litigation-concerning-covid-19-vaccination-mandates-and-religious-exemptions/'),
         source('Jacobson v. Massachusetts', 'https://supreme.justia.com/cases/federal/us/197/11/'),
+        source('Does v. Mills (SCOTUS order)', 'https://www.supremecourt.gov/opinions/21pdf/595us121a90_0971.pdf'),
+        source('Bangor Daily News', 'https://www.bangordailynews.com/2021/10/29/news/supreme-court-wont-halt-janet-mills-vaccine-mandate-as-it-takes-effect-n6hjn1me0n/'),
+        source('Law and the Workplace', 'https://www.lawandtheworkplace.com/2021/06/federal-court-upholds-employers-covid-19-vaccine-mandate/'),
       ],
     }),
 
@@ -381,12 +391,17 @@ export default caseStudy({
       category: 'blue',
       actors: 'KFF, US Adults Surveyed',
       text:       paragraph(`
-        Under Health Secretary RFK Jr., trust in the CDC for vaccine information fell to just 50% of adults,
-        down from 63% in September 2024. A <strong>partisan inversion</strong> occurred. Trust in the CDC for vaccines among Democrats fell 24 percentage points since 2023,
-        while trust among Republicans rose ~10 points because their preferred leaders now ran the agencies.
-        By 2025, only 56% of adults said they were confident in COVID vaccine safety: 87% of Democrats but only 30% of Republicans.
+        Under Health Secretary RFK Jr., trust in the CDC for vaccine information fell to 50% of adults
+        in September 2025, down from 63% a year earlier and the lowest level since the pandemic began.
+        A <strong>partisan shift</strong> occurred. Trust in the CDC for vaccines among Democrats fell 24 percentage points from 2023, to 64%.
+        Trust among Republicans rose about 10 points in April 2025, to 51%, before returning to 39% by September.
+        In April 2025, 56% of adults said they were confident in COVID vaccine safety: 87% of Democrats but 30% of Republicans.
       `),
-      sources: [source('KFF', 'https://www.kff.org/covid-19/kff-covid-19-vaccine-monitor-dashboard/')],
+      sources: [
+        source('KFF Tracking Poll September 2025', 'https://www.kff.org/public-opinion/kff-tracking-poll-on-health-information-and-trust-tylenol-autism-link-and-vaccine-policies/'),
+        source('KFF Tracking Poll April 2025', 'https://www.kff.org/health-information-trust/kff-tracking-poll-on-health-information-and-trust-vaccine-safety-and-trust/'),
+        source('CNN (via KESQ)', 'https://kesq.com/health/cnn-health/2025/10/09/trust-in-federal-health-leadership-is-failing-under-rfk-jr-new-poll-finds/'),
+      ],
     }),
 
     entry({

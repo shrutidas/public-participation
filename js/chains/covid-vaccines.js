@@ -275,8 +275,8 @@ const total = chain({
           quote: paragraph(`
             Information from the government and research institutes had higher
             credibility than that from other sources, with the government having the
-            highest score [...] When people trust the government and its
-            information, they also take more precautionary behaviors.
+            highest score [...] Social trust, information credibility, and
+            personal protective measures were positively correlated
           `),
           grade: 'weak',
           caveat: 'Comparator from a different national context; confounders identified in the literature on public compliance in Taiwan (prior SARS experience, population density, cultural deference to authority, media structure) complicate generalizing the outcome. The credibility and behavior findings are correlational, from a single early-2020 survey.',
@@ -410,7 +410,7 @@ const total = chain({
           `),
           quote: paragraph(`
             The mean percentage of vaccinated adults was significantly higher in CEAL
-            counties than in matched (social vulnerability index) comparison counties.
+            counties than in matched non-CEAL counties.
           `),
           grade: 'moderate',
           caveat: 'Nonequivalent control group design. Selection into CEAL is non-random and plausibly correlated with local public-health capacity.',
@@ -462,11 +462,11 @@ const total = chain({
             results as of the protocol's publication.
           `),
           quote: paragraph(`
-            This cluster randomised controlled trial began recruitment in February
-            2024 in Boston, Massachusetts and Chicago, Illinois, USA.
+            This trial began recruitment in February 2024 in Boston, Massachusetts
+            and Chicago, Illinois, USA.
           `),
           grade: 'strong',
-          sources: [source('BMJ Open protocol (NCT05822219)', 'https://pubmed.ncbi.nlm.nih.gov/39181556/')]
+          sources: [source('Sirek et al. 2024 (BMJ Open protocol, NCT05822219)', 'https://pubmed.ncbi.nlm.nih.gov/39181556/')]
         }),
         evidence({
           finding: paragraph(`
@@ -573,11 +573,12 @@ const total = chain({
             (Canada), +8 (France), +12 (Italy), +4.7 (Germany).
           `),
           quote: paragraph(`
-            mandate announcement is associated with an increase of about 66% (50.6
-            log points; P = 0.001; 95% CI, 25–77)
+            a mandate announcement is associated with an average increase of about
+            66% (50.6 log points; P = 0.001; 95% CI, 25–77; in column 2) in weekly
+            first doses
           `),
           grade: 'strong',
-          sources: [source('Nature Human Behaviour 2022', 'https://www.nature.com/articles/s41562-022-01363-1')]
+          sources: [source('Karaivanov et al. 2022', 'https://www.nature.com/articles/s41562-022-01363-1')]
         }),
         evidence({
           finding: paragraph(`
@@ -615,7 +616,6 @@ const total = chain({
           grade: 'moderate',
           caveat: 'Cross-sectional polling; the partisan composition of trust shifted with the change of administration, so trust measures may track the identity of officeholders rather than a stable institutional attitude.',
           sources: [
-            source('KFF Vaccine Monitor', 'https://www.kff.org/covid-19/kff-covid-19-vaccine-monitor-dashboard/'),
             source('KFF Tracking Poll April 2025', 'https://www.kff.org/health-information-trust/kff-tracking-poll-on-health-information-and-trust-vaccine-safety-and-trust/')
           ]
         })
@@ -746,10 +746,10 @@ const fair = chain({
             and disparities by social vulnerability <strong>increased over time</strong>.
           `),
           quote: paragraph(`
-            By May 1, 2021, vaccination coverage was lower among adults living in
-            counties with the highest overall SVI (Q4 coverage = 49.0% versus Q1
-            coverage = 59.3%) [...] Disparities in vaccination coverage by SVI
-            increased over time
+            By May 1, 2021, after states opened eligibility to all adults,
+            vaccination coverage was lower among adults living in counties with the
+            highest overall SVI (Q4 coverage = 49.0% versus Q1 coverage = 59.3%) [...]
+            Disparities in vaccination coverage by SVI increased over time
           `),
           grade: 'moderate',
           sources: [source('MMWR 70(22)', 'https://www.cdc.gov/mmwr/volumes/70/wr/mm7022e1.htm')]
