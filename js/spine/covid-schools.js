@@ -26,7 +26,10 @@ export default spineData({
         Every school district had a formal decision venue with public comment. The channel was open during the spring and summer 2020 decisions. Any resident could speak, and elected boards heard them. The channel was advisory only. Nothing required boards to act on what they heard. Participation surged after the decisions, mostly in adversarial form. The share of students in high-participation districts rose from 6% to 49% between 2020 and 2022, and 21 of the 25 most conflictual months on record came after January 2020. The record does not show whether public comment changed any board’s decision.
       `),
       anchors: ['48 states left reopening modality'],
-      sources: [source('Brookings Institution', 'https://www.brookings.edu/articles/the-revolt-of-the-public-school-parents/')]
+      sources: [
+        source('Brookings school board survey', 'https://www.brookings.edu/articles/chapter-2-school-board-members-views-of-the-covid-19-and-culture-war-era/'),
+        source('Holman, Johnson & Simko (EdWorkingPaper)', 'https://edworkingpapers.com/ai24-1102')
+      ]
     }),
     mechanism({
       name: 'State advisory councils',
