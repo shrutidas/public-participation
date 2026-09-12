@@ -1,10 +1,10 @@
-research/questions-for-bailey.md
 _to_delete/
 pp-preview.html
 _audit/
-research/handoff-2026-09-12.md
-research/implication-rebuild-brief.md
-research/proposal-revision-draft.md
-research/workshop-2026-06-08-working-doc.md
-research/evidence-audit-2026-09-12.md
-research/feedback-2026-09-08-review.md
+
+# Planning and working notes stay local
+*.md
+!README.md
+
+# Mockups and drafts from Claude sessions
+Claude outputs/
