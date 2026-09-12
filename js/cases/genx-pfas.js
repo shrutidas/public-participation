@@ -24,7 +24,7 @@ export default caseStudy({
         DuPont began using PFOA (perfluorooctanoic acid), a type of PFAS "forever"
         chemical, at Washington Works in Parkersburg, West Virginia to make Teflon
         coatings. The chemical was also known as C8, and DuPont bought it from 3M.
-        The plant's C8 waste reached the Ohio River. <strong>No regulatory disclosure required</strong>:
+        The plant's C8 waste reached the Ohio River. No regulatory disclosure required:
         US environmental laws did not exist until the 1970s, and as late as 1998
         virtually no one outside DuPont and 3M had heard of C8.
       `),
@@ -39,7 +39,7 @@ export default caseStudy({
       category: 'green',
       actors: 'DuPont Internal Scientists',
       text:       paragraph(`
-        DuPont scientists issued <strong>internal warnings</strong> about PFOA health risks. The
+        DuPont scientists issued internal warnings about PFOA health risks. The
         company's own toxicologists flagged concerns about accumulation and organ
         effects. The warnings stayed in confidential memos. DuPont did not share
         them with EPA, workers, or the public.
@@ -55,7 +55,7 @@ export default caseStudy({
         DuPont began a testing program in 1978 and by 1980 had found elevated
         levels of PFOA in the blood of Washington Works factory workers. TSCA
         Section 8(e) required the company to report substantial risks, and
-        <strong>the company did not report this to EPA</strong>. 3M's own health studies
+        the company did not report this to EPA. 3M's own health studies
         of workers reported no adverse effects, a framing both companies used for
         years to deflect concern.
       `),
@@ -72,7 +72,7 @@ export default caseStudy({
       text:       paragraph(`
         DuPont reassigned 50 women from the Teflon division but did not tell them why.
         The company's formal testing had confirmed elevated PFOA in workers by 1980.
-        An internal memo concluded: '<strong>continued exposure is not tolerable</strong>.'
+        An internal memo concluded: 'continued exposure is not tolerable.'
         Between 1979 and 1981, two of seven children born to female Washington Works
         employees had birth defects. 3M sent DuPont results showing PFOA causes birth
         defects in rats.
@@ -89,7 +89,7 @@ export default caseStudy({
         process, from its Fayetteville Works plant in Bladen County, NC into the
         Cape Fear River. The river is the primary drinking-water source for
         downstream communities including Wilmington (approximately 250,000 people).
-        <strong>No regulatory requirement mandated disclosure</strong> to the public.
+        No regulatory requirement mandated disclosure to the public.
         Discharge continued largely unmonitored for 37 years.
       `),
       sources: [source('CBS News', 'https://www.cbsnews.com/news/wilmington-nc-cape-fear-river-water-tainted-genx-dupont-chemours/')],
@@ -104,7 +104,7 @@ export default caseStudy({
         Washington Works and found PFOA contamination, including in public drinking
         water. The company marked the results 'personal and confidential' and never
         reported them to EPA. DuPont also found that PFOA crosses the placenta into
-        cord blood. This was <strong>active concealment</strong> of known drinking-water
+        cord blood. This was active concealment of known drinking-water
         contamination from regulators and the public.
       `),
       sources: [
@@ -119,8 +119,8 @@ export default caseStudy({
       actors: '3M, EPA Office of Toxic Substances',
       text:       paragraph(`
         3M alerted EPA that PFOS builds up in blood and sent rat studies showing
-        liver damage from PFAS exposure. This was the <strong>first formal notice EPA
-        received</strong> of the buildup problem. 3M's letter described PFOS at 9 to 56
+        liver damage from PFAS exposure. This was the first formal notice EPA
+        received of the buildup problem. 3M's letter described PFOS at 9 to 56
         parts per billion in blood bank samples from people with no known
         workplace exposure. That meant PFAS were already in the general
         population's blood. The letter triggered EPA's first sustained look at
@@ -137,7 +137,7 @@ export default caseStudy({
         Wilbur Tennant, a West Virginia farmer, contacted attorney Rob Bilott after
         he observed cattle deaths, creek contamination, and unusual changes near
         DuPont's Dry Run Landfill. Tennant's documentation, including videos and
-        animal illness records, became the <strong>trigger for federal litigation</strong>.
+        animal illness records, became the trigger for federal litigation.
       `),
       sources: [
         source('Taft Law', 'https://www.taftlaw.com/services/case-studies/taft-is-a-global-leader-in-pfas-forever-chemicals-litigation-and-advisory-work'),
@@ -151,7 +151,7 @@ export default caseStudy({
       actors: 'EPA, 3M',
       text:       paragraph(`
         EPA began an audit of 3M studies in response to 3M's 1998 disclosures and
-        negotiated a formal <strong>TSCA Compliance Audit Agreement</strong>. EPA eventually
+        negotiated a formal TSCA Compliance Audit Agreement. EPA eventually
         collected over 700 studies from 3M under this process.
       `),
       sources: [source('EWG EPA Timeline', 'https://static.ewg.org/reports/2020/pfas-epa-timeline/EPA-PFAS-Timeline-10-21.pdf')],
@@ -164,7 +164,7 @@ export default caseStudy({
       text:       paragraph(`
         Court-ordered discovery in the Tennant case produced internal DuPont records
         about PFOA. Bilott warned EPA, DOJ, and other officials about PFAS dangers.
-        <strong>Litigation created a public-record pathway</strong> that ordinary regulation had not
+        Litigation created a public-record pathway that ordinary regulation had not
         produced.
       `),
       sources: [
@@ -180,7 +180,7 @@ export default caseStudy({
       text:       paragraph(`
         Roughly 70,000 residents in six Ohio and West Virginia water districts sued
         DuPont over PFOA-contaminated drinking water. Plaintiffs led by Joseph K.
-        Leach filed Leach v. Du Pont as a <strong>class-action lawsuit</strong> in West Virginia.
+        Leach filed Leach v. Du Pont as a class-action lawsuit in West Virginia.
       `),
       sources: [
         source('PMC', 'https://pmc.ncbi.nlm.nih.gov/articles/PMC2799461'),
@@ -194,7 +194,7 @@ export default caseStudy({
       actors: 'Exposed Residents, Bilott Legal Team, DuPont, Wood County Circuit Court',
       text:       paragraph(`
         The 2004 settlement in Leach v. Du Pont required DuPont to fund the C8
-        Science Panel. Three independent, <strong>court-supervised epidemiologists</strong>,
+        Science Panel. Three independent, court-supervised epidemiologists,
         paid by DuPont but working independently, had the task of determining
         whether PFOA actually caused disease in the exposed population.
       `),
@@ -210,7 +210,7 @@ export default caseStudy({
       actors: 'EPA, DuPont',
       text:       paragraph(`
         EPA fined DuPont $10.25 million, the largest civil administrative penalty in
-        EPA history at the time, for <strong>failing to report substantial risk</strong> of injury to
+        EPA history at the time, for failing to report substantial risk of injury to
         human health from PFOA, with violations going back to the 1980s. EPA's own
         Science Advisory Board issued a draft finding that PFOA is a 'likely human
         carcinogen.' The fine resolved the violations but set no enforceable
@@ -228,7 +228,7 @@ export default caseStudy({
         supervision. It set up clinics around the mid-Ohio Valley between August
         2005 and August 2006 to draw blood and collect health questionnaires from
         about 69,000 to 70,000 exposed residents. The project then transferred the
-        dataset to West Virginia University as a <strong>long-term research resource</strong>.
+        dataset to West Virginia University as a long-term research resource.
       `),
       sources: [source('PMC', 'https://pmc.ncbi.nlm.nih.gov/articles/PMC2799461/')],
     }),
@@ -240,7 +240,7 @@ export default caseStudy({
       text:       paragraph(`
         EPA's Science Advisory Board publicly reviewed a draft PFOA risk assessment.
         In a report released April 2006, it recommended classifying PFOA, the
-        chemical used in Teflon pans, as "<strong>likely to be carcinogenic to humans</strong>,"
+        chemical used in Teflon pans, as "likely to be carcinogenic to humans,"
         a conclusion the press covered widely at the time. This was the earliest
         public acknowledgement.
       `),
@@ -255,7 +255,7 @@ export default caseStudy({
         EPA entered a TSCA Section 5(e) consent order with DuPont for GenX-related
         substances. The order required 99 percent capture, destruction, recycling,
         or control of effluent and air emissions. EPA formally recognized
-        <strong>insufficient information and potential unreasonable risk</strong>, but it
+        insufficient information and potential unreasonable risk, but it
         allowed manufacture under negotiated controls. It did not ban the chemical
         or require full premarket proof of safety.
       `),
@@ -272,8 +272,8 @@ export default caseStudy({
         conclusions. The court appointed three academic epidemiologists (from the
         University of London, Brown University, and Emory), paid by DuPont, to use
         the C8 Health Project data and other studies. Their task was to decide
-        whether PFOA exposure had <strong>probable links to specific diseases and cancers
-        in that community</strong>, including kidney cancer, testicular cancer,
+        whether PFOA exposure had probable links to specific diseases and cancers
+        in that community, including kidney cancer, testicular cancer,
         ulcerative colitis, thyroid disease, high cholesterol, and
         pregnancy-induced hypertension.
       `),
@@ -291,7 +291,7 @@ export default caseStudy({
         EPA research scientists collected Cape Fear River water samples in summer
         2012 and identified 12 novel fluorinated compounds, including GenX,
         downstream of the Fayetteville Works plant. The findings appeared in a
-        2015 journal paper and <strong>stayed inside agencies and journals</strong>. No one
+        2015 journal paper and stayed inside agencies and journals. No one
         notified downstream utilities or the public.
       `),
       sources: [
@@ -307,7 +307,7 @@ export default caseStudy({
       text:       paragraph(`
         DuPont spun off its performance-chemicals business into Chemours and
         transferred the relevant rights and operations to the new company. This
-        made it harder for regulators to <strong>coordinate EPA TSCA consent orders</strong>.
+        made it harder for regulators to coordinate EPA TSCA consent orders.
         Oversight and remediation now required aligning obligations, data, and
         enforcement across both companies; Chemours alone was no longer the sole
         responsible actor.
@@ -322,7 +322,7 @@ export default caseStudy({
       text:       paragraph(`
         Scientists published evidence of legacy and emerging PFAS in the Cape Fear
         River watershed and found mean GenX concentrations of 631 ng/L downstream of a
-        PFAS manufacturer. This was the <strong>key scientific disclosure</strong>. It showed
+        PFAS manufacturer. This was the key scientific disclosure. It showed
         that replacement PFAS were drinking-water contaminants and that
         conventional treatment did not remove them.
       `),
@@ -334,7 +334,7 @@ export default caseStudy({
       category: 'purple',
       actors: 'Vaughn Hagerty, Wilmington StarNews',
       text:       paragraph(`
-        The Wilmington StarNews published <strong>"Toxin taints CFPUA drinking water"</strong> on
+        The Wilmington StarNews published "Toxin taints CFPUA drinking water" on
         June 7, 2017. The story reported GenX discharge affecting drinking water
         for roughly 250,000 people. The reporter found the story by browsing EPA's
         public UCMR3 monitoring database and reaching the Sun et al. paper. One
@@ -358,7 +358,7 @@ export default caseStudy({
         until DHHS and EPA determined what levels were safe. The second authorized
         CFPUA's independent environmental counsel to take whatever actions it
         deemed necessary. The board chairman also called for an internal review of
-        the utility's <strong>communication</strong> on GenX, led by the board's
+        the utility's communication on GenX, led by the board's
         co-chairwoman and a former board attorney. The review concluded that staff
         had acted appropriately. The reviewers did not interview the utility's
         former communications chief.
@@ -378,7 +378,7 @@ export default caseStudy({
         children had cancer, quickly dubbed the cancer moms, showed up demanding
         answers. Mayor Bill Saffo said publicly he was alarmed after Chemours
         officials told him the discharge had been going on since 1980. Residents had
-        <strong>learned about the contamination from the newspaper, not from the government</strong>.
+        learned about the contamination from the newspaper, not from the government.
       `),
       sources: [source('CBS News', 'https://www.cbsnews.com/news/wilmington-nc-cape-fear-river-water-tainted-genx-dupont-chemours/')],
     }),
@@ -391,7 +391,7 @@ export default caseStudy({
         The North Carolina Department of Environmental Quality (NC DEQ) and the
         Department of Health and Human Services (DHHS) began investigating GenX in
         the Cape Fear River after public reporting identified Chemours Fayetteville
-        Works as the source. <strong>State action began only after public disclosure</strong>,
+        Works as the source. State action began only after public disclosure,
         which made public pressure central to the case.
       `),
       sources: [
@@ -407,8 +407,8 @@ export default caseStudy({
       text:       paragraph(`
         EPA conducted its first on-site TSCA compliance monitoring inspection at
         Fayetteville Works, eight years after the 2009 consent order that required 99%
-        capture and control. <strong>Media attention and state agency pressure triggered
-        the inspection</strong>, not internal EPA monitoring or scheduled compliance review.
+        capture and control. Media attention and state agency pressure triggered
+        the inspection, not internal EPA monitoring or scheduled compliance review.
       `),
       sources: [source('EPA OIG', 'https://www.epa.gov/sites/default/files/2020-05/documents/_epaoig_20200528-20-e-0177_0.pdf')],
     }),
@@ -421,7 +421,7 @@ export default caseStudy({
         NC DEQ sued Chemours and entered a partial consent order. The order required
         Chemours to prevent discharge of processed wastewater containing GenX (named
         for the patented manufacturing process) and two other PFAS compounds. This
-        was the <strong>first state enforcement</strong> that imposed enforceable
+        was the first state enforcement that imposed enforceable
         pollution-control obligations.
       `),
       sources: [source('SELC', 'https://www.selc.org/wp-content/uploads/2022/12/2022-12-05-SELC-timeline-NC-GenX-PFAS-pollution-Chemours.pdf')],
@@ -435,7 +435,7 @@ export default caseStudy({
         NC State University launched the GenX Exposure Study in November 2017 and
         collected blood, urine, and tap water samples from 344 New Hanover County
         residents. NIEHS funded the study, and researchers ran it with
-        <strong>community partners</strong>, Cape Fear River Watch and the New Hanover
+        community partners, Cape Fear River Watch and the New Hanover
         County Health Department. The study committed to share all results with
         both the community as a whole and each individual participant.
       `),
@@ -456,8 +456,8 @@ export default caseStudy({
         Facebook group, "Stop GenX in Our Water," had more than 9,000 members by
         August 2017. Cape Fear River Watch, the Brunswick Environmental Action
         Team, and the NAACP's Environmental Climate Justice program also organized
-        around GenX. Clean Cape Fear later petitioned Congress to <strong>regulate
-        PFAS as a class</strong> and to designate PFAS as hazardous substances under
+        around GenX. Clean Cape Fear later petitioned Congress to regulate
+        PFAS as a class and to designate PFAS as hazardous substances under
         CERCLA so that manufacturers pay for cleanup.
       `),
       sources: [
@@ -474,8 +474,8 @@ export default caseStudy({
         DEQ amended its complaint in April 2018 after it discovered that Chemours
         also released PFAS through air emissions. On May 7, 2018, SELC sent
         Chemours a notice of intent to sue on behalf of Cape Fear River Watch, as
-        Cape Fear River Watch and SELC pursued <strong>citizen-suit strategies under
-        the Clean Water Act and TSCA.</strong> The problem expanded from river discharge
+        Cape Fear River Watch and SELC pursued citizen-suit strategies under
+        the Clean Water Act and TSCA. The problem expanded from river discharge
         to air, surface water, groundwater, and private drinking water wells.
       `),
       sources: [
@@ -490,8 +490,8 @@ export default caseStudy({
       actors: 'NC DEQ, Cape Fear River Watch, Chemours, State Court',
       text:       paragraph(`
         North Carolina DEQ and Cape Fear River Watch negotiated a consent order with
-        Chemours, which a <strong>state court made enforceable through public notice and
-        comment.</strong> The order required large PFAS emission cuts, an end to
+        Chemours, which a state court made enforceable through public notice and
+        comment. The order required large PFAS emission cuts, an end to
         unpermitted discharges, groundwater cleanup, alternative drinking water for
         affected users, and extensive testing and reporting.
       `),

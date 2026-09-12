@@ -44,14 +44,18 @@
 </aside>
 
 <div id="tl-wrap">
+  <!-- The way out sits on the left, where the back arrow points, and the
+       filters sit on the right. -->
   <div class="tl-toolbar">
-    <button class="fl fl-all" data-f="all">All</button>
-    <button class="fl fl-red" data-f="red">Policy</button>
-    <button class="fl fl-orange" data-f="orange">Events</button>
-    <button class="fl fl-green" data-f="green">Knowledge</button>
-    <button class="fl fl-blue" data-f="blue">Public Opinion</button>
-    <button class="fl fl-purple" data-f="purple">Public Participation</button>
     <button class="tl-back" id="tl-back" data-view="spine">&larr; Back to Map</button>
+    <div class="tl-filters">
+      <button class="fl fl-all" data-f="all">All</button>
+      <button class="fl fl-red" data-f="red">Policy</button>
+      <button class="fl fl-orange" data-f="orange">Events</button>
+      <button class="fl fl-green" data-f="green">Knowledge</button>
+      <button class="fl fl-blue" data-f="blue">Public Opinion</button>
+      <button class="fl fl-purple" data-f="purple">Public Participation</button>
+    </div>
   </div>
   <div class="tl-scroll">
     <div class="tl-inner"></div>
@@ -74,15 +78,16 @@
       <span class="lg-row">
         <span class="lg-dot"><i class="k-sw k-sw-sp-ent"></i>Timeline Event</span>
         <span class="lg-dot"><i class="k-sw k-sw-sp-star"></i>Existing Mechanism</span>
-        <span class="lg-dot"><i class="k-sw k-sw-sp-imp"></i>Measured Impact</span>
+        <span class="lg-dot"><i class="k-sw k-sw-sp-imp"></i>Measured Outcome</span>
       </span>
       <span class="lg-hd">Proposals & Evidence</span>
       <span class="lg-row">
         <span class="lg-dot"><i class="k-sw k-sw-sp-prop"></i>Proposed Public Participation</span>
-        <span class="lg-dot"><i class="k-sw k-sw-sp-chain"></i>Causal Link</span>
-        <span class="lg-dot"><i class="k-sw k-sw-sp-chain-un"></i>Untested Link</span>
+        <span class="lg-dot"><i class="k-sw k-sw-sp-out"></i>Proposed Outcome</span>
+        <span class="lg-dot"><i class="k-sw k-sw-sp-chain"></i>Claim</span>
         <span class="lg-dot"><i class="k-sw k-sw-sp-flag"></i>Evidence</span>
-        <span class="lg-dot"><i class="k-sw k-sw-sp-ctr"></i>Counter-Evidence</span>
+        <span class="lg-dot"><i class="k-sw k-sw-sp-ctr"></i>Against</span>
+        <span class="lg-dot"><i class="k-sw k-sw-sp-case"></i>Case Study</span>
         <button class="lg-more" data-openkey>Full Key &rarr;</button>
       </span>
       <button id="legend-hide" aria-controls="ch-legend"
@@ -94,8 +99,7 @@
   </div>
   <div id="ch-right">
     <div id="ch-right-tabs">
-      <span class="rt-label">Causal Chains</span>
-      <button id="tl-expand" data-view="timeline" title="Open the full timeline with filters and the case overview">View Timeline</button>
+      <span class="rt-label" id="rt-label">Detail</span>
       <button id="right-hide" class="pane-tog" aria-controls="ch-right"
         aria-expanded="true" aria-label="Hide the detail pane" title="Hide the detail pane">&#x2715;</button>
     </div>

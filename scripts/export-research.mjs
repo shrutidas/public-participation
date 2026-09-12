@@ -161,7 +161,8 @@ for (const c of cases) {
     }
   }
 
-  // Spine layer: mechanisms, measured impacts, proposal chains, comparables.
+  // Spine layer: mechanisms, measured impacts, proposals with their
+  // outcome, claims, evidence, and case studies.
   const sp = SPINES[c.slug];
   if (sp) {
     const spineRow = (type, extra) => rows.push({
@@ -233,50 +234,60 @@ for (const c of cases) {
         Caveat: '',
         'Deep Link': `${base}/spine/pr/${pi}`
       });
-      p.links.forEach((lk, li) => {
-        const pushEv = (ev, type) => {
+      // One row for the outcome, one per claim under it, one per source of
+      // every evidence record under a claim, and one per source of every
+      // case study under a claim.
+      const out = p.outcome;
+      const prPath = `${base}/spine/pr/${pi}`;
+      const outPath = `${prPath}/out`;
+      spineRow('Proposal outcome', {
+        'Causal Chain Placement': `${p.name} -> ${plain(out.text)}`,
+        'Participation Effect': out.measured ?? '',
+        'Key Finding': plain(out.text),
+        'Deep Link': outPath
+      });
+      out.claims.forEach((cl, ci) => {
+        const clPath = `${prPath}/cl/${ci}`;
+        const placement = `${p.name} -> ${plain(out.text)} -> ${plain(cl.text)}`;
+        spineRow('Proposal claim', {
+          'Causal Chain Placement': placement,
+          'Key Finding': plain(cl.text),
+          'Deep Link': clPath
+        });
+        const pushEv = (ev, type, seg, k) => {
           for (const s of ev.srcs) {
             seenUrls.add(s.u);
             spineRow(type, {
-              'Causal Chain Placement': `${p.name} -> ${lk.name}`,
-              'Link Strength': lk.strength,
+              'Causal Chain Placement': placement,
               'Evidence Grade': ev.grade,
               'Resource Title': s.l,
               URL: s.u,
-              'Key Finding': plain(ev.finding),
+              'Key Finding': `${plain(ev.headline)} ${plain(ev.finding)}`.trim(),
               'Verbatim Quote': plain(ev.quote),
               Caveat: plain(ev.caveat),
-              'Deep Link': `${base}/spine/pr/${pi}/l/${li}`
+              'Deep Link': `${clPath}/${seg}/${k}`
             });
           }
         };
-        if (!(lk.evidence ?? []).length && !(lk.counterEvidence ?? []).length) {
-          spineRow('Proposal chain link (unstudied)', {
-            'Causal Chain Placement': `${p.name} -> ${lk.name}`,
-            'Link Strength': lk.strength,
-            'Key Finding': plain(lk.claim),
-            'Deep Link': `${base}/spine/pr/${pi}/l/${li}`
-          });
-        }
-        for (const ev of lk.evidence ?? []) pushEv(ev, 'Proposal chain evidence');
-        for (const ev of lk.counterEvidence ?? []) pushEv(ev, 'Proposal chain counter-evidence');
+        (cl.evidence ?? []).forEach((ev, k) => pushEv(ev, 'Proposal claim evidence', 'ev', k));
+        (cl.counterEvidence ?? []).forEach((ev, k) => pushEv(ev, 'Proposal claim counter-evidence', 'cev', k));
+        (cl.cases ?? []).forEach((cm, k) => {
+          const srcs = cm.srcs?.length ? cm.srcs : [{ l: '', u: '' }];
+          for (const s of srcs) {
+            if (s.u) seenUrls.add(s.u);
+            spineRow('Proposal case study', {
+              'Causal Chain Placement': placement,
+              'Evidence Grade': cm.strength,
+              Date: cm.when,
+              Actors: plain(cm.where),
+              'Resource Title': s.l,
+              URL: s.u,
+              'Key Finding': `${cm.name} (${plain(cm.authority)}): ${plain(cm.outcome)}`,
+              'Deep Link': `${clPath}/cs/${k}`
+            });
+          }
+        });
       });
-      for (const cm of p.comparables ?? []) {
-        const srcs = cm.srcs?.length ? cm.srcs : [{ l: '', u: '' }];
-        for (const s of srcs) {
-          if (s.u) seenUrls.add(s.u);
-          spineRow('Comparable case', {
-            'Causal Chain Placement': p.name,
-            'Evidence Grade': cm.strength,
-            Date: cm.when,
-            Actors: plain(cm.where),
-            'Resource Title': s.l,
-            URL: s.u,
-            'Key Finding': `${cm.name} (${plain(cm.authority)}): ${plain(cm.outcome)}`,
-            'Deep Link': `${base}/spine/pr/${pi}`
-          });
-        }
-      }
     });
   }
 

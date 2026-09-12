@@ -269,10 +269,12 @@ function anchorMatches(entries, anchor) {
   return entries.filter(e => plainText(e.text).includes(anchor)).length;
 }
 
-function lintEvidenceList(file, where, list) {
+function lintEvidenceList(file, where, list, { headline = false } = {}) {
   (list ?? []).forEach((ev, ei) => {
     const eLabel = `${where}, evidence ${ei + 1}`;
     if (!ev.finding?.trim()) error(file, `${eLabel} has an empty finding`);
+    // Cards under a proposal claim show a plain one-sentence headline.
+    if (headline && !ev.headline?.trim()) error(file, `${eLabel} has no headline`);
     if (!VALID_STRENGTHS.includes(ev.grade)) {
       error(file, `${eLabel} has invalid grade "${ev.grade}"`);
     }
@@ -281,7 +283,8 @@ function lintEvidenceList(file, where, list) {
   });
 }
 
-let spineTotals = { mechanisms: 0, impacts: 0, proposals: 0, propLinks: 0, comparables: 0 };
+let spineTotals = { mechanisms: 0, impacts: 0, proposals: 0, claims: 0, evidence: 0, cases: 0 };
+const unsupported = [];
 
 for (const file of spineFiles) {
   let mod;
@@ -315,6 +318,9 @@ for (const file of spineFiles) {
 
   sp.impacts.forEach((im, ii) => {
     const w = `impact ${ii + 1} (${im.name})`;
+    if (im.from.length !== 1) {
+      error(f, `${w} must be tied to exactly one timeline event (has ${im.from.length})`);
+    }
     im.from.forEach(fr => {
       checkAnchor(w, fr.anchor);
       if (!VALID_STRENGTHS.includes(fr.strength)) {
@@ -330,29 +336,32 @@ for (const file of spineFiles) {
   sp.proposals.forEach((p, pi) => {
     const w = `proposal ${pi + 1} (${p.name})`;
     checkAnchor(w, p.anchor);
-    for (const n of p.impactsMeasured) {
-      if (!impactNames.has(n)) error(f, `${w} names measured impact "${n}", which does not exist`);
+    const out = p.outcome;
+    if (!out?.text?.trim()) error(f, `${w} has no outcome`);
+    if (out?.measured != null && !impactNames.has(out.measured)) {
+      error(f, `${w} outcome names measured outcome "${out.measured}", which does not exist`);
     }
-    if (!p.links.length) error(f, `${w} has no chain links`);
-    p.links.forEach((lk, li) => {
-      const lw = `${w}, link ${li + 1} (${lk.name})`;
-      if (!VALID_STRENGTHS.includes(lk.strength)) {
-        error(f, `${lw} has invalid strength "${lk.strength}"`);
+    (out?.claims ?? []).forEach((cl, ci) => {
+      const cw = `${w}, claim ${ci + 1} (${String(cl.text).slice(0, 50)})`;
+      if (!cl.text?.trim()) error(f, `${cw} has empty text`);
+      // A claim is general: evidence from other cases must be able to
+      // support it, so it carries no dates.
+      if (/\b(19|20)\d\d\b/.test(cl.text)) error(f, `${cw} contains a year; claims are general statements`);
+      lintEvidenceList(f, cw, cl.evidence, { headline: true });
+      lintEvidenceList(f, `${cw} (counter)`, cl.counterEvidence, { headline: true });
+      spineTotals.evidence += (cl.evidence?.length ?? 0) + (cl.counterEvidence?.length ?? 0);
+      (cl.cases ?? []).forEach((c, k) => {
+        const kw = `${cw}, case study ${k + 1} (${c.name})`;
+        if (!VALID_STRENGTHS.includes(c.strength)) {
+          error(f, `${kw} has invalid strength "${c.strength}"`);
+        }
+        if (c.srcs?.length) lintSources(f, kw, c.srcs);
+        spineTotals.cases++;
+      });
+      if (!cl.evidence?.length && !cl.counterEvidence?.length && !cl.cases?.length) {
+        unsupported.push(`${f}: ${cw}`);
       }
-      if (lk.strength !== 'unstudied' && !(lk.evidence ?? []).length) {
-        error(f, `${lw} is graded "${lk.strength}" but carries no evidence`);
-      }
-      lintEvidenceList(f, lw, lk.evidence);
-      lintEvidenceList(f, `${lw} (counter)`, lk.counterEvidence);
-      spineTotals.propLinks++;
-    });
-    p.comparables.forEach((c, ci) => {
-      const cw = `${w}, comparable ${ci + 1} (${c.name})`;
-      if (!VALID_STRENGTHS.includes(c.strength)) {
-        error(f, `${cw} has invalid strength "${c.strength}"`);
-      }
-      if (c.srcs?.length) lintSources(f, cw, c.srcs);
-      spineTotals.comparables++;
+      spineTotals.claims++;
     });
     spineTotals.proposals++;
   });
@@ -382,4 +391,8 @@ const propCount = cases.reduce(
 console.log('All case studies passed lint.');
 console.log(`  ${caseFiles.length} files, ${cases.reduce((n, c) => n + c.entries.length, 0)} entries total`);
 console.log(`  ${chainCount} causal chains, ${linkCount} links, ${partCount} participation instances, ${propCount} proposed instances`);
-console.log(`  spine: ${spineTotals.mechanisms} mechanisms, ${spineTotals.impacts} impacts, ${spineTotals.proposals} proposals with ${spineTotals.propLinks} chain links, ${spineTotals.comparables} comparables`);
+console.log(`  spine: ${spineTotals.mechanisms} mechanisms, ${spineTotals.impacts} impacts, ${spineTotals.proposals} proposals with ${spineTotals.claims} claims, ${spineTotals.evidence} evidence cards, ${spineTotals.cases} case studies`);
+if (unsupported.length) {
+  console.log(`  note: ${unsupported.length} claim(s) carry no evidence or case study yet:`);
+  unsupported.forEach(u => console.log(`    ${u}`));
+}
