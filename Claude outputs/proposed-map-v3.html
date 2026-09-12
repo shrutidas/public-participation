@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Proposed map v3: shapes carry the meaning</title>
+<style>
+  :root{
+    --bg:#f5f3ef; --paper:#fbfaf8; --ink:#23272e; --sb:#3a3f47; --mute:#767c86; --hair:#dedad3;
+    --green:#1e6b3c; --green-soft:#d7e8dc; --green-tint:#eef5f0;
+    --purple:#5b3fa0; --purple-soft:#ded4f2; --purple-tint:#f3eff9;
+    --against:#9a9fa8;
+    --c-policy:#9a2f2a; --c-events:#8a5a2b; --c-knowledge:#1f6f7a; --c-opinion:#2f5aa8; --c-part:#5b3fa0;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font:13px/1.45 -apple-system,"Inter",Segoe UI,Helvetica,Arial,sans-serif;padding:20px 20px 40px}
+  h1{font-size:16px;margin:0 0 4px;font-weight:600}
+  .sub{color:var(--mute);margin:0 0 14px;max-width:960px}
+  .kick{font-size:9.5px;letter-spacing:.09em;text-transform:uppercase;font-weight:600;color:var(--mute)}
+
+  .frame{border:1px solid var(--hair);border-radius:12px;overflow:hidden;background:var(--paper)}
+  .topbar{background:#1f2430;color:#fff;padding:10px 16px;font-weight:600;font-size:14px}
+  .scroller{height:660px;overflow:auto;position:relative}
+  .map{display:grid;grid-template-columns:230px 330px 240px 1fr;min-width:1560px}
+  .lane{padding:0 16px 24px}
+  .lane + .lane{border-left:1px solid var(--hair)}
+  .lh{position:sticky;top:0;z-index:5;background:var(--paper);padding:14px 0 10px}
+  .lh span{font-size:10px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--mute)}
+  .lh.g span{color:var(--green)} .lh.p span{color:var(--purple)}
+
+  /* OUTCOMES: target rings */
+  .pin{position:sticky;top:44px}
+  .oc{display:flex;gap:10px;align-items:flex-start;padding:9px 8px;border-radius:8px;margin-bottom:2px}
+  .oc.hl{background:var(--green-tint)}
+  .ring{flex:0 0 18px;width:18px;height:18px;border-radius:50%;border:2px solid var(--green);position:relative;margin-top:2px}
+  .ring:after{content:"";position:absolute;inset:3px;border-radius:50%;background:var(--green)}
+  .oc .t{font-weight:600;color:var(--green);font-size:13px}
+  .oc p{margin:2px 0 0;font-size:11.5px;color:var(--sb)}
+  .oc.todo .ring{border-style:dashed} .oc.todo .ring:after{background:none;border:1.5px dashed var(--green)}
+
+  /* TIMELINE: flat entries on a spine */
+  .tl{position:relative;padding-left:22px}
+  .tl:before{content:"";position:absolute;left:6px;top:8px;bottom:0;border-left:1.5px solid var(--hair)}
+  .ev{position:relative;padding:0 0 18px}
+  .ev .dot{position:absolute;left:-20px;top:4px;width:9px;height:9px;border-radius:50%;border:2px solid var(--paper);box-shadow:0 0 0 1.5px var(--hair)}
+  .ev .cat{display:flex;gap:8px;align-items:baseline;margin-bottom:2px}
+  .ev .cat .kick{color:var(--sb)}
+  .ev .cat .d{color:var(--mute);font-size:11px}
+  .ev p{margin:0;font-size:12px;color:var(--ink)}
+  .ev .star{display:inline-flex;align-items:center;gap:4px;margin-top:4px;font-size:10.5px;color:var(--sb)}
+  .ev .star i{width:14px;height:14px;border-radius:50%;border:1.5px solid var(--sb);display:inline-flex;align-items:center;justify-content:center;font-style:normal;font-size:9px}
+
+  /* PROPOSAL: purple tag */
+  .propwrap{position:sticky;top:44px}
+  .prop{border-radius:10px;background:var(--purple-tint);border:1.5px dashed var(--purple);padding:12px 14px;position:relative}
+  .prop .kick{color:var(--purple)}
+  .prop .t{font-weight:600;color:var(--purple);font-size:13.5px;margin:3px 0 8px;line-height:1.3}
+  .prop .mech{display:inline-block;font-size:11px;color:var(--purple);background:#fff;border:1px solid var(--purple-soft);border-radius:999px;padding:2px 9px}
+  .prop:after{content:"";position:absolute;right:-18px;top:28px;width:0;height:0;border:7px solid transparent;border-left:11px solid var(--green)}
+  .prop:before{content:"";position:absolute;right:-18px;top:34px;width:18px;border-top:2px solid var(--green)}
+
+  /* IMPLICATION: ring + sentence, sticky */
+  .ibar{position:sticky;top:44px;z-index:4;background:var(--paper);padding:6px 0 10px}
+  .imp{display:flex;gap:10px;align-items:center}
+  .imp .ring{margin-top:0;border-width:2px} .imp .ring:after{background:none;border:2px solid var(--green);inset:3px}
+  .imp .t{font-weight:600;color:var(--green);font-size:14px}
+  .imp .k{font-size:10px;color:var(--green);opacity:.75;letter-spacing:.09em;text-transform:uppercase;font-weight:600;margin-left:8px}
+
+  /* CLAIMS: columns without boxes */
+  .cols{display:flex;gap:26px;align-items:flex-start;padding-left:28px;border-left:2px solid var(--green-soft);margin-left:8px}
+  .col{flex:0 0 250px}
+  .claim{display:flex;gap:9px;align-items:flex-start;margin-bottom:6px}
+  .claim .n{flex:0 0 20px;width:20px;height:20px;border-radius:5px;background:var(--sb);color:#fff;font-size:11px;font-weight:600;display:flex;align-items:center;justify-content:center;margin-top:1px}
+  .claim .t{font-weight:600;font-size:12.5px;color:var(--ink);line-height:1.35}
+  .tally{display:flex;gap:2px;height:5px;margin:0 0 10px 29px}
+  .tally i{flex:1;border-radius:2px;background:var(--green)} .tally i.a{background:var(--against)}
+  .ledger{margin:0;padding:0;list-style:none;border-top:1px solid var(--hair)}
+  .ledger li{display:grid;grid-template-columns:16px 1fr;gap:8px;padding:6px 0;border-bottom:1px solid var(--hair);font-size:12px}
+  .ledger .g{width:10px;height:10px;margin-top:4px;border-radius:50%;background:var(--sb)}
+  .ledger .g.case{border-radius:2px;background:none;border:2px solid var(--sb)}
+  .ledger .g.against{background:none;border:1.5px solid var(--against);position:relative}
+  .ledger .g.against:after{content:"";position:absolute;left:1px;right:1px;top:3px;border-top:1.5px solid var(--against)}
+  .ledger li.against{color:#5b6068}
+  .ledger .src{display:block;color:var(--mute);font-size:11px}
+  .ledger li.case .h{font-style:italic}
+  .more{font-size:11px;color:var(--mute);padding:6px 0 0 24px}
+
+  .bar{margin-top:14px;display:flex;flex-wrap:wrap;gap:8px 22px;align-items:center;background:#fff;border:1px solid var(--hair);border-radius:8px;padding:10px 16px;font-size:12.5px}
+  .bar b{font-weight:600;margin-right:4px}
+  .bar .sep{width:1px;height:20px;background:var(--hair)}
+  .bar .glyph{display:inline-block;vertical-align:middle;margin-right:6px}
+  .notes{margin-top:14px;color:var(--mute);font-size:12.5px;max-width:960px}
+</style>
+</head>
+<body>
+<h1>Proposed map v3</h1>
+<p class="sub">Same content as v2, but shape carries the meaning and boxes are gone from the argument layer. Outcomes are targets, the implication is an empty target aimed at a filled one, claims are numbered heads over a ledger of findings, and a tally strip under each claim shows the balance of for and against at any zoom.</p>
+
+<div class="frame">
+  <div class="topbar">Case Study 1 &nbsp;·&nbsp; COVID-19 School Closures and Reopenings</div>
+  <div class="scroller">
+    <div class="map">
+
+      <div class="lane">
+        <div class="lh g"><span>Measured outcomes</span></div>
+        <div class="pin">
+          <div class="oc hl"><div class="ring"></div><div><div class="t">Confidence in public schools</div><p>Gallup confidence fell from 41% in 2020 to 28% in 2022, concentrated among Republicans.</p></div></div>
+          <div class="oc"><div class="ring"></div><div><div class="t">Public school enrollment</div><p>Down 1.4 million students between fall 2019 and fall 2020; not recovered.</p></div></div>
+          <div class="oc"><div class="ring"></div><div><div class="t">Chronic absenteeism</div><p>About 22% of students missed a tenth or more of days through 2024-25.</p></div></div>
+          <div class="oc"><div class="ring"></div><div><div class="t">Test scores</div><p>Fell sharply after the pandemic; the decline began years earlier.</p></div></div>
+          <div class="oc todo"><div class="ring"></div><div><div class="t">Infections and deaths</div><p>To be added.</p></div></div>
+        </div>
+      </div>
+
+      <div class="lane">
+        <div class="lh"><span>What happened</span></div>
+        <div class="tl">
+          <div class="ev"><span class="dot" style="background:var(--c-part)"></span><div class="cat"><span class="kick">Public participation</span><span class="d">07/2020</span></div><p>Teachers' unions became the dominant local advocacy force. Union presence predicted remote starts across 250 large districts.</p></div>
+          <div class="ev"><span class="dot" style="background:var(--c-opinion)"></span><div class="cat"><span class="kick">Public opinion</span><span class="d">07/2020</span></div><p>KFF found 60% of parents preferred opening later. Gallup found parents split 36-28-36 across in-person, remote, and hybrid.</p><div class="star"><i>★</i>Parent surveys existed; nothing required districts to act on them</div></div>
+          <div class="ev"><span class="dot" style="background:var(--c-policy)"></span><div class="cat"><span class="kick">Policy</span><span class="d">09/2020</span></div><p>Reopening became decentralized and uneven. 48 states left modality decisions to local districts.</p><div class="star"><i>★</i>School board public comment: advisory only</div></div>
+          <div class="ev"><span class="dot" style="background:var(--c-events)"></span><div class="cat"><span class="kick">Events</span><span class="d">02/2021</span></div><p>San Francisco's city attorney sued the city's own school district to force a return to in-person instruction.</p></div>
+          <div class="ev"><span class="dot" style="background:var(--c-knowledge)"></span><div class="cat"><span class="kick">Knowledge</span><span class="d">05/2022</span></div><p>Remote instruction explained a measurable share of the widening gap between high- and low-poverty schools.</p></div>
+          <div class="ev"><span class="dot" style="background:var(--c-opinion)"></span><div class="cat"><span class="kick">Public opinion</span><span class="d">08/2022</span></div><p>Gallup confidence in public schools fell to 28%, the lowest on record.</p></div>
+          <div class="ev"><span class="dot" style="background:var(--c-knowledge)"></span><div class="cat"><span class="kick">Knowledge</span><span class="d">01/2026</span></div><p>Teachers' trust with parents was significantly related to absence rates, more strongly after the pandemic.</p></div>
+        </div>
+      </div>
+
+      <div class="lane">
+        <div class="lh p"><span>Proposed participation</span></div>
+        <div class="propwrap">
+          <div class="prop"><div class="kick">Proposal</div><div class="t">Parents and community members vote yes or no before any closure</div><span class="mech">Binding community vote</span></div>
+        </div>
+      </div>
+
+      <div class="lane">
+        <div class="lh g"><span>Proposed implication</span></div>
+        <div class="ibar"><div class="imp"><div class="ring"></div><div class="t">Parents who decided on closures keep confidence in public schools</div><span class="k">aims at: confidence in public schools</span></div></div>
+        <div class="cols">
+
+          <div class="col">
+            <div class="claim"><div class="n">1</div><div class="t">A standing parent and community body can govern schools competently.</div></div>
+            <div class="tally"><i></i><i></i><i></i><i></i><i></i><i class="a"></i><i class="a"></i></div>
+            <ul class="ledger">
+              <li><span class="g"></span><span>Most of Chicago's parent-majority school councils carried out their governing duties.<span class="src">Bryk et al., 2010</span></span></li>
+              <li><span class="g"></span><span>Chicago schools whose councils voted to remove police saw no worsening in discipline or climate.<span class="src">Chicago Consortium, 2022</span></span></li>
+              <li class="case"><span class="g case"></span><span class="h">Chicago Local School Councils<span class="src">Chicago Public Schools</span></span></li>
+              <li class="against"><span class="g against"></span><span>A fifth of the Chicago schools asked to vote on police had no council or no quorum.<span class="src">Chalkbeat, 2020</span></span></li>
+              <li class="against"><span class="g against"></span><span>More than 1,400 Chicago council seats sat empty after an election.<span class="src">Chicago Sun-Times, 2022</span></span></li>
+            </ul>
+            <div class="more">+ 2 more cases</div>
+          </div>
+
+          <div class="col">
+            <div class="claim"><div class="n">2</div><div class="t">Having to justify a decision to an outside body puts the evidence on the public record.</div></div>
+            <div class="tally"><i></i><i></i><i></i><i class="a"></i><i class="a"></i></div>
+            <ul class="ledger">
+              <li><span class="g"></span><span>When residents used a legal records request instead of simply asking, councils handed over more information.<span class="src">Worthy et al., 2017</span></span></li>
+              <li><span class="g"></span><span>When central bankers learned their records would be published, their discussions leaned harder on data.<span class="src">Meade and Stasavage, 2008</span></span></li>
+              <li class="against"><span class="g against"></span><span>The same bankers voiced less disagreement with the chair once transcripts were public.<span class="src">Meade and Stasavage, 2008</span></span></li>
+              <li class="against"><span class="g against"></span><span>Agencies required to analyze major rules often produced weak analyses and rarely used them.<span class="src">Ellig, 2016</span></span></li>
+            </ul>
+            <div class="more">+ 1 more</div>
+          </div>
+
+          <div class="col">
+            <div class="claim"><div class="n">3</div><div class="t">A body that can say no holds decision makers to account.</div></div>
+            <div class="tally"><i></i><i></i><i></i><i class="a"></i><i class="a"></i><i class="a"></i></div>
+            <ul class="ledger">
+              <li><span class="g"></span><span>When Kenyan parents on school committees got real say over locally hired teachers, fewer jobs went to relatives.<span class="src">Duflo, Dupas &amp; Kremer, 2015</span></span></li>
+              <li><span class="g"></span><span>Where Swiss cantons required a public vote on major spending, governments spent less.<span class="src">Feld and Matsusaka, 2003</span></span></li>
+              <li class="against"><span class="g against"></span><span>At larger scale, community oversight of clinics did not make citizens press harder or improve health.<span class="src">Raffler et al., 2020</span></span></li>
+              <li class="against"><span class="g against"></span><span>Police departments with civilian oversight boards did no better on most measures.<span class="src">Ali and Pirog, 2019</span></span></li>
+            </ul>
+            <div class="more">+ 1 more, 1 more against</div>
+          </div>
+
+          <div class="col">
+            <div class="claim"><div class="n">4</div><div class="t">A binding role before decisions raises trust and engagement.</div></div>
+            <div class="tally"><i></i><i></i><i></i><i></i><i class="a"></i><i class="a"></i></div>
+            <ul class="ledger">
+              <li><span class="g"></span><span>New Yorkers who took part in participatory budgeting became more likely to vote afterward.<span class="src">Johnson et al., 2021</span></span></li>
+              <li><span class="g"></span><span>Americans in states that vote on ballot measures felt more able to affect politics.<span class="src">Smith and Tolbert, 2004</span></span></li>
+              <li class="case"><span class="g case"></span><span class="h">Brazilian Municipal Participatory Budgeting<span class="src">Gonçalves, 2014</span></span></li>
+              <li class="against"><span class="g against"></span><span>States that leaned hardest on ballot measures ended up with weaker party organizations.<span class="src">Bowler and Donovan, 2006</span></span></li>
+              <li class="against"><span class="g against"></span><span>People in states that use ballot measures trust their legislature less.<span class="src">Dyck, 2009</span></span></li>
+            </ul>
+            <div class="more">+ 1 more case</div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="bar">
+  <b>Record</b>
+  <span><span class="glyph" style="width:9px;height:9px;border-radius:50%;background:var(--c-policy)"></span>Event, colored by category</span>
+  <span><span class="glyph" style="width:14px;height:14px;border-radius:50%;border:1.5px solid var(--sb);text-align:center;font-size:9px;line-height:12px">★</span>Existing mechanism</span>
+  <span><span class="glyph" style="width:16px;height:16px;border-radius:50%;border:2px solid var(--green);background:radial-gradient(circle,var(--green) 40%,transparent 42%)"></span>Measured outcome</span>
+  <span class="sep"></span>
+  <b>Proposal</b>
+  <span><span class="glyph" style="width:26px;height:14px;border-radius:5px;border:1.5px dashed var(--purple);background:var(--purple-tint)"></span>Proposed participation</span>
+  <span><span class="glyph" style="width:16px;height:16px;border-radius:50%;border:2px solid var(--green);background:radial-gradient(circle,transparent 30%,var(--green) 32%,var(--green) 45%,transparent 47%)"></span>Proposed implication, aimed at an outcome</span>
+  <span><span class="glyph" style="width:16px;height:16px;border-radius:4px;background:var(--sb)"></span>Claim</span>
+  <span><span class="glyph" style="width:10px;height:10px;border-radius:50%;background:var(--sb)"></span>Evidence for</span>
+  <span><span class="glyph" style="width:10px;height:10px;border-radius:2px;border:2px solid var(--sb)"></span>Case study</span>
+  <span><span class="glyph" style="width:10px;height:10px;border-radius:50%;border:1.5px solid var(--against);position:relative"></span>Against</span>
+  <span><span class="glyph" style="width:26px;height:5px;border-radius:2px;background:linear-gradient(90deg,var(--green) 60%,var(--against) 60%)"></span>Balance of for and against</span>
+</div>
+
+<div class="notes">
+  What the shapes mean. A filled target is an outcome the record measured. An empty target is an outcome a proposal aims at; it sits at the head of the implication and is drawn from the proposal by a green arrow. Numbered dark squares are the project's own claims. In the ledger under each claim, a filled dot is a finding for the claim, an outlined square is a case study, and a struck-through outline is a finding against. The tally strip under each claim is the count of for (green) and against (gray), readable at any zoom. Boxes remain only for the two things that are objects in the world: timeline events (now flat entries on a spine) and the proposal tag.
+</div>
+</body>
+</html>

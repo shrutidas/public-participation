@@ -3,7 +3,7 @@ import { cases } from './cases/index.js';
 import { bindSourceLinks, srcHtml, splitEntryText } from './util.js';
 import * as router from './router.js';
 import { renderSpineMap, renderSpineDetail, highlightSpine, anchorIndex } from './spine-view.js';
-import { GLOSSARY, TIMELINE_NOTE } from './glossary.js';
+import { GLOSSARY } from './glossary.js';
 import spineSchools from './spine/covid-schools.js';
 import spineVaccines from './spine/covid-vaccines.js';
 import spineGenx from './spine/genx-pfas.js';
@@ -19,12 +19,12 @@ const SPINES = {
 const state = {
   cur: 0,
   view: null,          // 'spine' | 'timeline'
-  selKind: null,       // null | 'entry' | 'mech' | 'impact' | 'prop' | 'proplink' | 'propev' | 'propcomp'
+  selKind: null,       // null | 'entry' | 'mech' | 'impact' | 'prop' | 'propclaim' | 'propev' | 'propcase'
   selIdx: null,
-  linkIdx: null,
+  claimIdx: null,      // which claim under the proposal's outcome
   evIdx: null,         // which evidence record, when a single one is selected
   evKind: null,        // 'for' | 'counter'
-  compIdx: null,       // which comparable case, when a single one is selected
+  caseIdx: null,       // which case study under that claim
   zoom: 1,             // spine map zoom level
   fitKey: null,        // which case the current zoom was auto-fitted to
   builtKey: null       // which case+expansion the map DOM is currently built for
@@ -39,11 +39,14 @@ const curCase = () => cases[state.cur];
 const curSpine = () => SPINES[curCase().slug] || null;
 const defaultView = c => (SPINES[c.slug] ? 'spine' : 'timeline');
 const curSel = () => ({
-  kind: state.selKind, idx: state.selIdx, linkIdx: state.linkIdx,
-  evIdx: state.evIdx, evKind: state.evKind, compIdx: state.compIdx
+  kind: state.selKind, idx: state.selIdx, claimIdx: state.claimIdx,
+  evIdx: state.evIdx, evKind: state.evKind, caseIdx: state.caseIdx
 });
+/* The selection fields below the case, all cleared together. */
+const NO_SEL = { selKind: null, selIdx: null, claimIdx: null, evIdx: null, evKind: null, caseIdx: null };
+const BELOW_PROP = ['propclaim', 'propev', 'propcase'];
 
-/* Every proposal chain is always open, so the map DOM is rebuilt only when
+/* Every proposal is always fully open, so the map DOM is rebuilt only when
    the case changes; every selection updates highlights in place. */
 const builtKey = () => `${curCase().slug}::all`;
 
@@ -59,9 +62,9 @@ function route() {
   if (state.view === 'spine' && state.selKind != null) {
     r.selKind = state.selKind;
     r.selIdx = state.selIdx;
-    if (state.selKind === 'proplink' || state.selKind === 'propev') r.linkIdx = state.linkIdx;
+    if (BELOW_PROP.includes(state.selKind)) r.claimIdx = state.claimIdx;
     if (state.selKind === 'propev') { r.evIdx = state.evIdx; r.evKind = state.evKind; }
-    if (state.selKind === 'propcomp') r.compIdx = state.compIdx;
+    if (state.selKind === 'propcase') r.caseIdx = state.caseIdx;
   }
   return r;
 }
@@ -85,12 +88,7 @@ function applyRoute() {
   state.view = wanted === 'spine' && !SPINES[c.slug] ? 'timeline' : wanted;
   if (!r.view || state.view !== r.view || r.legacy) canonical = false;
 
-  state.selKind = null;
-  state.selIdx = null;
-  state.linkIdx = null;
-  state.evIdx = null;
-  state.evKind = null;
-  state.compIdx = null;
+  Object.assign(state, NO_SEL);
 
   if (state.view === 'spine' && r.selKind != null) {
     const sp = curSpine();
@@ -99,28 +97,30 @@ function applyRoute() {
       mech: sp.mechanisms.length,
       impact: sp.impacts.length,
       prop: sp.proposals.length,
-      proplink: sp.proposals.length,
+      propout: sp.proposals.length,
+      propclaim: sp.proposals.length,
       propev: sp.proposals.length,
-      propcomp: sp.proposals.length
+      propcase: sp.proposals.length
     };
     if (r.selIdx < (bounds[r.selKind] ?? 0)) {
       state.selKind = r.selKind;
       state.selIdx = r.selIdx;
-      if (r.selKind === 'proplink' || r.selKind === 'propev') {
-        const links = sp.proposals[r.selIdx].links;
-        if (r.linkIdx < links.length) {
-          state.linkIdx = r.linkIdx;
+      // Below a proposal, each level degrades to the one above it when the
+      // index does not exist: a stale link still lands somewhere sensible.
+      if (BELOW_PROP.includes(r.selKind)) {
+        const cl = sp.proposals[r.selIdx].outcome.claims[r.claimIdx];
+        if (!cl) { state.selKind = 'prop'; canonical = false; }
+        else {
+          state.claimIdx = r.claimIdx;
           if (r.selKind === 'propev') {
-            const lk = links[r.linkIdx];
-            const list = r.evKind === 'counter' ? (lk.counterEvidence ?? []) : (lk.evidence ?? []);
+            const list = r.evKind === 'counter' ? (cl.counterEvidence ?? []) : (cl.evidence ?? []);
             if (r.evIdx < list.length) { state.evIdx = r.evIdx; state.evKind = r.evKind; }
-            else { state.selKind = 'proplink'; canonical = false; }
+            else { state.selKind = 'propclaim'; canonical = false; }
+          } else if (r.selKind === 'propcase') {
+            if (r.caseIdx < (cl.cases?.length ?? 0)) state.caseIdx = r.caseIdx;
+            else { state.selKind = 'propclaim'; canonical = false; }
           }
-        } else { state.selKind = 'prop'; canonical = false; }
-      } else if (r.selKind === 'propcomp' && r.compIdx != null) {
-        const comps = sp.proposals[r.selIdx].comparables ?? [];
-        if (r.compIdx < comps.length) state.compIdx = r.compIdx;
-        else canonical = false;
+        }
       }
     } else {
       canonical = false;
@@ -198,7 +198,7 @@ function glossaryCounts() {
 function glossaryMark(item) {
   if (item.badge) return `<span class="g ${item.badge}">${item.label}</span>`;
   if (item.dot) return `<span class="k-dotwrap"><i class="cg-dot ${item.dot}"></i>${item.label}</span>`;
-  if (item.swatch) return `<span class="k-dotwrap"><i class="k-sw k-sw-${item.swatch}"></i>${item.label}</span>`;
+  if (item.swatch) return `<span class="k-dotwrap k-stack"><i class="k-sw k-sw-${item.swatch}"></i>${item.label}</span>`;
   return `<span class="k-plain">${item.label}</span>`;
 }
 
@@ -207,7 +207,6 @@ function renderKey() {
 
   const timeline = `<section class="k-sec">
     <h3>Timeline Entry Categories</h3>
-    <p class="k-note">${TIMELINE_NOTE}</p>
     <div class="k-grid">${KEY_ORDER.map(k => {
       const c = CAT[k];
       return `<div class="k-item">
@@ -269,8 +268,9 @@ function renderTimeline() {
     curCase().entries.map(e => entryHtml(e)).join('');
 }
 
-/* The right pane always shows the detail; the full timeline opens through
-   the View Timeline button. */
+/* The right pane always shows the detail, and its header names whatever is
+   selected. The full timeline opens through the expand button in the Main
+   Timeline lane header on the map. */
 
 function renderSpine() {
   const c = curCase();
@@ -279,6 +279,7 @@ function renderSpine() {
   if (!sp) {
     map.innerHTML = `<div class="empty-msg">No spine has been mapped for this case yet.</div>`;
     el('ch-detail').innerHTML = '';
+    el('rt-label').textContent = 'Detail';
     return;
   }
 
@@ -304,7 +305,7 @@ function renderSpine() {
     highlightSpine(map, curSel());
   }
 
-  renderSpineDetail(el('ch-detail'), c, sp, curSel());
+  el('rt-label').textContent = renderSpineDetail(el('ch-detail'), c, sp, curSel());
 }
 
 /* ------------------------------- zoom ------------------------------------ */
@@ -391,18 +392,11 @@ function onHashChange() {
   render();
 }
 
-function select(kind, idx, linkIdx = null, evIdx = null, evKind = null, compIdx = null) {
+function select(kind, idx, { claimIdx = null, evIdx = null, evKind = null, caseIdx = null } = {}) {
   // Picking something on the map is a request to read it, so a hidden detail
   // pane comes back on its own rather than needing a second control.
   setRightPane(true);
-  navigate({ selKind: kind, selIdx: idx, linkIdx, evIdx, evKind, compIdx });
-}
-
-/* Select a measured impact and bring it into view in the timeline lane. */
-function selectImpact(ii) {
-  select('impact', ii);
-  const box = el('ch-map').querySelector(`.sp-imp[data-i="${ii}"]`);
-  if (box) box.scrollIntoView({ block: 'center', inline: 'nearest', behavior: 'smooth' });
+  navigate({ selKind: kind, selIdx: idx, claimIdx, evIdx, evKind, caseIdx });
 }
 
 function bindEvents() {
@@ -428,39 +422,42 @@ function bindEvents() {
 
   el('key-close').addEventListener('click', () => setKeyPanel(false));
 
-  // The Expand button in the split pane and the Back button in the full
-  // timeline are the only two view switches.
-  for (const id of ['tl-expand', 'tl-back']) {
-    el(id).addEventListener('click', () =>
-      navigate({ view: el(id).dataset.view, selKind: null, selIdx: null, linkIdx: null, evIdx: null, evKind: null }));
-  }
+  // The Back button in the full timeline is one of the two view switches. The
+  // other is the expand button in the Main Timeline lane header, which the map
+  // rebuilds, so it is handled in the map's click listener below.
+  el('tl-back').addEventListener('click', () =>
+    navigate({ view: el('tl-back').dataset.view, ...NO_SEL }));
 
-  // The proposal card is a div (its effect links are buttons), so Enter and
-  // Space open it the way they open a button.
+  // The proposal card and the outcome box are divs, so Enter and Space open
+  // them the way they open a button.
   el('ch-map').addEventListener('keydown', e => {
-    if ((e.key === 'Enter' || e.key === ' ') && e.target.matches('.sp-propbox')) {
+    if ((e.key === 'Enter' || e.key === ' ') && e.target.matches('.sp-propbox, .sp-out')) {
       e.preventDefault(); e.target.click();
     }
   });
   el('ch-map').addEventListener('click', e => {
-    // An effect link on a proposal jumps to where that impact is measured.
-    const go = e.target.closest('[data-goimp]');
-    if (go) { selectImpact(Number(go.dataset.goimp)); return; }
-    // One evidence card is one paper: select just that record.
+    // The lane header is a control, not a card: it opens the full timeline.
+    if (e.target.closest('.sp-lane-x')) { navigate({ view: 'timeline', ...NO_SEL }); return; }
+    const num = (n, k) => Number(n.dataset[k]);
+    // Most specific first: one evidence card is one record, one case card is
+    // one precedent, then the claim, then the proposal or its outcome box.
     const evc = e.target.closest('[data-ev]');
-    if (evc && evc.dataset.pr != null && evc.dataset.pl != null) {
-      select('propev', Number(evc.dataset.pr), Number(evc.dataset.pl),
-        Number(evc.dataset.ev), evc.dataset.evk);
+    if (evc && evc.dataset.pr != null) {
+      select('propev', num(evc, 'pr'), { claimIdx: num(evc, 'cl'), evIdx: num(evc, 'ev'), evKind: evc.dataset.evk });
       return;
     }
-    const pl = e.target.closest('[data-pl]');
-    if (pl && pl.dataset.pr != null) {
-      select('proplink', Number(pl.dataset.pr), Number(pl.dataset.pl));
+    const cs = e.target.closest('[data-cs]');
+    if (cs && cs.dataset.pr != null) {
+      select('propcase', num(cs, 'pr'), { claimIdx: num(cs, 'cl'), caseIdx: num(cs, 'cs') });
       return;
     }
-    // One comparable case is one precedent: select just that box.
-    const cb = e.target.closest('.sp-compbox');
-    if (cb) { select('propcomp', Number(cb.dataset.pr), null, null, null, Number(cb.dataset.pc)); return; }
+    const cl = e.target.closest('[data-cl]');
+    if (cl && cl.dataset.pr != null) {
+      select('propclaim', num(cl, 'pr'), { claimIdx: num(cl, 'cl') });
+      return;
+    }
+    const out = e.target.closest('.sp-out[data-pr]');
+    if (out) { select('propout', num(out, 'pr')); return; }
     const pr = e.target.closest('[data-pr]');
     if (pr) { select('prop', Number(pr.dataset.pr)); return; }
     const m = e.target.closest('[data-m]');
@@ -540,31 +537,7 @@ function bindEvents() {
 
   el('ch-detail').addEventListener('click', e => {
     const back = e.target.closest('[data-back]');
-    if (back) {
-      if (back.dataset.back === 'link') {
-        navigate({ selKind: 'proplink', selIdx: state.selIdx, linkIdx: state.linkIdx, evIdx: null, evKind: null });
-      } else if (back.dataset.back === 'prop') {
-        navigate({ selKind: 'prop', selIdx: state.selIdx, linkIdx: null, evIdx: null, evKind: null });
-      } else {
-        navigate({ selKind: null, selIdx: null, linkIdx: null, evIdx: null, evKind: null });
-      }
-      return;
-    }
-    const goi = e.target.closest('[data-goimp]');
-    if (goi) { selectImpact(Number(goi.dataset.goimp)); return; }
-    const row = e.target.closest('.sp-chainrow[data-pl]');
-    if (row && (state.selKind === 'prop' || state.selKind === 'proplink')) {
-      navigate({ selKind: 'proplink', selIdx: state.selIdx, linkIdx: Number(row.dataset.pl) });
-    }
-  });
-
-  el('ch-detail').addEventListener('keydown', e => {
-    if (e.key !== 'Enter' && e.key !== ' ') return;
-    const row = e.target.closest('.sp-chainrow[data-pl]');
-    if (row && (state.selKind === 'prop' || state.selKind === 'proplink')) {
-      e.preventDefault();
-      navigate({ selKind: 'proplink', selIdx: state.selIdx, linkIdx: Number(row.dataset.pl) });
-    }
+    if (back) { navigate(NO_SEL); return; }
   });
 
   // Entry expansion works in the timeline view and in the split-timeline pane.
@@ -596,7 +569,7 @@ function bindEvents() {
       if (el('drawer').classList.contains('open')) { setDrawer(false); return; }
       if (el('key-panel').classList.contains('open')) { setKeyPanel(false); return; }
       if (state.view === 'spine' && state.selKind != null) {
-        navigate({ selKind: null, selIdx: null, linkIdx: null, evIdx: null, evKind: null });
+        navigate(NO_SEL);
       }
       return;
     }
@@ -614,7 +587,7 @@ function bindEvents() {
     const n = curCase().entries.length;
     const cur = state.selKind === 'entry' ? state.selIdx : (dir > 0 ? -1 : n);
     const next = Math.min(Math.max(cur + dir, 0), n - 1);
-    navigate({ selKind: 'entry', selIdx: next, linkIdx: null, evIdx: null, evKind: null });
+    navigate({ ...NO_SEL, selKind: 'entry', selIdx: next });
     // Keep the selected event in view without disturbing zoom.
     const box = el('ch-map').querySelector(`.sp-ent[data-e="${next}"]`);
     if (box) box.scrollIntoView({ block: 'nearest', inline: 'nearest' });

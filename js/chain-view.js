@@ -1,4 +1,4 @@
-import { srcHtml } from './util.js';
+import { srcLine } from './util.js';
 
 /* --------------------------------------------------------------------------
  * The causal chain as a map, not a document.
@@ -305,7 +305,7 @@ function evidenceHtml(list, kind) {
       <div class="ev-body">
         <div class="ev-finding">${ev.finding}</div>
         ${ev.caveat ? `<div class="ev-caveat">Caveat: ${ev.caveat}</div>` : ''}
-        <div class="ev-srcs">${srcHtml(ev.srcs)}</div>
+        ${srcLine(ev.srcs)}
       </div>
     </li>`).join('');
   return `<div class="ln-sec ln-sec-${kind}"><h4>${heading}</h4><ul class="ev-list">${items}</ul></div>`;
@@ -320,7 +320,7 @@ function partCard(p, idx, { clickable = true } = {}) {
     </div>
     <div class="pa-actors"><span class="act-label">Actors:</span> ${p.actors}</div>
     <div class="pa-desc">${p.description}</div>
-    <div class="ev-srcs">${srcHtml(p.srcs)}</div>
+    ${srcLine(p.srcs)}
   </li>`;
 }
 
@@ -351,7 +351,7 @@ function propCard(p, idx, { clickable = true } = {}) {
       ${p.unstudied
         ? '<em class="pp-mech-note">This causal link was not found in the studied literature; the proposal asserts it.</em>'
         : ''}</div>
-    ${p.srcs?.length ? `<div class="ev-srcs">${srcHtml(p.srcs)}</div>` : ''}
+    ${srcLine(p.srcs)}
   </li>`;
 }
 

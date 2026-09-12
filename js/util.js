@@ -18,6 +18,18 @@ export function srcHtml(srcs, cls = 'esrc-link') {
 }
 
 /**
+ * Render sources as one line: "Sources: NYT, Education Week". Links that
+ * repeat a URL are dropped, so a pane can pass every source it shows.
+ */
+export function srcLine(srcs) {
+  const seen = new Set();
+  const list = (srcs ?? []).filter(s => s?.u && !seen.has(s.u) && seen.add(s.u));
+  if (!list.length) return '';
+  const links = list.map(s => `<a data-url="${attr(s.u)}">${s.l}</a>`).join(', ');
+  return `<div class="ev-srcs"><span class="act-label">${list.length > 1 ? 'Sources' : 'Source'}:</span> ${links}</div>`;
+}
+
+/**
  * Delegate clicks on any [data-url] element to openUrl. Called once at boot,
  * so dynamically rendered source links do not each need their own handler.
  */

@@ -110,8 +110,11 @@ function checkSources(sources, where) {
  * source was re-fetched and the wording checked. It is the reader's proof
  * that the finding is the source's statement, not this project's gloss.
  */
-export function evidence({ finding, grade, sources = [], caveat = null, quote = null }) {
+export function evidence({ headline = null, finding, grade, sources = [], caveat = null, quote = null }) {
   if (!finding?.trim()) throw new Error('Evidence is missing a finding');
+  if (headline != null && !String(headline).trim()) {
+    throw new Error(`Evidence "${finding.slice(0, 60)}" has an empty headline`);
+  }
   if (!VALID_STRENGTHS.includes(grade)) {
     throw new Error(
       `Invalid evidence grade "${grade}" on finding "${finding.slice(0, 60)}". ` +
@@ -122,7 +125,7 @@ export function evidence({ finding, grade, sources = [], caveat = null, quote = 
     throw new Error(`Evidence "${finding.slice(0, 60)}" has an empty quote`);
   }
   checkSources(sources, `Evidence "${finding.slice(0, 60)}"`);
-  return { finding, grade, caveat, quote, srcs: sources.map(s => ({ l: s.label, u: s.url })) };
+  return { headline, finding, grade, caveat, quote, srcs: sources.map(s => ({ l: s.label, u: s.url })) };
 }
 
 /** One instance of public participation sitting at a causal link. */
@@ -370,44 +373,61 @@ export function impact({ name, headline, found, measures, from = [], evidence: e
   return { name, headline, found, measures, from, evidence: evid, counterEvidence };
 }
 
-/** One link inside a proposed intervention's causal chain. */
-export function propLink({ name, claim, strength, evidence: evid = [], counterEvidence = [] }) {
-  if (!name?.trim()) throw new Error('Proposal link is missing a name');
-  if (!claim?.trim()) throw new Error(`Proposal link "${name}" is missing a claim`);
-  if (!VALID_STRENGTHS.includes(strength)) {
-    throw new Error(
-      `Invalid strength "${strength}" on proposal link "${name}". Use one of: ${VALID_STRENGTHS.join(', ')}`
-    );
-  }
-  if (strength !== 'unstudied' && evid.length === 0) {
-    throw new Error(`Proposal link "${name}" is graded "${strength}" but carries no evidence`);
-  }
-  return { name, claim, strength, evidence: evid, counterEvidence };
+/**
+ * One claim in support of a proposal's outcome. `text` is one general
+ * sentence that evidence from other cases can support; it is the card.
+ * Evidence, counter-evidence, and the case studies that support the claim
+ * sit under it. A claim is a claim, not a step in a chain. A claim with
+ * nothing under it is a gap, and the map shows it as one.
+ */
+export function claim({ text, evidence: evid = [], counterEvidence = [], cases = [] }) {
+  if (!text?.trim()) throw new Error('Claim is missing its text');
+  return { text, evidence: evid, counterEvidence, cases };
 }
 
-/** A comparable real-world intervention with its measured outcome. */
-export function comparable({ name, where, when, authority, outcome, strength, sources = [] }) {
-  if (!name?.trim()) throw new Error('Comparable is missing a name');
-  if (!where?.trim()) throw new Error(`Comparable "${name}" is missing a where`);
-  if (!when?.trim()) throw new Error(`Comparable "${name}" is missing a when`);
-  if (!authority?.trim()) throw new Error(`Comparable "${name}" is missing an authority note`);
-  if (!outcome?.trim()) throw new Error(`Comparable "${name}" is missing an outcome`);
+/**
+ * A real-world case offered in support of a claim. The outcome paragraph is
+ * what the case showed.
+ */
+export function supportingCase({ name, where, when, authority, outcome, strength, sources = [] }) {
+  if (!name?.trim()) throw new Error('Case study is missing a name');
+  if (!where?.trim()) throw new Error(`Case study "${name}" is missing a where`);
+  if (!when?.trim()) throw new Error(`Case study "${name}" is missing a when`);
+  if (!authority?.trim()) throw new Error(`Case study "${name}" is missing an authority note`);
+  if (!outcome?.trim()) throw new Error(`Case study "${name}" is missing an outcome`);
   if (!VALID_STRENGTHS.includes(strength)) {
-    throw new Error(`Invalid strength "${strength}" on comparable "${name}"`);
+    throw new Error(`Invalid strength "${strength}" on case study "${name}"`);
   }
-  checkSources(sources, `Comparable "${name}"`);
+  checkSources(sources, `Case study "${name}"`);
   return { name, where, when, authority, outcome, strength, srcs: sources.map(s => ({ l: s.label, u: s.url })) };
 }
 
 /**
- * A proposed intervention anchored to the spine, carrying its full causal
- * chain from intervention to outcome. `banner: true` marks a chain no study
- * tests end to end; per-link grades still render underneath.
+ * The one outcome a proposal argues for: a single sentence saying what the
+ * proposal is expected to do. `measured` is the exact name of one of this
+ * case's measured outcomes when the sentence names the same thing, or null.
+ * The tie lives here and shows as highlighting on the map, not in words.
+ * Under the outcome sit the `claims` that support it.
+ */
+export function outcome({ text, measured = null, claims = [] }) {
+  if (!text?.trim()) throw new Error('Outcome is missing its text');
+  if (measured != null && !String(measured).trim()) {
+    throw new Error(`Outcome "${text.slice(0, 60)}" has an empty measured name`);
+  }
+  return { text, measured, claims };
+}
+
+/**
+ * A proposed intervention placed on the spine. `anchor` is a phrase from a
+ * timeline entry; it only decides which part of the timeline the card sits
+ * beside. The map draws a connection to that event only when `linked: true`;
+ * by default the card is drawn with a solid bracket in the gutter and asserts
+ * no link to a specific event. `outcome` is what the proposal is for; `note`
+ * is an optional paragraph on how the participation can feed a decision.
  */
 export function spineProposal({
-  name, method, summary = '', anchor, when, where, description,
-  banner = true, impactsMeasured = [], impactsConjectured = [],
-  links = [], comparables = [], sources = []
+  name, method, summary = '', anchor, linked = false, when, where, description,
+  note = '', outcome: out, sources = []
 }) {
   if (!name?.trim()) throw new Error('Spine proposal is missing a name');
   if (!method?.trim()) throw new Error(`Spine proposal "${name}" is missing a method`);
@@ -415,12 +435,11 @@ export function spineProposal({
   if (!when?.trim()) throw new Error(`Spine proposal "${name}" is missing a when paragraph`);
   if (!where?.trim()) throw new Error(`Spine proposal "${name}" is missing a where`);
   if (!description?.trim()) throw new Error(`Spine proposal "${name}" is missing a description`);
-  if (!links.length) throw new Error(`Spine proposal "${name}" has no chain links`);
+  if (!out?.text) throw new Error(`Spine proposal "${name}" has no outcome`);
   checkSources(sources, `Spine proposal "${name}"`);
   return {
-    name, method, summary, anchor, when, where, description,
-    banner: Boolean(banner), impactsMeasured, impactsConjectured,
-    links, comparables, srcs: sources.map(s => ({ l: s.label, u: s.url }))
+    name, method, summary, anchor, linked: Boolean(linked), when, where, description,
+    note, outcome: out, srcs: sources.map(s => ({ l: s.label, u: s.url }))
   };
 }
 
@@ -429,10 +448,9 @@ export function spineData({ slug, mechanisms = [], impacts = [], proposals = [] 
   if (!slug?.trim()) throw new Error('Spine data is missing a slug');
   const impactNames = new Set(impacts.map(i => i.name));
   for (const p of proposals) {
-    for (const n of p.impactsMeasured) {
-      if (!impactNames.has(n)) {
-        throw new Error(`Spine proposal "${p.name}" names measured impact "${n}", which is not an impact of case "${slug}"`);
-      }
+    const m = p.outcome.measured;
+    if (m != null && !impactNames.has(m)) {
+      throw new Error(`Outcome of proposal "${p.name}" names measured outcome "${m}", which is not an impact of case "${slug}"`);
     }
   }
   return { slug, mechanisms, impacts, proposals };

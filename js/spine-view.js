@@ -1,52 +1,92 @@
-import { srcHtml, attr, splitEntryText } from './util.js';
+import { srcLine, attr, splitEntryText } from './util.js';
 import { CAT } from './categories.js';
 
 
 /* --------------------------------------------------------------------------
  * The timeline as the central spine, drawn in four labelled lanes.
  *
- *   MEASURED IMPACT (left)  what the record later measured, each card sitting
- *                          at the date its finding was first published, with a
- *                          short arrow from the events where the causal claim
- *                          holds. Retrospective, so it annotates the record
+ *   MEASURED OUTCOME (left) what the record later measured, each card sitting
+ *                          beside the one event most relevant to it, with a
+ *                          short arrow from that event. Its card shows the date
+ *                          the finding was first published. Retrospective, so it annotates the record
  *                          from the margin rather than joining the chain.
  *   MAIN TIMELINE          every dated event in order. A star in an event's
  *                          corner marks a mechanism that already existed and
  *                          should have caught it; click the star to read why
  *                          it did not. Boxes show the opening of an entry;
  *                          the sidebar carries the whole record.
- *   PROPOSED PUBLIC        the proposals from the design work, tied by a
- *   PARTICIPATION          dotted bracket to the event they would intervene
- *                          in, each carrying its mechanism and the effects it
- *                          aims at, linked back to the impact that measures it.
- *   CAUSAL CHAIN &         each proposal's chain running left to right, with
- *   EVIDENCE               every evidence and counter-evidence card under the
- *                          link it supports. One card is one paper.
+ *   PROPOSED PUBLIC        the proposals from the design work. Each sits
+ *   PARTICIPATION          beside the part of the record it speaks to, marked
+ *                          by a brace in the gutter; a dotted line to
+ *                          one event appears only where that link is asserted.
+ *   PROPOSED OUTCOMES     what each proposal is for: one green box, one
+ *                          sentence, with one arrow from the card into it.
+ *                          Selecting a proposal rings the Measured Outcome
+ *                          its box names, where the record measured one.
+ *                          Under it, a row of the claims that support it;
+ *                          under each claim, its evidence, counter-evidence,
+ *                          and case studies. A claim is a claim, not a step
+ *                          in a chain; nothing points out of one.
  *
  * Every connector is drawn from straight horizontal and vertical segments.
  * -------------------------------------------------------------------------- */
 
 const L = {
-  canvasW: 2010,
   headH: 46,
   impX: 24, impW: 250,
   gutImp: 274,                 // 274..330, impact arrows
   spineX: 336, spineW: 356,
-  gutProp: 692,                // 692..744, the proposal bracket
-  propX: 752, propW: 252,
-  chainX: 1036, chainW: 940,
+  gutProp: 692,                // 692..744, the proposal brace
+  propX: 752, propW: 300,
+  chainX: 1084, chainMinW: 1128, // the lane holds at least four claims
+  claimW: 270, claimGap: 16,   // one column per claim
+  outW: 420, outGap: 14,       // the outcome box, and the gap to the claim row
   padTop: 80, padBottom: 180,
-  rowGap: 46, subGap: 32, chainGap: 44, railGap: 20
+  rowGap: 46, subGap: 32, railGap: 20,
+  stackGap: 8, cardGap: 5
 };
 
 /** How much of an entry the map box shows before the sidebar takes over. */
 const BOX_CHARS = 185;
 
-const LANES = [
-  { x: L.impX, w: L.impW, label: 'Measured Impact', cls: 'lane-im' },
-  { x: L.spineX, w: L.spineW, label: 'Main Timeline', cls: 'lane-tl' },
-  { x: L.propX, w: L.propW, label: 'Proposed Public Participation', cls: 'lane-pp' },
-  { x: L.chainX, w: L.chainW, label: 'Causal Chain &amp; Evidence', cls: 'lane-ch' }
+/* The proposal brace: its body on the middle of the gutter between the Main
+   Timeline and Proposed Public Participation lanes, and half its width either
+   side, nudged a few pixels left of centre so the cusp clears the card. */
+const BR = { x: Math.round((L.spineX + L.spineW + L.propX) / 2) - 8, d: 9 };
+
+/* Diagonal arrows out, sitting in the Main Timeline lane header: it opens the
+   full timeline view, with its filters and the case overview. The control used
+   to be a View Timeline button in the detail pane header, which is on the other
+   side of the screen from the timeline it opens. */
+const EXPAND_BTN = `<button class="sp-lane-x" aria-label="Open the full timeline"
+  title="Open the full timeline with filters and the case overview"><svg viewBox="0 0 24 24"
+  fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"
+  stroke-linejoin="round" aria-hidden="true"><polyline points="15 3 21 3 21 9"/><polyline
+  points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21"
+  x2="10" y2="14"/></svg></button>`;
+
+/* A count tag in the lane header, so the header says how many of the thing the
+   lane holds. The three counts used to sit in the About This Case strip, which
+   is the one place on screen that is not the lane itself. */
+const laneCount = n => `<span class="sp-lane-n">${n}</span>`;
+
+/* What each lane holds, shown on hovering its header and in the How to Read
+   This Map pane. */
+const LANE_TIPS = {
+  'lane-im': 'Shows what the record measured. Each card sits beside the event it bears on most and shows the date the finding first appeared.',
+  'lane-tl': 'Lists the case events in date order. Click an event to read its full record. Click a star to see whether an existing mechanism addressed the event.',
+  'lane-pp': 'Shows proposals from the design work. A brace spans the part of the record a proposal answers. A line ties a proposal to one event.',
+  'lane-ch': 'Shows the outcome each proposal aims for. A dashed border marks it as proposed, not measured. Claims support each outcome, and evidence, counter-evidence, and case studies back each claim. Select an outcome the record also measured to highlight its card in the first lane.'
+};
+
+/** The lanes, with the last one as wide as the widest claim row. */
+const lanesFor = (chainW, n) => [
+  { x: L.impX, w: L.impW, label: 'Measured Outcomes', cls: 'lane-im', n: n.imp },
+  { x: L.spineX, w: L.spineW, label: 'Main Timeline', cls: 'lane-tl', expand: true },
+  { x: L.propX, w: L.propW, label: 'Proposed Public Participation', cls: 'lane-pp', n: n.prop },
+  // Every proposal has exactly one proposed outcome, so a count here would only
+  // repeat the lane to its left.
+  { x: L.chainX, w: chainW, label: 'Proposed Outcomes, Claims & Evidence', cls: 'lane-ch' }
 ];
 
 const plain = s => String(s).replace(/<[^>]+>/g, '');
@@ -79,13 +119,6 @@ function impactRow(entries, found) {
   return i === -1 ? entries.length : i;
 }
 
-/* Arrow strength, best first. Ties go to the later event: the shorter arrow. */
-const RANK = { strong: 0, moderate: 1, weak: 2, contested: 3, unstudied: 4 };
-function primaryArrow(froms) {
-  return froms.slice().sort((a, b) =>
-    (RANK[a.f.strength] ?? 9) - (RANK[b.f.strength] ?? 9) || b.i - a.i)[0];
-}
-
 function entryBoxHtml(e, i, mechs) {
   const c = CAT[e.cat];
   const { lead, rest } = splitEntryText(e.text, BOX_CHARS);
@@ -110,63 +143,73 @@ function impactBoxHtml(im, ii) {
   </div>`;
 }
 
-/** One proposal card: the intervention, the institutional mechanism that would
-   implement it, and the outcomes it aims at, each linked to where the timeline
-   measures it. The card classifies nothing; uncertainty lives in the chain and
-   the evidence. */
-function propBoxHtml(p, pi, impacts) {
-  const links = p.impactsMeasured.map(n => {
-    const ii = impacts.findIndex(x => x.name === n);
-    return ii === -1 ? `<span class="sp-efflink is-off">${n}</span>`
-      : `<button class="sp-efflink" data-goimp="${ii}">${n}<span class="sp-efflink-go">&#8599;</span></button>`;
-  }).join('');
+/** One proposal card: the intervention and the institutional mechanism that
+   would implement it. What it is for sits in the row beside it. */
+function propBoxHtml(p, pi, total) {
   return `<div class="sp-prop-head">
-      <span class="sp-propbox-kick">Proposed Public Participation</span>
+      <span class="sp-propbox-kick">Proposed Public Participation <span class="sp-propbox-n">(${pi + 1}/${total})</span></span>
       <span class="sp-prop-title">${p.name}</span>
     </div>
     <div class="sp-prop-fields">
       <div class="sp-eff-kick">Mechanism</div>
-      ${p.summary ? `<div class="sp-prop-sum">${p.summary}</div>` : `<div class="sp-eff-mech">${p.method}</div>`}
-      <div class="sp-eff-kick">Effects it aims at</div>
-      ${links || '<div class="sp-eff-none">No measured impact in this case</div>'}
+      <div class="sp-eff-mech">${p.method}</div>
     </div>`;
 }
 
-/** One comparable case as its own box under the proposal it belongs to. */
-function compBoxHtml(c, pi, k) {
-  return `<button class="sp-compbox" data-pr="${pi}" data-pc="${k}">
-    <span class="sp-compbox-kick">Comparable Case</span>
-    <span class="sp-compbox-name">${c.name}</span>
-    <span class="sp-compbox-meta">${c.where} &middot; ${c.when}</span>
-  </button>`;
+/** The one outcome box of a proposal. Every one of these is a proposed
+   outcome, so every one is the same green. Where the box names a
+   Measured Outcome, the tie is shown by highlighting that card when the
+   proposal is selected, never by this box's fill and never in words on it. */
+function outBoxHtml(p, pi, impacts) {
+  const mi = p.outcome.measured == null ? -1 : impacts.findIndex(x => x.name === p.outcome.measured);
+  return `<div class="sp-out" data-pr="${pi}"${mi === -1 ? '' : ` data-mi="${mi}"`} tabindex="0" role="button">
+    <span class="sp-out-kick">Proposed outcome</span>
+    <span class="sp-out-text">${p.outcome.text}</span>
+  </div>`;
 }
 
 /**
  * Render the spine map into `el`.
- * sel: { kind, idx, linkIdx, evIdx, evKind }
+ * sel: { kind, idx, claimIdx, evIdx, evKind, caseIdx }
  * The DOM is rebuilt when the case changes; every other selection updates
  * highlights in place.
  */
 export function renderSpineMap(el, caseObj, spine, sel = {}) {
   const entries = caseObj.entries;
 
+  // The last lane is as wide as the widest row of claims in this case; the
+  // canvas follows it, and the map scrolls and zooms as it always has.
+  const maxN = Math.max(1, ...spine.proposals.map(p => p.outcome.claims.length));
+  const chainW = Math.max(L.chainMinW, maxN * L.claimW + (maxN - 1) * L.claimGap);
+  const canvasW = L.chainX + chainW + 34;
+  const LANES = lanesFor(chainW, {
+    imp: spine.impacts.length, prop: spine.proposals.length
+  });
+
   const lanes = LANES.map(l =>
-    `<div class="sp-lane ${l.cls}" style="left:${l.x}px;width:${l.w}px">${l.label}</div>`).join('');
+    `<div class="sp-lane ${l.cls}" style="left:${l.x}px;width:${l.w}px" tabindex="0"><span
+      class="sp-lane-t">${l.label}</span>${l.n == null ? '' : laneCount(l.n)}${
+      l.expand ? EXPAND_BTN : ''}<div class="sp-lane-tip" role="tooltip">${LANE_TIPS[l.cls]}</div></div>`).join('');
   el.innerHTML = `<div class="sp">
-    <div class="sp-lanes" style="width:${L.canvasW}px;height:${L.headH}px">${lanes}</div>
+    <div class="sp-lanes" style="width:${canvasW}px;height:${L.headH}px">${lanes}</div>
     <svg class="sp-edges"></svg></div>`;
   const stage = el.querySelector('.sp');
   const svg = el.querySelector('.sp-edges');
-  stage.style.width = `${L.canvasW}px`;
+  stage.style.width = `${canvasW}px`;
 
   // Lane bands, painted behind everything so the columns read as columns.
-  for (const l of LANES) {
+  LANES.forEach((l, i) => {
     const b = document.createElement('div');
     b.className = `sp-band ${l.cls}`;
-    b.style.left = `${l.x - 14}px`;
-    b.style.width = `${l.w + 28}px`;
+    // No cream gaps between bands: neighbouring bands meet halfway across the
+    // gap between their lanes.
+    const prev = LANES[i - 1], next = LANES[i + 1];
+    const left = prev ? Math.round((prev.x + prev.w + l.x) / 2) : l.x - 14;
+    const right = next ? Math.round((l.x + l.w + next.x) / 2) : l.x + l.w + 14;
+    b.style.left = `${left}px`;
+    b.style.width = `${right - left}px`;
     stage.appendChild(b);
-  }
+  });
   const bands = [...stage.querySelectorAll('.sp-band')];
 
   // Which mechanisms should have caught which event: a star per mechanism in
@@ -192,14 +235,10 @@ export function renderSpineMap(el, caseObj, spine, sel = {}) {
     return box;
   });
 
-  // Pass 2: the impact cards. Each one sits level with its strongest source
-  // event, the way a proposal sits level with the event it intervenes in, so
-  // the arrow between them is short and horizontal. The found date stays on
-  // the card. An impact with no anchored source falls back to the row where
-  // its finding was published.
-  const impFroms = spine.impacts.map(im => im.from
-    .map(f => ({ f, i: anchorIndex(entries, f.anchor) }))
-    .filter(x => x.i !== -1));
+  // Pass 2: the impact cards. Each one is tied to the one event most relevant
+  // to it and sits level with that event, so the arrow between them is short
+  // and horizontal. The found date stays on the card. An impact whose event
+  // does not resolve falls back to the row where its finding was published.
   const imps = spine.impacts.map((im, ii) => {
     const d = document.createElement('div');
     d.innerHTML = impactBoxHtml(im, ii);
@@ -207,99 +246,107 @@ export function renderSpineMap(el, caseObj, spine, sel = {}) {
     box.style.left = `${L.impX}px`;
     box.style.width = `${L.impW}px`;
     stage.appendChild(box);
-    const prim = primaryArrow(impFroms[ii]);
-    const row = prim ? prim.i : Math.min(impactRow(entries, im.found), entries.length - 1);
-    return { ii, box, row, k: dkey(im.found) };
+    const src = im.from[0] ? anchorIndex(entries, im.from[0].anchor) : -1;
+    const row = src !== -1 ? src : Math.min(impactRow(entries, im.found), entries.length - 1);
+    return { ii, box, row, src, k: dkey(im.found) };
   }).sort((a, b) => a.row - b.row || a.k - b.k);
-  const impEl = [];
-  for (const r of imps) impEl[r.ii] = r.box;
   const impAt = new Map();
   for (const r of imps) {
     if (!impAt.has(r.row)) impAt.set(r.row, []);
     impAt.get(r.row).push(r);
   }
 
-  // Pass 3: build and measure every proposal, its effects card, its chain
-  // boxes, its evidence cards, and its comparables strip.
+  // Pass 3: build and measure every proposal, its outcome box, the row of
+  // claims under it, and the cards that stack under each claim.
   const propAt = new Map();
+  // Cards are numbered in the order they appear down the map, counting only
+  // the proposals that are drawn.
+  const shown = spine.proposals
+    .map((p, pi) => ({ pi, i: anchorIndex(entries, p.anchor) }))
+    .filter(x => x.i !== -1)
+    .sort((a, b) => a.i - b.i || a.pi - b.pi)
+    .map(x => x.pi);
   spine.proposals.forEach((p, pi) => {
     const i = anchorIndex(entries, p.anchor);
     if (i === -1) return;
 
-    // A div rather than a button, because the effect links inside it are buttons.
+    // A div rather than a button: the card is a group, and Enter opens it.
     const box = document.createElement('div');
     box.className = 'sp-propbox';
     box.dataset.pr = pi;
-    box.dataset.ae = i;
+    // Only a proposal that claims a link to one event records which event;
+    // the rest just sit beside the part of the record they speak to.
+    if (p.linked) box.dataset.ae = i;
     box.tabIndex = 0;
     box.setAttribute('role', 'button');
-    box.innerHTML = propBoxHtml(p, pi, spine.impacts);
+    box.innerHTML = propBoxHtml(p, shown.indexOf(pi), shown.length);
     box.style.left = `${L.propX}px`;
     box.style.width = `${L.propW}px`;
     stage.appendChild(box);
     const head = box.querySelector('.sp-prop-head');
 
-    const n = p.links.length;
-    const boxW = Math.min(190, Math.floor((L.chainW - (n - 1) * L.chainGap) / n));
-    const links = p.links.map((lk, li) => {
-      const d = document.createElement('button');
-      d.className = `sp-chainbox${lk.strength === 'unstudied' ? ' sp-chain-un' : ''}`;
-      d.dataset.pr = pi;
-      d.dataset.pl = li;
-      // The box carries just its claim; a dashed border still marks a link no
-      // study tests directly.
-      d.innerHTML = `<span class="sp-chain-name">${lk.name}</span>`;
-      d.style.left = `${L.chainX + li * (boxW + L.chainGap)}px`;
-      d.style.width = `${boxW}px`;
-      stage.appendChild(d);
+    // The one outcome box, at the head of the lane, spanning the claim row
+    // under it.
+    const od = document.createElement('div');
+    od.innerHTML = outBoxHtml(p, pi, spine.impacts);
+    const out = od.firstElementChild;
+    const nCl = p.outcome.claims.length;
+    const rowW = nCl * L.claimW + Math.max(0, nCl - 1) * L.claimGap;
+    out.style.left = `${L.chainX}px`;
+    out.style.width = `${Math.max(L.outW, rowW)}px`;
+    stage.appendChild(out);
 
-      const cards = [];
-      // One card per record, and clicking one opens that record alone.
-      const addCard = (kick, label, extraCls = '', ev = null) => {
-        const ec = document.createElement('button');
-        ec.className = `sp-evcard${extraCls}`;
-        ec.dataset.pr = pi;
-        ec.dataset.pl = li;
-        if (ev) { ec.dataset.ev = ev.k; ec.dataset.evk = ev.kind; }
-        ec.innerHTML = `<span class="sp-evcard-kick">${kick}</span>${label}`;
-        ec.style.left = d.style.left;
-        ec.style.width = `${boxW}px`;
-        stage.appendChild(ec);
-        cards.push(ec);
+    // One column per claim: the claim, then one card per record under it,
+    // so a single paper or precedent can be clicked and read on its own.
+    const srcLabel = x => x.srcs?.map(s => s.l).join('; ') || 'Source';
+    const claims = p.outcome.claims.map((cl, ci) => {
+      const x = L.chainX + ci * (L.claimW + L.claimGap);
+      const place = (node) => {
+        node.style.left = `${x}px`;
+        node.style.width = `${L.claimW}px`;
+        stage.appendChild(node);
+        return node;
       };
-      if ((lk.evidence ?? []).length) {
-        lk.evidence.forEach((ev, k) =>
-          addCard('Evidence', ev.srcs?.map(x => x.l).join('; ') || 'Source', '', { k, kind: 'for' }));
-      } else if (lk.strength === 'unstudied') {
-        addCard('Evidence', 'No study found', ' sp-evcard-un');
-      }
-      (lk.counterEvidence ?? []).forEach((ev, k) =>
-        addCard('Counter', ev.srcs?.map(x => x.l).join('; ') || 'Source', ' sp-evcard-ctr', { k, kind: 'counter' }));
-      return { el: d, cards, x: L.chainX + li * (boxW + L.chainGap), w: boxW };
+      const c = document.createElement('button');
+      c.className = 'sp-claim';
+      c.dataset.pr = pi; c.dataset.cl = ci;
+      c.innerHTML = `<span class="sp-claim-kick">Claim</span><span class="sp-claim-name">${cl.text}</span>`;
+      place(c);
+      const cards = [];
+      const addCard = (ev, k, kind) => {
+        const ec = document.createElement('button');
+        ec.className = `sp-evcard${kind === 'counter' ? ' sp-evcard-ctr' : ''}`;
+        ec.dataset.pr = pi; ec.dataset.cl = ci;
+        ec.dataset.ev = k; ec.dataset.evk = kind;
+        ec.innerHTML = `<span class="sp-evcard-kick">${kind === 'counter' ? 'Counter' : 'Evidence'}</span>
+          <span class="sp-evcard-h">${ev.headline ?? srcLabel(ev)}</span>`;
+        cards.push(place(ec));
+      };
+      // Order: the material for the claim (papers, then cases), then the
+      // material against it, which its grey dashed cards mark on their own.
+      (cl.evidence ?? []).forEach((ev, k) => addCard(ev, k, 'for'));
+      (cl.cases ?? []).forEach((cs, k) => {
+        const cb = document.createElement('button');
+        cb.className = 'sp-casecard';
+        cb.dataset.pr = pi; cb.dataset.cl = ci; cb.dataset.cs = k;
+        cb.innerHTML = `<span class="sp-casecard-kick">Case study</span>
+          <span class="sp-casecard-name">${cs.name}</span>`;
+        cards.push(place(cb));
+      });
+      (cl.counterEvidence ?? []).forEach((ev, k) => addCard(ev, k, 'counter'));
+      return { el: c, cards };
     });
 
-    // Comparable cases: one box each, stacked under the proposal in its own
-    // lane, so a single real-world case can be clicked and read on its own.
-    const comps = (p.comparables ?? []).map((c, ci) => {
-      const d = document.createElement('div');
-      d.innerHTML = compBoxHtml(c, pi, ci);
-      const cb = d.firstElementChild;
-      cb.style.left = `${L.propX}px`;
-      cb.style.width = `${L.propW}px`;
-      stage.appendChild(cb);
-      return cb;
-    });
-
-    // One height for every link box in a row, so the arrows between them are
-    // exactly horizontal.
-    const linkH = Math.max(...links.map(x => x.el.offsetHeight));
-    for (const x of links) x.el.style.height = `${linkH}px`;
+    // One height for every claim in the row, so the stacks under it start
+    // on one line.
+    const claimH = claims.length ? Math.max(...claims.map(c => c.el.offsetHeight)) : 0;
+    for (const c of claims) c.el.style.height = `${claimH}px`;
 
     const rec = {
-      p, pi, box, links, comps, linkH,
-      boxH: box.offsetHeight,
-      // The chain arrow leaves from the middle of the title block, not the
-      // middle of the whole card.
+      p, pi, box, out, claims, claimH, linked: Boolean(p.linked),
+      boxH: box.offsetHeight, outH: out.offsetHeight,
+      // The arrow leaves from the middle of the title block, not the middle
+      // of the whole card.
       headCy: head.offsetTop + head.offsetHeight / 2
     };
     if (!propAt.has(i)) propAt.set(i, []);
@@ -338,46 +385,44 @@ export function renderSpineMap(el, caseObj, spine, sel = {}) {
     if (propAt.has(i)) {
       let subY = y;
       for (const rec of propAt.get(i)) {
-        rec.y = subY;
-        rec.box.style.top = `${Math.round(subY)}px`;
-        rec.cy = subY + rec.headCy;
+        // The outcome box centres on the card's title block, so the arrow out
+        // of the card is one straight horizontal line. The card drops only
+        // when the box is taller than twice the title, so the box never
+        // rises into the block above.
+        const rise = rec.headCy - rec.outH / 2;
+        const top = subY + Math.max(0, -rise);
+        rec.y = top;
+        rec.box.style.top = `${Math.round(top)}px`;
+        rec.cy = top + rec.headCy;
 
-        // The chain row centres on the card's title block, so the arrow out of
-        // the card and every arrow along the chain is one straight horizontal line.
-        const chainTop = rec.cy - rec.linkH / 2;
-        let stackBot = chainTop + rec.linkH;
-        for (const lk of rec.links) {
-          lk.el.style.top = `${Math.round(chainTop)}px`;
-          lk.cy = chainTop + rec.linkH / 2;
-          let ey = chainTop + rec.linkH + 8;
-          for (const c of lk.cards) {
-            c.style.top = `${Math.round(ey)}px`;
-            ey += c.offsetHeight + 5;
+        const outTop = Math.round(rec.cy - rec.outH / 2);
+        rec.out.style.top = `${outTop}px`;
+        let stackBot = outTop + rec.outH;
+        // The claim row under the box, and each claim's cards under it.
+        const rowTop = outTop + rec.outH + L.outGap;
+        for (const cl of rec.claims) {
+          cl.el.style.top = `${rowTop}px`;
+          let sy = rowTop + rec.claimH;
+          for (const c of cl.cards) {
+            sy += (sy === rowTop + rec.claimH ? L.stackGap : L.cardGap);
+            c.style.top = `${Math.round(sy)}px`;
+            sy += c.offsetHeight;
           }
-          stackBot = Math.max(stackBot, ey);
+          stackBot = Math.max(stackBot, sy);
         }
-        // The comparables run straight down the proposal lane under the
-        // card, so each one sits beside the chain it speaks to.
-        let propBot = subY + rec.boxH;
-        for (const cb of rec.comps) {
-          propBot += 6;
-          cb.style.top = `${Math.round(propBot)}px`;
-          propBot += cb.offsetHeight;
-        }
-        const subH = Math.max(propBot - subY, stackBot - subY);
+        const subH = Math.max(top + rec.boxH, stackBot) - subY;
         subY += subH + L.subGap;
       }
       bot = Math.max(bot, subY - L.subGap);
     }
     y = bot + L.rowGap;
   });
-  const timelineBot = y - L.rowGap;
 
   const totalH = y - L.rowGap + L.padBottom;
   stage.style.height = `${totalH}px`;
   for (const b of bands) b.style.height = `${Math.round(totalH)}px`;
-  svg.setAttribute('viewBox', `0 0 ${L.canvasW} ${Math.round(totalH)}`);
-  svg.setAttribute('width', L.canvasW);
+  svg.setAttribute('viewBox', `0 0 ${canvasW} ${Math.round(totalH)}`);
+  svg.setAttribute('width', canvasW);
   svg.setAttribute('height', Math.round(totalH));
 
   /* ------------------------------- edges -------------------------------- */
@@ -392,7 +437,7 @@ export function renderSpineMap(el, caseObj, spine, sel = {}) {
       <circle cx="5" cy="5" r="4.2" fill="${color}"${extra}></circle></marker>`;
   const defs = `<defs>
     ${arw('spine', '#ffffff', 7, ' stroke="#b8b1a3" stroke-width="1.1"')}
-    ${arw('chain', '#b0146e', 8)}
+    ${arw('chain', '#1e6b3c', 8)}
     ${dot('imp', '#1e6b3c', 5, ' fill-opacity="0.75"')}</defs>`;
 
   let paths = '';
@@ -408,51 +453,63 @@ export function renderSpineMap(el, caseObj, spine, sel = {}) {
   }
 
   // Impact arrows: out the left of the event where the causal claim holds,
-  // across the gutter, and into the impact card. The primary arrow runs to a
-  // card sitting level with its source, so it is a straight horizontal line
-  // (with a short jog in the gutter when cards stack). The other sources are
-  // in the SVG but hidden until either end is selected, so the map shows one
-  // line per finding and the detail shows them all.
-  let lane = 0;
+  // across the gutter, and into the impact card. One arrow per finding, to a
+  // card sitting level with its event, so it is a straight horizontal line
+  // (with a short jog in the gutter when cards stack).
   for (const r of imps) {
-    const prim = primaryArrow(impFroms[r.ii]);
-    for (const { i } of impFroms[r.ii]) {
-      const sy = Math.round(yTop[i]) + entEl[i].offsetHeight / 2;
-      const isPrim = prim && prim.i === i;
-      const cls = isPrim ? 'sp-edge-imp' : 'sp-edge-imp sp-edge-imp-alt';
-      // The node sits just clear of the card, which is painted above the edge
-      // layer: centred on the border, half of it would be hidden.
-      const endX = L.impX + L.impW + 5;
-      let d;
-      if (Math.abs(sy - r.cy) < 1) d = `M ${L.spineX} ${sy} H ${endX}`;
-      else {
-        const gx = isPrim ? L.gutImp + 30 : L.gutImp + 6 + (lane++ % 4) * 6;
-        d = `M ${L.spineX} ${sy} H ${gx} V ${r.cy} H ${endX}`;
-      }
-      paths += `<path class="sp-edge ${cls}" data-i="${r.ii}" data-src="${i}" marker-end="url(#sp-dot-imp)" d="${d}"></path>`;
-    }
+    const i = r.src;
+    if (i === -1) continue;
+    const sy = Math.round(yTop[i]) + entEl[i].offsetHeight / 2;
+    // The node sits just clear of the card, which is painted above the edge
+    // layer: centred on the border, half of it would be hidden.
+    const endX = L.impX + L.impW + 5;
+    const d = Math.abs(sy - r.cy) < 1
+      ? `M ${L.spineX} ${sy} H ${endX}`
+      : `M ${L.spineX} ${sy} H ${L.gutImp + 30} V ${r.cy} H ${endX}`;
+    paths += `<path class="sp-edge sp-edge-imp" data-i="${r.ii}" data-src="${i}" marker-end="url(#sp-dot-imp)" d="${d}"></path>`;
   }
 
-  // Proposals: a dotted bracket in the right gutter tying each proposal to the
-  // event it would intervene in. Attachment, not causation.
+  // Proposals. Most sit beside the part of the record they speak to without
+  // claiming a link to one event: a brace in the gutter, joined to its card
+  // and stopping short of the timeline. A proposal marked `linked` gets a
+  // dotted line tying it to its event instead. Attachment, not causation.
   for (const [i, list] of propAt) {
     const sy = yTop[i] + entEl[i].offsetHeight / 2;
     const gx = L.gutProp + 24;
-    const cys = list.map(r => r.cy);
-    const top = Math.min(sy, ...cys), bot = Math.max(sy, ...cys);
-    paths += `<path class="sp-edge sp-edge-allude" d="M ${L.spineX + L.spineW} ${sy} H ${gx}"></path>`;
-    if (bot - top > 1) paths += `<path class="sp-edge sp-edge-allude" d="M ${gx} ${top} V ${bot}"></path>`;
+    const tied = list.filter(r => r.linked);
+    if (tied.length) {
+      const cys = tied.map(r => r.cy);
+      const top = Math.min(sy, ...cys), bot = Math.max(sy, ...cys);
+      paths += `<path class="sp-edge sp-edge-allude" d="M ${L.spineX + L.spineW} ${sy} H ${gx}"></path>`;
+      if (bot - top > 1) paths += `<path class="sp-edge sp-edge-allude" d="M ${gx} ${top} V ${bot}"></path>`;
+    }
     for (const rec of list) {
-      paths += `<path class="sp-edge sp-edge-allude-tie" d="M ${gx} ${rec.cy} H ${L.propX - 2}"></path>`;
-      // Straight run from the proposal into its chain, then link to link.
-      const first = rec.links[0];
-      paths += `<path class="sp-edge sp-edge-chain" marker-end="url(#sp-arw-chain)"
-        d="M ${L.propX + L.propW} ${rec.cy} H ${first.x - 4}"></path>`;
-      for (let k = 0; k < rec.links.length - 1; k++) {
-        const a = rec.links[k], b = rec.links[k + 1];
-        paths += `<path class="sp-edge sp-edge-chain" marker-end="url(#sp-arw-chain)"
-          d="M ${a.x + a.w} ${a.cy} H ${b.x - 4}"></path>`;
+      if (rec.linked) {
+        paths += `<path class="sp-edge sp-edge-allude-tie" d="M ${gx} ${rec.cy} H ${L.propX - 2}"></path>`;
+      } else {
+        // A curly brace opening toward the record: it spans the card's height
+        // and touches neither lane, so it reads as "this stretch of the
+        // record" rather than "this event". A brace is the mark that groups a
+        // run of rows, which is the claim being made. It sits on the middle of
+        // the gutter, so it belongs to neither column.
+        // Its cusp runs into the card on a short stub. With both ends free the
+        // brace read as a mark belonging to nothing; the stub says which card
+        // it speaks for, and the arms still stop short of the timeline, so no
+        // link to any one event is asserted.
+        const t = Math.round(rec.y), b = Math.round(rec.y + rec.boxH);
+        const mid = Math.round((t + b) / 2);
+        const r = Math.min(7, (b - t) / 4);     // short cards keep the shape
+        const arm = BR.x - BR.d, cusp = BR.x + BR.d;
+        paths += `<path class="sp-edge sp-edge-near" data-pr="${rec.pi}"
+          d="M ${arm} ${t} Q ${BR.x} ${t} ${BR.x} ${t + r}
+             V ${mid - r} Q ${BR.x} ${mid} ${cusp} ${mid}
+             Q ${BR.x} ${mid} ${BR.x} ${mid + r}
+             V ${b - r} Q ${BR.x} ${b} ${arm} ${b}
+             M ${cusp} ${mid} H ${L.propX - 3}"></path>`;
       }
+      // One arrow from the card straight into its outcome box.
+      paths += `<path class="sp-edge sp-edge-chain" data-pr="${rec.pi}"
+        marker-end="url(#sp-arw-chain)" d="M ${L.propX + L.propW} ${rec.cy} H ${L.chainX - 4}"></path>`;
     }
   }
 
@@ -466,19 +523,33 @@ export function highlightSpine(el, sel = {}) {
   el.querySelectorAll('.sp .sel').forEach(n => n.classList.remove('sel'));
   el.querySelectorAll('.sp-edge.on').forEach(n => n.classList.remove('on'));
   el.querySelectorAll('.sp-ent-prop').forEach(n => n.classList.remove('sp-ent-prop'));
+  el.querySelectorAll('.sp-imp-aim').forEach(n => n.classList.remove('sp-imp-aim'));
   el.querySelectorAll('.sp-star.on').forEach(n => n.classList.remove('on'));
   const on = q => el.querySelectorAll(q).forEach(n => n.classList.add('sel'));
+  const lit = q => el.querySelectorAll(q).forEach(n => n.classList.add('on'));
+  // A linked proposal rings its event; an approximate one lights only its
+  // brace, so nothing on screen asserts a link to one event.
   const ringAnchor = pi => {
     const box = el.querySelector(`.sp-propbox[data-pr="${pi}"]`);
     if (box?.dataset.ae != null) {
       el.querySelector(`.sp-ent[data-e="${box.dataset.ae}"]`)?.classList.add('sp-ent-prop');
+    }
+    lit(`.sp-edge-near[data-pr="${pi}"]`);
+  };
+  // Selecting a proposal or anything under it lights the arrow into its
+  // outcome and rings the measured outcome the outcome names, if any.
+  const litOut = pi => {
+    lit(`.sp-edge-chain[data-pr="${pi}"]`);
+    const ob = el.querySelector(`.sp-out[data-pr="${pi}"]`);
+    if (ob?.dataset.mi != null) {
+      el.querySelector(`.sp-imp[data-i="${ob.dataset.mi}"]`)?.classList.add('sp-imp-aim');
     }
   };
   if (sel.kind === 'entry') {
     on(`.sp-ent[data-e="${sel.idx}"]`);
     // Selecting an event lights the impacts measured off it, so the link is
     // discoverable from either end.
-    el.querySelectorAll(`.sp-edge-imp[data-src="${sel.idx}"]`).forEach(n => n.classList.add('on'));
+    lit(`.sp-edge-imp[data-src="${sel.idx}"]`);
   }
   else if (sel.kind === 'mech') {
     el.querySelectorAll(`.sp-star[data-m="${sel.idx}"]`).forEach(n => {
@@ -487,38 +558,37 @@ export function highlightSpine(el, sel = {}) {
     });
   } else if (sel.kind === 'impact') {
     on(`.sp-imp[data-i="${sel.idx}"]`);
-    el.querySelectorAll(`.sp-edge-imp[data-i="${sel.idx}"]`).forEach(n => n.classList.add('on'));
-  } else if (sel.kind === 'proplink') {
-    on(`.sp-chainbox[data-pr="${sel.idx}"][data-pl="${sel.linkIdx}"]`);
-    ringAnchor(sel.idx);
-  } else if (sel.kind === 'propev') {
-    on(`.sp-evcard[data-pr="${sel.idx}"][data-pl="${sel.linkIdx}"][data-ev="${sel.evIdx}"][data-evk="${sel.evKind}"]`);
-    ringAnchor(sel.idx);
+    lit(`.sp-edge-imp[data-i="${sel.idx}"]`);
   } else if (sel.kind === 'prop') {
     on(`.sp-propbox[data-pr="${sel.idx}"]`);
     ringAnchor(sel.idx);
-  } else if (sel.kind === 'propcomp') {
-    on(sel.compIdx == null
-      ? `.sp-compbox[data-pr="${sel.idx}"]`
-      : `.sp-compbox[data-pr="${sel.idx}"][data-pc="${sel.compIdx}"]`);
+    litOut(sel.idx);
+  } else if (sel.kind === 'propout') {
+    on(`.sp-out[data-pr="${sel.idx}"]`);
     ringAnchor(sel.idx);
+    litOut(sel.idx);
+  } else if (sel.kind === 'propclaim') {
+    on(`.sp-claim[data-pr="${sel.idx}"][data-cl="${sel.claimIdx}"]`);
+    ringAnchor(sel.idx);
+    litOut(sel.idx);
+  } else if (sel.kind === 'propev') {
+    on(`.sp-evcard[data-pr="${sel.idx}"][data-cl="${sel.claimIdx}"][data-ev="${sel.evIdx}"][data-evk="${sel.evKind}"]`);
+    ringAnchor(sel.idx);
+    litOut(sel.idx);
+  } else if (sel.kind === 'propcase') {
+    on(`.sp-casecard[data-pr="${sel.idx}"][data-cl="${sel.claimIdx}"][data-cs="${sel.caseIdx}"]`);
+    ringAnchor(sel.idx);
+    litOut(sel.idx);
   }
 }
 
 /* ------------------------------ detail pane ------------------------------ */
 
-function evHtml(list, kind) {
-  if (!list?.length) return '';
-  const heading = kind === 'counter' ? 'Counter-Evidence' : 'Evidence';
-  const items = list.map(ev => `
-    <li class="ev">
-      <div class="ev-body">
-        <div class="ev-finding">${ev.finding}</div>
-        ${ev.caveat ? `<div class="ev-caveat">Caveat: ${ev.caveat}</div>` : ''}
-        <div class="ev-srcs">${srcHtml(ev.srcs)}</div>
-      </div>
-    </li>`).join('');
-  return `<div class="ln-sec ln-sec-${kind}"><h4>${heading}</h4><ul class="ev-list">${items}</ul></div>`;
+/* The answer to "Did any existing mechanism address this?" as one paragraph:
+   the one-word answer in bold, then the detail. The short `note` stays in the
+   data for the export; on screen it repeated the paragraph. */
+function mechAnswer(m) {
+  return `<strong>${m.answer}.</strong> ${m.detail.trim()}`;
 }
 
 function entryDetail(caseObj, spine, i) {
@@ -528,24 +598,20 @@ function entryDetail(caseObj, spine, i) {
     .map((m, mi) => ({ m, mi }))
     .filter(({ m }) => m.anchors.some(a => plain(e.text).includes(a)));
   // The mechanism record is folded into the event pane, so the reader gets
-  // the answer without another click: the question, then "No. <one
-  // sentence>", then the detail and its source. The block is not a link:
+  // the answer without another click: the question, then one paragraph. Its sources join the event's in one line at the bottom. The block is not a link:
   // clicking it used to jump to the mechanism view, which read as the
   // screen changing for no reason. The map star still opens the mechanism.
   const answered = mechs.map(({ m }) => `
     <div class="sp-addressed">
       <div class="cd-kick cd-kick-mech">&#9733; Did any existing mechanism address this?</div>
-      <p class="cd-claim"><strong>${m.answer}.</strong> ${m.note}.</p>
-      <p class="cd-claim">${m.detail}</p>
-      ${m.srcs?.length ? `<div class="ev-srcs">${srcHtml(m.srcs)}</div>` : ''}
+      <p class="cd-claim">${mechAnswer(m)}</p>
     </div>`).join('');
   return `<div class="cd">
-    <div class="cd-kick">Timeline Event</div>
     <div class="cd-head"><span class="catlab catlab-lg cat-${c.badge}">${c.label}</span> <span class="cd-id">${e.date}</span></div>
     <p class="cd-claim">${e.text}</p>
     <div class="eact"><span class="act-label">Actors:</span> ${e.actors}</div>
-    <div class="ev-srcs">${srcHtml(e.srcs)}</div>
     ${answered}
+    ${srcLine([...(e.srcs ?? []), ...mechs.flatMap(({ m }) => m.srcs ?? [])])}
   </div>`;
 }
 
@@ -553,128 +619,146 @@ function mechDetail(spine, i) {
   const m = spine.mechanisms[i];
   return `<div class="cd">
     <div class="cd-kick cd-kick-mech">&#9733; Did any existing mechanism address this?</div>
-    <p class="cd-claim"><strong>${m.answer}.</strong> ${m.note}.</p>
-    <p class="cd-claim">${m.detail}</p>
+    <p class="cd-claim">${mechAnswer(m)}</p>
     <div class="eact"><span class="act-label">Actor:</span> ${m.actor}</div>
-    ${m.srcs?.length ? `<div class="ev-srcs">${srcHtml(m.srcs)}</div>` : ''}
+    ${srcLine(m.srcs)}
   </div>`;
 }
 
 function impactDetail(spine, i) {
   const im = spine.impacts[i];
-  const arrows = im.from.map(f => `
-    <li class="sp-arrowrow">
-      <div class="ev-body"><div class="ev-finding">From: ${f.anchor}${f.note ? ` <em>(${f.note})</em>` : ''}</div></div></li>`).join('');
+  /* Evidence and counter-evidence read as plain paragraphs, with every source
+     gathered into one line at the bottom. The bold headline repeated the
+     measures paragraph, so the pane skips it. */
+  const evs = [...(im.evidence ?? []), ...(im.counterEvidence ?? [])];
+  const evParas = evs.map(ev =>
+    `<p class="cd-claim">${ev.finding.trim()}${ev.caveat ? ` ${ev.caveat}` : ''}</p>`
+  ).join('');
   return `<div class="cd">
-    <div class="cd-kick cd-kick-imp">Measured Impact</div>
     <div class="cd-head"><span class="cd-id">${im.name}</span></div>
-    <p class="cd-claim"><strong>${im.headline}</strong></p>
-    <div class="eact"><span class="act-label">First published:</span> ${im.found}</div>
     <p class="cd-claim">${im.measures}</p>
-    <div class="ln-sec"><h4>Causal Arrows From the Timeline</h4><ul class="ev-list">${arrows}</ul></div>
-    ${evHtml(im.evidence, 'for')}
-    ${evHtml(im.counterEvidence, 'counter')}
+    ${evParas}
+    ${srcLine(evs.flatMap(ev => ev.srcs ?? []))}
   </div>`;
 }
 
-function propCompDetail(spine, i, k) {
-  const p = spine.proposals[i];
-  const c = k == null ? null : (p.comparables ?? [])[k];
-  // Comparables show only one at a time, from their own box; a bare list
-  // route falls back to the proposal itself.
-  if (!c) return propDetail(spine, i);
-  return `<div class="cd">
-    <button class="cd-back" data-back="prop">&larr; ${attr(p.name)}</button>
-    <div class="cd-kick cd-kick-comp">Comparable Case</div>
-    <div class="cd-head"><span class="cd-id">${c.name}</span></div>
-    <p class="cd-claim sp-hintline">Compared with: ${p.name}</p>
-    <div class="ln-sec">
-      <p class="cd-claim"><span class="act-label">Where:</span> ${c.where} (${c.when})</p>
-      <p class="cd-claim"><span class="act-label">Authority:</span> ${c.authority}</p></div>
-    <p class="cd-claim">${c.outcome}</p>
-    ${c.srcs?.length ? `<div class="ev-srcs">${srcHtml(c.srcs)}</div>` : ''}
-  </div>`;
-}
-
+/* Each pane shows the card that was clicked and nothing from the cards
+   around it: the map already shows what sits above and below. */
 function propDetail(spine, i) {
   const p = spine.proposals[i];
   return `<div class="cd">
-    <div class="cd-kick cd-kick-prop">Proposed Public Participation</div>
     <div class="cd-head"><span class="cd-id">${p.name}</span></div>
     <p class="cd-claim"><span class="act-label">Mechanism:</span> ${p.method}</p>
     <p class="cd-claim">${p.description}</p>
-    ${p.srcs?.length ? `<div class="ev-srcs">${srcHtml(p.srcs)}</div>` : ''}
+    ${p.note ? `<div class="ln-sec"><h4>How It Can Feed a Decision</h4><p class="cd-claim">${p.note}</p></div>` : ''}
+    ${srcLine(p.srcs)}
   </div>`;
 }
 
-function propLinkDetail(spine, i, li) {
+function propOutDetail(spine, i) {
   const p = spine.proposals[i];
-  const lk = p.links[li];
   return `<div class="cd">
-    <button class="cd-back" data-back="prop">&larr; ${attr(p.name)}</button>
-    <div class="cd-kick cd-kick-chain">Causal Link ${li + 1} of ${p.links.length}</div>
-    <div class="cd-head"><span class="cd-id">${lk.name}</span></div>
-    <p class="cd-claim">${lk.claim}</p>
-    ${lk.strength === 'unstudied' ? `<p class="cd-claim"><em>No study tests this link directly.${(lk.evidence ?? []).length ? ' The evidence cards beside it on the map come from nearby cases and other domains.' : ''}</em></p>` : ''}
+    <div class="cd-head"><span class="cd-id">${p.outcome.text}</span></div>
+  </div>`;
+}
+
+function propClaimDetail(spine, i, k) {
+  const cl = spine.proposals[i].outcome.claims[k];
+  if (!cl) return propDetail(spine, i);
+  return `<div class="cd">
+    <div class="cd-head"><span class="cd-id">${cl.text}</span></div>
   </div>`;
 }
 
 /** One evidence record on its own, so a single paper can be read and cited. */
-function propEvDetail(spine, i, li, k, kind) {
+function propEvDetail(spine, i, k, n, kind) {
   const p = spine.proposals[i];
-  const lk = p.links[li];
+  const cl = p.outcome.claims[k];
+  if (!cl) return propDetail(spine, i);
   const counter = kind === 'counter';
-  const ev = (counter ? lk.counterEvidence : lk.evidence)?.[k];
-  if (!ev) return propLinkDetail(spine, i, li);
+  const ev = (counter ? cl.counterEvidence : cl.evidence)?.[n];
+  if (!ev) return propClaimDetail(spine, i, k);
   const title = ev.srcs?.map(x => x.l).join('; ') || 'Source';
   return `<div class="cd">
-    <button class="cd-back" data-back="link">&larr; ${attr(lk.name)}</button>
-    <div class="cd-kick ${counter ? 'cd-kick-ctr' : 'cd-kick-ev'}">${counter ? 'Counter-Evidence' : 'Evidence'}</div>
-    <div class="cd-head"><span class="cd-id">${title}</span></div>
-    <p class="cd-claim sp-hintline">${counter ? 'Contests' : 'Supports'}: ${lk.name}</p>
+    <div class="cd-head"><span class="cd-id">${ev.headline ?? title}</span></div>
     <p class="cd-claim">${ev.finding}</p>
     ${ev.caveat ? `<div class="ev-caveat">Caveat: ${ev.caveat}</div>` : ''}
-    <div class="ev-srcs">${srcHtml(ev.srcs)}</div>
+    ${srcLine(ev.srcs)}
   </div>`;
 }
 
+/** One real-world case on its own, so a single precedent can be cited. */
+function propCaseDetail(spine, i, k, n) {
+  const p = spine.proposals[i];
+  const cl = p.outcome.claims[k];
+  const cs = cl?.cases?.[n];
+  if (!cs) return cl ? propClaimDetail(spine, i, k) : propDetail(spine, i);
+  return `<div class="cd">
+    <div class="cd-head"><span class="cd-id">${cs.name}</span></div>
+    <div class="ln-sec">
+      <p class="cd-claim"><span class="act-label">Where:</span> ${cs.where} (${cs.when})</p>
+      <p class="cd-claim"><span class="act-label">Authority:</span> ${cs.authority}</p></div>
+    <p class="cd-claim">${cs.outcome}</p>
+    ${srcLine(cs.srcs)}
+  </div>`;
+}
+
+/* The counts of events, measured outcomes, and proposals are tags in the lane
+   headers, where the reader is looking at the things themselves. */
 function overview(caseObj, spine) {
-  const nProp = spine.proposals.length;
-  const nMech = spine.mechanisms.length;
-  const nImp = spine.impacts.length;
-  const nPart = caseObj.entries.filter(e => e.cat === 'purple').length;
   return `<div class="cd cd-intro">
-    <div class="cd-hint"><p>The timeline runs down the second lane from the left. Each box shows
-      the beginning of an entry; click it to open the full record. A star in the corner marks
-      an existing system or mechanism. Click the star to see whether that mechanism addressed
-      the event.</p>
-      <p>The far-left lane shows outcomes measured later in the record. Each
-      outcome sits beside the event its causal claim rests on most strongly, and shows the date
-      when its finding was first published. Arrows connect the outcomes to the events involved
-      in the causal claim.</p>
-      <p>The lanes to the right show proposed forms of public participation
-      from the design work. Each proposal is linked to the event it would address and lists the
-      outcomes it aims to affect. Its causal chain then runs from left to right, with supporting
-      evidence shown on the cards.</p></div>
-    <div class="cd-sum">
-      <span class="cd-sum-lbl">Timeline</span><div class="cd-sum-pills"><span class="g g-neutral">${caseObj.entries.length} Events</span></div>
-      <span class="cd-sum-lbl">Participation</span><div class="cd-sum-pills"><span class="g g-actual">${nPart} Public Participation Events</span></div>
-      <span class="cd-sum-lbl">Starred</span><div class="cd-sum-pills"><span class="g g-mech">${nMech} Existing Mechanisms</span></div>
-      <span class="cd-sum-lbl">Measured</span><div class="cd-sum-pills"><span class="g g-imp">${nImp} Measured Impacts</span></div>
-      <span class="cd-sum-lbl">Proposed</span><div class="cd-sum-pills"><span class="g g-prop">${nProp} Proposed Public Participation</span></div>
-    </div>
+    <div class="cd-hint">${lanesFor(0, {}).map(l =>
+      `<p><b>${l.label.replace('&', '&amp;')}.</b> ${LANE_TIPS[l.cls]}</p>`).join('')}</div>
   </div>`;
 }
 
-export function renderSpineDetail(el, caseObj, spine, sel = {}) {
+/* What the pane is showing, for the pane's own header. Each pane used to
+   repeat this line as a kicker inside itself, under a header that only ever
+   said "Detail"; the header names the thing now, so the pane opens on the
+   card's own title. The mechanism pane keeps its kicker, because that line is
+   a question, not a label. */
+const DETAIL_LABEL = {
+  entry: 'Timeline Event',
+  mech: 'Existing Mechanism',
+  impact: 'Measured Outcome',
+  prop: 'Proposed Public Participation',
+  propout: 'Proposed Outcome',
+  propclaim: 'Claim',
+  propev: 'Evidence',
+  propcase: 'Case Study'
+};
+
+/** The selection a pane can actually show. A deep link can name a claim or a
+   record that is not in the data; each pane already falls back to the card
+   above it, and the header has to fall back with it. */
+function resolveSel(spine, sel) {
+  if (!String(sel.kind ?? '').startsWith('prop')) return sel;
+  const cl = spine.proposals[sel.idx]?.outcome.claims[sel.claimIdx];
+  if (sel.kind === 'propclaim' && !cl) return { ...sel, kind: 'prop' };
+  if (sel.kind === 'propev' || sel.kind === 'propcase') {
+    if (!cl) return { ...sel, kind: 'prop' };
+    const has = sel.kind === 'propcase'
+      ? cl.cases?.[sel.caseIdx]
+      : (sel.evKind === 'counter' ? cl.counterEvidence : cl.evidence)?.[sel.evIdx];
+    if (!has) return { ...sel, kind: 'propclaim' };
+  }
+  return sel;
+}
+
+/** Renders the pane and returns the heading its header should carry. */
+export function renderSpineDetail(el, caseObj, spine, rawSel = {}) {
+  const sel = resolveSel(spine, rawSel);
   // About This Case lives in the toggle under the top bar, not here.
   if (sel.kind === 'entry') el.innerHTML = entryDetail(caseObj, spine, sel.idx);
   else if (sel.kind === 'mech') el.innerHTML = mechDetail(spine, sel.idx);
   else if (sel.kind === 'impact') el.innerHTML = impactDetail(spine, sel.idx);
   else if (sel.kind === 'prop') el.innerHTML = propDetail(spine, sel.idx);
-  else if (sel.kind === 'proplink') el.innerHTML = propLinkDetail(spine, sel.idx, sel.linkIdx);
-  else if (sel.kind === 'propev') el.innerHTML = propEvDetail(spine, sel.idx, sel.linkIdx, sel.evIdx, sel.evKind);
-  else if (sel.kind === 'propcomp') el.innerHTML = propCompDetail(spine, sel.idx, sel.compIdx);
+  else if (sel.kind === 'propout') el.innerHTML = propOutDetail(spine, sel.idx);
+  else if (sel.kind === 'propclaim') el.innerHTML = propClaimDetail(spine, sel.idx, sel.claimIdx);
+  else if (sel.kind === 'propev') el.innerHTML = propEvDetail(spine, sel.idx, sel.claimIdx, sel.evIdx, sel.evKind);
+  else if (sel.kind === 'propcase') el.innerHTML = propCaseDetail(spine, sel.idx, sel.claimIdx, sel.caseIdx);
   else el.innerHTML = overview(caseObj, spine);
   el.scrollTop = 0;
+  if (sel.kind === 'propev' && sel.evKind === 'counter') return 'Counter-Evidence';
+  return DETAIL_LABEL[sel.kind] ?? 'How to Read This Map';
 }
