@@ -15,7 +15,7 @@
  *   PROPOSED OUTCOMES: what each proposal is for. One green box, one
  *                sentence, with one arrow from the card into it; under it a
  *                row of the claims that support it, and under each claim its
- *                evidence, counter-evidence, and case studies.
+ *                evidence and counter-evidence.
  */
 
 /** A short orientation, rendered at the top of the Key panel. */
@@ -42,11 +42,11 @@ export const HOW_TO = [
   },
   {
     title: 'Green and magenta: what a proposal is for',
-    desc: 'The right lane shows what each proposal is for: one green box, one sentence, with an arrow from the card into it. The box is green because it is the same kind of thing the Measured Outcome lane records, and its border is dashed because it is proposed rather than measured. Some of these boxes name one of those outcomes; select the proposal and that card lights up on the left. Under the box run the claims that support it, in magenta. Under each claim sit its evidence, with counter-evidence kept at full strength, and the real-world case studies that support it, marked with a double rule.'
+    desc: 'The right lane shows what each proposal is for: one green box, one sentence, with an arrow from the card into it. The box is green because it is the same kind of thing the Measured Outcome lane records, and its border is dashed because it is proposed rather than measured. Some of these boxes name one of those outcomes; select the proposal and that card lights up on the left. Under the box run the claims that support it, in magenta. Under each claim sit its evidence, with counter-evidence kept at full strength. A real case that measured something appears as an evidence card like any study.'
   },
   {
     title: 'Cite a specific view',
-    desc: 'Every case, event, mechanism, outcome, proposal, claim, piece of evidence, and case study has a stable URL. Copying the address functions as a pinpoint citation.'
+    desc: 'Every case, event, mechanism, outcome, proposal, claim, and piece of evidence has a stable URL. Copying the address functions as a pinpoint citation.'
   }
 ];
 
@@ -60,11 +60,10 @@ export const GLOSSARY = [
       { swatch: 'sp-ent', label: 'Timeline Event', desc: 'A dated event from the case, colored by category. Click it for the full entry and sources.' },
       { swatch: 'sp-star', label: 'Existing Mechanism', desc: 'An oversight or participation mechanism that already existed when the event happened. Click the star to see whether it addressed the event.' },
       { swatch: 'sp-imp', label: 'Measured Outcome', desc: 'An outcome the record measured, placed beside the event it bears on most. The date is when the finding was first published.' },
-      { swatch: 'sp-prop', label: 'Proposed Public Participation', desc: 'A proposal from the design work. A brace places it beside the stretch of the record it responds to; a line ties it to one event.' },
+      { swatch: 'sp-prop', label: 'Proposed Public Participation', desc: 'A proposal from the design work. A brace places it beside the stretch of the record it responds to; a dotted line ties it to the proposal above it that answers the same event.' },
       { swatch: 'sp-out', label: 'Proposed Outcome', desc: 'What the proposal aims to achieve. Dashed because it is proposed, not measured. If the record measured the same outcome, selecting the proposal highlights that Measured Outcome.' },
-      { swatch: 'sp-chain', label: 'Claim', desc: 'A general statement that supports the proposed outcome. Click it for its evidence and cases.' },
-      { swatch: 'sp-flag', label: 'Evidence Card', desc: 'One study or finding under the claim. Gray dashed cards marked Counter cut against it. Click a card for the full finding and source.' },
-      { swatch: 'sp-case', label: 'Case Study', desc: 'A real-world case under the claim. Click it for where and when it ran, who held authority, and what happened.' }
+      { swatch: 'sp-chain', label: 'Claim', desc: 'A general statement that supports the proposed outcome. Click it for its evidence.' },
+      { swatch: 'sp-flag', label: 'Evidence Card', desc: 'One study or finding under the claim. Gray dashed cards marked Counter cut against it. Click a card for the full finding and source.' }
     ]
   },
 ];

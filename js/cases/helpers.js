@@ -376,30 +376,14 @@ export function impact({ name, headline, found, measures, from = [], evidence: e
 /**
  * One claim in support of a proposal's outcome. `text` is one general
  * sentence that evidence from other cases can support; it is the card.
- * Evidence, counter-evidence, and the case studies that support the claim
- * sit under it. A claim is a claim, not a step in a chain. A claim with
- * nothing under it is a gap, and the map shows it as one.
+ * Evidence and counter-evidence sit under it. A real case that measured
+ * something is an evidence card like any study. A claim is a claim, not a
+ * step in a chain. A claim with no evidence under it is a gap, and the map
+ * shows it as one.
  */
-export function claim({ text, evidence: evid = [], counterEvidence = [], cases = [] }) {
+export function claim({ text, evidence: evid = [], counterEvidence = [] }) {
   if (!text?.trim()) throw new Error('Claim is missing its text');
-  return { text, evidence: evid, counterEvidence, cases };
-}
-
-/**
- * A real-world case offered in support of a claim. The outcome paragraph is
- * what the case showed.
- */
-export function supportingCase({ name, where, when, authority, outcome, strength, sources = [] }) {
-  if (!name?.trim()) throw new Error('Case study is missing a name');
-  if (!where?.trim()) throw new Error(`Case study "${name}" is missing a where`);
-  if (!when?.trim()) throw new Error(`Case study "${name}" is missing a when`);
-  if (!authority?.trim()) throw new Error(`Case study "${name}" is missing an authority note`);
-  if (!outcome?.trim()) throw new Error(`Case study "${name}" is missing an outcome`);
-  if (!VALID_STRENGTHS.includes(strength)) {
-    throw new Error(`Invalid strength "${strength}" on case study "${name}"`);
-  }
-  checkSources(sources, `Case study "${name}"`);
-  return { name, where, when, authority, outcome, strength, srcs: sources.map(s => ({ l: s.label, u: s.url })) };
+  return { text, evidence: evid, counterEvidence };
 }
 
 /**

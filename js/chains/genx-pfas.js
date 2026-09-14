@@ -695,7 +695,7 @@ const harmReduction = chain({
           `),
           effect: 'partial',
           sources: [
-            source('WHQR', 'https://whqr.org/post/genx-general-assembly-commission-meets-wilmington'),
+            source('WHQR', 'https://www.whqr.org/local/2017-08-24/genx-general-assembly-commission-meets-in-wilmington'),
             source('WRAL timeline', 'https://www.wral.com/story/timeline-tracking-the-route-of-genx-in-the-cape-fear-river/16869639/')
           ]
         })
