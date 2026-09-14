@@ -1,6 +1,6 @@
 /**
  * Hash routing, so every case, event, mechanism, outcome, proposal, claim,
- * piece of evidence, and case study has its own URL. The project gets
+ * and piece of evidence has its own URL. The project gets
  * circulated by email; "look at the notice-on-detection proposal" needs to
  * be a link, not an instruction.
  *
@@ -17,10 +17,9 @@
  *   #/case/<slug>/spine/pr/<i>/cl/<k>     one claim under that outcome
  *   .../cl/<k>/ev/<n>                     one piece of evidence under that claim
  *   .../cl/<k>/cev/<n>                    one piece of counter-evidence
- *   .../cl/<k>/cs/<n>                     one case study under that claim
  * Legacy '#/case/<slug>/chain/...' URLs and the old '/im/', '/l/', '/ev/',
- * '/c' segments under a proposal fall back to the nearest thing that still
- * exists.
+ * '/c' segments under a proposal, and '.../cl/<k>/cs/<n>' links to the retired
+ * case study cards, fall back to the nearest thing that still exists.
  */
 
 const VIEWS = ['spine', 'timeline'];
@@ -31,7 +30,7 @@ export function parse(hash = window.location.hash) {
 
   const route = {
     caseSlug: null, view: null, selKind: null, selIdx: null,
-    claimIdx: null, evIdx: null, evKind: null, caseIdx: null
+    claimIdx: null, evIdx: null, evKind: null
   };
   if (seg[0] !== 'case' || !seg[1]) return route;
 
@@ -55,7 +54,7 @@ export function parse(hash = window.location.hash) {
   if (route.selKind !== 'prop' || seg[5] == null) return route;
 
   // Below the proposal: its outcome box, or a claim, then one evidence
-  // record or one case study.
+  // record.
   if (seg[5] === 'out') { route.selKind = 'propout'; return route; }
   if (!(seg[5] === 'cl' && num(seg[6]) != null)) { route.legacy = true; return route; }
   route.claimIdx = num(seg[6]);
@@ -65,32 +64,29 @@ export function parse(hash = window.location.hash) {
     route.evIdx = num(seg[8]);
     route.evKind = evKinds[seg[7]];
     route.selKind = 'propev';
-  } else if (seg[7] === 'cs' && num(seg[8]) != null) {
-    route.caseIdx = num(seg[8]);
-    route.selKind = 'propcase';
+  } else if (seg[7] != null) {
+    route.legacy = true; // a retired case study link lands on its claim
   }
   return route;
 }
 
-export function build({ caseSlug, view, selKind, selIdx, claimIdx, evIdx, evKind, caseIdx } = {}) {
+export function build({ caseSlug, view, selKind, selIdx, claimIdx, evIdx, evKind } = {}) {
   if (!caseSlug) return '#/';
   const seg = ['case', encodeURIComponent(caseSlug)];
   if (view) seg.push(view);
   if (view === 'spine' && selKind != null && selIdx != null) {
     const pre = {
       entry: 'e', mech: 'm', impact: 'i', prop: 'pr',
-      propout: 'pr', propclaim: 'pr', propev: 'pr', propcase: 'pr'
+      propout: 'pr', propclaim: 'pr', propev: 'pr'
     }[selKind];
     if (pre) {
       seg.push(pre, String(selIdx));
       if (selKind === 'propout') seg.push('out');
-      const below = ['propclaim', 'propev', 'propcase'].includes(selKind);
+      const below = ['propclaim', 'propev'].includes(selKind);
       if (below && claimIdx != null) {
         seg.push('cl', String(claimIdx));
         if (selKind === 'propev' && evIdx != null) {
           seg.push(evKind === 'counter' ? 'cev' : 'ev', String(evIdx));
-        } else if (selKind === 'propcase' && caseIdx != null) {
-          seg.push('cs', String(caseIdx));
         }
       }
     }

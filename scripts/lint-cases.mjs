@@ -283,7 +283,7 @@ function lintEvidenceList(file, where, list, { headline = false } = {}) {
   });
 }
 
-let spineTotals = { mechanisms: 0, impacts: 0, proposals: 0, claims: 0, evidence: 0, cases: 0 };
+let spineTotals = { mechanisms: 0, impacts: 0, proposals: 0, claims: 0, evidence: 0 };
 const unsupported = [];
 
 for (const file of spineFiles) {
@@ -350,15 +350,10 @@ for (const file of spineFiles) {
       lintEvidenceList(f, cw, cl.evidence, { headline: true });
       lintEvidenceList(f, `${cw} (counter)`, cl.counterEvidence, { headline: true });
       spineTotals.evidence += (cl.evidence?.length ?? 0) + (cl.counterEvidence?.length ?? 0);
-      (cl.cases ?? []).forEach((c, k) => {
-        const kw = `${cw}, case study ${k + 1} (${c.name})`;
-        if (!VALID_STRENGTHS.includes(c.strength)) {
-          error(f, `${kw} has invalid strength "${c.strength}"`);
-        }
-        if (c.srcs?.length) lintSources(f, kw, c.srcs);
-        spineTotals.cases++;
-      });
-      if (!cl.evidence?.length && !cl.counterEvidence?.length && !cl.cases?.length) {
+      // Case study cards are retired: a real case that measured something is
+      // an evidence card, so a claim is supported only by evidence.
+      if ('cases' in cl) error(f, `${cw} carries case study cards; make them evidence cards`);
+      if (!cl.evidence?.length) {
         unsupported.push(`${f}: ${cw}`);
       }
       spineTotals.claims++;
@@ -391,8 +386,8 @@ const propCount = cases.reduce(
 console.log('All case studies passed lint.');
 console.log(`  ${caseFiles.length} files, ${cases.reduce((n, c) => n + c.entries.length, 0)} entries total`);
 console.log(`  ${chainCount} causal chains, ${linkCount} links, ${partCount} participation instances, ${propCount} proposed instances`);
-console.log(`  spine: ${spineTotals.mechanisms} mechanisms, ${spineTotals.impacts} impacts, ${spineTotals.proposals} proposals with ${spineTotals.claims} claims, ${spineTotals.evidence} evidence cards, ${spineTotals.cases} case studies`);
+console.log(`  spine: ${spineTotals.mechanisms} mechanisms, ${spineTotals.impacts} impacts, ${spineTotals.proposals} proposals with ${spineTotals.claims} claims, ${spineTotals.evidence} evidence cards`);
 if (unsupported.length) {
-  console.log(`  note: ${unsupported.length} claim(s) carry no evidence or case study yet:`);
+  console.log(`  note: ${unsupported.length} claim(s) carry no supporting evidence yet:`);
   unsupported.forEach(u => console.log(`    ${u}`));
 }

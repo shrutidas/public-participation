@@ -24,8 +24,8 @@ import { CAT } from './categories.js';
  *                          Selecting a proposal rings the Measured Outcome
  *                          its box names, where the record measured one.
  *                          Under it, a row of the claims that support it;
- *                          under each claim, its evidence, counter-evidence,
- *                          and case studies. A claim is a claim, not a step
+ *                          under each claim, its evidence and counter-evidence.
+ *                          A claim is a claim, not a step
  *                          in a chain; nothing points out of one.
  *
  * Every connector is drawn from straight horizontal and vertical segments.
@@ -33,12 +33,12 @@ import { CAT } from './categories.js';
 
 const L = {
   headH: 46,
-  impX: 24, impW: 250,
-  gutImp: 274,                 // 274..330, impact arrows
-  spineX: 336, spineW: 356,
-  gutProp: 692,                // 692..744, the proposal brace
-  propX: 752, propW: 300,
-  chainX: 1084, chainMinW: 1128, // the lane holds at least four claims
+  impX: 24, impW: 300,         // as wide as a proposal card
+  gutImp: 324,                 // 324..380, impact arrows
+  spineX: 386, spineW: 356,
+  gutProp: 742,                // 742..794, the proposal brace
+  propX: 802, propW: 300,
+  chainX: 1134, chainMinW: 1128, // the lane holds at least four claims
   claimW: 270, claimGap: 16,   // one column per claim
   outW: 420, outGap: 14,       // the outcome box, and the gap to the claim row
   padTop: 80, padBottom: 180,
@@ -75,8 +75,8 @@ const laneCount = n => `<span class="sp-lane-n">${n}</span>`;
 const LANE_TIPS = {
   'lane-im': 'Shows what the record measured. Each card sits beside the event it bears on most and shows the date the finding first appeared.',
   'lane-tl': 'Lists the case events in date order. Click an event to read its full record. Click a star to see whether an existing mechanism addressed the event.',
-  'lane-pp': 'Shows proposals from the design work. A brace spans the part of the record a proposal answers. A line ties a proposal to one event.',
-  'lane-ch': 'Shows the outcome each proposal aims for. A dashed border marks it as proposed, not measured. Claims support each outcome, and evidence, counter-evidence, and case studies back each claim. Select an outcome the record also measured to highlight its card in the first lane.'
+  'lane-pp': 'Shows proposals from the design work. A brace spans the part of the record a proposal answers. A dotted line ties a proposal to the one above it that answers the same event.',
+  'lane-ch': 'Shows the outcome each proposal aims for. A dashed border marks it as proposed, not measured. Claims support each outcome, and evidence and counter-evidence sit under each claim. Select an outcome the record also measured to highlight its card in the first lane.'
 };
 
 /** The lanes, with the last one as wide as the widest claim row. */
@@ -119,9 +119,11 @@ function impactRow(entries, found) {
   return i === -1 ? entries.length : i;
 }
 
-function entryBoxHtml(e, i, mechs) {
+/* An event with a proposal beside it shows its full text, since that is the
+   record the proposal answers; every other event shows an opening line. */
+function entryBoxHtml(e, i, mechs, full = false) {
   const c = CAT[e.cat];
-  const { lead, rest } = splitEntryText(e.text, BOX_CHARS);
+  const { lead, rest } = full ? { lead: e.text, rest: '' } : splitEntryText(e.text, BOX_CHARS);
   const stars = mechs.map(m =>
     `<button class="sp-star" data-m="${m.mi}" title="${attr(`${m.name} — addressed this? ${m.answer}`)}"
       aria-label="${attr(`Existing mechanism: ${m.name}. Did it address this? ${m.answer}`)}">&#9733;</button>`).join('');
@@ -170,7 +172,7 @@ function outBoxHtml(p, pi, impacts) {
 
 /**
  * Render the spine map into `el`.
- * sel: { kind, idx, claimIdx, evIdx, evKind, caseIdx }
+ * sel: { kind, idx, claimIdx, evIdx, evKind }
  * The DOM is rebuilt when the case changes; every other selection updates
  * highlights in place.
  */
@@ -225,9 +227,10 @@ export function renderSpineMap(el, caseObj, spine, sel = {}) {
   });
 
   // Pass 1: the timeline boxes.
+  const propRows = new Set(spine.proposals.map(p => anchorIndex(entries, p.anchor)));
   const entEl = entries.map((e, i) => {
     const d = document.createElement('div');
-    d.innerHTML = entryBoxHtml(e, i, mechAt.get(i) || []);
+    d.innerHTML = entryBoxHtml(e, i, mechAt.get(i) || [], propRows.has(i));
     const box = d.firstElementChild;
     box.style.left = `${L.spineX}px`;
     box.style.width = `${L.spineW}px`;
@@ -283,7 +286,6 @@ export function renderSpineMap(el, caseObj, spine, sel = {}) {
     box.style.left = `${L.propX}px`;
     box.style.width = `${L.propW}px`;
     stage.appendChild(box);
-    const head = box.querySelector('.sp-prop-head');
 
     // The one outcome box, at the head of the lane, spanning the claim row
     // under it.
@@ -322,17 +324,9 @@ export function renderSpineMap(el, caseObj, spine, sel = {}) {
           <span class="sp-evcard-h">${ev.headline ?? srcLabel(ev)}</span>`;
         cards.push(place(ec));
       };
-      // Order: the material for the claim (papers, then cases), then the
-      // material against it, which its grey dashed cards mark on their own.
+      // Order: the material for the claim, then the material against it,
+      // which its grey dashed cards mark on their own.
       (cl.evidence ?? []).forEach((ev, k) => addCard(ev, k, 'for'));
-      (cl.cases ?? []).forEach((cs, k) => {
-        const cb = document.createElement('button');
-        cb.className = 'sp-casecard';
-        cb.dataset.pr = pi; cb.dataset.cl = ci; cb.dataset.cs = k;
-        cb.innerHTML = `<span class="sp-casecard-kick">Case study</span>
-          <span class="sp-casecard-name">${cs.name}</span>`;
-        cards.push(place(cb));
-      });
       (cl.counterEvidence ?? []).forEach((ev, k) => addCard(ev, k, 'counter'));
       return { el: c, cards };
     });
@@ -344,10 +338,7 @@ export function renderSpineMap(el, caseObj, spine, sel = {}) {
 
     const rec = {
       p, pi, box, out, claims, claimH, linked: Boolean(p.linked),
-      boxH: box.offsetHeight, outH: out.offsetHeight,
-      // The arrow leaves from the middle of the title block, not the middle
-      // of the whole card.
-      headCy: head.offsetTop + head.offsetHeight / 2
+      boxH: box.offsetHeight, outH: out.offsetHeight
     };
     if (!propAt.has(i)) propAt.set(i, []);
     propAt.get(i).push(rec);
@@ -362,21 +353,21 @@ export function renderSpineMap(el, caseObj, spine, sel = {}) {
     const entH = entEl[i].offsetHeight;
     let bot = y + entH;
 
-    // Impact cards stack beside their source event. The first card centres on
-    // the event so its arrow is one straight horizontal line. An impact card
-    // runs a few pixels taller than the event it answers, so the centring
-    // offset is usually negative; the card may rise into the row gap above,
-    // but no further than that.
+    // Impact cards stack beside their source event. The first card shares the
+    // event's top edge, so every lane starts a row on one line; a taller card
+    // runs lower than its event. Its arrow runs level through the middle of
+    // the shorter of the two, so it stays one straight horizontal line.
     if (impAt.has(i)) {
       const list = impAt.get(i);
-      const lift = (entH - list[0].box.offsetHeight) / 2;
-      let iy = y + Math.max(lift, -(L.rowGap - 10));
+      const sy = Math.round(y + Math.min(entH, list[0].box.offsetHeight) / 2);
+      let iy = y;
       for (const r of list) {
         const top = Math.round(iy);
         r.box.style.top = `${top}px`;
+        r.sy = sy;
         // Measured from the drawn position, so the arrow meets the card's
         // real centre rather than an unrounded one.
-        r.cy = top + r.box.offsetHeight / 2;
+        r.cy = r === list[0] ? sy : top + r.box.offsetHeight / 2;
         iy = top + r.box.offsetHeight + L.railGap;
       }
       bot = Math.max(bot, iy - L.railGap);
@@ -385,17 +376,15 @@ export function renderSpineMap(el, caseObj, spine, sel = {}) {
     if (propAt.has(i)) {
       let subY = y;
       for (const rec of propAt.get(i)) {
-        // The outcome box centres on the card's title block, so the arrow out
-        // of the card is one straight horizontal line. The card drops only
-        // when the box is taller than twice the title, so the box never
-        // rises into the block above.
-        const rise = rec.headCy - rec.outH / 2;
-        const top = subY + Math.max(0, -rise);
+        // The card and its outcome box share a top edge with the event, so
+        // every lane starts a row on one line. The arrow runs level at the
+        // middle of the outcome box, which falls inside the card's title band.
+        const top = subY;
         rec.y = top;
         rec.box.style.top = `${Math.round(top)}px`;
-        rec.cy = top + rec.headCy;
+        rec.cy = top + Math.min(rec.outH / 2, rec.boxH - 10);
 
-        const outTop = Math.round(rec.cy - rec.outH / 2);
+        const outTop = Math.round(top);
         rec.out.style.top = `${outTop}px`;
         let stackBot = outTop + rec.outH;
         // The claim row under the box, and each claim's cards under it.
@@ -454,12 +443,12 @@ export function renderSpineMap(el, caseObj, spine, sel = {}) {
 
   // Impact arrows: out the left of the event where the causal claim holds,
   // across the gutter, and into the impact card. One arrow per finding, to a
-  // card sitting level with its event, so it is a straight horizontal line
+  // card sharing its event's top edge, so it is a straight horizontal line
   // (with a short jog in the gutter when cards stack).
   for (const r of imps) {
     const i = r.src;
     if (i === -1) continue;
-    const sy = Math.round(yTop[i]) + entEl[i].offsetHeight / 2;
+    const sy = r.sy ?? Math.round(yTop[i]) + entEl[i].offsetHeight / 2;
     // The node sits just clear of the card, which is painted above the edge
     // layer: centred on the border, half of it would be hidden.
     const endX = L.impX + L.impW + 5;
@@ -476,18 +465,26 @@ export function renderSpineMap(el, caseObj, spine, sel = {}) {
   for (const [i, list] of propAt) {
     const sy = yTop[i] + entEl[i].offsetHeight / 2;
     const gx = L.gutProp + 24;
-    const tied = list.filter(r => r.linked);
+    // A linked proposal that shares its event with a card above it hangs from
+    // that card on a dotted line down the lane. Only a linked proposal with no
+    // card above it is tied across the gutter to the event itself.
+    const tied = list.filter((r, k) => r.linked && k === 0);
     if (tied.length) {
       const cys = tied.map(r => r.cy);
       const top = Math.min(sy, ...cys), bot = Math.max(sy, ...cys);
       paths += `<path class="sp-edge sp-edge-allude" d="M ${L.spineX + L.spineW} ${sy} H ${gx}"></path>`;
       if (bot - top > 1) paths += `<path class="sp-edge sp-edge-allude" d="M ${gx} ${top} V ${bot}"></path>`;
     }
-    for (const rec of list) {
-      if (rec.linked) {
+    list.forEach((rec, k) => {
+      if (rec.linked && k > 0) {
+        const above = list[k - 1];
+        const x = L.propX + L.propW / 2;
+        paths += `<path class="sp-edge sp-edge-allude-tie" data-pr="${rec.pi}"
+          d="M ${x} ${Math.round(above.y + above.boxH) + 2} V ${Math.round(rec.y) - 3}"></path>`;
+      } else if (rec.linked) {
         paths += `<path class="sp-edge sp-edge-allude-tie" d="M ${gx} ${rec.cy} H ${L.propX - 2}"></path>`;
       } else {
-        // A curly brace opening toward the record: it spans the card's height
+        // A curly brace opening toward the record: it spans the event's height
         // and touches neither lane, so it reads as "this stretch of the
         // record" rather than "this event". A brace is the mark that groups a
         // run of rows, which is the claim being made. It sits on the middle of
@@ -496,21 +493,28 @@ export function renderSpineMap(el, caseObj, spine, sel = {}) {
         // brace read as a mark belonging to nothing; the stub says which card
         // it speaks for, and the arms still stop short of the timeline, so no
         // link to any one event is asserted.
-        const t = Math.round(rec.y), b = Math.round(rec.y + rec.boxH);
+        // The brace spans the event it sits beside, top edge to bottom edge,
+        // so its reach matches the stretch of record it groups. When the card
+        // is not centred on the event, the stub jogs to the card's middle.
+        const t = Math.round(yTop[i]), b = Math.round(yTop[i] + entEl[i].offsetHeight);
         const mid = Math.round((t + b) / 2);
-        const r = Math.min(7, (b - t) / 4);     // short cards keep the shape
+        const r = Math.min(7, (b - t) / 4);     // short events keep the shape
         const arm = BR.x - BR.d, cusp = BR.x + BR.d;
+        const cy = Math.round(rec.cy);
+        const stub = Math.abs(cy - mid) < 1
+          ? `H ${L.propX - 3}`
+          : `H ${Math.round((cusp + L.propX) / 2)} V ${cy} H ${L.propX - 3}`;
         paths += `<path class="sp-edge sp-edge-near" data-pr="${rec.pi}"
           d="M ${arm} ${t} Q ${BR.x} ${t} ${BR.x} ${t + r}
              V ${mid - r} Q ${BR.x} ${mid} ${cusp} ${mid}
              Q ${BR.x} ${mid} ${BR.x} ${mid + r}
              V ${b - r} Q ${BR.x} ${b} ${arm} ${b}
-             M ${cusp} ${mid} H ${L.propX - 3}"></path>`;
+             M ${cusp} ${mid} ${stub}"></path>`;
       }
       // One arrow from the card straight into its outcome box.
       paths += `<path class="sp-edge sp-edge-chain" data-pr="${rec.pi}"
         marker-end="url(#sp-arw-chain)" d="M ${L.propX + L.propW} ${rec.cy} H ${L.chainX - 4}"></path>`;
-    }
+    });
   }
 
   svg.innerHTML = defs + paths;
@@ -573,10 +577,6 @@ export function highlightSpine(el, sel = {}) {
     litOut(sel.idx);
   } else if (sel.kind === 'propev') {
     on(`.sp-evcard[data-pr="${sel.idx}"][data-cl="${sel.claimIdx}"][data-ev="${sel.evIdx}"][data-evk="${sel.evKind}"]`);
-    ringAnchor(sel.idx);
-    litOut(sel.idx);
-  } else if (sel.kind === 'propcase') {
-    on(`.sp-casecard[data-pr="${sel.idx}"][data-cl="${sel.claimIdx}"][data-cs="${sel.caseIdx}"]`);
     ringAnchor(sel.idx);
     litOut(sel.idx);
   }
@@ -687,22 +687,6 @@ function propEvDetail(spine, i, k, n, kind) {
   </div>`;
 }
 
-/** One real-world case on its own, so a single precedent can be cited. */
-function propCaseDetail(spine, i, k, n) {
-  const p = spine.proposals[i];
-  const cl = p.outcome.claims[k];
-  const cs = cl?.cases?.[n];
-  if (!cs) return cl ? propClaimDetail(spine, i, k) : propDetail(spine, i);
-  return `<div class="cd">
-    <div class="cd-head"><span class="cd-id">${cs.name}</span></div>
-    <div class="ln-sec">
-      <p class="cd-claim"><span class="act-label">Where:</span> ${cs.where} (${cs.when})</p>
-      <p class="cd-claim"><span class="act-label">Authority:</span> ${cs.authority}</p></div>
-    <p class="cd-claim">${cs.outcome}</p>
-    ${srcLine(cs.srcs)}
-  </div>`;
-}
-
 /* The counts of events, measured outcomes, and proposals are tags in the lane
    headers, where the reader is looking at the things themselves. */
 function overview(caseObj, spine) {
@@ -724,8 +708,7 @@ const DETAIL_LABEL = {
   prop: 'Proposed Public Participation',
   propout: 'Proposed Outcome',
   propclaim: 'Claim',
-  propev: 'Evidence',
-  propcase: 'Case Study'
+  propev: 'Evidence'
 };
 
 /** The selection a pane can actually show. A deep link can name a claim or a
@@ -735,11 +718,9 @@ function resolveSel(spine, sel) {
   if (!String(sel.kind ?? '').startsWith('prop')) return sel;
   const cl = spine.proposals[sel.idx]?.outcome.claims[sel.claimIdx];
   if (sel.kind === 'propclaim' && !cl) return { ...sel, kind: 'prop' };
-  if (sel.kind === 'propev' || sel.kind === 'propcase') {
+  if (sel.kind === 'propev') {
     if (!cl) return { ...sel, kind: 'prop' };
-    const has = sel.kind === 'propcase'
-      ? cl.cases?.[sel.caseIdx]
-      : (sel.evKind === 'counter' ? cl.counterEvidence : cl.evidence)?.[sel.evIdx];
+    const has = (sel.evKind === 'counter' ? cl.counterEvidence : cl.evidence)?.[sel.evIdx];
     if (!has) return { ...sel, kind: 'propclaim' };
   }
   return sel;
@@ -756,7 +737,6 @@ export function renderSpineDetail(el, caseObj, spine, rawSel = {}) {
   else if (sel.kind === 'propout') el.innerHTML = propOutDetail(spine, sel.idx);
   else if (sel.kind === 'propclaim') el.innerHTML = propClaimDetail(spine, sel.idx, sel.claimIdx);
   else if (sel.kind === 'propev') el.innerHTML = propEvDetail(spine, sel.idx, sel.claimIdx, sel.evIdx, sel.evKind);
-  else if (sel.kind === 'propcase') el.innerHTML = propCaseDetail(spine, sel.idx, sel.claimIdx, sel.caseIdx);
   else el.innerHTML = overview(caseObj, spine);
   el.scrollTop = 0;
   if (sel.kind === 'propev' && sel.evKind === 'counter') return 'Counter-Evidence';

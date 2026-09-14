@@ -19,12 +19,11 @@ const SPINES = {
 const state = {
   cur: 0,
   view: null,          // 'spine' | 'timeline'
-  selKind: null,       // null | 'entry' | 'mech' | 'impact' | 'prop' | 'propclaim' | 'propev' | 'propcase'
+  selKind: null,       // null | 'entry' | 'mech' | 'impact' | 'prop' | 'propclaim' | 'propev'
   selIdx: null,
   claimIdx: null,      // which claim under the proposal's outcome
   evIdx: null,         // which evidence record, when a single one is selected
   evKind: null,        // 'for' | 'counter'
-  caseIdx: null,       // which case study under that claim
   zoom: 1,             // spine map zoom level
   fitKey: null,        // which case the current zoom was auto-fitted to
   builtKey: null       // which case+expansion the map DOM is currently built for
@@ -40,11 +39,11 @@ const curSpine = () => SPINES[curCase().slug] || null;
 const defaultView = c => (SPINES[c.slug] ? 'spine' : 'timeline');
 const curSel = () => ({
   kind: state.selKind, idx: state.selIdx, claimIdx: state.claimIdx,
-  evIdx: state.evIdx, evKind: state.evKind, caseIdx: state.caseIdx
+  evIdx: state.evIdx, evKind: state.evKind
 });
 /* The selection fields below the case, all cleared together. */
-const NO_SEL = { selKind: null, selIdx: null, claimIdx: null, evIdx: null, evKind: null, caseIdx: null };
-const BELOW_PROP = ['propclaim', 'propev', 'propcase'];
+const NO_SEL = { selKind: null, selIdx: null, claimIdx: null, evIdx: null, evKind: null };
+const BELOW_PROP = ['propclaim', 'propev'];
 
 /* Every proposal is always fully open, so the map DOM is rebuilt only when
    the case changes; every selection updates highlights in place. */
@@ -64,7 +63,6 @@ function route() {
     r.selIdx = state.selIdx;
     if (BELOW_PROP.includes(state.selKind)) r.claimIdx = state.claimIdx;
     if (state.selKind === 'propev') { r.evIdx = state.evIdx; r.evKind = state.evKind; }
-    if (state.selKind === 'propcase') r.caseIdx = state.caseIdx;
   }
   return r;
 }
@@ -99,8 +97,7 @@ function applyRoute() {
       prop: sp.proposals.length,
       propout: sp.proposals.length,
       propclaim: sp.proposals.length,
-      propev: sp.proposals.length,
-      propcase: sp.proposals.length
+      propev: sp.proposals.length
     };
     if (r.selIdx < (bounds[r.selKind] ?? 0)) {
       state.selKind = r.selKind;
@@ -115,9 +112,6 @@ function applyRoute() {
           if (r.selKind === 'propev') {
             const list = r.evKind === 'counter' ? (cl.counterEvidence ?? []) : (cl.evidence ?? []);
             if (r.evIdx < list.length) { state.evIdx = r.evIdx; state.evKind = r.evKind; }
-            else { state.selKind = 'propclaim'; canonical = false; }
-          } else if (r.selKind === 'propcase') {
-            if (r.caseIdx < (cl.cases?.length ?? 0)) state.caseIdx = r.caseIdx;
             else { state.selKind = 'propclaim'; canonical = false; }
           }
         }
@@ -392,11 +386,11 @@ function onHashChange() {
   render();
 }
 
-function select(kind, idx, { claimIdx = null, evIdx = null, evKind = null, caseIdx = null } = {}) {
+function select(kind, idx, { claimIdx = null, evIdx = null, evKind = null } = {}) {
   // Picking something on the map is a request to read it, so a hidden detail
   // pane comes back on its own rather than needing a second control.
   setRightPane(true);
-  navigate({ selKind: kind, selIdx: idx, claimIdx, evIdx, evKind, caseIdx });
+  navigate({ selKind: kind, selIdx: idx, claimIdx, evIdx, evKind });
 }
 
 function bindEvents() {
@@ -439,16 +433,11 @@ function bindEvents() {
     // The lane header is a control, not a card: it opens the full timeline.
     if (e.target.closest('.sp-lane-x')) { navigate({ view: 'timeline', ...NO_SEL }); return; }
     const num = (n, k) => Number(n.dataset[k]);
-    // Most specific first: one evidence card is one record, one case card is
-    // one precedent, then the claim, then the proposal or its outcome box.
+    // Most specific first: one evidence card is one record, then the claim,
+    // then the proposal or its outcome box.
     const evc = e.target.closest('[data-ev]');
     if (evc && evc.dataset.pr != null) {
       select('propev', num(evc, 'pr'), { claimIdx: num(evc, 'cl'), evIdx: num(evc, 'ev'), evKind: evc.dataset.evk });
-      return;
-    }
-    const cs = e.target.closest('[data-cs]');
-    if (cs && cs.dataset.pr != null) {
-      select('propcase', num(cs, 'pr'), { claimIdx: num(cs, 'cl'), caseIdx: num(cs, 'cs') });
       return;
     }
     const cl = e.target.closest('[data-cl]');

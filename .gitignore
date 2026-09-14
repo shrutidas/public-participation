@@ -8,3 +8,6 @@ _audit/
 
 # Mockups and drafts from Claude sessions
 Claude outputs/
+
+# Draft blocks and proposed text from chain audits (applied into js/spine)
+research/chain-audit-*/

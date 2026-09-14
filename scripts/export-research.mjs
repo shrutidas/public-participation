@@ -162,7 +162,7 @@ for (const c of cases) {
   }
 
   // Spine layer: mechanisms, measured impacts, proposals with their
-  // outcome, claims, evidence, and case studies.
+  // outcome, claims, and evidence.
   const sp = SPINES[c.slug];
   if (sp) {
     const spineRow = (type, extra) => rows.push({
@@ -234,9 +234,8 @@ for (const c of cases) {
         Caveat: '',
         'Deep Link': `${base}/spine/pr/${pi}`
       });
-      // One row for the outcome, one per claim under it, one per source of
-      // every evidence record under a claim, and one per source of every
-      // case study under a claim.
+      // One row for the outcome, one per claim under it, and one per source
+      // of every evidence record under a claim.
       const out = p.outcome;
       const prPath = `${base}/spine/pr/${pi}`;
       const outPath = `${prPath}/out`;
@@ -271,22 +270,6 @@ for (const c of cases) {
         };
         (cl.evidence ?? []).forEach((ev, k) => pushEv(ev, 'Proposal claim evidence', 'ev', k));
         (cl.counterEvidence ?? []).forEach((ev, k) => pushEv(ev, 'Proposal claim counter-evidence', 'cev', k));
-        (cl.cases ?? []).forEach((cm, k) => {
-          const srcs = cm.srcs?.length ? cm.srcs : [{ l: '', u: '' }];
-          for (const s of srcs) {
-            if (s.u) seenUrls.add(s.u);
-            spineRow('Proposal case study', {
-              'Causal Chain Placement': placement,
-              'Evidence Grade': cm.strength,
-              Date: cm.when,
-              Actors: plain(cm.where),
-              'Resource Title': s.l,
-              URL: s.u,
-              'Key Finding': `${cm.name} (${plain(cm.authority)}): ${plain(cm.outcome)}`,
-              'Deep Link': `${clPath}/cs/${k}`
-            });
-          }
-        });
       });
     });
   }
