@@ -1998,19 +1998,19 @@ export default spineData({
                 finding: paragraph(`
                   In a national program in northern Uganda, communities were assigned at random to
                   training in how to monitor their local projects, to information on project
-                  performance, to both, or to neither. People in trained communities made more
-                  complaints to officials. In the authors' 2019 revision, “We do find a statistically
-                  significant increase in trust in the central government”, which they describe as small
-                  next to trust levels in untreated communities. Views of project leaders and local officials
-                  did not change significantly. The authors trace the rise to the visibility of the central
-                  agency that ran the training.
+                  performance, to both, or to neither. People in trained communities spent more time
+                  monitoring projects and made more complaints to officials. The authors report that
+                  “individuals also report an increased ability of communities to solve collective
+                  action problems and a modest increase in trust in the central government.” The
+                  effects were strongest in areas that local officials had named as more likely to be
+                  corrupt or mismanaged. Views of project leaders and local officials did not change
+                  significantly.
                 `),
                 grade: 'moderate',
-                quote: 'We do find a statistically significant increase in trust in the central government.',
-                caveat: 'The trust results come from the working papers. The published article reports project and household results, and its abstract says the gains were not driven by responses from local leaders or officials.',
+                quote: 'Individuals also report an increased ability of communities to solve collective action problems and a modest increase in trust in the central government.',
+                caveat: 'The trust result comes from the 2018 working paper. The abstract of the 2025 published article does not mention trust.',
                 sources: [
-                  source('Fiala and Premand 2019, working paper revision', 'http://www.isid.ac.in/~epu/acegd2019/papers/NathanVincentFiala.pdf'),
-                  source('Fiala and Premand 2025, Journal of Development Economics', 'https://doi.org/10.1016/j.jdeveco.2025.103537')
+                  source('Fiala and Premand 2018, Ruhr Economic Papers 752 (working paper)', 'https://www.econstor.eu/bitstream/10419/179511/1/102399545X.pdf')
                 ]
               })
             ],
