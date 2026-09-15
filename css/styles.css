@@ -1664,3 +1664,5 @@ body[data-view="chain"] #ctrl .fl,
 /* The map is a picture: no text selection, no context menu (see app.js).
    The sidebars keep both. */
 #ch-mapcol, #ch-mapcol * { -webkit-user-select: none; user-select: none; }
+/* The mechanism question carries the same yellow star as the map. */
+.cd-kick-mech .sp-star-static { display: inline-flex; vertical-align: -4px; margin-right: 6px; }

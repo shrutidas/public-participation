@@ -273,27 +273,28 @@ export default spineData({
 
   proposals: [
     spineProposal({
-      name: 'Federal health officials publish vaccine data and brief the public on a set schedule',
-      method: 'Proactive Data Disclosure',
-      summary: 'The Centers for Disease Control and Prevention publishes county vaccine data and holds regular public briefings from the first week of the rollout, bad news included.',
+      name: 'Residents put their own questions to federal health officials at regular public sessions',
+      method: 'Town Hall',
+      summary: 'From the first week of the rollout, residents nominated by community groups across parties question CDC officials in public, and officials must answer every question.',
       anchor: 'ACIP voted 11 to 0',
-      where: 'Federal, at the Centers for Disease Control and Prevention.',
+      where: 'Federal, at the Centers for Disease Control and Prevention, with sessions held in regions across the country.',
       when: paragraph(`
-        December 2020 to January 2021, before the push to persuade people began, with the schedule
-        held through 2021. In 2021 the agency held two telebriefings.
+        December 2020 to January 2021, before the push to persuade people began, with sessions held
+        on a set schedule through 2021. In 2021 the agency held two telebriefings.
       `),
       description: paragraph(`
-        The Centers for Disease Control and Prevention (CDC) publishes county data on open
-        dashboards from December 2020. The data cover vaccinations, cases, hospital stays, and
-        reported side effects. The agency holds public briefings on a fixed schedule and takes
-        questions. It shares findings that look bad for the vaccines, and it says what it does not
-        yet know. The duty falls on the agency, and states, reporters, and residents use the data.
-        Taiwan's disease control agency held a press conference every day in 2020 and posted daily
-        updates on a messaging app. In 2021 the CDC held two telebriefings. Newspapers filled the
-        gap in county data, and the agency withheld booster and hospital data in 2021 and 2022. In a
-        randomized study, openness about a vaccine's downsides raised trust in health authorities,
-        even as it made people warier of the shot. The aim is that more people, across parties,
-        trust what federal health officials tell them about the vaccines and follow their guidance.
+        The Centers for Disease Control and Prevention (CDC) holds public sessions on a set schedule
+        from the first week of the vaccine rollout in December 2020. Residents put questions to
+        officials directly, not only through reporters. Community groups across the political
+        spectrum and in hard-hit areas nominate the residents who ask. Anyone can submit a question,
+        and submitted questions set part of each session's agenda. Officials must answer every
+        question, including questions about side effects and what is not yet known, and publish
+        their written answers. The CDC keeps its authority over vaccine guidance and still publishes
+        county data on vaccinations, cases, hospital stays, and reported side effects. Members of
+        Congress have held online town halls where randomly invited constituents questioned them
+        directly. In 2021 the CDC held two telebriefings, and those questions came from reporters.
+        The aim is that more people, across parties, trust what federal health officials tell them
+        about the vaccines and follow their guidance.
       `),
       outcome: outcome({
         text: 'More people, across parties, trust what federal health officials tell them about the vaccines and follow their guidance.',
@@ -470,6 +471,20 @@ export default spineData({
                 grade: 'moderate',
                 quote: 'Further analyses showed that messaging from the CDC was particularly effective among Republicans.',
                 sources: [source('Viskupič and Wiltse 2024, Journal of Community Health', 'https://doi.org/10.1007/s10900-024-01334-9')]
+              }),
+              evidence({
+                headline: 'Dr. Anthony Fauci\'s endorsement raised confidence in a COVID-19 vaccine among Republicans as well as Democrats.',
+                finding: paragraph(`
+                  Bokemper, Huber, Gerber, James and Omer ran two survey experiments with a national YouGov
+                  sample in September 2020. Donald Trump's endorsement raised confidence among Republicans and lowered
+                  it among Democrats, and Nancy Pelosi's moved mainly Democrats. “However, endorsement by Dr.
+                  Anthony Fauci increases confidence and uptake among all partisan subgroups.” The effect on
+                  willingness to be vaccinated was about four times larger for Democrats than for Republicans.
+                  The study measures stated confidence and intentions before any vaccine was approved.
+                `),
+                grade: 'strong',
+                quote: 'However, endorsement by Dr. Anthony Fauci increases confidence and uptake among all partisan subgroups.',
+                sources: [source('Bokemper, Huber, Gerber, James and Omer 2021, Vaccine', 'https://doi.org/10.1016/j.vaccine.2020.12.048')]
               })
             ],
             counterEvidence: [
@@ -487,6 +502,76 @@ export default spineData({
                 grade: 'moderate',
                 quote: 'There were no significant differences between those hearing the public health expert excerpt and the control group',
                 sources: [source('Robertson, Bentele, Meyerson, Wood and Salwa 2021, PLOS ONE', 'https://doi.org/10.1371/journal.pone.0257988')]
+              })
+            ]
+          }),
+          claim({
+            text: 'People trust officials more after putting their own questions to them in public.',
+            evidence: [
+              evidence({
+                headline: 'Constituents who put questions to their member of Congress in online town halls came away trusting the member more, and not only those from the member\'s party.',
+                finding: paragraph(`
+                  Minozzi, Neblo, Esterling and Lazer ran two field experiments with 20 online town halls in 2006
+                  and 2008. Nineteen were small sessions with members of the House, averaging 20 constituents
+                  each, and one was a session with a senator for 175 constituents. Constituents who had
+                  volunteered were assigned at random to join a session or only receive the reading material.
+                  During each session, constituents typed questions and comments and heard the member answer
+                  them. The authors write, “We find evidence of substantial persuasion effects on specific
+                  policy issues, attributions of trust and approval, and ultimately the decision to vote for
+                  the leader.” They add that “persuasion was not driven solely by changes in copartisans’
+                  attitudes; the effects were consistent across groups.” The participants had signed up to take
+                  part, and the sessions covered immigration and detainee policy rather than health.
+                `),
+                grade: 'strong',
+                quote: 'We find evidence of substantial persuasion effects on specific policy issues, attributions of trust and approval, and ultimately the decision to vote for the leader.',
+                sources: [source('Minozzi, Neblo, Esterling and Lazer 2015, Proceedings of the National Academy of Sciences', 'https://doi.org/10.1073/pnas.1418188112')]
+              }),
+              evidence({
+                headline: 'People accepted an unwelcome decision more readily when politicians had listened to citizens and explained themselves.',
+                finding: paragraph(`
+                  Esaiasson, Gilljam and Persson asked a panel of adult Swedes to imagine politicians deciding on
+                  a change to immigration law, and varied at random whether the politicians had listened to
+                  citizens, explained their reasons, or followed majority opinion. They then studied a real
+                  dispute over school closures in a Swedish town. “Responsiveness actions that signal
+                  willingness to communicate (‘to listen’ and ‘to explain’) are more effective than the action
+                  to follow majority opinion (‘to adapt’).” The reward held only when citizens were convinced
+                  that politicians had paid attention, and people who lost out were hard pressed to believe
+                  that. The study measures acceptance of a decision, not trust in an agency.
+                `),
+                grade: 'strong',
+                quote: 'Responsiveness actions that signal willingness to communicate (“to listen” and “to explain”) are more effective than the action to follow majority opinion (“to adapt”).',
+                sources: [source('Esaiasson, Gilljam and Persson 2017, Comparative Political Studies', 'https://doi.org/10.1177/0010414015626445')]
+              })
+            ],
+            counterEvidence: [
+              evidence({
+                headline: 'When Democratic members of Congress took constituents\' questions in telephone town halls, Democrats who joined came away trusting them more, but Republicans did not.',
+                finding: paragraph(`
+                  Abernathy and colleagues worked with four Democratic members of Congress who held telephone
+                  town halls with constituents in 2016. They surveyed 222 participants before and after the
+                  calls, and compared the usual open format with a single-topic call that came with briefing
+                  materials. Taking part improved constituents' views of their member overall. When the authors
+                  split the sample by party, “The effect of attendance on trust and approval seems limited to
+                  co-partisans; in fact, there was a negative point estimate for this effect among
+                  Republicans.” Only 35 Republicans took part, and the authors urge caution because they had not
+                  predicted the split.
+                `),
+                grade: 'moderate',
+                quote: 'The effect of attendance on trust and approval seems limited to co-partisans; in fact, there was a negative point estimate for this effect among Republicans.',
+                sources: [source('Abernathy, Esterling, Freebourn, Kennedy, Minozzi, Neblo and Solis 2019, Legislative Studies Quarterly', 'https://doi.org/10.1111/lsq.12242')]
+              }),
+              evidence({
+                headline: 'Viewers trusted politicians and government less after watching a rude exchange of views, while the same disagreement voiced politely did no harm.',
+                finding: paragraph(`
+                  Mutz and Reeves ran three laboratory experiments in which viewers watched televised political
+                  discussions that varied only in how civilly the speakers disagreed. Disagreement by itself did
+                  not hurt attitudes toward politics and politicians. “However, political trust is adversely
+                  affected by levels of incivility in these exchanges.” The exchanges were between political
+                  figures on television, not between officials and residents.
+                `),
+                grade: 'strong',
+                quote: 'However, political trust is adversely affected by levels of incivility in these exchanges.',
+                sources: [source('Mutz and Reeves 2005, American Political Science Review', 'https://doi.org/10.1017/S0003055405051452')]
               })
             ]
           }),
