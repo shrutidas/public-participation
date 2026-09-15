@@ -603,7 +603,7 @@ function entryDetail(caseObj, spine, i) {
   // screen changing for no reason. The map star still opens the mechanism.
   const answered = mechs.map(({ m }) => `
     <div class="sp-addressed">
-      <div class="cd-kick cd-kick-mech">&#9733; Did any existing mechanism address this?</div>
+      <div class="cd-kick cd-kick-mech"><span class="sp-star-static" aria-hidden="true">&#9733;</span> Did any existing mechanism address this?</div>
       <p class="cd-claim">${mechAnswer(m)}</p>
     </div>`).join('');
   return `<div class="cd">
@@ -618,7 +618,7 @@ function entryDetail(caseObj, spine, i) {
 function mechDetail(spine, i) {
   const m = spine.mechanisms[i];
   return `<div class="cd">
-    <div class="cd-kick cd-kick-mech">&#9733; Did any existing mechanism address this?</div>
+    <div class="cd-kick cd-kick-mech"><span class="sp-star-static" aria-hidden="true">&#9733;</span> Did any existing mechanism address this?</div>
     <p class="cd-claim">${mechAnswer(m)}</p>
     <div class="eact"><span class="act-label">Actor:</span> ${m.actor}</div>
     ${srcLine(m.srcs)}

@@ -273,86 +273,37 @@ export default spineData({
 
   proposals: [
     spineProposal({
-      name: 'Federal health officials publish vaccine data and brief the public on a set schedule',
-      method: 'Proactive Data Disclosure',
-      summary: 'The Centers for Disease Control and Prevention publishes county vaccine data and holds regular public briefings from the first week of the rollout, bad news included.',
+      name: 'Residents put their own questions to federal health officials at regular public sessions',
+      method: 'Town Hall',
+      summary: 'From the first week of the rollout, residents nominated by community groups across parties question CDC officials in public, and officials must answer every question.',
       anchor: 'ACIP voted 11 to 0',
-      where: 'Federal, at the Centers for Disease Control and Prevention.',
+      where: 'Federal, at the Centers for Disease Control and Prevention, with sessions held in regions across the country.',
       when: paragraph(`
-        December 2020 to January 2021, before the push to persuade people began, with the schedule
-        held through 2021. In 2021 the agency held two telebriefings.
+        December 2020 to January 2021, before the push to persuade people began, with sessions held
+        on a set schedule through 2021. In 2021 the agency held two telebriefings.
       `),
       description: paragraph(`
-        The Centers for Disease Control and Prevention (CDC) publishes county data on open
-        dashboards from December 2020. The data cover vaccinations, cases, hospital stays, and
-        reported side effects. The agency holds public briefings on a fixed schedule and takes
-        questions. It shares findings that look bad for the vaccines, and it says what it does not
-        yet know. The duty falls on the agency, and states, reporters, and residents use the data.
-        Taiwan's disease control agency held a press conference every day in 2020 and posted daily
-        updates on a messaging app. In 2021 the CDC held two telebriefings. Newspapers filled the
-        gap in county data, and the agency withheld booster and hospital data in 2021 and 2022. In a
-        randomized study, openness about a vaccine's downsides raised trust in health authorities,
-        even as it made people warier of the shot. The aim is that more people, across parties,
-        trust what federal health officials tell them about the vaccines and follow their guidance.
+        The Centers for Disease Control and Prevention (CDC) holds public sessions on a set schedule
+        from the first week of the vaccine rollout in December 2020. Residents put questions to
+        officials directly, not only through reporters. Community groups across the political
+        spectrum and in hard-hit areas nominate the residents who ask. Anyone can submit a question,
+        and submitted questions set part of each session's agenda. Officials must answer every
+        question, including questions about side effects and what is not yet known, and publish
+        their written answers. The CDC keeps its authority over vaccine guidance and still publishes
+        county data on vaccinations, cases, hospital stays, and reported side effects. Members of
+        Congress have held online town halls where constituents who volunteered were assigned at
+        random to question them directly. Trust in the CDC split along party lines during the
+        pandemic. Republicans' trust fell steeply while other Americans' trust held steady. In 2021
+        the CDC held two telebriefings, and those questions came from reporters. The aim is that
+        more people, across parties, trust what federal health officials tell them about the
+        vaccines and follow their guidance.
       `),
       outcome: outcome({
         text: 'More people, across parties, trust what federal health officials tell them about the vaccines and follow their guidance.',
         measured: null,
         claims: [
           claim({
-            text: 'Trust in federal health officials divides along party lines.',
-            evidence: [
-              evidence({
-                headline: 'Republicans\' trust in the CDC fell steeply as the pandemic went on, while trust among other Americans held steady.',
-                finding: paragraph(`
-                  Hatton, Barry, Levine, McGinty and Han surveyed the same national panel of Americans
-                  four times between April 2020 and summer 2021. Republicans started out nearly as
-                  trusting of the Centers for Disease Control and Prevention (CDC), the National
-                  Institutes of Health and medical experts as Democrats and independents, then grew
-                  more distrustful, most of all between the November 2020 election and July 2021.
-                  Trust among other Americans stayed fairly stable. The authors write that “Once a
-                  Democratic administration took over the federal government, Republicans became more
-                  likely to distrust recommendations and information from federal scientific
-                  agencies.” Local institutions kept their trust. The panel shows when the split
-                  opened, not why.
-                `),
-                grade: 'moderate',
-                quote: 'Once a Democratic administration took over the federal government, Republicans became more likely to distrust recommendations and information from federal scientific agencies.',
-                sources: [source('Hatton, Barry, Levine, McGinty and Han 2022, Daedalus', 'https://doi.org/10.1162/daed_a_01945')]
-              }),
-              evidence({
-                headline: 'In New Hampshire, Republicans\' trust in the CDC fell sharply in the first months of the pandemic, while Democrats and independents barely changed.',
-                finding: paragraph(`
-                  Hamilton and Safford ran three statewide surveys in New Hampshire from March to July
-                  2020. “Over this period trust in science agencies such as the CDC for information on
-                  the coronavirus fell dramatically among Republicans, while views among Democrats and
-                  Independents changed little.” The authors see the president's reversal on the agency
-                  as the obvious explanation. People with less trust in scientists also reported
-                  following science-based health recommendations less. The surveys cover one state.
-                `),
-                grade: 'moderate',
-                quote: 'Over this period trust in science agencies such as the CDC for information on the coronavirus fell dramatically among Republicans, while views among Democrats and Independents changed little.',
-                sources: [source('Hamilton and Safford 2021, Sociological Perspectives', 'https://doi.org/10.1177/07311214211022391')]
-              }),
-              evidence({
-                headline: 'Trust in the CDC fell during 2020 among Trump voters and nonvoters, while Biden voters barely moved.',
-                finding: paragraph(`
-                  RAND's national panel rated its trust in the Centers for Disease Control and
-                  Prevention in May and again in October 2020, on a scale from 0 to 10. Trust fell 0.8
-                  points among people intending to vote for Donald Trump and 1.1 points among people
-                  voting for someone else or not voting, both significant, against a drop of 0.3 among
-                  Biden voters, which was not. The authors write that views of the agency “are now
-                  strongly politicized”.
-                `),
-                grade: 'moderate',
-                quote: 'are now strongly politicized',
-                sources: [source('Pollard and Davis 2021, RAND Corporation', 'https://www.rand.org/pubs/research_reports/RRA308-12.html')]
-              })
-            ],
-            counterEvidence: []
-          }),
-          claim({
-            text: 'Health officials who are open about a vaccine\'s risks keep the public\'s trust.',
+            text: 'Health officials who are open about a vaccine\'s risks earn more of the public\'s trust.',
             evidence: [
               evidence({
                 headline: 'Being open about a vaccine\'s downsides raised trust in health authorities, even though it made people warier of the shot.',
@@ -470,6 +421,20 @@ export default spineData({
                 grade: 'moderate',
                 quote: 'Further analyses showed that messaging from the CDC was particularly effective among Republicans.',
                 sources: [source('Viskupič and Wiltse 2024, Journal of Community Health', 'https://doi.org/10.1007/s10900-024-01334-9')]
+              }),
+              evidence({
+                headline: 'Dr. Anthony Fauci\'s endorsement raised confidence in a COVID-19 vaccine among Republicans as well as Democrats.',
+                finding: paragraph(`
+                  Bokemper, Huber, Gerber, James and Omer ran two survey experiments with a national YouGov
+                  sample in September 2020. Donald Trump's endorsement raised confidence among Republicans and lowered
+                  it among Democrats, and Nancy Pelosi's moved mainly Democrats. “However, endorsement by Dr.
+                  Anthony Fauci increases confidence and uptake among all partisan subgroups.” The effect on
+                  willingness to be vaccinated was about four times larger for Democrats than for Republicans.
+                  The study measures stated confidence and intentions before any vaccine was approved.
+                `),
+                grade: 'strong',
+                quote: 'However, endorsement by Dr. Anthony Fauci increases confidence and uptake among all partisan subgroups.',
+                sources: [source('Bokemper, Huber, Gerber, James and Omer 2021, Vaccine', 'https://doi.org/10.1016/j.vaccine.2020.12.048')]
               })
             ],
             counterEvidence: [
@@ -487,8 +452,130 @@ export default spineData({
                 grade: 'moderate',
                 quote: 'There were no significant differences between those hearing the public health expert excerpt and the control group',
                 sources: [source('Robertson, Bentele, Meyerson, Wood and Salwa 2021, PLOS ONE', 'https://doi.org/10.1371/journal.pone.0257988')]
+              }),
+              evidence({
+                headline: 'Republicans\' trust in the CDC fell steeply as the pandemic went on, while trust among other Americans held steady.',
+                finding: paragraph(`
+                  Hatton, Barry, Levine, McGinty and Han surveyed the same national panel of Americans
+                  four times between April 2020 and summer 2021. Republicans started out nearly as
+                  trusting of the Centers for Disease Control and Prevention (CDC), the National
+                  Institutes of Health and medical experts as Democrats and independents, then grew
+                  more distrustful, most of all between the November 2020 election and July 2021.
+                  Trust among other Americans stayed fairly stable. The authors write that “Once a
+                  Democratic administration took over the federal government, Republicans became more
+                  likely to distrust recommendations and information from federal scientific
+                  agencies.” Local institutions kept their trust. The panel shows when the split
+                  opened, not why.
+                `),
+                grade: 'moderate',
+                quote: 'Once a Democratic administration took over the federal government, Republicans became more likely to distrust recommendations and information from federal scientific agencies.',
+                sources: [source('Hatton, Barry, Levine, McGinty and Han 2022, Daedalus', 'https://doi.org/10.1162/daed_a_01945')]
+              }),
+              evidence({
+                headline: 'In New Hampshire, Republicans\' trust in the CDC fell sharply in the first months of the pandemic, while Democrats and independents barely changed.',
+                finding: paragraph(`
+                  Hamilton and Safford ran three statewide surveys in New Hampshire from March to July
+                  2020. “Over this period trust in science agencies such as the CDC for information on
+                  the coronavirus fell dramatically among Republicans, while views among Democrats and
+                  Independents changed little.” The authors see the president's reversal on the agency
+                  as the obvious explanation. People with less trust in scientists also reported
+                  following science-based health recommendations less. The surveys cover one state.
+                `),
+                grade: 'moderate',
+                quote: 'Over this period trust in science agencies such as the CDC for information on the coronavirus fell dramatically among Republicans, while views among Democrats and Independents changed little.',
+                sources: [source('Hamilton and Safford 2021, Sociological Perspectives', 'https://doi.org/10.1177/07311214211022391')]
+              }),
+              evidence({
+                headline: 'Trust in the CDC fell during 2020 among Trump voters and nonvoters, while Biden voters barely moved.',
+                finding: paragraph(`
+                  RAND's national panel rated its trust in the Centers for Disease Control and
+                  Prevention in May and again in October 2020, on a scale from 0 to 10. Trust fell 0.8
+                  points among people intending to vote for Donald Trump and 1.1 points among people
+                  voting for someone else or not voting, both significant, against a drop of 0.3 among
+                  Biden voters, which was not. The authors write that views of the agency “are now
+                  strongly politicized”.
+                `),
+                grade: 'moderate',
+                quote: 'are now strongly politicized',
+                sources: [source('Pollard and Davis 2021, RAND Corporation', 'https://www.rand.org/pubs/research_reports/RRA308-12.html')]
               })
             ]
+          }),
+          claim({
+            text: 'People trust officials more after putting their own questions to them in public.',
+            evidence: [
+              evidence({
+                headline: 'Constituents who put questions to their member of Congress in online town halls came away trusting the member more, and not only those from the member\'s party.',
+                finding: paragraph(`
+                  Minozzi, Neblo, Esterling and Lazer ran two field experiments with 20 online town halls in 2006
+                  and 2008. Nineteen were small sessions with members of the House, averaging 20 constituents
+                  each, and one was a session with a senator for 175 constituents. Constituents who had
+                  volunteered were assigned at random to join a session or only receive the reading material.
+                  During each session, constituents typed questions and comments and heard the member answer
+                  them. The authors write, “We find evidence of substantial persuasion effects on specific
+                  policy issues, attributions of trust and approval, and ultimately the decision to vote for
+                  the leader.” They add that “persuasion was not driven solely by changes in copartisans’
+                  attitudes; the effects were consistent across groups.” The participants had signed up to take
+                  part, and the sessions covered immigration and detainee policy rather than health.
+                `),
+                grade: 'strong',
+                quote: 'We find evidence of substantial persuasion effects on specific policy issues, attributions of trust and approval, and ultimately the decision to vote for the leader.',
+                sources: [source('Minozzi, Neblo, Esterling and Lazer 2015, Proceedings of the National Academy of Sciences', 'https://doi.org/10.1073/pnas.1418188112')]
+              })
+            ],
+            counterEvidence: [
+              evidence({
+                headline: 'When Democratic members of Congress took constituents\' questions in telephone town halls, Democrats who joined came away trusting them more, but Republicans did not.',
+                finding: paragraph(`
+                  Abernathy and colleagues worked with four Democratic members of Congress who held telephone
+                  town halls with constituents in 2016. They surveyed 222 participants before and after the
+                  calls, and compared the usual open format with a single-topic call that came with briefing
+                  materials. Taking part improved constituents' views of their member overall. When the authors
+                  split the sample by party, “The effect of attendance on trust and approval seems limited to
+                  co-partisans; in fact, there was a negative point estimate for this effect among
+                  Republicans.” Only 35 Republicans took part, and the authors urge caution because they had not
+                  predicted the split.
+                `),
+                grade: 'moderate',
+                quote: 'The effect of attendance on trust and approval seems limited to co-partisans; in fact, there was a negative point estimate for this effect among Republicans.',
+                sources: [source('Abernathy, Esterling, Freebourn, Kennedy, Minozzi, Neblo and Solis 2019, Legislative Studies Quarterly', 'https://doi.org/10.1111/lsq.12242')]
+              }),
+              evidence({
+                headline: 'Viewers trusted politicians and government less after watching a rude exchange of views, while the same disagreement voiced politely did no harm.',
+                finding: paragraph(`
+                  Mutz and Reeves ran three laboratory experiments in which viewers watched televised political
+                  discussions that varied only in how civilly the speakers disagreed. Disagreement by itself did
+                  not hurt attitudes toward politics and politicians. “However, political trust is adversely
+                  affected by levels of incivility in these exchanges.” The exchanges were between political
+                  figures on television, not between officials and residents.
+                `),
+                grade: 'strong',
+                quote: 'However, political trust is adversely affected by levels of incivility in these exchanges.',
+                sources: [source('Mutz and Reeves 2005, American Political Science Review', 'https://doi.org/10.1017/S0003055405051452')]
+              })
+            ]
+          }),
+          claim({
+            text: 'People who learn that residents helped make a decision judge the decision more favorably.',
+            evidence: [
+              evidence({
+                headline: 'People accepted an unwelcome decision more readily when politicians had listened to citizens and explained themselves.',
+                finding: paragraph(`
+                  Esaiasson, Gilljam and Persson asked a panel of adult Swedes to imagine politicians deciding on
+                  a change to immigration law, and varied at random whether the politicians had listened to
+                  citizens, explained their reasons, or followed majority opinion. They then studied a real
+                  dispute over school closures in a Swedish town. “Responsiveness actions that signal
+                  willingness to communicate (‘to listen’ and ‘to explain’) are more effective than the action
+                  to follow majority opinion (‘to adapt’).” The reward held only when citizens were convinced
+                  that politicians had paid attention, and people who lost out were hard pressed to believe
+                  that. The study measures acceptance of a decision, not trust in an agency.
+                `),
+                grade: 'strong',
+                quote: 'Responsiveness actions that signal willingness to communicate (“to listen” and “to explain”) are more effective than the action to follow majority opinion (“to adapt”).',
+                sources: [source('Esaiasson, Gilljam and Persson 2017, Comparative Political Studies', 'https://doi.org/10.1177/0010414015626445')]
+              })
+            ],
+            counterEvidence: []
           }),
           claim({
             text: 'People who trust the authorities follow their health advice more closely.',
@@ -588,110 +675,32 @@ export default spineData({
       description: paragraph(`
         Before imposing a vaccine mandate, the federal government or a city convenes an assembly of
         residents chosen by lot. Experts brief members on the science. Members then weigh the values
-        at stake, including whether to mandate, for whom, and with what exemptions. At a minimum,
-        the government publishes the assembly's conclusion and a written response before it acts.
-        Federal and state vaccination law and emergency use rules stay in place. The group accepted
-        that places would differ, writing “some places might decide not to vaccinate; so be it.”
-        France ran a version in 2021. At the Prime Minister's request, its economic and social
-        council convened 35 citizens drawn by lot to advise on the vaccination campaign. In 2017,
-        South Korea's president accepted a randomly selected panel's advice to resume building two
-        nuclear reactors, reversing his own decision. In 2021, federal mandates came with no such
-        step. The Senate and the Supreme Court later cut down both Executive Order 14043 and the
-        workplace safety agency's vaccine rule. The group did not say how much power the assembly
-        holds. It could hold a binding yes or no on the mandate, set the exemptions for a rollout
-        that goes ahead anyway, or decide only how the mandate is explained. The form matters,
-        because people accepted a decision more when the government followed the assembly and less
-        when it set the advice aside. The aim is that more people, including people who oppose a
-        mandate, accept it as legitimate and comply with it.
+        at stake, including whether to mandate, for whom, and with what exemptions. The government
+        publishes the assembly's conclusion before it acts. Federal and state vaccination law and
+        emergency use rules stay in place. The group accepted that places would differ, writing
+        “some places might decide not to vaccinate; so be it.” France ran a version in 2021. At the
+        Prime Minister's request, its economic and social council convened 35 citizens drawn by lot
+        to advise on the vaccination campaign. In 2017, South Korea's president accepted a randomly
+        selected panel's advice to resume building two nuclear reactors, reversing his own decision.
+        In 2021, federal mandates came with no such step. People opposed a vaccine more once it was
+        to be required by law, and people who resented a requirement were less willing to take other
+        vaccines. Telling people a vaccine was required also raised their stated willingness to get
+        it. The Senate and the Supreme Court later cut down both Executive Order 14043 and the
+        workplace safety agency's vaccine rule. At a minimum, the government follows the assembly's
+        advice or explains in public why it does not. The assembly can also hold a binding yes or no
+        on the mandate, or set its exemptions. Advice set aside without an explanation lowers
+        acceptance, while a public explanation restores most of it. People with the strongest views
+        were half as ready as moderates to accept an assembly decision against them. The aim is that
+        more people, including people who oppose a mandate, accept it as legitimate and comply with
+        it.
       `),
       outcome: outcome({
         text: 'More people, including those who oppose a mandate, accept it as legitimate and comply with it.',
-        measured: null,
+        measured: 'Mandates raised vaccination abroad but not in US states',
         claims: [
-          claim({
-            text: 'Imposing a vaccine mandate provokes resistance from the people who oppose it.',
-            evidence: [
-              evidence({
-                headline: 'More people turned against a vaccine once it was to be required by law, while support for voluntary vaccination held.',
-                finding: paragraph(`
-                  Schmelz and Bowles followed the same German adults through the first and second
-                  waves of the pandemic. They report: “We observe increased opposition to
-                  vaccinations were they to be legally required. In contrast, for voluntary
-                  vaccinations, there was higher and undiminished support. We find that public
-                  distrust undermines vaccine acceptance, and is associated with a belief that the
-                  vaccine is ineffective and, if enforced, compromises individual freedom.” People
-                  answered about a requirement that did not yet exist, so the study measures stated
-                  opposition, not behavior under a real mandate.
-                `),
-                grade: 'moderate',
-                quote: 'We observe increased opposition to vaccinations were they to be legally required. In contrast, for voluntary vaccinations, there was higher and undiminished support. We find that public distrust undermines vaccine acceptance, and is associated with a belief that the vaccine is ineffective and, if enforced, compromises individual freedom.',
-                sources: [source('Schmelz and Bowles 2021, Proceedings of the National Academy of Sciences', 'https://doi.org/10.1073/pnas.2104912118')]
-              }),
-              evidence({
-                headline: 'People who did not want a vaccine mandate resented being required to vaccinate most, especially when no one explained why high coverage mattered.',
-                finding: paragraph(`
-                  In a German experiment, people told that vaccination was compulsory reported more
-                  resentment than people told it was voluntary, and “being mandated to vaccinate
-                  elicited most reactance when support for a mandate was low and the importance of
-                  high vaccination rates was not explained”. That resentment went with lower intention
-                  to get an unrelated flu shot. The study measures stated resentment and intentions,
-                  not behavior.
-                `),
-                grade: 'moderate',
-                quote: 'Being mandated to vaccinate elicited most reactance when support for a mandate was low and the importance of high vaccination rates was not explained.',
-                sources: [source('Sprengholz et al. 2022, Journal of Health Psychology', 'https://doi.org/10.1177/13591053211044535')]
-              }),
-              evidence({
-                headline: 'Parents who resented a measles vaccine rule were less willing to vaccinate their children against other diseases, even though most parents backed the rule.',
-                finding: paragraph(`
-                  Neufeind and colleagues surveyed German parents after a measles vaccination
-                  requirement took effect. Most, 74.1 percent, endorsed it. Even so, “the higher
-                  parents’ levels of reactance, the lower the vaccination intentions and the
-                  likelihood for the child to be vaccinated against other diseases”. Parents who
-                  trusted institutions resented the rule less. Everyone surveyed lived under the same
-                  requirement, so the study compares parents with one another rather than a mandate
-                  with no mandate.
-                `),
-                grade: 'moderate',
-                quote: 'The higher parents\' levels of reactance, the lower the vaccination intentions and the likelihood for the child to be vaccinated against other diseases.',
-                sources: [source('Neufeind et al. 2022, BMC Public Health', 'https://doi.org/10.1186/s12889-022-14075-y')]
-              })
-            ],
-            counterEvidence: [
-              evidence({
-                headline: 'Telling people a vaccine was required made them more willing to get it, even those most prone to push back.',
-                finding: paragraph(`
-                  Albarracin and colleagues ran a survey and three experiments in the United States
-                  in which people read that a vaccine was either required or left to them. They found
-                  that “requirements strengthened vaccination intentions across racial and ethnic
-                  groups, across studies, and across levels of trait psychological reactance”. The
-                  studies measure intentions, not whether people later saw the requirement as
-                  legitimate.
-                `),
-                grade: 'moderate',
-                quote: 'Requirements strengthened vaccination intentions across racial and ethnic groups, across studies, and across levels of trait psychological reactance.',
-                sources: [source('Albarracin et al. 2021, Scientific Reports', 'https://www.nature.com/articles/s41598-021-00256-z')]
-              })
-            ]
-          }),
           claim({
             text: 'People accept a decision as more legitimate when a randomly selected group of citizens helped make it, even when the decision goes against them.',
             evidence: [
-              evidence({
-                headline: 'People told a decision had gone against them were readier to accept it when a citizen panel had recommended it, and people who distrusted politics moved the most.',
-                finding: paragraph(`
-                  Germann, Marien and Muradova ran a preregistered survey experiment with 1,309 Irish
-                  adults, all told the decision went against their view. When a panel of randomly
-                  selected citizens had recommended the decision and officials followed it, people
-                  judged the process fairer and were more willing to accept the result. The authors
-                  find that “the legitimacy-enhancing effects of participatory processes are driven by
-                  citizens with low political trust”. People read a scenario, so the study measures
-                  judgments of a described decision rather than a real one.
-                `),
-                grade: 'moderate',
-                quote: 'we find that the legitimacy-enhancing effects of participatory processes are driven by citizens with low political trust',
-                sources: [source('Germann, Marien and Muradova 2024, Political Studies', 'https://doi.org/10.1177/00323217221137444')]
-              }),
               evidence({
                 headline: 'People judged a decision fairer when citizens had taken part in making it, even when the decision went against them.',
                 finding: paragraph(`
@@ -739,21 +748,6 @@ export default spineData({
                 sources: [source('Garry et al. 2021, Government and Opposition', 'https://doi.org/10.1017/gov.2021.4')]
               }),
               evidence({
-                headline: 'Telling people a citizens\' assembly had backed a lockdown extension did not make them any more willing to go along with it.',
-                finding: paragraph(`
-                  Muradova and Suiter showed people in the United States and the United Kingdom a news
-                  item about a lockdown extension decided after citizen deliberation, after a public
-                  consultation, after politicians deliberated, or with nothing said. “The findings
-                  show minipublics are unlikely to foster public compliance during a health crisis.
-                  On the contrary, reading about a minipublic could decrease compliance when
-                  individuals are distrustful of minipublics.” The study asked how willing people were
-                  to comply with the rule, not how legitimate they judged it.
-                `),
-                grade: 'moderate',
-                quote: 'The findings show minipublics are unlikely to foster public compliance during a health crisis. On the contrary, reading about a minipublic could decrease compliance when individuals are distrustful of minipublics.',
-                sources: [source('Muradova and Suiter 2022, International Journal of Public Opinion Research', 'https://doi.org/10.1093/ijpor/edac026')]
-              }),
-              evidence({
                 headline: 'Whether people got the outcome they wanted mattered far more to their acceptance than how the decision was made.',
                 finding: paragraph(`
                   Esaiasson and colleagues ran vignette and field experiments that varied how a
@@ -769,7 +763,44 @@ export default spineData({
             ]
           }),
           claim({
-            text: 'People accept a decision more when the authority follows a citizens\' assembly than when it sets the assembly\'s advice aside.',
+            text: 'People who learn that residents helped make a decision judge the decision more favorably.',
+            evidence: [
+              evidence({
+                headline: 'People told a decision had gone against them were readier to accept it when a citizen panel had recommended it, and people who distrusted politics moved the most.',
+                finding: paragraph(`
+                  Germann, Marien and Muradova ran a preregistered survey experiment with 1,309 Irish
+                  adults, all told the decision went against their view. When a panel of randomly
+                  selected citizens had recommended the decision and officials followed it, people
+                  judged the process fairer and were more willing to accept the result. The authors
+                  find that “the legitimacy-enhancing effects of participatory processes are driven by
+                  citizens with low political trust”. People read a scenario, so the study measures
+                  judgments of a described decision rather than a real one.
+                `),
+                grade: 'moderate',
+                quote: 'we find that the legitimacy-enhancing effects of participatory processes are driven by citizens with low political trust',
+                sources: [source('Germann, Marien and Muradova 2024, Political Studies', 'https://doi.org/10.1177/00323217221137444')]
+              })
+            ],
+            counterEvidence: [
+              evidence({
+                headline: 'Telling people a citizens\' assembly had backed a lockdown extension did not make them any more willing to go along with it.',
+                finding: paragraph(`
+                  Muradova and Suiter showed people in the United States and the United Kingdom a news
+                  item about a lockdown extension decided after citizen deliberation, after a public
+                  consultation, after politicians deliberated, or with nothing said. “The findings
+                  show minipublics are unlikely to foster public compliance during a health crisis.
+                  On the contrary, reading about a minipublic could decrease compliance when
+                  individuals are distrustful of minipublics.” The study asked how willing people were
+                  to comply with the rule, not how legitimate they judged it.
+                `),
+                grade: 'moderate',
+                quote: 'The findings show minipublics are unlikely to foster public compliance during a health crisis. On the contrary, reading about a minipublic could decrease compliance when individuals are distrustful of minipublics.',
+                sources: [source('Muradova and Suiter 2022, International Journal of Public Opinion Research', 'https://doi.org/10.1093/ijpor/edac026')]
+              })
+            ]
+          }),
+          claim({
+            text: 'People accept a decision more when the authority follows a citizens\' assembly\'s advice or publicly justifies setting it aside.',
             evidence: [
               evidence({
                 headline: 'People supported their government more when it adopted a citizen panel\'s advice in full, and less than if politicians had decided alone when it did not.',
@@ -799,9 +830,7 @@ export default spineData({
                 grade: 'moderate',
                 quote: 'We find a positive significant effect among our respondents when there is congruence between the deliberative mini-public and the referendum outcome and a negative significant effect when there is incongruence.',
                 sources: [source('Koenen, Jacobs and Lehr 2026, Political Behavior', 'https://doi.org/10.1007/s11109-026-10132-z')]
-              })
-            ],
-            counterEvidence: [
+              }),
               evidence({
                 headline: 'When politicians explained in public why they set a citizen panel\'s advice aside, legitimacy came back almost to where it stood when they followed it.',
                 finding: paragraph(`
@@ -817,7 +846,8 @@ export default spineData({
                 quote: 'legitimacy perceptions substantially increase, generally reaching the level of those cases where recommendations are followed',
                 sources: [source('Goovaerts, De Fine Licht and Marien 2025, European Journal of Political Research', 'https://doi.org/10.1111/1475-6765.12711')]
               })
-            ]
+            ],
+            counterEvidence: []
           }),
           claim({
             text: 'People follow a rule more closely when they see the authority behind it as legitimate.',
@@ -867,37 +897,8 @@ export default spineData({
             ]
           }),
           claim({
-            text: 'People follow a rule more closely when they had a say in choosing it than when someone imposes it on them.',
-            evidence: [
-              evidence({
-                headline: 'Groups cooperated more under a rule they had voted for than under the same rule imposed on them from outside.',
-                finding: paragraph(`
-                  Dal Bó, Foster and Putterman ran a laboratory experiment in which groups either
-                  voted on a rule for a money game or had the same rule set for them. They show “that
-                  the effect of a policy on the level of cooperation is greater when it is chosen
-                  democratically by the subjects than when it is exogenously imposed”. The design
-                  separates the vote itself from the kind of people who choose the rule. The rule
-                  was a payoff change in a game, not a health rule.
-                `),
-                grade: 'strong',
-                quote: 'the effect of a policy on the level of cooperation is greater when it is chosen democratically by the subjects than when it is exogenously imposed',
-                sources: [source('Dal Bó, Foster and Putterman 2010, American Economic Review', 'https://doi.org/10.1257/aer.100.5.2205')]
-              }),
-              evidence({
-                headline: 'A mild penalty that people had voted to place on themselves won compliance, while the same penalty imposed from outside did not.',
-                finding: paragraph(`
-                  Tyran and Feld compared a mild penalty, a severe penalty, and no penalty in a
-                  laboratory game where people chose how much to give to a shared pot. “The results
-                  show that exogenously imposing mild law does not achieve compliance, but compliance
-                  is much improved if mild law is endogenously chosen”. Voting for the rule led people
-                  to expect others to cooperate, and they complied when they expected many others to
-                  do so. The penalties were in money, in a game.
-                `),
-                grade: 'strong',
-                quote: 'The results show that exogenously imposing mild law does not achieve compliance, but compliance is much improved if mild law is endogenously chosen',
-                sources: [source('Tyran and Feld 2006, Scandinavian Journal of Economics', 'https://doi.org/10.1111/j.1467-9442.2006.00444.x')]
-              })
-            ],
+            text: 'People comply with a rule made by randomly selected residents as readily as one made by officials they elected.',
+            evidence: [],
             counterEvidence: [
               evidence({
                 headline: 'A rule chosen by a group member picked by lottery won no more cooperation than the same rule imposed from outside, while a rule chosen by an elected member did.',
@@ -932,7 +933,12 @@ export default spineData({
           })
         ]
       }),
-      sources: []
+      sources: [
+        source('Schmelz and Bowles 2021, Proceedings of the National Academy of Sciences', 'https://doi.org/10.1073/pnas.2104912118'),
+        source('Sprengholz et al. 2022, Journal of Health Psychology', 'https://doi.org/10.1177/13591053211044535'),
+        source('Neufeind et al. 2022, BMC Public Health', 'https://doi.org/10.1186/s12889-022-14075-y'),
+        source('Albarracin et al. 2021, Scientific Reports', 'https://www.nature.com/articles/s41598-021-00256-z')
+      ]
     }),
 
     spineProposal({
@@ -952,62 +958,26 @@ export default spineData({
         health department keeps control of supply, eligibility, and safety standards. It commits a
         share of doses to the task forces' plans and publishes uptake by zip code. Task forces form
         in February 2021, when agencies were siting scarce federal supply. They meet again in April
-        2021, when the barrier shifted from supply to access. Early in the rollout, health
-        facilities in heavily Black urban counties were less likely to be giving COVID-19 vaccines.
-        Chicago launched Protect Chicago Plus on this model on January 25, 2021. No study separates
-        the task forces' role from the extra supply that came with it. Delivery run this way may
-        also strengthen neighborhood ties, which the September review saw as part of the point.
-        People who helped neighbors through organized efforts early in the pandemic felt closer to
-        their community. Much of the activity in online mutual aid groups faded after the first
-        wave. Everyday ties matter in a crisis. In Chicago's deadly heat wave, people with friends
-        nearby or group activities were less likely to die. The aim is that Black and Hispanic
-        residents in the hardest-hit neighborhoods get vaccinated sooner, and fewer of them die of
-        COVID-19.
+        2021, when the barrier shifted from supply to access. Early in the rollout, Black and
+        Hispanic residents of the poorest neighborhoods got vaccinated at less than half the rate of
+        White residents of better-off ones. Early in the rollout, health facilities in heavily Black
+        urban counties were less likely to be giving COVID-19 vaccines. Chicago launched Protect
+        Chicago Plus on this model on January 25, 2021. No study separates the task forces' role
+        from the extra supply that came with it. The drop in deaths is inferred from studies of
+        vaccination and deaths, not measured for any delivery program. Delivery run this way may
+        also strengthen neighborhood ties. People who helped neighbors through organized efforts
+        early in the pandemic felt closer to their community. Much of the activity in online mutual
+        aid groups faded after the first wave. Everyday ties matter in a crisis. In Chicago's deadly
+        heat wave, people with friends nearby or group activities were less likely to die. The aim
+        is that Black and Hispanic residents in the hardest-hit neighborhoods get vaccinated sooner,
+        and fewer of them die of COVID-19.
       `),
       outcome: outcome({
         text: 'Black and Hispanic residents in the hardest-hit neighborhoods get vaccinated sooner, and fewer of them die of COVID-19.',
         measured: 'The racial gap in vaccination narrowed',
         claims: [
           claim({
-            text: 'Vaccines reach the hardest-hit Black and Hispanic neighborhoods later than whiter, wealthier ones.',
-            evidence: [
-              evidence({
-                headline: 'Early in the rollout, Black and Hispanic residents of poorer neighborhoods got vaccinated at less than half the rate of White residents of better-off ones.',
-                finding: paragraph(`
-                  Mody and colleagues tracked every COVID-19 vaccination recorded in the St. Louis and
-                  Kansas City regions from December 2020 to February 2022. “During early phases of the
-                  primary series rollout, Black and Hispanic individuals from high SVI zip codes were
-                  vaccinated at less than half the rate of White individuals from low SVI zip codes”,
-                  where SVI is the Social Vulnerability Index. Their rates later rose above White rates,
-                  in the months when more shots were given at small community sites such as pharmacies,
-                  but gaps by neighborhood remained after a year. The registry misses or misclassifies
-                  some race and zip code entries.
-                `),
-                grade: 'strong',
-                quote: 'During early phases of the primary series rollout, Black and Hispanic individuals from high SVI zip codes were vaccinated at less than half the rate of White individuals from low SVI zip codes',
-                sources: [source('Mody et al. 2022, PLOS Medicine', 'https://doi.org/10.1371/journal.pmed.1004048')]
-              }),
-              evidence({
-                headline: 'Early in the rollout, health facilities in the most heavily Black city counties were less likely to be giving COVID-19 vaccines.',
-                finding: paragraph(`
-                  Hernandez and colleagues matched every eligible health facility and pharmacy in the
-                  country against the places actually giving COVID-19 vaccines in May 2021. In
-                  metropolitan counties where more than 42 percent of residents were Black, facilities
-                  had 32 percent lower odds of giving vaccines than in counties with a below-average
-                  Black population. “Healthcare facilities in counties with higher Black composition, in
-                  rural areas, and in hardest-hit communities were less likely to serve as COVID-19
-                  vaccine administration locations in May 2021.” The count left out pop-up and other
-                  nontraditional sites and covers a single month.
-                `),
-                grade: 'moderate',
-                quote: 'Healthcare facilities in counties with higher Black composition, in rural areas, and in hardest-hit communities were less likely to serve as COVID-19 vaccine administration locations in May 2021.',
-                sources: [source('Hernandez et al. 2022, PLOS Medicine', 'https://doi.org/10.1371/journal.pmed.1004069')]
-              })
-            ],
-            counterEvidence: []
-          }),
-          claim({
-            text: 'Residents and local groups who plan delivery put vaccination sites where their neighbors face the most barriers.',
+            text: 'Vaccination sites run with residents and local groups draw the neighbors who face the most barriers.',
             evidence: [
               evidence({
                 headline: 'A vaccination site run with community groups in San Francisco\'s Mission District drew mostly Latino residents, who most often said they came because it was in their neighborhood.',
@@ -1039,6 +1009,27 @@ export default spineData({
                 grade: 'weak',
                 quote: 'The multi-tiered community approach (remote-site vaccination clinics) resulted in a necessary overrepresentation of Black vaccinees, previously underrepresented in the LLU traditional mass vaccination clinic effort (44% vs. 3.7%, respectively).',
                 sources: [source('Abdul-Mutakabbir et al. 2021, Open Forum Infectious Diseases', 'https://doi.org/10.1093/ofid/ofab466.674')]
+              }),
+              evidence({
+                headline: 'Vaccine vans that a Seattle health system sent out with community groups served a larger share of Black, Hispanic, and Pacific Islander residents than its mass site.',
+                finding: paragraph(`
+                  Xie and colleagues compared six months of health records from UW Medicine in Seattle for
+                  people who booked vaccine appointments through four outreach efforts or through standard
+                  online or phone booking at the mass vaccination site. The health system held listening
+                  sessions with community organizations before launching its mobile vans and paid them for
+                  each event. In the program's design, “Three mobile vans worked in concert with CBOs to reach
+                  unhoused, low-income, and underrepresented BIPOC people” at shelters, churches, parks, and
+                  community events. Compared with standard
+                  booking, the vans reached higher shares of Black, Hispanic, Pacific Islander, and
+                  non-English-speaking people and of residents of more socially vulnerable areas. The authors
+                  conclude that “Compared to traditional scheduling, the outreach strategies improved vaccine
+                  equity for vulnerable populations disproportionately impacted by COVID-19.” The comparison
+                  describes who each channel reached, not who would have been vaccinated anyway, and the paper
+                  does not say the community groups picked each van stop.
+                `),
+                grade: 'moderate',
+                quote: 'Compared to traditional scheduling, the outreach strategies improved vaccine equity for vulnerable populations disproportionately impacted by COVID-19.',
+                sources: [source('Xie, Mah, Chew, Ruud, Hernandez, Lowery and Hartzler 2024, Applied Clinical Informatics', 'https://doi.org/10.1055/s-0044-1779258')]
               })
             ],
             counterEvidence: [
@@ -1148,7 +1139,7 @@ export default spineData({
             ]
           }),
           claim({
-            text: 'Bringing vaccination close to home gets people vaccinated sooner than urging them to go.',
+            text: 'Bringing vaccination close to home gets more unvaccinated people their shots sooner.',
             evidence: [
               evidence({
                 headline: 'Swiss towns that got a mobile vaccination unit for one four-hour visit saw more than three times as many unvaccinated adults get a shot within three weeks.',
@@ -1178,19 +1169,6 @@ export default spineData({
                 grade: 'moderate',
                 quote: 'COVID-19 vaccination is hampered not only by vaccine hesitancy but also by structural barriers like distance.',
                 sources: [source('Mazar et al. 2023, PNAS Nexus', 'https://academic.oup.com/pnasnexus/article/2/12/pgad411/7459517')]
-              }),
-              evidence({
-                headline: 'Text messages urging unvaccinated people to go get a shot did not get them vaccinated.',
-                finding: paragraph(`
-                  Rhode Island's health department texted 142,428 people who had been tested for
-                  COVID-19 but not vaccinated, using language that had worked earlier in the rollout.
-                  The trial found no evidence the messages “increased COVID-19 vaccination among people
-                  who remained unvaccinated five or more weeks after becoming eligible”. It tested text
-                  messages only, not in-person messengers.
-                `),
-                grade: 'strong',
-                quote: 'increased COVID-19 vaccination among people who remained unvaccinated five or more weeks after becoming eligible',
-                sources: [source('Rabb et al. 2022, Nature', 'https://doi.org/10.1038/s41586-022-04526-2')]
               })
             ],
             counterEvidence: [
@@ -1465,7 +1443,10 @@ export default spineData({
           })
         ]
       }),
-      sources: []
+      sources: [
+        source('Mody et al. 2022, PLOS Medicine', 'https://doi.org/10.1371/journal.pmed.1004048'),
+        source('Hernandez et al. 2022, PLOS Medicine', 'https://doi.org/10.1371/journal.pmed.1004069')
+      ]
     }),
 
     spineProposal({
@@ -1494,27 +1475,6 @@ export default spineData({
         text: 'Residents get the help they need most and trust how the money is spent.',
         measured: null,
         claims: [
-          claim({
-            text: 'Governments often decide how to spend relief money without asking residents what should come first.',
-            evidence: [
-              evidence({
-                headline: 'Only about one in seven Michigan local governments asked residents to help plan how to spend their pandemic recovery money.',
-                finding: paragraph(`
-                  The University of Michigan's statewide survey of local government leaders asked how
-                  they were planning and carrying out projects paid for by the American Rescue Plan.
-                  It found that “15% of Michigan jurisdictions overall report engaging their community
-                  members, for example through resident participation in formal committees or
-                  community surveys to gauge support for spending options”. The largest jurisdictions
-                  were more likely to do so, at 35 percent. The survey records what leaders reported
-                  in one state, not what residents would have chosen.
-                `),
-                grade: 'moderate',
-                quote: 'To plan or implement ARPA projects, 15% of Michigan jurisdictions overall report engaging their community members, for example through resident participation in formal committees or community surveys to gauge support for spending options',
-                sources: [source('Fitzpatrick, Horner and Ivacko 2022, Michigan Public Policy Survey, University of Michigan', 'https://closup.umich.edu/sites/closup/files/2022-07/mpps-policy-brief-arpa-2022.pdf')]
-              })
-            ],
-            counterEvidence: []
-          }),
           claim({
             text: 'When residents allocate public money, spending shifts toward the services they rank first.',
             evidence: [
@@ -1655,7 +1615,35 @@ export default spineData({
                 grade: 'strong',
                 quote: 'Plebiscites resulted in dramatically higher satisfaction among villagers, increased knowledge about the project, greater perceived benefits, and higher reported willingness to contribute.',
                 sources: [source('Olken 2010, American Political Science Review', 'https://doi.org/10.1017/S0003055410000079')]
-              }),
+              })
+            ],
+            counterEvidence: [
+              evidence({
+                headline: 'Afghan villagers who chose and ran their own council projects thought better of their government while the money flowed, then went back to their old views once it ran out.',
+                finding: paragraph(`
+                  Beath, Christia and Enikolopov followed 500 Afghan villages, half picked at random to join
+                  the National Solidarity Programme, which set up elected village councils to choose and run
+                  small projects with block grants. The programme brought water and electricity, but
+                  “effects on perceptions of local and national government performance and material economic
+                  outcomes were, however, more limited or short-lived.” Their fuller working paper reports
+                  that “during project implementation, NSP improved perceptions of the central and
+                  sub-national government, but this effect faded after project completion”, and that male
+                  villagers came to rate local governance worse. The programme was a rural aid scheme in a
+                  conflict zone, and the survey asked about government performance rather than trust in how
+                  the money was spent.
+                `),
+                grade: 'strong',
+                quote: 'Effects on perceptions of local and national government performance and material economic outcomes were, however, more limited or short-lived.',
+                sources: [
+                  source('Beath, Christia and Enikolopov 2015, International Peacekeeping', 'https://doi.org/10.1080/13533312.2015.1059287'),
+                  source('Beath, Christia and Enikolopov 2013, WIDER Working Paper 2013/112', 'https://www.econstor.eu/bitstream/10419/93712/1/770277225.pdf')
+                ]
+              })
+            ]
+          }),
+          claim({
+            text: 'People who learn that residents helped make a decision judge the decision more favorably.',
+            evidence: [
               evidence({
                 headline: 'Buenos Aires residents told how the city\'s participatory budget worked rated their government as slightly more honest and well-meaning.',
                 finding: paragraph(`
@@ -1671,29 +1659,7 @@ export default spineData({
                 sources: [source('Ardanaz, Otálvaro-Ramírez and Scartascini 2022, World Development', 'https://doi.org/10.1016/j.worlddev.2022.106132')]
               })
             ],
-            counterEvidence: [
-              evidence({
-                  headline: 'Afghan villagers who chose and ran their own council projects thought better of their government while the money flowed, then went back to their old views once it ran out.',
-                  finding: paragraph(`
-                    Beath, Christia and Enikolopov followed 500 Afghan villages, half picked at random to join
-                    the National Solidarity Programme, which set up elected village councils to choose and run
-                    small projects with block grants. The programme brought water and electricity, but
-                    “effects on perceptions of local and national government performance and material economic
-                    outcomes were, however, more limited or short-lived.” Their fuller working paper reports
-                    that “during project implementation, NSP improved perceptions of the central and
-                    sub-national government, but this effect faded after project completion”, and that male
-                    villagers came to rate local governance worse. The programme was a rural aid scheme in a
-                    conflict zone, and the survey asked about government performance rather than trust in how
-                    the money was spent.
-                  `),
-                  grade: 'strong',
-                  quote: 'Effects on perceptions of local and national government performance and material economic outcomes were, however, more limited or short-lived.',
-                  sources: [
-                    source('Beath, Christia and Enikolopov 2015, International Peacekeeping', 'https://doi.org/10.1080/13533312.2015.1059287'),
-                    source('Beath, Christia and Enikolopov 2013, WIDER Working Paper 2013/112', 'https://www.econstor.eu/bitstream/10419/93712/1/770277225.pdf')
-                  ]
-                })
-            ]
+            counterEvidence: []
           })
         ]
       }),
@@ -1701,7 +1667,8 @@ export default spineData({
         source('HHS Office of Inspector General A-06-22-04004', 'https://oig.hhs.gov/reports-and-publications/all-reports-and-publications/cdc-provided-oversight-and-assistance-but-recipients-faced-challenges-in-implementing-a-covid-19-vaccine-confidence-strategy'),
         source('Government Accountability Office GAO-23-105500', 'https://www.gao.gov/assets/gao-23-105500.pdf'),
         source('Health Resources and Services Administration health workforce fact sheet', 'https://www.hrsa.gov/sites/default/files/hrsa/about/hrsa-health-workforce-fact-sheet.pdf'),
-        source('HHS Office of Minority Health, June 28, 2021', 'https://minorityhealth.hhs.gov/news/hhs-announces-awardees-250-million-fight-covid-19-and-improve-health-literacy-among-racial-and')
+        source('HHS Office of Minority Health, June 28, 2021', 'https://minorityhealth.hhs.gov/news/hhs-announces-awardees-250-million-fight-covid-19-and-improve-health-literacy-among-racial-and'),
+        source('Fitzpatrick, Horner and Ivacko 2022, Michigan Public Policy Survey, University of Michigan', 'https://closup.umich.edu/sites/closup/files/2022-07/mpps-policy-brief-arpa-2022.pdf')
       ]
     }),
 
@@ -1723,48 +1690,17 @@ export default spineData({
         duty into the award terms. Residents do not decide how the money is spent. They decide what
         the spending is judged by, and they can see how much reached their neighborhood. That makes
         the role closer to citizen science than to a vote. Residents rarely know how much of the
-        public money meant for them actually arrives. The aim is that outreach improves in the
-        neighborhoods it is meant to reach, and residents trust government more.
+        public money meant for them actually arrives. Officials can hide missing money where
+        residents are least able to see it, and voters reward officials for announcing money more
+        than for how much arrives. The closest studies test residents monitoring a service after
+        money is spent. The one study of residents writing the measures found they matched the
+        official ones. The aim is that outreach improves in the neighborhoods it is meant to reach,
+        and residents trust government more.
       `),
       outcome: outcome({
         text: 'Outreach improves in the neighborhoods it is meant to reach, and residents trust government more.',
         measured: null,
         claims: [
-          claim({
-            text: 'Residents rarely know how much of the public money meant for them actually arrives.',
-            evidence: [
-              evidence({
-                headline: 'Indonesian villagers sensed only a small part of the money missing from their road projects, because officials hid the theft where villagers could not see it.',
-                finding: paragraph(`
-                  Olken compared what villagers said about corruption in their village road project
-                  with engineers’ estimates of how much money was actually missing from it. Villagers’
-                  views carried some real information, but “the magnitude of the reported information,
-                  however, is small, in part because officials hide corruption where it is hardest for
-                  villagers to detect.” Villagers’ reports were also biased in some directions. The study
-                  sets perceptions beside a measured amount in the same projects, so it shows how
-                  little villagers could see, not what would help them see more.
-                `),
-                grade: 'moderate',
-                quote: 'The magnitude of the reported information, however, is small, in part because officials hide corruption where it is hardest for villagers to detect.',
-                sources: [source('Olken 2009, Journal of Public Economics', 'https://doi.org/10.1016/j.jpubeco.2009.03.001')]
-              }),
-              evidence({
-                headline: 'American voters rewarded their representatives for how often they announced federal money for the district, not for how much money it was.',
-                finding: paragraph(`
-                  Using what members of Congress told constituents alongside survey experiments with
-                  voters, the authors argue that constituents “lack the necessary information and
-                  motivation” to give credit in proportion to the money spent in their district.
-                  Legislators shape which spending they get credit for, and “constituents are more
-                  responsive to the total number of messages sent rather than the amount claimed.” The
-                  study measures credit for spending rather than what residents know about any one
-                  grant.
-                `),
-                grade: 'strong',
-                quote: 'constituents are more responsive to the total number of messages sent rather than the amount claimed',
-                sources: [source('Grimmer, Messing and Westwood 2012, American Political Science Review', 'https://doi.org/10.1017/S0003055412000457')]
-              })
-            ]
-          }),
           claim({
             text: 'When spending is published where residents can see it, they learn whether the money reached them.',
             evidence: [
@@ -1818,22 +1754,28 @@ export default spineData({
                 sources: [source('Ferraz and Finan 2008, Quarterly Journal of Economics', 'https://doi.org/10.1162/qjec.2008.123.2.703')]
               })
             ],
-            counterEvidence: [
+            counterEvidence: []
+          }),
+          claim({
+            text: 'People who learn that residents helped make a decision judge the decision more favorably.',
+            evidence: [
               evidence({
-                headline: 'After village meetings in India explained how parents could oversee their schools, barely any more parents knew the school oversight committee existed.',
+                headline: 'People told a decision had gone against them were readier to accept it when a citizen panel had recommended it, and people who distrusted politics moved the most.',
                 finding: paragraph(`
-                  In villages chosen at random, an education organization held meetings to tell
-                  residents about the village education committee (VEC), the public funds it could
-                  draw on, and how well the village’s children could read. Committee members learned
-                  more about their role, but parents barely did: “these effects are strikingly small,
-                  and the proportion of people who know about the VEC even after the interventions
-                  remains very small, barely 7 percent.” None of the approaches led parents to get more
-                  involved in the schools.
+                  Germann, Marien and Muradova ran a preregistered survey experiment with 1,309 Irish
+                  adults, all told the decision went against their view. When a panel of randomly
+                  selected citizens had recommended the decision and officials followed it, people
+                  judged the process fairer and were more willing to accept the result. The authors
+                  find that “the legitimacy-enhancing effects of participatory processes are driven by
+                  citizens with low political trust”. People read a scenario, so the study measures
+                  judgments of a described decision rather than a real one.
                 `),
-                grade: 'strong',
-                quote: 'However, these effects are strikingly small, and the proportion of people who know about the VEC even after the interventions remains very small, barely 7 percent.',
-                sources: [source('Banerjee, Banerji, Duflo, Glennerster and Khemani 2010, American Economic Journal: Economic Policy', 'https://doi.org/10.1257/pol.2.1.1')]
-              }),
+                grade: 'moderate',
+                quote: 'we find that the legitimacy-enhancing effects of participatory processes are driven by citizens with low political trust',
+                sources: [source('Germann, Marien and Muradova 2024, Political Studies', 'https://doi.org/10.1177/00323217221137444')]
+              })
+            ],
+            counterEvidence: [
               evidence({
                 headline: 'When report cards on Ugandan clinics were shared at community meetings, fewer than one in five households in those villages had even heard of the meetings.',
                 finding: paragraph(`
@@ -1852,11 +1794,26 @@ export default spineData({
                   source('Raffler, Posner and Parkerson 2025, Journal of Politics', 'https://doi.org/10.1086/736577'),
                   source('Raffler, Posner and Parkerson, working paper version, October 2020', 'http://piaraffler.com/wp-content/uploads/2020/10/Citizen-Pressure_Oct2020.pdf')
                 ]
+              }),
+              evidence({
+                headline: 'After village meetings in India explained how parents could oversee their schools, barely any more parents knew the school oversight committee existed.',
+                finding: paragraph(`
+                  In villages chosen at random, an education organization held meetings to tell
+                  residents about the village education committee (VEC), the public funds it could
+                  draw on, and how well the village’s children could read. Committee members learned
+                  more about their role, but parents barely did: “these effects are strikingly small,
+                  and the proportion of people who know about the VEC even after the interventions
+                  remains very small, barely 7 percent.” None of the approaches led parents to get more
+                  involved in the schools.
+                `),
+                grade: 'strong',
+                quote: 'However, these effects are strikingly small, and the proportion of people who know about the VEC even after the interventions remains very small, barely 7 percent.',
+                sources: [source('Banerjee, Banerji, Duflo, Glennerster and Khemani 2010, American Economic Journal: Economic Policy', 'https://doi.org/10.1257/pol.2.1.1')]
               })
             ]
           }),
           claim({
-            text: 'Residents who set the goals judge a program by different measures than officials use.',
+            text: 'Residents who set a program\'s goals judge it by measures that suit their neighbors better than officials\' measures do.',
             evidence: [
               evidence({
                 headline: 'When Indonesian villagers ranked their own neighbors for aid, they judged need by their own standard rather than the government’s formula, and were more satisfied with the result.',
@@ -1912,7 +1869,7 @@ export default spineData({
             ]
           }),
           claim({
-            text: 'When residents monitor a public service, the service improves.',
+            text: 'When residents monitor a public service using data on how it performs, the service improves.',
             evidence: [
               evidence({
                 headline: 'Ugandan communities that met to monitor their local clinics got more effort from health workers, more clinic visits, and fewer child deaths.',
@@ -1958,6 +1915,19 @@ export default spineData({
                 quote: 'The findings suggest that interventions promoting citizen engagement by improving direct engagement between service users and service providers, are often effective in stimulating active citizen engagement in service delivery and realising improvements in access to services and quality of service provision, particularly for services that involve direct interaction between citizens and providers.',
                 caveat: 'Low- and middle-income countries only. Monitoring is one of four kinds of engagement pooled.',
                 sources: [source('Waddington, Sonnenfeld, Finetti, Gaarder, John and Stevenson 2019, Campbell Systematic Reviews', 'https://doi.org/10.1002/cl2.1025')]
+              }),
+              evidence({
+                headline: 'Ugandan village meetings that urged residents to take part, without giving them data on how their clinic performed, did not improve care.',
+                finding: paragraph(`
+                  The original Ugandan team tested a cheaper version that held participation meetings
+                  but handed out no report card on staff performance. “We find no impact on the
+                  quality of care or health outcomes of a lower cost intervention that focused on
+                  encouraging participation but did not provide information on staff performance.”
+                  Residents meeting to talk was not enough without performance data to judge against.
+                `),
+                grade: 'strong',
+                quote: 'We find no impact on the quality of care or health outcomes of a lower cost intervention that focused on encouraging participation but did not provide information on staff performance.',
+                sources: [source('Björkman Nyqvist, de Walque and Svensson 2017, American Economic Journal: Applied Economics', 'https://doi.org/10.1257/app.20150027')]
               })
             ],
             counterEvidence: [
@@ -1974,19 +1944,6 @@ export default spineData({
                 grade: 'strong',
                 quote: 'While we find modest positive impacts on health provider behavior, we find no effects on citizen pressure, utilization rates, or bottom-line health outcomes.',
                 sources: [source('Raffler, Posner and Parkerson 2025, Journal of Politics', 'https://doi.org/10.1086/736577')]
-              }),
-              evidence({
-                headline: 'Ugandan village meetings that urged residents to take part, without giving them data on how their clinic performed, did not improve care.',
-                finding: paragraph(`
-                  The original Ugandan team tested a cheaper version that held participation meetings
-                  but handed out no report card on staff performance. “We find no impact on the
-                  quality of care or health outcomes of a lower cost intervention that focused on
-                  encouraging participation but did not provide information on staff performance.”
-                  Residents meeting to talk was not enough without performance data to judge against.
-                `),
-                grade: 'strong',
-                quote: 'We find no impact on the quality of care or health outcomes of a lower cost intervention that focused on encouraging participation but did not provide information on staff performance.',
-                sources: [source('Björkman Nyqvist, de Walque and Svensson 2017, American Economic Journal: Applied Economics', 'https://doi.org/10.1257/app.20150027')]
               })
             ]
           }),
@@ -2047,7 +2004,10 @@ export default spineData({
           })
         ]
       }),
-      sources: []
+      sources: [
+        source('Olken 2009, Journal of Public Economics', 'https://doi.org/10.1016/j.jpubeco.2009.03.001'),
+        source('Grimmer, Messing and Westwood 2012, American Political Science Review', 'https://doi.org/10.1017/S0003055412000457')
+      ]
     })
   ]
 });

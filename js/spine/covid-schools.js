@@ -410,8 +410,7 @@ export default spineData({
       where: 'Whichever body makes the reopening decision, whether a district, a county, or a state.',
       when: paragraph(`
         May to June 2020, to shape the fall 2020 choice between in-person and remote school. An
-        assembly seated after August 2020 misses that choice. Michigan seated its own randomly
-        selected panel that fall, after the decision had passed.
+        assembly seated after August 2020 misses that choice.
       `),
       description: paragraph(`
         A group of residents chosen by lot weighs how schools in its area should reopen. The body
@@ -421,68 +420,24 @@ export default spineData({
         public health orders and civil rights law. Whoever decides must publish the evidence the
         assembly saw. Ireland used this form on abortion law. Its citizens' assembly met from 2016
         to 2017, and the bill put to voters in 2018 followed the assembly rather than the
-        parliamentary committee. In 2020, Michigan named an appointed advisory council in May. It
-        seated a randomly selected panel only in the fall, after the reopening decision had passed.
-        The assembly's choice can reach the decision in three ways. It can bind the district
-        directly, go to voters as a referendum, or go to the elected school board, which must answer
-        it in writing. The form matters, because people accepted a decision more when officials
-        followed a citizen panel and less when officials set its advice aside. The group's notes
-        asked for binding decisions so that results could vary by place and be compared. The aim is
-        that residents accept the reopening decision as fair, even those who wanted the other
-        choice, and keep their confidence in public schools.
+        parliamentary committee. Ireland's assembly ran for more than a year, so this proposal asks
+        for a much faster body. In 2020, Michigan created an appointed advisory council in May and
+        named its members in June. That fall, a nonprofit chose 30 Michigan residents by lottery and
+        ran a COVID-19 panel online in six weeks, too late for the reopening decision. Its
+        recommendations did not cover schools. The assembly's choice binds the district directly or
+        goes to voters as a referendum. Sending it to the school board as advice is the weaker
+        route, because people accepted a decision less when officials set a citizen panel's advice
+        aside than when no panel existed. The gain is smaller among people with strong partisan
+        views, and reopening was among the most partisan choices of the period. The group's notes
+        asked for binding decisions so that results could vary by place and be compared. People on
+        the losing side of a decision accept it less and judge the process less fair, and each
+        further loss deepens that. The aim is that residents accept the reopening decision as fair,
+        even those who wanted the other choice, and keep their confidence in public schools.
       `),
       outcome: outcome({
         text: 'Residents accept the district\'s reopening decision as fair, even those who wanted the other choice, and keep their confidence in public schools.',
         measured: 'Confidence in public schools fell',
         claims: [
-          claim({
-            text: 'People who wanted the other choice tend to reject a decision as unfair.',
-            evidence: [
-              evidence({
-                headline: 'Each time people lost a public vote, they accepted the decision less and judged the process less legitimate.',
-                finding: paragraph(`
-                  Kern, Mariën and Muradova (2024) ran a survey experiment with 2,146 Irish adults that
-                  simulated losing a series of direct votes. They found “that
-                  decision acceptance and the perceived legitimacy of the decision-making procedure
-                  diminish with every loss”. After three losses people also rated the political system
-                  as less legitimate, and the drop ran through their sense that the procedure was unfair.
-                  The votes were hypothetical.
-                `),
-                grade: 'strong',
-                quote: 'we find that decision acceptance and the perceived legitimacy of the decision-making procedure diminish with every loss',
-                sources: [source('Kern, Mariën and Muradova 2024, European Political Science Review', 'https://doi.org/10.1017/S175577392300036X')]
-              }),
-              evidence({
-                headline: 'Americans who backed the losing presidential candidate trusted government less and more often called the election process unfair.',
-                finding: paragraph(`
-                  Craig, Martinez, Gainous and Kane (2006) compared supporters of winning and losing
-                  candidates in American National Election Studies surveys from 1964 to 2004 and in
-                  surveys after the 2000 election. Losers trusted government less, and they were more
-                  likely “to perceive the electoral process as unfair”. The surveys compare winners and
-                  losers at the same time rather than following the same people before and after a loss.
-                `),
-                grade: 'moderate',
-                quote: 'losers also are more likely to endorse “rationalizations” as explanations of the election outcome, to be less satisfied with the choice of candidates offered in the election, and to perceive the electoral process as unfair',
-                sources: [source('Craig, Martinez, Gainous and Kane 2006, Political Research Quarterly', 'https://doi.org/10.1177/106591290605900407')]
-              })
-            ],
-            counterEvidence: [
-              evidence({
-                headline: 'People on the losing side were more satisfied with democracy in countries whose institutions share power than in winner-take-all countries.',
-                finding: paragraph(`
-                  Anderson and Guillory (1997) used surveys from eleven European democracies. Losers
-                  were less satisfied than winners everywhere, but “losers in systems that are more
-                  consensual display higher levels of satisfaction with the way democracy works than do
-                  losers in systems with majoritarian characteristics”. How much losers reject a result
-                  depends on how the system treats them. The study compares countries at one point in
-                  time.
-                `),
-                grade: 'moderate',
-                quote: 'losers in systems that are more consensual display higher levels of satisfaction with the way democracy works than do losers in systems with majoritarian characteristics',
-                sources: [source('Anderson and Guillory 1997, American Political Science Review', 'https://doi.org/10.2307/2952259')]
-              })
-            ]
-          }),
           claim({
             text: 'A randomly selected group of residents weighs local conditions and priorities when it sets a trade-off.',
             evidence: [
@@ -558,21 +513,6 @@ export default spineData({
             text: 'People see a decision as fairer when a randomly selected group of residents helped make it.',
             evidence: [
               evidence({
-                headline: 'People told a decision had gone against them still called it fairer when a panel of randomly selected citizens had weighed in, most of all when officials followed the panel.',
-                finding: paragraph(`
-                  Germann, Marien and Muradova (2024) ran a pre-registered experiment with 1,309 Irish
-                  adults, all told the decision went against them. Involving a panel of randomly
-                  selected citizens raised perceived fairness by 0.7 points on a 0 to 10 scale, and by
-                  almost a full point where officials honored the panel’s recommendation. The authors
-                  conclude that “mini-publics increase legitimacy perceptions among the broader
-                  citizenry; however, these beneficial effects are largely limited to situations in
-                  which their recommendations are honored.”
-                `),
-                grade: 'strong',
-                quote: 'Mini-publics increase legitimacy perceptions among the broader citizenry; however, these beneficial effects are largely limited to situations in which their recommendations are honored.',
-                sources: [source('Germann, Marien and Muradova 2024, Political Studies', 'https://journals.sagepub.com/doi/10.1177/00323217221137444')]
-              }),
-              evidence({
                 headline: 'Members of a citizens\' assembly who lost its votes were about as satisfied with how it was run as members who won.',
                 finding: paragraph(`
                   Blais, Daoust, Dassonneville and Fournier (2025) surveyed about 100 residents of
@@ -615,7 +555,29 @@ export default spineData({
                 grade: 'strong',
                 quote: 'We find a positive significant effect among our respondents when there is congruence between the deliberative mini-public and the referendum outcome and a negative significant effect when there is incongruence.',
                 sources: [source('Koenen, Jacobs and Lehr 2026, Political Behavior', 'https://doi.org/10.1007/s11109-026-10132-z')]
-              }),
+              })
+            ]
+          }),
+          claim({
+            text: 'People who learn that residents helped make a decision judge the decision more favorably.',
+            evidence: [
+              evidence({
+                headline: 'People told a decision had gone against them still called it fairer when a panel of randomly selected citizens had weighed in, most of all when officials followed the panel.',
+                finding: paragraph(`
+                  Germann, Marien and Muradova (2024) ran a pre-registered experiment with 1,309 Irish
+                  adults, all told the decision went against them. Involving a panel of randomly
+                  selected citizens raised perceived fairness by 0.7 points on a 0 to 10 scale, and by
+                  almost a full point where officials honored the panel’s recommendation. The authors
+                  conclude that “mini-publics increase legitimacy perceptions among the broader
+                  citizenry; however, these beneficial effects are largely limited to situations in
+                  which their recommendations are honored.”
+                `),
+                grade: 'strong',
+                quote: 'Mini-publics increase legitimacy perceptions among the broader citizenry; however, these beneficial effects are largely limited to situations in which their recommendations are honored.',
+                sources: [source('Germann, Marien and Muradova 2024, Political Studies', 'https://journals.sagepub.com/doi/10.1177/00323217221137444')]
+              })
+            ],
+            counterEvidence: [
               evidence({
                 headline: 'In a deeply divided region, the more polarized people were, the less legitimate they found a citizens\' assembly.',
                 finding: paragraph(`
@@ -742,7 +704,13 @@ export default spineData({
           })
         ]
       }),
-      sources: []
+      sources: [
+        source('Kern, Mariën and Muradova 2024, European Political Science Review', 'https://doi.org/10.1017/S175577392300036X'),
+        source('Craig, Martinez, Gainous and Kane 2006, Political Research Quarterly', 'https://doi.org/10.1177/106591290605900407'),
+        source('Anderson and Guillory 1997, American Political Science Review', 'https://doi.org/10.2307/2952259'),
+        source('CMU News, citizens\' panel on COVID-19 in Michigan', 'https://www.cmu.edu/news/stories/archives/2021/august/citizens-assembly-algorithm.html'),
+        source('Citizens\' Panel on COVID-19 final report, archived', 'https://perma.cc/M2H9-BDVC')
+      ]
     }),
 
     spineProposal({
@@ -766,20 +734,23 @@ export default spineData({
         It must publish the plans and answer each one in writing. This council differs from a
         citizens' assembly because it seats the people closest to the schools rather than a random
         draw of residents. In 2020, large urban districts chose between open and closed for all
-        their schools at once, even though buildings and constraints differed sharply. A council
-        like this can lose its power in practice. In the 1980s, Salt Lake City gave school councils
-        equal parent and teacher seats and broad authority, and principals still controlled the
-        decisions that mattered. The board's duty to answer each plan in writing is meant to guard
-        against that. Each school then reopens under a plan built around its own building, staff,
-        and families, rather than one district-wide rule. The aim is that teachers stay in their
-        schools and students come back to class.
+        their schools at once, even though buildings and constraints differed sharply. Whether a
+        district opened in person tracked local partisanship and union strength far more than how
+        bad the virus was locally. That pull was strongest on the first open or closed choice and
+        weaker on how schools ran. A council like this can lose its power in practice. In the 1980s,
+        Salt Lake City gave school councils equal parent and teacher seats and broad authority, and
+        principals still controlled the decisions that mattered. The board's duty to answer each
+        plan in writing is meant to guard against that. No study here tests whether a written answer
+        prevents that capture. Each school then reopens under a plan built around its own building,
+        staff, and families, rather than one district-wide rule. The aim is that teachers stay in
+        their schools and students come back to class.
       `),
       outcome: outcome({
         text: 'Teachers stay in their schools, and students come back to class.',
         measured: 'Chronic absenteeism stayed high',
         claims: [
           claim({
-            text: 'How safely a school can reopen depends on its own building, such as how well its classrooms are ventilated.',
+            text: 'Better classroom ventilation lowers infections among students and staff in schools that teach in person.',
             evidence: [
               evidence({
                 headline: 'Italian classrooms with mechanical ventilation saw far fewer student infections than classrooms with open windows alone.',
@@ -838,61 +809,6 @@ export default spineData({
                 grade: 'strong',
                 quote: 'District and month fixed effects models that exploit within-district (over time) variation in instructional modality and account for time-invariant district factors show that, in both states, in-person/hybrid schooling relative to remote instruction can lead to increases in COVID spread in communities with moderate to high levels of preexisting COVID cases.',
                 sources: [source('Goldhaber, Imberman, Strunk and colleagues 2022, Journal of Policy Analysis and Management', 'https://doi.org/10.1002/pam.22354')]
-              })
-            ]
-          }),
-          claim({
-            text: 'Reopening decisions made for a whole district follow local politics more than local health conditions.',
-            evidence: [
-              evidence({
-                headline: 'Across the country, districts\' reopening choices tracked local politics and union strength far more than how bad the virus was locally.',
-                finding: paragraph(`
-                  Across more than 10,000 districts, Republican-leaning districts were far more
-                  likely to open in person and districts with stronger unions leaned remote.
-                  “Notably, we find little connection between reopening decisions and indicators
-                  measuring the severity of the virus.” A Michigan study of 823 district plans found
-                  the same pattern and showed how it arose: governors closed schools in the spring,
-                  then left the fall choice to districts, where decisions “were more tied to local
-                  political partisanship and union strength than to COVID-19 severity.” Both studies
-                  compare the choices districts made with their local politics and case rates.
-                `),
-                grade: 'moderate',
-                quote: 'Notably, we find little connection between reopening decisions and indicators measuring the severity of the virus.',
-                sources: [
-                  source('Hartney and Finger 2022, Perspectives on Politics', 'https://doi.org/10.1017/S1537592721000955'),
-                  source('Grossmann, Reckhow, Strunk and Turner 2021, Educational Researcher', 'https://doi.org/10.3102/0013189X211048840')
-                ]
-              })
-            ],
-            counterEvidence: [
-              evidence({
-                headline: 'In Virginia, politics shaped whether schools first opened in person, but its pull faded over the year and was weaker on how schools ran.',
-                finding: paragraph(`
-                  Across Virginia’s school districts, the authors tracked not only whether schools
-                  opened in person but also operations such as family engagement, social and
-                  emotional support, and teacher training. “Partisanship and racial composition were
-                  similarly predictive of initial in-person offerings, but partisanship was less
-                  predictive over time, and school operational decisions were less politicized than
-                  modality.” Politics mattered most for the first open-or-closed choice.
-                `),
-                grade: 'moderate',
-                quote: 'Partisanship and racial composition were similarly predictive of initial in-person offerings, but partisanship was less predictive over time, and school operational decisions were less politicized than modality.',
-                sources: [source('Schueler, Miller and Reynolds 2025, American Educational Research Journal', 'https://doi.org/10.3102/00028312251348247')]
-              }),
-              evidence({
-                headline: 'In five urban districts, leaders weighed local virus conditions alongside local politics when they decided how to reopen.',
-                finding: paragraph(`
-                  Researchers interviewed 56 school, district, and system leaders in five urban
-                  districts through the 2020 to 2021 school year and compared the cases. Leaders
-                  consulted public health authorities and followed state guidance while responding
-                  to unions and parents. “In contrast to the ‘politics or science’ framing that has
-                  dominated research and public discourse on school reopening, we show that local
-                  pandemic conditions and local political dynamics both mattered and in fact were
-                  interrelated.”
-                `),
-                grade: 'moderate',
-                quote: 'In contrast to the "politics or science" framing that has dominated research and public discourse on school reopening, we show that local pandemic conditions and local political dynamics both mattered and in fact were interrelated.',
-                sources: [source('Singer, Marsh, Menefee-Libey and colleagues 2023, Educational Administration Quarterly', 'https://doi.org/10.1177/0013161X231168397')]
               })
             ]
           }),
@@ -1176,169 +1092,259 @@ export default spineData({
           })
         ]
       }),
-      sources: []
+      sources: [
+        source('Hartney and Finger 2022, Perspectives on Politics', 'https://doi.org/10.1017/S1537592721000955'),
+        source('Grossmann, Reckhow, Strunk and Turner 2021, Educational Researcher', 'https://doi.org/10.3102/0013189X211048840'),
+        source('Schueler, Miller and Reynolds 2025, American Educational Research Journal', 'https://doi.org/10.3102/00028312251348247'),
+        source('Singer, Marsh, Menefee-Libey and colleagues 2023, Educational Administration Quarterly', 'https://doi.org/10.1177/0013161X231168397')
+      ]
     }),
 
     spineProposal({
-      name: 'States publish local case, hospital, and school data every week',
-      method: 'Proactive Data Disclosure',
-      summary: 'State health and education agencies publish county case, hospital, and school data every week, with a plain note on what they do not yet know.',
+      name: 'Parents and school staff shape the weekly reopening data and question officials on it',
+      method: 'Participatory Monitoring',
+      summary: 'Parents and school staff decide which local numbers the state publishes each week, report conditions from their own schools, and question officials on the data in public.',
       anchor: '49 states suspended in-person',
-      where: 'State health departments, working with state education agencies.',
+      where: 'State health departments and education agencies, with a panel of parents and school staff from each region.',
       when: paragraph(`
-        March to June 2020, so the numbers were public before reopening turned partisan in July 2020
-        and before the fall decisions.
+        March to June 2020, so the panel shaped the numbers before reopening turned partisan in July
+        2020 and before the fall decisions.
       `),
       description: paragraph(`
-        State health departments and education agencies publish the same local numbers every week,
-        starting in March 2020. Each release covers county cases, hospital stays, deaths, and
-        whether each school is teaching in person or remotely. Each release also says plainly what
-        is known and what is not. Publication is required and runs on a fixed schedule, and the
-        agencies explain any revision. State health orders stay in place. The proposal adds no new
-        power to decide. It gives parents, school boards, and reporters the same numbers officials
-        use, so they can check each reopening decision against them. In 2020, no federal source
-        tracked which schools were open. The COVID-19 School Data Hub launched only in September
-        2021, and newspapers filled the gap in county case counts. The aim is that parents trust
-        their district's reopening decisions and keep their confidence in public schools.
+        A panel of parents and school staff works with state health and education agencies on the
+        local numbers behind reopening decisions. Each week the agencies publish county cases,
+        hospital stays, and whether each school is teaching in person or remotely. The panel decides
+        which measures are added and how the release explains what is not yet known. Parents and
+        staff can also report conditions in their own buildings, such as poor ventilation or staff
+        shortages. The agencies check each report with their own measurement, such as a ventilation
+        reading or a staffing count, and publish what they find. Once a month, officials answer
+        questions about the numbers from the panel and the public at an open session. The agencies
+        keep the data and state health orders stay in place, but officials must answer every
+        question and correct errors in public. In 2020 Taiwan published pharmacy mask stock as open
+        data, and volunteer civic technologists built the maps residents used to find masks. That
+        same year no federal source in the United States tracked which schools were open. Only 17
+        states published their own records of which schools were open, and many of those began
+        midway through the school year. The COVID-19 School Data Hub launched only in September
+        2021, and newspapers and universities pulled together county case counts. The aim is that
+        parents trust their district's reopening decisions.
       `),
       outcome: outcome({
-        text: 'Parents trust their district\'s reopening decisions and keep their confidence in public schools.',
-        measured: 'Confidence in public schools fell',
+        text: 'Parents trust their district\'s reopening decisions.',
+        measured: null,
         claims: [
           claim({
-            text: 'Without a duty to publish, the local numbers behind school decisions reach parents late or not at all.',
+            text: 'People trust local evidence more when their neighbors helped produce it alongside the experts.',
             evidence: [
               evidence({
-                headline: 'No federal source tracked which schools were open in most districts, so a university team built one 18 months into the pandemic.',
+                headline: 'People trusted a scientist more after learning that other members of the public had helped design the scientist\'s article about the research.',
                 finding: paragraph(`
-                  The COVID-19 School Data Hub, led by an economist at Brown and paid for by private
-                  grants, launched in September 2021 with learning-mode and case data for more than
-                  55,000 schools in 30 states and the District of Columbia. Its lead said she built
-                  it because governments were not providing the data: “We have federal data on
-                  school operations for only the largest districts in the country”.
+                  Momme, Hendriks and Enzingmüller ran an online experiment with 725 people. They varied
+                  how much members of the public took part in designing a science article, then measured
+                  how people judged the article and the scientist who wrote it. Taking part in the design
+                  yourself had mixed effects. “Active participation enhanced perceptions of the scientist’s
+                  benevolence and integrity but not their expertise or message credibility.” By contrast,
+                  “awareness of others’ participation increased trust intention”. People who had wanted to
+                  take part beforehand responded differently from those who had not.
                 `),
-                grade: 'moderate',
-                quote: 'We have federal data on school operations for only the largest districts in the country',
-                sources: [source('Brown University', 'https://www.brown.edu/news/2021-09-15/hub')]
+                grade: 'strong',
+                quote: 'Conversely, awareness of others’ participation increased trust intention.',
+                sources: [source('Momme, Hendriks and Enzingmüller 2025, Science Communication', 'https://doi.org/10.1177/10755470251333399')]
               }),
               evidence({
-                headline: 'Only 17 states published their own records of which schools were open, and many of those started midway through the school year.',
+                headline: 'Polish residents trusted a map of their metro area more when local people had helped draw it, even residents who had not taken part themselves.',
                 finding: paragraph(`
-                  Researchers combined weekly school-mode reports for 14,688 districts from August
-                  2020 to June 2021, drawn from Burbio, MCH Strategic Data, the American Enterprise
-                  Institute’s Return to Learn Tracker, and state dashboards. The private sources
-                  reached all 50 states and DC, while dashboards were available from only 17 states,
-                  and “the number of districts where multiple sources were available varied
-                  substantially due to many state dashboards not being available prior to February
-                  2021”. No national database existed, and the private sources were incomplete and
-                  sometimes disagreed, so a team including CDC staff built a model to reconcile them.
-                  Its results went to federal officials in a weekly report starting in April 2021.
+                  Bedessem, Gawrońska-Nowak and Lis asked residents around Łódź to help decide which
+                  towns belonged to the city's metropolitan area, and drew a map from their answers.
+                  They then surveyed people in the Łódź region about that map and people in the Kraków
+                  region about a map drawn by researchers from official statistics. They report that
+                  “the participation of local residents in the research process increases public trust in
+                  the study results compared to non-participatory ‘traditional academic’ research”. Most
+                  Łódź respondents had not helped draw the map, and “within that group the level of trust
+                  appears higher than among those who had taken part”. The two regions saw different maps,
+                  and both samples were recruited through Facebook and were not representative.
                 `),
                 grade: 'moderate',
-                quote: 'However, the number of districts where multiple sources were available varied substantially due to many state dashboards not being available prior to February 2021.',
-                sources: [source('Panaggio, Fang, Bang, Armstrong, Binder, Grass, Magid, Papazian, Shapiro-Mendoza and Parks 2023, PLOS ONE', 'https://doi.org/10.1371/journal.pone.0292354')]
+                quote: 'Second, we show that the participation of local residents in the research process increases public trust in the study results compared to non-participatory ‘traditional academic’ research.',
+                sources: [source('Bedessem, Gawrońska-Nowak and Lis 2021, Journal of Contemporary European Research', 'https://doi.org/10.30950/jcer.v17i2.1185')]
               })
             ],
             counterEvidence: [
               evidence({
-                headline: 'A newspaper, a university, and other outside groups put county case and death counts in public view from the first weeks, long before the federal government did.',
+                headline: 'People who learned that stakeholders had helped choose an evaluation\'s questions and interpret its results did not reliably find it more credible.',
                 finding: paragraph(`
-                  The authors compared county case and death data from Johns Hopkins, the New York
-                  Times, USAFacts and 1Point3Acres against CDC data from March 2020 to April 2021.
-                  “After March 2020, datasets containing national county-level COVID-19 case and
-                  death counts aggregated from jurisdictional public health authorities and media
-                  reports emerged from multiple third party organizations including 1Point3Acres; New
-                  York Times; Johns Hopkins University, and USAFacts.” They add that “From the
-                  beginning of the pandemic through December 2020, the Centers for Disease Control
-                  and Prevention (CDC) only provided state-level data for the number of COVID-19
-                  cases and associated deaths across the United States”, and they found the highest
-                  agreement between the CDC, Johns Hopkins and New York Times series. These trackers
-                  drew on state and local health department reports, so county case counts were in
-                  public view early. The gap they filled was pulling the numbers together, not
-                  producing them.
+                  Mark, Allen and Goodwin ran six studies in which people read summaries of program
+                  evaluations. Some summaries said stakeholders had taken part, for example by choosing
+                  the research questions or interpreting the results, and others did not. They found that
+                  “effects of reported stakeholder participation on third-parties’ views were not robust”.
+                  Small gains in perceived fairness appeared only sometimes, after the involvement and the
+                  reasons for it had been made salient. People did say they wanted several stakeholder
+                  groups involved rather than one.
                 `),
-                grade: 'moderate',
-                quote: 'After March 2020, datasets containing national county-level COVID-19 case and death counts aggregated from jurisdictional public health authorities and media reports emerged from multiple third party organizations including 1Point3Acres; New York Times; Johns Hopkins University, and USAFacts.',
-                sources: [source('Halpern, Lin, Wang, Yang, Goldstein and Kolak 2021, Cartography and Geographic Information Science', 'https://doi.org/10.1080/15230406.2021.1975311')]
+                grade: 'strong',
+                quote: 'Across studies, effects of reported stakeholder participation on third-parties’ views were not robust; however, small effects on perceived fairness sometimes, but not always, occurred after stakeholder involvement and its rationales had been made salient.',
+                sources: [source('Mark, Allen and Goodwin 2021, Evaluation Review', 'https://doi.org/10.1177/0193841X211055937')]
               }),
               evidence({
-                headline: 'Most state health departments were already posting their own case counts by the end of the first month.',
+                headline: 'Austrians and Germans trusted public performance figures less when other citizens supplied them than when the government did.',
                 finding: paragraph(`
-                  A review of all 50 state health department sites and DC in the summer of 2020
-                  found that most states started public reporting in March 2020, and that “the
-                  quality of COVID-19 data reporting was significantly heterogenous”. Most states did
-                  not say where their data came from, none reported every variable the CDC tracks,
-                  and “Most same-day comparisons of state-specific counts reported by the CDC
-                  differed from respective state health departments (cases: 84.3% differed; deaths:
-                  68.6% differed)”. Early publication happened, but early figures were uneven from
-                  one state to the next.
+                  Schmidthuber, Willems and Krabina ran eight online experiments with large samples in
+                  Austria and Germany. They varied whether raw data were accessible and who supplied the
+                  performance information. Making data accessible and naming a source both raised trust.
+                  But “citizens have more trust in government-provided data compared to data provided by
+                  other citizens”, and the provider's reputation mattered most. The studies tested data
+                  that citizens supplied, not data that citizens and officials produced together.
                 `),
-                grade: 'moderate',
-                quote: 'Most same-day comparisons of state-specific counts reported by the CDC differed from respective state health departments (cases: 84.3% differed; deaths: 68.6% differed).',
-                sources: [source('Irgens, O\'Neill and Ruiz 2025, PLOS ONE', 'https://doi.org/10.1371/journal.pone.0319263')]
+                grade: 'strong',
+                quote: 'Whereas citizens have more trust in government-provided data compared to data provided by other citizens, source reputation matters dominantly for building trust in performance information.',
+                sources: [source('Schmidthuber, Willems and Krabina 2023, Public Administration Review', 'https://doi.org/10.1111/puar.13603')]
+              }),
+              evidence({
+                headline: 'Voters in three states leaned toward distrusting panels of fellow citizens who reviewed ballot measures, and learning how the panels worked did not change that.',
+                finding: paragraph(`
+                  Már and Gastil ran survey experiments in three US states on Citizens' Initiative
+                  Reviews, where a panel of voters studies a ballot measure and writes a statement of key
+                  facts for the electorate. They found that “on average, respondents were uncertain or
+                  tilted towards distrust of these minipublics”. Trust was higher among people of color,
+                  poorer and younger respondents. “Specific information about minipublic design features
+                  did not boost their perceived legitimacy.” The panels' statements still improved voter
+                  knowledge beyond a standard voter pamphlet, but those effects were largely independent of
+                  trust in the panels.
+                `),
+                grade: 'strong',
+                quote: 'On average, respondents were uncertain or tilted towards distrust of these minipublics.',
+                sources: [source('Már and Gastil 2023, Political Behavior', 'https://doi.org/10.1007/s11109-021-09742-6')]
               })
             ]
           }),
           claim({
-            text: 'Officials who open their information to the public gain trust.',
+            text: 'People who experience a public service firsthand report problems that official records miss.',
             evidence: [
               evidence({
-                headline: 'Across dozens of studies, opening government information to the public raised people\'s trust in government a little on average.',
+                headline: 'Patients told interviewers about serious, preventable harms from their hospital stays that never appeared in their medical records.',
                 finding: paragraph(`
-                  Wang and Guan pooled 49 studies with 436 estimates of how transparency affects
-                  citizens’ trust in government. They report that “the overall effect of
-                  transparency on trust is positive and significant, with an average effect size
-                  being 0.13 points”, which is small. The effect was weaker when the information
-                  came through websites and other computer-mediated channels, and when it showed how
-                  decisions were made. The pooled studies mix experiments and surveys, and none of
-                  them is about schools.
+                  Weissman and colleagues interviewed 998 randomly sampled adults 6 to 12 months after a
+                  stay in a Massachusetts hospital, and physicians compared what patients described with
+                  their medical records. Record review found 11 serious, preventable events. “Interviews
+                  identified an additional 21 serious and preventable events that were not documented in
+                  the medical record”, and 9 of those began after the patient went home. The two sources
+                  agreed poorly. Patients had to be well enough to be interviewed, and the long delay may
+                  have blurred their memory of the stay.
                 `),
                 grade: 'moderate',
-                quote: 'The meta-analysis indicates that the overall effect of transparency on trust is positive and significant, with an average effect size being 0.13 points.',
-                sources: [source('Wang and Guan 2023, Journal of Public Administration Research and Theory', 'https://doi.org/10.1093/jopart/muac040')]
+                quote: 'Interviews identified an additional 21 serious and preventable events that were not documented in the medical record, including 12 predischarge events and 9 postdischarge events, in which symptoms occurred after the patient left the hospital.',
+                sources: [source('Weissman, Schneider, Weingart, Epstein, David-Kasdan, Feibelmann, Annas, Ridley, Kirle and Gatsonis 2008, Annals of Internal Medicine', 'https://doi.org/10.7326/0003-4819-149-2-200807150-00006')]
               }),
               evidence({
-                headline: 'Dutch viewers of a television series that showed judges at work came to trust judges more.',
+                headline: 'Diners\' own reports of food poisoning led city health officials to three restaurant outbreaks that no one had reported to them.',
                 finding: paragraph(`
-                  Grimmelikhuijsen and Klijn ran a field experiment on how a Dutch television series
-                  about the courts affected trust in judges. “Findings show that judicial
-                  transparency indeed has a positive effect on trust.” The effect was strongest
-                  among people with a middling knowledge of the courts, and weaker among people
-                  already inclined to trust. The courts are not a school district, and the series
-                  showed judges at work rather than publishing data.
+                  The New York City health department screened about 294,000 Yelp restaurant reviews
+                  over nine months and found 468 that described a recent or possibly recent food
+                  poisoning. Only 15 of those illnesses had also been reported to the city’s 311 line.
+                  “After further evaluation of reviews and interviews with 27 reviewers, three previously
+                  unreported restaurant-related outbreaks were identified.” Inspections of the three
+                  restaurants found multiple food-handling violations. The pilot took considerable staff
+                  time, and the reports came through a review site rather than a channel the agency ran.
                 `),
-                grade: 'strong',
-                quote: 'Findings show that judicial transparency indeed has a positive effect on trust.',
-                sources: [source('Grimmelikhuijsen and Klijn 2015, Public Administration', 'https://doi.org/10.1111/padm.12149')]
+                grade: 'moderate',
+                quote: 'After further evaluation of reviews and interviews with 27 reviewers, three previously unreported restaurant-related outbreaks were identified.',
+                sources: [source('Harrison, Jorder, Stern, Stavinsky, Reddy, Hanson, Waechter, Lowe, Gravano and Balter 2014, Morbidity and Mortality Weekly Report', 'https://pmc.ncbi.nlm.nih.gov/articles/PMC4584915/')]
               })
             ],
             counterEvidence: [
               evidence({
-                headline: 'When people in the Netherlands and South Korea were shown more of what their government did, their trust barely rose and sometimes fell.',
+                headline: 'Teachers in poorly ventilated classrooms were more satisfied with their classroom air than teachers in well ventilated ones.',
                 finding: paragraph(`
-                  Parallel experiments in the Netherlands and South Korea found that “transparency
-                  has a subdued and sometimes negative effect on trust in government”, with the
-                  negative effect much stronger in South Korea. More information did not reliably
-                  raise trust.
+                  Sanguinetti and colleagues surveyed 84 teachers in 11 California schools before the
+                  pandemic and compared their answers with monitoring data from their own classrooms.
+                  “Teachers did not accurately perceive (in)sufficient ventilation”, and those in rooms
+                  with poorer ventilation were more satisfied with indoor conditions, likely because
+                  better ventilated rooms swung more in temperature. Teachers had not been taught how
+                  their mechanical ventilation worked, and installation errors sometimes let them turn
+                  the fan off to cut noise. The authors call for carbon dioxide monitoring in classrooms
+                  alongside teacher education.
                 `),
-                grade: 'strong',
-                quote: 'Results reveal similar patterns in both countries: transparency has a subdued and sometimes negative effect on trust in government.',
-                sources: [source('Grimmelikhuijsen, Porumbescu, Hong and Im 2013, Public Administration Review', 'https://doi.org/10.1111/puar.12047')]
+                grade: 'moderate',
+                quote: 'Teachers did not accurately perceive (in)sufficient ventilation; in fact, those in classrooms with poorer ventilation were more satisfied with IEQ, likely due to more temperature fluctuations when ventilation rates were higher combined with occupants’ tendency to conflate perceptions of air quality and temperature.',
+                sources: [source('Sanguinetti, Outcault, Pistochini and Hoffacker 2022, Indoor Air', 'https://doi.org/10.1111/ina.12998')]
               }),
               evidence({
-                headline: 'People shown numbers in which their government fell short of its promises trusted it less than people shown numbers in which it did well.',
+                headline: 'Farmworkers died of COVID-19 at the highest rate but complained about workplace safety least often, while health care workers complained most often.',
                 finding: paragraph(`
-                  In an online survey experiment in Argentina, people were randomly shown different
-                  information about how the government was doing against its promises. “Those who
-                  received a treatment showing that the government was over-performing on its
-                  promises had higher trust in the government than those who received a treatment
-                  showing that the government was under-performing.” The authors conclude that the
-                  link between transparency and trust may depend on how the government is
-                  performing. What the numbers showed decided which way trust moved.
+                  Thomas and colleagues compared COVID-19 complaints filed with California’s workplace
+                  safety agency in 2020 against COVID-19 death rates in seven industries. Agricultural
+                  workers had the highest death rate, 402 per 100,000 workers, and the lowest complaint
+                  rate. Health care workers had the highest complaint rate and the second lowest death
+                  rate. “Our findings suggest complaints are not proportional to COVID-19 risk.” The
+                  authors suggest that higher complaint rates may reflect workers with more power and
+                  resources to speak up. Of 7,820 valid complaints, only 627 led to onsite inspections.
+                `),
+                grade: 'moderate',
+                quote: 'Our findings suggest complaints are not proportional to COVID-19 risk.',
+                sources: [source('Thomas, Matthay, Duchowny, Riley, Khela, Chen, Bibbins-Domingo and Glymour 2022, SSM - Population Health', 'https://doi.org/10.1016/j.ssmph.2021.101016')]
+              })
+            ]
+          }),
+          claim({
+            text: 'Parents accept a school decision more when officials show the evidence and reasons behind it.',
+            evidence: [
+              evidence({
+                headline: 'People accepted a school decision more when the decision makers explained their reasons afterward.',
+                finding: paragraph(`
+                  In vignette experiments on decision making in schools, the authors find “that
+                  transparency can indeed generate legitimacy”, and that an open meeting was not
+                  required: “Decision makers may improve their legitimacy simply by justifying
+                  carefully afterward the decisions taken behind closed doors.” The decisions were
+                  hypothetical, and the reasons given were not local data.
+                `),
+                grade: 'moderate',
+                quote: 'Decision makers may improve their legitimacy simply by justifying carefully afterward the decisions taken behind closed doors.',
+                sources: [source('de Fine Licht, Naurin, Esaiasson and Gilljam 2014, Governance', 'https://doi.org/10.1111/gove.12021')]
+              }),
+              evidence({
+                headline: 'People judged a decision fairer and responded better when the decision maker explained it, most of all when the decision went against them.',
+                finding: paragraph(`
+                  Shaw, Wild and Colquitt pooled 54 samples on how people react when a decision maker
+                  explains a decision. “The results showed strong effects of explanations on both the
+                  justice and response variables”, which covered judgments of fairness and cooperation,
+                  retaliation, and withdrawal. Explanations helped more after an unfavorable outcome, and
+                  excuses helped more than justifications. The review did not look at school decisions.
+                `),
+                grade: 'moderate',
+                quote: 'The results showed strong effects of explanations on both the justice and response variables.',
+                sources: [source('Shaw, Wild and Colquitt 2003, Journal of Applied Psychology', 'https://doi.org/10.1037/0021-9010.88.3.444')]
+              })
+            ],
+            counterEvidence: [
+              evidence({
+                headline: 'Residents told how their local schools compared with schools elsewhere rated those schools lower.',
+                finding: paragraph(`
+                  Barrows, Henderson, Peterson and West ran two experiments inside nationally
+                  representative surveys. In the first, “we find that providing respondents with
+                  information about the performance of their local schools relative to schools in
+                  the state, the nation, and other developed countries depresses average evaluations
+                  of local school quality”. Some respondents rated lower because the comparison
+                  changed what they weighed, and some because it corrected a mistaken belief about
+                  their schools. The numbers were test results, and the measure was a rating of
+                  school quality rather than trust.
                 `),
                 grade: 'strong',
-                quote: 'Those who received a treatment showing that the government was over-performing on its promises had higher trust in the government than those who received a treatment showing that the government was under-performing.',
-                sources: [source('Alessandro, Cardinale Lagomarsino, Scartascini, Streb and Torrealday 2021, World Development', 'https://doi.org/10.1016/j.worlddev.2020.105223')]
+                quote: 'In the first, we find that providing respondents with information about the performance of their local schools relative to schools in the state, the nation, and other developed countries depresses average evaluations of local school quality.',
+                sources: [source('Barrows, Henderson, Peterson and West 2016, Journal of Public Administration Research and Theory', 'https://doi.org/10.1093/jopart/muw028')]
+              }),
+              evidence({
+                headline: 'Voters more often rejected a school tax after a federal rating marked their district as falling short, though the rating was a poor guide to quality.',
+                finding: paragraph(`
+                  Kogan, Lavertu and Peskowitz studied a widely publicized federal rating of school
+                  district performance, which they show did not let voters judge the quality of
+                  local schools, and its effect on school tax votes in one US state. “The results
+                  indicate that a signal of poor district performance increases the probability of
+                  levy failure, a substantively large and robust effect that disproportionately
+                  affects impoverished communities.” The authors use several strategies to isolate
+                  the rating’s effect. The outcome is votes on school taxes, not trust.
+                `),
+                grade: 'strong',
+                quote: 'The results indicate that a signal of poor district performance increases the probability of levy failure, a substantively large and robust effect that disproportionately affects impoverished communities.',
+                sources: [source('Kogan, Lavertu and Peskowitz 2016, American Journal of Political Science', 'https://doi.org/10.1111/ajps.12184')]
               }),
               evidence({
                 headline: 'Openness about how decisions were made raised acceptance of routine choices more than choices that put safety at stake.',
@@ -1432,155 +1438,20 @@ export default spineData({
                 sources: [source('Dries, McDowell, Schneider and Rebitschek 2025, PNAS Nexus', 'https://doi.org/10.1093/pnasnexus/pgaf071')]
               })
             ]
-          }),
-          claim({
-            text: 'Residents trust their own school district more when they can see its numbers.',
-            evidence: [
-              evidence({
-                headline: 'Residents told that their school district\'s test scores beat the state average trusted the district more.',
-                finding: paragraph(`
-                  Brunner, Kim, Robbins and Simonsen ran a survey experiment with 2,604 responses
-                  from a US online panel in late 2022. Some respondents were randomly told how their
-                  own school district’s test scores compared with the state average. “We find that
-                  providing high‐performance information has significant and substantial effects
-                  that improve efficiency perceptions, trust in the school district, and support for
-                  taxes.” The respondents were residents rather than only parents, and the numbers
-                  were test scores rather than health data.
-                `),
-                grade: 'strong',
-                quote: 'We find that providing high‐performance information has significant and substantial effects that improve efficiency perceptions, trust in the school district, and support for taxes.',
-                sources: [source('Brunner, Kim, Robbins and Simonsen 2024, Public Budgeting and Finance', 'https://doi.org/10.1111/pbaf.12362')]
-              }),
-              evidence({
-                headline: 'People accepted a school decision more when the decision makers explained their reasons afterward.',
-                finding: paragraph(`
-                  In vignette experiments on decision making in schools, the authors find “that
-                  transparency can indeed generate legitimacy”, and that an open meeting was not
-                  required: “Decision makers may improve their legitimacy simply by justifying
-                  carefully afterward the decisions taken behind closed doors.” The decisions were
-                  hypothetical, and the reasons given were not local data.
-                `),
-                grade: 'moderate',
-                quote: 'Decision makers may improve their legitimacy simply by justifying carefully afterward the decisions taken behind closed doors.',
-                sources: [source('de Fine Licht, Naurin, Esaiasson and Gilljam 2014, Governance', 'https://doi.org/10.1111/gove.12021')]
-              })
-            ],
-            counterEvidence: [
-              evidence({
-                headline: 'Residents told how their local schools compared with schools elsewhere rated those schools lower.',
-                finding: paragraph(`
-                  Barrows, Henderson, Peterson and West ran two experiments inside nationally
-                  representative surveys. In the first, “we find that providing respondents with
-                  information about the performance of their local schools relative to schools in
-                  the state, the nation, and other developed countries depresses average evaluations
-                  of local school quality”. Some respondents rated lower because the comparison
-                  changed what they weighed, and some because it corrected a mistaken belief about
-                  their schools. The numbers were test results, and the measure was a rating of
-                  school quality rather than trust.
-                `),
-                grade: 'strong',
-                quote: 'In the first, we find that providing respondents with information about the performance of their local schools relative to schools in the state, the nation, and other developed countries depresses average evaluations of local school quality.',
-                sources: [source('Barrows, Henderson, Peterson and West 2016, Journal of Public Administration Research and Theory', 'https://doi.org/10.1093/jopart/muw028')]
-              }),
-              evidence({
-                headline: 'Voters more often rejected a school tax after a federal rating marked their district as falling short, though the rating was a poor guide to quality.',
-                finding: paragraph(`
-                  Kogan, Lavertu and Peskowitz studied a widely publicized federal rating of school
-                  district performance, which they show did not let voters judge the quality of
-                  local schools, and its effect on school tax votes in one US state. “The results
-                  indicate that a signal of poor district performance increases the probability of
-                  levy failure, a substantively large and robust effect that disproportionately
-                  affects impoverished communities.” The authors use several strategies to isolate
-                  the rating’s effect. The outcome is votes on school taxes, not trust.
-                `),
-                grade: 'strong',
-                quote: 'The results indicate that a signal of poor district performance increases the probability of levy failure, a substantively large and robust effect that disproportionately affects impoverished communities.',
-                sources: [source('Kogan, Lavertu and Peskowitz 2016, American Journal of Political Science', 'https://doi.org/10.1111/ajps.12184')]
-              })
-            ]
-          }),
-          claim({
-            text: 'People who trust how a local public service is run extend that trust to the wider public institution.',
-            evidence: [
-              evidence({
-                headline: 'People who pictured good care from a public service trusted the public institutions behind it more, and more so than when a private firm gave the care.',
-                finding: paragraph(`
-                  Berg and Johansson (2020) ran a vignette experiment with 1,019 respondents to a
-                  general survey in Sweden. Respondents read about good or poor eldercare for their
-                  mother, delivered by a public or a private provider, assigned at random. “The main
-                  result show that the spillover of trust from positive service experiences with the
-                  provider to trust in public institutions is higher in cases of public service
-                  provision.” The experiences were imagined, and the service was eldercare rather
-                  than schools.
-                `),
-                grade: 'moderate',
-                quote: 'The main result show that the spillover of trust from positive service experiences with the provider to trust in public institutions is higher in cases of public service provision.',
-                sources: [source('Berg and Johansson 2020, Journal of Public Administration Research and Theory', 'https://doi.org/10.1093/jopart/muz029')]
-              }),
-              evidence({
-                headline: 'When people in Germany and Norway grew more satisfied with public services, their trust in the wider political system rose along with it.',
-                finding: paragraph(`
-                  Kumlin, Nemčok and Van Hootegem (2024) surveyed the same people in Germany and Norway three
-                  times, asking about satisfaction with public services in general and with specific services.
-                  “Multilevel models show robust between-, and multiple instances of within-individual,
-                  associations between satisfaction and trust.” When a person's satisfaction with services
-                  changed, their political trust tended to move the same way. The study follows people over
-                  time rather than assigning service experiences, and it does not single out schools.
-                `),
-                grade: 'moderate',
-                quote: 'Multilevel models show robust between-, and multiple instances of within-individual, associations between satisfaction and trust.',
-                sources: [source('Kumlin, Nemčok and Van Hootegem 2024, Public Management Review', 'https://doi.org/10.1080/14719037.2023.2297292')]
-              }),
-              evidence({
-                headline: 'After rural schools in Sweden closed, rural residents trusted their municipal government less.',
-                finding: paragraph(`
-                  Isaksson (2023) matched every rural school closure in Sweden from 2013 to 2020 to yearly
-                  national surveys that ask about trust in municipal boards. “The results show that school
-                  closures decrease the trust in municipal politicians and have negative effects on the support
-                  for the incumbent, an effect that is most pronounced for left-leaning parties.” Only actual
-                  closures lowered trust, not proposals or decisions to close. The surveys compare rural
-                  residents across municipalities and years, and cannot confirm that each respondent lived near
-                  a closed school.
-                `),
-                grade: 'moderate',
-                quote: 'The results show that school closures decrease the trust in municipal politicians and have negative effects on the support for the incumbent, an effect that is most pronounced for left-leaning parties.',
-                sources: [source('Isaksson 2023, Journal of Rural Studies', 'https://doi.org/10.1016/j.jrurstud.2023.103009')]
-              })
-            ],
-            counterEvidence: [
-              evidence({
-                headline: 'People in England trusted their local and national governments for different reasons.',
-                finding: paragraph(`
-                  Banducci, Horvath and Stevens (2026) surveyed people in England four times during
-                  the pandemic, measuring trust in local and national government alongside how each
-                  level performed. They “find distinct influences on trust in national and local
-                  government”. What drove trust at one level differed from what drove it at the
-                  other. The study concerns councils and national government, not schools.
-                `),
-                grade: 'moderate',
-                quote: 'Disaggregating between- and within-individual explanations for variation, we find distinct influences on trust in national and local government, and that trust in local government exerts an influence on pro-social behaviour whereas national government trust does not.',
-                sources: [source('Banducci, Horvath and Stevens 2026, Political Studies', 'https://doi.org/10.1177/00323217261464836')]
-              }),
-              evidence({
-                headline: 'Parents stayed far more satisfied with their own child\'s school than with public schooling across the country.',
-                finding: paragraph(`
-                  Gallup asks parents of kindergarten through twelfth grade students each year to rate their
-                  own child's education and education nationwide. In its 2026 poll, “Parents of students
-                  currently in kindergarten through grade 12 are nearly twice as likely to say they are
-                  satisfied with the quality of their own child’s education as with the quality of K-12
-                  education in the U.S. (66% vs. 32%, respectively).” Gallup reports that this gap has held
-                  throughout its trend. The poll measures satisfaction rather than trust, and the parent
-                  sample is small.
-                `),
-                grade: 'moderate',
-                quote: 'Parents of students currently in kindergarten through grade 12 are nearly twice as likely to say they are satisfied with the quality of their own child’s education as with the quality of K-12 education in the U.S. (66% vs. 32%, respectively).',
-                sources: [source('Gallup 2026, Satisfaction With K-12 Education Hits New Low', 'https://news.gallup.com/poll/714017/satisfaction-education-hits-new-low.aspx')]
-              })
-            ]
           })
         ]
       }),
-      sources: []
+      sources: [
+        source('Brown University', 'https://www.brown.edu/news/2021-09-15/hub'),
+        source('Panaggio, Fang, Bang, Armstrong, Binder, Grass, Magid, Papazian, Shapiro-Mendoza and Parks 2023, PLOS ONE', 'https://doi.org/10.1371/journal.pone.0292354'),
+        source('Halpern, Lin, Wang, Yang, Goldstein and Kolak 2021, Cartography and Geographic Information Science', 'https://doi.org/10.1080/15230406.2021.1975311'),
+        source('Irgens, O\'Neill and Ruiz 2025, PLOS ONE', 'https://doi.org/10.1371/journal.pone.0319263'),
+        source('Berg and Johansson 2020, Journal of Public Administration Research and Theory', 'https://doi.org/10.1093/jopart/muz029'),
+        source('Kumlin, Nemčok and Van Hootegem 2024, Public Management Review', 'https://doi.org/10.1080/14719037.2023.2297292'),
+        source('Isaksson 2023, Journal of Rural Studies', 'https://doi.org/10.1016/j.jrurstud.2023.103009'),
+        source('Banducci, Horvath and Stevens 2026, Political Studies', 'https://doi.org/10.1177/00323217261464836'),
+        source('Gallup 2026, Satisfaction With K-12 Education Hits New Low', 'https://news.gallup.com/poll/714017/satisfaction-education-hits-new-low.aspx')
+      ]
     }),
 
     spineProposal({
@@ -1604,19 +1475,17 @@ export default spineData({
         The council sees the same case data as the district and publishes its votes. Chicago's Local
         School Councils already existed in state law in 2020. That year small business owners had no
         channel into closure decisions, and parents who disagreed turned to lawsuits and recall
-        campaigns. The vote comes late, after the options on the ballot have already shaped the
-        decision, so the council's main power is to force the district's case into the open.
-        Scholars of political parties warn that binding community authority may weaken elected
-        institutions over time. The group's notes recorded this strong version of the idea, and it
-        stays in that form to sharpen the discussion. The aim is that parents keep their confidence
-        in public schools, even when their own school closes.
+        campaigns. The council also sees and can amend the options while the district drafts them,
+        so its vote does not come after the choices are set. The group's notes recorded this strong
+        version of the idea, and it stays in that form to sharpen the discussion. The aim is that
+        parents keep their confidence in public schools, even when their own school closes.
       `),
       outcome: outcome({
         text: 'Parents keep their confidence in public schools, even when their own school closes.',
         measured: 'Confidence in public schools fell',
         claims: [
           claim({
-            text: 'Public bodies release less information when nothing obliges them to.',
+            text: 'Public bodies release more information when a rule obliges them to.',
             evidence: [
               evidence({
                 headline: 'Local councils handed over less information when residents simply asked than when they made a legal records request.',
@@ -1755,7 +1624,7 @@ export default spineData({
             ]
           }),
           claim({
-            text: 'Parents with real power over school decisions hold school staff to account.',
+            text: 'Parents make school staff answer to them when they hold real decision power, not just information.',
             evidence: [
               evidence({
                 headline: 'When Kenyan parents on school committees were given real standing, school staff steered fewer jobs to relatives and cut their own effort less.',
@@ -1771,22 +1640,6 @@ export default spineData({
                 quote: 'Civil-service teachers also captured rents for their families, with approximately 1/3 of contract teacher positions going to relatives of existing teachers. A governance program that empowered parents within school committees reduced both forms of capture.',
                 sources: [source('Duflo, Dupas and Kremer 2015, Journal of Public Economics', 'https://doi.org/10.1016/j.jpubeco.2014.11.008')]
               }),
-              evidence({
-                headline: 'Ugandan communities helped to hold their health clinics to account got more effort from health workers, and fewer of their children died.',
-                finding: paragraph(`
-                  Björkman and Svensson (2009) assigned Ugandan communities at random to village
-                  meetings that built their capacity to hold local health providers to account. “A
-                  year after the intervention, treatment communities are more involved in monitoring
-                  the provider, and the health workers appear to exert higher effort to serve the
-                  community.” The authors also report more use of the clinics, lower child mortality,
-                  and higher child weight. The communities could press providers but held no veto.
-                `),
-                grade: 'strong',
-                quote: 'A year after the intervention, treatment communities are more involved in monitoring the provider, and the health workers appear to exert higher effort to serve the community.',
-                sources: [source('Björkman and Svensson 2009, Quarterly Journal of Economics', 'https://doi.org/10.1162/qjec.2009.124.2.735')]
-              })
-            ],
-            counterEvidence: [
               evidence({
                 headline: 'In a much larger Ugandan trial, urging citizens to press their health clinics did not raise that pressure or improve health.',
                 finding: paragraph(`
@@ -1813,6 +1666,22 @@ export default spineData({
                 grade: 'strong',
                 quote: 'These interventions had no impact on community involvement, teacher effort, or learning outcomes inside the school.',
                 sources: [source('Banerjee, Banerji, Duflo, Glennerster and Khemani 2010, American Economic Journal: Economic Policy', 'https://doi.org/10.1257/pol.2.1.1')]
+              })
+            ],
+            counterEvidence: [
+              evidence({
+                headline: 'Ugandan communities helped to hold their health clinics to account got more effort from health workers, and fewer of their children died.',
+                finding: paragraph(`
+                  Björkman and Svensson (2009) assigned Ugandan communities at random to village
+                  meetings that built their capacity to hold local health providers to account. “A
+                  year after the intervention, treatment communities are more involved in monitoring
+                  the provider, and the health workers appear to exert higher effort to serve the
+                  community.” The authors also report more use of the clinics, lower child mortality,
+                  and higher child weight. The communities could press providers but held no veto.
+                `),
+                grade: 'strong',
+                quote: 'A year after the intervention, treatment communities are more involved in monitoring the provider, and the health workers appear to exert higher effort to serve the community.',
+                sources: [source('Björkman and Svensson 2009, Quarterly Journal of Economics', 'https://doi.org/10.1162/qjec.2009.124.2.735')]
               })
             ]
           }),
@@ -1845,6 +1714,19 @@ export default spineData({
                 grade: 'moderate',
                 quote: 'We present evidence that the effects of exposure to direct democracy on internal and external political efficacy rival the effects of formal education.',
                 sources: [source('Bowler and Donovan 2002, British Journal of Political Science', 'https://doi.org/10.1017/S0007123402000157')]
+              }),
+              evidence({
+                headline: 'City residents who felt they had a say in local government, but no influence over it, did not trust it any more.',
+                finding: paragraph(`
+                  Using a survey of attitudes toward municipal government, the author compared residents'
+                  sense of having a voice and of having influence with their trust and satisfaction with
+                  local policy. “Neither political trust nor policy satisfaction responds positively to
+                  perceptions of increased voice alone.” Trust and satisfaction rose only among residents who
+                  believed citizens had both a voice and influence.
+                `),
+                grade: 'moderate',
+                quote: 'Neither political trust nor policy satisfaction responds positively to perceptions of increased voice alone.',
+                sources: [source('Ulbig 2008, Public Opinion Quarterly', 'https://doi.org/10.1093/poq/nfn030')]
               })
             ],
             counterEvidence: [
@@ -1879,7 +1761,7 @@ export default spineData({
             ]
           }),
           claim({
-            text: 'People who lose a decision see it as fairer, and trust the decision makers more, when officials explained it and took their questions first.',
+            text: 'People who lose a decision judge it fairer when officials explained it and took their questions first.',
             evidence: [
               evidence({
                 headline: 'Residents told their local fire station would close judged the decision fairer and trusted the regional authority more when it had explained the plan to citizens first.',
@@ -1927,19 +1809,6 @@ export default spineData({
                 grade: 'strong',
                 quote: 'Our results confirm that even if a school remains open, voters punish the incumbent and consider the initial proposal as informative for their vote.',
                 sources: [source('Gren and Leuschner 2024, Political Behavior', 'https://doi.org/10.1007/s11109-024-09936-8')]
-              }),
-              evidence({
-                headline: 'City residents who felt they had a say in local government, but no influence over it, did not trust it any more.',
-                finding: paragraph(`
-                  Using a survey of attitudes toward municipal government, the author compared residents'
-                  sense of having a voice and of having influence with their trust and satisfaction with
-                  local policy. “Neither political trust nor policy satisfaction responds positively to
-                  perceptions of increased voice alone.” Trust and satisfaction rose only among residents who
-                  believed citizens had both a voice and influence.
-                `),
-                grade: 'moderate',
-                quote: 'Neither political trust nor policy satisfaction responds positively to perceptions of increased voice alone.',
-                sources: [source('Ulbig 2008, Public Opinion Quarterly', 'https://doi.org/10.1093/poq/nfn030')]
               })
             ]
           })

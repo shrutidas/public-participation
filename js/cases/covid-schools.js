@@ -208,11 +208,9 @@ export default caseStudy({
       category: 'orange',
       actors: 'American Federation of Teachers, NEA, Local Affiliates, School Boards',
       text:       paragraph(`
-        Teachers unions entered the reopening debate as the dominant local advocacy
-        force. Research tracking reopening decisions in 250 of the largest school
-        districts found union presence significantly correlates with remote-only
-        decisions. The AFT threatened safety strikes if school reopening plans did not
-        meet its health and safety standards.
+        The American Federation of Teachers called for "safety strikes", authorized by
+        local unions as a last resort, if school reopening plans did not meet its health
+        and safety demands.
       `),
       sources: [source('Politico', 'https://www.politico.com/news/2020/07/28/aft-strikes-school-reopening-384133')],
     }),
@@ -265,11 +263,11 @@ export default caseStudy({
     entry({
       date: '11/2020',
       category: 'purple',
-      actors: '30 Randomly Selected Michigan Residents, CMU Researchers',
+      actors: 'of by for, 30 Randomly Selected Michigan Residents, CMU and Harvard Researchers',
       text:       paragraph(`
-        Researchers recruited 30 Michiganders through a deliberative sortition process.
-        An algorithm developed by CMU computer scientists selected participants to
-        maximize demographic representativeness and fairness of random selection.
+        The nonprofit of by for organized and funded a panel of 30 Michigan residents chosen
+        by democratic lottery. Computer scientists from Carnegie Mellon and Harvard ran the
+        selection algorithm, which balanced demographic representativeness with fairness.
         The panel produced 12 policy recommendations covering public health, economic
         support, and community equity, and formally offered them to policymakers.
       `),
