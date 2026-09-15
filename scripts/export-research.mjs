@@ -234,6 +234,17 @@ for (const c of cases) {
         Caveat: '',
         'Deep Link': `${base}/spine/pr/${pi}`
       });
+      // Sources behind the proposal's own text, such as the problem it answers.
+      for (const s of p.srcs ?? []) {
+        seenUrls.add(s.u);
+        spineRow('Proposal source', {
+          'Participation Kind': plain(p.method),
+          'Resource Title': s.l,
+          URL: s.u,
+          'Key Finding': plain(p.name),
+          'Deep Link': `${base}/spine/pr/${pi}`
+        });
+      }
       // One row for the outcome, one per claim under it, and one per source
       // of every evidence record under a claim.
       const out = p.outcome;

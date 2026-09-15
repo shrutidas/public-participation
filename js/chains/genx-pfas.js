@@ -37,7 +37,7 @@ const harmReduction = chain({
     'The company hid what it knew': '1961',
     'Regulators never got the information the law required': '2005',
     'No inspection, and no warning to the public': '2009',
-    'The contamination is found, but kept inside agencies': '08/2012',
+    'The contamination is found, but kept inside agencies': '2012',
     'The public finds out, from a newspaper': '06/2017',
     'PFAS measured in the blood of residents': '2017',
     'Agencies act within a week': '06/2017',

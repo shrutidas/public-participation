@@ -120,8 +120,9 @@ export default caseStudy({
       category: 'orange',
       actors: 'Meta, Adam Mosseri',
       text:       paragraph(`
-        Facebook confirms it is developing Instagram Kids for under‑13 tweens, 
-        describing it as a “parent‑controlled experience” in a statement and blog posts after BuzzFeed first reports the project.
+        After BuzzFeed News reports that Instagram is building a version of its app for
+        children under 13, Facebook confirms the plan in a statement, saying it is “exploring
+        bringing a parent-controlled experience to Instagram”.
       `),
       sources: [source('Business Insider', 'https://www.businessinsider.com/facebook-building-instagram-app-for-kids-under-13-report-2021-3/')],
     }),
@@ -247,11 +248,11 @@ export default caseStudy({
       category: 'blue',
       actors: 'New York Times',
       text:       paragraph(`
-        Teenage girls across schools say Instagram’s harms are obvious. In a New York Times piece, 
-        students interviewed after the Facebook Files said the findings “didn't surprise [them] at all.” 
-        Yale freshman Iris Tsouris and several high‑schoolers described friends who had deleted Instagram because 
-        it was not adding value and highly distressing due to the highly curated nature of 
-        profiles, driving constant comparison and superficial self‑presentation.
+        On the day of Frances Haugen's testimony, young women interviewed by the New York
+        Times said the findings were no surprise. Stanford freshman Annie Zhu, 18, said they
+        “didn’t surprise me at all”, and that some friends had deleted Instagram because they
+        didn’t think it was contributing positively to their lives. Yale freshman Iris
+        Tsouris said Instagram had worsened her body image issues.
       `),
       sources: [source('New York Times', 'https://www.nytimes.com/live/2021/10/05/technology/facebook-whistleblower-frances-haugen')],
     }),

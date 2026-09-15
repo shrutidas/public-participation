@@ -216,15 +216,15 @@ export default spineData({
       name: 'Residents drank water contaminated with GenX',
       found: '11/2016',
       headline: paragraph(`
-        Roughly 200,000 water customers, and up to 300,000 people downstream,
-        drank water carrying GenX at a mean of 631 ng/L. The discharge ran from
-        1980 to 2017.
+        Roughly 200,000 water customers, and up to 300,000 people downstream, drank
+        Cape Fear River water. Water entering Wilmington's treatment plant carried GenX at a
+        mean of 631 ng/L, and treatment did not remove it. The discharge ran from 1980 to 2017.
       `),
       measures: paragraph(`
         Roughly 200,000 Cape Fear Public Utility Authority (CFPUA) customers, and
-        250,000 to 300,000 people downstream, drank water with mean GenX
-        concentrations of 631 ng/L. Levels at the intake reached about 4,500
-        ng/L. The discharge ran from 1980 to 2017.
+        250,000 to 300,000 people downstream, drank Cape Fear River water. Water
+        entering the Wilmington treatment plant carried a mean GenX concentration of 631 ng/L,
+        with intake levels up to about 4,500 ng/L, and treatment did not remove it. The discharge ran from 1980 to 2017.
       `),
       from: [
         { anchor: 'Discharge continued largely unmonitored', strength: 'strong', note: 'The discharge is the exposure source' }
@@ -483,21 +483,24 @@ export default spineData({
         retaliation, and the agency must log, investigate, and publish what it receives. State and
         local channels sit beside it for workers who distrust a distant regulator. They work like a
         university ombuds office next to the formal complaints office, and they pass reports to a
-        body that can act. Any worker can file at any time, and every report requires a response.
-        Congress writes the federal duty into the chemicals law. Aviation has run such a channel
-        since 1976. The Federal Aviation Administration asked NASA to take confidential safety
-        reports because workers would not trust a system run by the regulator that enforces rules
-        against them. By 1980, DuPont had found high levels of perfluorooctanoic acid (PFOA) in its
-        own workers and concluded internally that continued exposure was not tolerable. That same
-        year its Fayetteville plant began discharging into the Cape Fear River. Government auditors
-        later found the federal complaint channel weak, and the record does not show whether any
-        worker used it. DuPont's 1981 data reached EPA only in 2001, through a lawsuit. Regulators
-        would then learn of chemical hazards from workers years before a lawsuit or a newspaper
-        exposes them. The aim is that hazards come to light before more residents are exposed.
+        body that can act. Workers keep any in-house route their company offers. Any worker can file
+        at any time, and every report requires a response. Congress writes the federal duty into the
+        chemicals law. Aviation has run such a channel since 1976. The Federal Aviation
+        Administration asked NASA to take confidential safety reports because workers would not
+        trust a system run by the regulator that enforces rules against them. By 1980, DuPont had
+        found high levels of perfluorooctanoic acid (PFOA) in its own workers and concluded
+        internally that continued exposure was not tolerable. That same year its Fayetteville plant
+        began discharging into the Cape Fear River. Government auditors later found the federal
+        complaint channel weak, and the record does not show whether any worker used it. DuPont's
+        1981 data reached EPA only in 2001, through a lawsuit. The company was already required to
+        report that data and did not. A protected worker channel gives regulators a second route
+        when a company's own reporting duty fails. Regulators would then learn of chemical hazards
+        from workers years before a lawsuit or a newspaper exposes them. The aim is that hazards
+        come to light before more residents are exposed.
       `),
       outcome: outcome({
         text: 'Chemical hazards come to light years sooner, before more residents are exposed.',
-        measured: null,
+        measured: 'Residents carried high PFAS levels in their blood',
         claims: [
           claim({
             text: 'The reporting duties and worker complaint channels that exist today leave chemical hazards unreported to regulators.',
@@ -822,7 +825,23 @@ export default spineData({
                 sources: [source('Buntaine, Greenstone, He, Liu, Wang and Zhang 2024, American Economic Review', 'https://doi.org/10.1257/aer.20221215')]
               })
             ],
-            counterEvidence: []
+            counterEvidence: [
+              evidence({
+                headline: 'In Chinese provinces, more pollution complaints sent to environmental offices by letter or visit did not bring local pollution down.',
+                finding: paragraph(`
+                  Ma, Song and Zhang followed 30 Chinese provinces from 2011 to 2020 and compared local
+                  pollution with several ways the public took part in pollution control, using a dynamic
+                  spatial panel model. Participation “based on environmental letters and visits have no
+                  significant impact on local pollution reduction,” while online searches about pollution,
+                  proposals from legislators, and microblogging were linked to lower emissions. The study
+                  compares provinces over time rather than following the polluters named in each complaint,
+                  and it counts complaints in total, not whether each one reported a real violation.
+                `),
+                grade: 'moderate',
+                quote: 'based on environmental letters and visits have no significant impact on local pollution reduction, while the Baidu search index of environmental pollution has the greatest effect on emission reduction, followed by environmental protection strategies based on the National People\'s Congress (NPC) and microblogging.',
+                sources: [source('Ma, Song and Zhang 2023, Journal of Environmental Management', 'https://doi.org/10.1016/j.jenvman.2023.118046')]
+              })
+            ]
           }),
           claim({
             text: 'Stopping production of a hazardous chemical lowers people\'s exposure to it.',
@@ -897,9 +916,12 @@ export default spineData({
         requirement for eight years. EPA's first inspection came three weeks after the June 2017
         newspaper story. The discharge permit file never named GenX, so no member of the public
         could object to it. In Tonawanda, New York, residents sampled their own air with bucket kits
-        in 2005, and a state study two years later confirmed high benzene near the coke plant. The
-        aim is that plants stay within their discharge limits, so less pollution reaches residents'
-        drinking water.
+        in 2005, and a state study two years later confirmed high benzene near the coke plant.
+        Chemours is privately owned, and privately owned plants have responded less to enforcement
+        actions than government-owned plants. The closest study had a regulator assign and pay
+        auditors at random, and no study yet tests a checker that residents approve. The aim is that
+        plants stay within their discharge limits, so less pollution reaches residents' drinking
+        water.
       `),
       outcome: outcome({
         text: 'Plants stay within their discharge limits, so less pollution reaches residents\' drinking water.',
@@ -1196,6 +1218,20 @@ export default spineData({
                 grade: 'weak',
                 quote: 'However, when viewed through the lens of the more developed literature on community policing, the bucket brigades are currently limited in their ability to encourage “co‐production” of environmental protection between citizens and the state.',
                 sources: [source('O\'Rourke and Macey 2003, Journal of Policy Analysis and Management', 'https://doi.org/10.1002/pam.10138')]
+              }),
+              evidence({
+                headline: 'Regulators dismissed air samples that residents took near refineries because the samples did not fit official standards.',
+                finding: paragraph(`
+                  In a study of community air toxics monitoring with “buckets”, the author finds that
+                  standards cut both ways. They give bucket data some legitimacy with experts, but
+                  “standards simultaneously serve a boundary-policing function, allowing experts to
+                  dismiss bucket data as irrelevant to the central project of air quality assessment.”
+                  Community measurements carried weight only where they matched the methods regulators
+                  already used. The data came from residents themselves, not from experts they hired.
+                `),
+                grade: 'weak',
+                quote: 'standards simultaneously serve a boundary-policing function, allowing experts to dismiss bucket data as irrelevant to the central project of air quality assessment',
+                sources: [source('Ottinger 2010, Science, Technology, and Human Values', 'https://doi.org/10.1177/0162243909337121')]
               })
             ]
           }),
@@ -1274,27 +1310,29 @@ export default spineData({
     spineProposal({
       name: 'Residents are told of any detection in drinking water and direct the follow-up testing',
       method: 'Citizen Science',
-      summary: 'When a regulator receives a peer-reviewed finding of a chemical in drinking water, it must tell the public within weeks, and residents choose where follow-up testing happens.',
+      summary: 'When a regulator receives a peer-reviewed finding of a chemical in drinking water, it must tell the public within a day, and residents choose where follow-up testing happens.',
       anchor: 'stayed inside agencies and journals',
       where: 'Congress writes the duty into federal law. The Environmental Protection Agency carries it out, and the North Carolina Department of Environmental Quality acts as the backup.',
       when: paragraph(`
-        August 2012, when EPA's own researchers detected GenX. The state backup is November 2016,
-        when the study measuring GenX in drinking water reached the state.
+        November 2016, when the study measuring GenX in drinking water reached the state. EPA's own
+        researchers had detected GenX in the river in 2012.
       `),
       description: paragraph(`
-        When a regulator receives a peer-reviewed study that finds a chemical above a set level in
-        drinking water, it must tell the public within weeks. The duty applies whether or not the
-        chemical is regulated yet. Congress writes it into federal law, and the Environmental
-        Protection Agency (EPA) carries it out. The state environmental agency acts if EPA does not.
-        Within weeks of the notice, affected residents meet. They choose where follow-up sampling
-        happens and hear the agency's response plan. The agency answers their questions in writing.
-        This proposal differs from the downstream resident body in its trigger, a finding in
-        drinking water rather than a plant's approval. EPA's own researchers detected GenX in August
-        2012. The finding stayed inside agencies and journals until a newspaper story in June 2017.
-        A federal duty would have told residents five years sooner. A state duty tied to the
-        November 2016 study would have told them about seven months sooner, and notice would have
-        come from an agency rather than a newsroom. The aim is that residents stop drinking
-        contaminated water sooner after a chemical is found in it.
+        When a regulator receives a peer-reviewed study that finds a chemical in drinking water, it
+        must tell the public within a day. The duty applies whether or not the chemical is regulated
+        yet. Congress writes it into federal law, and the Environmental Protection Agency (EPA)
+        carries it out. The state environmental agency acts if EPA does not. Within weeks of the
+        notice, affected residents meet. They choose where follow-up sampling happens and hear the
+        agency's response plan. The agency answers their questions in writing. Duties to tell
+        customers about violations have pushed water systems to cut some violations, but here the
+        utility sat downstream of the polluter and had broken no drinking water rule. This proposal
+        differs from the downstream resident body in its trigger, a finding in drinking water rather
+        than a plant's approval. EPA's own researchers detected GenX in the Cape Fear River in 2012.
+        A study measuring it in drinking water reached the state in November 2016. The finding
+        stayed inside agencies and journals until a newspaper story in June 2017. A duty tied to
+        that study would have told residents about seven months sooner, and notice would have come
+        from an agency rather than a newsroom. The aim is that residents stop drinking contaminated
+        water sooner after a chemical is found in it.
       `),
       outcome: outcome({
         text: 'Residents stop drinking contaminated water sooner after a chemical is found in it.',
@@ -1384,7 +1422,7 @@ export default spineData({
             ]
           }),
           claim({
-            text: 'Prompt notice from the water system makes residents aware of the contamination.',
+            text: 'Residents act on a contamination notice when it reaches them promptly.',
             evidence: [
               evidence({
                 headline: 'Households bought more bottled water when water systems had to warn them of bacteria within a day, but not when the warning could wait a month.',
@@ -1528,20 +1566,6 @@ export default spineData({
                 grade: 'moderate',
                 quote: 'The LCR sampling results, at locations expected to be elevated when corrosion is not well controlled, had higher concentrations than customer-requested homes',
                 sources: [source('Vijayashanthar, Small and VanBriesen 2023, Environmental Science and Technology', 'https://doi.org/10.1021/acs.est.2c06614')]
-              }),
-              evidence({
-                headline: 'Regulators dismissed air samples that residents took near refineries because the samples did not fit official standards.',
-                finding: paragraph(`
-                  In a study of community air toxics monitoring with “buckets”, the author finds that
-                  standards cut both ways. They give bucket data some legitimacy with experts, but
-                  “standards simultaneously serve a boundary-policing function, allowing experts to
-                  dismiss bucket data as irrelevant to the central project of air quality assessment.”
-                  Community measurements carried weight only where they matched the methods regulators
-                  already used. The data came from residents themselves, not from experts they hired.
-                `),
-                grade: 'weak',
-                quote: 'standards simultaneously serve a boundary-policing function, allowing experts to dismiss bucket data as irrelevant to the central project of air quality assessment',
-                sources: [source('Ottinger 2010, Science, Technology, and Human Values', 'https://doi.org/10.1177/0162243909337121')]
               })
             ]
           }),
@@ -1602,62 +1626,14 @@ export default spineData({
                 sources: [source('Brown, Hamoudi, Jeuland and Turrini 2017, Journal of Environmental Economics and Management', 'https://doi.org/10.1016/j.jeem.2016.08.005')]
               })
             ]
-          }),
-          claim({
-            text: 'Water systems that must tell customers about violations cut those violations.',
-            evidence: [
-              evidence({
-                headline: 'Across the country, water systems cut their health violations once they had to report them to customers every year.',
-                finding: paragraph(`
-                  Baker, Bennear and Olmstead used national records of drinking water violations from
-                  1990 to 2001 to compare water systems before and after federal law required annual
-                  water quality reports to customers, matching systems and comparing their changes over
-                  time. “We find that this information disclosure requirement reduced drinking water
-                  violations significantly and that the primary effect of disclosure on violations
-                  persists for at least four years after policy implementation.” They found no sign
-                  that systems let other violations rise instead. The study counts violations, not
-                  how long residents drank contaminated water.
-                `),
-                grade: 'strong',
-                quote: 'We find that this information disclosure requirement reduced drinking water violations significantly and that the primary effect of disclosure on violations persists for at least four years after policy implementation.',
-                sources: [source('Baker, Bennear and Olmstead 2023, Journal of the Association of Environmental and Resource Economists', 'https://doi.org/10.1086/722619')]
-              }),
-              evidence({
-                headline: 'Massachusetts water systems that had to mail violation reports to their customers cut their most serious violations.',
-                finding: paragraph(`
-                  Bennear and Olmstead studied 517 community water systems in Massachusetts from 1990
-                  to 2003, a span that covers the start of annual consumer confidence reports on
-                  violations and contaminant levels. “Results suggest that larger utilities required to
-                  mail CCRs directly to customers reduced total violations by between 30% and 44% as a
-                  result of this policy, and reduced the more severe health violations by 40-57%.” The
-                  effect is for larger systems that had to mail the reports directly.
-                `),
-                grade: 'strong',
-                quote: 'Results suggest that larger utilities required to mail CCRs directly to customers reduced total violations by between 30% and 44% as a result of this policy, and reduced the more severe health violations by 40-57%.',
-                sources: [source('Bennear and Olmstead 2008, Journal of Environmental Economics and Management', 'https://doi.org/10.1016/j.jeem.2008.03.002')]
-              })
-            ],
-            counterEvidence: [
-              evidence({
-                headline: 'Once California water systems had broken arsenic or nitrate limits, telling the public about the violation did not push them back into compliance.',
-                finding: paragraph(`
-                  Grooms tracked arsenic and nitrate levels in California water systems before and after each
-                  Safe Drinking Water Act violation, when systems must notify the public. The study found a
-                  change in nitrate levels after a violation but no effect on arsenic levels. Grooms concludes that “while
-                  public disclosure may deter systems from violating, once they go into violation the Public
-                  Notification Rule is not effective at encouraging a return to compliance.” The study follows
-                  contaminant levels around violations in one state and does not measure whether disclosure
-                  prevents first violations.
-                `),
-                grade: 'moderate',
-                quote: 'These results suggest that while public disclosure may deter systems from violating, once they go into violation the Public Notification Rule is not effective at encouraging a return to compliance.',
-                sources: [source('Grooms 2015, The B.E. Journal of Economic Analysis and Policy', 'https://doi.org/10.1515/bejeap-2014-0205')]
-              })
-            ]
           })
         ]
       }),
-      sources: []
+      sources: [
+        source('Baker, Bennear and Olmstead 2023, Journal of the Association of Environmental and Resource Economists', 'https://doi.org/10.1086/722619'),
+        source('Bennear and Olmstead 2008, Journal of Environmental Economics and Management', 'https://doi.org/10.1016/j.jeem.2008.03.002'),
+        source('Grooms 2015, The B.E. Journal of Economic Analysis and Policy', 'https://doi.org/10.1515/bejeap-2014-0205')
+      ]
     }),
 
     spineProposal({
@@ -1674,17 +1650,19 @@ export default spineData({
         Affected residents choose their own reviewers whenever the state sets an emergency health
         screening level or returns exposure results. The reviewers can split water and blood samples
         and check the state's analysis. They publish what they find through a channel the community
-        picks. The state health and environmental departments keep authority over the screening
-        level and the response. The state must answer the reviewers' findings in writing, and it
-        must correct its numbers in public if the reviewers find errors. The community makes the
-        appointments, and the polluter or the state pays for them. In Montana, an agreement has
-        required a mining company since 2000 to pay for mining and water experts who advise
-        residents' councils. The federal Superfund program pays for technical advisors that
-        communities near cleanup sites hire themselves. In Wilmington in June and July 2017, the
-        state's health screening level for GenX dropped from 71,000 to 140 parts per trillion in
-        five weeks. A key early meeting between regulators, Chemours, and officials was closed to
-        the public, with one pool reporter. The aim is that residents trust the state's water and
-        blood test results and act on them.
+        picks. Their findings and the state's written answers also go to every household whose water
+        or blood was tested. The state health and environmental departments keep authority over the
+        screening level and the response. The state must answer the reviewers' findings in writing,
+        and it must correct its numbers in public if the reviewers find errors. The community makes
+        the appointments. The polluter or the state pays into a fund that has no say over who is
+        hired. In Montana, an agreement has required a mining company since 2000 to pay for mining
+        and water experts who advise residents' councils. The federal Superfund program pays for
+        technical advisors that communities near cleanup sites hire themselves. In Wilmington in
+        June and July 2017, the state's health screening level for GenX dropped from 71,000 to 140
+        parts per trillion in five weeks. A key early meeting between regulators, Chemours, and
+        officials was closed to the public, with one pool reporter. Residents who already believe
+        their exposure is high may distrust a finding that it is low, whoever delivers it. The aim
+        is that residents trust the state's water and blood test results and act on them.
       `),
       outcome: outcome({
         text: 'Residents trust the state\'s water and blood test results and act on them.',
@@ -1773,6 +1751,22 @@ export default spineData({
                 grade: 'moderate',
                 quote: 'Overall, scientists were trusted most and developers least, but this was only partly due to their greater perceived expertise.',
                 sources: [source('Eiser, Stafford, Henneberry and Catney 2009, Risk Analysis', 'https://doi.org/10.1111/j.1539-6924.2008.01131.x')]
+              }),
+              evidence({
+                headline: 'People gave more weight to risk advice from advisers whose values matched their own.',
+                finding: paragraph(`
+                  In experiments, participants received risk advice from advisers who differed in past
+                  accuracy and in how closely their values matched the participant's. The authors
+                  “show that past quality of advice and degree of similarity between advisors' and
+                  judges' values have separate (non-interacting) effects on two types of agent
+                  behavior: the degree of trust expressed in a source (stated trust) and the weight
+                  given to the source's advice (revealed trust).” So shared values moved how much
+                  people relied on the advice, not only what they said about the adviser. Reliance
+                  also tracked the adviser's past accuracy.
+                `),
+                grade: 'strong',
+                quote: 'We show that past quality of advice and degree of similarity between advisors\' and judges\' values have separate (non-interacting) effects on two types of agent behavior: the degree of trust expressed in a source (stated trust) and the weight given to the source\'s advice (revealed trust).',
+                sources: [source('Twyman, Harvey and Harries 2008, Judgment and Decision Making', 'https://doi.org/10.1017/s1930297500000218')]
               })
             ],
             counterEvidence: [
@@ -1862,20 +1856,6 @@ export default spineData({
             ],
             counterEvidence: [
               evidence({
-                headline: 'Experts paid well by one side were seen as hired guns, and people neither liked nor believed them.',
-                finding: paragraph(`
-                  In three mock jury experiments, researchers varied how much an expert witness was
-                  paid and how often the expert testified. “Experts who are highly paid for their
-                  testimony and who testify frequently are perceived as ‘hired guns.’ They are neither
-                  liked nor believed.” The effect was strongest when the testimony was complex. The
-                  judges were neutral jurors, not the people who hired the expert, so it speaks to how
-                  others, including the state, would read reviewers paid on residents' behalf.
-                `),
-                grade: 'strong',
-                quote: 'The results of the first two studies demonstrated that experts who are highly paid for their testimony and who testify frequently are perceived as "hired guns." They are neither liked nor believed.',
-                sources: [source('Cooper and Neuhaus 2000, Law and Human Behavior', 'https://doi.org/10.1023/A:1005476618435')]
-              }),
-              evidence({
                 headline: 'A participatory water monitoring committee at a Peruvian mine did not produce a shared view of the mine\'s impacts, and it narrowed what residents could claim.',
                 finding: paragraph(`
                   Studying a participatory environmental monitoring committee in Ancash, Peru, the
@@ -1896,22 +1876,6 @@ export default spineData({
           claim({
             text: 'People accept a finding more readily when a source they trust delivers it.',
             evidence: [
-              evidence({
-                headline: 'People gave more weight to risk advice from advisers whose values matched their own.',
-                finding: paragraph(`
-                  In experiments, participants received risk advice from advisers who differed in past
-                  accuracy and in how closely their values matched the participant's. The authors
-                  “show that past quality of advice and degree of similarity between advisors' and
-                  judges' values have separate (non-interacting) effects on two types of agent
-                  behavior: the degree of trust expressed in a source (stated trust) and the weight
-                  given to the source's advice (revealed trust).” So shared values moved how much
-                  people relied on the advice, not only what they said about the adviser. Reliance
-                  also tracked the adviser's past accuracy.
-                `),
-                grade: 'strong',
-                quote: 'We show that past quality of advice and degree of similarity between advisors\' and judges\' values have separate (non-interacting) effects on two types of agent behavior: the degree of trust expressed in a source (stated trust) and the weight given to the source\'s advice (revealed trust).',
-                sources: [source('Twyman, Harvey and Harries 2008, Judgment and Decision Making', 'https://doi.org/10.1017/s1930297500000218')]
-              }),
               evidence({
                 headline: 'After a waterborne disease outbreak, residents who trusted the authorities felt safer and accepted their tap water again.',
                 finding: paragraph(`
@@ -1978,6 +1942,20 @@ export default spineData({
                 grade: 'weak',
                 quote: 'The release of the Draft Final Report led to unhappiness and dismay among some citizens in the Hanford area, not only because of the main message, but also because of how the message was delivered.',
                 sources: [source('National Research Council 2000, Review of the Hanford Thyroid Disease Study Draft Final Report', 'https://www.ncbi.nlm.nih.gov/books/NBK225224/')]
+              }),
+              evidence({
+                headline: 'Experts paid well by one side were seen as hired guns, and people neither liked nor believed them.',
+                finding: paragraph(`
+                  In three mock jury experiments, researchers varied how much an expert witness was
+                  paid and how often the expert testified. “Experts who are highly paid for their
+                  testimony and who testify frequently are perceived as ‘hired guns.’ They are neither
+                  liked nor believed.” The effect was strongest when the testimony was complex. The
+                  judges were neutral jurors, not the people who hired the expert, so it speaks to how
+                  others, including the state, would read reviewers paid on residents' behalf.
+                `),
+                grade: 'strong',
+                quote: 'The results of the first two studies demonstrated that experts who are highly paid for their testimony and who testify frequently are perceived as "hired guns." They are neither liked nor believed.',
+                sources: [source('Cooper and Neuhaus 2000, Law and Human Behavior', 'https://doi.org/10.1023/A:1005476618435')]
               })
             ]
           }),
@@ -2068,15 +2046,18 @@ export default spineData({
         university researchers rather than local residents. In 2024 state regulators recommended
         limits for eight PFAS, and a commission committee narrowed that to three. Between 2024 and
         2026 the federal government moved to roll back its PFAS limits, and a state standard would
-        hold even if federal limits fall. The aim is that the state adopts enforceable PFAS limits
-        and residents' exposure falls.
+        hold even if federal limits fall. The money comes from the federal government and the
+        petition goes to a state commission, so the groups do not press the body that funds them.
+        Lawmakers have moved mainly when protest and work inside the process came together, and
+        groups funded by government tend to avoid protest. The aim is that the state adopts
+        enforceable PFAS limits and residents' exposure falls.
       `),
       outcome: outcome({
         text: 'The state adopts enforceable PFAS limits, and residents\' exposure falls.',
         measured: 'North Carolina set no enforceable PFAS standard',
         claims: [
           claim({
-            text: 'Industry outweighs affected residents in the rulemaking that sets environmental standards.',
+            text: 'Industry takes part in rulemaking far more than affected residents do.',
             evidence: [
               evidence({
                 headline: 'When federal agencies wrote new rules, businesses filed most of the comments and ordinary citizens rarely filed any.',
@@ -2155,18 +2136,6 @@ export default spineData({
                 grade: 'moderate',
                 quote: 'Government funding could be a weak catalyst, rather than an obstacle, for nonprofits to participate in the policy process.',
                 sources: [source('Lu 2018, The American Review of Public Administration', 'https://doi.org/10.1177/0275074016680024')]
-              }),
-              evidence({
-                headline: 'Federal grants paid for technical advisors that communities near hazardous waste sites hired themselves.',
-                finding: paragraph(`
-                  Auditors found that “communities use the grants primarily to hire technical advisors
-                  to help them understand the technical aspects of a site cleanup in their area”, and
-                  that recipients “were generally pleased with the benefits they derived from those
-                  grants”.
-                `),
-                grade: 'moderate',
-                quote: 'Communities use the grants primarily to hire technical advisors to help them understand the technical aspects of a site cleanup in their area.',
-                sources: [source('US Government Accountability Office, T-RCED-93-1', 'https://www.gao.gov/products/t-rced-93-1')]
               })
             ],
             counterEvidence: [
@@ -2394,7 +2363,8 @@ export default spineData({
         ]
       }),
       sources: [
-        source('North Carolina Health News, 17 July 2024, North Carolina regulators pass on establishing standards for forever chemicals', 'https://www.northcarolinahealthnews.org/2024/07/17/north-carolina-regulators-pass-on-establishing-standards-for-forever-chemicals/')
+        source('North Carolina Health News, 17 July 2024, North Carolina regulators pass on establishing standards for forever chemicals', 'https://www.northcarolinahealthnews.org/2024/07/17/north-carolina-regulators-pass-on-establishing-standards-for-forever-chemicals/'),
+        source('US Government Accountability Office, T-RCED-93-1', 'https://www.gao.gov/products/t-rced-93-1')
       ]
     })
   ]

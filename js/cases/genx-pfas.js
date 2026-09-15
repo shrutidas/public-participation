@@ -238,11 +238,11 @@ export default caseStudy({
       category: 'orange',
       actors: 'EPA, DuPont, 3M/Dyneon, Other PFAS Companies',
       text:       paragraph(`
-        EPA's Science Advisory Board publicly reviewed a draft PFOA risk assessment.
-        In a report released April 2006, it recommended classifying PFOA, the
-        chemical used in Teflon pans, as "likely to be carcinogenic to humans,"
-        a conclusion the press covered widely at the time. This was the earliest
-        public acknowledgement.
+        An expert panel of EPA's Science Advisory Board reviewed EPA's draft PFOA risk
+        assessment. In its report of May 30, 2006, three-quarters of the panel judged the
+        evidence more consistent with the descriptor "likely to be carcinogenic" than with
+        EPA's own draft finding of "suggestive evidence". The panel's report was advice to
+        EPA, not an agency position.
       `),
       sources: [source('EPA', 'https://nepis.epa.gov/Exe/ZyNET.exe/901S0J00.TXT?ZyActionD=ZyDocument&Client=EPA&Index=2006+Thru+2010&Docs=&Query=&Time=&EndTime=&SearchMethod=1&TocRestrict=n&Toc=&TocEntry=&QField=&QFieldYear=&QFieldMonth=&QFieldDay=&IntQFieldOp=0&ExtQFieldOp=0&XmlQuery=&File=D%3A%5Czyfiles%5CIndex%20Data%5C06thru10%5CTxt%5C00000001%5C901S0J00.txt&User=ANONYMOUS&Password=anonymous&SortMethod=h%7C-&MaximumDocuments=1&FuzzyDegree=0&ImageQuality=r75g8/r75g8/x150y150g16/i425&Display=hpfr&DefSeekPage=x&SearchBack=ZyActionL&Back=ZyActionS&BackDesc=Results%20page&MaximumPages=1&ZyEntry=1&SeekPage=x&ZyPURL')],
     }),
@@ -284,7 +284,7 @@ export default caseStudy({
     }),
 
     entry({
-      date: '08/2012',
+      date: '2012',
       category: 'green',
       actors: 'EPA National Exposure Research Laboratory (Strynar et al.)',
       text:       paragraph(`
