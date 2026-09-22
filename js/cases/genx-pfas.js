@@ -242,7 +242,7 @@ export default caseStudy({
         assessment. In its report of May 30, 2006, three-quarters of the panel judged the
         evidence more consistent with the descriptor "likely to be carcinogenic" than with
         EPA's own draft finding of "suggestive evidence". The panel's report was advice to
-        EPA, not an agency position.
+        EPA.
       `),
       sources: [source('EPA', 'https://nepis.epa.gov/Exe/ZyNET.exe/901S0J00.TXT?ZyActionD=ZyDocument&Client=EPA&Index=2006+Thru+2010&Docs=&Query=&Time=&EndTime=&SearchMethod=1&TocRestrict=n&Toc=&TocEntry=&QField=&QFieldYear=&QFieldMonth=&QFieldDay=&IntQFieldOp=0&ExtQFieldOp=0&XmlQuery=&File=D%3A%5Czyfiles%5CIndex%20Data%5C06thru10%5CTxt%5C00000001%5C901S0J00.txt&User=ANONYMOUS&Password=anonymous&SortMethod=h%7C-&MaximumDocuments=1&FuzzyDegree=0&ImageQuality=r75g8/r75g8/x150y150g16/i425&Display=hpfr&DefSeekPage=x&SearchBack=ZyActionL&Back=ZyActionS&BackDesc=Results%20page&MaximumPages=1&ZyEntry=1&SeekPage=x&ZyPURL')],
     }),
@@ -378,7 +378,7 @@ export default caseStudy({
         children had cancer, quickly dubbed the cancer moms, showed up demanding
         answers. Mayor Bill Saffo said publicly he was alarmed after Chemours
         officials told him the discharge had been going on since 1980. Residents had
-        learned about the contamination from the newspaper, not from the government.
+        learned about the contamination from the newspaper.
       `),
       sources: [source('CBS News', 'https://www.cbsnews.com/news/wilmington-nc-cape-fear-river-water-tainted-genx-dupont-chemours/')],
     }),
@@ -408,7 +408,7 @@ export default caseStudy({
         EPA conducted its first on-site TSCA compliance monitoring inspection at
         Fayetteville Works, eight years after the 2009 consent order that required 99%
         capture and control. Media attention and state agency pressure triggered
-        the inspection, not internal EPA monitoring or scheduled compliance review.
+        the inspection.
       `),
       sources: [source('EPA OIG', 'https://www.epa.gov/sites/default/files/2020-05/documents/_epaoig_20200528-20-e-0177_0.pdf')],
     }),

@@ -38,8 +38,8 @@ const legitimacy = chain({
     'Test scores fall': '09/2022'
   },
   purpose: paragraph(`
-    This chain traces how the way school reopening decisions were made, not
-    the closures themselves, damaged public confidence in schools, and what
+    This chain traces how the way school reopening decisions were made
+    damaged public confidence in schools, and what
     that damage cost in enrollment, attendance, and learning.
   `),
   outcome: paragraph(`

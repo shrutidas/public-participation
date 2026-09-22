@@ -1119,7 +1119,9 @@ body[data-view="chain"] #ctrl .fl,
 #ch-right-tabs {
   display: flex;
   gap: 2px;
-  padding: 8px 14px 0;
+  /* The left edge matches #ch-detail's 20px so the header sits on the same
+     line as the title and body text under it. */
+  padding: 8px 14px 0 20px;
   border-bottom: 1px solid #eee9e0;
   flex-shrink: 0;
 }

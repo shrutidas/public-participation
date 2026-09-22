@@ -273,7 +273,7 @@ export default spineData({
 
   proposals: [
     spineProposal({
-      name: 'Residents put their own questions to federal health officials at regular public sessions',
+      name: 'Residents put their own questions to federal health officials at regular public sessions.',
       method: 'Town Hall',
       summary: 'From the first week of the rollout, residents nominated by community groups across parties question CDC officials in public, and officials must answer every question.',
       anchor: 'ACIP voted 11 to 0',
@@ -285,7 +285,7 @@ export default spineData({
       description: paragraph(`
         The Centers for Disease Control and Prevention (CDC) holds public sessions on a set schedule
         from the first week of the vaccine rollout in December 2020. Residents put questions to
-        officials directly, not only through reporters. Community groups across the political
+        officials directly. Community groups across the political
         spectrum and in hard-hit areas nominate the residents who ask. Anyone can submit a question,
         and submitted questions set part of each session's agenda. Officials must answer every
         question, including questions about side effects and what is not yet known, and publish
@@ -502,10 +502,10 @@ export default spineData({
             ]
           }),
           claim({
-            text: 'People trust officials more after putting their own questions to them in public.',
+            text: 'When residents can ask officials unscripted questions in public, and get answers, they see the process as accountable, and their trust goes up.',
             evidence: [
               evidence({
-                headline: 'Constituents who put questions to their member of Congress in online town halls came away trusting the member more, and not only those from the member\'s party.',
+                headline: 'Constituents who asked their member of Congress questions in online town halls came away trusting the member more, including constituents from the other party.',
                 finding: paragraph(`
                   Minozzi, Neblo, Esterling and Lazer ran two field experiments with 20 online town halls in 2006
                   and 2008. Nineteen were small sessions with members of the House, averaging 20 constituents
@@ -663,7 +663,7 @@ export default spineData({
     }),
 
     spineProposal({
-      name: 'A citizens\' assembly weighs any vaccine mandate before it is imposed',
+      name: 'A citizens\' assembly weighs any vaccine mandate before it is imposed.',
       method: 'Citizens\' Assembly',
       summary: 'Before ordering a mandate, the federal government or a city convenes residents chosen by lot and must publicly answer their recommendation.',
       anchor: 'majorities of Americans already supported',
@@ -897,7 +897,7 @@ export default spineData({
             ]
           }),
           claim({
-            text: 'People comply with a rule made by randomly selected residents as readily as one made by officials they elected.',
+            text: 'Rules set by ordinary residents get followed as much as rules set by government officials.',
             evidence: [],
             counterEvidence: [
               evidence({
@@ -942,7 +942,7 @@ export default spineData({
     }),
 
     spineProposal({
-      name: 'Neighborhood task forces decide where and how vaccines are delivered',
+      name: 'Neighborhood task forces decide where and how vaccines are delivered.',
       method: 'Neighborhood Task Force',
       summary: 'City health departments let task forces of residents and local groups choose sites, hours, and outreach for doses set aside for hard-hit neighborhoods.',
       anchor: '20,792 doses',
@@ -977,79 +977,28 @@ export default spineData({
         measured: 'The racial gap in vaccination narrowed',
         claims: [
           claim({
-            text: 'Vaccination sites run with residents and local groups draw the neighbors who face the most barriers.',
+            text: 'Modeled after community health workers, when residents help choose and run vaccination sites, the sites reach people least likely to get vaccinated.',
             evidence: [
               evidence({
-                headline: 'A vaccination site run with community groups in San Francisco\'s Mission District drew mostly Latino residents, who most often said they came because it was in their neighborhood.',
+                headline: 'After Chicago let neighborhood task forces design vaccine outreach in its hardest-hit zip codes, vaccination there began climbing faster than in the rest of the city.',
                 finding: paragraph(`
-                  Unidos en Salud, a partnership of community groups, a university, and the health
-                  department, gave 20,792 doses over 16 weeks. Of the people vaccinated, 70.5 percent
-                  were Latinx and 98.4 percent completed both doses. “The most frequently reported
-                  reasons for choosing vaccination at the site were its neighborhood location (28.6%),
-                  easy and convenient scheduling (26.9%) and recommendation by someone they trusted
-                  (18.1%).” The site had no comparison group, and the reasons are self-reported.
-                `),
-                grade: 'weak',
-                quote: 'The most frequently reported reasons for choosing vaccination at the site were its neighborhood location (28.6%), easy and convenient scheduling (26.9%) and recommendation by someone they trusted (18.1%)',
-                sources: [source('Marquez et al. 2021, PLOS ONE', 'https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0257111')]
-              }),
-              evidence({
-                headline: 'Small clinics held inside Black neighborhoods with local faith leaders\' help vaccinated far more Black residents than a nearby mass vaccination site.',
-                finding: paragraph(`
-                  Loma Linda University in San Bernardino County, California, worked with faith leaders
-                  to share vaccine information and then ran low-barrier clinics inside Black
-                  communities. From February to April 2021, 3.7 percent of the people given a first
-                  dose at the university's mass site were Black, against 44 percent at the neighborhood
-                  clinics: “The multi-tiered community approach (remote-site vaccination clinics)
-                  resulted in a necessary overrepresentation of Black vaccinees, previously
-                  underrepresented in the LLU traditional mass vaccination clinic effort (44% vs. 3.7%,
-                  respectively).” This is a conference abstract that counts who came to each site, and
-                  the neighborhood clinics gave far fewer doses.
-                `),
-                grade: 'weak',
-                quote: 'The multi-tiered community approach (remote-site vaccination clinics) resulted in a necessary overrepresentation of Black vaccinees, previously underrepresented in the LLU traditional mass vaccination clinic effort (44% vs. 3.7%, respectively).',
-                sources: [source('Abdul-Mutakabbir et al. 2021, Open Forum Infectious Diseases', 'https://doi.org/10.1093/ofid/ofab466.674')]
-              }),
-              evidence({
-                headline: 'Vaccine vans that a Seattle health system sent out with community groups served a larger share of Black, Hispanic, and Pacific Islander residents than its mass site.',
-                finding: paragraph(`
-                  Xie and colleagues compared six months of health records from UW Medicine in Seattle for
-                  people who booked vaccine appointments through four outreach efforts or through standard
-                  online or phone booking at the mass vaccination site. The health system held listening
-                  sessions with community organizations before launching its mobile vans and paid them for
-                  each event. In the program's design, “Three mobile vans worked in concert with CBOs to reach
-                  unhoused, low-income, and underrepresented BIPOC people” at shelters, churches, parks, and
-                  community events. Compared with standard
-                  booking, the vans reached higher shares of Black, Hispanic, Pacific Islander, and
-                  non-English-speaking people and of residents of more socially vulnerable areas. The authors
-                  conclude that “Compared to traditional scheduling, the outreach strategies improved vaccine
-                  equity for vulnerable populations disproportionately impacted by COVID-19.” The comparison
-                  describes who each channel reached, not who would have been vaccinated anyway, and the paper
-                  does not say the community groups picked each van stop.
+                  Under Protect Chicago Plus, “the city worked with each prioritized community to
+                  create a neighborhood task force composed of diverse representatives to design
+                  vaccine outreach and distribution strategies” in 13 high-vulnerability zip codes, 6
+                  majority Latinx and 7 majority Black. Before the program, coverage in those zip codes
+                  grew about half as fast as elsewhere. Afterward, “zip codes prioritized for the
+                  program had 0.42% additional coverage per day as compared with 0.27% per day for
+                  non-PCP zip codes.” First-dose coverage there rose from 58 percent of the rate in
+                  other Chicago zip codes to 92 percent in under two months. The city widened vaccine
+                  eligibility in the same zip codes, so the task forces' own share of the gain cannot be
+                  separated out.
                 `),
                 grade: 'moderate',
-                quote: 'Compared to traditional scheduling, the outreach strategies improved vaccine equity for vulnerable populations disproportionately impacted by COVID-19.',
-                sources: [source('Xie, Mah, Chew, Ruud, Hernandez, Lowery and Hartzler 2024, Applied Clinical Informatics', 'https://doi.org/10.1055/s-0044-1779258')]
+                quote: 'In model analysis after program implementation, zip codes prioritized for the program had 0.42% additional coverage per day as compared with 0.27% per day for non-PCP zip codes.',
+                sources: [source('Johnson et al. 2023, Public Health Reports', 'https://journals.sagepub.com/doi/full/10.1177/00333549221143093')]
               })
             ],
             counterEvidence: [
-              evidence({
-                headline: 'Broad neighborhood-wide campaigns run by community coalitions made little or no difference to health habits, while programs using lay outreach workers did.',
-                finding: paragraph(`
-                  A review gathered 58 studies of health programs planned and run by coalitions that
-                  included members of the racial or ethnic minority groups being served and at least
-                  two community organizations. Programs that used lay outreach workers improved health
-                  behaviors, while broad community-wide change strategies made little or no
-                  difference, and no study was at low risk of bias. Because the studies said too little
-                  about the coalitions themselves, “a definitive answer as to whether a coalition-led
-                  intervention adds extra value to the types of community engagement intervention
-                  strategies described in this review remains unattainable.” The review ends before
-                  COVID-19 and does not look at where services were placed.
-                `),
-                grade: 'moderate',
-                quote: 'Thus, a definitive answer as to whether a coalition-led intervention adds extra value to the types of community engagement intervention strategies described in this review remains unattainable.',
-                sources: [source('Anderson et al. 2015, Cochrane Database of Systematic Reviews', 'https://doi.org/10.1002/14651858.CD009905.pub2')]
-              }),
               evidence({
                 headline: 'In poor neighborhoods of Islamabad and Rawalpindi, vaccination camps at venues residents chose raised uptake only near the city center, not in the two areas farthest from it.',
                 finding: paragraph(`
@@ -1120,6 +1069,23 @@ export default spineData({
                 grade: 'moderate',
                 quote: 'Our main finding is that laypeople (nonexpert concordant senders) are most effective at promoting vaccination, particularly among those least willing to become vaccinated.',
                 sources: [source('Alsan and Eichmeyer 2024, American Economic Journal: Economic Policy', 'https://doi.org/10.1257/pol.20210393')]
+              }),
+              evidence({
+                headline: 'Health programs that used lay outreach workers improved health behaviors, while broad community-wide campaigns made little or no difference.',
+                finding: paragraph(`
+                  A review gathered 58 studies of health programs planned and run by coalitions that
+                  included members of the racial or ethnic minority groups being served and at least
+                  two community organizations. Programs that used lay outreach workers improved health
+                  behaviors, while broad community-wide change strategies made little or no
+                  difference, and no study was at low risk of bias. Because the studies said too little
+                  about the coalitions themselves, “a definitive answer as to whether a coalition-led
+                  intervention adds extra value to the types of community engagement intervention
+                  strategies described in this review remains unattainable.” The review ends before
+                  COVID-19 and does not look at where services were placed.
+                `),
+                grade: 'moderate',
+                quote: 'Thus, a definitive answer as to whether a coalition-led intervention adds extra value to the types of community engagement intervention strategies described in this review remains unattainable.',
+                sources: [source('Anderson et al. 2015, Cochrane Database of Systematic Reviews', 'https://doi.org/10.1002/14651858.CD009905.pub2')]
               })
             ],
             counterEvidence: [
@@ -1139,7 +1105,7 @@ export default spineData({
             ]
           }),
           claim({
-            text: 'Bringing vaccination close to home gets more unvaccinated people their shots sooner.',
+            text: 'Bringing vaccination close to home gets more unvaccinated people their vaccines sooner.',
             evidence: [
               evidence({
                 headline: 'Swiss towns that got a mobile vaccination unit for one four-hour visit saw more than three times as many unvaccinated adults get a shot within three weeks.',
@@ -1169,6 +1135,58 @@ export default spineData({
                 grade: 'moderate',
                 quote: 'COVID-19 vaccination is hampered not only by vaccine hesitancy but also by structural barriers like distance.',
                 sources: [source('Mazar et al. 2023, PNAS Nexus', 'https://academic.oup.com/pnasnexus/article/2/12/pgad411/7459517')]
+              }),
+              evidence({
+                headline: 'A vaccination site run with community groups in San Francisco\'s Mission District drew mostly Latino residents, who most often said they came because it was in their neighborhood.',
+                finding: paragraph(`
+                  Unidos en Salud, a partnership of community groups, a university, and the health
+                  department, gave 20,792 doses over 16 weeks. Of the people vaccinated, 70.5 percent
+                  were Latinx and 98.4 percent completed both doses. “The most frequently reported
+                  reasons for choosing vaccination at the site were its neighborhood location (28.6%),
+                  easy and convenient scheduling (26.9%) and recommendation by someone they trusted
+                  (18.1%).” The site had no comparison group, and the reasons are self-reported.
+                `),
+                grade: 'weak',
+                quote: 'The most frequently reported reasons for choosing vaccination at the site were its neighborhood location (28.6%), easy and convenient scheduling (26.9%) and recommendation by someone they trusted (18.1%)',
+                sources: [source('Marquez et al. 2021, PLOS ONE', 'https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0257111')]
+              }),
+              evidence({
+                headline: 'Small clinics held inside Black neighborhoods with local faith leaders\' help vaccinated far more Black residents than a nearby mass vaccination site.',
+                finding: paragraph(`
+                  Loma Linda University in San Bernardino County, California, worked with faith leaders
+                  to share vaccine information and then ran low-barrier clinics inside Black
+                  communities. From February to April 2021, 3.7 percent of the people given a first
+                  dose at the university's mass site were Black, against 44 percent at the neighborhood
+                  clinics: “The multi-tiered community approach (remote-site vaccination clinics)
+                  resulted in a necessary overrepresentation of Black vaccinees, previously
+                  underrepresented in the LLU traditional mass vaccination clinic effort (44% vs. 3.7%,
+                  respectively).” This is a conference abstract that counts who came to each site, and
+                  the neighborhood clinics gave far fewer doses.
+                `),
+                grade: 'weak',
+                quote: 'The multi-tiered community approach (remote-site vaccination clinics) resulted in a necessary overrepresentation of Black vaccinees, previously underrepresented in the LLU traditional mass vaccination clinic effort (44% vs. 3.7%, respectively).',
+                sources: [source('Abdul-Mutakabbir et al. 2021, Open Forum Infectious Diseases', 'https://doi.org/10.1093/ofid/ofab466.674')]
+              }),
+              evidence({
+                headline: 'Vaccine vans that a Seattle health system sent out with community groups served a larger share of Black, Hispanic, and Pacific Islander residents than its mass site.',
+                finding: paragraph(`
+                  Xie and colleagues compared six months of health records from UW Medicine in Seattle for
+                  people who booked vaccine appointments through four outreach efforts or through standard
+                  online or phone booking at the mass vaccination site. The health system held listening
+                  sessions with community organizations before launching its mobile vans and paid them for
+                  each event. In the program's design, “Three mobile vans worked in concert with CBOs to reach
+                  unhoused, low-income, and underrepresented BIPOC people” at shelters, churches, parks, and
+                  community events. Compared with standard
+                  booking, the vans reached higher shares of Black, Hispanic, Pacific Islander, and
+                  non-English-speaking people and of residents of more socially vulnerable areas. The authors
+                  conclude that “Compared to traditional scheduling, the outreach strategies improved vaccine
+                  equity for vulnerable populations disproportionately impacted by COVID-19.” The comparison
+                  describes who each channel reached, not who would have been vaccinated anyway, and the paper
+                  does not say the community groups picked each van stop.
+                `),
+                grade: 'moderate',
+                quote: 'Compared to traditional scheduling, the outreach strategies improved vaccine equity for vulnerable populations disproportionately impacted by COVID-19.',
+                sources: [source('Xie, Mah, Chew, Ruud, Hernandez, Lowery and Hartzler 2024, Applied Clinical Informatics', 'https://doi.org/10.1055/s-0044-1779258')]
               })
             ],
             counterEvidence: [
@@ -1190,26 +1208,8 @@ export default spineData({
             ]
           }),
           claim({
-            text: 'Steering vaccines and outreach to the hardest-hit neighborhoods closes their vaccination gap sooner.',
+            text: 'Sending more vaccine and outreach to the hardest-hit neighborhoods helps them catch up with the rest of the city faster.',
             evidence: [
-              evidence({
-                headline: 'After Chicago let neighborhood task forces design vaccine outreach in its hardest-hit zip codes, vaccination there began climbing faster than in the rest of the city.',
-                finding: paragraph(`
-                  Under Protect Chicago Plus, “the city worked with each prioritized community to
-                  create a neighborhood task force composed of diverse representatives to design
-                  vaccine outreach and distribution strategies” in 13 high-vulnerability zip codes, 6
-                  majority Latinx and 7 majority Black. Before the program, coverage in those zip codes
-                  grew about half as fast as elsewhere. Afterward, “zip codes prioritized for the
-                  program had 0.42% additional coverage per day as compared with 0.27% per day for
-                  non-PCP zip codes.” First-dose coverage there rose from 58 percent of the rate in
-                  other Chicago zip codes to 92 percent in under two months. The city widened vaccine
-                  eligibility in the same zip codes, so the task forces' own share of the gain cannot be
-                  separated out.
-                `),
-                grade: 'moderate',
-                quote: 'In model analysis after program implementation, zip codes prioritized for the program had 0.42% additional coverage per day as compared with 0.27% per day for non-PCP zip codes.',
-                sources: [source('Johnson et al. 2023, Public Health Reports', 'https://journals.sagepub.com/doi/full/10.1177/00333549221143093')]
-              }),
               evidence({
                 headline: 'When Rhode Island sent early vaccine supply and outreach in residents\' own languages to its hardest-hit, mostly Latino city, residents there got vaccinated sooner.',
                 finding: paragraph(`
@@ -1279,7 +1279,7 @@ export default spineData({
             ]
           }),
           claim({
-            text: 'Raising vaccination in the hardest-hit neighborhoods prevents COVID-19 deaths there.',
+            text: 'Raising vaccination among Black and Hispanic residents closes the racial gap in deaths due to COVID-19.',
             evidence: [
               evidence({
                 headline: 'Chicago neighborhoods with lower vaccination lost more residents to COVID-19, and most of those deaths could have been prevented at the best-covered neighborhoods\' rates.',
@@ -1329,29 +1329,7 @@ export default spineData({
                 grade: 'moderate',
                 quote: 'This inequality in vaccination accounted for 56.9% [22.5%-91.3%] of inequalities in COVID-19 deaths between individuals in the lowest income vs highest income quintiles.',
                 sources: [source('Wang et al. 2026, American Journal of Epidemiology', 'https://doi.org/10.1093/aje/kwaf051')]
-              })
-            ],
-            counterEvidence: [
-              evidence({
-                headline: 'The poorest Dutch adults over 50 died of COVID-19 about three times as often as the richest, and worse health explained far more of that gap than lower vaccination.',
-                finding: paragraph(`
-                  Milkovska and colleagues linked Dutch records on health, medication, hospital stays, and
-                  vaccination for 6.6 million people over 50 in 2021. People in the poorest fifth by income
-                  were about three times as likely to die of COVID-19 as those in the richest fifth.
-                  “Differences in pre-existing health are more important than differences in vaccination
-                  uptake in explaining this gap.” For the poorest men and women, health differences explained
-                  67 and 46 percent of the gap, and vaccination explained 14 and 19 percent. The study groups
-                  people by their own income rather than by neighborhood.
-                `),
-                grade: 'moderate',
-                quote: 'Differences in pre-existing health are more important than differences in vaccination uptake in explaining this gap.',
-                sources: [source('Milkovska, Issa, van Baal and Wouterse 2026, International Journal of Epidemiology', 'https://doi.org/10.1093/ije/dyag188')]
-              })
-            ]
-          }),
-          claim({
-            text: 'Closing the racial gap in vaccination narrows the racial gap in COVID-19 deaths.',
-            evidence: [
+              }),
               evidence({
                 headline: 'In England, the higher risk of dying of COVID-19 that Black adults still faced after the vaccine rollout shrank sharply once their lower vaccination was counted.',
                 finding: paragraph(`
@@ -1370,7 +1348,7 @@ export default spineData({
                 sources: [source('Bosworth et al. 2023, BMC Medicine', 'https://doi.org/10.1186/s12916-022-02704-7')]
               }),
               evidence({
-                headline: 'After vaccines reached dialysis clinics, where Black and Hispanic patients got vaccinated at least as often as White patients, their rise in deaths fell below White patients\'.',
+                headline: 'Once dialysis clinics offered vaccines, Black and Hispanic patients got vaccinated at least as often as White patients, and fewer of them died than usual compared with White patients.',
                 finding: paragraph(`
                   Kim and colleagues compared deaths among about 687,000 Medicare patients with kidney
                   failure against the number expected from earlier years. Until the end of January 2021,
@@ -1408,19 +1386,19 @@ export default spineData({
             ],
             counterEvidence: [
               evidence({
-                headline: 'Most of the shrinking gap between Black and White COVID-19 death rates came from rising White deaths and the virus moving to rural areas.',
+                headline: 'The poorest Dutch adults over 50 died of COVID-19 about three times as often as the richest, and worse health explained far more of that gap than lower vaccination.',
                 finding: paragraph(`
-                  From the first pandemic wave to the Omicron wave, the Black-White gap in death rates
-                  fell from 339 to 45 deaths per 100,000 person-years. “This study found that most of
-                  the national decrease in racial and ethnic disparities in COVID-19 mortality between
-                  the initial and Omicron waves was explained by increased mortality among non-Hispanic
-                  White adults and changes in the geographic spread of the pandemic.” Falling Black
-                  death rates explained about two fifths of the drop. The study does not measure
-                  vaccination.
+                  Milkovska and colleagues linked Dutch records on health, medication, hospital stays, and
+                  vaccination for 6.6 million people over 50 in 2021. People in the poorest fifth by income
+                  were about three times as likely to die of COVID-19 as those in the richest fifth.
+                  “Differences in pre-existing health are more important than differences in vaccination
+                  uptake in explaining this gap.” For the poorest men and women, health differences explained
+                  67 and 46 percent of the gap, and vaccination explained 14 and 19 percent. The study groups
+                  people by their own income rather than by neighborhood.
                 `),
                 grade: 'moderate',
-                quote: 'This study found that most of the national decrease in racial and ethnic disparities in COVID-19 mortality between the initial and Omicron waves was explained by increased mortality among non-Hispanic White adults and changes in the geographic spread of the pandemic.',
-                sources: [source('Lundberg et al. 2023, JAMA Network Open', 'https://doi.org/10.1001/jamanetworkopen.2023.11098')]
+                quote: 'Differences in pre-existing health are more important than differences in vaccination uptake in explaining this gap.',
+                sources: [source('Milkovska, Issa, van Baal and Wouterse 2026, International Journal of Epidemiology', 'https://doi.org/10.1093/ije/dyag188')]
               }),
               evidence({
                 headline: 'In Minnesota, Black, Hispanic, and Asian adults under 65 were more vaccinated than White adults, yet they still died of COVID-19 at far higher rates.',
@@ -1450,7 +1428,7 @@ export default spineData({
     }),
 
     spineProposal({
-      name: 'Residents allocate community support funds through participatory budgeting',
+      name: 'Residents allocate community support funds through participatory budgeting.',
       method: 'Participatory Budgeting',
       summary: 'Residents of the neighborhoods the money is meant for decide how a share of the American Rescue Plan community funds is spent.',
       anchor: 'vaccine equity push',
@@ -1673,7 +1651,7 @@ export default spineData({
     }),
 
     spineProposal({
-      name: 'Residents set the goals that outreach funds are judged against',
+      name: 'Residents set the goals that outreach funds are judged against.',
       method: 'Participatory Monitoring and Evaluation',
       summary: 'Residents of the neighborhoods an outreach award serves set the measures of success, and results are published against them.',
       anchor: 'vaccine equity push',
