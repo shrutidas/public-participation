@@ -403,7 +403,7 @@ export default spineData({
 
   proposals: [
     spineProposal({
-      name: 'A randomly selected group of residents deliberates on reopening',
+      name: 'A randomly selected group of residents deliberates on reopening.',
       method: 'Citizens\' Assembly',
       summary: 'Residents chosen by lot study the reopening choice and recommend a plan before officials decide.',
       anchor: 'Return to School Roadmap',
@@ -432,14 +432,14 @@ export default spineData({
         asked for binding decisions so that results could vary by place and be compared. People on
         the losing side of a decision accept it less and judge the process less fair, and each
         further loss deepens that. The aim is that residents accept the reopening decision as fair,
-        even those who wanted the other choice, and keep their confidence in public schools.
+        even those who wanted differently, and keep their confidence in public schools.
       `),
       outcome: outcome({
-        text: 'Residents accept the district\'s reopening decision as fair, even those who wanted the other choice, and keep their confidence in public schools.',
+        text: 'Residents accept the district\'s reopening decision as fair, even those who wanted differently, and keep their confidence in public schools.',
         measured: 'Confidence in public schools fell',
         claims: [
           claim({
-            text: 'A randomly selected group of residents weighs local conditions and priorities when it sets a trade-off.',
+            text: 'Given enough time, a randomly selected panel reaches an informed judgment of its own on local trade-offs.',
             evidence: [
               evidence({
                 headline: 'Residents who talked through two local questions changed their views most on the one they had known least about.',
@@ -510,8 +510,37 @@ export default spineData({
             ]
           }),
           claim({
-            text: 'People see a decision as fairer when a randomly selected group of residents helped make it.',
+            text: 'A panel whose advice officials follow makes the decision look fairer to the public.',
             evidence: [
+              evidence({
+                headline: 'Belgians supported a decision more when the government followed a citizen panel\'s advice, and less when it ignored the advice, than when politicians decided alone.',
+                finding: paragraph(`
+                  Van Dijk and Lefevere (2023) ran a survey experiment with 3,102 Belgians. Compared with
+                  a decision made by representatives, “a minipublic tends to bring about higher
+                  political support when its recommendations are fully adopted by the government,
+                  whereas it generates lower political support when its recommendations are not
+                  adopted”. An assembly whose advice is set aside can leave people less accepting than
+                  no assembly at all.
+                `),
+                grade: 'strong',
+                quote: 'a minipublic tends to bring about higher political support when its recommendations are fully adopted by the government, whereas it generates lower political support when its recommendations are not adopted',
+                sources: [source('van Dijk and Lefevere 2023, European Journal of Political Research', 'https://doi.org/10.1111/1475-6765.12523')]
+              }),
+              evidence({
+                headline: 'Irish adults judged a decision that went against them as fairer when a randomly selected citizen panel took part in the decision-making.',
+                finding: paragraph(`
+                  Germann, Marien and Muradova (2024) ran a pre-registered experiment with 1,309 Irish
+                  adults, all told the decision went against them. Involving a panel of randomly
+                  selected citizens raised perceived fairness by 0.7 points on a 0 to 10 scale, and by
+                  almost a full point where officials honored the panel’s recommendation. The authors
+                  conclude that “mini-publics increase legitimacy perceptions among the broader
+                  citizenry; however, these beneficial effects are largely limited to situations in
+                  which their recommendations are honored.”
+                `),
+                grade: 'strong',
+                quote: 'Mini-publics increase legitimacy perceptions among the broader citizenry; however, these beneficial effects are largely limited to situations in which their recommendations are honored.',
+                sources: [source('Germann, Marien and Muradova 2024, Political Studies', 'https://journals.sagepub.com/doi/10.1177/00323217221137444')]
+              }),
               evidence({
                 headline: 'Members of a citizens\' assembly who lost its votes were about as satisfied with how it was run as members who won.',
                 finding: paragraph(`
@@ -529,18 +558,17 @@ export default spineData({
             ],
             counterEvidence: [
               evidence({
-                headline: 'When a government ignored a citizen panel\'s advice, people thought less of the decision than when politicians had decided alone.',
+                headline: 'In a deeply divided region, the more polarized people were, the less legitimate they found a citizens\' assembly.',
                 finding: paragraph(`
-                  Van Dijk and Lefevere (2023) ran a survey experiment with 3,102 Belgians. Compared with
-                  a decision made by representatives, “a minipublic tends to bring about higher
-                  political support when its recommendations are fully adopted by the government,
-                  whereas it generates lower political support when its recommendations are not
-                  adopted”. An assembly whose advice is set aside can leave people less accepting than
-                  no assembly at all.
+                  Van Dijk, Turkenburg and Pow (2023) surveyed 932 people in Northern Ireland, where an
+                  assembly met on the region’s constitutional future. They found that “higher levels of
+                  ideological polarization and, to an extent, affective polarization are associated
+                  with lower levels of perceived minipublic legitimacy among the wider public, although
+                  effects are small”. The survey compares people at one point in time.
                 `),
-                grade: 'strong',
-                quote: 'a minipublic tends to bring about higher political support when its recommendations are fully adopted by the government, whereas it generates lower political support when its recommendations are not adopted',
-                sources: [source('van Dijk and Lefevere 2023, European Journal of Political Research', 'https://doi.org/10.1111/1475-6765.12523')]
+                grade: 'moderate',
+                quote: 'higher levels of ideological polarization and, to an extent, affective polarization are associated with lower levels of perceived minipublic legitimacy among the wider public, although effects are small',
+                sources: [source('van Dijk, Turkenburg and Pow 2023, European Political Science Review', 'https://doi.org/10.1017/S1755773922000649')]
               }),
               evidence({
                 headline: 'Adding a citizen panel to a public vote raised acceptance only when the panel agreed with the vote, and lowered it when they disagreed.',
@@ -559,42 +587,7 @@ export default spineData({
             ]
           }),
           claim({
-            text: 'People who learn that residents helped make a decision judge the decision more favorably.',
-            evidence: [
-              evidence({
-                headline: 'People told a decision had gone against them still called it fairer when a panel of randomly selected citizens had weighed in, most of all when officials followed the panel.',
-                finding: paragraph(`
-                  Germann, Marien and Muradova (2024) ran a pre-registered experiment with 1,309 Irish
-                  adults, all told the decision went against them. Involving a panel of randomly
-                  selected citizens raised perceived fairness by 0.7 points on a 0 to 10 scale, and by
-                  almost a full point where officials honored the panel’s recommendation. The authors
-                  conclude that “mini-publics increase legitimacy perceptions among the broader
-                  citizenry; however, these beneficial effects are largely limited to situations in
-                  which their recommendations are honored.”
-                `),
-                grade: 'strong',
-                quote: 'Mini-publics increase legitimacy perceptions among the broader citizenry; however, these beneficial effects are largely limited to situations in which their recommendations are honored.',
-                sources: [source('Germann, Marien and Muradova 2024, Political Studies', 'https://journals.sagepub.com/doi/10.1177/00323217221137444')]
-              })
-            ],
-            counterEvidence: [
-              evidence({
-                headline: 'In a deeply divided region, the more polarized people were, the less legitimate they found a citizens\' assembly.',
-                finding: paragraph(`
-                  Van Dijk, Turkenburg and Pow (2023) surveyed 932 people in Northern Ireland, where an
-                  assembly met on the region’s constitutional future. They found that “higher levels of
-                  ideological polarization and, to an extent, affective polarization are associated
-                  with lower levels of perceived minipublic legitimacy among the wider public, although
-                  effects are small”. The survey compares people at one point in time.
-                `),
-                grade: 'moderate',
-                quote: 'higher levels of ideological polarization and, to an extent, affective polarization are associated with lower levels of perceived minipublic legitimacy among the wider public, although effects are small',
-                sources: [source('van Dijk, Turkenburg and Pow 2023, European Political Science Review', 'https://doi.org/10.1017/S1755773922000649')]
-              })
-            ]
-          }),
-          claim({
-            text: 'People accept a decision more readily when they see the process that made it as fair.',
+            text: 'People who see a process as fair accept its decision, even when it goes against them.',
             evidence: [
               evidence({
                 headline: 'A fair process did the most to soften people\'s reactions when the outcome went against them.',
@@ -651,7 +644,7 @@ export default spineData({
             ]
           }),
           claim({
-            text: 'People who see a decision as fairly made keep their trust in the institution that made it.',
+            text: 'People who see a decision as fairly made keep trusting the institution behind it.',
             evidence: [
               evidence({
                 headline: 'Residents who judged a large land-use decision to be fairly made trusted the authority behind it more and accepted its outcome more readily.',
@@ -714,7 +707,7 @@ export default spineData({
     }),
 
     spineProposal({
-      name: 'A council of parents, teachers, and experts designs each school\'s reopening plan',
+      name: 'A council of parents, teachers, and experts designs each school\'s reopening plan.',
       method: 'Stakeholder Advisory Council',
       summary: 'Parents, teachers, and residents work with building and health experts to draft a reopening plan for each school, and the board must answer it.',
       anchor: 'physical presence in school',
@@ -750,7 +743,7 @@ export default spineData({
         measured: 'Chronic absenteeism stayed high',
         claims: [
           claim({
-            text: 'Better classroom ventilation lowers infections among students and staff in schools that teach in person.',
+            text: 'Teachers and families return more readily to schools they see as safe.',
             evidence: [
               evidence({
                 headline: 'Italian classrooms with mechanical ventilation saw far fewer student infections than classrooms with open windows alone.',
@@ -779,19 +772,35 @@ export default spineData({
                 sources: [source('Littlecott, Krishnaratne and colleagues 2024, Cochrane Database of Systematic Reviews', 'https://doi.org/10.1002/14651858.CD015029.pub2')]
               }),
               evidence({
-                headline: 'When Dutch primary schools reopened under the same airing rules, air quality improved most in classrooms that had only windows to open.',
+                headline: 'When decisions about schooling moved to local governments, schools matched what each community wanted more closely.',
                 finding: paragraph(`
-                  Sensors already installed in 252 classrooms across 27 Dutch primary schools tracked
-                  carbon dioxide and fine particles from 2018 to 2022. Comparing each classroom with
-                  itself before and after reopening, the authors find that mechanically ventilated
-                  classrooms had cleaner air overall, but “the post-COVID-19 ventilation measures
-                  implemented after school reopening had stronger effects on naturally ventilated
-                  (NV) classrooms, suggesting behavioral changes at the classroom level”. The study
-                  measures air quality, not infections.
+                  A review of decentralization studies in developing countries sorted the evidence
+                  by how credible each study’s design was. Unweighted, the literature looks weak and
+                  contradictory. Weighted by quality, a pattern appears: “Decentralization also
+                  improves preference matching in education, and can do so in health under certain
+                  conditions, although there is less evidence for both.” The authors call the
+                  evidence on preference matching in education “somewhat positive” and note that the
+                  small number of studies limits firmer conclusions. The review covers local
+                  governments and school systems in developing countries, not school-level councils
+                  in the United States.
                 `),
                 grade: 'moderate',
-                quote: 'the post-COVID-19 ventilation measures implemented after school reopening had stronger effects on naturally ventilated (NV) classrooms, suggesting behavioral changes at the classroom level',
-                sources: [source('Eichholtz, Kok and Sun 2023, PNAS Nexus', 'https://doi.org/10.1093/pnasnexus/pgad429')]
+                quote: 'Decentralization also improves preference matching in education, and can do so in health under certain conditions, although there is less evidence for both.',
+                sources: [source('Channa and Faguet 2016, World Bank Research Observer', 'https://doi.org/10.1093/wbro/lkw001')]
+              }),
+              evidence({
+                headline: 'Village projects in Pakistan went better where residents had more say in everyday choices, and worse where they had more say in engineering choices.',
+                finding: paragraph(`
+                  Using original data on development projects in northern Pakistan, the author compares
+                  how much say communities had in different kinds of project decisions with how well
+                  the projects turned out. “It shows that while community participation improves
+                  project outcomes in nontechnical decisions, increasing community participation in
+                  technical decisions actually leads to worse project outcomes.” A reopening
+                  plan mixes both kinds of decisions.
+                `),
+                grade: 'moderate',
+                quote: 'It shows that while community participation improves project outcomes in nontechnical decisions, increasing community participation in technical decisions actually leads to worse project outcomes.',
+                sources: [source('Khwaja 2004, Journal of the European Economic Association', 'https://doi.org/10.1162/154247604323068113')]
               })
             ],
             counterEvidence: [
@@ -809,47 +818,7 @@ export default spineData({
                 grade: 'strong',
                 quote: 'District and month fixed effects models that exploit within-district (over time) variation in instructional modality and account for time-invariant district factors show that, in both states, in-person/hybrid schooling relative to remote instruction can lead to increases in COVID spread in communities with moderate to high levels of preexisting COVID cases.',
                 sources: [source('Goldhaber, Imberman, Strunk and colleagues 2022, Journal of Policy Analysis and Management', 'https://doi.org/10.1002/pam.22354')]
-              })
-            ]
-          }),
-          claim({
-            text: 'People who know a school and its families design plans that fit that school\'s conditions.',
-            evidence: [
-              evidence({
-                headline: 'When Indonesian villagers chose which neighbors received aid, they judged need by their own local standards and were more satisfied with the result.',
-                finding: paragraph(`
-                  Across 640 villages, aid was assigned at random by a formula based on household
-                  assets, by a community meeting that ranked every household, or by a mix. The
-                  community picked somewhat different households than the formula did when poverty
-                  was defined by consumption, “though not by enough to significantly affect poverty
-                  outcomes for a typical program.” Local elites did not drive the difference: “Elite
-                  capture does not explain these results. Instead, communities appear to apply a
-                  different concept of poverty.” Villages that chose for themselves reported higher
-                  satisfaction. The decision is who gets aid, not how a school runs.
-                `),
-                grade: 'strong',
-                quote: 'Elite capture does not explain these results. Instead, communities appear to apply a different concept of poverty. Consistent with this finding, community targeting results in higher satisfaction.',
-                sources: [source('Alatas, Banerjee, Hanna, Olken and Tobias 2012, American Economic Review', 'https://doi.org/10.1257/aer.102.4.1206')]
               }),
-              evidence({
-                headline: 'When decisions about schooling moved to local governments, schools matched what each community wanted more closely.',
-                finding: paragraph(`
-                  A review of decentralization studies in developing countries sorted the evidence
-                  by how credible each study’s design was. Unweighted, the literature looks weak and
-                  contradictory. Weighted by quality, a pattern appears: “Decentralization also
-                  improves preference matching in education, and can do so in health under certain
-                  conditions, although there is less evidence for both.” The authors call the
-                  evidence on preference matching in education “somewhat positive” and note that the
-                  small number of studies limits firmer conclusions. The review covers local
-                  governments and school systems in developing countries, not school-level councils
-                  in the United States.
-                `),
-                grade: 'moderate',
-                quote: 'Decentralization also improves preference matching in education, and can do so in health under certain conditions, although there is less evidence for both.',
-                sources: [source('Channa and Faguet 2016, World Bank Research Observer', 'https://doi.org/10.1093/wbro/lkw001')]
-              })
-            ],
-            counterEvidence: [
               evidence({
                 headline: 'Salt Lake City school councils with equal parent and teacher seats and real authority still left the decisions that mattered to principals.',
                 finding: paragraph(`
@@ -864,20 +833,6 @@ export default spineData({
                 grade: 'weak',
                 quote: 'Despite the existence of these highly favorable arrangements, teachers and parents did not wield significant influence on significant issues in these decision arenas.',
                 sources: [source('Malen and Ogawa 1988, Educational Evaluation and Policy Analysis', 'https://doi.org/10.3102/01623737010004251')]
-              }),
-              evidence({
-                headline: 'Village projects in Pakistan went better where residents had more say in everyday choices, and worse where they had more say in engineering choices.',
-                finding: paragraph(`
-                  Using original data on development projects in northern Pakistan, the author compares
-                  how much say communities had in different kinds of project decisions with how well
-                  the projects turned out. “It shows that while community participation improves
-                  project outcomes in nontechnical decisions, increasing community participation in
-                  technical decisions actually leads to worse project outcomes.” Ventilation design
-                  is the kind of technical choice where lay input went with worse results.
-                `),
-                grade: 'moderate',
-                quote: 'It shows that while community participation improves project outcomes in nontechnical decisions, increasing community participation in technical decisions actually leads to worse project outcomes.',
-                sources: [source('Khwaja 2004, Journal of the European Economic Association', 'https://doi.org/10.1162/154247604323068113')]
               }),
               evidence({
                 headline: 'Handing decisions to schools and their communities did least in poor areas, where parents had little standing next to school staff.',
@@ -898,7 +853,7 @@ export default spineData({
             ]
           }),
           claim({
-            text: 'Teachers who have a say in school decisions are more likely to stay.',
+            text: 'Parents who plan with teachers come to trust the school more.',
             evidence: [
               evidence({
                 headline: 'Schools where the faculty had more say in school-wide decisions lost fewer teachers, and teachers of color most of all.',
@@ -1029,7 +984,7 @@ export default spineData({
             ]
           }),
           claim({
-            text: 'Schools that work closely with families see fewer chronic absences.',
+            text: 'Students miss less school when their school works closely with their families.',
             evidence: [
               evidence({
                 headline: 'When New York City turned struggling schools into community schools with family and social services, chronic absence fell right away and stayed down.',
@@ -1101,7 +1056,7 @@ export default spineData({
     }),
 
     spineProposal({
-      name: 'Parents and school staff shape the weekly reopening data and question officials on it',
+      name: 'Let parents and school staff choose the weekly reopening measures and question officials on them.',
       method: 'Participatory Monitoring',
       summary: 'Parents and school staff decide which local numbers the state publishes each week, report conditions from their own schools, and question officials on the data in public.',
       anchor: '49 states suspended in-person',
@@ -1111,25 +1066,20 @@ export default spineData({
         2020 and before the fall decisions.
       `),
       description: paragraph(`
-        A panel of parents and school staff works with state health and education agencies on the
-        local numbers behind reopening decisions. Each week the agencies publish county cases,
-        hospital stays, and whether each school is teaching in person or remotely. The panel decides
-        which measures are added and how the release explains what is not yet known. Parents and
-        staff can also report conditions in their own buildings, such as poor ventilation or staff
-        shortages. The agencies check each report with their own measurement, such as a ventilation
-        reading or a staffing count, and publish what they find. Once a month, officials answer
-        questions about the numbers from the panel and the public at an open session. The agencies
-        keep the data and state health orders stay in place, but officials must answer every
-        question and correct errors in public. In 2020 Taiwan published pharmacy mask stock as open
-        data, and volunteer civic technologists built the maps residents used to find masks. That
-        same year no federal source in the United States tracked which schools were open. Only 17
-        states published their own records of which schools were open, and many of those began
-        midway through the school year. The COVID-19 School Data Hub launched only in September
-        2021, and newspapers and universities pulled together county case counts. The aim is that
-        parents trust their district's reopening decisions.
+        Give a panel of parents and school staff from each region the right to choose what the
+        state's weekly reopening report measures, within state health orders. The state health and
+        education agencies keep the data and publish it every week. The report covers county cases,
+        test positivity, cases traced to school buildings, and whether each school is teaching in
+        person or remotely. The panel decides which measures to add and how the report explains what
+        is not yet known. Parents and staff can report problems in their own buildings, such as poor
+        ventilation or staff shortages. The agencies check each report with a ventilation reading or
+        staffing count and publish the result. Once a month, officials answer questions at an open
+        session. Typical questions: why a given cutoff closes schools, how many cases spread inside
+        buildings, and what conditions each building reports. Officials must correct errors in
+        public.
       `),
       outcome: outcome({
-        text: 'Parents trust their district\'s reopening decisions.',
+        text: 'Parents trust their school district\'s reopening decisions more when they can see the measures and reasons behind them.',
         measured: null,
         claims: [
           claim({
@@ -1217,7 +1167,7 @@ export default spineData({
             ]
           }),
           claim({
-            text: 'People who experience a public service firsthand report problems that official records miss.',
+            text: 'People who use or work in a service see problems that official records miss.',
             evidence: [
               evidence({
                 headline: 'Patients told interviewers about serious, preventable harms from their hospital stays that never appeared in their medical records.',
@@ -1235,7 +1185,7 @@ export default spineData({
                 sources: [source('Weissman, Schneider, Weingart, Epstein, David-Kasdan, Feibelmann, Annas, Ridley, Kirle and Gatsonis 2008, Annals of Internal Medicine', 'https://doi.org/10.7326/0003-4819-149-2-200807150-00006')]
               }),
               evidence({
-                headline: 'Diners\' own reports of food poisoning led city health officials to three restaurant outbreaks that no one had reported to them.',
+                headline: 'Yelp reviews about food poisoning led New York City health officials to three outbreaks they had not known about.',
                 finding: paragraph(`
                   The New York City health department screened about 294,000 Yelp restaurant reviews
                   over nine months and found 468 that described a recent or possibly recent food
@@ -1288,7 +1238,7 @@ export default spineData({
             text: 'Parents accept a school decision more when officials show the evidence and reasons behind it.',
             evidence: [
               evidence({
-                headline: 'People accepted a school decision more when the decision makers explained their reasons afterward.',
+                headline: 'People accepted a school decision more when the decision makers explained their reasoning afterward.',
                 finding: paragraph(`
                   In vignette experiments on decision making in schools, the authors find “that
                   transparency can indeed generate legitimacy”, and that an open meeting was not
@@ -1361,10 +1311,10 @@ export default spineData({
             ]
           }),
           claim({
-            text: 'Officials who say plainly what they do not yet know lose little trust.',
+            text: 'Officials can admit what they don\'t know yet and keep most of the public\'s trust.',
             evidence: [
               evidence({
-                headline: 'People told how uncertain a news figure was trusted the figure and its source only slightly less.',
+                headline: 'When a news story showed how uncertain a figure was, readers showed only a “small decrease in trust.”',
                 finding: paragraph(`
                   Five experiments with 5,780 participants, including a preregistered replication
                   and a field experiment inside live BBC News coverage, varied how uncertainty was
@@ -1377,7 +1327,7 @@ export default spineData({
                 sources: [source('van der Bles, van der Linden, Freeman and Spiegelhalter 2020, Proceedings of the National Academy of Sciences', 'https://doi.org/10.1073/pnas.1913678117')]
               }),
               evidence({
-                headline: 'Across dozens of experiments, showing people the margin of error around a figure never made them trust it less.',
+                headline: 'In a review of 68 experiments, showing the error range around a figure either raised trust or left it unchanged.',
                 finding: paragraph(`
                   Gustafson and Rice reviewed 48 studies containing 68 experiments and sorted the
                   results by the kind of uncertainty people were shown. “In contrast, uncertainty in
@@ -1394,7 +1344,7 @@ export default spineData({
             ],
             counterEvidence: [
               evidence({
-                headline: 'When people were told a COVID-19 death-rate figure rested on weak or uncertain evidence, they trusted it less and said they would use it less.',
+                headline: 'UK adults trusted a COVID-19 death-rate figure less, and said they would use it less, when told the evidence behind it was weak or uncertain.',
                 finding: paragraph(`
                   In three preregistered experiments with 6,489 UK adults, participants saw an
                   estimate of the COVID-19 case fatality rate with a high, low or uncertain rating of
@@ -1455,7 +1405,7 @@ export default spineData({
     }),
 
     spineProposal({
-      name: 'A parent and community body votes yes or no before any closure',
+      name: 'A parent and community body votes yes or no before any closure.',
       method: 'Binding Community Vote',
       summary: 'A standing council of parents, educators, business owners, and health experts must approve any school closure, and a no vote stops it.',
       anchor: 'safety strikes',
@@ -1485,7 +1435,7 @@ export default spineData({
         measured: 'Confidence in public schools fell',
         claims: [
           claim({
-            text: 'Public bodies release more information when a rule obliges them to.',
+            text: 'Officials release more information when a rule requires it.',
             evidence: [
               evidence({
                 headline: 'Local councils handed over less information when residents simply asked than when they made a legal records request.',
@@ -1545,7 +1495,7 @@ export default spineData({
             ]
           }),
           claim({
-            text: 'Officials disclose more when they need approval from people they do not control.',
+            text: 'When a decision needs the public\'s vote to pass, officials explain it and answer objections.',
             evidence: [
               evidence({
                 headline: 'Governments facing more competing parties in the legislature published more about their budgets.',
@@ -1590,41 +1540,7 @@ export default spineData({
             ]
           }),
           claim({
-            text: 'Officials who need the support of people who object to a decision answer their objections.',
-            evidence: [
-              evidence({
-                headline: 'Most US senators tailored how they explained their votes to their audience, and those explanations won support, most of all from people who disagreed.',
-                finding: paragraph(`
-                  In a field experiment with US senators as subjects, the authors studied how senators
-                  explained their votes, then showed those explanations to ordinary people in a survey
-                  experiment. They “find that most senators tailor their explanations to their
-                  audiences, and that these tailored explanations are effective at currying support”,
-                  especially among people who disagree with the vote. The explanations were built to
-                  persuade, and the study does not measure whether they carried evidence.
-                `),
-                grade: 'strong',
-                quote: 'We find that most senators tailor their explanations to their audiences, and that these tailored explanations are effective at currying support',
-                sources: [source('Grose, Malhotra and Van Houweling 2015, American Journal of Political Science', 'https://doi.org/10.1111/ajps.12164')]
-              })
-            ],
-            counterEvidence: [
-              evidence({
-                headline: 'An environmental agency answered public comments on its rules but seldom made the changes commenters asked for.',
-                finding: paragraph(`
-                  Studying 22 Environmental Protection Agency rulemakings and more than 1,000 organized
-                  comment campaigns, the authors find that “procedurally, the agency references mass
-                  comment campaigns in its responses to comments”, but that “the agency's regulations
-                  are generally not consistent with changes requested in comments”. An answer on the
-                  record did not mean the objection was acted on.
-                `),
-                grade: 'moderate',
-                quote: 'The analysis demonstrates that, procedurally, the agency references mass comment campaigns in its responses to comments, but cites campaigns at lower rates than other comments. In terms of outcomes, the agency\'s regulations are generally not consistent with changes requested in comments, a lack of association that holds especially for mass comment campaigns.',
-                sources: [source('Balla, Beck, Meehan and Prasad 2022, Regulation and Governance', 'https://doi.org/10.1111/rego.12318')]
-              })
-            ]
-          }),
-          claim({
-            text: 'Parents make school staff answer to them when they hold real decision power, not just information.',
+            text: 'When parents hold a vote on school decisions, school officials work harder for their children.',
             evidence: [
               evidence({
                 headline: 'When Kenyan parents on school committees were given real standing, school staff steered fewer jobs to relatives and cut their own effort less.',
@@ -1686,7 +1602,73 @@ export default spineData({
             ]
           }),
           claim({
-            text: 'A direct vote on public decisions raises people\'s trust in the government that makes them.',
+            text: 'People who lose a decision judge it fairer when officials explained it and took their questions first.',
+            evidence: [
+              evidence({
+                headline: 'Residents told their local fire station would close judged the decision fairer and trusted the regional authority more when it had explained the plan to citizens first.',
+                finding: paragraph(`
+                  In a preregistered vignette experiment with 1,574 Dutch citizens, the authors told people
+                  that their regional safety authority would either close the fire station in their
+                  neighborhood or open a new one, and varied whether the authority first explained the plan
+                  at meetings where citizens could ask questions and give ideas. They “show that social
+                  accountability (accountability to citizens) increases legitimacy perceptions, but that
+                  political accountability (accountability to politicians) does not affect legitimacy
+                  perceptions.” Among people who lost their station, explaining the plan to citizens raised
+                  perceived fairness most, and also raised trust in the authority and acceptance of the
+                  decision, by smaller amounts. The gap between winners and losers stayed large, and the
+                  extra effect for losers did not survive corrections for multiple tests.
+                `),
+                grade: 'strong',
+                quote: 'we show that social accountability (accountability to citizens) increases legitimacy perceptions, but that political accountability (accountability to politicians) does not affect legitimacy perceptions.',
+                sources: [source('Brummel and de Blok 2024, Public Management Review', 'https://doi.org/10.1080/14719037.2024.2337843')]
+              }),
+              evidence({
+                headline: 'People accepted a city council decision that went against them, and saw it as fair, when they could take part and councillors reached a compromise.',
+                finding: paragraph(`
+                  In an online scenario experiment in Japan, the author varied how a city council reached a
+                  decision and asked people how fair the process was and whether they accepted the result.
+                  The study “found that, given the opportunity to participate in the decision-making process
+                  and when the decision is reached through a compromise among council members, people tend to
+                  feel that the process is fair and accept the decision even when it is unfavourable to them.”
+                  The study measures fairness and acceptance, not trust in the council itself.
+                `),
+                grade: 'strong',
+                quote: 'this study found that, given the opportunity to participate in the decision-making process and when the decision is reached through a compromise among council members, people tend to feel that the process is fair and accept the decision even when it is unfavourable to them.',
+                sources: [source('Nakatani 2023, International Political Science Review', 'https://doi.org/10.1177/0192512121998250')]
+              }),
+              evidence({
+                headline: 'Most US senators tailored how they explained their votes to their audience, and those explanations won support, most of all from people who disagreed.',
+                finding: paragraph(`
+                  In a field experiment with US senators as subjects, the authors studied how senators
+                  explained their votes, then showed those explanations to ordinary people in a survey
+                  experiment. They “find that most senators tailor their explanations to their
+                  audiences, and that these tailored explanations are effective at currying support”,
+                  especially among people who disagree with the vote. The explanations were built to
+                  persuade, and the study does not measure whether they carried evidence.
+                `),
+                grade: 'strong',
+                quote: 'We find that most senators tailor their explanations to their audiences, and that these tailored explanations are effective at currying support',
+                sources: [source('Grose, Malhotra and Van Houweling 2015, American Journal of Political Science', 'https://doi.org/10.1111/ajps.12164')]
+              })
+            ],
+            counterEvidence: [
+              evidence({
+                headline: 'Voters near a school turned against local incumbents who proposed closing it, even when the incumbents backed down and kept the school open.',
+                finding: paragraph(`
+                  The authors tracked Swedish local election results from 2002 to 2018 in the neighborhoods
+                  around schools proposed for closure, comparing voting over time within each municipality.
+                  “Our results confirm that even if a school remains open, voters punish the incumbent and
+                  consider the initial proposal as informative for their vote.” Responding to opposition by
+                  withdrawing the proposal did not win back the support that the proposal cost.
+                `),
+                grade: 'strong',
+                quote: 'Our results confirm that even if a school remains open, voters punish the incumbent and consider the initial proposal as informative for their vote.',
+                sources: [source('Gren and Leuschner 2024, Political Behavior', 'https://doi.org/10.1007/s11109-024-09936-8')]
+              })
+            ]
+          }),
+          claim({
+            text: 'A direct vote makes people more satisfied with the decision and more sure that government listens.',
             evidence: [
               evidence({
                 headline: 'Indonesian villagers who chose local projects by direct vote were far more satisfied with the choice, though the projects chosen barely changed.',
@@ -1757,58 +1739,6 @@ export default spineData({
                 grade: 'strong',
                 quote: 'Our findings suggest that while CRBs may enhance perceptions of procedural fairness for some, particularly those with negative views of police, their involvement does not generally increase legitimacy.',
                 sources: [source('Schiff and colleagues 2025, PNAS Nexus', 'https://doi.org/10.1093/pnasnexus/pgaf267')]
-              })
-            ]
-          }),
-          claim({
-            text: 'People who lose a decision judge it fairer when officials explained it and took their questions first.',
-            evidence: [
-              evidence({
-                headline: 'Residents told their local fire station would close judged the decision fairer and trusted the regional authority more when it had explained the plan to citizens first.',
-                finding: paragraph(`
-                  In a preregistered vignette experiment with 1,574 Dutch citizens, the authors told people
-                  that their regional safety authority would either close the fire station in their
-                  neighborhood or open a new one, and varied whether the authority first explained the plan
-                  at meetings where citizens could ask questions and give ideas. They “show that social
-                  accountability (accountability to citizens) increases legitimacy perceptions, but that
-                  political accountability (accountability to politicians) does not affect legitimacy
-                  perceptions.” Among people who lost their station, explaining the plan to citizens raised
-                  perceived fairness most, and also raised trust in the authority and acceptance of the
-                  decision, by smaller amounts. The gap between winners and losers stayed large, and the
-                  extra effect for losers did not survive corrections for multiple tests.
-                `),
-                grade: 'strong',
-                quote: 'we show that social accountability (accountability to citizens) increases legitimacy perceptions, but that political accountability (accountability to politicians) does not affect legitimacy perceptions.',
-                sources: [source('Brummel and de Blok 2024, Public Management Review', 'https://doi.org/10.1080/14719037.2024.2337843')]
-              }),
-              evidence({
-                headline: 'People accepted a city council decision that went against them, and saw it as fair, when they could take part and councillors reached a compromise.',
-                finding: paragraph(`
-                  In an online scenario experiment in Japan, the author varied how a city council reached a
-                  decision and asked people how fair the process was and whether they accepted the result.
-                  The study “found that, given the opportunity to participate in the decision-making process
-                  and when the decision is reached through a compromise among council members, people tend to
-                  feel that the process is fair and accept the decision even when it is unfavourable to them.”
-                  The study measures fairness and acceptance, not trust in the council itself.
-                `),
-                grade: 'strong',
-                quote: 'this study found that, given the opportunity to participate in the decision-making process and when the decision is reached through a compromise among council members, people tend to feel that the process is fair and accept the decision even when it is unfavourable to them.',
-                sources: [source('Nakatani 2023, International Political Science Review', 'https://doi.org/10.1177/0192512121998250')]
-              })
-            ],
-            counterEvidence: [
-              evidence({
-                headline: 'Voters near a school turned against local incumbents who proposed closing it, even when the incumbents backed down and kept the school open.',
-                finding: paragraph(`
-                  The authors tracked Swedish local election results from 2002 to 2018 in the neighborhoods
-                  around schools proposed for closure, comparing voting over time within each municipality.
-                  “Our results confirm that even if a school remains open, voters punish the incumbent and
-                  consider the initial proposal as informative for their vote.” Responding to opposition by
-                  withdrawing the proposal did not win back the support that the proposal cost.
-                `),
-                grade: 'strong',
-                quote: 'Our results confirm that even if a school remains open, voters punish the incumbent and consider the initial proposal as informative for their vote.',
-                sources: [source('Gren and Leuschner 2024, Political Behavior', 'https://doi.org/10.1007/s11109-024-09936-8')]
               })
             ]
           })

@@ -468,7 +468,7 @@ export default spineData({
 
   proposals: [
     spineProposal({
-      name: 'Protected channels for workers to report chemical hazards',
+      name: 'Protected channels for workers to report chemical hazards.',
       method: 'Protected Worker Disclosure',
       summary: 'Workers report chemical hazards through a protected channel at the local, state, or federal level, and the body that receives the report must act.',
       anchor: 'continued exposure is not tolerable',
@@ -503,72 +503,6 @@ export default spineData({
         measured: 'Residents carried high PFAS levels in their blood',
         claims: [
           claim({
-            text: 'The reporting duties and worker complaint channels that exist today leave chemical hazards unreported to regulators.',
-            evidence: [
-              evidence({
-                headline: 'When the Environmental Protection Agency offered reduced penalties to companies that came forward, 89 companies handed over more than 11,000 chemical risk studies they had never reported.',
-                finding: paragraph(`
-                  The chemicals statute requires companies to tell the Environmental Protection Agency
-                  of information that reasonably supports the conclusion that a chemical presents a
-                  “substantial risk of injury to health or the environment”. The agency found “that
-                  some regulated industries were not submitting information on chemical hazards and
-                  exposures”, and in 1991 it offered reduced penalties to companies that audited their
-                  own files. When the program closed in 1997, the agency reported that it “has received
-                  over 11,000 previously unreported studies or reports from 89 companies on chemicals
-                  that may present a substantial risk of injury to health or the environment”, about 80
-                  percent of all the reports the duty had ever produced. The record shows how much
-                  companies had held back, not how long each study had been held.
-                `),
-                grade: 'strong',
-                quote: 'Under the TSCA section 8(e) CAP, the EPA has received over 11,000 previously unreported studies or reports from 89 companies on chemicals that may present a substantial risk of injury to health or the environment.',
-                caveat: 'An official record of what companies submitted under an amnesty. It cannot show what the studies contained or how long they had been withheld.',
-                sources: [source('US Environmental Protection Agency, news release of April 25, 1997', 'https://www.epa.gov/archive/epapages/newsroom_archive/newsreleases/1babc3a8f4a802c58525648400594f58.html')]
-              }),
-              evidence({
-                headline: 'A chemical company must tell the Environmental Protection Agency when it learns its chemical poses a substantial risk, and DuPont paid the agency\'s largest administrative penalty for not telling.',
-                finding: paragraph(`
-                  The chemicals statute requires a manufacturer that obtains information reasonably
-                  supporting the conclusion that its chemical presents a substantial risk to
-                  “immediately inform the Administrator”. In 2005 the Environmental Protection Agency
-                  settled eight counts against DuPont over PFOA, seven of them failures to report
-                  under that duty: “DuPont will pay $10.25 million -- the largest civil administrative
-                  penalty EPA has ever obtained under any federal environmental statute -- to settle
-                  violations alleged by EPA over the company's failure to comply with federal law”,
-                  along with $6.25 million for supplemental environmental projects. The withheld
-                  information included 1981 data showing the chemical crossing the placenta in humans,
-                  and contamination of the drinking water inside people's homes. The agency learned of
-                  the 1981 data only in 2001, from a lawyer suing the company on behalf of residents.
-                `),
-                grade: 'strong',
-                quote: 'DuPont will pay $10.25 million -- the largest civil administrative penalty EPA has ever obtained under any federal environmental statute -- to settle violations alleged by EPA over the company\'s failure to comply with federal law.',
-                caveat: 'An official record of what the duty is and what the agency found. It cannot show that earlier reporting would have changed any outcome.',
-                sources: [
-                  source('US Environmental Protection Agency, news release of December 14, 2005', 'https://www.epa.gov/archive/epapages/newsroom_archive/newsreleases/fdcb2f665cac66bb852570d7005d6665.html'),
-                  source('EPA memorandum to the Environmental Appeals Board, December 14, 2005', 'https://www.epa.gov/sites/default/files/2013-08/documents/eabmemodupontpfoasettlement121405.pdf'),
-                  source('15 U.S.C. 2607(e)', 'https://www.law.cornell.edu/uscode/text/15/2607')
-                ]
-              }),
-              evidence({
-                headline: 'The government\'s auditors found that the federal program for workers who report hazards could not be shown to work as intended.',
-                finding: paragraph(`
-                  The Government Accountability Office audited the Occupational Safety and Health
-                  Administration whistleblower program in 2010. “OSHA lacks sufficient internal
-                  controls to ensure that the whistleblower program operates as intended due to
-                  several factors, including inconsistent program operations, inadequate tracking of
-                  program expenses, and insufficient performance monitoring. Program operations vary
-                  by region in significant ways, as exemplified by differing standards used to screen
-                  out complaints.” The program then handled complaints under 18 statutes, the
-                  chemicals statute among them, so this is the channel a chemical plant worker would
-                  have had to use.
-                `),
-                grade: 'strong',
-                quote: 'OSHA lacks sufficient internal controls to ensure that the whistleblower program operates as intended due to several factors, including inconsistent program operations, inadequate tracking of program expenses, and insufficient performance monitoring.',
-                caveat: 'An official record of what the audit found. It cannot show whether workers used the channel, or that a better channel would surface hazards.',
-                sources: [source('US Government Accountability Office, GAO-10-722', 'https://www.gao.gov/products/gao-10-722')]
-              })
-            ]
-          }),
-          claim({
             text: 'Workers often notice a hazard before anyone outside the company does.',
             evidence: [
               evidence({
@@ -598,6 +532,25 @@ export default spineData({
                 grade: 'moderate',
                 quote: 'We find that fraud detection does not rely on standard corporate governance actors (investors, SEC, and auditors), but rather takes a village, including several nontraditional players (employees, media, and industry regulators).',
                 sources: [source('Dyck, Morse and Zingales 2010, Journal of Finance', 'https://doi.org/10.1111/j.1540-6261.2010.01614.x')]
+              }),
+              evidence({
+                headline: 'When the Environmental Protection Agency offered reduced penalties to companies that came forward, 89 companies handed over more than 11,000 chemical risk studies they had never reported.',
+                finding: paragraph(`
+                  The chemicals statute requires companies to tell the Environmental Protection Agency
+                  of information that reasonably supports the conclusion that a chemical presents a
+                  “substantial risk of injury to health or the environment”. The agency found “that
+                  some regulated industries were not submitting information on chemical hazards and
+                  exposures”, and in 1991 it offered reduced penalties to companies that audited their
+                  own files. When the program closed in 1997, the agency reported that it “has received
+                  over 11,000 previously unreported studies or reports from 89 companies on chemicals
+                  that may present a substantial risk of injury to health or the environment”, about 80
+                  percent of all the reports the duty had ever produced. The record shows how much
+                  companies had held back, not how long each study had been held.
+                `),
+                grade: 'strong',
+                quote: 'Under the TSCA section 8(e) CAP, the EPA has received over 11,000 previously unreported studies or reports from 89 companies on chemicals that may present a substantial risk of injury to health or the environment.',
+                caveat: 'An official record of what companies submitted under an amnesty. It cannot show what the studies contained or how long they had been withheld.',
+                sources: [source('US Environmental Protection Agency, news release of April 25, 1997', 'https://www.epa.gov/archive/epapages/newsroom_archive/newsreleases/1babc3a8f4a802c58525648400594f58.html')]
               })
             ],
             counterEvidence: [
@@ -621,7 +574,7 @@ export default spineData({
             ]
           }),
           claim({
-            text: 'Workers report more hazards when retaliation costs them less.',
+            text: 'Workers report more hazards when speaking up puts their job at less risk.',
             evidence: [
               evidence({
                 headline: 'When losing a job got less costly, workers filed more safety complaints against their employers, and regulators found more violations.',
@@ -685,11 +638,29 @@ export default spineData({
                 grade: 'moderate',
                 quote: 'whistle-blowers suffer severe retaliation from management, especially when their information proves significant; and (d) no special method of disclosure or personal characteristics can insulate the whistle-blower from such retaliation.',
                 sources: [source('Rothschild and Miethe 1999, Work and Occupations', 'https://doi.org/10.1177/0730888499026001006')]
+              }),
+              evidence({
+                headline: 'The government\'s auditors found that the federal program for workers who report hazards could not be shown to work as intended.',
+                finding: paragraph(`
+                  The Government Accountability Office audited the Occupational Safety and Health
+                  Administration whistleblower program in 2010. “OSHA lacks sufficient internal
+                  controls to ensure that the whistleblower program operates as intended due to
+                  several factors, including inconsistent program operations, inadequate tracking of
+                  program expenses, and insufficient performance monitoring. Program operations vary
+                  by region in significant ways, as exemplified by differing standards used to screen
+                  out complaints.” The program then handled complaints under 18 statutes, the
+                  chemicals statute among them, so this is the channel a chemical plant worker would
+                  have had to use.
+                `),
+                grade: 'strong',
+                quote: 'OSHA lacks sufficient internal controls to ensure that the whistleblower program operates as intended due to several factors, including inconsistent program operations, inadequate tracking of program expenses, and insufficient performance monitoring.',
+                caveat: 'An official record of what the audit found. It cannot show whether workers used the channel, or that a better channel would surface hazards.',
+                sources: [source('US Government Accountability Office, GAO-10-722', 'https://www.gao.gov/products/gao-10-722')]
               })
             ]
           }),
           claim({
-            text: 'Channels outside the chain of command draw reports that in-house channels miss.',
+            text: 'Reporting routes that skip the boss catch problems that in-house routes miss.',
             evidence: [
               evidence({
                 headline: 'Companies that gave employees a way to report without going to their boss found more fraud.',
@@ -753,7 +724,7 @@ export default spineData({
             ]
           }),
           claim({
-            text: 'Regulators act sooner on wrongdoing that workers report.',
+            text: 'Regulators act sooner on problems that workers report.',
             evidence: [
               evidence({
                 headline: 'Regulators started enforcement cases over false company accounts sooner when an employee had blown the whistle.',
@@ -806,7 +777,7 @@ export default spineData({
             ]
           }),
           claim({
-            text: 'Reports of pollution violations to a regulator lead polluters to cut their emissions.',
+            text: 'Acting on a reported hazard lowers people\'s exposure to it.',
             evidence: [
               evidence({
                 headline: 'Chinese factories cut their pollution after their violations were reported to the regulator, most of all when the reports were made in public.',
@@ -823,29 +794,7 @@ export default spineData({
                 grade: 'strong',
                 quote: 'First, public appeals to the regulator through social media substantially reduce violations and pollution emissions, while private appeals cause more modest environmental improvements.',
                 sources: [source('Buntaine, Greenstone, He, Liu, Wang and Zhang 2024, American Economic Review', 'https://doi.org/10.1257/aer.20221215')]
-              })
-            ],
-            counterEvidence: [
-              evidence({
-                headline: 'In Chinese provinces, more pollution complaints sent to environmental offices by letter or visit did not bring local pollution down.',
-                finding: paragraph(`
-                  Ma, Song and Zhang followed 30 Chinese provinces from 2011 to 2020 and compared local
-                  pollution with several ways the public took part in pollution control, using a dynamic
-                  spatial panel model. Participation “based on environmental letters and visits have no
-                  significant impact on local pollution reduction,” while online searches about pollution,
-                  proposals from legislators, and microblogging were linked to lower emissions. The study
-                  compares provinces over time rather than following the polluters named in each complaint,
-                  and it counts complaints in total, not whether each one reported a real violation.
-                `),
-                grade: 'moderate',
-                quote: 'based on environmental letters and visits have no significant impact on local pollution reduction, while the Baidu search index of environmental pollution has the greatest effect on emission reduction, followed by environmental protection strategies based on the National People\'s Congress (NPC) and microblogging.',
-                sources: [source('Ma, Song and Zhang 2023, Journal of Environmental Management', 'https://doi.org/10.1016/j.jenvman.2023.118046')]
-              })
-            ]
-          }),
-          claim({
-            text: 'Stopping production of a hazardous chemical lowers people\'s exposure to it.',
-            evidence: [
+              }),
               evidence({
                 headline: 'After manufacturers stopped making the PFAS chemical PFOS, Americans carried steadily less of it in their blood.',
                 finding: paragraph(`
@@ -865,6 +814,21 @@ export default spineData({
               })
             ],
             counterEvidence: [
+              evidence({
+                headline: 'In Chinese provinces, more pollution complaints sent to environmental offices by letter or visit did not bring local pollution down.',
+                finding: paragraph(`
+                  Ma, Song and Zhang followed 30 Chinese provinces from 2011 to 2020 and compared local
+                  pollution with several ways the public took part in pollution control, using a dynamic
+                  spatial panel model. Participation “based on environmental letters and visits have no
+                  significant impact on local pollution reduction,” while online searches about pollution,
+                  proposals from legislators, and microblogging were linked to lower emissions. The study
+                  compares provinces over time rather than following the polluters named in each complaint,
+                  and it counts complaints in total, not whether each one reported a real violation.
+                `),
+                grade: 'moderate',
+                quote: 'based on environmental letters and visits have no significant impact on local pollution reduction, while the Baidu search index of environmental pollution has the greatest effect on emission reduction, followed by environmental protection strategies based on the National People\'s Congress (NPC) and microblogging.',
+                sources: [source('Ma, Song and Zhang 2023, Journal of Environmental Management', 'https://doi.org/10.1016/j.jenvman.2023.118046')]
+              }),
               evidence({
                 headline: 'As rules on PFOS tightened, Chinese factories used more of a substitute chemical, and most people tested now carry it in their blood.',
                 finding: paragraph(`
@@ -889,7 +853,7 @@ export default spineData({
     }),
 
     spineProposal({
-      name: 'Downstream residents direct independent checks whenever a chemical is approved',
+      name: 'Downstream residents direct independent checks whenever a chemical is approved.',
       method: 'Community Review and Monitoring Body',
       summary: 'When a plant seeks approval to make or release a chemical, downstream residents form a body that sets the monitoring plan and directs an independent checker.',
       anchor: 'insufficient information and potential unreasonable risk',
@@ -1308,7 +1272,7 @@ export default spineData({
     }),
 
     spineProposal({
-      name: 'Residents are told of any detection in drinking water and direct the follow-up testing',
+      name: 'Residents are told of any detection in drinking water and direct the follow-up testing.',
       method: 'Citizen Science',
       summary: 'When a regulator receives a peer-reviewed finding of a chemical in drinking water, it must tell the public within a day, and residents choose where follow-up testing happens.',
       anchor: 'stayed inside agencies and journals',
@@ -1637,7 +1601,7 @@ export default spineData({
     }),
 
     spineProposal({
-      name: 'Affected residents choose independent experts to check health data',
+      name: 'Affected residents choose independent experts to check health data.',
       method: 'Community-Appointed Expert Review',
       summary: 'When the state sets an emergency health level or returns test results, residents choose reviewers who can split samples and publish what they find.',
       anchor: 'State action began only after public disclosure',
@@ -2025,7 +1989,7 @@ export default spineData({
     }),
 
     spineProposal({
-      name: 'Federal grants fund local groups to monitor PFAS and push for state limits',
+      name: 'Federal grants fund local groups to monitor PFAS and push for state limits.',
       method: 'Funded Community Oversight',
       summary: 'A federal grant program pays for community-run monitoring, technical, and legal staff who petition the state for enforceable PFAS limits.',
       anchor: 'public notice and comment',
@@ -2038,7 +2002,7 @@ export default spineData({
         A federal grant program pays for standing monitoring, technical, and legal staff in affected
         regions. A local board of residents, utilities, and local governments directs the work and
         publishes its monitoring results. Its main product is a petition for enforceable statewide
-        limits on per- and polyfluoroalkyl substances (PFAS), not another order for one plant.
+        limits on per- and polyfluoroalkyl substances (PFAS).
         Congress and the Environmental Protection Agency fund the program. The state Environmental
         Management Commission still decides whether to adopt limits. The 2019 consent order created
         citizen enforcement, a sampling network, and an exposure study for one plant, with no path

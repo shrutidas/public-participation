@@ -80,7 +80,7 @@ export default caseStudy({
         country. An academic analysis found that 49 states suspended in-person
         instruction, with Montana as the exception. Governors drove the decision.
         It was rapid and broadly bipartisan. It aimed at flattening the curve and
-        preserving hospital capacity, not at fine-grained educational trade-offs.
+        preserving hospital capacity.
       `),
       sources: [source('Ed Working Papers', 'https://edworkingpapers.com/sites/default/files/ai21-355.pdf')],
     }),
