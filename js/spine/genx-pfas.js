@@ -660,7 +660,7 @@ export default spineData({
             ]
           }),
           claim({
-            text: 'Reporting routes that skip the boss catch problems that in-house routes miss.',
+            text: 'Workers speak up more when they can report to someone other than their employer.',
             evidence: [
               evidence({
                 headline: 'Companies that gave employees a way to report without going to their boss found more fraud.',
@@ -676,22 +676,23 @@ export default spineData({
                 sources: [source('Johansson and Carey 2016, Journal of Business Ethics', 'https://doi.org/10.1007/s10551-015-2673-6')]
               }),
               evidence({
-                headline: 'In one hospital, five separate ways of reporting problems each caught different safety problems, with little overlap.',
+                headline: 'In one hospital, each way of reporting drew a different group of staff, with doctors filing half of one route\'s reports and almost none of another\'s.',
                 finding: paragraph(`
                   Researchers sorted the reports from five routes at one academic hospital: staff
                   incident reports, patient complaints, risk management, malpractice claims, and safety
-                  walk rounds by executives. “Overall, there was little overlap, although each
+                  walk rounds by executives. Who reported changed with the route: “Physicians
+                  accounted for 50% of risk management reports, but in adverse event reporting, where
+                  nurses were the main reporters, physicians accounted for only 2.5% of reports.” What
+                  they reported changed too. “Overall, there was little overlap, although each
                   reporting system identified important safety issues.” Incident reports mostly
                   flagged mislabeled specimens, walk rounds turned up equipment problems, and
-                  complaints and claims pointed to failures of communication. Who reported changed
-                  with the route: “Physicians accounted for 50% of risk management reports, but in
-                  adverse event reporting, where nurses were the main reporters, physicians accounted
-                  for only 2.5% of reports.” It is one hospital, and two of the routes are used by
-                  patients rather than staff.
+                  complaints and claims pointed to failures of communication. Opening a route the
+                  staff did not already use brought reports from people the existing routes were not
+                  reaching.
                 `),
                 grade: 'moderate',
-                quote: 'Overall, there was little overlap, although each reporting system identified important safety issues.',
-                caveat: 'One hospital. It shows that different routes surface different problems. It cannot show that adding an outside route would raise the total reported.',
+                quote: 'Physicians accounted for 50% of risk management reports, but in adverse event reporting, where nurses were the main reporters, physicians accounted for only 2.5% of reports.',
+                caveat: 'One hospital, and all five routes sat inside it. It shows that the route on offer changes who reports and what they report. It cannot show that a route outside the employer would draw more reports than one inside it.',
                 sources: [source('Levtzion-Korach et al. 2010, Joint Commission Journal on Quality and Patient Safety', 'https://doi.org/10.1016/s1553-7250(10)36059-4')]
               })
             ],
@@ -853,39 +854,24 @@ export default spineData({
     }),
 
     spineProposal({
-      name: 'Downstream residents direct independent checks whenever a chemical is approved.',
+      name: 'Downstream residents direct independent testing whenever a plant\'s discharge permit is issued or renewed.',
       method: 'Community Review and Monitoring Body',
-      summary: 'When a plant seeks approval to make or release a chemical, downstream residents form a body that sets the monitoring plan and directs an independent checker.',
-      anchor: 'insufficient information and potential unreasonable risk',
-      where: 'EPA\'s chemical safety office, with the body drawn from downstream communities. The state agency and the water utility handle reporting and sampling.',
+      summary: 'When a plant applies for or renews a discharge permit, downstream residents form a body that sets the monitoring plan and directs an independent lab.',
+      anchor: 'Discharge continued largely unmonitored',
+      where: 'The state permit agency, with the body drawn from downstream communities. The water utility and the county health department sit on the body so it can see confidential filings.',
       when: paragraph(`
-        2009, at the EPA consent order. That order recognized possible unreasonable risk and still
-        authorized production, and its 99 percent capture requirement went unchecked for eight
-        years.
+        1980, when the state first issued the discharge permit for Fayetteville Works. GenX formed
+        there as a byproduct and reached the Cape Fear River for decades under a permit that never
+        named it.
       `),
       description: paragraph(`
-        Whenever a plant seeks approval to make or release a chemical, residents downstream form a
-        review body. The body sees what the company submits to the Environmental Protection Agency
-        (EPA), within trade secret law. It sets the monitoring plan, and its conditions become
-        permit conditions. An independent laboratory or auditor, separate from both the company and
-        the agency, then checks the plant against its limits from the day they take effect. The
-        plant funds the checks but does not choose or pay the checker. The body approves the checker
-        and receives every result. The agency publishes the plan and each result. The body can also
-        decide on or veto the permit and tell the public about the risks. Between approvals, anyone
-        who notices a problem, such as a farmer whose cattle are dying, can report it to the body
-        and get a written response within a set time. A new discharge upstream sets off a campaign
-        telling residents how to get their water tested, since no one can test for PFAS at home. In
-        2009, an EPA consent order authorized production and required the plant to capture 99
-        percent of the chemicals from its wastewater and air emissions. No one checked that
-        requirement for eight years. EPA's first inspection came three weeks after the June 2017
-        newspaper story. The discharge permit file never named GenX, so no member of the public
-        could object to it. In Tonawanda, New York, residents sampled their own air with bucket kits
-        in 2005, and a state study two years later confirmed high benzene near the coke plant.
-        Chemours is privately owned, and privately owned plants have responded less to enforcement
-        actions than government-owned plants. The closest study had a regulator assign and pay
-        auditors at random, and no study yet tests a checker that residents approve. The aim is that
-        plants stay within their discharge limits, so less pollution reaches residents' drinking
-        water.
+        Downstream residents, the water utility, and the county health department form a review
+        body each time a plant applies for or renews a discharge permit. The plant must list every
+        chemical it releases, including byproducts. The body sets the testing plan, and its
+        conditions become permit conditions. An independent lab tests the discharge for every listed
+        chemical and screens for unlisted ones. The plant pays for the tests, but the body chooses
+        the lab and receives every result. The state agency publishes each result. The body can veto
+        the permit if testing finds a chemical the plant did not list.
       `),
       outcome: outcome({
         text: 'Plants stay within their discharge limits, so less pollution reaches residents\' drinking water.',
@@ -1272,7 +1258,7 @@ export default spineData({
     }),
 
     spineProposal({
-      name: 'Residents are told of any detection in drinking water and direct the follow-up testing.',
+      name: 'When any certified lab finds an unregulated chemical in tap water above a health screening level, the state tells every affected household and residents choose where to test next.',
       method: 'Citizen Science',
       summary: 'When a regulator receives a peer-reviewed finding of a chemical in drinking water, it must tell the public within a day, and residents choose where follow-up testing happens.',
       anchor: 'stayed inside agencies and journals',
@@ -1282,21 +1268,12 @@ export default spineData({
         researchers had detected GenX in the river in 2012.
       `),
       description: paragraph(`
-        When a regulator receives a peer-reviewed study that finds a chemical in drinking water, it
-        must tell the public within a day. The duty applies whether or not the chemical is regulated
-        yet. Congress writes it into federal law, and the Environmental Protection Agency (EPA)
-        carries it out. The state environmental agency acts if EPA does not. Within weeks of the
-        notice, affected residents meet. They choose where follow-up sampling happens and hear the
-        agency's response plan. The agency answers their questions in writing. Duties to tell
-        customers about violations have pushed water systems to cut some violations, but here the
-        utility sat downstream of the polluter and had broken no drinking water rule. This proposal
-        differs from the downstream resident body in its trigger, a finding in drinking water rather
-        than a plant's approval. EPA's own researchers detected GenX in the Cape Fear River in 2012.
-        A study measuring it in drinking water reached the state in November 2016. The finding
-        stayed inside agencies and journals until a newspaper story in June 2017. A duty tied to
-        that study would have told residents about seven months sooner, and notice would have come
-        from an agency rather than a newsroom. The aim is that residents stop drinking contaminated
-        water sooner after a chemical is found in it.
+        The state drinking water agency must tell every household a water system serves when a
+        certified lab finds an unregulated chemical above a health screening level. The finding can
+        come from the utility, a regulator, a researcher, or residents. Residents meet within weeks
+        and choose where follow-up sampling happens. Results from samples residents collect go into
+        the same public record. New York and California already require notice for some unregulated
+        chemicals, but only a utility's own tests set it off.
       `),
       outcome: outcome({
         text: 'Residents stop drinking contaminated water sooner after a chemical is found in it.',
@@ -1347,106 +1324,7 @@ export default spineData({
             counterEvidence: []
           }),
           claim({
-            text: 'A legal deadline to tell the public makes those who find a problem disclose it sooner.',
-            evidence: [
-              evidence({
-                headline: 'Companies in states with a deadline to report data breaches disclosed them much faster than companies in states without one.',
-                finding: paragraph(`
-                  Ashraf, Jiang and Wang compared how quickly companies disclosed data breaches across
-                  US states, some of which set a deadline for telling the public and some of which do
-                  not. “Exploiting this state-level variation in disclosure deadlines, we find that,
-                  when facing a deadline, firms disclose a data breach 90 percent faster but are 58
-                  percent less likely to disclose breach details.” The faster notices said less about
-                  what had happened. The setting is company data breaches, not drinking water.
-                `),
-                grade: 'moderate',
-                quote: 'Exploiting this state-level variation in disclosure deadlines, we find that, when facing a deadline, firms disclose a data breach 90 percent faster but are 58 percent less likely to disclose breach details.',
-                sources: [source('Ashraf, Jiang and Wang 2022, Journal of Finance and Data Science', 'https://doi.org/10.1016/j.jfds.2022.08.001')]
-              })
-            ],
-            counterEvidence: [
-              evidence({
-                headline: 'Under a rule to notify customers within 30 days, about three in ten water systems\' notices of bacteria went out more than six months late.',
-                finding: paragraph(`
-                  Monthly coliform bacteria violations require water systems to notify the public
-                  within 30 days. In data on when systems actually sent those notices, Marcus found
-                  that most went out within the first week, but “this distribution has a long right
-                  tail with about 30 percent of public notifications occurring more than 6 months after
-                  the determination date.” The deadline was in place and a large share of notices still
-                  came months late. The paper does not say why those notices were late or whether
-                  regulators acted on the delays.
-                `),
-                grade: 'moderate',
-                quote: 'However, this distribution has a long right tail with about 30 percent of public notifications occurring more than 6 months after the determination date.',
-                sources: [
-                  source('Marcus 2022, Review of Economics and Statistics', 'https://doi.org/10.1162/rest_a_01006'),
-                  source('Marcus, author\'s version, November 2020', 'https://michellemmarcus.com/wp-content/uploads/2020/12/marcus_testingthewater.pdf')
-                ]
-              })
-            ]
-          }),
-          claim({
-            text: 'Residents act on a contamination notice when it reaches them promptly.',
-            evidence: [
-              evidence({
-                headline: 'Households bought more bottled water when water systems had to warn them of bacteria within a day, but not when the warning could wait a month.',
-                finding: paragraph(`
-                  Marcus compared household bottled water purchases during two kinds of coliform
-                  bacteria violations that differ in how fast the public must be told. Violations that
-                  require notice within 24 hours “are associated with a statistically significant 78
-                  percent increase in bottled water sales during the violation”, while violations that
-                  allow notice within 30 days brought no change in purchases. Where notice of the
-                  slower kind happened to go out within a day, purchases looked like those for the
-                  faster kind, though that estimate was imprecise. The author concludes that
-                  “individuals avoid the negative health impacts of coliform bacteria violations only
-                  when informed immediately.” Purchases show residents learned and acted; the study
-                  does not measure awareness directly, and the two kinds of violation also differ in
-                  how serious the contamination is.
-                `),
-                grade: 'strong',
-                quote: 'Individuals avoid the negative health impacts of coliform bacteria violations only when informed immediately.',
-                sources: [
-                  source('Marcus 2022, Review of Economics and Statistics', 'https://doi.org/10.1162/rest_a_01006'),
-                  source('Marcus, author\'s version, November 2020', 'https://michellemmarcus.com/wp-content/uploads/2020/12/marcus_testingthewater.pdf')
-                ]
-              })
-            ],
-            counterEvidence: [
-              evidence({
-                headline: 'Many customers who read a water quality report could not tell whether it reported a health violation, even when the front page said so.',
-                finding: paragraph(`
-                  Johnson randomly assigned New Jersey water customers to read different versions of an
-                  annual water quality report, some of them reporting a violation of a health standard.
-                  Overall, readers of the violation versions were more likely to report a violation,
-                  but “many respondents had trouble identifying the presence or absence of substance
-                  amounts or violations, despite their seeming obviousness (e.g., in a ‘bottom line’
-                  summary on the front page of each report), suggesting many were not processing this
-                  information carefully.” Readers saw the reports inside a survey rather than in the
-                  mail, and an annual report is less urgent than a notice of a new detection.
-                `),
-                grade: 'moderate',
-                quote: 'Many respondents had trouble identifying the presence or absence of substance amounts or violations, despite their seeming obviousness (e.g., in a "bottom line" summary on the front page of each report), suggesting many were not processing this information carefully.',
-                sources: [source('Johnson 2003, Risk Analysis', 'https://doi.org/10.1111/1539-6924.00375')]
-              }),
-              evidence({
-                headline: 'Rural, low-income communities bought no more bottled water after nitrate violations, even though they faced more of them.',
-                finding: paragraph(`
-                  Allaire, Mackay, Zheng and Lall tracked weekly bottled water sales in 2,151 counties
-                  against drinking water violation records from 2006 to 2015. Violations that pose an
-                  immediate health risk went with a 14 percent rise in sales, but “rural, low-income
-                  communities do not take significant averting action for elevated levels of nitrate,
-                  yet experience a higher prevalence of nitrate violations.” Nitrate violations fall in
-                  the federal rule's fastest notice tier. Sales measure buying, not awareness, so the
-                  missing response may reflect cost or distrust as well as notice that never landed.
-                `),
-                grade: 'strong',
-                quote: 'Rural, low-income communities do not take significant averting action for elevated levels of nitrate, yet experience a higher prevalence of nitrate violations.',
-                sources: [source('Allaire, Mackay, Zheng and Lall 2019, Proceedings of the National Academy of Sciences', 'https://doi.org/10.1073/pnas.1905385116')]
-              })
-            ]
-          }),
-          claim({
-            text: 'Residents who direct testing find exposure that official sampling misses.',
+            text: 'When residents decide which homes and water to test, they find exposure that official sampling misses.',
             evidence: [
               evidence({
                 headline: 'In Flint, the homes residents chose to test matched the city\'s housing better than the sites the state chose, including poor wards the state skipped.',
@@ -1534,6 +1412,73 @@ export default spineData({
             ]
           }),
           claim({
+            text: 'A legal deadline to tell the public makes those who find a problem disclose it sooner.',
+            evidence: [
+              evidence({
+                headline: 'Companies in states with a deadline to report data breaches disclosed them much faster than companies in states without one.',
+                finding: paragraph(`
+                  Ashraf, Jiang and Wang compared how quickly companies disclosed data breaches across
+                  US states, some of which set a deadline for telling the public and some of which do
+                  not. “Exploiting this state-level variation in disclosure deadlines, we find that,
+                  when facing a deadline, firms disclose a data breach 90 percent faster but are 58
+                  percent less likely to disclose breach details.” The faster notices said less about
+                  what had happened. The setting is company data breaches, not drinking water.
+                `),
+                grade: 'moderate',
+                quote: 'Exploiting this state-level variation in disclosure deadlines, we find that, when facing a deadline, firms disclose a data breach 90 percent faster but are 58 percent less likely to disclose breach details.',
+                sources: [source('Ashraf, Jiang and Wang 2022, Journal of Finance and Data Science', 'https://doi.org/10.1016/j.jfds.2022.08.001')]
+              })
+            ],
+            counterEvidence: [
+              evidence({
+                headline: 'Under a rule to notify customers within 30 days, about three in ten water systems\' notices of bacteria went out more than six months late.',
+                finding: paragraph(`
+                  Monthly coliform bacteria violations require water systems to notify the public
+                  within 30 days. In data on when systems actually sent those notices, Marcus found
+                  that most went out within the first week, but “this distribution has a long right
+                  tail with about 30 percent of public notifications occurring more than 6 months after
+                  the determination date.” The deadline was in place and a large share of notices still
+                  came months late. The paper does not say why those notices were late or whether
+                  regulators acted on the delays.
+                `),
+                grade: 'moderate',
+                quote: 'However, this distribution has a long right tail with about 30 percent of public notifications occurring more than 6 months after the determination date.',
+                sources: [
+                  source('Marcus 2022, Review of Economics and Statistics', 'https://doi.org/10.1162/rest_a_01006'),
+                  source('Marcus, author\'s version, November 2020', 'https://michellemmarcus.com/wp-content/uploads/2020/12/marcus_testingthewater.pdf')
+                ]
+              })
+            ]
+          }),
+          claim({
+            text: 'Residents act sooner on a contamination warning when it reaches them within days.',
+            evidence: [
+              evidence({
+                headline: 'Households bought more bottled water when water systems had to warn them of bacteria within a day, but not when the warning could wait a month.',
+                finding: paragraph(`
+                  Marcus compared household bottled water purchases during two kinds of coliform
+                  bacteria violations that differ in how fast the public must be told. Violations that
+                  require notice within 24 hours “are associated with a statistically significant 78
+                  percent increase in bottled water sales during the violation”, while violations that
+                  allow notice within 30 days brought no change in purchases. Where notice of the
+                  slower kind happened to go out within a day, purchases looked like those for the
+                  faster kind, though that estimate was imprecise. The author concludes that
+                  “individuals avoid the negative health impacts of coliform bacteria violations only
+                  when informed immediately.” Purchases show residents learned and acted; the study
+                  does not measure awareness directly, and the two kinds of violation also differ in
+                  how serious the contamination is.
+                `),
+                grade: 'strong',
+                quote: 'Individuals avoid the negative health impacts of coliform bacteria violations only when informed immediately.',
+                sources: [
+                  source('Marcus 2022, Review of Economics and Statistics', 'https://doi.org/10.1162/rest_a_01006'),
+                  source('Marcus, author\'s version, November 2020', 'https://michellemmarcus.com/wp-content/uploads/2020/12/marcus_testingthewater.pdf')
+                ]
+              })
+            ],
+            counterEvidence: []
+          }),
+          claim({
             text: 'Households told their water is contaminated switch to safer water.',
             evidence: [
               evidence({
@@ -1588,6 +1533,37 @@ export default spineData({
                 grade: 'strong',
                 quote: 'However, demand for the treatment product among higher and initially more pessimistic SES households did not change significantly.',
                 sources: [source('Brown, Hamoudi, Jeuland and Turrini 2017, Journal of Environmental Economics and Management', 'https://doi.org/10.1016/j.jeem.2016.08.005')]
+              }),
+              evidence({
+                headline: 'Many customers who read a water quality report could not tell whether it reported a health violation, even when the front page said so.',
+                finding: paragraph(`
+                  Johnson randomly assigned New Jersey water customers to read different versions of an
+                  annual water quality report, some of them reporting a violation of a health standard.
+                  Overall, readers of the violation versions were more likely to report a violation,
+                  but “many respondents had trouble identifying the presence or absence of substance
+                  amounts or violations, despite their seeming obviousness (e.g., in a ‘bottom line’
+                  summary on the front page of each report), suggesting many were not processing this
+                  information carefully.” Readers saw the reports inside a survey rather than in the
+                  mail, and an annual report is less urgent than a notice of a new detection.
+                `),
+                grade: 'moderate',
+                quote: 'Many respondents had trouble identifying the presence or absence of substance amounts or violations, despite their seeming obviousness (e.g., in a "bottom line" summary on the front page of each report), suggesting many were not processing this information carefully.',
+                sources: [source('Johnson 2003, Risk Analysis', 'https://doi.org/10.1111/1539-6924.00375')]
+              }),
+              evidence({
+                headline: 'Rural, low-income communities bought no more bottled water after nitrate violations, even though they faced more of them.',
+                finding: paragraph(`
+                  Allaire, Mackay, Zheng and Lall tracked weekly bottled water sales in 2,151 counties
+                  against drinking water violation records from 2006 to 2015. Violations that pose an
+                  immediate health risk went with a 14 percent rise in sales, but “rural, low-income
+                  communities do not take significant averting action for elevated levels of nitrate,
+                  yet experience a higher prevalence of nitrate violations.” Nitrate violations fall in
+                  the federal rule's fastest notice tier. Sales measure buying, not awareness, so the
+                  missing response may reflect cost or distrust as well as notice that never landed.
+                `),
+                grade: 'strong',
+                quote: 'Rural, low-income communities do not take significant averting action for elevated levels of nitrate, yet experience a higher prevalence of nitrate violations.',
+                sources: [source('Allaire, Mackay, Zheng and Lall 2019, Proceedings of the National Academy of Sciences', 'https://doi.org/10.1073/pnas.1905385116')]
               })
             ]
           })
@@ -1601,9 +1577,9 @@ export default spineData({
     }),
 
     spineProposal({
-      name: 'Affected residents choose independent experts to check health data.',
+      name: 'A community-approved, independent expert board reviews each new state safety level and test result pertaining to local health data.',
       method: 'Community-Appointed Expert Review',
-      summary: 'When the state sets an emergency health level or returns test results, residents choose reviewers who can split samples and publish what they find.',
+      summary: 'Each time the state sets an emergency safety level or returns water or blood test results, a board of experts that residents approve checks the numbers and publishes what it finds.',
       anchor: 'State action began only after public disclosure',
       where: 'The North Carolina Department of Health and Human Services and the Department of Environmental Quality.',
       when: paragraph(`
@@ -1611,9 +1587,10 @@ export default spineData({
         to 140 parts per trillion in five weeks.
       `),
       description: paragraph(`
-        Affected residents choose their own reviewers whenever the state sets an emergency health
-        screening level or returns exposure results. The reviewers can split water and blood samples
-        and check the state's analysis. They publish what they find through a channel the community
+        Affected residents approve a standing board of independent reviewers. The board reviews each
+        emergency health screening level the state sets and each set of exposure results it returns,
+        as soon as the state issues them. The reviewers can split water and blood samples and check
+        the state's analysis. They publish what they find through a channel the community
         picks. Their findings and the state's written answers also go to every household whose water
         or blood was tested. The state health and environmental departments keep authority over the
         screening level and the response. The state must answer the reviewers' findings in writing,
@@ -1684,7 +1661,7 @@ export default spineData({
             counterEvidence: []
           }),
           claim({
-            text: 'People trust risk information more when it comes from someone they believe shares their values and interests.',
+            text: 'People believe test results more when they come from someone they see as on their side.',
             evidence: [
               evidence({
                 headline: 'Readers trusted a journalist writing about genetically modified food more when he shared their view.',
@@ -1731,9 +1708,37 @@ export default spineData({
                 grade: 'strong',
                 quote: 'We show that past quality of advice and degree of similarity between advisors\' and judges\' values have separate (non-interacting) effects on two types of agent behavior: the degree of trust expressed in a source (stated trust) and the weight given to the source\'s advice (revealed trust).',
                 sources: [source('Twyman, Harvey and Harries 2008, Judgment and Decision Making', 'https://doi.org/10.1017/s1930297500000218')]
+              }),
+              evidence({
+                headline: 'After a waterborne disease outbreak, residents who trusted the authorities felt safer and accepted their tap water again.',
+                finding: paragraph(`
+                  Studying residents' responses after a drinking water outbreak, the authors tested whether trust
+                  shaped acceptance of the water or the other way round. “The results supported the
+                  causal chain model suggesting a causal role for trust,” with trust working through
+                  lower perceived risk. Trust itself rose with prior trust in institutions and with
+                  the authorities' communication with the public. The analysis rests on correlations and path
+                  models, so the order of cause is inferred, not tested.
+                `),
+                grade: 'moderate',
+                quote: 'The results supported the causal chain model suggesting a causal role for trust.',
+                sources: [source('Bratanova, Morrison, Fife-Schaw, Chenoweth and Mangold 2013, Journal of Applied Social Psychology', 'https://doi.org/10.1111/jasp.12113')]
               })
             ],
             counterEvidence: [
+              evidence({
+                headline: 'Experts paid well by one side were seen as hired guns, and people neither liked nor believed them.',
+                finding: paragraph(`
+                  In three mock jury experiments, researchers varied how much an expert witness was
+                  paid and how often the expert testified. “Experts who are highly paid for their
+                  testimony and who testify frequently are perceived as ‘hired guns.’ They are neither
+                  liked nor believed.” The effect was strongest when the testimony was complex. The
+                  judges were neutral jurors, not the people who hired the expert, so it speaks to how
+                  others, including the state, would read reviewers paid on residents' behalf.
+                `),
+                grade: 'strong',
+                quote: 'The results of the first two studies demonstrated that experts who are highly paid for their testimony and who testify frequently are perceived as "hired guns." They are neither liked nor believed.',
+                sources: [source('Cooper and Neuhaus 2000, Law and Human Behavior', 'https://doi.org/10.1023/A:1005476618435')]
+              }),
               evidence({
                 headline: 'When people read the same facts about these chemicals from scientists or from the government, they found them equally believable.',
                 finding: paragraph(`
@@ -1759,11 +1764,62 @@ export default spineData({
                 grade: 'moderate',
                 quote: 'Contrary to previous research, complete freedom does not lead to trust-rather sources which possess moderate accountability are seen to be the most trusted.',
                 sources: [source('Frewer, Howard, Hedderley and Shepherd 1996, Risk Analysis', 'https://doi.org/10.1111/j.1539-6924.1996.tb01094.x')]
+              }),
+              evidence({
+                headline: 'People already worried about a hazard distrusted messages saying it was safe, whoever sent them.',
+                finding: paragraph(`
+                  Two experiments on food additives varied whether a message said an additive was
+                  risky or safe, and measured prior attitudes. Risky messages were trusted more, but
+                  “positive messages were distrusted only by those with negative prior attitudes.”
+                  In the second study, people trusted whichever message fit what they already
+                  believed. An earlier set of experiments found that results showing a health risk were
+                  trusted more than results showing little risk, and “this effect was independent of
+                  the credibility of the information source.” A reviewer who confirms that exposure is low may not reach residents who
+                  already believe it is high.
+                `),
+                grade: 'strong',
+                quote: 'Positive messages were distrusted only by those with negative prior attitudes.',
+                sources: [
+                  source('White, Pahl, Buehner and Haye 2003, Risk Analysis', 'https://doi.org/10.1111/1539-6924.00350'),
+                  source('Siegrist and Cvetkovich 2001, Risk Analysis', 'https://doi.org/10.1111/0272-4332.211102')
+                ]
+              }),
+              evidence({
+                headline: 'Who delivered information about genetically modified food barely changed what people thought, because their views shaped whom they trusted.',
+                finding: paragraph(`
+                  In an experiment with 1,405 consumers in four European countries, the same
+                  information was attributed to an industry group, a consumer group, or the
+                  government. Source made little difference to attitudes, and “the extent to which
+                  people trusted the information sources appeared to be driven by people's attitudes
+                  to genetically modified foods, rather than trust influencing the way that people
+                  reacted to the information.” Trust in a source may follow people's views of a
+                  hazard rather than lead them.
+                `),
+                grade: 'strong',
+                quote: 'The extent to which people trusted the information sources appeared to be driven by people\'s attitudes to genetically modified foods, rather than trust influencing the way that people reacted to the information.',
+                sources: [source('Frewer, Scholderer and Bredahl 2003, Risk Analysis', 'https://doi.org/10.1111/j.0272-4332.2003.00385.x')]
+              }),
+              evidence({
+                headline: 'Residents near a nuclear site trusted an outside research center more than federal agencies, yet some were dismayed when it found no link to thyroid disease.',
+                finding: paragraph(`
+                  A National Academies panel reviewed how the draft Hanford Thyroid Disease Study was
+                  released. Many residents distrusted the federal energy department, and “it appears
+                  that the Fred Hutchinson Cancer Research Center in Seattle enjoyed greater public
+                  trust than the federal agencies while carrying out the HTDS.” Even so, the finding
+                  of no link “was not expected by concerned members of the public in the region,”
+                  and “the release of the Draft Final Report led to unhappiness and dismay among some
+                  citizens in the Hanford area, not only because of the main message, but also because
+                  of how the message was delivered.” The panel faulted the release as well as the
+                  message, and residents did not choose the researchers.
+                `),
+                grade: 'weak',
+                quote: 'The release of the Draft Final Report led to unhappiness and dismay among some citizens in the Hanford area, not only because of the main message, but also because of how the message was delivered.',
+                sources: [source('National Research Council 2000, Review of the Hanford Thyroid Disease Study Draft Final Report', 'https://www.ncbi.nlm.nih.gov/books/NBK225224/')]
               })
             ]
           }),
           claim({
-            text: 'Affected people trust a risk judgment more when they had a say in how it was reached.',
+            text: 'People exposed to a health risk trust conclusions about its danger more when they helped shape the review of such risk.',
             evidence: [
               evidence({
                 headline: 'When every interest group got a say in a risk decision, people trusted the decision maker more and accepted the decision more readily.',
@@ -1838,92 +1894,6 @@ export default spineData({
             ]
           }),
           claim({
-            text: 'People accept a finding more readily when a source they trust delivers it.',
-            evidence: [
-              evidence({
-                headline: 'After a waterborne disease outbreak, residents who trusted the authorities felt safer and accepted their tap water again.',
-                finding: paragraph(`
-                  Studying residents' responses after a drinking water outbreak, the authors tested whether trust
-                  shaped acceptance of the water or the other way round. “The results supported the
-                  causal chain model suggesting a causal role for trust,” with trust working through
-                  lower perceived risk. Trust itself rose with prior trust in institutions and with
-                  the authorities' communication with the public. The analysis rests on correlations and path
-                  models, so the order of cause is inferred, not tested.
-                `),
-                grade: 'moderate',
-                quote: 'The results supported the causal chain model suggesting a causal role for trust.',
-                sources: [source('Bratanova, Morrison, Fife-Schaw, Chenoweth and Mangold 2013, Journal of Applied Social Psychology', 'https://doi.org/10.1111/jasp.12113')]
-              })
-            ],
-            counterEvidence: [
-              evidence({
-                headline: 'People already worried about a hazard distrusted messages saying it was safe, whoever sent them.',
-                finding: paragraph(`
-                  Two experiments on food additives varied whether a message said an additive was
-                  risky or safe, and measured prior attitudes. Risky messages were trusted more, but
-                  “positive messages were distrusted only by those with negative prior attitudes.”
-                  In the second study, people trusted whichever message fit what they already
-                  believed. An earlier set of experiments found that results showing a health risk were
-                  trusted more than results showing little risk, and “this effect was independent of
-                  the credibility of the information source.” A reviewer who confirms that exposure is low may not reach residents who
-                  already believe it is high.
-                `),
-                grade: 'strong',
-                quote: 'Positive messages were distrusted only by those with negative prior attitudes.',
-                sources: [
-                  source('White, Pahl, Buehner and Haye 2003, Risk Analysis', 'https://doi.org/10.1111/1539-6924.00350'),
-                  source('Siegrist and Cvetkovich 2001, Risk Analysis', 'https://doi.org/10.1111/0272-4332.211102')
-                ]
-              }),
-              evidence({
-                headline: 'Who delivered information about genetically modified food barely changed what people thought, because their views shaped whom they trusted.',
-                finding: paragraph(`
-                  In an experiment with 1,405 consumers in four European countries, the same
-                  information was attributed to an industry group, a consumer group, or the
-                  government. Source made little difference to attitudes, and “the extent to which
-                  people trusted the information sources appeared to be driven by people's attitudes
-                  to genetically modified foods, rather than trust influencing the way that people
-                  reacted to the information.” Trust in a source may follow people's views of a
-                  hazard rather than lead them.
-                `),
-                grade: 'strong',
-                quote: 'The extent to which people trusted the information sources appeared to be driven by people\'s attitudes to genetically modified foods, rather than trust influencing the way that people reacted to the information.',
-                sources: [source('Frewer, Scholderer and Bredahl 2003, Risk Analysis', 'https://doi.org/10.1111/j.0272-4332.2003.00385.x')]
-              }),
-              evidence({
-                headline: 'Residents near a nuclear site trusted an outside research center more than federal agencies, yet some were dismayed when it found no link to thyroid disease.',
-                finding: paragraph(`
-                  A National Academies panel reviewed how the draft Hanford Thyroid Disease Study was
-                  released. Many residents distrusted the federal energy department, and “it appears
-                  that the Fred Hutchinson Cancer Research Center in Seattle enjoyed greater public
-                  trust than the federal agencies while carrying out the HTDS.” Even so, the finding
-                  of no link “was not expected by concerned members of the public in the region,”
-                  and “the release of the Draft Final Report led to unhappiness and dismay among some
-                  citizens in the Hanford area, not only because of the main message, but also because
-                  of how the message was delivered.” The panel faulted the release as well as the
-                  message, and residents did not choose the researchers.
-                `),
-                grade: 'weak',
-                quote: 'The release of the Draft Final Report led to unhappiness and dismay among some citizens in the Hanford area, not only because of the main message, but also because of how the message was delivered.',
-                sources: [source('National Research Council 2000, Review of the Hanford Thyroid Disease Study Draft Final Report', 'https://www.ncbi.nlm.nih.gov/books/NBK225224/')]
-              }),
-              evidence({
-                headline: 'Experts paid well by one side were seen as hired guns, and people neither liked nor believed them.',
-                finding: paragraph(`
-                  In three mock jury experiments, researchers varied how much an expert witness was
-                  paid and how often the expert testified. “Experts who are highly paid for their
-                  testimony and who testify frequently are perceived as ‘hired guns.’ They are neither
-                  liked nor believed.” The effect was strongest when the testimony was complex. The
-                  judges were neutral jurors, not the people who hired the expert, so it speaks to how
-                  others, including the state, would read reviewers paid on residents' behalf.
-                `),
-                grade: 'strong',
-                quote: 'The results of the first two studies demonstrated that experts who are highly paid for their testimony and who testify frequently are perceived as "hired guns." They are neither liked nor believed.',
-                sources: [source('Cooper and Neuhaus 2000, Law and Human Behavior', 'https://doi.org/10.1023/A:1005476618435')]
-              })
-            ]
-          }),
-          claim({
             text: 'People take steps to protect themselves when they learn their own exposure is high.',
             evidence: [
               evidence({
@@ -1989,9 +1959,9 @@ export default spineData({
     }),
 
     spineProposal({
-      name: 'Federal grants fund local groups to monitor PFAS and push for state limits.',
+      name: 'Federal grants fund local groups to monitor PFAS and seek state caps on industrial discharges.',
       method: 'Funded Community Oversight',
-      summary: 'A federal grant program pays for community-run monitoring, technical, and legal staff who petition the state for enforceable PFAS limits.',
+      summary: 'A federal grant program pays for community-run monitoring, technical, and legal staff who petition the state for enforceable limits on the PFAS that plants release into rivers used for drinking water.',
       anchor: 'public notice and comment',
       where: 'Congress and the Environmental Protection Agency fund it. The North Carolina Environmental Management Commission sets the standards it feeds.',
       when: paragraph(`
@@ -2002,22 +1972,26 @@ export default spineData({
         A federal grant program pays for standing monitoring, technical, and legal staff in affected
         regions. A local board of residents, utilities, and local governments directs the work and
         publishes its monitoring results. Its main product is a petition for enforceable statewide
-        limits on per- and polyfluoroalkyl substances (PFAS).
+        surface water standards for per- and polyfluoroalkyl substances (PFAS). These standards cap
+        how much PFAS can be in a river, which limits what plants upstream of drinking water intakes
+        may discharge.
         Congress and the Environmental Protection Agency fund the program. The state Environmental
         Management Commission still decides whether to adopt limits. The 2019 consent order created
         citizen enforcement, a sampling network, and an exposure study for one plant, with no path
         to statewide rules. In 2018 the legislature funded a statewide PFAS testing network run by
         university researchers rather than local residents. In 2024 state regulators recommended
-        limits for eight PFAS, and a commission committee narrowed that to three. Between 2024 and
+        limits for eight PFAS, and a commission committee narrowed that to three. In September 2025
+        the commission adopted groundwater standards for three PFAS, including GenX. For rivers, it
+        moved toward monitoring and voluntary reduction plans with no enforceable limit. Between 2024 and
         2026 the federal government moved to roll back its PFAS limits, and a state standard would
         hold even if federal limits fall. The money comes from the federal government and the
         petition goes to a state commission, so the groups do not press the body that funds them.
         Lawmakers have moved mainly when protest and work inside the process came together, and
-        groups funded by government tend to avoid protest. The aim is that the state adopts
-        enforceable PFAS limits and residents' exposure falls.
+        groups funded by government tend to avoid protest. The aim is that enforceable state
+        caps cut the PFAS that plants release into rivers people drink from.
       `),
       outcome: outcome({
-        text: 'The state adopts enforceable PFAS limits, and residents\' exposure falls.',
+        text: 'Enforceable state caps cut the PFAS that plants release into rivers people drink from.',
         measured: 'North Carolina set no enforceable PFAS standard',
         claims: [
           claim({
@@ -2070,7 +2044,7 @@ export default spineData({
             ]
           }),
           claim({
-            text: 'Public grants keep community groups able to press for policy change.',
+            text: 'Government grants give community groups the means to push for policy change.',
             evidence: [
               evidence({
                 headline: 'Community groups in low-income neighborhoods that brought in outside money were more likely to keep going.',

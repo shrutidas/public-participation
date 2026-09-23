@@ -403,7 +403,7 @@ export default spineData({
 
   proposals: [
     spineProposal({
-      name: 'A randomly selected group of residents deliberates on reopening.',
+      name: 'Instead of convening a self-selected body without clear channels for influencing decisions, they should have convened a citizens\' assembly (with consult from administrators, health officials, and educators) that had a clear and transparent path to influencing decisions.',
       method: 'Citizens\' Assembly',
       summary: 'Residents chosen by lot study the reopening choice and recommend a plan before officials decide.',
       anchor: 'Return to School Roadmap',
@@ -707,7 +707,7 @@ export default spineData({
     }),
 
     spineProposal({
-      name: 'A council of parents, teachers, and experts designs each school\'s reopening plan.',
+      name: 'Once the district has decided to reopen, convene a local council of parents, teachers, and local public health experts to collaboratively design the school\'s reopening plan; make the council\'s proceedings visible to the public.',
       method: 'Stakeholder Advisory Council',
       summary: 'Parents, teachers, and residents work with building and health experts to draft a reopening plan for each school, and the board must answer it.',
       anchor: 'physical presence in school',
@@ -739,7 +739,7 @@ export default spineData({
         their schools and students come back to class.
       `),
       outcome: outcome({
-        text: 'Teachers stay in their schools, and students come back to class.',
+        text: 'Locally designed policies with community input can be more aware of and responsive to local context and community priorities, and will be seen as more trustworthy.',
         measured: 'Chronic absenteeism stayed high',
         claims: [
           claim({
@@ -1406,6 +1406,8 @@ export default spineData({
 
     spineProposal({
       name: 'A parent and community body votes yes or no before any closure.',
+      // Kept in the research record and the CSV export, but off the map.
+      hidden: true,
       method: 'Binding Community Vote',
       summary: 'A standing council of parents, educators, business owners, and health experts must approve any school closure, and a no vote stops it.',
       anchor: 'safety strikes',

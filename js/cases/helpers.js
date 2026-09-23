@@ -408,10 +408,12 @@ export function outcome({ text, measured = null, claims = [] }) {
  * by default the card is drawn with a solid bracket in the gutter and asserts
  * no link to a specific event. `outcome` is what the proposal is for; `note`
  * is an optional paragraph on how the participation can feed a decision.
+ * `hidden` keeps the proposal in the research record and the CSV export but
+ * leaves it off the map.
  */
 export function spineProposal({
   name, method, summary = '', anchor, linked = false, when, where, description,
-  note = '', outcome: out, sources = []
+  note = '', outcome: out, sources = [], hidden = false
 }) {
   if (!name?.trim()) throw new Error('Spine proposal is missing a name');
   if (!method?.trim()) throw new Error(`Spine proposal "${name}" is missing a method`);
@@ -423,7 +425,8 @@ export function spineProposal({
   checkSources(sources, `Spine proposal "${name}"`);
   return {
     name, method, summary, anchor, linked: Boolean(linked), when, where, description,
-    note, outcome: out, srcs: sources.map(s => ({ l: s.label, u: s.url }))
+    note, outcome: out, hidden: Boolean(hidden),
+    srcs: sources.map(s => ({ l: s.label, u: s.url }))
   };
 }
 

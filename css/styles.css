@@ -1036,12 +1036,6 @@ body[data-view="chain"] #ctrl .fl,
   margin-bottom: 3px;
 }
 
-.dr-num em {
-  font-style: normal;
-  font-weight: 600;
-  color: #6d829c;
-}
-
 .dr-title {
   display: block;
   font-size: 0.875rem;

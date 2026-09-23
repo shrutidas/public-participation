@@ -135,13 +135,11 @@ function renderTopBar() {
 }
 
 function renderDrawer() {
-  el('drawer-cases').innerHTML = cases.map((c, i) => {
-    const noSpine = !SPINES[c.slug];
-    return `<button class="dr-case${i === state.cur ? ' active' : ''}" data-case="${c.slug}">
-      <span class="dr-num">${c.num}${noSpine ? ' <em>Timeline only</em>' : ''}</span>
+  el('drawer-cases').innerHTML = cases.map((c, i) => `
+    <button class="dr-case${i === state.cur ? ' active' : ''}" data-case="${c.slug}">
+      <span class="dr-num">${c.num}</span>
       <span class="dr-title">${c.title}</span>
-    </button>`;
-  }).join('');
+    </button>`).join('');
 }
 
 function setDrawer(open) {

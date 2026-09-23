@@ -181,11 +181,14 @@ export function renderSpineMap(el, caseObj, spine, sel = {}) {
 
   // The last lane is as wide as the widest row of claims in this case; the
   // canvas follows it, and the map scrolls and zooms as it always has.
-  const maxN = Math.max(1, ...spine.proposals.map(p => p.outcome.claims.length));
+  // A proposal marked `hidden` stays in the research record and the CSV export
+  // but is left off the map, so it sizes and counts nothing here.
+  const drawn = spine.proposals.filter(p => !p.hidden);
+  const maxN = Math.max(1, ...drawn.map(p => p.outcome.claims.length));
   const chainW = Math.max(L.chainMinW, maxN * L.claimW + (maxN - 1) * L.claimGap);
   const canvasW = L.chainX + chainW + 34;
   const LANES = lanesFor(chainW, {
-    imp: spine.impacts.length, prop: spine.proposals.length
+    imp: spine.impacts.length, prop: drawn.length
   });
 
   const lanes = LANES.map(l =>
@@ -227,7 +230,7 @@ export function renderSpineMap(el, caseObj, spine, sel = {}) {
   });
 
   // Pass 1: the timeline boxes.
-  const propRows = new Set(spine.proposals.map(p => anchorIndex(entries, p.anchor)));
+  const propRows = new Set(drawn.map(p => anchorIndex(entries, p.anchor)));
   const entEl = entries.map((e, i) => {
     const d = document.createElement('div');
     d.innerHTML = entryBoxHtml(e, i, mechAt.get(i) || [], propRows.has(i));
@@ -265,11 +268,12 @@ export function renderSpineMap(el, caseObj, spine, sel = {}) {
   // Cards are numbered in the order they appear down the map, counting only
   // the proposals that are drawn.
   const shown = spine.proposals
-    .map((p, pi) => ({ pi, i: anchorIndex(entries, p.anchor) }))
+    .map((p, pi) => ({ pi, i: p.hidden ? -1 : anchorIndex(entries, p.anchor) }))
     .filter(x => x.i !== -1)
     .sort((a, b) => a.i - b.i || a.pi - b.pi)
     .map(x => x.pi);
   spine.proposals.forEach((p, pi) => {
+    if (p.hidden) return;
     const i = anchorIndex(entries, p.anchor);
     if (i === -1) return;
 
