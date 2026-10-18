@@ -9,23 +9,22 @@
  * Built for a room of people on venue Wi-Fi:
  *   - app.js loads this module after the map is drawn, so if the database is
  *     unreachable the map works exactly as before.
- *   - No third-party script: plain fetch to the Supabase REST API.
+ *   - Notes are kept in a Google Sheet, reached through a small Apps Script
+ *     web app (google/notes.gs). No third-party script runs on the page:
+ *     plain fetch to the web app's link.
  *   - Other people's notes arrive by polling every few seconds, which works
- *     on networks that block websockets. Only rows changed since the last
- *     poll are fetched.
+ *     on any network. Only rows changed since the last poll are sent.
  *   - A note is saved on the device before it is sent and retried until the
  *     database has it. The id is made here, so a retry can never post twice.
  *   - A sync touches only the badges and lists that changed; it never redraws
  *     the map.
  *
- * Database rules: supabase/schema.sql. Setup: README.
+ * The sheet's rules: google/notes.gs. Setup: README.
  */
 
 import { NOTES } from './notes-config.js';
 import { NOTE_CARDS, cardAnchor, selAnchor, anchorSel, selLabel } from './spine-view.js';
 
-const COLS = 'id,case_slug,anchor,anchor_label,content_rev,author_name,body,hidden,deleted,created_at,updated_at';
-const PAGE = 1000;
 // Polls ask for rows changed a little before the last one seen, to catch
 // changes that committed late. Rows already held are simply merged again.
 const OVERLAP_MS = 10000;
@@ -91,61 +90,39 @@ class NoteError extends Error {
   constructor(message, retry) { super(message); this.retry = retry; }
 }
 
-/** The Supabase REST API, through fetch alone. */
-function restTransport({ url, key }) {
-  const base = url.replace(/\/+$/, '');
-  const headers = { apikey: key, 'Content-Type': 'application/json' };
-  // The legacy anon key is a JWT and goes in Authorization as well; the newer
-  // publishable key goes in apikey only.
-  if (key.startsWith('eyJ')) headers.Authorization = `Bearer ${key}`;
-
-  async function req(path, { method = 'GET', body, prefer } = {}) {
+/** The Google Sheet, through the Apps Script web app in google/notes.gs.
+   Requests are ones a browser sends without asking permission first (a GET,
+   or a POST of plain text), because the web app cannot answer that check. */
+function sheetTransport(execUrl) {
+  async function call(query, body) {
     const ctl = typeof AbortController === 'function' ? new AbortController() : null;
-    const timer = ctl && setTimeout(() => ctl.abort(), 12000);
-    let res;
+    // Google can take a few seconds to start the script after a quiet spell.
+    const timer = ctl && setTimeout(() => ctl.abort(), 20000);
+    let out;
     try {
-      res = await fetch(base + path, {
-        method,
-        headers: prefer ? { ...headers, Prefer: prefer } : headers,
+      const res = await fetch(execUrl + query, {
+        method: body == null ? 'GET' : 'POST',
+        headers: body == null ? undefined : { 'Content-Type': 'text/plain;charset=utf-8' },
         body: body == null ? undefined : JSON.stringify(body),
-        signal: ctl?.signal,
-        cache: 'no-store'
+        cache: 'no-store',
+        signal: ctl?.signal
       });
+      out = await res.json();
     } catch {
+      // Offline, timed out, or Google sent a page instead of an answer (busy,
+      // or the web app is not shared with everyone): all worth retrying.
       throw new NoteError('No connection', true);
     } finally {
       clearTimeout(timer);
     }
-    if (res.ok) {
-      const text = await res.text();
-      return { status: res.status, data: text ? JSON.parse(text) : null };
-    }
-    let info = {};
-    try { info = await res.json(); } catch {}
-    if (res.status === 409 && info.code === '23505') return { status: 409, duplicate: true };
-    // Busy, timed out, or rate limited: try again later. Anything else is a
-    // request the database will never accept.
-    const retry = res.status >= 500 || res.status === 408 || res.status === 429 || info.code === 'P0001';
-    throw new NoteError(info.message || `Error ${res.status}`, retry);
+    if (out?.ok) return out.result;
+    throw new NoteError(out?.error || 'The notes sheet had a problem', out?.retry !== false);
   }
 
   return {
-    async list(since) {
-      const out = [];
-      const filter = since ? `&updated_at=gt.${encodeURIComponent(since)}` : '';
-      for (let offset = 0; ; offset += PAGE) {
-        const { data } = await req(`/rest/v1/notes?select=${COLS}${filter}&order=updated_at.asc,id.asc&limit=${PAGE}&offset=${offset}`);
-        out.push(...data);
-        if (data.length < PAGE) return out;
-      }
-    },
-    async insert(row) {
-      const r = await req('/rest/v1/notes', { method: 'POST', body: row, prefer: 'return=minimal' });
-      return r.duplicate ? 'duplicate' : 'ok';
-    },
-    async rpc(name, args) {
-      return (await req(`/rest/v1/rpc/${name}`, { method: 'POST', body: args })).data;
-    }
+    list(since) { return call(`?op=list${since ? `&since=${encodeURIComponent(since)}` : ''}`); },
+    insert(row) { return call('', { op: 'insert', row }); },
+    rpc(name, args) { return call('', { op: 'rpc', name, args }); }
   };
 }
 
@@ -192,7 +169,7 @@ export async function initNotes(api) {
   const params = new URLSearchParams(window.location.search);
   let tx;
   if (params.get('notes') === 'demo') tx = (await import('./notes-demo.js')).demoTransport();
-  else if (NOTES.url && NOTES.key) tx = restTransport(NOTES);
+  else if (NOTES.sheetUrl) tx = sheetTransport(NOTES.sheetUrl.trim());
   else return null;
 
   /* ---- state ---- */

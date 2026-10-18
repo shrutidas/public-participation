@@ -1,9 +1,9 @@
 /**
- * A stand-in for the Supabase database, for trying notes before the project
- * exists: open the site with ?notes=demo. Notes live in this browser's
+ * A stand-in for the Google Sheet, for trying notes before the sheet is
+ * set up: open the site with ?notes=demo. Notes live in this browser's
  * storage, so every tab of the site on this machine sees them, the way every
  * participant sees the real ones. It keeps the same rules as
- * supabase/schema.sql, and it fails the way the network does when the browser
+ * google/notes.gs, and it fails the way the network does when the browser
  * is offline, so the outbox can be tested from DevTools. The facilitator
  * passcode is "demo".
  */

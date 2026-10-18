@@ -1,18 +1,18 @@
 /**
  * Where participants' notes are kept. See README, "Participant notes".
  *
- * The publishable key is meant to be public: the database rules in
- * supabase/schema.sql decide what it can do. Leave the URL empty and the
- * notes feature stays off. Add ?notes=demo to the page URL to try the
- * feature with notes kept in this browser only.
+ * sheetUrl is the /exec link of the Google Sheet's web app (google/notes.gs).
+ * It is meant to be public: the script decides what anyone with it can do.
+ * Leave it empty and the notes feature stays off. Add ?notes=demo to the page
+ * URL to try the feature with notes kept in this browser only.
  */
 export const NOTES = {
-  url: '',            // https://<project>.supabase.co
-  key: '',            // the publishable key (sb_publishable_...) or the legacy anon key
+  sheetUrl: '',       // https://script.google.com/macros/s/.../exec
   // Stored with every note. Change it when the map's content changes, so an
   // export says which version of the site each note was written against.
   contentRev: '2026-10-17',
-  // Shown when notes cannot reach the database: a shared doc to write in.
+  // Shown when notes cannot reach the sheet: a shared doc to write in.
   fallbackUrl: '',
-  pollMs: 5000
+  // How often each browser checks for other people's notes.
+  pollMs: 6000
 };
