@@ -1713,11 +1713,6 @@ body[data-view="chain"] #ctrl .fl,
   flex-shrink: 0; display: flex; flex-direction: column; gap: 6px;
   padding: 10px 14px 12px 20px; border-top: 1px solid #e2ddd3; background: #fffbe8;
 }
-.nt-on {
-  font-size: .6875rem; font-weight: 700; color: #6b6457;
-  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
-}
-#nt-target { color: #1c2333; font-weight: 600; }
 .nt-row { display: flex; align-items: center; gap: 8px; }
 /* 16px: below it, iOS zooms the whole page when the field is focused. */
 .nt-input {

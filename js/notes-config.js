@@ -7,7 +7,7 @@
  * URL to try the feature with notes kept in this browser only.
  */
 export const NOTES = {
-  sheetUrl: '',       // https://script.google.com/macros/s/.../exec
+  sheetUrl: 'https://script.google.com/macros/s/AKfycbxncDJKgmUGuFM70VZNEkPiVhL8xYMx9g8xQAamCotl4-BWi1ONl7bGAt1VQw0TSRpQ/exec',
   // Stored with every note. Change it when the map's content changes, so an
   // export says which version of the site each note was written against.
   contentRev: '2026-10-17',

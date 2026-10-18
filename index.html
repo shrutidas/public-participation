@@ -116,9 +116,8 @@
     <!-- Outside #ch-detail, which is rebuilt on every selection, so a note
          being typed survives. notes.js shows it when a card is selected. -->
     <form id="nt-compose" hidden autocomplete="off">
-      <div class="nt-on">Add a note on: <span id="nt-target"></span></div>
       <div id="nt-name-row" class="nt-row">
-        <input id="nt-name" class="nt-input" maxlength="60" placeholder="Your name (optional)" aria-label="Your name" autocomplete="name">
+        <input id="nt-name" class="nt-input" maxlength="60" placeholder="Your name" aria-label="Your name (needed to post)" autocomplete="name" required>
       </div>
       <textarea id="nt-body" class="nt-input" rows="2" maxlength="1000" placeholder="Write a note…"
         aria-label="Your note" enterkeyhint="send"></textarea>

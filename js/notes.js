@@ -208,7 +208,6 @@ export async function initNotes(api) {
   const panel = $('nt-panel');
   const panelBody = $('nt-panel-body');
   const form = $('nt-compose');
-  const targetEl = $('nt-target');
   const nameRow = $('nt-name-row');
   const nameInput = $('nt-name');
   const asEl = $('nt-as');
@@ -512,14 +511,16 @@ export async function initNotes(api) {
   function drawComposer() {
     form.hidden = !target;
     if (!target) return;
-    targetEl.textContent = target.label;
+    // The card's title is no longer shown above the box; screen readers still hear it.
+    bodyInput.setAttribute('aria-label', `Your note on: ${target.label}`);
     const d = drafts()[draftKey()];
     if (document.activeElement !== bodyInput) bodyInput.value = d || '';
+    // Every note carries a name, so the name box stays until one is given.
     const name = store.get(K.name);
-    const known = name != null;
+    const known = !!name && !nameEditing;
     nameRow.hidden = known;
     asEl.hidden = !known;
-    if (known) asEl.firstElementChild.textContent = name || 'Anonymous';
+    if (known) asEl.firstElementChild.textContent = name;
   }
 
   let draftTimer = null;
@@ -548,7 +549,9 @@ export async function initNotes(api) {
 
   form.addEventListener('submit', e => { e.preventDefault(); post(); });
 
+  let nameEditing = false;
   $('nt-as-change').addEventListener('click', () => {
+    nameEditing = true;
     nameRow.hidden = false;
     asEl.hidden = true;
     nameInput.value = store.get(K.name) || '';
@@ -564,17 +567,26 @@ export async function initNotes(api) {
     if (!target) return;
     const body = bodyInput.value.trim();
     if (!body) { bodyInput.focus(); return; }
+    const name = (nameRow.hidden ? store.get(K.name) || '' : nameInput.value).trim().slice(0, 60);
+    if (!name) {
+      nameRow.hidden = false;
+      asEl.hidden = true;
+      nameInput.focus();
+      say('Add your name to post.');
+      return;
+    }
     if (Date.now() - lastPost < MIN_POST_GAP_MS) { say('One moment…'); return; }
     lastPost = Date.now();
 
-    if (!nameRow.hidden) store.set(K.name, nameInput.value.trim().slice(0, 60));
+    store.set(K.name, name);
+    nameEditing = false;
     const row = {
       id: uuid(),
       case_slug: target.slug,
       anchor: target.anchor,
       anchor_label: target.label.slice(0, 300),
       content_rev: NOTES.contentRev,
-      author_name: (store.get(K.name) || '').slice(0, 60),
+      author_name: name,
       author_key: token,
       body: body.slice(0, 1000)
     };
