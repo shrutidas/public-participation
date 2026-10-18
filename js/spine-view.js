@@ -145,16 +145,12 @@ function impactBoxHtml(im, ii) {
   </div>`;
 }
 
-/** One proposal card: the intervention and the institutional mechanism that
-   would implement it. What it is for sits in the row beside it. */
+/** One proposal card: the intervention, opening with when it should have
+   happened. What it is for sits in the row beside it. */
 function propBoxHtml(p, pi, total) {
   return `<div class="sp-prop-head">
       <span class="sp-propbox-kick">Proposed Public Participation <span class="sp-propbox-n">(${pi + 1}/${total})</span></span>
       <span class="sp-prop-title">${p.name}</span>
-    </div>
-    <div class="sp-prop-fields">
-      <div class="sp-eff-kick">Mechanism</div>
-      <div class="sp-eff-mech">${p.method}</div>
     </div>`;
 }
 
@@ -658,7 +654,6 @@ function propDetail(spine, i) {
   const p = spine.proposals[i];
   return `<div class="cd">
     <div class="cd-head"><span class="cd-id">${p.name}</span></div>
-    <p class="cd-claim"><span class="act-label">Mechanism:</span> ${p.method}</p>
     <p class="cd-claim">${p.description}</p>
     ${p.note ? `<div class="ln-sec"><h4>How It Can Feed a Decision</h4><p class="cd-claim">${p.note}</p></div>` : ''}
     ${srcLine(p.srcs)}

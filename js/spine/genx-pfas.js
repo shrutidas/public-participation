@@ -468,7 +468,7 @@ export default spineData({
 
   proposals: [
     spineProposal({
-      name: 'Protected channels for workers to report chemical hazards.',
+      name: 'As soon as workers suspect a chemical hazard, local advocates give them a protected, low-cost way to report it to the EPA and support them through the process.',
       method: 'Protected Worker Disclosure',
       summary: 'Workers report chemical hazards through a protected channel at the local, state, or federal level, and the body that receives the report must act.',
       anchor: 'continued exposure is not tolerable',
@@ -854,7 +854,7 @@ export default spineData({
     }),
 
     spineProposal({
-      name: 'Downstream residents direct independent testing whenever a plant\'s discharge permit is issued or renewed.',
+      name: 'When a chemical is approved for release or a discharge permit is issued, downstream residents are told, and they direct independent testing of their water, including for chemicals with no set limit.',
       method: 'Community Review and Monitoring Body',
       summary: 'When a plant applies for or renews a discharge permit, downstream residents form a body that sets the monitoring plan and directs an independent lab.',
       anchor: 'Discharge continued largely unmonitored',
@@ -1577,10 +1577,10 @@ export default spineData({
     }),
 
     spineProposal({
-      name: 'A community-approved, independent expert board reviews each new state safety level and test result pertaining to local health data.',
+      name: 'As soon as there is evidence that a harmful chemical was released, a community forum gathers residents\' evidence and works with an independent expert board to review safety levels and test results.',
       method: 'Community-Appointed Expert Review',
       summary: 'Each time the state sets an emergency safety level or returns water or blood test results, a board of experts that residents approve checks the numbers and publishes what it finds.',
-      anchor: 'State action began only after public disclosure',
+      anchor: 'Wilbur Tennant, a West Virginia farmer',
       where: 'The North Carolina Department of Health and Human Services and the Department of Environmental Quality.',
       when: paragraph(`
         June to July 2017 in Wilmington, when the state's screening level for GenX moved from 71,000

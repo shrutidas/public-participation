@@ -273,7 +273,7 @@ export default spineData({
 
   proposals: [
     spineProposal({
-      name: 'Residents put their own questions to federal health officials at regular public sessions.',
+      name: 'Throughout the vaccine rollout, federal health officials or their accountable representatives answer the public\'s questions on federal vaccine policy at regular public sessions.',
       method: 'Town Hall',
       summary: 'From the first week of the rollout, residents nominated by community groups across parties question CDC officials in public, and officials must answer every question.',
       anchor: 'ACIP voted 11 to 0',
@@ -663,10 +663,10 @@ export default spineData({
     }),
 
     spineProposal({
-      name: 'A citizens\' assembly weighs any vaccine mandate before it is imposed.',
+      name: 'Before any vaccine is approved, a citizens\' assembly weighs whether it should be mandated at all.',
       method: 'Citizens\' Assembly',
       summary: 'Before ordering a mandate, the federal government or a city convenes residents chosen by lot and must publicly answer their recommendation.',
-      anchor: 'majorities of Americans already supported',
+      anchor: 'Gallup first asked in July 2020',
       where: 'Federal, before the September 9, 2021 announcement, or New York City, before its November 1 mandate.',
       when: paragraph(`
         June to August 2021. An assembly convened in June and reporting by late August would have
@@ -942,7 +942,7 @@ export default spineData({
     }),
 
     spineProposal({
-      name: 'Neighborhood task forces decide where and how vaccines are delivered.',
+      name: 'As vaccines roll out, neighborhood task forces decide where and how vaccines are delivered.',
       method: 'Neighborhood Task Force',
       summary: 'City health departments let task forces of residents and local groups choose sites, hours, and outreach for doses set aside for hard-hit neighborhoods.',
       anchor: '20,792 doses',
@@ -1428,7 +1428,7 @@ export default spineData({
     }),
 
     spineProposal({
-      name: 'Residents allocate community support funds through participatory budgeting.',
+      name: 'When vaccine outreach funds are awarded, residents decide through participatory budgeting which local projects the money supports.',
       method: 'Participatory Budgeting',
       summary: 'Residents of the neighborhoods the money is meant for decide how a share of the American Rescue Plan community funds is spent.',
       anchor: 'vaccine equity push',
@@ -1651,7 +1651,7 @@ export default spineData({
     }),
 
     spineProposal({
-      name: 'Residents set the goals that outreach funds are judged against.',
+      name: 'When vaccine outreach funds are awarded, residents choose which results are tracked and published, and public funds pay for residents to gather their own data.',
       method: 'Participatory Monitoring and Evaluation',
       summary: 'Residents of the neighborhoods an outreach award serves set the measures of success, and results are published against them.',
       anchor: 'vaccine equity push',

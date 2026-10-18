@@ -403,7 +403,7 @@ export default spineData({
 
   proposals: [
     spineProposal({
-      name: 'Instead of convening a self-selected body without clear channels for influencing decisions, they should have convened a citizens\' assembly (with consult from administrators, health officials, and educators) that had a clear and transparent path to influencing decisions.',
+      name: 'Before the fall 2020 reopening decision, officials convene a citizens\' assembly, advised by administrators, health officials, and educators, with a clear and public path to the decision, instead of a self-selected advisory council.',
       method: 'Citizens\' Assembly',
       summary: 'Residents chosen by lot study the reopening choice and recommend a plan before officials decide.',
       anchor: 'Return to School Roadmap',
@@ -707,7 +707,7 @@ export default spineData({
     }),
 
     spineProposal({
-      name: 'Once the district has decided to reopen, convene a local council of parents, teachers, and local public health experts to collaboratively design the school\'s reopening plan; make the council\'s proceedings visible to the public.',
+      name: 'Once a district decides to reopen, and before classes start, parents, teachers, and local health experts design each school\'s reopening plan in meetings open to the public.',
       method: 'Stakeholder Advisory Council',
       summary: 'Parents, teachers, and residents work with building and health experts to draft a reopening plan for each school, and the board must answer it.',
       anchor: 'physical presence in school',
@@ -1056,7 +1056,7 @@ export default spineData({
     }),
 
     spineProposal({
-      name: 'Let parents and school staff choose the weekly reopening measures and question officials on them.',
+      name: 'Before deciding to close schools, officials publish the data ahead of time, and parents and school staff question experts on it at a public forum.',
       method: 'Participatory Monitoring',
       summary: 'Parents and school staff decide which local numbers the state publishes each week, report conditions from their own schools, and question officials on the data in public.',
       anchor: '49 states suspended in-person',
