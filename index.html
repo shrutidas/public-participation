@@ -43,6 +43,14 @@
   <div id="key-txt"></div>
 </aside>
 
+<aside id="nt-panel" aria-hidden="true" aria-label="Notes">
+  <div class="kp-head">
+    <span>Notes on this case</span>
+    <button id="nt-close" aria-label="Close">&times;</button>
+  </div>
+  <div id="nt-panel-body"></div>
+</aside>
+
 <div id="tl-wrap">
   <!-- The way out sits on the left, where the back arrow points, and the
        filters sit on the right. -->
@@ -68,6 +76,8 @@
     <div id="ch-mapwrap">
       <div id="ch-map"></div>
       <div id="ch-zoom" role="group" aria-label="Zoom">
+        <button id="nt-open" hidden aria-controls="nt-panel" aria-expanded="false"
+          title="Participants' notes on this case"><span class="nt-ico" aria-hidden="true"></span>Notes <span id="nt-count"></span></button>
         <button data-zoom="out" aria-label="Zoom out">&minus;</button>
         <button data-zoom="reset" id="zoom-lbl" aria-label="Reset zoom">100%</button>
         <button data-zoom="in" aria-label="Zoom in">+</button>
@@ -103,6 +113,21 @@
         aria-expanded="true" aria-label="Hide the detail pane" title="Hide the detail pane">&#x2715;</button>
     </div>
     <div id="ch-detail" class="rt-pane show"></div>
+    <!-- Outside #ch-detail, which is rebuilt on every selection, so a note
+         being typed survives. notes.js shows it when a card is selected. -->
+    <form id="nt-compose" hidden autocomplete="off">
+      <div class="nt-on">Add a note on: <span id="nt-target"></span></div>
+      <div id="nt-name-row" class="nt-row">
+        <input id="nt-name" class="nt-input" maxlength="60" placeholder="Your name (optional)" aria-label="Your name" autocomplete="name">
+      </div>
+      <textarea id="nt-body" class="nt-input" rows="2" maxlength="1000" placeholder="Write a note…"
+        aria-label="Your note" enterkeyhint="send"></textarea>
+      <div class="nt-row">
+        <span id="nt-as" class="nt-as" hidden>as <b></b> · <button type="button" id="nt-as-change" class="nt-link">change</button></span>
+        <span id="nt-status" role="status"></span>
+        <button type="submit" id="nt-post" class="nt-btn">Post</button>
+      </div>
+    </form>
   </div>
 </div>
 

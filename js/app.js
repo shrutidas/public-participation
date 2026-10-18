@@ -31,6 +31,10 @@ const state = {
 
 const ZOOM = { min: 0.35, max: 2.2, step: 0.12 };
 
+/* Participants' notes (notes.js), once they have loaded; null until then and
+   whenever notes are not set up. */
+let notes = null;
+
 const filt = { red: true, orange: true, green: true, blue: true, purple: true };
 
 const el = id => document.getElementById(id);
@@ -298,6 +302,7 @@ function renderSpine() {
   }
 
   el('rt-label').textContent = renderSpineDetail(el('ch-detail'), c, sp, curSel());
+  notes?.onRender(needsBuild);
 }
 
 /* ------------------------------- zoom ------------------------------------ */
@@ -553,6 +558,7 @@ function bindEvents() {
 
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape') {
+      if (notes?.handleEscape()) return;
       if (el('drawer').classList.contains('open')) { setDrawer(false); return; }
       if (el('key-panel').classList.contains('open')) { setKeyPanel(false); return; }
       if (state.view === 'spine' && state.selKind != null) {
@@ -580,9 +586,13 @@ function bindEvents() {
     if (box) box.scrollIntoView({ block: 'nearest', inline: 'nearest' });
   });
 
-  let t;
+  // Phones fire resize when the address bar slides or the keyboard opens. Only
+  // a change of width can change the layout, and rebuilding for anything else
+  // would jump the map back to the top while someone types a note.
+  let t, lastW = window.innerWidth;
   window.addEventListener('resize', () => {
-    if (state.view !== 'spine') return;
+    if (state.view !== 'spine' || window.innerWidth === lastW) return;
+    lastW = window.innerWidth;
     clearTimeout(t);
     t = setTimeout(() => { state.builtKey = null; renderSpine(); }, 150);
   });
@@ -596,3 +606,13 @@ bindEvents();
 setRightPane(!stored('pp-right-hidden'));
 setLegend(!stored('pp-legend-hidden'));
 onHashChange();
+
+// Participants' notes load after the map and on their own, so a slow or
+// blocked database, or a failed script, leaves the map exactly as it was.
+import('./notes.js')
+  .then(m => m.initNotes({
+    curCase, curSpine, curSel, select,
+    isSpine: () => state.view === 'spine'
+  }))
+  .then(n => { notes = n; })
+  .catch(err => console.warn('Notes are unavailable:', err));

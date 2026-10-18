@@ -730,6 +730,75 @@ function resolveSel(spine, sel) {
   return sel;
 }
 
+/* ------------------------------ note anchors ------------------------------ */
+
+/* Participants' notes attach to one card each. The anchor is the card's own
+   URL path below the case (e/3, pr/2/cl/1/ev/0), so a note and a link name
+   the same thing. Card positions shift when content is edited, so every note
+   also carries the card's title, and a note whose title no longer matches is
+   listed apart instead of landing on the wrong card. */
+
+/** The map cards that carry a note badge. Mechanism stars are too small and
+   repeat across events; their notes show in the sidebar only. Lane headers
+   and edges also carry data-pr, so this list names card classes. */
+export const NOTE_CARDS =
+  '.sp-ent[data-e], .sp-imp[data-i], .sp-propbox[data-pr], .sp-out[data-pr], .sp-claim, .sp-evcard';
+
+/** The anchor for a map card from NOTE_CARDS. */
+export function cardAnchor(node) {
+  const d = node.dataset;
+  if (node.classList.contains('sp-ent')) return `e/${d.e}`;
+  if (node.classList.contains('sp-imp')) return `i/${d.i}`;
+  if (node.classList.contains('sp-propbox')) return `pr/${d.pr}`;
+  if (node.classList.contains('sp-out')) return `pr/${d.pr}/out`;
+  if (node.classList.contains('sp-claim')) return `pr/${d.pr}/cl/${d.cl}`;
+  if (node.classList.contains('sp-evcard')) return `pr/${d.pr}/cl/${d.cl}/${d.evk === 'counter' ? 'cev' : 'ev'}/${d.ev}`;
+  return null;
+}
+
+/** The anchor for a selection, or null when nothing is selected. */
+export function selAnchor(sel) {
+  const pre = { entry: 'e', mech: 'm', impact: 'i' }[sel.kind];
+  if (pre) return `${pre}/${sel.idx}`;
+  if (sel.kind === 'prop') return `pr/${sel.idx}`;
+  if (sel.kind === 'propout') return `pr/${sel.idx}/out`;
+  if (sel.kind === 'propclaim') return `pr/${sel.idx}/cl/${sel.claimIdx}`;
+  if (sel.kind === 'propev') return `pr/${sel.idx}/cl/${sel.claimIdx}/${sel.evKind === 'counter' ? 'cev' : 'ev'}/${sel.evIdx}`;
+  return null;
+}
+
+/** The selection an anchor names, or null if it is not well formed. */
+export function anchorSel(anchor) {
+  const m = /^(e|m|i|pr)\/(\d+)(?:\/(out)|\/cl\/(\d+)(?:\/(c?ev)\/(\d+))?)?$/.exec(anchor ?? '');
+  if (!m) return null;
+  const idx = Number(m[2]);
+  if (m[1] !== 'pr') return { kind: { e: 'entry', m: 'mech', i: 'impact' }[m[1]], idx };
+  if (m[3]) return { kind: 'propout', idx };
+  if (m[4] == null) return { kind: 'prop', idx };
+  const claimIdx = Number(m[4]);
+  if (!m[5]) return { kind: 'propclaim', idx, claimIdx };
+  return { kind: 'propev', idx, claimIdx, evIdx: Number(m[6]), evKind: m[5] === 'cev' ? 'counter' : 'for' };
+}
+
+const labelText = s => plain(s).replace(/&[a-z]+;|&#\d+;/gi, ' ').replace(/\s+/g, ' ').trim().slice(0, 200);
+
+/** The title of the card a selection names, or null if no such card exists. */
+export function selLabel(caseObj, spine, sel) {
+  if (sel.kind === 'entry') return caseObj.entries[sel.idx] ? labelText(caseObj.entries[sel.idx].text) : null;
+  if (sel.kind === 'mech') return spine.mechanisms[sel.idx] ? labelText(spine.mechanisms[sel.idx].name) : null;
+  if (sel.kind === 'impact') return spine.impacts[sel.idx] ? labelText(spine.impacts[sel.idx].name) : null;
+  const p = spine.proposals[sel.idx];
+  if (!p || p.hidden) return null;
+  if (sel.kind === 'prop') return labelText(p.name);
+  if (sel.kind === 'propout') return labelText(p.outcome.text);
+  const cl = p.outcome.claims[sel.claimIdx];
+  if (!cl) return null;
+  if (sel.kind === 'propclaim') return labelText(cl.text);
+  const ev = (sel.evKind === 'counter' ? cl.counterEvidence : cl.evidence)?.[sel.evIdx];
+  if (!ev) return null;
+  return labelText(ev.headline ?? (ev.srcs?.map(s => s.l).join('; ') || 'Source'));
+}
+
 /** Renders the pane and returns the heading its header should carry. */
 export function renderSpineDetail(el, caseObj, spine, rawSel = {}) {
   const sel = resolveSel(spine, rawSel);
