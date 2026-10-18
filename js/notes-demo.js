@@ -58,10 +58,10 @@ export function demoTransport() {
       const rows = load();
       if (rows.some(r => r.id === row.id)) return 'duplicate';
       if (!/^(e|m|i|pr)\/\d+(\/out|\/cl\/\d+(\/c?ev\/\d+)?)?$/.test(row.anchor)) fail(false, 'Bad card');
-      if (!row.body.trim() || row.body.length > 1000) fail(false, 'Bad note');
+      if (!row.body.trim() || row.body.length > 1000) fail(false, 'Bad comment');
       const now = stamp();
       const recent = rows.filter(r => r.author_key === row.author_key && Date.parse(r.created_at) > Date.now() - 10000);
-      if (recent.length >= 5) fail(true, 'Too many notes at once');
+      if (recent.length >= 5) fail(true, 'Too many comments at once');
       rows.push({ ...row, hidden: false, deleted: false, created_at: now, updated_at: now });
       save(rows);
       return 'ok';

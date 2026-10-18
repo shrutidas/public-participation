@@ -116,7 +116,7 @@ function sheetTransport(execUrl) {
       clearTimeout(timer);
     }
     if (out?.ok) return out.result;
-    throw new NoteError(out?.error || 'The notes sheet had a problem', out?.retry !== false);
+    throw new NoteError(out?.error || 'The comments sheet had a problem', out?.retry !== false);
   }
 
   return {
@@ -216,7 +216,7 @@ export async function initNotes(api) {
   const listEl = h('section', { class: 'nt-list', 'aria-live': 'polite' });
 
   openBtn.hidden = false;
-  if (tx.demo) openBtn.title = 'Demo: notes are kept in this browser only';
+  if (tx.demo) openBtn.title = 'Demo: comments are kept in this browser only';
   mapEl.classList.toggle('nt-hide', store.get(K.hideBadges) === '1');
 
   /* ---- what is visible ---- */
@@ -292,7 +292,7 @@ export async function initNotes(api) {
         (card.querySelector(':scope > .sp-ent-stars') || card).append(b);
         badges.set(anchor, b);
       }
-      b.replaceChildren(String(c), h('span', { class: 'nt-vh', text: c === 1 ? ' note' : ' notes' }));
+      b.replaceChildren(String(c), h('span', { class: 'nt-vh', text: c === 1 ? ' comment' : ' comments' }));
     }
     counts = next;
   }
@@ -325,7 +325,7 @@ export async function initNotes(api) {
     if (!target) { listEl.replaceChildren(); return; }
     const list = caseNotes().filter(n => n.anchor === target.anchor && onCard(n));
     listEl.replaceChildren(...(list.length ? [
-      h('h4', { class: 'nt-h', text: `Notes (${list.length})` }),
+      h('h4', { class: 'nt-h', text: `Comments (${list.length})` }),
       h('ul', { class: 'nt-ul' }, list.map(n => noteItem(n)))
     ] : []));
   }
@@ -340,8 +340,8 @@ export async function initNotes(api) {
     const kids = [];
     if (offline) {
       kids.push(waiting.length
-        ? 'No connection. Your notes are saved here and will send when it comes back.'
-        : 'Notes are offline right now. Retrying…');
+        ? 'No connection. Your comments are saved here and will send when it comes back.'
+        : 'Comments are offline right now. Retrying…');
       if (NOTES.fallbackUrl && (stuck || !synced || failures >= 6)) {
         kids.push(' ', h('a', { href: NOTES.fallbackUrl, target: '_blank', rel: 'noopener', text: 'Use the shared doc' }));
       }
@@ -375,7 +375,7 @@ export async function initNotes(api) {
           store.set(K.hideBadges, e.target.checked ? '0' : '1');
         }
       }),
-      ' Show note counts on the map'));
+      ' Show comment counts on the map'));
 
     if (facilitate) kids.push(facilBox(list));
 
@@ -390,7 +390,7 @@ export async function initNotes(api) {
     const latest = g => g[g.length - 1].created_at;
     const ordered = [...groups.entries()].sort((a, b) => (latest(a[1]) < latest(b[1]) ? 1 : -1));
 
-    if (!list.length) kids.push(h('p', { class: 'nt-empty', text: 'No notes on this case yet. Select a card on the map, then write in the box under its detail.' }));
+    if (!list.length) kids.push(h('p', { class: 'nt-empty', text: 'No comments on this case yet. Select a card on the map, then write in the box under its detail.' }));
 
     for (const [anchor, g] of ordered) {
       const sel = anchorSel(anchor);
@@ -402,8 +402,8 @@ export async function initNotes(api) {
     }
     if (changed.length) {
       kids.push(h('div', { class: 'nt-group nt-changed' },
-        h('h4', { class: 'nt-h', text: 'Notes on content that changed' }),
-        h('p', { class: 'nt-empty', text: 'These cards have been edited or moved since the note was written.' }),
+        h('h4', { class: 'nt-h', text: 'Comments on content that changed' }),
+        h('p', { class: 'nt-empty', text: 'These cards have been edited or moved since the comment was written.' }),
         h('ul', { class: 'nt-ul' }, changed.map(n => noteItem(n, { showCard: true, facil })))));
     }
     const top = panelBody.scrollTop;
@@ -436,7 +436,7 @@ export async function initNotes(api) {
         h('button', {
           type: 'button', class: 'nt-btn', text: `Clear this case (${live})`, disabled: !live,
           onclick: async () => {
-            if (!window.confirm(`Hide all ${live} notes on this case for everyone? You can restore them one by one here.`)) return;
+            if (!window.confirm(`Hide all ${live} comments on this case for everyone? You can restore them one by one here.`)) return;
             try { await tx.rpc('facilitator_clear', { p_case: slug(), p_pass: pass }); say('Cleared.'); pullSoon(); }
             catch (err) { facilFail(err); }
           }
@@ -472,13 +472,13 @@ export async function initNotes(api) {
       if (/^[=+\-@\t\r]/.test(s)) s = `'${s}`;
       return `"${s.replace(/"/g, '""')}"`;
     };
-    const rows = [['case', 'card', 'card title', 'name', 'note', 'time', 'hidden', 'site version']];
+    const rows = [['case', 'card', 'card title', 'name', 'comment', 'time', 'hidden', 'site version']];
     for (const n of list) {
       rows.push([n.case_slug, n.anchor, n.anchor_label, n.author_name, n.body, n.created_at, n.hidden ? 'yes' : '', n.content_rev]);
     }
     const csv = '﻿' + rows.map(r => r.map(cell).join(',')).join('\r\n');
     const blob = new Blob([csv], { type: 'text/csv;charset=utf-8' });
-    const a = h('a', { href: URL.createObjectURL(blob), download: `notes-${slug()}-${new Date().toISOString().slice(0, 10)}.csv` });
+    const a = h('a', { href: URL.createObjectURL(blob), download: `comments-${slug()}-${new Date().toISOString().slice(0, 10)}.csv` });
     document.body.append(a);
     a.click();
     a.remove();
@@ -512,7 +512,7 @@ export async function initNotes(api) {
     form.hidden = !target;
     if (!target) return;
     // The card's title is no longer shown above the box; screen readers still hear it.
-    bodyInput.setAttribute('aria-label', `Your note on: ${target.label}`);
+    bodyInput.setAttribute('aria-label', `Your comment on: ${target.label}`);
     const d = drafts()[draftKey()];
     if (document.activeElement !== bodyInput) bodyInput.value = d || '';
     // Every note carries a name, so the name box stays until one is given.
@@ -628,7 +628,7 @@ export async function initNotes(api) {
             setOutbox(outbox().filter(o => o.row.id !== item.row.id));
             notes.delete(item.row.id);
             if (target && target.anchor === item.row.anchor && !bodyInput.value) bodyInput.value = item.row.body;
-            say(`That note could not be saved (${err.message}).`);
+            say(`That comment could not be saved (${err.message}).`);
             continue;
           }
           flushFailures++;
@@ -645,7 +645,7 @@ export async function initNotes(api) {
   }
 
   async function removeOwn(n) {
-    if (!window.confirm('Delete your note?')) return;
+    if (!window.confirm('Delete your comment?')) return;
     if (outbox().some(o => o.row.id === n.id)) {
       setOutbox(outbox().filter(o => o.row.id !== n.id));
       notes.delete(n.id);
@@ -660,7 +660,7 @@ export async function initNotes(api) {
     } catch {
       n.deleted = false;
       invalidate();
-      say('Could not delete that note. Try again.');
+      say('Could not delete that comment. Try again.');
     }
   }
 

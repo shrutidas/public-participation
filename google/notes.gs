@@ -67,7 +67,7 @@ function respond(fn) {
   } catch (err) {
     out = err && err.note
       ? { ok: false, error: err.message, retry: err.retry }
-      : { ok: false, error: 'The notes sheet had a problem', retry: true };
+      : { ok: false, error: 'The comments sheet had a problem', retry: true };
     if (!(err && err.note)) console.error(err);
   }
   return ContentService.createTextOutput(JSON.stringify(out)).setMimeType(ContentService.MimeType.JSON);
@@ -195,17 +195,17 @@ function insert(row) {
     anchor_label: str(row.anchor_label, 300, 'card title'),
     content_rev: str(row.content_rev, 40, 'site version'),
     author_name: str(row.author_name, 60, 'name'),
-    body: str(row.body, 1000, 'note')
+    body: str(row.body, 1000, 'comment')
   };
   var token = str(row.author_key, 200, 'author token');
   if (!r.case_slug) throw fail('Bad case');
   if (!ANCHOR.test(r.anchor)) throw fail('Bad card');
-  if (!r.body.trim()) throw fail('Empty note');
+  if (!r.body.trim()) throw fail('Empty comment');
   if (token.length < 16) throw fail('Missing author token');
   r.author_key = sha256(token);
   // The emergency stop: a script property CLOSED set to yes.
   if (String(PropertiesService.getScriptProperties().getProperty('CLOSED') || '').trim().toLowerCase() === 'yes') {
-    throw fail('Notes are closed for now');
+    throw fail('Comments are closed for now');
   }
 
   var s = sheet();
@@ -215,7 +215,7 @@ function insert(row) {
     // Five notes in ten seconds from one device is the most anyone types by hand.
     var recent = Date.now() - 10000;
     if (rows.filter(function (x) { return x.author_key === r.author_key && Date.parse(x.created_at) > recent; }).length >= 5) {
-      throw fail('Too many notes at once', true);
+      throw fail('Too many comments at once', true);
     }
     r.hidden = 'FALSE';
     r.deleted = 'FALSE';
@@ -256,7 +256,7 @@ function rpc(name, a) {
 
   if (name === 'facilitator_set_hidden') {
     var ids = Array.isArray(a.p_ids) ? a.p_ids.map(function (x) { return String(x).toLowerCase(); }) : [];
-    if (ids.length > 500) throw fail('Too many notes in one request');
+    if (ids.length > 500) throw fail('Too many comments in one request');
     var hide = a.p_hidden === true;
     return update(function (r) { return ids.indexOf(r.id) >= 0 && r.hidden !== hide; },
                   function (r) { r.hidden = hide; });
