@@ -1069,7 +1069,7 @@ export default spineData({
             ]
           }),
           claim({
-            text: 'Trusted local messengers bring in residents that official channels miss.',
+            text: 'Community members doing outreach reach people the health system misses.',
             evidence: [
               evidence({
                 headline: 'A New York vaccination site reached far more Hispanic and Black residents through appointments booked by community groups than through its online sign-up.',
@@ -1135,27 +1135,7 @@ export default spineData({
                 grade: 'moderate',
                 quote: 'Thus, a definitive answer as to whether a coalition-led intervention adds extra value to the types of community engagement intervention strategies described in this review remains unattainable.',
                 sources: [source('Anderson et al. 2015, Cochrane Database of Systematic Reviews', 'https://doi.org/10.1002/14651858.CD009905.pub2')]
-              })
-            ],
-            counterEvidence: [
-              evidence({
-                headline: 'Having a doctor of the same race barely changed whether people said they would get vaccinated.',
-                finding: paragraph(`
-                  Survey respondents read a standard prompt about the COVID-19 vaccine, with the race
-                  of the doctor varied. “Analyses reveal that racially concordant care has a negligible
-                  effect on vaccine hesitancy, but does ameliorate other harmful beliefs regarding
-                  one's likelihood of experiencing discrimination and racism in healthcare more
-                  generally.” The scenario was hypothetical, and no real vaccination was observed.
-                `),
-                grade: 'moderate',
-                quote: 'Analyses reveal that racially concordant care has a negligible effect on vaccine hesitancy, but does ameliorate other harmful beliefs regarding one\'s likelihood of experiencing discrimination and racism in healthcare more generally.',
-                sources: [source('Anderson 2023, Social Science and Medicine', 'https://doi.org/10.1016/j.socscimed.2023.116335')]
-              })
-            ]
-          }),
-          claim({
-            text: 'Where people distrust the health system, outreach by members of their own community reaches people official channels miss.',
-            evidence: [
+              }),
               evidence({
                 headline: 'New York neighborhoods where community health workers did outreach all year started far behind on vaccination and caught up within a year.',
                 finding: paragraph(`
@@ -1203,6 +1183,19 @@ export default spineData({
             ],
             counterEvidence: [
               evidence({
+                headline: 'Having a doctor of the same race barely changed whether people said they would get vaccinated.',
+                finding: paragraph(`
+                  Survey respondents read a standard prompt about the COVID-19 vaccine, with the race
+                  of the doctor varied. “Analyses reveal that racially concordant care has a negligible
+                  effect on vaccine hesitancy, but does ameliorate other harmful beliefs regarding
+                  one's likelihood of experiencing discrimination and racism in healthcare more
+                  generally.” The scenario was hypothetical, and no real vaccination was observed.
+                `),
+                grade: 'moderate',
+                quote: 'Analyses reveal that racially concordant care has a negligible effect on vaccine hesitancy, but does ameliorate other harmful beliefs regarding one\'s likelihood of experiencing discrimination and racism in healthcare more generally.',
+                sources: [source('Anderson 2023, Social Science and Medicine', 'https://doi.org/10.1016/j.socscimed.2023.116335')]
+              }),
+              evidence({
                 headline: 'Letters and messages from their own doctors got more unvaccinated Black and Latino older adults vaccinated, and tailoring them to culture added little.',
                 finding: paragraph(`
                   Lieu and colleagues randomly assigned 8,287 unvaccinated Black and Latino Kaiser
@@ -1248,35 +1241,6 @@ export default spineData({
           claim({
             text: 'Bringing vaccination close to home gets more unvaccinated people their vaccines sooner.',
             evidence: [
-              evidence({
-                headline: 'Swiss towns that got a mobile vaccination unit for one four-hour visit saw more than three times as many unvaccinated adults get a shot within three weeks.',
-                finding: paragraph(`
-                  Twenty Swiss communities were split into two groups, and half got a mobile
-                  vaccination unit for four hours on a single day. Over the next three weeks, 12.8
-                  percent of unvaccinated adults in those communities got vaccinated, against 3.8
-                  percent elsewhere: “the vaccination rate in the sample of the treatment group
-                  surpassed the rate in the control group by a factor of 3.4 (+9.0 percentage points)
-                  over 3 weeks”. Vaccinations at other locations did not fall. Nothing here was
-                  community-chosen, and the trial had no messaging arm.
-                `),
-                grade: 'strong',
-                quote: 'The vaccination rate in the sample of the treatment group surpassed the rate in the control group by a factor of 3.4 (+9.0 percentage points) over 3 weeks.',
-                sources: [source('Kulle, Schumacher and von Bieberstein 2024, Journal of Public Health', 'https://doi.org/10.1093/pubmed/fdad213')]
-              }),
-              evidence({
-                headline: 'People who lived farther from a vaccination site were less likely to be vaccinated, and vaccination rose in Chicago zip codes after a site opened nearby.',
-                finding: paragraph(`
-                  Across California zip codes, longer distance to a vaccination site went with lower
-                  vaccination in 98 percent of thousands of model versions, and the link was
-                  statistically significant in 86 percent, regardless of partisanship. In Chicago,
-                  vaccination rose in zip codes after a nearby site opened. “COVID-19 vaccination is
-                  hampered not only by vaccine hesitancy but also by structural barriers like
-                  distance.”
-                `),
-                grade: 'moderate',
-                quote: 'COVID-19 vaccination is hampered not only by vaccine hesitancy but also by structural barriers like distance.',
-                sources: [source('Mazar et al. 2023, PNAS Nexus', 'https://academic.oup.com/pnasnexus/article/2/12/pgad411/7459517')]
-              }),
               evidence({
                 headline: 'A vaccination site run with community groups in San Francisco\'s Mission District drew mostly Latino residents, who most often said they came because it was in their neighborhood.',
                 finding: paragraph(`
@@ -1665,6 +1629,24 @@ export default spineData({
                 grade: 'moderate',
                 quote: 'Our evidence also suggests that inequalities in who is interested in participating may not radically affect policy outcomes.',
                 sources: [source('Doherty, Pavel, Jackson and Garbarski 2023, State Politics and Policy Quarterly', 'https://doi.org/10.1017/spq.2023.25')]
+              }),
+              evidence({
+                headline: 'Residents of a Chinese township who came to a day of debate on which public works to fund rated the projects much as invited neighbors who stayed home.',
+                finding: paragraph(`
+                  Zeguo township in China drew a random sample of residents from its household register to
+                  help choose which of thirty public works to fund. The projects included roads, bridges, a
+                  school, and city gardens. Before any discussion, each person who answered a first survey
+                  rated every project. The study compared the 235 who came to the day and finished it with
+                  the 34 who did not. “On only one of the thirty projects (roughly the 5 per cent expectable
+                  by chance) did the participants and non-participants enter the process with significantly
+                  different attitudes.” The two groups did differ in who they were. Those who came were
+                  older, less educated, and more often farmers. The local People's Congress approved the
+                  final list.
+                `),
+                grade: 'moderate',
+                quote: 'It shows the participants to be an attitudinally representative subsample of the whole interview sample. On only one of the thirty projects (roughly the 5 per cent expectable by chance) did the participants and non-participants enter the process with significantly different attitudes.',
+                caveat: 'Residents were drawn by lot and invited, while budgeting voters choose to take part themselves. Only 34 people stayed home.',
+                sources: [source('Fishkin, He, Luskin and Siu 2010, British Journal of Political Science', 'https://doi.org/10.1017/S0007123409990330')]
               })
             ],
             counterEvidence: [
@@ -2136,22 +2118,6 @@ export default spineData({
                 sources: [
                   source('Fiala and Premand 2018, Ruhr Economic Papers 752 (working paper)', 'https://www.econstor.eu/bitstream/10419/179511/1/102399545X.pdf')
                 ]
-              }),
-              evidence({
-                headline: 'When a Tanzanian cash transfer program run by elected village committees began paying out, villagers came to trust their elected leaders more.',
-                finding: paragraph(`
-                  Tanzania assigned 80 villages at random to start a community-managed cash transfer
-                  program right away or 2.5 years later. Residents in every village elected a committee by
-                  secret ballot to select recipients and run the program. Control villages had committees
-                  too, but theirs were not yet paying out. “Our analysis reveals that cash
-                  transfers can significantly increase trust in leaders. This effect is driven by large
-                  increases in trust in elected leaders as opposed to appointed bureaucrats.” Leaders were
-                  also seen as more responsive and honest.
-                `),
-                grade: 'strong',
-                quote: 'Our analysis reveals that cash transfers can significantly increase trust in leaders. This effect is driven by large increases in trust in elected leaders as opposed to appointed bureaucrats.',
-                caveat: 'Committees were elected in every village, so the study measures the effect of transfers flowing through them, not of electing residents. The gains were concentrated in villages that held more village meetings.',
-                sources: [source('Evans, Holtemeyer and Kosec 2019, World Development', 'https://doi.org/10.1016/j.worlddev.2018.08.020')]
               })
             ],
             counterEvidence: [

@@ -820,6 +820,26 @@ export default spineData({
                 grade: 'moderate',
                 quote: 'We also find that regulators more quickly begin enforcement proceedings when whistleblowers are involved.',
                 sources: [source('Call, Martin, Sharp and Wilde 2018, Journal of Accounting Research', 'https://doi.org/10.1111/1475-679X.12177')]
+              }),
+              evidence({
+                headline: 'After a union reported low sperm counts among workers at a California pesticide plant, federal agencies inspected within days and issued an emergency rule within five weeks.',
+                finding: paragraph(`
+                  On August 5, 1977, the Oil, Chemical and Atomic Workers union asked the National
+                  Institute for Occupational Safety and Health to evaluate a plant in Lathrop, California.
+                  The union had learned that “a number of workers at this plant had abnormally low sperm
+                  counts.” Institute staff inspected the plant on August 9 and 10. On August 12, the
+                  Occupational Safety and Health Administration warned about 80 makers and formulators of
+                  the pesticide dibromochloropropane by telegram. The institute sent a recommended standard
+                  to the Department of Labor on September 2. The administration published an emergency
+                  temporary standard for the chemical on September 9.
+                `),
+                grade: 'moderate',
+                quote: 'On August 5, 1977, the National Institute for Occupational Safety and Health (NIOSH) was requested by the Oil, Chemical and Atomic Workers (OCAW) union to conduct a health hazard evaluation at the Oxidental Chemical Company plant in Lathrop, California. This request was made when representatives of OCAW learned that a number of workers at this plant had abnormally low sperm counts. ... On August 12, the Occupational Safety and Health Administration in a telegram alerted approximately 80 manufacturers and formulators to the potential hazard of worker exposure to DBCP.',
+                caveat: 'A record of one case. The union made the request on the workers\' behalf.',
+                sources: [
+                  source('National Institute for Occupational Safety and Health, A Recommended Standard for Occupational Exposure to Dibromochloropropane (Publication 78-115)', 'https://stacks.cdc.gov/view/cdc/19405'),
+                  source('Occupational Safety and Health Administration, Federal Register index, 42 FR 45535, September 9, 1977', 'https://www.osha.gov/laws-regs/federalregister/1977-09-09')
+                ]
               })
             ],
             counterEvidence: [
@@ -1167,7 +1187,7 @@ export default spineData({
             ]
           }),
           claim({
-            text: 'Checkers who are independent of the company catch violations that company-controlled checks miss.',
+            text: 'Independent inspectors find violations that company-paid inspectors miss.',
             evidence: [
               evidence({
                 headline: 'Auditors in India reported plant pollution truthfully once plants no longer chose and paid them, and the plants then cut their emissions.',
@@ -1222,7 +1242,7 @@ export default spineData({
             ]
           }),
           claim({
-            text: 'Affected residents who take part in oversight get a plant\'s compliance checked.',
+            text: 'When nearby residents report problems at a plant, regulators inspect it more and find violations they would have missed.',
             evidence: [
               evidence({
                 headline: 'Residents\' complaints in Texas sent inspectors to facilities and turned up more, and more serious, violations than routine checks.',
@@ -1251,20 +1271,6 @@ export default spineData({
                 grade: 'strong',
                 quote: 'We find that private citizen suits crowd in public monitoring but significantly crowd out public sanctions.',
                 sources: [source('Langpap and Shimshack 2010, Journal of Environmental Economics and Management', 'https://doi.org/10.1016/j.jeem.2010.01.001')]
-              }),
-              evidence({
-                headline: 'Polluted city waterways in China got cleaner when outside monitoring reports went to the officials responsible, but not when they were posted for the public.',
-                finding: paragraph(`
-                  Urban waterways in Jiangsu province already slated for cleanup were assigned at random to
-                  monitoring by a nongovernmental group for 15 months. Researchers also assigned at random who
-                  received the results. “Disseminating results from monitoring to local and provincial
-                  governments improved water quality, but disseminating results to the public did not have
-                  detectable effects on water quality or residents' pursuit of remediation through official and
-                  volunteer channels.” The monitors were an outside group, not members of a review body.
-                `),
-                grade: 'strong',
-                quote: 'Disseminating results from monitoring to local and provincial governments improved water quality, but disseminating results to the public did not have detectable effects on water quality or residents\' pursuit of remediation through official and volunteer channels.',
-                sources: [source('Buntaine, Zhang and Hunnicutt 2021, Proceedings of the National Academy of Sciences', 'https://doi.org/10.1073/pnas.2015175118')]
               }),
               evidence({
                 headline: 'In Flint, the state switched the water back within weeks of residents\' and doctors\' lead results, after more than a year of ignored complaints.',
@@ -1592,7 +1598,7 @@ export default spineData({
             ]
           }),
           claim({
-            text: 'A legal deadline to tell the public makes those who find a problem disclose it sooner.',
+            text: 'When the law sets a deadline for making findings public, the people who hold them release them sooner.',
             evidence: [
               evidence({
                 headline: 'Companies in states with a deadline to report data breaches disclosed them much faster than companies in states without one.',
@@ -1641,7 +1647,7 @@ export default spineData({
             ]
           }),
           claim({
-            text: 'Residents act sooner on a contamination warning when it reaches them within days.',
+            text: 'The faster a contamination warning reaches households, the more of them act on it.',
             evidence: [
               evidence({
                 headline: 'Households bought more bottled water when water systems had to warn them of bacteria within a day, but not when the warning could wait a month.',
@@ -1683,7 +1689,7 @@ export default spineData({
             counterEvidence: []
           }),
           claim({
-            text: 'Households told their water is contaminated switch to safer water.',
+            text: 'Households switch to safer water once they learn it is contaminated.',
             evidence: [
               evidence({
                 headline: 'Indian households told their drinking water was contaminated were more likely to start purifying it than households given no test results.',
@@ -1890,7 +1896,26 @@ export default spineData({
                 sources: [source('Calloway et al. 2020, International Journal of Environmental Research and Public Health', 'https://doi.org/10.3390/ijerph17238706')]
               })
             ],
-            counterEvidence: []
+            counterEvidence: [
+              evidence({
+                headline: 'When a Swedish town learned its water held very high levels of these chemicals, most residents took the town\'s blood test, and their use of mental health care did not rise.',
+                finding: paragraph(`
+                  Kallinge, a town of about 5,000 in southern Sweden, learned in December 2013 that its
+                  drinking water held very high PFAS levels. The municipality switched the town to a clean
+                  source the day it announced the problem. About 70 percent of residents enrolled in the
+                  blood testing the municipality offered. Researchers compared residents' health care use
+                  before and after the announcement with use in nearby areas, drawing on national health
+                  records. They found “no significant increase in health care utilization following the
+                  announcement.” This held for mental health care, antidepressants, and sleeping
+                  medication. Local stores did report a surge in bottled water sales. The authors conclude
+                  that the community and the authorities both managed the situation well.
+                `),
+                grade: 'strong',
+                quote: 'Overall, our results suggest that both the affected community and public authorities managed the situation effectively, mitigating potential health consequences related to anxiety.',
+                caveat: 'The study measures health care use. It does not ask residents whether they trusted the test results.',
+                sources: [source('Elinder, Erixson, Grönqvist, Langenskiöld and Öhman 2026, PLOS ONE', 'https://doi.org/10.1371/journal.pone.0340815')]
+              })
+            ]
           }),
           claim({
             text: 'People believe test results more when they come from someone they see as on their side.',
@@ -2129,6 +2154,21 @@ export default spineData({
                 quote: 'Another 30% report taking other mitigation actions such as drinking bottled water because of the As, but the remaining 27% of households did not act.',
                 caveat: 'More than a quarter of households did nothing. Those households more often had lower arsenic levels.',
                 sources: [source('Flanagan, Marvinney, Johnston, Yang and Zheng 2015, Science of the Total Environment', 'https://doi.org/10.1016/j.scitotenv.2014.03.079')]
+              }),
+              evidence({
+                headline: 'Wisconsin well owners told their water held bacteria found cracked casings and faulty caps with county help, and their wells then tested clean.',
+                finding: paragraph(`
+                  Kewaunee County, Wisconsin, where manure had fouled many private wells, offered owners
+                  free well tests and mailed each one their own results. Some wells held bacteria but
+                  little nitrate. Those wells had faulty caps, cracked casings, or water pooling around
+                  the cap. County staff and local well installers helped the owners find the problems.
+                  Once the problems were fixed, the wells were tested again and came back free of the
+                  bacteria.
+                `),
+                grade: 'weak',
+                quote: 'LWCD and local well installers assisted those landowners’ in identifying those problems, and once corrected, those wells were re-tested and came back negative for coliform bacteria.',
+                caveat: 'A county report on its own program. It does not say how many owners were told or how many acted. The wells tested were not chosen at random.',
+                sources: [source('Kewaunee County Land and Water Conservation Department, 2023 Coastal Management Grant final report', 'https://www.kewauneeco.org/i/f/Land%20%26%20Water/2023%20Final%20Report%20Coastal%20Management%20Grant.pdf')]
               })
             ],
             counterEvidence: [
