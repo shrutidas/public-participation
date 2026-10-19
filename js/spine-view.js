@@ -444,14 +444,17 @@ export function renderSpineMap(el, caseObj, spine, sel = {}) {
 
   // Impact braces: the mirror of the proposal brace, in the left gutter. Its
   // arms span the event the finding bears on and open toward the record; its
-  // cusp points at the impact card and runs into it on a short stub, jogging
-  // to the card's middle when the card is not level with the event.
+  // cusp sits level with the middle of the event's first impact card, so the
+  // stub into that card is one straight line. Further cards on the same event
+  // share the brace and jog down to their own middles.
+  const firstCy = new Map();
+  for (const r of imps) if (r.src !== -1 && !firstCy.has(r.src)) firstCy.set(r.src, Math.round(r.cy));
   for (const r of imps) {
     const i = r.src;
     if (i === -1) continue;
     const t = Math.round(yTop[i]), b = Math.round(yTop[i] + entEl[i].offsetHeight);
-    const mid = Math.round((t + b) / 2);
     const rr = Math.min(7, (b - t) / 4);
+    const mid = Math.min(b - 2 * rr, Math.max(t + 2 * rr, firstCy.get(i)));
     const arm = BRI.x + BRI.d, cusp = BRI.x - BRI.d;
     const endX = L.impX + L.impW + 3;
     const cy = Math.round(r.cy);
