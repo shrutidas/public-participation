@@ -493,19 +493,6 @@ export default spineData({
                 grade: 'strong',
                 quote: 'They find that leader effects were extremely large, in many cases accounting for over one-third of all variation in the outcomes of the national discussions.',
                 sources: [source('Humphreys, Masters and Sandbu 2006, World Politics', 'https://doi.org/10.1353/wp.2007.0008')]
-              }),
-              evidence({
-                headline: 'Most citizens\' juries on health met for less time than recommended, leaving little room for real discussion.',
-                finding: paragraph(`
-                  Street and colleagues (2014) reviewed 66 citizens’ juries on health questions. They
-                  found that “many juries were shorter duration than originally recommended, limiting
-                  opportunity for constructive dialogue. With respect to citizenship, few juries’ rulings
-                  were considered by decision-making bodies thereby limiting transfer into policy and
-                  practice.”
-                `),
-                grade: 'moderate',
-                quote: 'Many juries were shorter duration than originally recommended, limiting opportunity for constructive dialogue. With respect to citizenship, few juries\' rulings were considered by decision-making bodies thereby limiting transfer into policy and practice.',
-                sources: [source('Street and colleagues 2014, Social Science and Medicine', 'https://doi.org/10.1016/j.socscimed.2014.03.005')]
               })
             ]
           }),
@@ -648,6 +635,19 @@ export default spineData({
                 grade: 'strong',
                 quote: 'it first shows that minipublics are moderately attractive institutional innovations, but that in all three country contexts, citizens in general are very reluctant to grant them empowerment and autonomy as well as ask for additional provisions (such as large size or large majorities for recommendations).',
                 sources: [source('Goldberg, Lindell and Bächtiger 2024, American Political Science Review', 'https://doi.org/10.1017/S0003055424001163')]
+              }),
+              evidence({
+                headline: 'Few of the citizens\' juries on health that researchers reviewed had their rulings taken up by the bodies that made decisions.',
+                finding: paragraph(`
+                  Street and colleagues (2014) reviewed 66 citizens’ juries on health questions. They
+                  found that “many juries were shorter duration than originally recommended, limiting
+                  opportunity for constructive dialogue. With respect to citizenship, few juries’ rulings
+                  were considered by decision-making bodies thereby limiting transfer into policy and
+                  practice.”
+                `),
+                grade: 'moderate',
+                quote: 'Many juries were shorter duration than originally recommended, limiting opportunity for constructive dialogue. With respect to citizenship, few juries\' rulings were considered by decision-making bodies thereby limiting transfer into policy and practice.',
+                sources: [source('Street and colleagues 2014, Social Science and Medicine', 'https://doi.org/10.1016/j.socscimed.2014.03.005')]
               })
             ]
           }),
@@ -684,18 +684,18 @@ export default spineData({
                 sources: [source('Germann, Marien and Muradova 2024, Political Studies', 'https://journals.sagepub.com/doi/10.1177/00323217221137444')]
               }),
               evidence({
-                headline: 'Members of a citizens\' assembly who lost its votes were about as satisfied with how it was run as members who won.',
+                headline: 'Adding a citizen panel to a public vote raised acceptance only when the panel agreed with the vote, and lowered it when they disagreed.',
                 finding: paragraph(`
-                  Blais, Daoust, Dassonneville and Fournier (2025) surveyed about 100 residents of
-                  Longueuil, Quebec, first invited by letters to random addresses, at a weekend assembly that voted on four changes
-                  to elections. “We find a high degree of satisfaction with the conduct of the assembly,
-                  among both winners and losers.” Losing more votes did not go with lower satisfaction.
-                  The authors note the questions drew little public attention, so the result may not
-                  hold on a divisive issue.
+                  Koenen, Jacobs and Lehr (2026) ran a survey experiment with a representative sample of
+                  Dutch adults. “We find a positive significant effect among our respondents when there
+                  is congruence between the deliberative mini-public and the referendum outcome and a
+                  negative significant effect when there is incongruence.” On average the two effects
+                  cancelled out. The gain among people on the losing side appeared only when the panel
+                  and the vote agreed.
                 `),
-                grade: 'moderate',
-                quote: 'We find a high degree of satisfaction with the conduct of the assembly, among both winners and losers.',
-                sources: [source('Blais, Daoust, Dassonneville and Fournier 2025, Canadian Journal of Political Science', 'https://doi.org/10.1017/S0008423924000775')]
+                grade: 'strong',
+                quote: 'We find a positive significant effect among our respondents when there is congruence between the deliberative mini-public and the referendum outcome and a negative significant effect when there is incongruence.',
+                sources: [source('Koenen, Jacobs and Lehr 2026, Political Behavior', 'https://doi.org/10.1007/s11109-026-10132-z')]
               })
             ],
             counterEvidence: [
@@ -711,20 +711,6 @@ export default spineData({
                 grade: 'moderate',
                 quote: 'higher levels of ideological polarization and, to an extent, affective polarization are associated with lower levels of perceived minipublic legitimacy among the wider public, although effects are small',
                 sources: [source('van Dijk, Turkenburg and Pow 2023, European Political Science Review', 'https://doi.org/10.1017/S1755773922000649')]
-              }),
-              evidence({
-                headline: 'Adding a citizen panel to a public vote raised acceptance only when the panel agreed with the vote, and lowered it when they disagreed.',
-                finding: paragraph(`
-                  Koenen, Jacobs and Lehr (2026) ran a survey experiment with a representative sample of
-                  Dutch adults. “We find a positive significant effect among our respondents when there
-                  is congruence between the deliberative mini-public and the referendum outcome and a
-                  negative significant effect when there is incongruence.” On average the two effects
-                  cancelled out. The gain among people on the losing side appeared only when the panel
-                  and the vote agreed.
-                `),
-                grade: 'strong',
-                quote: 'We find a positive significant effect among our respondents when there is congruence between the deliberative mini-public and the referendum outcome and a negative significant effect when there is incongruence.',
-                sources: [source('Koenen, Jacobs and Lehr 2026, Political Behavior', 'https://doi.org/10.1007/s11109-026-10132-z')]
               })
             ]
           }),
@@ -769,6 +755,20 @@ export default spineData({
                 grade: 'strong',
                 quote: 'this study found that, given the opportunity to participate in the decision-making process and when the decision is reached through a compromise among council members, people tend to feel that the process is fair and accept the decision even when it is unfavourable to them.',
                 sources: [source('Nakatani 2023, International Political Science Review', 'https://doi.org/10.1177/0192512121998250')]
+              }),
+              evidence({
+                headline: 'Members of a citizens\' assembly who lost its votes were about as satisfied with how it was run as members who won.',
+                finding: paragraph(`
+                  Blais, Daoust, Dassonneville and Fournier (2025) surveyed about 100 residents of
+                  Longueuil, Quebec, first invited by letters to random addresses, at a weekend assembly that voted on four changes
+                  to elections. “We find a high degree of satisfaction with the conduct of the assembly,
+                  among both winners and losers.” Losing more votes did not go with lower satisfaction.
+                  The authors note the questions drew little public attention, so the result may not
+                  hold on a divisive issue.
+                `),
+                grade: 'moderate',
+                quote: 'We find a high degree of satisfaction with the conduct of the assembly, among both winners and losers.',
+                sources: [source('Blais, Daoust, Dassonneville and Fournier 2025, Canadian Journal of Political Science', 'https://doi.org/10.1017/S0008423924000775')]
               })
             ],
             counterEvidence: [
@@ -899,7 +899,7 @@ export default spineData({
         measured: 'Chronic absenteeism stayed high',
         claims: [
           claim({
-            text: 'Teachers and families return more readily to schools they see as safe.',
+            text: 'Better ventilation and safety measures make in-person school safer.',
             evidence: [
               evidence({
                 headline: 'Italian classrooms with mechanical ventilation saw far fewer student infections than classrooms with open windows alone.',
@@ -947,7 +947,7 @@ export default spineData({
             ]
           }),
           claim({
-            text: 'Parents who plan with teachers come to trust the school more.',
+            text: 'Teachers who help make school decisions stay in their schools longer.',
             evidence: [
               evidence({
                 headline: 'Schools where the faculty had more say in school-wide decisions lost fewer teachers, and teachers of color most of all.',
@@ -1107,6 +1107,19 @@ export default spineData({
                 grade: 'strong',
                 quote: 'At the end of the school year, we find that treated families have increased their school-and home-based involvement activities. In turn, pupils of treatment classes have developed more positive behaviour and attitudes in school, notably in terms of truancy and disciplinary sanctions (with effects-size around 15% of a standard deviation).',
                 sources: [source('Avvisati, Gurgand, Guyon and Maurin 2014, Review of Economic Studies', 'https://doi.org/10.1093/restud/rdt027')]
+              }),
+              evidence({
+                headline: 'A mentoring program that checked on students and kept in touch with families cut absences in grades 5 to 7 by more than a fifth.',
+                finding: paragraph(`
+                  In a large trial in Chicago pairing students with mentors who monitored attendance
+                  and kept up contact with home, “program participation decreased absences in grades
+                  5 to 7 by 4.2 days, or 22.9 percent, but had no detectable effects on students in
+                  grades 1 to 4”. Grades and test scores did not improve either.
+                `),
+                grade: 'strong',
+                quote: 'Program participation decreased absences in grades 5 to 7 by 4.2 days, or 22.9 percent, but had no detectable effects on students in grades 1 to 4.',
+                caveat: 'The program had no detectable effect on attendance in grades 1 to 4.',
+                sources: [source('Guryan and colleagues 2021, Journal of Policy Analysis and Management', 'https://doi.org/10.1002/pam.22264')]
               })
             ],
             counterEvidence: [
@@ -1124,18 +1137,6 @@ export default spineData({
                 grade: 'moderate',
                 quote: 'The confidence interval for family–school partnerships was the only one that included 0, which suggests the possibility of a zero effect for that variable.',
                 sources: [source('Eklund, Burns, Oyen, DeMarchena and McCollom 2020, School Psychology Review', 'https://doi.org/10.1080/2372966X.2020.1789436')]
-              }),
-              evidence({
-                headline: 'A mentoring program that checked on students and kept in touch with families did nothing for attendance in the early grades.',
-                finding: paragraph(`
-                  In a large trial in Chicago pairing students with mentors who monitored attendance
-                  and kept up contact with home, “program participation decreased absences in grades
-                  5 to 7 by 4.2 days, or 22.9 percent, but had no detectable effects on students in
-                  grades 1 to 4”. Grades and test scores did not improve either.
-                `),
-                grade: 'strong',
-                quote: 'Program participation decreased absences in grades 5 to 7 by 4.2 days, or 22.9 percent, but had no detectable effects on students in grades 1 to 4.',
-                sources: [source('Guryan and colleagues 2021, Journal of Policy Analysis and Management', 'https://doi.org/10.1002/pam.22264')]
               })
             ]
           }),
@@ -1171,19 +1172,6 @@ export default spineData({
                 grade: 'moderate',
                 quote: 'By far the most important determinant of these changes are objective indicators of social need (for example, education investment rises where illiteracy is higher).',
                 sources: [source('Faguet 2004, Journal of Public Economics', 'https://doi.org/10.1016/S0047-2727(02)00185-8')]
-              }),
-              evidence({
-                headline: 'Indonesian school committees improved learning most when they planned jointly with the village council.',
-                finding: paragraph(`
-                  A large experiment compared ways to strengthen school committees. “We find that
-                  institutional reforms, in particular linkage and elections combined with linkage,
-                  are most cost-effective at improving learning.” Grants and training alone did
-                  less. A school body works best when it is tied to the authority that holds the
-                  decision, which is what this proposal asks of the board.
-                `),
-                grade: 'strong',
-                quote: 'We find that institutional reforms, in particular linkage and elections combined with linkage, are most cost-effective at improving learning.',
-                sources: [source('Pradhan and colleagues 2014, American Economic Journal: Applied Economics', 'https://doi.org/10.1257/app.6.2.105')]
               }),
               evidence({
                 headline: 'Most of Chicago\'s parent-majority school councils carried out their governing duties.',

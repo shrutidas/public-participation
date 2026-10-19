@@ -360,21 +360,6 @@ export default spineData({
             ],
             counterEvidence: [
               evidence({
-                headline: 'After officials paused a vaccine over rare blood clots, confidence in that vaccine fell in both parties and stayed low after the pause was lifted.',
-                finding: paragraph(`
-                  Rader, Chiang, Kriner, Weintraub and Brownstein surveyed 401,398 US adults in repeated
-                  national samples from March to July 2021, before, during and after the pause of the
-                  Johnson & Johnson vaccine. “We find widespread loss of confidence in the Janssen
-                  vaccine across gender, age, and other demographics, which persisted over time and
-                  after lifting of the halt.” The drop held across self-reported party. Reasons for
-                  staying unvaccinated did not change, and confidence in the other vaccines rose
-                  slightly. The survey measures confidence in each vaccine, not trust in the agencies.
-                `),
-                grade: 'moderate',
-                quote: 'We find widespread loss of confidence in the Janssen vaccine across gender, age, and other demographics, which persisted over time and after lifting of the halt.',
-                sources: [source('Rader, Chiang, Kriner, Weintraub and Brownstein 2022, Vaccine', 'https://doi.org/10.1016/j.vaccine.2022.11.035')]
-              }),
-              evidence({
                 headline: 'Americans shown the full range of uncertainty in a pandemic death forecast came away with less support for science.',
                 finding: paragraph(`
                   Kreps and Kriner ran five survey experiments with more than 6,000 Americans. In one,
@@ -913,41 +898,6 @@ export default spineData({
                 sources: [source('Gurinskaya, Nalla and Paek 2023, Criminal Justice Review', 'https://doi.org/10.1177/07340168231190471')]
               })
             ]
-          }),
-          claim({
-            text: 'Rules set by ordinary residents get followed as much as rules set by government officials.',
-            evidence: [],
-            counterEvidence: [
-              evidence({
-                headline: 'A rule chosen by a group member picked by lottery won no more cooperation than the same rule imposed from outside, while a rule chosen by an elected member did.',
-                finding: paragraph(`
-                  Schories ran a laboratory experiment in which one group member chose a rule for the
-                  group, and that member was either elected or picked at random. Schories finds a large
-                  gain in cooperation “but only if the group leader is democratically chosen.
-                  Especially the subjects who initially did not prefer the policy are more likely to
-                  cooperate if it was brought about by an elected representative. There is no
-                  democracy premium for randomly appointed group leaders.” The decision maker was one
-                  person in a money game, not a panel that deliberates.
-                `),
-                grade: 'strong',
-                quote: 'There is evidence of a large democracy premium in the sense that endogenously chosen institutions lead to more cooperation than identical exogenous institutions, but only if the group leader is democratically chosen. Especially the subjects who initially did not prefer the policy are more likely to cooperate if it was brought about by an elected representative. There is no democracy premium for randomly appointed group leaders.',
-                sources: [source('Schories 2022, Experimental Economics', 'https://doi.org/10.1007/s10683-022-09750-1')]
-              }),
-              evidence({
-                headline: 'Farmers gave less to a shared fund under a leader picked by lottery than under a leader they had elected.',
-                finding: paragraph(`
-                  Grossman and Baldassarri played a public goods game with 1,541 farmers from 50
-                  Ugandan farmer groups, in which a monitor could punish people who gave little. The
-                  monitor was either elected by the group or chosen by lottery. They find that
-                  “subjects electing leaders contribute more to public goods than subjects who were
-                  assigned leaders through a lottery”. Behavior in the game also predicted how much
-                  farmers cooperated in their real farmer groups.
-                `),
-                grade: 'strong',
-                quote: 'subjects electing leaders contribute more to public goods than subjects who were assigned leaders through a lottery',
-                sources: [source('Grossman and Baldassarri 2012, American Journal of Political Science', 'https://doi.org/10.1111/j.1540-5907.2012.00596.x')]
-              })
-            ]
           })
         ]
       }),
@@ -1020,11 +970,9 @@ export default spineData({
                 grade: 'moderate',
                 quote: 'In model analysis after program implementation, zip codes prioritized for the program had 0.42% additional coverage per day as compared with 0.27% per day for non-PCP zip codes.',
                 sources: [source('Johnson et al. 2023, Public Health Reports', 'https://journals.sagepub.com/doi/full/10.1177/00333549221143093')]
-              })
-            ],
-            counterEvidence: [
+              }),
               evidence({
-                headline: 'In poor neighborhoods of Islamabad and Rawalpindi, vaccination camps at venues residents chose raised uptake only near the city center, not in the two areas farthest from it.',
+                headline: 'In poor parts of Islamabad and Rawalpindi, vaccination camps at venues residents chose raised willingness to get vaccinated in outlying areas and uptake near the center.',
                 finding: paragraph(`
                   Abdullah and colleagues surveyed residents of low-income localities in Islamabad and
                   Rawalpindi, Pakistan, before and after a campaign run with community leaders and local
@@ -1039,9 +987,11 @@ export default spineData({
                 `),
                 grade: 'moderate',
                 quote: 'We found that our interventions increased COVID-19 vaccine willingness in two treatment areas that are furthest from city centers by 7.6% and 6.6% respectively, while vaccine uptake increased in one of the treatment areas by 17.1%, compared to the control area.',
+                caveat: 'Uptake did not rise in the two areas farthest from the city centers. The authors write that the camps were too small to meet the demand there.',
                 sources: [source('Abdullah et al. 2022, PLOS ONE', 'https://doi.org/10.1371/journal.pone.0274718')]
               })
-            ]
+            ],
+            counterEvidence: []
           }),
           claim({
             text: 'Trusted local messengers bring in residents that official channels miss.',
@@ -1376,21 +1326,6 @@ export default spineData({
                 grade: 'moderate',
                 quote: 'Despite citywide efforts to build community infrastructure, Black communities had relatively lower levels of vaccine uptake than other communities.',
                 sources: [source('Kim et al. 2024, Journal of Public Health Management and Practice', 'https://doi.org/10.1097/phh.0000000000001841')]
-              }),
-              evidence({
-                headline: 'Black and Hispanic residents living side by side in the same public housing got vaccinated at very different rates.',
-                finding: paragraph(`
-                  Wong and colleagues surveyed residents of public housing in Watts, south Los Angeles,
-                  between June 2021 and May 2022. Hispanic residents were 31 to 44 percentage points more
-                  likely to be vaccinated than their Black neighbors, and about 40 percent of that gap
-                  went with differing attitudes toward the vaccines. “There are sizeable racial and
-                  ethnic COVID-19 vaccination disparities even within low-income and minoritized
-                  communities.” The study compares residents at a single time and does not test any
-                  delivery program.
-                `),
-                grade: 'moderate',
-                quote: 'There are sizeable racial and ethnic COVID-19 vaccination disparities even within low-income and minoritized communities.',
-                sources: [source('Wong et al. 2024, BMC Public Health', 'https://doi.org/10.1186/s12889-024-17968-2')]
               })
             ]
           }),
@@ -1623,20 +1558,6 @@ export default spineData({
             ],
             counterEvidence: [
               evidence({
-                headline: 'When Indonesian villages chose projects by a direct vote instead of a village meeting, the projects chosen barely changed.',
-                finding: paragraph(`
-                  In 49 Indonesian villages, whether development projects were chosen by
-                  representative meetings or by a direct vote of all villagers was assigned at random.
-                  “Changing the political mechanism had much smaller effects on the actual projects
-                  selected, with some evidence that plebiscites resulted in projects chosen by women
-                  being located in poorer areas.” Villagers who voted were far more satisfied, but
-                  the money went to much the same things.
-                `),
-                grade: 'strong',
-                quote: 'Changing the political mechanism had much smaller effects on the actual projects selected, with some evidence that plebiscites resulted in projects chosen by women being located in poorer areas.',
-                sources: [source('Olken 2010, American Political Science Review', 'https://doi.org/10.1017/S0003055410000079')]
-              }),
-              evidence({
                 headline: 'Participatory budgeting in New York City spread money across more small projects but did not change what the money was spent on.',
                 finding: paragraph(`
                   New York's process runs through council members' discretionary funds. Officials who
@@ -1854,27 +1775,6 @@ export default spineData({
                 sources: [source('Ferraz and Finan 2008, Quarterly Journal of Economics', 'https://doi.org/10.1162/qjec.2008.123.2.703')]
               })
             ],
-            counterEvidence: []
-          }),
-          claim({
-            text: 'People who learn that residents helped make a decision judge the decision more favorably.',
-            evidence: [
-              evidence({
-                headline: 'People told a decision had gone against them were readier to accept it when a citizen panel had recommended it, and people who distrusted politics moved the most.',
-                finding: paragraph(`
-                  Germann, Marien and Muradova ran a preregistered survey experiment with 1,309 Irish
-                  adults, all told the decision went against their view. When a panel of randomly
-                  selected citizens had recommended the decision and officials followed it, people
-                  judged the process fairer and were more willing to accept the result. The authors
-                  find that “the legitimacy-enhancing effects of participatory processes are driven by
-                  citizens with low political trust”. People read a scenario, so the study measures
-                  judgments of a described decision rather than a real one.
-                `),
-                grade: 'moderate',
-                quote: 'we find that the legitimacy-enhancing effects of participatory processes are driven by citizens with low political trust',
-                sources: [source('Germann, Marien and Muradova 2024, Political Studies', 'https://doi.org/10.1177/00323217221137444')]
-              })
-            ],
             counterEvidence: [
               evidence({
                 headline: 'When report cards on Ugandan clinics were shared at community meetings, fewer than one in five households in those villages had even heard of the meetings.',
@@ -1911,6 +1811,27 @@ export default spineData({
                 sources: [source('Banerjee, Banerji, Duflo, Glennerster and Khemani 2010, American Economic Journal: Economic Policy', 'https://doi.org/10.1257/pol.2.1.1')]
               })
             ]
+          }),
+          claim({
+            text: 'People who learn that residents helped make a decision judge the decision more favorably.',
+            evidence: [
+              evidence({
+                headline: 'People told a decision had gone against them were readier to accept it when a citizen panel had recommended it, and people who distrusted politics moved the most.',
+                finding: paragraph(`
+                  Germann, Marien and Muradova ran a preregistered survey experiment with 1,309 Irish
+                  adults, all told the decision went against their view. When a panel of randomly
+                  selected citizens had recommended the decision and officials followed it, people
+                  judged the process fairer and were more willing to accept the result. The authors
+                  find that “the legitimacy-enhancing effects of participatory processes are driven by
+                  citizens with low political trust”. People read a scenario, so the study measures
+                  judgments of a described decision rather than a real one.
+                `),
+                grade: 'moderate',
+                quote: 'we find that the legitimacy-enhancing effects of participatory processes are driven by citizens with low political trust',
+                sources: [source('Germann, Marien and Muradova 2024, Political Studies', 'https://doi.org/10.1177/00323217221137444')]
+              })
+            ],
+            counterEvidence: []
           }),
           claim({
             text: 'Residents who set a program\'s goals judge it by measures that suit their neighbors better than officials\' measures do.',
@@ -2041,7 +1962,7 @@ export default spineData({
                 grade: 'strong',
                 quote: 'Civil-service teachers also captured rents for their families, with approximately 1/3 of contract teacher positions going to relatives of existing teachers. A governance program that empowered parents within school committees reduced both forms of capture.',
                 sources: [source('Duflo, Dupas and Kremer 2015, Journal of Public Economics', 'https://doi.org/10.1016/j.jpubeco.2014.11.008')]
-              }),
+              })
             ],
             counterEvidence: [
               evidence({

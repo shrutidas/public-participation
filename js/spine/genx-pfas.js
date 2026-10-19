@@ -541,25 +541,6 @@ export default spineData({
                 grade: 'moderate',
                 quote: 'We find that fraud detection does not rely on standard corporate governance actors (investors, SEC, and auditors), but rather takes a village, including several nontraditional players (employees, media, and industry regulators).',
                 sources: [source('Dyck, Morse and Zingales 2010, Journal of Finance', 'https://doi.org/10.1111/j.1540-6261.2010.01614.x')]
-              }),
-              evidence({
-                headline: 'When the Environmental Protection Agency offered reduced penalties to companies that came forward, 89 companies handed over more than 11,000 chemical risk studies they had never reported.',
-                finding: paragraph(`
-                  The chemicals statute requires companies to tell the Environmental Protection Agency
-                  of information that reasonably supports the conclusion that a chemical presents a
-                  “substantial risk of injury to health or the environment”. The agency found “that
-                  some regulated industries were not submitting information on chemical hazards and
-                  exposures”, and in 1991 it offered reduced penalties to companies that audited their
-                  own files. When the program closed in 1997, the agency reported that it “has received
-                  over 11,000 previously unreported studies or reports from 89 companies on chemicals
-                  that may present a substantial risk of injury to health or the environment”, about 80
-                  percent of all the reports the duty had ever produced. The record shows how much
-                  companies had held back, not how long each study had been held.
-                `),
-                grade: 'strong',
-                quote: 'Under the TSCA section 8(e) CAP, the EPA has received over 11,000 previously unreported studies or reports from 89 companies on chemicals that may present a substantial risk of injury to health or the environment.',
-                caveat: 'An official record of what companies submitted under an amnesty. It cannot show what the studies contained or how long they had been withheld.',
-                sources: [source('US Environmental Protection Agency, news release of April 25, 1997', 'https://www.epa.gov/archive/epapages/newsroom_archive/newsreleases/1babc3a8f4a802c58525648400594f58.html')]
               })
             ],
             counterEvidence: [
@@ -600,6 +581,21 @@ export default spineData({
                 grade: 'strong',
                 quote: 'We find that increases in UI benefits increase the number of facility-level employee workplace safety complaints filed with the regulator. Furthermore, UI benefit increases also result in more violations and more penalties.',
                 sources: [source('Heese and Perez-Cavazos 2021, Journal of Accounting and Economics', 'https://doi.org/10.1016/j.jacceco.2020.101385')]
+              }),
+              evidence({
+                headline: 'Laws meant to encourage federal workers to report wrongdoing were followed by more reporting and by more retaliation.',
+                finding: paragraph(`
+                  Surveys of federal employees taken at three points over twelve years found that
+                  “laws intended to encourage whistle-blowing seem to have two desired effects: to
+                  reduce the incidence of perceived wrongdoing and to increase the likelihood of
+                  whistle-blowing. However, two unintended effects are also observed: perceived
+                  retaliation increased and whistle-blowers increasingly sought anonymity.” The
+                  surveys cannot tell which change drove which.
+                `),
+                grade: 'moderate',
+                quote: 'Laws intended to encourage whistle-blowing seem to have two desired effects: to reduce the incidence of perceived wrongdoing and to increase the likelihood of whistle-blowing. However, two unintended effects are also observed: perceived retaliation increased and whistle-blowers increasingly sought anonymity.',
+                caveat: 'Over the same years, workers also saw more retaliation, and more of those who reported tried to stay anonymous.',
+                sources: [source('Miceli, Rehg, Near and Ryan 1999, Work and Occupations', 'https://doi.org/10.1177/0730888499026001007')]
               })
             ],
             counterEvidence: [
@@ -618,53 +614,6 @@ export default spineData({
                 grade: 'moderate',
                 quote: 'By contrast, we do not find any evidence that the protection offered to employees by Section 303 of SOX has any effect.',
                 sources: [source('Dyck, Morse and Zingales 2010, Journal of Finance', 'https://doi.org/10.1111/j.1540-6261.2010.01614.x')]
-              }),
-              evidence({
-                headline: 'Laws meant to encourage federal workers to report wrongdoing were followed by more reporting and by more retaliation.',
-                finding: paragraph(`
-                  Surveys of federal employees taken at three points over twelve years found that
-                  “laws intended to encourage whistle-blowing seem to have two desired effects: to
-                  reduce the incidence of perceived wrongdoing and to increase the likelihood of
-                  whistle-blowing. However, two unintended effects are also observed: perceived
-                  retaliation increased and whistle-blowers increasingly sought anonymity.” The
-                  surveys cannot tell which change drove which.
-                `),
-                grade: 'moderate',
-                quote: 'Laws intended to encourage whistle-blowing seem to have two desired effects: to reduce the incidence of perceived wrongdoing and to increase the likelihood of whistle-blowing. However, two unintended effects are also observed: perceived retaliation increased and whistle-blowers increasingly sought anonymity.',
-                sources: [source('Miceli, Rehg, Near and Ryan 1999, Work and Occupations', 'https://doi.org/10.1177/0730888499026001007')]
-              }),
-              evidence({
-                headline: 'Whistleblowers were punished most when what they reported mattered most, and no way of reporting protected them.',
-                finding: paragraph(`
-                  A nationwide study of whistleblowers and of employees who saw wrongdoing and stayed
-                  silent found that “whistle-blowers suffer severe retaliation from management,
-                  especially when their information proves significant” and that “no special method of
-                  disclosure or personal characteristics can insulate the whistle-blower from such
-                  retaliation”. The people surveyed had already identified themselves as
-                  whistleblowers, so the study cannot give the rate of retaliation among all workers
-                  who see wrongdoing.
-                `),
-                grade: 'moderate',
-                quote: 'whistle-blowers suffer severe retaliation from management, especially when their information proves significant; and (d) no special method of disclosure or personal characteristics can insulate the whistle-blower from such retaliation.',
-                sources: [source('Rothschild and Miethe 1999, Work and Occupations', 'https://doi.org/10.1177/0730888499026001006')]
-              }),
-              evidence({
-                headline: 'The government\'s auditors found that the federal program for workers who report hazards could not be shown to work as intended.',
-                finding: paragraph(`
-                  The Government Accountability Office audited the Occupational Safety and Health
-                  Administration whistleblower program in 2010. “OSHA lacks sufficient internal
-                  controls to ensure that the whistleblower program operates as intended due to
-                  several factors, including inconsistent program operations, inadequate tracking of
-                  program expenses, and insufficient performance monitoring. Program operations vary
-                  by region in significant ways, as exemplified by differing standards used to screen
-                  out complaints.” The program then handled complaints under 18 statutes, the
-                  chemicals statute among them, so this is the channel a chemical plant worker would
-                  have had to use.
-                `),
-                grade: 'strong',
-                quote: 'OSHA lacks sufficient internal controls to ensure that the whistleblower program operates as intended due to several factors, including inconsistent program operations, inadequate tracking of program expenses, and insufficient performance monitoring.',
-                caveat: 'An official record of what the audit found. It cannot show whether workers used the channel, or that a better channel would surface hazards.',
-                sources: [source('US Government Accountability Office, GAO-10-722', 'https://www.gao.gov/products/gao-10-722')]
               })
             ]
           }),
@@ -730,6 +679,21 @@ export default spineData({
                 grade: 'moderate',
                 quote: 'Thus, our results suggest that an externally administered anonymous hotline may not increase fraud reporting.',
                 sources: [source('Kaplan, Pany, Samuels and Zhang 2009, Auditing: A Journal of Practice and Theory', 'https://doi.org/10.2308/aud.2009.28.2.273')]
+              }),
+              evidence({
+                headline: 'Whistleblowers were punished most when what they reported mattered most, and no way of reporting protected them.',
+                finding: paragraph(`
+                  A nationwide study of whistleblowers and of employees who saw wrongdoing and stayed
+                  silent found that “whistle-blowers suffer severe retaliation from management,
+                  especially when their information proves significant” and that “no special method of
+                  disclosure or personal characteristics can insulate the whistle-blower from such
+                  retaliation”. The people surveyed had already identified themselves as
+                  whistleblowers, so the study cannot give the rate of retaliation among all workers
+                  who see wrongdoing.
+                `),
+                grade: 'moderate',
+                quote: 'whistle-blowers suffer severe retaliation from management, especially when their information proves significant; and (d) no special method of disclosure or personal characteristics can insulate the whistle-blower from such retaliation.',
+                sources: [source('Rothschild and Miethe 1999, Work and Occupations', 'https://doi.org/10.1177/0730888499026001006')]
               })
             ]
           }),
@@ -817,47 +781,7 @@ export default spineData({
                 sources: [source('Finkelstein and Notowidigdo 2019, Quarterly Journal of Economics', 'https://doi.org/10.1093/qje/qjz013')]
               })
             ],
-            counterEvidence: [
-              evidence({
-                headline: 'Unemployment claimants randomly offered a free lawyer from a respected law clinic won no more often, and their cases took about two weeks longer.',
-                finding: paragraph(`
-                  Greiner and Pattanayak randomly offered representation to 207 people appealing
-                  unemployment denials. “The offers of representation from the clinic had no
-                  statistically significant effect on the probability that unemployment claimants would
-                  prevail,” but “the offers did delay proceedings by, on average, about two weeks.”
-                  Outside help can slow a process without changing its result. The trial appeared in a
-                  law journal edited by students.
-                `),
-                grade: 'moderate',
-                quote: 'Our randomized evaluation found that the offers of representation from the clinic had no statistically significant effect on the probability that unemployment claimants would prevail in their "appeals," but that the offers did delay proceedings by, on average, about two weeks.',
-                sources: [source('Greiner and Pattanayak 2012, Yale Law Journal', 'https://www.yalelawjournal.org/pdf/1088_q6v2s7cc.pdf')]
-              }),
-              evidence({
-                headline: 'Workplaces where unions barely won elections had no fewer accidents on average than workplaces where unions barely lost.',
-                finding: paragraph(`
-                  Li, Rohlin and Singleton compared workplaces with narrowly passed and narrowly failed
-                  union elections, using Occupational Safety and Health Administration data.
-                  “Unionization had no detectable effect on accident case rates at the mean.” It lowered
-                  rates only at the safer end, mainly in larger units and manufacturing. More reporting
-                  through an intermediary does not by itself make workplaces safer.
-                `),
-                grade: 'strong',
-                quote: 'The results indicate that unionization had no detectable effect on accident case rates at the mean, but shifted downward the case-rate distribution below 2 cases per 100 full-time equivalent workers annually.',
-                sources: [source('Li, Rohlin and Singleton 2022, ILR Review', 'https://doi.org/10.1177/0019793920958417')]
-              }),
-              evidence({
-                headline: 'The people that application help brought in were better off and healthier than those who signed up on their own.',
-                finding: paragraph(`
-                  In the same food benefit experiment, Finkelstein and Notowidigdo found that those drawn
-                  in by help “have higher net income and are less sick than the average enrollee in the
-                  control group.” Applied to hazard reporting, an advocate could add many lower-priority
-                  reports while the most exposed workers still stay away.
-                `),
-                grade: 'strong',
-                quote: 'The individuals who apply or enroll in response to either intervention have higher net income and are less sick than the average enrollee in the control group.',
-                sources: [source('Finkelstein and Notowidigdo 2019, Quarterly Journal of Economics', 'https://doi.org/10.1093/qje/qjz013')]
-              })
-            ]
+            counterEvidence: []
           }),
           claim({
             text: 'Regulators act sooner on problems that workers report.',
@@ -1936,37 +1860,9 @@ export default spineData({
                 grade: 'strong',
                 quote: 'We show that past quality of advice and degree of similarity between advisors\' and judges\' values have separate (non-interacting) effects on two types of agent behavior: the degree of trust expressed in a source (stated trust) and the weight given to the source\'s advice (revealed trust).',
                 sources: [source('Twyman, Harvey and Harries 2008, Judgment and Decision Making', 'https://doi.org/10.1017/s1930297500000218')]
-              }),
-              evidence({
-                headline: 'After a waterborne disease outbreak, residents who trusted the authorities felt safer and accepted their tap water again.',
-                finding: paragraph(`
-                  Studying residents' responses after a drinking water outbreak, the authors tested whether trust
-                  shaped acceptance of the water or the other way round. “The results supported the
-                  causal chain model suggesting a causal role for trust,” with trust working through
-                  lower perceived risk. Trust itself rose with prior trust in institutions and with
-                  the authorities' communication with the public. The analysis rests on correlations and path
-                  models, so the order of cause is inferred, not tested.
-                `),
-                grade: 'moderate',
-                quote: 'The results supported the causal chain model suggesting a causal role for trust.',
-                sources: [source('Bratanova, Morrison, Fife-Schaw, Chenoweth and Mangold 2013, Journal of Applied Social Psychology', 'https://doi.org/10.1111/jasp.12113')]
               })
             ],
             counterEvidence: [
-              evidence({
-                headline: 'Experts paid well by one side were seen as hired guns, and people neither liked nor believed them.',
-                finding: paragraph(`
-                  In three mock jury experiments, researchers varied how much an expert witness was
-                  paid and how often the expert testified. “Experts who are highly paid for their
-                  testimony and who testify frequently are perceived as ‘hired guns.’ They are neither
-                  liked nor believed.” The effect was strongest when the testimony was complex. The
-                  judges were neutral jurors, not the people who hired the expert, so it speaks to how
-                  others, including the state, would read reviewers paid on residents' behalf.
-                `),
-                grade: 'strong',
-                quote: 'The results of the first two studies demonstrated that experts who are highly paid for their testimony and who testify frequently are perceived as "hired guns." They are neither liked nor believed.',
-                sources: [source('Cooper and Neuhaus 2000, Law and Human Behavior', 'https://doi.org/10.1023/A:1005476618435')]
-              }),
               evidence({
                 headline: 'When people read the same facts about these chemicals from scientists or from the government, they found them equally believable.',
                 finding: paragraph(`
@@ -1980,18 +1876,6 @@ export default spineData({
                 grade: 'strong',
                 quote: 'The experimental conditions did not significantly influence level of concern about PFAS, perceived hazardousness of PFAS, or information credibility.',
                 sources: [source('Morphett, Magi-Prowse, Roiko and Fielding 2025, Journal of Risk Research', 'https://doi.org/10.1080/13669877.2025.2522653')]
-              }),
-              evidence({
-                headline: 'People trusted food risk sources that answered to someone more than sources with no oversight at all.',
-                finding: paragraph(`
-                  Across interviews and a survey of 888 people about food risk information, “contrary
-                  to previous research, complete freedom does not lead to trust-rather sources which
-                  possess moderate accountability are seen to be the most trusted”. The setting is
-                  food risk, so it cannot be read straight onto environmental health reviewers.
-                `),
-                grade: 'moderate',
-                quote: 'Contrary to previous research, complete freedom does not lead to trust-rather sources which possess moderate accountability are seen to be the most trusted.',
-                sources: [source('Frewer, Howard, Hedderley and Shepherd 1996, Risk Analysis', 'https://doi.org/10.1111/j.1539-6924.1996.tb01094.x')]
               }),
               evidence({
                 headline: 'People already worried about a hazard distrusted messages saying it was safe, whoever sent them.',
@@ -2028,7 +1912,7 @@ export default spineData({
                 sources: [source('Frewer, Scholderer and Bredahl 2003, Risk Analysis', 'https://doi.org/10.1111/j.0272-4332.2003.00385.x')]
               }),
               evidence({
-                headline: 'Residents near a nuclear site trusted an outside research center more than federal agencies, yet some were dismayed when it found no link to thyroid disease.',
+                headline: 'Residents near a nuclear site were dismayed when the outside research center they trusted more than federal agencies found no link to thyroid disease.',
                 finding: paragraph(`
                   A National Academies panel reviewed how the draft Hanford Thyroid Disease Study was
                   released. Many residents distrusted the federal energy department, and “it appears
@@ -2150,6 +2034,21 @@ export default spineData({
                 grade: 'weak',
                 quote: 'When asked what challenges they faced in reducing exposure, 79% cited not knowing what to do. This dropped to 35% after report-back.',
                 sources: [source('Rochester et al. 2024, International Journal of Environmental Research and Public Health', 'https://doi.org/10.3390/ijerph21070905')]
+              }),
+              evidence({
+                headline: 'Most Maine households told their well water held unsafe arsenic installed treatment or switched to bottled water.',
+                finding: paragraph(`
+                  Researchers surveyed 386 households in central Maine told three to seven years
+                  earlier that their well water held arsenic above the safety threshold. Most had
+                  installed treatment or switched to bottled water, “but the remaining 27% of households
+                  did not act.” Households with lower arsenic levels were more likely to do nothing, and
+                  15 percent of the treatment systems checked still let too much arsenic through. The
+                  actions are as households reported them.
+                `),
+                grade: 'moderate',
+                quote: 'Another 30% report taking other mitigation actions such as drinking bottled water because of the As, but the remaining 27% of households did not act.',
+                caveat: 'More than a quarter of households did nothing. Those households more often had lower arsenic levels.',
+                sources: [source('Flanagan, Marvinney, Johnston, Yang and Zheng 2015, Science of the Total Environment', 'https://doi.org/10.1016/j.scitotenv.2014.03.079')]
               })
             ],
             counterEvidence: [
@@ -2164,20 +2063,6 @@ export default spineData({
                 grade: 'strong',
                 quote: 'total behavior was associated with knowledge and concern but not race, education, or report type',
                 sources: [source('Boronow et al. 2023, Environmental Health Perspectives', 'https://doi.org/10.1289/EHP12565')]
-              }),
-              evidence({
-                headline: 'More than a quarter of Maine households told their well water held unsafe arsenic did nothing about it.',
-                finding: paragraph(`
-                  Researchers surveyed 386 households in central Maine told three to seven years
-                  earlier that their well water held arsenic above the safety threshold. Most had
-                  installed treatment or switched to bottled water, “but the remaining 27% of households
-                  did not act.” Households with lower arsenic levels were more likely to do nothing, and
-                  15 percent of the treatment systems checked still let too much arsenic through. The
-                  actions are as households reported them.
-                `),
-                grade: 'moderate',
-                quote: 'Another 30% report taking other mitigation actions such as drinking bottled water because of the As, but the remaining 27% of households did not act.',
-                sources: [source('Flanagan, Marvinney, Johnston, Yang and Zheng 2015, Science of the Total Environment', 'https://doi.org/10.1016/j.scitotenv.2014.03.079')]
               })
             ]
           })
