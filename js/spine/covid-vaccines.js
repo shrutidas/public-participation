@@ -1556,16 +1556,17 @@ export default spineData({
     }),
 
     spineProposal({
-      name: 'When vaccine outreach funds are awarded, residents decide through participatory budgeting which local projects the money supports.',
+      name: 'When vaccine outreach money is handed out, residents decide through participatory budgeting which local projects it pays for.',
       bold: ['participatory budgeting'],
       method: 'Participatory Budgeting',
-      summary: 'When outreach funds are awarded, residents of the neighborhoods the money is meant for decide which projects supporting the rollout it pays for.',
+      summary: 'When outreach money is handed out, residents of the neighborhoods the money is meant for decide which projects supporting the rollout it pays for.',
       anchor: 'vaccine equity push',
       where: 'City and county governments that received American Rescue Plan community engagement funds.',
       when: paragraph(`
-        June to July 2021, when the outreach awards were made. The federal government gave $323
+        June to July 2021, when the outreach money was handed out. The federal government gave $323
         million to 150 organizations for vaccination outreach and $250 million to 73 local
-        governments for health literacy work. The rules for who decides are set once, at the award.
+        governments for health literacy work. The rules for who decides are set once, when the
+        money is handed out.
       `),
       description: paragraph(`
         Residents of the neighborhoods the money is meant to reach decide how a share of publicly
@@ -1844,15 +1845,15 @@ export default spineData({
     }),
 
     spineProposal({
-      name: 'When vaccine outreach funds are awarded, residents choose which results are tracked and published, and public funds pay for residents to gather their own data.',
+      name: 'As vaccine outreach money is spent, residents choose which results are tracked and published, and public funds pay for residents to gather their own data.',
       bold: ['residents choose which results are tracked and published'],
       method: 'Participatory Monitoring and Evaluation',
       summary: 'Residents decide which results of the rollout are tracked and published, by the government or an independent group, and public funds pay for residents to gather their own data.',
       anchor: 'By July 1, the US had administered',
       where: 'Any level of government that funds vaccine outreach, from a city to the federal government.',
       when: paragraph(`
-        June to July 2021, when the outreach awards were made. Award terms are set once, so that is
-        where an evaluation duty can attach without new legal authority.
+        From July 2021, as the outreach money was spent. The duty to track results is written into
+        the terms of the money when it is handed out, so it needs no new legal authority.
       `),
       description: paragraph(`
         Residents decide which measures of the vaccine rollout are tracked and published. The
