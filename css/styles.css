@@ -303,7 +303,7 @@ body[data-view="chain"] #ctrl .fl,
 @media (min-width: 901px) {
   body:has(#ch-wrap.show:not(.no-right)) {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) min(38%, 430px);
+    grid-template-columns: minmax(0, 1fr) min(38%, 340px);
     grid-template-rows: auto minmax(0, 1fr);
   }
   body:has(#ch-wrap.show:not(.no-right)) #ch-wrap { display: contents; }
@@ -1124,7 +1124,7 @@ body[data-view="chain"] #ctrl .fl,
 #ch-right {
   flex: 1 1 36%;
   min-width: 0;
-  max-width: 430px;
+  max-width: 340px;
   display: flex;
   flex-direction: column;
   background: #fff;
@@ -1561,24 +1561,14 @@ body[data-view="chain"] #ctrl .fl,
 .sp-propbox-kick { display: block; font-size: .58rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: #601898; margin-bottom: 2px; }
 /* Purple is confined to the header band and the dashed edge, so the body reads
    as a plain record and the green effect links do not have to fight a tint. */
-.sp-prop-head { padding: 8px 11px; font-weight: 600; background: #f4edfc; border-bottom: 1px solid #e6dcf3; border-radius: 6px 6px 0 0; }
-.sp-prop-title { display: block; font-size: .78rem; line-height: 1.3; }
-.sp-prop-fields { padding: 9px 11px 10px; font-size: .72rem; line-height: 1.4; color: #4a4437; }
-.sp-prop-sum { color: #4a4437; }
+.sp-prop-head { padding: 8px 11px; background: #f4edfc; }
+.sp-prop-title { display: block; font-size: .78rem; font-weight: 700; line-height: 1.3; }
 .sp-edge-allude { stroke: #601898; stroke-width: 1.8; fill: none; opacity: .85; }
 .sp-edge-allude-tie { stroke: #601898; stroke-width: 1.6; fill: none; stroke-dasharray: 2.5 4; opacity: .8; }
 /* The solid bracket: a proposal sits beside this stretch of the record and
    asserts no link to one event. */
 .sp-edge-near { stroke: #601898; stroke-width: 2; fill: none; stroke-linecap: round; stroke-linejoin: round; opacity: .55; }
 .sp-edge-near.on { opacity: 1; stroke-width: 2.6; }
-
-/* Fields inside the proposal card. */
-/* Field labels are gray: the one purple caps label on the card names the card
-   itself, and repeating that treatment on its fields flattens the hierarchy. */
-.sp-eff-kick { font-size: .55rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: #8a8377; margin-bottom: 2px; }
-.sp-eff-kick + .sp-eff-kick, .sp-eff-mech + .sp-eff-kick, .sp-prop-sum + .sp-eff-kick { margin-top: 9px; }
-.sp-eff-mech { font-weight: 400; }
-.sp-eff-none { font-size: .68rem; color: #5c5468; }
 
 /* The one outcome box of a proposal: green, because it is the same kind of
    thing the Measured Outcome lane records. Every one of these boxes is a

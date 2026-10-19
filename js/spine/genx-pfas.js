@@ -468,35 +468,44 @@ export default spineData({
 
   proposals: [
     spineProposal({
-      name: 'Protected channels for workers to report chemical hazards.',
+      name: 'As soon as workers suspect a chemical hazard, local advocates give them a protected, low-cost way to report it to the EPA and support them through the process.',
       method: 'Protected Worker Disclosure',
-      summary: 'Workers report chemical hazards through a protected channel at the local, state, or federal level, and the body that receives the report must act.',
+      summary: 'Local advocates, similar to ombudspeople, give workers a low-cost, protected way to report suspected environmental violations or hazards to the Environmental Protection Agency and other agencies, and support them afterward.',
       anchor: 'continued exposure is not tolerable',
-      where: 'Congress and the Environmental Protection Agency, with protections against retaliation.',
+      where: 'Local advocates in communities near chemical plants. Congress writes their protections against retaliation, and the Environmental Protection Agency\'s duty to respond, into law.',
       when: paragraph(`
         1980, when DuPont had confirmed high PFOA levels in its workers and its Fayetteville plant
         began discharging into the Cape Fear River. The earliest point to act was 1961.
       `),
       description: paragraph(`
-        Workers at chemical plants get protected ways to report hazards they see on the job. A
-        federal channel runs to the Environmental Protection Agency (EPA). It protects workers from
-        retaliation, and the agency must log, investigate, and publish what it receives. State and
-        local channels sit beside it for workers who distrust a distant regulator. They work like a
-        university ombuds office next to the formal complaints office, and they pass reports to a
-        body that can act. Workers keep any in-house route their company offers. Any worker can file
-        at any time, and every report requires a response. Congress writes the federal duty into the
-        chemicals law. Aviation has run such a channel since 1976. The Federal Aviation
-        Administration asked NASA to take confidential safety reports because workers would not
+        Local advocates give chemical plant workers a low-cost, protected way to report suspected
+        environmental violations or hazards. They work much like ombudspeople. An advocate hears the
+        worker in confidence and helps put the report in order. The advocate then files it with the
+        Environmental Protection Agency (EPA) or another agency that can act. The advocate stays
+        with the worker through the agency's follow-up and any retaliation that comes after. This
+        makes the EPA reachable for workers who would rarely contact a federal agency alone,
+        especially blue-collar workers. The agency must log, investigate, and answer every report.
+        Congress writes the protections against retaliation and the duty to respond into the
+        chemicals law. Workers keep any in-house route their company offers. Aviation has run a
+        similar channel since 1976. The Federal Aviation Administration asked the National
+        Aeronautics and Space Administration to take confidential safety reports. Workers would not
         trust a system run by the regulator that enforces rules against them. By 1980, DuPont had
         found high levels of perfluorooctanoic acid (PFOA) in its own workers and concluded
         internally that continued exposure was not tolerable. That same year its Fayetteville plant
-        began discharging into the Cape Fear River. Government auditors later found the federal
-        complaint channel weak, and the record does not show whether any worker used it. DuPont's
-        1981 data reached EPA only in 2001, through a lawsuit. The company was already required to
-        report that data and did not. A protected worker channel gives regulators a second route
-        when a company's own reporting duty fails. Regulators would then learn of chemical hazards
-        from workers years before a lawsuit or a newspaper exposes them. The aim is that hazards
-        come to light before more residents are exposed.
+        began discharging into the Cape Fear River. Workers had reasons to doubt the EPA. People
+        move between chemical companies, their trade groups, and the agency that regulates them. In
+        2025, two officials with ties to the chemical industry's main trade group rejoined the EPA.
+        Oversight under the chemicals law was also weak in its early years. Four years after the law
+        passed, government auditors found the public and the environment little better protected.
+        By 2005, the EPA had required testing for fewer than 200 of the 62,000 chemicals in use when
+        its reviews began. When the EPA asked DuPont for its PFOA health data in 1997, the company
+        left out its own 1981 evidence that the chemical passed from mothers to their unborn
+        children. The EPA did not know of that evidence until 2001, when a lawyer who had sued DuPont
+        sent the agency the company's documents. The company was already required to report that
+        data and did not. Government auditors later found the federal complaint channel for workers
+        weak, and the record does not show whether any worker used it. A protected worker channel
+        gives regulators a second route when a company's own reporting duty fails. The aim is that
+        chemical hazards come to light years sooner, before more residents are exposed.
       `),
       outcome: outcome({
         text: 'Chemical hazards come to light years sooner, before more residents are exposed.',
@@ -532,25 +541,6 @@ export default spineData({
                 grade: 'moderate',
                 quote: 'We find that fraud detection does not rely on standard corporate governance actors (investors, SEC, and auditors), but rather takes a village, including several nontraditional players (employees, media, and industry regulators).',
                 sources: [source('Dyck, Morse and Zingales 2010, Journal of Finance', 'https://doi.org/10.1111/j.1540-6261.2010.01614.x')]
-              }),
-              evidence({
-                headline: 'When the Environmental Protection Agency offered reduced penalties to companies that came forward, 89 companies handed over more than 11,000 chemical risk studies they had never reported.',
-                finding: paragraph(`
-                  The chemicals statute requires companies to tell the Environmental Protection Agency
-                  of information that reasonably supports the conclusion that a chemical presents a
-                  “substantial risk of injury to health or the environment”. The agency found “that
-                  some regulated industries were not submitting information on chemical hazards and
-                  exposures”, and in 1991 it offered reduced penalties to companies that audited their
-                  own files. When the program closed in 1997, the agency reported that it “has received
-                  over 11,000 previously unreported studies or reports from 89 companies on chemicals
-                  that may present a substantial risk of injury to health or the environment”, about 80
-                  percent of all the reports the duty had ever produced. The record shows how much
-                  companies had held back, not how long each study had been held.
-                `),
-                grade: 'strong',
-                quote: 'Under the TSCA section 8(e) CAP, the EPA has received over 11,000 previously unreported studies or reports from 89 companies on chemicals that may present a substantial risk of injury to health or the environment.',
-                caveat: 'An official record of what companies submitted under an amnesty. It cannot show what the studies contained or how long they had been withheld.',
-                sources: [source('US Environmental Protection Agency, news release of April 25, 1997', 'https://www.epa.gov/archive/epapages/newsroom_archive/newsreleases/1babc3a8f4a802c58525648400594f58.html')]
               })
             ],
             counterEvidence: [
@@ -591,24 +581,6 @@ export default spineData({
                 grade: 'strong',
                 quote: 'We find that increases in UI benefits increase the number of facility-level employee workplace safety complaints filed with the regulator. Furthermore, UI benefit increases also result in more violations and more penalties.',
                 sources: [source('Heese and Perez-Cavazos 2021, Journal of Accounting and Economics', 'https://doi.org/10.1016/j.jacceco.2020.101385')]
-              })
-            ],
-            counterEvidence: [
-              evidence({
-                headline: 'After Congress wrote new protections for employees following the accounting scandals, employees did not bring more frauds to light.',
-                finding: paragraph(`
-                  The same census of corporate frauds compared who exposed them before and after the
-                  Sarbanes-Oxley Act (SOX). The authors write that “by contrast, we do not find any
-                  evidence that the protection offered to employees by Section 303 of SOX has any
-                  effect”. Employees' share of detections fell from 18 to 13 percent, while auditors'
-                  share rose. Several reforms took effect at once, and the authors say their separate
-                  effects cannot be told apart. Naming
-                  yourself stayed costly: “in 82% of the cases, the whistleblower was fired, quit under
-                  duress, or had significantly altered responsibilities”.
-                `),
-                grade: 'moderate',
-                quote: 'By contrast, we do not find any evidence that the protection offered to employees by Section 303 of SOX has any effect.',
-                sources: [source('Dyck, Morse and Zingales 2010, Journal of Finance', 'https://doi.org/10.1111/j.1540-6261.2010.01614.x')]
               }),
               evidence({
                 headline: 'Laws meant to encourage federal workers to report wrongdoing were followed by more reporting and by more retaliation.',
@@ -622,41 +594,11 @@ export default spineData({
                 `),
                 grade: 'moderate',
                 quote: 'Laws intended to encourage whistle-blowing seem to have two desired effects: to reduce the incidence of perceived wrongdoing and to increase the likelihood of whistle-blowing. However, two unintended effects are also observed: perceived retaliation increased and whistle-blowers increasingly sought anonymity.',
+                caveat: 'Over the same years, workers also saw more retaliation, and more of those who reported tried to stay anonymous.',
                 sources: [source('Miceli, Rehg, Near and Ryan 1999, Work and Occupations', 'https://doi.org/10.1177/0730888499026001007')]
-              }),
-              evidence({
-                headline: 'Whistleblowers were punished most when what they reported mattered most, and no way of reporting protected them.',
-                finding: paragraph(`
-                  A nationwide study of whistleblowers and of employees who saw wrongdoing and stayed
-                  silent found that “whistle-blowers suffer severe retaliation from management,
-                  especially when their information proves significant” and that “no special method of
-                  disclosure or personal characteristics can insulate the whistle-blower from such
-                  retaliation”. The people surveyed had already identified themselves as
-                  whistleblowers, so the study cannot give the rate of retaliation among all workers
-                  who see wrongdoing.
-                `),
-                grade: 'moderate',
-                quote: 'whistle-blowers suffer severe retaliation from management, especially when their information proves significant; and (d) no special method of disclosure or personal characteristics can insulate the whistle-blower from such retaliation.',
-                sources: [source('Rothschild and Miethe 1999, Work and Occupations', 'https://doi.org/10.1177/0730888499026001006')]
-              }),
-              evidence({
-                headline: 'The government\'s auditors found that the federal program for workers who report hazards could not be shown to work as intended.',
-                finding: paragraph(`
-                  The Government Accountability Office audited the Occupational Safety and Health
-                  Administration whistleblower program in 2010. “OSHA lacks sufficient internal
-                  controls to ensure that the whistleblower program operates as intended due to
-                  several factors, including inconsistent program operations, inadequate tracking of
-                  program expenses, and insufficient performance monitoring. Program operations vary
-                  by region in significant ways, as exemplified by differing standards used to screen
-                  out complaints.” The program then handled complaints under 18 statutes, the
-                  chemicals statute among them, so this is the channel a chemical plant worker would
-                  have had to use.
-                `),
-                grade: 'strong',
-                quote: 'OSHA lacks sufficient internal controls to ensure that the whistleblower program operates as intended due to several factors, including inconsistent program operations, inadequate tracking of program expenses, and insufficient performance monitoring.',
-                caveat: 'An official record of what the audit found. It cannot show whether workers used the channel, or that a better channel would surface hazards.',
-                sources: [source('US Government Accountability Office, GAO-10-722', 'https://www.gao.gov/products/gao-10-722')]
               })
+            ],
+            counterEvidence: [
             ]
           }),
           claim({
@@ -721,6 +663,124 @@ export default spineData({
                 grade: 'moderate',
                 quote: 'Thus, our results suggest that an externally administered anonymous hotline may not increase fraud reporting.',
                 sources: [source('Kaplan, Pany, Samuels and Zhang 2009, Auditing: A Journal of Practice and Theory', 'https://doi.org/10.2308/aud.2009.28.2.273')]
+              }),
+              evidence({
+                headline: 'Whistleblowers were punished most when what they reported mattered most, and no way of reporting protected them.',
+                finding: paragraph(`
+                  A nationwide study of whistleblowers and of employees who saw wrongdoing and stayed
+                  silent found that “whistle-blowers suffer severe retaliation from management,
+                  especially when their information proves significant” and that “no special method of
+                  disclosure or personal characteristics can insulate the whistle-blower from such
+                  retaliation”. The people surveyed had already identified themselves as
+                  whistleblowers, so the study cannot give the rate of retaliation among all workers
+                  who see wrongdoing.
+                `),
+                grade: 'moderate',
+                quote: 'whistle-blowers suffer severe retaliation from management, especially when their information proves significant; and (d) no special method of disclosure or personal characteristics can insulate the whistle-blower from such retaliation.',
+                sources: [source('Rothschild and Miethe 1999, Work and Occupations', 'https://doi.org/10.1177/0730888499026001006')]
+              })
+            ]
+          }),
+          claim({
+            text: 'Workers report hazards more often when someone outside both the company and the agency helps them through it.',
+            evidence: [
+              evidence({
+                headline: 'Workplaces where a union barely won its election drew more worker-triggered safety inspections, more cited violations, and larger fines than workplaces where it barely lost.',
+                finding: paragraph(`
+                  Sojourner and Yang compared workplaces where unions narrowly won or narrowly lost
+                  representation elections, using Occupational Safety and Health Administration (OSHA)
+                  records since 1985. Winning raised inspections, and “the effect of certification on
+                  inspection rate operates completely through complaint-initiated inspections”. The
+                  union sits outside both the employer and the regulator, and it raised the rate at which
+                  workers' complaints reached the regulator. The effect came mostly from very close
+                  elections, and injuries did not measurably fall.
+                `),
+                grade: 'strong',
+                quote: 'Evidence shows positive effects of union certification on establishment\'s rate of OSHA inspection, the share of inspections carried out in the presence of a union representative, violations cited, and penalties assessed.',
+                sources: [source('Sojourner and Yang 2022, ILR Review', 'https://doi.org/10.1177/0019793920953089')]
+              }),
+              evidence({
+                headline: 'Within two years of their workers unionizing, nursing homes became far more likely to send their injury records to the federal safety regulator.',
+                finding: paragraph(`
+                  Dean and colleagues compared nursing homes before and after unionizing with homes that
+                  stayed nonunion, from 2016 to 2021. Only 40 percent of nursing homes filed the injury
+                  data the law requires. “Two years after unionization, nursing homes were 31.1
+                  percentage points more likely than nonunion nursing homes to report workplace injury and
+                  illness data to OSHA.” The filing is the employer's own, so the study measures hazard
+                  data reaching the regulator. It does not track individual worker complaints.
+                `),
+                grade: 'moderate',
+                quote: 'we found that two years after unionization, nursing homes were 31.1 percentage points more likely than nonunion nursing homes to report workplace injury and illness data to OSHA.',
+                sources: [source('Dean, McCallum, Venkataramani and Michaels 2023, Health Affairs', 'https://doi.org/10.1377/hlthaff.2023.00255')]
+              }),
+              evidence({
+                headline: 'Injured union members were much more likely than similar nonunion workers to receive workers\' compensation, partly because union representatives told them how to file.',
+                finding: paragraph(`
+                  Hirsch, Macpherson and DuMond followed workers in national survey data from 1977 to
+                  1992. “Union members were substantially more likely to receive workers' compensation
+                  benefits than were similar nonunion workers.” The authors link the gap to workers
+                  getting “information from their union representatives” and fearing penalties less.
+                `),
+                grade: 'moderate',
+                quote: 'Union members were substantially more likely to receive workers\' compensation benefits than were similar nonunion workers ... The authors suggest that differences in union, as compared to nonunion, workplaces arise because workers are provided with information from their union representatives, supervisors are more likely to inform injured workers about workers\' compensation filing procedures and less likely to discourage workers from filing claims, workers are less likely to fear being penalized for filing claims',
+                sources: [source('Hirsch, Macpherson and DuMond 1997, ILR Review', 'https://doi.org/10.1177/001979399705000202')]
+              }),
+              evidence({
+                headline: 'Unionized coal mines had fewer deaths and serious injuries but recorded more minor injuries, a sign that union miners reported more of them.',
+                finding: paragraph(`
+                  Morantz studied underground coal mines from 1993 to 2010. Unionization went with “a 14
+                  to 32% drop in traumatic injuries and a 29 to 83% drop in fatalities.” It also went with
+                  more recorded minor injuries, “suggesting that injury reporting practices differ between
+                  union and nonunion mines.”
+                `),
+                grade: 'moderate',
+                quote: 'Overall, unionization is associated with a 14 to 32% drop in traumatic injuries and a 29 to 83% drop in fatalities. Yet unionization also predicts higher total and nontraumatic injuries, suggesting that injury reporting practices differ between union and nonunion mines.',
+                sources: [source('Morantz 2013, ILR Review', 'https://doi.org/10.1177/001979391306600104')]
+              }),
+              evidence({
+                headline: 'State inspectors found more problems in nursing homes when an independent residents\' ombudsman attended the inspection.',
+                finding: paragraph(`
+                  Berish, Bornstein and Bowblis studied 95,237 inspections of 14,996 nursing homes from
+                  2009 to 2015. When the long-term care ombudsman was present, inspectors cited more
+                  deficiencies, “a 3.9% and 5.9% increase.” The authors write that ombudsmen “may bring
+                  issues to the attention of state surveyors.” They checked that the result did not come
+                  only from ombudsmen going to worse homes.
+                `),
+                grade: 'moderate',
+                quote: 'Regression analysis found ombudsman presence was associated with a 0.2 increase in the number of deficiencies and 2.2-point increase in deficiency score. These correspond to a 3.9% and 5.9% increase, respectively. ... By being present at surveys, ombudsmen may bring issues to the attention of state surveyors, resulting in worse deficiency outcomes during annual surveys.',
+                sources: [source('Berish, Bornstein and Bowblis 2019, Journal of the American Medical Directors Association', 'https://doi.org/10.1016/j.jamda.2019.02.006')]
+              }),
+              evidence({
+                headline: 'Older adults offered hands-on help applying for food benefits enrolled at three times the rate of those who got no contact.',
+                finding: paragraph(`
+                  Finkelstein and Notowidigdo randomly assigned 30,000 likely eligible older adults to no
+                  contact, information only, or information plus help applying. “Only 6% of the control
+                  group enrolls in SNAP over the next nine months, compared to 11% of the Information Only
+                  group and 18% of the Information Plus Assistance group.” Help with the filing raised
+                  take-up beyond what information alone did.
+                `),
+                grade: 'strong',
+                quote: 'Only 6% of the control group enrolls in SNAP over the next nine months, compared to 11% of the Information Only group and 18% of the Information Plus Assistance group.',
+                caveat: 'The help was with a food benefit application. No hazard report was involved.',
+                sources: [source('Finkelstein and Notowidigdo 2019, Quarterly Journal of Economics', 'https://doi.org/10.1093/qje/qjz013')]
+              })
+            ],
+            counterEvidence: [
+              evidence({
+                headline: 'When outside buyers forced Bangladeshi garment factories to set up worker safety committees, workers gained a voice only where managers were already good, and the worst factories did not improve.',
+                finding: paragraph(`
+                  Boudreau worked with 29 multinational apparel buyers to enforce a legal mandate for
+                  worker safety committees at 84 supplier factories, chosen at random for enforcement. The
+                  stronger committees brought small gains in safety. But “the effects on compliance,
+                  safety, and voice were largest for factories with better managerial practices. Factories
+                  with worse practices did not improve, and workers in these factories reported lower job
+                  satisfaction.” The outside party backed a committee inside the factory rather than
+                  helping workers report to a regulator.
+                `),
+                grade: 'strong',
+                quote: 'The effects on compliance, safety, and voice were largest for factories with better managerial practices. Factories with worse practices did not improve, and workers in these factories reported lower job satisfaction',
+                caveat: 'The committees made factories somewhat safer overall.',
+                sources: [source('Boudreau 2024, Econometrica', 'https://doi.org/10.3982/ECTA19408')]
               })
             ]
           }),
@@ -812,6 +872,51 @@ export default spineData({
                 grade: 'strong',
                 quote: 'Since 1999-2000, PFOS concentrations showed a significant downward trend, because of discontinuing industrial production of PFOS, but PFNA concentrations showed a significant upward trend.',
                 sources: [source('Kato, Wong, Jia, Kuklenyik and Calafat 2011, Environmental Science and Technology', 'https://doi.org/10.1021/es1043613')]
+              }),
+              evidence({
+                headline: 'Arsenic in people\'s bodies fell after the federal limit took effect, and only among those drinking public water.',
+                finding: paragraph(`
+                  Researchers compared people on public water with private well users, whom the rule
+                  does not cover, in a repeated national health survey. Urinary arsenic fell 17 percent
+                  over a decade among public water users and did not change among well water users.
+                  The authors conclude that “the decline
+                  in urinary arsenic among public water but not private well users in NHANES 2003-2014
+                  indicates that the implementation of the current MCL has reduced arsenic exposure in
+                  the US population”.
+                `),
+                grade: 'strong',
+                quote: 'The decline in urinary arsenic among public water but not private well users in NHANES 2003-2014 indicates that the implementation of the current MCL has reduced arsenic exposure in the US population.',
+                sources: [source('Nigra et al. 2017, The Lancet Public Health', 'https://doi.org/10.1016/S2468-2667(17)30195-0')]
+              }),
+              evidence({
+                headline: 'Levels of PFAS chemicals in New Jersey tap water fell after the state moved to set limits for them.',
+                finding: paragraph(`
+                  New Jersey's drinking water institute recommended limits for three PFAS compounds
+                  between 2015 and 2018. Comparing quarterly test results from 47 water systems before
+                  and after, the researchers found “a 55% (95% CI: 11%, 77%) and 50% (95% CI: 14%, 71%)
+                  decline in PFOA and PFNA levels, respectively, following recommendation of MCLs”.
+                  There is no comparison group, and the authors note voluntary reductions and industry
+                  phase-outs as possible explanations.
+                `),
+                grade: 'moderate',
+                quote: 'There was a 55% (95% CI: 11%, 77%) and 50% (95% CI: 14%, 71%) decline in PFOA and PFNA levels, respectively, following recommendation of MCLs.',
+                sources: [source('Iyer et al. 2026, Environment International', 'https://doi.org/10.1016/j.envint.2026.110179')]
+              }),
+              evidence({
+                headline: 'Flint children\'s blood lead fell back to where it had been once the city switched its water back.',
+                finding: paragraph(`
+                  Zahran, McElmurry and Sadler used more than 21,000 geocoded, time-stamped blood lead
+                  tests from Genesee County children. They divided the Flint water crisis into four phases
+                  and used quasi-experimental models to estimate how water lead moved children's blood
+                  lead in each. The switch to Flint River water raised blood lead. After boil water
+                  advisories, levels fell about halfway back as households avoided tap water. Once the
+                  city returned to its earlier water source, children's blood lead returned to where it
+                  was before the crisis. Lead leaves the blood within weeks, so recovery would be slower
+                  for a persistent chemical such as PFAS.
+                `),
+                grade: 'strong',
+                quote: 'Finally, the return to the baseline source water (Phase D) returned child BLLs to pre-FWC levels further implicating water-lead exposure as a causal source of child BLLs throughout the FWC.',
+                sources: [source('Zahran, McElmurry and Sadler 2017, Environmental Research', 'https://doi.org/10.1016/j.envres.2017.05.028')]
               })
             ],
             counterEvidence: [
@@ -845,18 +950,37 @@ export default spineData({
                 grade: 'moderate',
                 quote: 'Due to greater restrictions on PFOS globally in recent years, the production and use of F-53B correspondingly increased, consequently causing more emissions into the environment.',
                 sources: [source('He, Lv, Li, Liu, Liu and Han 2022, Environment International', 'https://doi.org/10.1016/j.envint.2022.107108')]
+              }),
+              evidence({
+                headline: 'After the arsenic limit took effect, small groundwater systems and those serving Hispanic communities were more likely to keep exceeding it.',
+                finding: paragraph(`
+                  Comparing monitoring records from 36,406 community water systems before and after the
+                  federal arsenic limit took effect, Nigra and colleagues found arsenic fell nationwide, but
+                  “CWSs reliant on groundwater, serving smaller populations, located in the Southwest, and
+                  serving Hispanic communities were more likely to continue exceeding the arsenic MCL, raising
+                  environmental justice concerns”. The records show who stayed out of compliance. They do
+                  not show why.
+                `),
+                grade: 'strong',
+                quote: 'CWSs reliant on groundwater, serving smaller populations, located in the Southwest, and serving Hispanic communities were more likely to continue exceeding the arsenic MCL, raising environmental justice concerns.',
+                sources: [source('Nigra et al. 2020, Environmental Health Perspectives', 'https://doi.org/10.1289/EHP7313')]
               })
             ]
           })
         ]
       }),
-      sources: []
+      sources: [
+        source('Environmental Health News, January 23, 2025, summarizing the New York Times', 'https://www.ehn.org/two-trump-era-chemical-industry-allies-return-to-e-p-a-sparking-concerns-over-weakened-rules'),
+        source('US General Accounting Office, CED-81-1, 1980', 'https://www.gao.gov/products/CED-81-1'),
+        source('US Government Accountability Office, GAO-05-458, 2005', 'https://www.govinfo.gov/content/pkg/GAOREPORTS-GAO-05-458/html/GAOREPORTS-GAO-05-458.htm'),
+        source('US Environmental Protection Agency, DuPont PFOA settlement memo to the Environmental Appeals Board, 2005', 'https://www.epa.gov/sites/production/files/2013-08/documents/eabmemodupontpfoasettlement121405.pdf')
+      ]
     }),
 
     spineProposal({
-      name: 'Downstream residents direct independent testing whenever a plant\'s discharge permit is issued or renewed.',
+      name: 'When a chemical is approved for release or a discharge permit is issued, downstream residents are told, and they direct independent testing of their water, including for chemicals with no set limit.',
       method: 'Community Review and Monitoring Body',
-      summary: 'When a plant applies for or renews a discharge permit, downstream residents form a body that sets the monitoring plan and directs an independent lab.',
+      summary: 'When a chemical is approved for manufacture or release, or a plant applies for or renews a discharge permit, downstream residents are notified. They form a body that directs independent testing, including for pollutants with no set limit.',
       anchor: 'Discharge continued largely unmonitored',
       where: 'The state permit agency, with the body drawn from downstream communities. The water utility and the county health department sit on the body so it can see confidential filings.',
       when: paragraph(`
@@ -866,12 +990,19 @@ export default spineData({
       `),
       description: paragraph(`
         Downstream residents, the water utility, and the county health department form a review
-        body each time a plant applies for or renews a discharge permit. The plant must list every
-        chemical it releases, including byproducts. The body sets the testing plan, and its
-        conditions become permit conditions. An independent lab tests the discharge for every listed
-        chemical and screens for unlisted ones. The plant pays for the tests, but the body chooses
-        the lab and receives every result. The state agency publishes each result. The body can veto
-        the permit if testing finds a chemical the plant did not list.
+        body each time a plant applies for or renews a discharge permit. Residents are also notified
+        whenever an agency approves a chemical for manufacture or release upstream. The plant must
+        list every chemical it releases, including byproducts. The body sets the testing plan, and
+        its conditions become permit conditions. An independent lab tests the discharge for every
+        listed chemical and screens for unlisted ones. Its testing covers pollutants with no set
+        limit as well as regulated ones. The plant pays for the tests, but the body chooses the lab
+        and receives every result. The state agency publishes each result. The body can veto the
+        permit if testing finds a chemical the plant did not list. No one had to approve DuPont's
+        releases of perfluorooctanoic acid (PFOA). The chemicals law accepted PFOA without review
+        because it was already in use when the law passed. The Environmental Protection Agency (EPA)
+        approved GenX as a replacement in 2009. Its own regional inspectors did not learn of that
+        approval until 2017, according to the EPA Inspector General. North Carolina later said
+        DuPont's permit applications for the Fayetteville plant never named GenX.
       `),
       outcome: outcome({
         text: 'Plants stay within their discharge limits, so less pollution reaches residents\' drinking water.',
@@ -1110,6 +1241,24 @@ export default spineData({
                 grade: 'strong',
                 quote: 'Disseminating results from monitoring to local and provincial governments improved water quality, but disseminating results to the public did not have detectable effects on water quality or residents\' pursuit of remediation through official and volunteer channels.',
                 sources: [source('Buntaine, Zhang and Hunnicutt 2021, Proceedings of the National Academy of Sciences', 'https://doi.org/10.1073/pnas.2015175118')]
+              }),
+              evidence({
+                headline: 'In Flint, the state switched the water back within weeks of residents\' and doctors\' lead results, after more than a year of ignored complaints.',
+                finding: paragraph(`
+                  Flint residents reported red water, rashes, and hair loss from April 2014, and the
+                  authors write that “these warnings were either ignored or in some cases covered up”. In
+                  summer 2015, citizen sampling with Virginia Tech found high lead, and a hospital team
+                  then showed rising lead in children's blood. The authors write that this “led local
+                  medical authorities and, eventually, the State of Michigan to declare a water health
+                  advisory on October 1, 2015 and to switch back to Lake Huron water”. Complaints alone
+                  did not move officials, but measured results that became public did. The account comes
+                  from the university team that ran the sampling. The system they checked was a city
+                  water utility.
+                `),
+                grade: 'weak',
+                quote: 'That result, coupled with a later independent analysis by researchers at Hurley Medical Center demonstrating rising blood lead in some Flint children, led local medical authorities and, eventually, the State of Michigan to declare a water health advisory on October 1, 2015 and to switch back to Lake Huron water supplied by DWSD on October 15, 2015',
+                caveat: 'One case, told by people who took part. The journal later attached an editor\'s note to the article.',
+                sources: [source('Roy and Edwards 2019, Citizen Science: Theory and Practice', 'https://doi.org/10.5334/cstp.154')]
               })
             ],
             counterEvidence: [
@@ -1254,18 +1403,23 @@ export default spineData({
           })
         ]
       }),
-      sources: []
+      sources: [
+        source('US Environmental Protection Agency, About the TSCA Chemical Substance Inventory', 'https://www.epa.gov/tsca-inventory/about-tsca-chemical-substance-inventory'),
+        source('US Environmental Protection Agency Office of Inspector General, Report 20-E-0177, 2020', 'https://www.epa.gov/sites/production/files/2020-05/documents/_epaoig_20200528-20-e-0177_1.pdf'),
+        source('North Carolina Department of Environmental Quality, September 5, 2017', 'https://deq.nc.gov/news/press-releases/2017/09/05/state-orders-chemours-stop-chemical-releases-begins-legal-action-and')
+      ]
     }),
 
     spineProposal({
       name: 'When any certified lab finds an unregulated chemical in tap water above a health screening level, the state tells every affected household and residents choose where to test next.',
       method: 'Citizen Science',
       summary: 'When a regulator receives a peer-reviewed finding of a chemical in drinking water, it must tell the public within a day, and residents choose where follow-up testing happens.',
-      anchor: 'stayed inside agencies and journals',
+      anchor: 'mean GenX concentrations of 631',
       where: 'Congress writes the duty into federal law. The Environmental Protection Agency carries it out, and the North Carolina Department of Environmental Quality acts as the backup.',
       when: paragraph(`
-        November 2016, when the study measuring GenX in drinking water reached the state. EPA's own
-        researchers had detected GenX in the river in 2012.
+        November 2016, when a published study showed GenX in the region's drinking water, seven
+        months before the public learned of it. EPA's own researchers had detected GenX in the river
+        in 2012.
       `),
       description: paragraph(`
         The state drinking water agency must tell every household a water system serves when a
@@ -1427,26 +1581,36 @@ export default spineData({
                 grade: 'moderate',
                 quote: 'Exploiting this state-level variation in disclosure deadlines, we find that, when facing a deadline, firms disclose a data breach 90 percent faster but are 58 percent less likely to disclose breach details.',
                 sources: [source('Ashraf, Jiang and Wang 2022, Journal of Finance and Data Science', 'https://doi.org/10.1016/j.jfds.2022.08.001')]
+              }),
+              evidence({
+                headline: 'When Congress gave company insiders two days to report their stock sales, the typical wait for that news fell from more than three weeks to two days.',
+                finding: paragraph(`
+                  A 2002 federal law cut the deadline for company insiders to report their trades from the
+                  month after the trade to two business days. Franzen, Li, Vargus and Li compared filings
+                  for restricted stock sales before and after the change. They write that the law “reduced
+                  the Form 4 disclosure delay for restricted stock transactions from 24days in the pre-SOX
+                  period to the mandated 2days in the post-SOX period.” The setting is stock trading
+                  rather than public health.
+                `),
+                grade: 'moderate',
+                quote: 'We confirm that mandatory filing requirements under Section 403 of SOX reduced the Form 4 disclosure delay for restricted stock transactions from 24days in the pre-SOX period to the mandated 2days in the post-SOX period.',
+                caveat: 'A related filing with no new deadline became less timely.',
+                sources: [source('Franzen, Li, Vargus and Li 2013, Research in Accounting Regulation', 'https://doi.org/10.1016/j.racreg.2012.11.011')]
               })
             ],
             counterEvidence: [
               evidence({
-                headline: 'Under a rule to notify customers within 30 days, about three in ten water systems\' notices of bacteria went out more than six months late.',
+                headline: 'Under a federal law that gives drug and device trials one year to post their results, most trials missed the deadline.',
                 finding: paragraph(`
-                  Monthly coliform bacteria violations require water systems to notify the public
-                  within 30 days. In data on when systems actually sent those notices, Marcus found
-                  that most went out within the first week, but “this distribution has a long right
-                  tail with about 30 percent of public notifications occurring more than 6 months after
-                  the determination date.” The deadline was in place and a large share of notices still
-                  came months late. The paper does not say why those notices were late or whether
-                  regulators acted on the delays.
+                  DeVito, Bacon and Goldacre tracked every trial due to post results under the federal
+                  rule over 18 months. “4209 trials were due to report results; 1722 (40·9%; 95% CI
+                  39·4-42·2) did so within the 1-year deadline.” Compliance did not improve over the
+                  period. The authors put the poor compliance down to weak enforcement.
                 `),
                 grade: 'moderate',
-                quote: 'However, this distribution has a long right tail with about 30 percent of public notifications occurring more than 6 months after the determination date.',
-                sources: [
-                  source('Marcus 2022, Review of Economics and Statistics', 'https://doi.org/10.1162/rest_a_01006'),
-                  source('Marcus, author\'s version, November 2020', 'https://michellemmarcus.com/wp-content/uploads/2020/12/marcus_testingthewater.pdf')
-                ]
+                quote: '4209 trials were due to report results; 1722 (40·9%; 95% CI 39·4-42·2) did so within the 1-year deadline.',
+                caveat: 'The study has no comparison group without a deadline, so it cannot say the deadline had no effect.',
+                sources: [source('DeVito, Bacon and Goldacre 2020, The Lancet', 'https://doi.org/10.1016/S0140-6736(19)33220-9')]
               })
             ]
           }),
@@ -1474,9 +1638,51 @@ export default spineData({
                   source('Marcus 2022, Review of Economics and Statistics', 'https://doi.org/10.1162/rest_a_01006'),
                   source('Marcus, author\'s version, November 2020', 'https://michellemmarcus.com/wp-content/uploads/2020/12/marcus_testingthewater.pdf')
                 ]
+              }),
+              evidence({
+                headline: 'Across studies of boil water notices, people followed the advice more when the notice reached them quickly.',
+                finding: paragraph(`
+                  Vedachalam, Spotte-Smith and Riha pooled 11 studies of how residents responded to boil
+                  water notices. Typical effective compliance was about 68 percent. The authors report
+                  that “timeliness of receipt, content of the advisory, and number of sources reporting
+                  the advisory have a significant impact on public response and compliance.” The studies
+                  are surveys taken after each event, so the link to speed is a comparison across events.
+                `),
+                grade: 'moderate',
+                quote: 'Results further suggest that timeliness of receipt, content of the advisory, and number of sources reporting the advisory have a significant impact on public response and compliance.',
+                caveat: 'Boil water notices cover germs rather than chemicals, and the surveys rely on what residents recalled.',
+                sources: [source('Vedachalam, Spotte-Smith and Riha 2016, Water Research', 'https://doi.org/10.1016/j.watres.2016.02.014')]
               })
             ],
-            counterEvidence: []
+            counterEvidence: [
+              evidence({
+                headline: 'During a deadly water outbreak in a Missouri town, people in nearly a third of households drank unboiled water after hearing the order to boil it.',
+                finding: paragraph(`
+                  Salmonella in the unchlorinated water of Gideon, Missouri, sickened more than 650 people
+                  and killed 7. A household survey after the outbreak found that “persons in 31% (30/ 98)
+                  of city households had drunk unboiled water after being informed about the boil water
+                  order”. The most common reasons were not remembering the order and not believing it. It
+                  is one town and one outbreak.
+                `),
+                grade: 'weak',
+                quote: 'Persons in 31% (30/ 98) of city households had drunk unboiled water after being informed about the boil water order, including 14 individuals who subsequently became ill.',
+                sources: [source('Angulo and colleagues 1997, American Journal of Public Health', 'https://doi.org/10.2105/AJPH.87.4.580')]
+              }),
+              evidence({
+                headline: 'Even when a Norwegian town texted residents a water warning, a third of them did not remember getting it.',
+                finding: paragraph(`
+                  Hyllestad and colleagues surveyed residents of Baerum, Norway, who were sent water
+                  advisories by text message after outages. “Of the 611 respondents, 67% reported that
+                  they had received a water advisory notification.” Among those who remembered the
+                  message, 72 percent followed safe drinking water practices. The main reason for not
+                  following them was believing the water was safe once it ran clear.
+                `),
+                grade: 'weak',
+                quote: 'Of the 611 respondents, 67% reported that they had received a water advisory notification.',
+                caveat: 'The advisories followed water outages rather than a chemical finding, and about one in five people sent the survey answered it.',
+                sources: [source('Hyllestad and colleagues 2019, BMC Public Health', 'https://doi.org/10.1186/s12889-019-7504-8')]
+              })
+            ]
           }),
           claim({
             text: 'Households told their water is contaminated switch to safer water.',
@@ -1577,33 +1783,33 @@ export default spineData({
     }),
 
     spineProposal({
-      name: 'A community-approved, independent expert board reviews each new state safety level and test result pertaining to local health data.',
-      method: 'Community-Appointed Expert Review',
-      summary: 'Each time the state sets an emergency safety level or returns water or blood test results, a board of experts that residents approve checks the numbers and publishes what it finds.',
-      anchor: 'State action began only after public disclosure',
-      where: 'The North Carolina Department of Health and Human Services and the Department of Environmental Quality.',
+      name: 'As soon as there is evidence that a harmful chemical was released, a community forum gathers residents\' evidence and works with an independent expert board to review safety levels and test results.',
+      method: 'Community Forum and Expert Review',
+      summary: 'As soon as there is evidence a harmful chemical was released, a community forum gathers residents\' evidence, works with an independent expert board on safety levels and test results, and shares what it finds.',
+      anchor: 'Wilbur Tennant, a West Virginia farmer',
+      where: 'Communities near the plant, with the state health and environmental departments.',
       when: paragraph(`
-        June to July 2017 in Wilmington, when the state's screening level for GenX moved from 71,000
-        to 140 parts per trillion in five weeks.
+        1998, when a farmer's records of dying cattle near DuPont's landfill first raised alarm. The
+        forum then stays in place for each later safety level and test result, such as Wilmington's
+        in 2017.
       `),
       description: paragraph(`
-        Affected residents approve a standing board of independent reviewers. The board reviews each
-        emergency health screening level the state sets and each set of exposure results it returns,
-        as soon as the state issues them. The reviewers can split water and blood samples and check
-        the state's analysis. They publish what they find through a channel the community
-        picks. Their findings and the state's written answers also go to every household whose water
-        or blood was tested. The state health and environmental departments keep authority over the
-        screening level and the response. The state must answer the reviewers' findings in writing,
-        and it must correct its numbers in public if the reviewers find errors. The community makes
-        the appointments. The polluter or the state pays into a fund that has no say over who is
-        hired. In Montana, an agreement has required a mining company since 2000 to pay for mining
-        and water experts who advise residents' councils. The federal Superfund program pays for
-        technical advisors that communities near cleanup sites hire themselves. In Wilmington in
-        June and July 2017, the state's health screening level for GenX dropped from 71,000 to 140
-        parts per trillion in five weeks. A key early meeting between regulators, Chemours, and
-        officials was closed to the public, with one pool reporter. Residents who already believe
-        their exposure is high may distrust a finding that it is low, whoever delivers it. The aim
-        is that residents trust the state's water and blood test results and act on them.
+        As soon as there is evidence that a harmful chemical was released, the state convenes a forum
+        of affected residents. The forum gathers what residents have seen, such as sick animals or
+        illness. It works with a standing board of independent experts that residents approve. The
+        board reviews each safety level the state sets and each water or blood test result tied to
+        local health data. It can split samples and check the state's analysis. The forum explains
+        the results to the wider community, and residents can help test their own water. The state
+        keeps authority over the response but must answer the board in writing and correct errors in
+        public. The polluter or the state pays into a fund that has no say over who is hired. In
+        Montana, an agreement has required a mining company since 2000 to pay for experts who advise
+        residents' councils. The federal Superfund program pays for technical advisors that
+        communities near cleanup sites hire themselves. In 1998, a West Virginia farmer documented
+        cattle deaths near DuPont's landfill, and the company's own records came out only through his
+        lawsuit. In Wilmington in 2017, the state's screening level for GenX dropped from 71,000 to
+        140 parts per trillion in five weeks. Residents who already believe their exposure is high
+        may distrust a finding that it is low, whoever delivers it. The aim is that residents trust
+        the state's water and blood test results and act on them.
       `),
       outcome: outcome({
         text: 'Residents trust the state\'s water and blood test results and act on them.',
@@ -1708,37 +1914,9 @@ export default spineData({
                 grade: 'strong',
                 quote: 'We show that past quality of advice and degree of similarity between advisors\' and judges\' values have separate (non-interacting) effects on two types of agent behavior: the degree of trust expressed in a source (stated trust) and the weight given to the source\'s advice (revealed trust).',
                 sources: [source('Twyman, Harvey and Harries 2008, Judgment and Decision Making', 'https://doi.org/10.1017/s1930297500000218')]
-              }),
-              evidence({
-                headline: 'After a waterborne disease outbreak, residents who trusted the authorities felt safer and accepted their tap water again.',
-                finding: paragraph(`
-                  Studying residents' responses after a drinking water outbreak, the authors tested whether trust
-                  shaped acceptance of the water or the other way round. “The results supported the
-                  causal chain model suggesting a causal role for trust,” with trust working through
-                  lower perceived risk. Trust itself rose with prior trust in institutions and with
-                  the authorities' communication with the public. The analysis rests on correlations and path
-                  models, so the order of cause is inferred, not tested.
-                `),
-                grade: 'moderate',
-                quote: 'The results supported the causal chain model suggesting a causal role for trust.',
-                sources: [source('Bratanova, Morrison, Fife-Schaw, Chenoweth and Mangold 2013, Journal of Applied Social Psychology', 'https://doi.org/10.1111/jasp.12113')]
               })
             ],
             counterEvidence: [
-              evidence({
-                headline: 'Experts paid well by one side were seen as hired guns, and people neither liked nor believed them.',
-                finding: paragraph(`
-                  In three mock jury experiments, researchers varied how much an expert witness was
-                  paid and how often the expert testified. “Experts who are highly paid for their
-                  testimony and who testify frequently are perceived as ‘hired guns.’ They are neither
-                  liked nor believed.” The effect was strongest when the testimony was complex. The
-                  judges were neutral jurors, not the people who hired the expert, so it speaks to how
-                  others, including the state, would read reviewers paid on residents' behalf.
-                `),
-                grade: 'strong',
-                quote: 'The results of the first two studies demonstrated that experts who are highly paid for their testimony and who testify frequently are perceived as "hired guns." They are neither liked nor believed.',
-                sources: [source('Cooper and Neuhaus 2000, Law and Human Behavior', 'https://doi.org/10.1023/A:1005476618435')]
-              }),
               evidence({
                 headline: 'When people read the same facts about these chemicals from scientists or from the government, they found them equally believable.',
                 finding: paragraph(`
@@ -1752,18 +1930,6 @@ export default spineData({
                 grade: 'strong',
                 quote: 'The experimental conditions did not significantly influence level of concern about PFAS, perceived hazardousness of PFAS, or information credibility.',
                 sources: [source('Morphett, Magi-Prowse, Roiko and Fielding 2025, Journal of Risk Research', 'https://doi.org/10.1080/13669877.2025.2522653')]
-              }),
-              evidence({
-                headline: 'People trusted food risk sources that answered to someone more than sources with no oversight at all.',
-                finding: paragraph(`
-                  Across interviews and a survey of 888 people about food risk information, “contrary
-                  to previous research, complete freedom does not lead to trust-rather sources which
-                  possess moderate accountability are seen to be the most trusted”. The setting is
-                  food risk, so it cannot be read straight onto environmental health reviewers.
-                `),
-                grade: 'moderate',
-                quote: 'Contrary to previous research, complete freedom does not lead to trust-rather sources which possess moderate accountability are seen to be the most trusted.',
-                sources: [source('Frewer, Howard, Hedderley and Shepherd 1996, Risk Analysis', 'https://doi.org/10.1111/j.1539-6924.1996.tb01094.x')]
               }),
               evidence({
                 headline: 'People already worried about a hazard distrusted messages saying it was safe, whoever sent them.',
@@ -1800,7 +1966,7 @@ export default spineData({
                 sources: [source('Frewer, Scholderer and Bredahl 2003, Risk Analysis', 'https://doi.org/10.1111/j.0272-4332.2003.00385.x')]
               }),
               evidence({
-                headline: 'Residents near a nuclear site trusted an outside research center more than federal agencies, yet some were dismayed when it found no link to thyroid disease.',
+                headline: 'Residents near a nuclear site were dismayed when the outside research center they trusted more than federal agencies found no link to thyroid disease.',
                 finding: paragraph(`
                   A National Academies panel reviewed how the draft Hanford Thyroid Disease Study was
                   released. Many residents distrusted the federal energy department, and “it appears
@@ -1922,6 +2088,21 @@ export default spineData({
                 grade: 'weak',
                 quote: 'When asked what challenges they faced in reducing exposure, 79% cited not knowing what to do. This dropped to 35% after report-back.',
                 sources: [source('Rochester et al. 2024, International Journal of Environmental Research and Public Health', 'https://doi.org/10.3390/ijerph21070905')]
+              }),
+              evidence({
+                headline: 'Most Maine households told their well water held unsafe arsenic installed treatment or switched to bottled water.',
+                finding: paragraph(`
+                  Researchers surveyed 386 households in central Maine told three to seven years
+                  earlier that their well water held arsenic above the safety threshold. Most had
+                  installed treatment or switched to bottled water, “but the remaining 27% of households
+                  did not act.” Households with lower arsenic levels were more likely to do nothing, and
+                  15 percent of the treatment systems checked still let too much arsenic through. The
+                  actions are as households reported them.
+                `),
+                grade: 'moderate',
+                quote: 'Another 30% report taking other mitigation actions such as drinking bottled water because of the As, but the remaining 27% of households did not act.',
+                caveat: 'More than a quarter of households did nothing. Those households more often had lower arsenic levels.',
+                sources: [source('Flanagan, Marvinney, Johnston, Yang and Zheng 2015, Science of the Total Environment', 'https://doi.org/10.1016/j.scitotenv.2014.03.079')]
               })
             ],
             counterEvidence: [
@@ -1936,374 +2117,12 @@ export default spineData({
                 grade: 'strong',
                 quote: 'total behavior was associated with knowledge and concern but not race, education, or report type',
                 sources: [source('Boronow et al. 2023, Environmental Health Perspectives', 'https://doi.org/10.1289/EHP12565')]
-              }),
-              evidence({
-                headline: 'More than a quarter of Maine households told their well water held unsafe arsenic did nothing about it.',
-                finding: paragraph(`
-                  Researchers surveyed 386 households in central Maine told three to seven years
-                  earlier that their well water held arsenic above the safety threshold. Most had
-                  installed treatment or switched to bottled water, “but the remaining 27% of households
-                  did not act.” Households with lower arsenic levels were more likely to do nothing, and
-                  15 percent of the treatment systems checked still let too much arsenic through. The
-                  actions are as households reported them.
-                `),
-                grade: 'moderate',
-                quote: 'Another 30% report taking other mitigation actions such as drinking bottled water because of the As, but the remaining 27% of households did not act.',
-                sources: [source('Flanagan, Marvinney, Johnston, Yang and Zheng 2015, Science of the Total Environment', 'https://doi.org/10.1016/j.scitotenv.2014.03.079')]
               })
             ]
           })
         ]
       }),
       sources: []
-    }),
-
-    spineProposal({
-      name: 'Federal grants fund local groups to monitor PFAS and seek state caps on industrial discharges.',
-      method: 'Funded Community Oversight',
-      summary: 'A federal grant program pays for community-run monitoring, technical, and legal staff who petition the state for enforceable limits on the PFAS that plants release into rivers used for drinking water.',
-      anchor: 'public notice and comment',
-      where: 'Congress and the Environmental Protection Agency fund it. The North Carolina Environmental Management Commission sets the standards it feeds.',
-      when: paragraph(`
-        February 2019, when the consent order took effect. The order built oversight for one plant
-        but no path to statewide rules.
-      `),
-      description: paragraph(`
-        A federal grant program pays for standing monitoring, technical, and legal staff in affected
-        regions. A local board of residents, utilities, and local governments directs the work and
-        publishes its monitoring results. Its main product is a petition for enforceable statewide
-        surface water standards for per- and polyfluoroalkyl substances (PFAS). These standards cap
-        how much PFAS can be in a river, which limits what plants upstream of drinking water intakes
-        may discharge.
-        Congress and the Environmental Protection Agency fund the program. The state Environmental
-        Management Commission still decides whether to adopt limits. The 2019 consent order created
-        citizen enforcement, a sampling network, and an exposure study for one plant, with no path
-        to statewide rules. In 2018 the legislature funded a statewide PFAS testing network run by
-        university researchers rather than local residents. In 2024 state regulators recommended
-        limits for eight PFAS, and a commission committee narrowed that to three. In September 2025
-        the commission adopted groundwater standards for three PFAS, including GenX. For rivers, it
-        moved toward monitoring and voluntary reduction plans with no enforceable limit. Between 2024 and
-        2026 the federal government moved to roll back its PFAS limits, and a state standard would
-        hold even if federal limits fall. The money comes from the federal government and the
-        petition goes to a state commission, so the groups do not press the body that funds them.
-        Lawmakers have moved mainly when protest and work inside the process came together, and
-        groups funded by government tend to avoid protest. The aim is that enforceable state
-        caps cut the PFAS that plants release into rivers people drink from.
-      `),
-      outcome: outcome({
-        text: 'Enforceable state caps cut the PFAS that plants release into rivers people drink from.',
-        measured: 'North Carolina set no enforceable PFAS standard',
-        claims: [
-          claim({
-            text: 'Industry takes part in rulemaking far more than affected residents do.',
-            evidence: [
-              evidence({
-                headline: 'When federal agencies wrote new rules, businesses filed most of the comments and ordinary citizens rarely filed any.',
-                finding: paragraph(`
-                  Golden examined the comments on eleven rules drawn at random from the Environmental
-                  Protection Agency, the highway safety agency, and the housing department. She reports
-                  “a dearth of citizen commenters, the predominance of participation by business
-                  interests, and the presence of issue networks, and the absence of any discernible bias
-                  in whose voices get heard”. The study counts who took part. It found no sign that
-                  agencies favored the business comments they received.
-                `),
-                grade: 'moderate',
-                quote: 'Among the findings are: a dearth of citizen commenters, the predominance of participation by business interests, and the presence of issue networks, and the absence of any discernible bias in whose voices get heard.',
-                sources: [source('Golden 1998, Journal of Public Administration Research and Theory', 'https://doi.org/10.1093/oxfordjournals.jpart.a024380')]
-              }),
-              evidence({
-                headline: 'Federal agencies started most new rules inside ongoing programs where business interests dominate.',
-                finding: paragraph(`
-                  Tracing where 276 federal rules came from, West and Raso find that “agency decisions to
-                  initiate rulemaking are heavily grounded in the implementation of ongoing programs and
-                  subgovernment relationships in which economic interests tend to be predominant”. They
-                  also find that Congress plays a prominent part in setting which rules get written. The
-                  study describes where rules start. It does not measure what residents could have
-                  started.
-                `),
-                grade: 'moderate',
-                quote: 'We find that agency decisions to initiate rulemaking are heavily grounded in the implementation of ongoing programs and subgovernment relationships in which economic interests tend to be predominant.',
-                sources: [source('West and Raso 2013, Journal of Public Administration Research and Theory', 'https://doi.org/10.1093/jopart/mus028')]
-              })
-            ],
-            counterEvidence: [
-              evidence({
-                headline: 'When businesses and public interest groups petitioned federal agencies for new rules, the agencies treated them about the same.',
-                finding: paragraph(`
-                  Walters followed every rulemaking petition filed with three federal agencies from 2000
-                  to 2016 from filing to resolution. He finds that “although business interests may
-                  participate at a higher rate than public interest groups and individuals, there is
-                  little evidence of full-on regulatory capture via petitions”, and that agencies stayed
-                  largely evenhanded. He also finds that petitions from any side rarely changed much.
-                  The article appeared in a law review.
-                `),
-                grade: 'moderate',
-                quote: 'I find that, although business interests may participate at a higher rate than public interest groups and individuals, there is little evidence of full-on regulatory capture via petitions.',
-                sources: [source('Walters 2019, Harvard Environmental Law Review', 'https://scholarship.law.tamu.edu/facscholar/1574')]
-              })
-            ]
-          }),
-          claim({
-            text: 'Government grants give community groups the means to push for policy change.',
-            evidence: [
-              evidence({
-                headline: 'Community groups in low-income neighborhoods that brought in outside money were more likely to keep going.',
-                finding: paragraph(`
-                  Walker and McCarthy followed a sample of community organizing groups in low- and
-                  moderate-income areas from 1990 to 2004 and asked which ones survived. They find
-                  that, “beyond the considerable effects of externally obtained resources, CBOs also
-                  benefit considerably by engaging in even a small amount of grassroots fundraising”,
-                  and conclude that cultivating resources is the surest path to survival. The study
-                  compares groups that differed in their funding. It does not isolate public grants
-                  from other outside money.
-                `),
-                grade: 'moderate',
-                quote: 'beyond the considerable effects of externally obtained resources, CBOs also benefit considerably by engaging in even a small amount of grassroots fundraising',
-                sources: [source('Walker and McCarthy 2010, Social Problems', 'https://doi.org/10.1525/sp.2010.57.3.315')]
-              }),
-              evidence({
-                headline: 'Nonprofits that received more government money did slightly more policy advocacy, not less.',
-                finding: paragraph(`
-                  Pooling 218 estimates from 38 studies, Lu finds a slight positive link between
-                  government funding and advocacy, and concludes that “government funding could be a
-                  weak catalyst, rather than an obstacle, for nonprofits to participate in the policy
-                  process”. Funded groups leaned toward working inside the process. The pooled studies
-                  compare organizations with more and less funding, and Lu judges funding not a key
-                  predictor of how much a group advocates.
-                `),
-                grade: 'moderate',
-                quote: 'Government funding could be a weak catalyst, rather than an obstacle, for nonprofits to participate in the policy process.',
-                sources: [source('Lu 2018, The American Review of Public Administration', 'https://doi.org/10.1177/0275074016680024')]
-              })
-            ],
-            counterEvidence: [
-              evidence({
-                headline: 'European advocacy groups that drew more of their budgets from government spent less on lobbying.',
-                finding: paragraph(`
-                  Using the European Union's lobbying register, Bloodgood and Tremblay-Boire find that
-                  “the share of government funding in NGO budgets is negatively associated with lobbying
-                  expenditure”, an effect they call substantial. They offer two readings: funders
-                  discipline groups that turn too political, and more radical groups avoid government
-                  money. The study compares groups at one point and cannot tell those two apart.
-                `),
-                grade: 'moderate',
-                quote: 'we find that the share of government funding in NGO budgets is negatively associated with lobbying expenditure',
-                sources: [source('Bloodgood and Tremblay-Boire 2017, European Political Science Review', 'https://doi.org/10.1017/S1755773915000430')]
-              }),
-              evidence({
-                headline: 'Government-funded homeless service groups lobbied mainly to protect their own funding and avoided confronting officials.',
-                finding: paragraph(`
-                  Interviewing managers of homeless service nonprofits, Mosley found that government
-                  funding made them eager to advocate, but that “advocacy goals are focused primarily on
-                  brokering resources and promoting the organization rather than substantive policy
-                  change or client representation”. To stay legitimate partners, the groups rejected
-                  confrontational tactics. The study is qualitative and covers one field of services.
-                `),
-                grade: 'weak',
-                quote: 'As a result, advocacy goals are focused primarily on brokering resources and promoting the organization rather than substantive policy change or client representation.',
-                sources: [source('Mosley 2012, Journal of Public Administration Research and Theory', 'https://doi.org/10.1093/jopart/mus003')]
-              })
-            ]
-          }),
-          claim({
-            text: 'Groups that weigh in during rulemaking change the rules agencies write.',
-            evidence: [
-              evidence({
-                headline: 'When interest groups commented on proposed federal rules, agencies often changed the final rules toward what the groups asked.',
-                finding: paragraph(`
-                  Yackee compared 1,444 interest group comments on forty federal rules with the changes
-                  between each proposed and final rule. She concludes that “those who voice their
-                  preferences during the notice and comment period rulemaking are often able to change
-                  government policy outputs to better match their preferences”. The study links what
-                  groups asked for to what changed. It cannot rule out that agencies would have made
-                  some of those changes anyway.
-                `),
-                grade: 'moderate',
-                quote: 'I conclude that those who voice their preferences during the notice and comment period rulemaking are often able to change government policy outputs to better match their preferences.',
-                sources: [source('Yackee 2006, Journal of Public Administration Research and Theory', 'https://doi.org/10.1093/jopart/mui042')]
-              }),
-              evidence({
-                headline: 'In state environmental rulemaking, groups other than industry also had real chances to change what regulators decided.',
-                finding: paragraph(`
-                  Crow, Albright, and Koebele studied how stakeholders took part in rulemaking, and what
-                  came of it, in three environmental policy areas across five states. They find that “while industry may be influential during rulemaking across cases,
-                  consequential opportunities for non-industry stakeholders to influence regulatory
-                  decisions also exist”. The study compares a small set of rulemakings in depth.
-                `),
-                grade: 'moderate',
-                quote: 'We find that while industry may be influential during rulemaking across cases, consequential opportunities for non-industry stakeholders to influence regulatory decisions also exist.',
-                sources: [source('Crow, Albright, and Koebele 2020, Policy Studies Journal', 'https://doi.org/10.1111/psj.12314')]
-              }),
-              evidence({
-                headline: 'Where the public held real power over environmental decisions, the decisions set stronger environmental terms.',
-                finding: paragraph(`
-                  The authors coded 305 published cases of public environmental decision making and
-                  modeled how participation related to results. They “find a generally positive effect
-                  of participation on the environmental standard of governance outputs, in particular
-                  where communication intensity is high and where participants are delegated
-                  decision-making power”. The cases come from published accounts, not a random sample.
-                `),
-                grade: 'moderate',
-                quote: 'we find a generally positive effect of participation on the environmental standard of governance outputs, in particular where communication intensity is high and where participants are delegated decision-making power',
-                sources: [source('Jager, Newig, Challies and Kochskämper 2019, Journal of Public Administration Research and Theory', 'https://doi.org/10.1093/jopart/muz034')]
-              })
-            ],
-            counterEvidence: [
-              evidence({
-                headline: 'Business comments shifted final federal rules, while comments from other groups did not.',
-                finding: paragraph(`
-                  Analyzing almost 1,700 comments on more than thirty federal rules, Yackee and Yackee
-                  find that “business commenters, but not nonbusiness commenters, hold important
-                  influence over the content of final rules”, and that business influence grew as
-                  business made up more of the commenters. They conclude that notice and comment has
-                  not opened agency decisions to the public as much as its defenders suggest.
-                `),
-                grade: 'moderate',
-                quote: 'We find that business commenters, but not nonbusiness commenters, hold important influence over the content of final rules.',
-                sources: [source('Yackee and Yackee 2006, Journal of Politics', 'https://doi.org/10.1111/j.1468-2508.2006.00375.x')]
-              })
-            ]
-          }),
-          claim({
-            text: 'Sustained organized pressure leads governments to adopt stricter environmental rules.',
-            evidence: [
-              evidence({
-                headline: 'Where residents mobilized against fracking, towns were more likely to pass local pauses on fracking.',
-                finding: paragraph(`
-                  Tracing the spread of opposition to fracking across the Marcellus Shale states, Vasi
-                  and colleagues find that “local screenings of Gasland contributed to anti-fracking
-                  mobilizations, which, in turn, affected the passage of local fracking moratoria”. The
-                  study draws on internet searches, social media posts, and newspaper coverage to trace
-                  that sequence. It covers town governments, not state standards.
-                `),
-                grade: 'moderate',
-                quote: 'Local screenings of Gasland contributed to anti-fracking mobilizations, which, in turn, affected the passage of local fracking moratoria in the Marcellus Shale states.',
-                sources: [source('Vasi, Walker, Johnson, and Tan 2015, American Sociological Review', 'https://doi.org/10.1177/0003122415598534')]
-              }),
-              evidence({
-                headline: 'States where environmental groups spent more on politics adopted stronger renewable energy standards.',
-                finding: paragraph(`
-                  Following 48 states from 1997 to 2020, Haseloff shows that “Democratic party power,
-                  higher political spending from environmental organizations, lower investor-owned
-                  utility market share, higher publicly owned utility market share, and lower levels of
-                  fossil fuel production and political spending lead to more stringent policies”. The
-                  study compares states over time. The spending it measures is by established
-                  environmental organizations, not by local community groups.
-                `),
-                grade: 'moderate',
-                quote: 'I show that Democratic party power, higher political spending from environmental organizations, lower investor-owned utility market share, higher publicly owned utility market share, and lower levels of fossil fuel production and political spending lead to more stringent policies.',
-                sources: [source('Haseloff 2024, Socius', 'https://doi.org/10.1177/23780231241266520')]
-              }),
-              evidence({
-                headline: 'In two New England communities with contaminated water, a small number of residents helped shape drinking water rules for these chemicals.',
-                finding: paragraph(`
-                  Interviewing 40 residents of Portsmouth, New Hampshire, and Hyannis, Massachusetts,
-                  Garrett and colleagues found that “the work of a fairly small number of residents can
-                  generate important knowledge and contribute to local and national outcomes, including
-                  drinking water regulation and medical guidelines”. They also found structural barriers
-                  to community action, and that similar levels of action can lead to different outcomes.
-                `),
-                grade: 'weak',
-                quote: 'These case studies show how the work of a fairly small number of residents can generate important knowledge and contribute to local and national outcomes, including drinking water regulation and medical guidelines.',
-                sources: [source('Garrett et al. 2024, Journal of Environmental Studies and Sciences', 'https://doi.org/10.1007/s13412-024-00994-2')]
-              })
-            ],
-            counterEvidence: [
-              evidence({
-                headline: 'The environmental movement moved Congress to pass laws only when it lobbied and protested heavily at the same time.',
-                finding: paragraph(`
-                  Studying the environmental movement and Congress from 1961 to 1990, Johnson, Agnone,
-                  and McCarthy found that movement activity of every kind went with more hearings on the
-                  environment. But “only when there are high levels of both protest and institutional
-                  activity is there any evidence that the environmental movement directly influences the
-                  passage of environmental laws”. The study compares years at the national level.
-                `),
-                grade: 'moderate',
-                quote: 'Only when there are high levels of both protest and institutional activity is there any evidence that the environmental movement directly influences the passage of environmental laws.',
-                sources: [source('Johnson, Agnone, and McCarthy 2010, Social Forces', 'https://doi.org/10.1353/sof.2010.0038')]
-              }),
-              evidence({
-                headline: 'Across published studies, advocacy groups and movements changed policy no more than half the time.',
-                finding: paragraph(`
-                  Coding studies published in leading sociology and political science journals from
-                  1990 to 2000, Burstein and Linton find that “political organizations affect policy no
-                  more than half the time”. They also find some evidence that groups matter most when
-                  their activity speaks to elected officials' electoral concerns.
-                `),
-                grade: 'moderate',
-                quote: 'political organizations affect policy no more than half the time',
-                sources: [source('Burstein and Linton 2002, Social Forces', 'https://doi.org/10.1353/sof.2003.0004')]
-              })
-            ]
-          }),
-          claim({
-            text: 'Enforceable standards lower exposure once they take effect.',
-            evidence: [
-              evidence({
-                headline: 'Arsenic in people\'s bodies fell after the federal limit took effect, and only among those drinking public water.',
-                finding: paragraph(`
-                  Researchers compared people on public water with private well users, whom the rule
-                  does not cover, in a repeated national health survey. Urinary arsenic fell 17 percent
-                  over a decade among public water users and did not change among well water users.
-                  The authors conclude that “the decline
-                  in urinary arsenic among public water but not private well users in NHANES 2003-2014
-                  indicates that the implementation of the current MCL has reduced arsenic exposure in
-                  the US population”.
-                `),
-                grade: 'strong',
-                quote: 'The decline in urinary arsenic among public water but not private well users in NHANES 2003-2014 indicates that the implementation of the current MCL has reduced arsenic exposure in the US population.',
-                sources: [source('Nigra et al. 2017, The Lancet Public Health', 'https://doi.org/10.1016/S2468-2667(17)30195-0')]
-              }),
-              evidence({
-                headline: 'Levels in New Jersey tap water fell after the state moved to set limits for these chemicals.',
-                finding: paragraph(`
-                  New Jersey's drinking water institute recommended limits for three of these
-                  compounds between 2015 and 2018. Comparing quarterly test results from 47 water
-                  systems before and after, the researchers found “a 55% (95% CI: 11%, 77%) and 50%
-                  (95% CI: 14%, 71%) decline in PFOA and PFNA levels, respectively, following
-                  recommendation of MCLs”. There is no comparison group, and the authors note
-                  voluntary reductions and industry phase-outs as possible explanations.
-                `),
-                grade: 'moderate',
-                quote: 'There was a 55% (95% CI: 11%, 77%) and 50% (95% CI: 14%, 71%) decline in PFOA and PFNA levels, respectively, following recommendation of MCLs.',
-                sources: [source('Iyer et al. 2026, Environment International', 'https://doi.org/10.1016/j.envint.2026.110179')]
-              })
-            ],
-            counterEvidence: [
-              evidence({
-                headline: 'After the arsenic limit took effect, small groundwater systems and those serving Hispanic communities were more likely to keep exceeding it.',
-                finding: paragraph(`
-                  Comparing monitoring records from 36,406 community water systems before and after the
-                  federal arsenic limit took effect, Nigra and colleagues found arsenic fell nationwide, but
-                  “CWSs reliant on groundwater, serving smaller populations, located in the Southwest, and
-                  serving Hispanic communities were more likely to continue exceeding the arsenic MCL, raising
-                  environmental justice concerns”. The records show who stayed out of compliance, not why.
-                `),
-                grade: 'strong',
-                quote: 'CWSs reliant on groundwater, serving smaller populations, located in the Southwest, and serving Hispanic communities were more likely to continue exceeding the arsenic MCL, raising environmental justice concerns.',
-                sources: [source('Nigra et al. 2020, Environmental Health Perspectives', 'https://doi.org/10.1289/EHP7313')]
-              }),
-              evidence({
-                headline: 'Millions of people still drink from water systems that break federal health standards.',
-                finding: paragraph(`
-                  Tracking 17,900 community water systems from 1982 to 2015, Allaire, Wu, and Lall found
-                  violations rising in several states and repeat violations common in hot spots, and note that
-                  “in 2015, nearly 21 million people relied on community water systems that violated
-                  health-based quality standards”. Rural systems violated standards far more often than urban
-                  ones.
-                `),
-                grade: 'strong',
-                quote: 'Efforts to reduce violations are of national concern given that, in 2015, nearly 21 million people relied on community water systems that violated health-based quality standards.',
-                sources: [source('Allaire, Wu, and Lall 2018, Proceedings of the National Academy of Sciences', 'https://doi.org/10.1073/pnas.1719805115')]
-              })
-            ]
-          })
-        ]
-      }),
-      sources: [
-        source('North Carolina Health News, 17 July 2024, North Carolina regulators pass on establishing standards for forever chemicals', 'https://www.northcarolinahealthnews.org/2024/07/17/north-carolina-regulators-pass-on-establishing-standards-for-forever-chemicals/'),
-        source('US Government Accountability Office, T-RCED-93-1', 'https://www.gao.gov/products/t-rced-93-1')
-      ]
     })
   ]
 });
