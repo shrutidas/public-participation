@@ -1886,7 +1886,7 @@ export default spineData({
                 sources: [source('Waddington, Sonnenfeld, Finetti, Gaarder, John and Stevenson 2019, Campbell Systematic Reviews', 'https://doi.org/10.1002/cl2.1025')]
               }),
               evidence({
-                headline: 'When Ugandan communities were trained to monitor local development projects, their trust in the central government rose slightly.',
+                headline: 'When northern Ugandan communities were trained to monitor their local projects under a national program, they complained more to officials and trusted the central government slightly more.',
                 finding: paragraph(`
                   In a national program in northern Uganda, communities were assigned at random to
                   training in how to monitor their local projects, to information on project
@@ -1908,7 +1908,7 @@ export default spineData({
             ],
             counterEvidence: [
               evidence({
-                headline: 'When community monitoring of clinics was run across much more of Uganda, clinic use and child health did not improve.',
+                headline: 'When the Ugandan clinic report card program was repeated across 16 districts, clinic use and child health did not improve.',
                 finding: paragraph(`
                   A program in 16 Ugandan districts, modeled on the earlier Ugandan trial, gave
                   communities report cards on their health center and brought residents and staff
