@@ -1482,7 +1482,7 @@ body[data-view="chain"] #ctrl .fl,
 .sp-edge-spine-case { stroke: #cdc7ba; stroke-width: 4.5; }
 .sp-edge-spine { stroke: #fff; stroke-width: 2.5; }
 /* Impact arrows: short horizontal runs from the source event to its card. */
-.sp-edge-imp { stroke: rgba(30,107,60,.45); stroke-width: 1.8; }
+.sp-edge-imp { stroke: rgba(30,107,60,.55); stroke-width: 2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
 .sp-edge-imp.on { stroke: #1e6b3c; stroke-width: 2.6; }
 .sp-edge-chain { stroke: #1e6b3c; stroke-width: 2.25; }
 .sp-edge-chain.on { stroke-width: 3.2; }

@@ -53,6 +53,8 @@ const BOX_CHARS = 185;
    Timeline and Proposed Public Participation lanes, and half its width either
    side, nudged a few pixels left of centre so the cusp clears the card. */
 const BR = { x: Math.round((L.spineX + L.spineW + L.propX) / 2) - 8, d: 9 };
+/* The impact brace mirrors it in the left gutter, cusp toward the impact card. */
+const BRI = { x: Math.round((L.impX + L.impW + L.spineX) / 2) + 8, d: 9 };
 
 /* Diagonal arrows out, sitting in the Main Timeline lane header: it opens the
    full timeline view, with its filters and the case overview. The control used
@@ -370,7 +372,6 @@ export function renderSpineMap(el, caseObj, spine, sel = {}) {
       for (const r of list) {
         const top = Math.round(iy);
         r.box.style.top = `${top}px`;
-        r.sy = sy;
         // Measured from the drawn position, so the arrow meets the card's
         // real centre rather than an unrounded one.
         r.cy = r === list[0] ? sy : top + r.box.offsetHeight / 2;
@@ -425,15 +426,9 @@ export function renderSpineMap(el, caseObj, spine, sel = {}) {
   const arw = (id, color, size, extra = '') => `<marker id="sp-arw-${id}" viewBox="0 0 10 10" refX="9" refY="5"
       markerWidth="${size}" markerHeight="${size}" orient="auto-start-reverse">
       <path d="M 0 0 L 10 5 L 0 10 L 2.8 5 z" fill="${color}"${extra}></path></marker>`;
-  // Impact connectors end in a node rather than an arrowhead: the card states
-  // an outcome the record measures, not a further step in the chain.
-  const dot = (id, color, size, extra = '') => `<marker id="sp-dot-${id}" viewBox="0 0 10 10" refX="5" refY="5"
-      markerWidth="${size}" markerHeight="${size}">
-      <circle cx="5" cy="5" r="4.2" fill="${color}"${extra}></circle></marker>`;
   const defs = `<defs>
     ${arw('spine', '#ffffff', 7, ' stroke="#b8b1a3" stroke-width="1.1"')}
-    ${arw('chain', '#1e6b3c', 8)}
-    ${dot('imp', '#1e6b3c', 5, ' fill-opacity="0.75"')}</defs>`;
+    ${arw('chain', '#1e6b3c', 8)}</defs>`;
 
   let paths = '';
   const cx = L.spineX + L.spineW / 2;
@@ -447,21 +442,28 @@ export function renderSpineMap(el, caseObj, spine, sel = {}) {
       d="M ${cx} ${aBot} L ${cx} ${bTop}"></path>`;
   }
 
-  // Impact arrows: out the left of the event where the causal claim holds,
-  // across the gutter, and into the impact card. One arrow per finding, to a
-  // card sharing its event's top edge, so it is a straight horizontal line
-  // (with a short jog in the gutter when cards stack).
+  // Impact braces: the mirror of the proposal brace, in the left gutter. Its
+  // arms span the event the finding bears on and open toward the record; its
+  // cusp points at the impact card and runs into it on a short stub, jogging
+  // to the card's middle when the card is not level with the event.
   for (const r of imps) {
     const i = r.src;
     if (i === -1) continue;
-    const sy = r.sy ?? Math.round(yTop[i]) + entEl[i].offsetHeight / 2;
-    // The node sits just clear of the card, which is painted above the edge
-    // layer: centred on the border, half of it would be hidden.
-    const endX = L.impX + L.impW + 5;
-    const d = Math.abs(sy - r.cy) < 1
-      ? `M ${L.spineX} ${sy} H ${endX}`
-      : `M ${L.spineX} ${sy} H ${L.gutImp + 30} V ${r.cy} H ${endX}`;
-    paths += `<path class="sp-edge sp-edge-imp" data-i="${r.ii}" data-src="${i}" marker-end="url(#sp-dot-imp)" d="${d}"></path>`;
+    const t = Math.round(yTop[i]), b = Math.round(yTop[i] + entEl[i].offsetHeight);
+    const mid = Math.round((t + b) / 2);
+    const rr = Math.min(7, (b - t) / 4);
+    const arm = BRI.x + BRI.d, cusp = BRI.x - BRI.d;
+    const endX = L.impX + L.impW + 3;
+    const cy = Math.round(r.cy);
+    const stub = Math.abs(cy - mid) < 1
+      ? `H ${endX}`
+      : `H ${Math.round((cusp + endX) / 2)} V ${cy} H ${endX}`;
+    paths += `<path class="sp-edge sp-edge-imp" data-i="${r.ii}" data-src="${i}"
+      d="M ${arm} ${t} Q ${BRI.x} ${t} ${BRI.x} ${t + rr}
+         V ${mid - rr} Q ${BRI.x} ${mid} ${cusp} ${mid}
+         Q ${BRI.x} ${mid} ${BRI.x} ${mid + rr}
+         V ${b - rr} Q ${BRI.x} ${b} ${arm} ${b}
+         M ${cusp} ${mid} ${stub}"></path>`;
   }
 
   // Proposals. Most sit beside the part of the record they speak to without
