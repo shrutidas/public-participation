@@ -570,7 +570,7 @@ body[data-view="chain"] #ctrl .fl,
 
 .cd .cd-claim { margin-bottom: 14px; }
 .cd .eact { margin: 14px 0 12px; }
-.sp-addressed { margin-top: 18px; padding-top: 12px; border-top: 1px solid #e2ddd3; }
+.sp-addressed { margin-top: 22px; }
 .cd > .ev-srcs { margin-top: 14px; }
 .cd-about { border-top: 1px solid #e3ddd2; margin-top: 26px; padding-top: 18px; }
 
@@ -1677,7 +1677,8 @@ body[data-view="chain"] #ctrl .fl,
    The sidebars keep both. */
 #ch-mapcol, #ch-mapcol * { -webkit-user-select: none; user-select: none; }
 /* The mechanism question carries the same yellow star as the map. */
-.cd-kick-mech .sp-star-static { display: inline-flex; vertical-align: -4px; margin-right: 6px; }
+.cd-kick-mech:has(.sp-star-static) { display: flex; align-items: center; gap: 8px; }
+.cd-kick-mech .sp-star-static { display: inline-flex; flex: none; }
 
 /* ------------------------------------------------------------------ *
  * Participants' comments (js/notes.js). Blue, used nowhere else on the
