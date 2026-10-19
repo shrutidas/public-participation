@@ -1452,7 +1452,7 @@ body[data-view="chain"] #ctrl .fl,
 .sp-lane-x:hover { color: #1c2333; background: #dcd8cf; }
 .sp-lane-x:focus-visible { outline: 2px solid #4a9fd5; outline-offset: 1px; }
 .sp-lane.lane-pp { background: #b9a7cf; color: #2e0a56; }
-.sp-lane.lane-ch { background: #80868d; color: #fff; justify-content: flex-start; padding-left: 24px; }
+.sp-lane.lane-ch { background: #5f656c; color: #fff; justify-content: flex-start; padding-left: 24px; }
 
 /* What the lane holds, dropping from its header on hover or focus. */
 .sp-lane { cursor: help; }
