@@ -308,7 +308,7 @@ body[data-view="chain"] #ctrl .fl,
 /* Open Key sits directly under the zoom pill, in the space the key vacated.
    The detail pane has no reopen button: clicking anything on the map brings
    it back, which is the same gesture that put something in it. */
-.pane-tog-strip { align-self: flex-end; margin-top: 12px; margin-right: 12px; }
+.pane-tog-strip { align-self: flex-end; margin: 10px 12px; }
 
 #ch-mapcol {
   flex: 1 1 58%;
