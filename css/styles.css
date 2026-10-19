@@ -323,18 +323,11 @@ body[data-view="chain"] #ctrl .fl,
 .pane-tog:hover { border-color: #1c2333; color: #1c2333; }
 #right-hide { margin: 0 0 6px 4px; font-size: .9rem; line-height: 1; padding: 6px 6px; border: none; background: none; color: #6b6457; }
 #right-hide:hover { color: #1c2333; background: none; }
-/* Open Key sits directly under the zoom pill, in the space the key vacated.
+/* Open Key joins the zoom pill when the key is closed (see #ch-zoom).
    The detail pane has no reopen button: clicking anything on the map brings
    it back, which is the same gesture that put something in it. */
-/* With the key closed, its button floats over the map above the zoom control,
-   so no empty bar is left under the map. */
-.pane-tog-strip {
-  position: absolute; right: 12px; bottom: 64px; z-index: 8;
-  background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.14);
-}
 
 #ch-mapcol {
-  position: relative;
   flex: 1 1 58%;
   min-width: 0;
   overflow: hidden;
@@ -1724,6 +1717,9 @@ body[data-view="chain"] #ctrl .fl,
   font-size: .75rem; padding: 6px 12px; border-right: 1px solid #e2ddd3;
 }
 #ch-zoom #nt-open[hidden] { display: none; }
+/* With the key closed, its button joins the zoom control as one more segment. */
+#ch-zoom #legend-show { font-size: .75rem; padding: 6px 12px; border-right: 1px solid #e2ddd3; }
+#ch-zoom #legend-show[hidden] { display: none; }
 .nt-ico { width: 15px; height: 15px; color: var(--nt-blue); flex: none; }
 #nt-count {
   background: var(--nt-blue); color: #fff; border-radius: 9px;
