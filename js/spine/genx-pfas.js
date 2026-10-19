@@ -564,7 +564,7 @@ export default spineData({
             ]
           }),
           claim({
-            text: 'Workers report more hazards when speaking up puts their job at less risk.',
+            text: 'Workers report more hazards when they can speak up without risking their job, such as by going to someone other than their boss.',
             evidence: [
               evidence({
                 headline: 'When losing a job got less costly, workers filed more safety complaints against their employers, and regulators found more violations.',
@@ -581,6 +581,19 @@ export default spineData({
                 grade: 'strong',
                 quote: 'We find that increases in UI benefits increase the number of facility-level employee workplace safety complaints filed with the regulator. Furthermore, UI benefit increases also result in more violations and more penalties.',
                 sources: [source('Heese and Perez-Cavazos 2021, Journal of Accounting and Economics', 'https://doi.org/10.1016/j.jacceco.2020.101385')]
+              }),
+              evidence({
+                headline: 'Companies that gave employees a way to report without going to their boss found more fraud.',
+                finding: paragraph(`
+                  Using survey data from publicly listed Australian companies, where such channels are
+                  not required, the authors “find a positive association between ARCs and reported
+                  fraud. These results indicate that ARCs are effective in detecting fraud.” Small
+                  firms gained most. Companies chose whether to have a channel, so the comparison is
+                  between companies that did and companies that did not.
+                `),
+                grade: 'moderate',
+                quote: 'we find a positive association between ARCs and reported fraud. These results indicate that ARCs are effective in detecting fraud.',
+                sources: [source('Johansson and Carey 2016, Journal of Business Ethics', 'https://doi.org/10.1007/s10551-015-2673-6')]
               })
             ],
             counterEvidence: [
@@ -601,27 +614,7 @@ export default spineData({
                 grade: 'moderate',
                 quote: 'By contrast, we do not find any evidence that the protection offered to whistleblowers by section 303 of SOX has any effect.',
                 sources: [source('Dyck, Morse and Zingales 2010, Journal of Finance', 'https://doi.org/10.1111/j.1540-6261.2010.01614.x')]
-              })
-            ]
-          }),
-          claim({
-            text: 'Workers speak up more when they can report to someone other than their employer.',
-            evidence: [
-              evidence({
-                headline: 'Companies that gave employees a way to report without going to their boss found more fraud.',
-                finding: paragraph(`
-                  Using survey data from publicly listed Australian companies, where such channels are
-                  not required, the authors “find a positive association between ARCs and reported
-                  fraud. These results indicate that ARCs are effective in detecting fraud.” Small
-                  firms gained most. Companies chose whether to have a channel, so the comparison is
-                  between companies that did and companies that did not.
-                `),
-                grade: 'moderate',
-                quote: 'we find a positive association between ARCs and reported fraud. These results indicate that ARCs are effective in detecting fraud.',
-                sources: [source('Johansson and Carey 2016, Journal of Business Ethics', 'https://doi.org/10.1007/s10551-015-2673-6')]
-              })
-            ],
-            counterEvidence: [
+              }),
               evidence({
                 headline: 'Adding an anonymous reporting route made employees less willing to report through the named routes.',
                 finding: paragraph(`
