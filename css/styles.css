@@ -242,17 +242,17 @@ body {
 
 .esrcs a {
   font-size: 0.875rem;
-  color: #1258a0;
+  color: #3a3f47;
   text-decoration: none;
-  background: #e3eef8;
+  background: #f1efe9;
   padding: 4px 10px;
   border-radius: 4px;
-  border: 1px solid #a8c8e8;
+  border: 1px solid #d4cfc5;
   cursor: pointer;
 }
 
 .esrcs a:hover {
-  background: #bed4ee;
+  background: #e6e2d9;
   text-decoration: underline;
 }
 
@@ -669,12 +669,13 @@ body[data-view="chain"] #ctrl .fl,
 
 .ev-srcs { font-size: 0.875rem; line-height: 1.6; margin-top: 7px; }
 .pa-loc { font-size: 0.75rem; color: #555; margin-top: 7px; }
+/* Sources share the sidebar's ink; the underline marks them as links. */
 .ev-srcs a {
-  font-size: 0.875rem; color: #1258a0; text-decoration: underline;
-  text-underline-offset: 2px; background: transparent; padding: 1px 0;
-  border: none; cursor: pointer;
+  font-size: 0.875rem; color: #3a3f47; text-decoration: underline;
+  text-decoration-color: #a9a294; text-underline-offset: 2px;
+  background: transparent; padding: 1px 0; border: none; cursor: pointer;
 }
-.ev-srcs a:hover { color: #0d3f73; }
+.ev-srcs a:hover { color: #1a1a1a; text-decoration-color: currentColor; }
 
 .pa {
   background: #f7f2fd; border: 1px solid #ddcdf2; border-left: 4px solid #601898;
