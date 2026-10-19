@@ -1521,7 +1521,9 @@ body[data-view="chain"] #ctrl .fl,
 .sp-propbox {
   position: absolute; box-sizing: border-box; cursor: pointer; text-align: left; z-index: 2;
   background: #fff; border: 2px dashed #601898; border-radius: 8px;
-  padding: 0; overflow: hidden; font-size: .74rem; line-height: 1.35;
+  /* Not clipped, so a note badge can sit over the corner; the header band
+     rounds its own top corners instead. */
+  padding: 0; overflow: visible; font-size: .74rem; line-height: 1.35;
   color: #3f1170; font-family: inherit; white-space: normal;
 }
 .sp-propbox:hover { background: #fbf8ff; }
@@ -1532,7 +1534,7 @@ body[data-view="chain"] #ctrl .fl,
 .sp-propbox-kick { display: block; font-size: .58rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: #601898; margin-bottom: 2px; }
 /* Purple is confined to the header band and the dashed edge, so the body reads
    as a plain record and the green effect links do not have to fight a tint. */
-.sp-prop-head { padding: 8px 11px; font-weight: 600; background: #f4edfc; border-bottom: 1px solid #e6dcf3; }
+.sp-prop-head { padding: 8px 11px; font-weight: 600; background: #f4edfc; border-bottom: 1px solid #e6dcf3; border-radius: 6px 6px 0 0; }
 .sp-prop-title { display: block; font-size: .78rem; line-height: 1.3; }
 .sp-prop-fields { padding: 9px 11px 10px; font-size: .72rem; line-height: 1.4; color: #4a4437; }
 .sp-prop-sum { color: #4a4437; }
@@ -1662,3 +1664,155 @@ body[data-view="chain"] #ctrl .fl,
 #ch-mapcol, #ch-mapcol * { -webkit-user-select: none; user-select: none; }
 /* The mechanism question carries the same yellow star as the map. */
 .cd-kick-mech .sp-star-static { display: inline-flex; vertical-align: -4px; margin-right: 6px; }
+
+/* ------------------------------------------------------------------ *
+ * Participants' notes (js/notes.js). Sticky-note yellow, used nowhere
+ * else on the map except the mechanism stars, which are round.
+ * ------------------------------------------------------------------ */
+
+#nt-open[hidden], #nt-compose[hidden], #nt-compose [hidden] { display: none; }
+
+.nt-vh {
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap;
+}
+
+/* The count on a card: a small square sticky over its top-right corner. It
+   takes no clicks, so clicking it selects the card like the rest of it. */
+.nt-badge {
+  position: absolute; top: -8px; right: -8px; z-index: 4;
+  min-width: 20px; height: 20px; padding: 0 5px;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: #ffd84d; color: #3d2e00; border: 1px solid #c9a400;
+  border-radius: 3px 3px 8px 3px; box-shadow: 0 1px 3px rgba(0,0,0,.22);
+  font-family: inherit; font-size: .62rem; font-weight: 800; line-height: 1;
+  pointer-events: none;
+}
+/* An event with mechanism stars: the badge joins their row. */
+.sp-ent-stars .nt-badge { position: static; }
+#ch-map.nt-hide .nt-badge { display: none; }
+
+/* The Notes button, first in the floating zoom control. */
+#ch-zoom #nt-open {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: .75rem; padding: 6px 12px; border-right: 1px solid #e2ddd3;
+}
+#ch-zoom #nt-open[hidden] { display: none; }
+.nt-ico {
+  width: 11px; height: 11px; background: #ffd84d; border: 1px solid #c9a400;
+  border-radius: 1px 1px 4px 1px; display: inline-block;
+}
+#nt-count {
+  background: #ffd84d; color: #3d2e00; border-radius: 9px;
+  padding: 2px 6px; font-size: .625rem; font-weight: 800;
+}
+#nt-count:empty { display: none; }
+
+/* The note box, fixed to the bottom of the detail pane. */
+#nt-compose {
+  flex-shrink: 0; display: flex; flex-direction: column; gap: 6px;
+  padding: 10px 14px 12px 20px; border-top: 1px solid #e2ddd3; background: #fffbe8;
+}
+.nt-row { display: flex; align-items: center; gap: 8px; }
+/* 16px: below it, iOS zooms the whole page when the field is focused. */
+.nt-input {
+  font-family: inherit; font-size: 16px; line-height: 1.35; width: 100%;
+  padding: 7px 9px; border: 1.5px solid #c9c2b6; border-radius: 6px;
+  background: #fff; color: #1a1a1a; -webkit-appearance: none; appearance: none;
+}
+textarea.nt-input { resize: vertical; min-height: 46px; max-height: 40vh; }
+.nt-input:focus { outline: none; border-color: #1c2333; }
+.nt-as { flex: 0 0 auto; font-size: .6875rem; color: #6b6457; }
+.nt-as b { color: #1c2333; }
+#nt-status { flex: 1; min-width: 0; font-size: .6875rem; line-height: 1.35; color: #6b6457; }
+#nt-status.nt-warn { color: #8a3a00; }
+#nt-status a { color: inherit; font-weight: 700; }
+.nt-btn {
+  flex: 0 0 auto; margin-left: auto;
+  font-family: inherit; font-size: .75rem; font-weight: 700;
+  padding: 7px 16px; border-radius: 6px; border: 1.5px solid #1c2333;
+  background: #1c2333; color: #fff; cursor: pointer;
+}
+.nt-btn:hover { background: #2c3650; }
+.nt-btn:disabled { opacity: .45; cursor: default; }
+.nt-btn-quiet { background: #fff; color: #1c2333; border-color: #b3aca0; margin-left: 0; }
+.nt-btn-quiet:hover { background: #f3f1ec; border-color: #1c2333; }
+.nt-link {
+  font: inherit; background: none; border: none; padding: 0;
+  color: #1258a0; cursor: pointer; text-decoration: underline;
+}
+
+/* The notes under a card's detail, and in the panel. */
+.nt-list:not(:empty) { margin-top: 20px; padding-top: 12px; border-top: 1px solid #eee9e0; }
+.nt-h {
+  font-size: .625rem; font-weight: 800; letter-spacing: .06em;
+  text-transform: uppercase; color: #6b6457; margin-bottom: 8px;
+}
+.nt-ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.nt-item {
+  background: #fff6c4; border: 1px solid #ecd77a; border-radius: 3px 3px 10px 3px;
+  padding: 7px 10px; box-shadow: 0 1px 2px rgba(0,0,0,.07);
+}
+.nt-meta {
+  display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 6px;
+  font-size: .6875rem; color: #6b6457;
+}
+.nt-meta b { color: #1c2333; }
+.nt-meta .nt-link:first-of-type { margin-left: auto; }
+.nt-text {
+  margin-top: 3px; font-size: .8125rem; line-height: 1.5; color: #1c2333;
+  white-space: pre-wrap; overflow-wrap: anywhere;
+}
+.nt-pending { opacity: .65; }
+.nt-hidden { background: #f1efe9; border: 1px dashed #b3aca0; }
+.nt-tag {
+  font-size: .58rem; font-weight: 800; letter-spacing: .05em; text-transform: uppercase;
+  background: #e2ddd3; color: #4a463f; border-radius: 3px; padding: 1px 5px;
+}
+.nt-was { margin-top: 2px; font-size: .6875rem; font-style: italic; color: #8a8377; }
+
+/* The panel: slides over from the right, like the key. */
+#nt-panel {
+  position: fixed; top: 0; right: 0; bottom: 0; z-index: 70;
+  width: 420px; max-width: 94vw;
+  display: flex; flex-direction: column;
+  background: #fbfaf7; border-left: 1px solid #d4cfc5;
+  box-shadow: -6px 0 24px rgba(0,0,0,.18);
+  transform: translateX(100%); visibility: hidden;
+  transition: transform .22s ease, visibility 0s linear .22s;
+}
+#nt-panel.open { transform: translateX(0); visibility: visible; transition: transform .22s ease; }
+#nt-close {
+  background: none; border: none; border-radius: 4px; width: 26px; height: 26px;
+  font-size: 1.1rem; line-height: 1; color: #8a8377; cursor: pointer; padding: 0 4px;
+}
+#nt-close:hover { color: #1a1a1a; }
+#nt-panel-body {
+  flex: 1; min-height: 0; overflow-y: auto; -webkit-overflow-scrolling: touch;
+  padding: 12px 18px 30px;
+}
+.nt-opt { display: flex; align-items: center; gap: 6px; font-size: .75rem; color: #4a463f; margin-bottom: 14px; cursor: pointer; }
+.nt-facil {
+  display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px;
+  padding: 10px 12px; background: #fff; border: 1px solid #d4cfc5; border-radius: 8px;
+}
+.nt-facil > .nt-btn { align-self: flex-start; }
+.nt-facil-h {
+  font-size: .625rem; font-weight: 800; letter-spacing: .06em;
+  text-transform: uppercase; color: #6b6457;
+}
+.nt-group { margin-bottom: 18px; }
+.nt-card {
+  display: block; width: 100%; text-align: left; font-family: inherit;
+  background: none; border: none; padding: 0 0 6px; cursor: pointer;
+}
+.nt-card-kind {
+  display: block; font-size: .58rem; font-weight: 800; letter-spacing: .06em;
+  text-transform: uppercase; color: #8a8377;
+}
+.nt-card-t {
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+  font-size: .8125rem; font-weight: 600; line-height: 1.35; color: #1c2333;
+}
+.nt-card:hover .nt-card-t { text-decoration: underline; }
+.nt-empty { font-size: .75rem; line-height: 1.5; color: #6b6457; margin-bottom: 8px; }
