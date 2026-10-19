@@ -805,112 +805,6 @@ export default spineData({
                 sources: [source('Heese, Krishnan and Ramasubramanian 2021, Journal of Accounting and Economics', 'https://doi.org/10.1016/j.jacceco.2020.101357')]
               })
             ]
-          }),
-          claim({
-            text: 'Acting on a reported hazard lowers people\'s exposure to it.',
-            evidence: [
-              evidence({
-                headline: 'Chinese factories cut their pollution after their violations were reported to the regulator, most of all when the reports were made in public.',
-                finding: paragraph(`
-                  Buntaine, Greenstone, He, Liu, Wang and Zhang ran a nationwide field experiment in
-                  China. Firms that broke pollution standards were assigned at random to have their
-                  violations raised with the regulator in a public appeal on social media, in a
-                  private appeal, or not at all. “First, public appeals to the regulator through social
-                  media substantially reduce violations and pollution emissions, while private appeals
-                  cause more modest environmental improvements.” The cuts at treated firms were not
-                  offset by more pollution at firms left out. The appeals came from outside the firms,
-                  not from workers inside them.
-                `),
-                grade: 'strong',
-                quote: 'First, public appeals to the regulator through social media substantially reduce violations and pollution emissions, while private appeals cause more modest environmental improvements.',
-                sources: [source('Buntaine, Greenstone, He, Liu, Wang and Zhang 2024, American Economic Review', 'https://doi.org/10.1257/aer.20221215')]
-              }),
-              evidence({
-                headline: 'After manufacturers stopped making the PFAS chemical PFOS, Americans carried steadily less of it in their blood.',
-                finding: paragraph(`
-                  Kato, Wong, Jia, Kuklenyik and Calafat measured four PFAS in 7,876 blood samples from
-                  a representative sample of Americans aged 12 and older, collected in the national
-                  health survey from 1999 to 2008. “Since 1999-2000, PFOS concentrations showed a
-                  significant downward trend, because of discontinuing industrial production of PFOS,
-                  but PFNA concentrations showed a significant upward trend.” PFOA was highest at the
-                  start and then held steady. All four chemicals were still found in more than 95
-                  percent of people, so levels fell while almost everyone stayed exposed. The survey
-                  tracks levels over time, and the link to the end of production is the authors'
-                  reading of that trend.
-                `),
-                grade: 'strong',
-                quote: 'Since 1999-2000, PFOS concentrations showed a significant downward trend, because of discontinuing industrial production of PFOS, but PFNA concentrations showed a significant upward trend.',
-                sources: [source('Kato, Wong, Jia, Kuklenyik and Calafat 2011, Environmental Science and Technology', 'https://doi.org/10.1021/es1043613')]
-              }),
-              evidence({
-                headline: 'Arsenic in people\'s bodies fell after the federal limit took effect, and only among those drinking public water.',
-                finding: paragraph(`
-                  Researchers compared people on public water with private well users, whom the rule
-                  does not cover, in a repeated national health survey. Urinary arsenic fell 17 percent
-                  over a decade among public water users and did not change among well water users.
-                  The authors conclude that “the decline
-                  in urinary arsenic among public water but not private well users in NHANES 2003-2014
-                  indicates that the implementation of the current MCL has reduced arsenic exposure in
-                  the US population”.
-                `),
-                grade: 'strong',
-                quote: 'The decline in urinary arsenic among public water but not private well users in NHANES 2003-2014 indicates that the implementation of the current MCL has reduced arsenic exposure in the US population.',
-                caveat: 'A later study by the same group found that small groundwater systems and those serving Hispanic communities were more likely to keep exceeding the limit.',
-                sources: [
-                  source('Nigra et al. 2017, The Lancet Public Health', 'https://doi.org/10.1016/S2468-2667(17)30195-0'),
-                  source('Nigra et al. 2020, Environmental Health Perspectives', 'https://doi.org/10.1289/EHP7313')
-                ]
-              }),
-              evidence({
-                headline: 'Flint children\'s blood lead fell back to where it had been once the city switched its water back.',
-                finding: paragraph(`
-                  Zahran, McElmurry and Sadler used more than 21,000 geocoded, time-stamped blood lead
-                  tests from Genesee County children. They divided the Flint water crisis into four phases
-                  and used quasi-experimental models to estimate how water lead moved children's blood
-                  lead in each. The switch to Flint River water raised blood lead. After boil water
-                  advisories, levels fell about halfway back as households avoided tap water. Once the
-                  city returned to its earlier water source, children's blood lead returned to where it
-                  was before the crisis. Lead leaves the blood within weeks, so recovery would be slower
-                  for a persistent chemical such as PFAS.
-                `),
-                grade: 'strong',
-                quote: 'Finally, the return to the baseline source water (Phase D) returned child BLLs to pre-FWC levels further implicating water-lead exposure as a causal source of child BLLs throughout the FWC.',
-                sources: [source('Zahran, McElmurry and Sadler 2017, Environmental Research', 'https://doi.org/10.1016/j.envres.2017.05.028')]
-              })
-            ],
-            counterEvidence: [
-              evidence({
-                headline: 'In Chinese provinces, more pollution complaints sent to environmental offices by letter or visit did not bring local pollution down.',
-                finding: paragraph(`
-                  Ma, Song and Zhang followed 30 Chinese provinces from 2011 to 2020 and compared local
-                  pollution with several ways the public took part in pollution control, using a dynamic
-                  spatial panel model. Participation “based on environmental letters and visits have no
-                  significant impact on local pollution reduction,” while online searches about pollution,
-                  proposals from legislators, and microblogging were linked to lower emissions. The study
-                  compares provinces over time rather than following the polluters named in each complaint,
-                  and it counts complaints in total, not whether each one reported a real violation.
-                `),
-                grade: 'moderate',
-                quote: 'based on environmental letters and visits have no significant impact on local pollution reduction, while the Baidu search index of environmental pollution has the greatest effect on emission reduction, followed by environmental protection strategies based on the National People\'s Congress (NPC) and microblogging.',
-                sources: [source('Ma, Song and Zhang 2023, Journal of Environmental Management', 'https://doi.org/10.1016/j.jenvman.2023.118046')]
-              }),
-              evidence({
-                headline: 'As rules on PFOS tightened, Chinese factories used more of a substitute chemical, and most people tested now carry it in their blood.',
-                finding: paragraph(`
-                  He and colleagues reviewed studies of F-53B, a chlorinated PFAS that the Chinese
-                  electroplating industry uses in place of PFOS. “Due to greater restrictions on PFOS
-                  globally in recent years, the production and use of F-53B correspondingly increased,
-                  consequently causing more emissions into the environment.” In the studies they
-                  reviewed, the substitute was found in almost 80 percent of human blood samples, and
-                  they describe it as the most persistent PFAS in humans found to date, with a
-                  half-life of 15.3 years. The review draws on studies from China and does not measure
-                  whether total PFAS exposure rose or fell.
-                `),
-                grade: 'moderate',
-                quote: 'Due to greater restrictions on PFOS globally in recent years, the production and use of F-53B correspondingly increased, consequently causing more emissions into the environment.',
-                sources: [source('He, Lv, Li, Liu, Liu and Han 2022, Environment International', 'https://doi.org/10.1016/j.envint.2022.107108')]
-              })
-            ]
           })
         ]
       }),
@@ -1160,6 +1054,22 @@ export default spineData({
                 quote: 'That result, coupled with a later independent analysis by researchers at Hurley Medical Center demonstrating rising blood lead in some Flint children, led local medical authorities and, eventually, the State of Michigan to declare a water health advisory on October 1, 2015 and to switch back to Lake Huron water supplied by DWSD on October 15, 2015',
                 caveat: 'One case, told by people who took part. The journal later attached an editor\'s note to the article.',
                 sources: [source('Roy and Edwards 2019, Citizen Science: Theory and Practice', 'https://doi.org/10.5334/cstp.154')]
+              }),
+              evidence({
+                headline: 'Chinese factories cut their pollution after their violations were reported to the regulator, most of all when the reports were made in public.',
+                finding: paragraph(`
+                  Buntaine, Greenstone, He, Liu, Wang and Zhang ran a nationwide field experiment in
+                  China. Firms that broke pollution standards were assigned at random to have their
+                  violations raised with the regulator in a public appeal on social media, in a
+                  private appeal, or not at all. “First, public appeals to the regulator through social
+                  media substantially reduce violations and pollution emissions, while private appeals
+                  cause more modest environmental improvements.” The cuts at treated firms were not
+                  offset by more pollution at firms left out. The appeals were sent as part of the
+                  experiment, so they did not come from people living near each plant.
+                `),
+                grade: 'strong',
+                quote: 'First, public appeals to the regulator through social media substantially reduce violations and pollution emissions, while private appeals cause more modest environmental improvements.',
+                sources: [source('Buntaine, Greenstone, He, Liu, Wang and Zhang 2024, American Economic Review', 'https://doi.org/10.1257/aer.20221215')]
               })
             ],
             counterEvidence: [
@@ -1189,6 +1099,21 @@ export default spineData({
                 grade: 'weak',
                 quote: 'standards simultaneously serve a boundary-policing function, allowing experts to dismiss bucket data as irrelevant to the central project of air quality assessment',
                 sources: [source('Ottinger 2010, Science, Technology, and Human Values', 'https://doi.org/10.1177/0162243909337121')]
+              }),
+              evidence({
+                headline: 'In Chinese provinces, more pollution complaints sent to environmental offices by letter or visit did not bring local pollution down.',
+                finding: paragraph(`
+                  Ma, Song and Zhang followed 30 Chinese provinces from 2011 to 2020 and compared local
+                  pollution with several ways the public took part in pollution control, using a dynamic
+                  spatial panel model. Participation “based on environmental letters and visits have no
+                  significant impact on local pollution reduction,” while online searches about pollution,
+                  proposals from legislators, and microblogging were linked to lower emissions. The study
+                  compares provinces over time rather than following the polluters named in each complaint,
+                  and it counts complaints in total, not whether each one reported a real violation.
+                `),
+                grade: 'moderate',
+                quote: 'based on environmental letters and visits have no significant impact on local pollution reduction, while the Baidu search index of environmental pollution has the greatest effect on emission reduction, followed by environmental protection strategies based on the National People\'s Congress (NPC) and microblogging.',
+                sources: [source('Ma, Song and Zhang 2023, Journal of Environmental Management', 'https://doi.org/10.1016/j.jenvman.2023.118046')]
               })
             ]
           }),
