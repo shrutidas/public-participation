@@ -275,21 +275,23 @@ export default spineData({
     spineProposal({
       name: 'Throughout the vaccine rollout, federal health officials or their accountable representatives answer the public\'s questions on federal vaccine policy at regular public sessions.',
       method: 'Town Hall',
-      summary: 'From the first week of the rollout, residents nominated by community groups across parties question CDC officials in public, and officials must answer every question.',
+      summary: 'Throughout the rollout, federal health officials or their accountable representatives answer residents\' questions on federal vaccine policy at regular public sessions.',
       anchor: 'ACIP voted 11 to 0',
-      where: 'Federal, at the Centers for Disease Control and Prevention, with sessions held in regions across the country.',
+      where: 'Federal vaccine policy, with sessions that can run through states or localities.',
       when: paragraph(`
-        December 2020 to January 2021, before the push to persuade people began, with sessions held
-        on a set schedule through 2021. In 2021 the agency held two telebriefings.
+        December 2020 through 2021, on a set schedule from the first week of the rollout. In 2021
+        the agency held two telebriefings.
       `),
       description: paragraph(`
-        The Centers for Disease Control and Prevention (CDC) holds public sessions on a set schedule
-        from the first week of the vaccine rollout in December 2020. Residents put questions to
-        officials directly. Community groups across the political
-        spectrum and in hard-hit areas nominate the residents who ask. Anyone can submit a question,
+        Federal health officials, or representatives accountable to them such as community
+        engagement partners who helped design vaccine policy, hold public sessions on a set schedule
+        throughout the rollout. Residents put their own questions on federal vaccine policy to them
+        directly. The format can differ from place to place. One federal agency would struggle to
+        hold enough sessions for the whole country. Sessions can instead run through states or
+        localities, with community correspondents placed where trust is lowest. Anyone can submit a question,
         and submitted questions set part of each session's agenda. Officials must answer every
         question, including questions about side effects and what is not yet known, and publish
-        their written answers. The CDC keeps its authority over vaccine guidance and still publishes
+        their written answers. The Centers for Disease Control and Prevention (CDC) keeps its authority over vaccine guidance and still publishes
         county data on vaccinations, cases, hospital stays, and reported side effects. Members of
         Congress have held online town halls where constituents who volunteered were assigned at
         random to question them directly. Trust in the CDC split along party lines during the
@@ -665,19 +667,21 @@ export default spineData({
     spineProposal({
       name: 'Before any vaccine is approved, a citizens\' assembly weighs whether it should be mandated at all.',
       method: 'Citizens\' Assembly',
-      summary: 'Before ordering a mandate, the federal government or a city convenes residents chosen by lot and must publicly answer their recommendation.',
+      summary: 'Before any vaccine is approved, residents chosen by lot weigh whether it should be mandated at all, and the government must answer their recommendation in public.',
       anchor: 'Gallup first asked in July 2020',
-      where: 'Federal, before the September 9, 2021 announcement, or New York City, before its November 1 mandate.',
+      where: 'Federal, or a state or city, before any vaccine is approved.',
       when: paragraph(`
-        June to August 2021. An assembly convened in June and reporting by late August would have
-        come before Executive Order 14043 and the workplace safety agency's vaccine rule.
+        July to November 2020, after the first polls on vaccine willingness and before the first
+        emergency authorization in December 2020.
       `),
       description: paragraph(`
-        Before imposing a vaccine mandate, the federal government or a city convenes an assembly of
-        residents chosen by lot. Experts brief members on the science. Members then weigh the values
-        at stake, including whether to mandate, for whom, and with what exemptions. The government
-        publishes the assembly's conclusion before it acts. Federal and state vaccination law and
-        emergency use rules stay in place. The group accepted that places would differ, writing
+        Before any COVID-19 vaccine is approved, the federal government or a state or city convenes
+        an assembly of residents chosen by lot. Experts brief members on the science. Members weigh
+        whether a vaccine should be mandated at all, and if so for whom and with what exemptions.
+        The government publishes the assembly's conclusion before it acts. Federal and state
+        vaccination law and emergency use rules stay in place. A state's decision is hard to
+        contain, because people travel between states constantly. A federal assembly avoids that
+        problem, while state assemblies let places differ. The group accepted that places would differ, writing
         “some places might decide not to vaccinate; so be it.” France ran a version in 2021. At the
         Prime Minister's request, its economic and social council convened 35 citizens drawn by lot
         to advise on the vaccination campaign. In 2017, South Korea's president accepted a randomly
@@ -691,11 +695,11 @@ export default spineData({
         on the mandate, or set its exemptions. Advice set aside without an explanation lowers
         acceptance, while a public explanation restores most of it. People with the strongest views
         were half as ready as moderates to accept an assembly decision against them. The aim is that
-        more people, including people who oppose a mandate, accept it as legitimate and comply with
-        it.
+        more people, including those who disagree, accept the decision on mandates as legitimate
+        and follow it.
       `),
       outcome: outcome({
-        text: 'More people, including those who oppose a mandate, accept it as legitimate and comply with it.',
+        text: 'More people, including those who disagree, accept the decision on mandates as legitimate and follow it.',
         measured: 'Mandates raised vaccination abroad but not in US states',
         claims: [
           claim({
@@ -796,6 +800,20 @@ export default spineData({
                 grade: 'moderate',
                 quote: 'The findings show minipublics are unlikely to foster public compliance during a health crisis. On the contrary, reading about a minipublic could decrease compliance when individuals are distrustful of minipublics.',
                 sources: [source('Muradova and Suiter 2022, International Journal of Public Opinion Research', 'https://doi.org/10.1093/ijpor/edac026')]
+              }),
+              evidence({
+                headline: 'Giving a civilian board a say in police misconduct cases did not raise how legitimate people found policing, and disagreements could lower trust in both.',
+                finding: paragraph(`
+                  Schiff and colleagues (2025) ran a survey experiment with 2,503 respondents that
+                  varied whether a civilian review board took part in misconduct decisions and
+                  whether it agreed with the police chief. The board raised perceived fairness for
+                  some, “particularly those with negative views of police”, but “their involvement
+                  does not generally increase legitimacy”. When the board and the chief disagreed,
+                  trust in both policing and oversight could fall.
+                `),
+                grade: 'strong',
+                quote: 'Our findings suggest that while CRBs may enhance perceptions of procedural fairness for some, particularly those with negative views of police, their involvement does not generally increase legitimacy.',
+                sources: [source('Schiff and colleagues 2025, PNAS Nexus', 'https://doi.org/10.1093/pnasnexus/pgaf267')]
               })
             ]
           }),
@@ -968,12 +986,18 @@ export default spineData({
         also strengthen neighborhood ties. People who helped neighbors through organized efforts
         early in the pandemic felt closer to their community. Much of the activity in online mutual
         aid groups faded after the first wave. Everyday ties matter in a crisis. In Chicago's deadly
-        heat wave, people with friends nearby or group activities were less likely to die. The aim
-        is that Black and Hispanic residents in the hardest-hit neighborhoods get vaccinated sooner,
-        and fewer of them die of COVID-19.
+        heat wave, people with friends nearby or group activities were less likely to die. Black and
+        Latino residents' distrust of the medical system rests on history and ongoing experience.
+        For forty years the U.S. Public Health Service watched hundreds of Black men with syphilis
+        go untreated, even after penicillin was available. Doctors at a Los Angeles county hospital
+        pressured Mexican-origin women into sterilization right after childbirth. Johns Hopkins
+        doctors gave away Henrietta Lacks's cells without her knowledge. After the syphilis study
+        became public, older Black men saw doctors less often and died sooner. The aim is that
+        Hispanic and Black residents in hardest-hit neighborhoods get vaccinated sooner, and
+        institutional trust is not compromised by mandates.
       `),
       outcome: outcome({
-        text: 'Black and Hispanic residents in the hardest-hit neighborhoods get vaccinated sooner, and fewer of them die of COVID-19.',
+        text: 'Hispanic and Black residents in hardest-hit neighborhoods get vaccinated sooner, and institutional trust is not compromised by mandates.',
         measured: 'The racial gap in vaccination narrowed',
         claims: [
           claim({
@@ -1101,6 +1125,98 @@ export default spineData({
                 grade: 'moderate',
                 quote: 'Analyses reveal that racially concordant care has a negligible effect on vaccine hesitancy, but does ameliorate other harmful beliefs regarding one\'s likelihood of experiencing discrimination and racism in healthcare more generally.',
                 sources: [source('Anderson 2023, Social Science and Medicine', 'https://doi.org/10.1016/j.socscimed.2023.116335')]
+              })
+            ]
+          }),
+          claim({
+            text: 'Where people distrust the health system, outreach by members of their own community reaches people official channels miss.',
+            evidence: [
+              evidence({
+                headline: 'New York neighborhoods where community health workers did outreach all year started far behind on vaccination and caught up within a year.',
+                finding: paragraph(`
+                  New York City's health department paid local groups to hire community health
+                  workers in 75 mostly Black and Latino zip codes. Miller and colleagues report that
+                  areas with year-round outreach began at 44 percent vaccinated, against 59 percent in
+                  areas with less outreach. A year later the two were statistically even, at 76 and 81
+                  percent. The authors conclude that trust must exist before a crisis, and “when this
+                  is lacking, CHW outreach can bridge the gap.” CHW stands for community health
+                  worker. The groups were not randomly assigned, and the high-outreach areas had more
+                  room to grow.
+                `),
+                grade: 'moderate',
+                quote: 'Response readiness during public health crises relies on pre-established trust. When this is lacking, CHW outreach can bridge the gap.',
+                sources: [source('Miller et al. 2025, American Journal of Public Health', 'https://doi.org/10.2105/AJPH.2025.308039')]
+              }),
+              evidence({
+                headline: 'Oregon testing events promoted by Latino community health promoters drew almost four times as many Latino residents as events run the usual way.',
+                finding: paragraph(`
+                  DeGarmo and colleagues randomly assigned 38 community sites in nine Oregon counties
+                  to outreach by promotores de salud, or community health promoters, or to usual
+                  outreach. The promoters spread word in Spanish and English and worked on
+                  “mitigating misinformation, and increasing trust.” “The intervention tested 3.84
+                  (95% CI, 2.47-5.97) times more Latinx individuals per event than controls.” The
+                  outcome was COVID-19 testing, not vaccination.
+                `),
+                grade: 'strong',
+                quote: 'The intervention tested 3.84 (95% CI, 2.47-5.97) times more Latinx individuals per event than controls',
+                sources: [source('DeGarmo et al. 2022, JAMA Network Open', 'https://doi.org/10.1001/jamanetworkopen.2022.16796')]
+              }),
+              evidence({
+                headline: 'Older Black and Latino churchgoers who did not usually get flu shots were far more likely to get one when their church offered vaccination on site.',
+                finding: paragraph(`
+                  Daniels and colleagues randomly assigned 15 churches to host vaccination or not.
+                  They enrolled Black and Latino adults 65 and older who did not regularly get flu
+                  shots. “Of those eligible, 90 of 112 (80%) in the intervention group used the
+                  influenza vaccine compared to 32 of 70 (46%) in the comparison group.” Pneumonia
+                  shots rose by a similar margin. The sample was small. On-site shots also made
+                  getting vaccinated easier, apart from coming from a trusted place.
+                `),
+                grade: 'moderate',
+                quote: 'Of those eligible, 90 of 112 (80%) in the intervention group used the influenza vaccine compared to 32 of 70 (46%) in the comparison group (P < .001).',
+                sources: [source('Daniels et al. 2007, Ethnicity and Disease', 'https://pubmed.ncbi.nlm.nih.gov/17598312/')]
+              })
+            ],
+            counterEvidence: [
+              evidence({
+                headline: 'Letters and messages from their own doctors got more unvaccinated Black and Latino older adults vaccinated, and tailoring them to culture added little.',
+                finding: paragraph(`
+                  Lieu and colleagues randomly assigned 8,287 unvaccinated Black and Latino Kaiser
+                  Permanente members aged 65 and older to one of three groups. Some got messages from
+                  their primary care doctor, some got culturally tailored messages, and some got
+                  nothing. Both kinds of messages raised vaccination over eight weeks, to 24.0 and
+                  23.1 percent against 21.7 percent. An official channel reached these residents,
+                  though everyone in the study already had a doctor and insurance.
+                `),
+                grade: 'strong',
+                quote: 'Culturally tailored PCP outreach led to higher COVID-19 vaccination rates during follow-up compared with usual care (664 participants [24.0%] vs 603 participants [21.7%]; adjusted hazard ratio (aHR), 1.22; 95% CI, 1.09-1.37), as did standard PCP outreach (635 participants [23.1%]; aHR, 1.17; 95% CI, 1.04-1.31).',
+                sources: [source('Lieu et al. 2022, JAMA Network Open', 'https://doi.org/10.1001/jamanetworkopen.2022.17004')]
+              }),
+              evidence({
+                headline: 'Black Americans\' willingness to get vaccinated rose faster than White Americans\', which suggests the vaccination gap came less from distrust than from other barriers.',
+                finding: paragraph(`
+                  Padamsee and colleagues surveyed the same 1,200 adults each month from December 2020
+                  to June 2021. Black and White respondents started out equally willing, and Black
+                  respondents' willingness grew faster. The authors conclude the remaining gap in
+                  shots “might be less likely the result of vaccine hesitancy than other factors.” The
+                  panel was an online sample with only 107 Black respondents at the start.
+                `),
+                grade: 'moderate',
+                quote: 'Vaccination rates continue to be lower among Black individuals than White individuals, but these results suggest that this might be less likely the result of vaccine hesitancy than other factors.',
+                sources: [source('Padamsee et al. 2022, JAMA Network Open', 'https://doi.org/10.1001/jamanetworkopen.2021.44470')]
+              }),
+              evidence({
+                headline: 'Doctors\' videos about COVID-19 raised Black and White adults\' knowledge equally, and naming racial injustice or using Black doctors did not add anything.',
+                finding: paragraph(`
+                  Torres and colleagues randomly assigned 18,223 Black and White adults to
+                  doctor-delivered COVID-19 videos or a control. Some videos used Black doctors or
+                  acknowledged racial inequity in health care. The videos raised knowledge and
+                  information seeking, and “effects did not differ by race (F = 0.0112; P > .99) or in
+                  different intervention groups.” The outcomes were survey answers and clicks, not
+                  vaccination.
+                `),
+                grade: 'moderate',
+                quote: 'Effects did not differ by race (F = 0.0112; P > .99) or in different intervention groups (F = 0.324; P > .99).',
+                sources: [source('Torres et al. 2021, JAMA Network Open', 'https://doi.org/10.1001/jamanetworkopen.2021.17115')]
               })
             ]
           }),
@@ -1279,7 +1395,7 @@ export default spineData({
             ]
           }),
           claim({
-            text: 'Raising vaccination among Black and Hispanic residents closes the racial gap in deaths due to COVID-19.',
+            text: 'Raising vaccination among Black and Hispanic residents helps close the racial gap in deaths due to COVID-19.',
             evidence: [
               evidence({
                 headline: 'Chicago neighborhoods with lower vaccination lost more residents to COVID-19, and most of those deaths could have been prevented at the best-covered neighborhoods\' rates.',
@@ -1423,14 +1539,18 @@ export default spineData({
       }),
       sources: [
         source('Mody et al. 2022, PLOS Medicine', 'https://doi.org/10.1371/journal.pmed.1004048'),
-        source('Hernandez et al. 2022, PLOS Medicine', 'https://doi.org/10.1371/journal.pmed.1004069')
+        source('Hernandez et al. 2022, PLOS Medicine', 'https://doi.org/10.1371/journal.pmed.1004069'),
+        source('Centers for Disease Control and Prevention, About the USPHS Untreated Syphilis Study at Tuskegee', 'https://www.cdc.gov/tuskegee/about/index.html'),
+        source('Stern 2005, American Journal of Public Health', 'https://doi.org/10.2105/AJPH.2004.041608'),
+        source('Nature editorial 2020, Henrietta Lacks: science must right a historical wrong', 'https://www.nature.com/articles/d41586-020-02494-z'),
+        source('Alsan and Wanamaker 2018, Quarterly Journal of Economics', 'https://doi.org/10.1093/qje/qjx029')
       ]
     }),
 
     spineProposal({
       name: 'When vaccine outreach funds are awarded, residents decide through participatory budgeting which local projects the money supports.',
       method: 'Participatory Budgeting',
-      summary: 'Residents of the neighborhoods the money is meant for decide how a share of the American Rescue Plan community funds is spent.',
+      summary: 'When outreach funds are awarded, residents of the neighborhoods the money is meant for decide which projects supporting the rollout it pays for.',
       anchor: 'vaccine equity push',
       where: 'City and county governments that received American Rescue Plan community engagement funds.',
       when: paragraph(`
@@ -1439,8 +1559,9 @@ export default spineData({
         governments for health literacy work. The rules for who decides are set once, at the award.
       `),
       description: paragraph(`
-        Residents of the neighborhoods the money is meant to reach decide how a share of the
-        community support funds is spent. The funding agency sets the size of that share and what
+        Residents of the neighborhoods the money is meant to reach decide how a share of publicly
+        provided rollout funds is spent. Projects can include health literacy work, community
+        engagement, community health worker programs, and rides to vaccination sites. The funding agency sets the size of that share and what
         the money can pay for. Neighborhood assemblies propose projects, debate them, and vote. The
         vote decides the spending rather than advising on it. The agency publishes what residents
         chose and what the money bought. Few local governments asked residents how to spend pandemic
@@ -1653,27 +1774,27 @@ export default spineData({
     spineProposal({
       name: 'When vaccine outreach funds are awarded, residents choose which results are tracked and published, and public funds pay for residents to gather their own data.',
       method: 'Participatory Monitoring and Evaluation',
-      summary: 'Residents of the neighborhoods an outreach award serves set the measures of success, and results are published against them.',
+      summary: 'Residents decide which results of the rollout are tracked and published, by the government or an independent group, and public funds pay for residents to gather their own data.',
       anchor: 'vaccine equity push',
       linked: true,
-      where: 'Any agency funding community outreach, with residents of the neighborhoods served.',
+      where: 'Any level of government that funds vaccine outreach, from a city to the federal government.',
       when: paragraph(`
         June to July 2021, when the outreach awards were made. Award terms are set once, so that is
         where an evaluation duty can attach without new legal authority.
       `),
       description: paragraph(`
-        Residents of the neighborhoods an outreach award is meant to reach decide what success looks
-        like. They set the measures with the grantee and an independent evaluator before any money
-        is spent. Results are then published against those measures. The funding agency writes this
-        duty into the award terms. Residents do not decide how the money is spent. They decide what
-        the spending is judged by, and they can see how much reached their neighborhood. That makes
-        the role closer to citizen science than to a vote. Residents rarely know how much of the
-        public money meant for them actually arrives. Officials can hide missing money where
-        residents are least able to see it, and voters reward officials for announcing money more
-        than for how much arrives. The closest studies test residents monitoring a service after
-        money is spent. The one study of residents writing the measures found they matched the
-        official ones. The aim is that outreach improves in the neighborhoods it is meant to reach,
-        and residents trust government more.
+        Residents decide which measures of the vaccine rollout are tracked and published. The
+        government or an independent group then reports results against those measures. Public
+        funds also pay residents to gather their own data, such as surveys and counts at vaccination
+        sites. Any level of government that funds outreach can take this on, from a city to the
+        federal government. The funding agency writes the duty into its award terms. Residents
+        rarely know how much of the public money meant for them actually arrives. Officials can
+        hide missing money where residents are least able to see it, and voters reward officials
+        for announcing money more than for delivering it. Public reporting is the clearest lever.
+        Who is held to account for poor results, and how, remains an open question, because city,
+        state, and federal governments shared the rollout. The closest studies test residents
+        monitoring a service after money is spent. The aim is that outreach improves in the
+        neighborhoods it is meant to reach, and residents trust government more.
       `),
       outcome: outcome({
         text: 'Outreach improves in the neighborhoods it is meant to reach, and residents trust government more.',
@@ -1724,7 +1845,8 @@ export default spineData({
                   outcomes had a significant impact on incumbents’ electoral performance, and that
                   these effects were more pronounced in municipalities where local radio was present to
                   divulge the information.” Mayors whose audits found more corruption were less likely
-                  to be reelected. What voters learned is read from how they voted rather than asked
+                  to be reelected. The money was federal, and voters held their mayors to account
+                  for how it was spent. What voters learned is read from how they voted rather than asked
                   directly.
                 `),
                 grade: 'strong',
@@ -1906,6 +2028,46 @@ export default spineData({
                 grade: 'strong',
                 quote: 'We find no impact on the quality of care or health outcomes of a lower cost intervention that focused on encouraging participation but did not provide information on staff performance.',
                 sources: [source('Björkman Nyqvist, de Walque and Svensson 2017, American Economic Journal: Applied Economics', 'https://doi.org/10.1257/app.20150027')]
+              }),
+              evidence({
+                headline: 'When Kenyan parents on school committees were given real standing, school staff steered fewer jobs to relatives and cut their own effort less.',
+                finding: paragraph(`
+                  Duflo, Dupas and Kremer (2015) studied Kenyan schools picked at random to hire an
+                  extra teacher locally on a renewable contract. Existing civil-service teachers cut
+                  their own effort, and “approximately 1/3 of contract teacher positions” went to
+                  their relatives. “A governance program that empowered parents within school
+                  committees reduced both forms of capture.”
+                `),
+                grade: 'strong',
+                quote: 'Civil-service teachers also captured rents for their families, with approximately 1/3 of contract teacher positions going to relatives of existing teachers. A governance program that empowered parents within school committees reduced both forms of capture.',
+                sources: [source('Duflo, Dupas and Kremer 2015, Journal of Public Economics', 'https://doi.org/10.1016/j.jpubeco.2014.11.008')]
+              }),
+              evidence({
+                headline: 'In a much larger Ugandan trial, urging citizens to press their health clinics did not raise that pressure or improve health.',
+                finding: paragraph(`
+                  Raffler, Posner and Parkerson (2025) ran a large field experiment in the Ugandan
+                  health sector that encouraged citizens to press underperforming providers. “While
+                  we find modest positive impacts on health provider behavior, we find no effects on
+                  citizen pressure, utilization rates, or bottom-line health outcomes.” The authors
+                  say the result may hold only under conditions like those in their study.
+                `),
+                grade: 'strong',
+                quote: 'While we find modest positive impacts on health provider behavior, we find no effects on citizen pressure, utilization rates, or bottom-line health outcomes.',
+                sources: [source('Raffler, Posner and Parkerson 2025, Journal of Politics', 'https://doi.org/10.1086/736577')]
+              }),
+              evidence({
+                headline: 'Programs that urged Indian villagers to watch over their schools did not make them more involved or make teachers try harder.',
+                finding: paragraph(`
+                  Banerjee, Banerji, Duflo, Glennerster and Khemani (2010) assigned Indian villages at
+                  random to three programs. One told residents about existing school institutions,
+                  one trained them to test children, and one trained volunteers to run reading camps.
+                  “These interventions had no impact on community involvement, teacher effort, or
+                  learning outcomes inside the school.” Children who went to the volunteer camps did
+                  read better. Residents gained information and skills but no formal power.
+                `),
+                grade: 'strong',
+                quote: 'These interventions had no impact on community involvement, teacher effort, or learning outcomes inside the school.',
+                sources: [source('Banerjee, Banerji, Duflo, Glennerster and Khemani 2010, American Economic Journal: Economic Policy', 'https://doi.org/10.1257/pol.2.1.1')]
               })
             ],
             counterEvidence: [
@@ -1922,6 +2084,20 @@ export default spineData({
                 grade: 'strong',
                 quote: 'While we find modest positive impacts on health provider behavior, we find no effects on citizen pressure, utilization rates, or bottom-line health outcomes.',
                 sources: [source('Raffler, Posner and Parkerson 2025, Journal of Politics', 'https://doi.org/10.1086/736577')]
+              }),
+              evidence({
+                headline: 'Programs that urged Indian villagers to watch over their schools did not make them more involved or make teachers try harder.',
+                finding: paragraph(`
+                  Banerjee, Banerji, Duflo, Glennerster and Khemani (2010) assigned Indian villages at
+                  random to three programs. One told residents about existing school institutions,
+                  one trained them to test children, and one trained volunteers to run reading camps.
+                  “These interventions had no impact on community involvement, teacher effort, or
+                  learning outcomes inside the school.” Children who went to the volunteer camps did
+                  read better. Residents gained information and skills but no formal power.
+                `),
+                grade: 'strong',
+                quote: 'These interventions had no impact on community involvement, teacher effort, or learning outcomes inside the school.',
+                sources: [source('Banerjee, Banerji, Duflo, Glennerster and Khemani 2010, American Economic Journal: Economic Policy', 'https://doi.org/10.1257/pol.2.1.1')]
               })
             ]
           }),
