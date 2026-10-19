@@ -176,7 +176,7 @@ function setLegend(open) {
   el('legend-show').hidden = open;
   el('legend-hide').setAttribute('aria-expanded', String(open));
   el('legend-show').setAttribute('aria-expanded', String(open));
-  store('pp-legend-hidden', !open);
+  store('pp-legend-open', open);
 }
 
 function setKeyPanel(open) {
@@ -617,7 +617,8 @@ function bindEvents() {
 /* -------------------------------- boot ----------------------------------- */
 
 bindEvents();
-setLegend(!stored('pp-legend-hidden'));
+// The key starts closed, and stays open on later visits only once opened.
+setLegend(stored('pp-legend-open'));
 onHashChange();
 
 // Participants' notes load after the map and on their own, so a slow or
