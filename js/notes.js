@@ -153,11 +153,6 @@ function fmtTime(iso) {
     : `${d.toLocaleDateString([], { month: 'short', day: 'numeric' })}, ${time}`;
 }
 
-const KIND_LABEL = {
-  entry: 'Event', mech: 'Existing mechanism', impact: 'Measured outcome',
-  prop: 'Proposal', propout: 'Proposed outcome', propclaim: 'Claim', propev: 'Evidence'
-};
-
 /* ------------------------------- the module ------------------------------- */
 
 /**
@@ -328,6 +323,7 @@ export async function initNotes(api) {
 
   /** The feed under the detail: the selected card's notes, or the case's. */
   function drawList() {
+    listEl.classList.toggle('nt-case', !target);
     if (!target) { drawCaseFeed(); return; }
     const facil = facilitate && Boolean(pass);
     const list = caseNotes({ includeHidden: facil }).filter(n => n.anchor === target.anchor && onCard(n));
@@ -374,11 +370,11 @@ export async function initNotes(api) {
     const facil = facilitate && Boolean(pass);
     const list = caseNotes({ includeHidden: facil });
     const n = list.filter(shown).length;
-    // An empty case shows nothing, except the facilitator's tools.
-    if (!list.length && !facilitate) { listEl.replaceChildren(); return; }
-    const kids = [h('h4', { class: 'nt-h', text: n ? `Comments on this case (${n})` : 'Comments on this case' })];
-
+    // The pane's own header carries the title and count.
+    $('rt-label').textContent = n ? `Comments on this case (${n})` : 'Comments on this case';
+    const kids = [];
     if (facilitate) kids.push(facilBox(list));
+    if (!n) kids.push(h('p', { class: 'nt-empty', text: 'There are no comments on this case yet.' }));
 
     // One group per card, the most recently active first.
     const groups = new Map();
@@ -393,10 +389,8 @@ export async function initNotes(api) {
 
 
     for (const [anchor, g] of ordered) {
-      const sel = anchorSel(anchor);
       kids.push(h('div', { class: 'nt-group' },
         h('button', { type: 'button', class: 'nt-card', onclick: () => goTo(anchor) },
-          h('span', { class: 'nt-card-kind', text: KIND_LABEL[sel.kind] }),
           h('span', { class: 'nt-card-t', text: currentLabel(anchor) })),
         h('ul', { class: 'nt-ul' }, g.map(n => noteItem(n, { facil })))));
     }

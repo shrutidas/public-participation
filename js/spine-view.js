@@ -699,13 +699,10 @@ function propEvDetail(spine, i, k, n, kind) {
   </div>`;
 }
 
-/* With nothing selected, the pane says how to fill it. What each column
-   holds is in its header's tooltip, so the pane does not repeat it. */
+/* With nothing selected, the pane holds only the case's comment feed, which
+   notes.js adds. What each column holds is in its header's tooltip. */
 function overview() {
-  return `<div class="cd cd-intro cd-empty">
-    <p>Select a card on the map to read it here.</p>
-    <p>Hover over or tap a column title to see what the column shows.</p>
-  </div>`;
+  return '';
 }
 
 /* What the pane is showing, for the pane's own header. Each pane used to
@@ -821,5 +818,5 @@ export function renderSpineDetail(el, caseObj, spine, rawSel = {}) {
   else el.innerHTML = overview();
   el.scrollTop = 0;
   if (sel.kind === 'propev' && sel.evKind === 'counter') return 'Counter-Evidence';
-  return DETAIL_LABEL[sel.kind] ?? 'Details';
+  return DETAIL_LABEL[sel.kind] ?? 'Comments on this case';
 }
