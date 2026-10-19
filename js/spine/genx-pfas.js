@@ -471,23 +471,23 @@ export default spineData({
       name: 'As soon as workers suspect a chemical hazard, a protected whistleblower channel lets them report it to the EPA, with local advocates supporting them through the process.',
       bold: ['protected whistleblower channel'],
       method: 'Protected Worker Disclosure',
-      summary: 'Local advocates, similar to ombudspeople, give workers a low-cost, protected way to report suspected environmental violations or hazards to the Environmental Protection Agency and other agencies, and support them afterward.',
+      summary: 'Workers who suspect a chemical hazard report it to the Environmental Protection Agency through a protected whistleblower channel, and local advocates, similar to ombudspeople, help them file and stand by them afterward.',
       anchor: 'continued exposure is not tolerable',
-      where: 'Local advocates in communities near chemical plants. Congress writes their protections against retaliation, and the Environmental Protection Agency\'s duty to respond, into law.',
+      where: 'A whistleblower channel to the Environmental Protection Agency, which Congress writes into the chemicals law with protections against retaliation and a duty to respond. Local advocates near chemical plants help workers use it.',
       when: paragraph(`
         1980, when DuPont had confirmed high PFOA levels in its workers and its Fayetteville plant
         began discharging into the Cape Fear River. The earliest point to act was 1961.
       `),
       description: paragraph(`
-        Local advocates give chemical plant workers a low-cost, protected way to report suspected
-        environmental violations or hazards. They work much like ombudspeople. An advocate hears the
-        worker in confidence and helps put the report in order. The advocate then files it with the
-        Environmental Protection Agency (EPA) or another agency that can act. The advocate stays
+        Chemical plant workers who suspect a hazard get a protected whistleblower channel to the
+        Environmental Protection Agency (EPA). Congress writes the channel into the chemicals law,
+        with protections against retaliation. The agency must log, investigate, and answer every
+        report. Local advocates make the channel low-cost and easy to use. They work much like
+        ombudspeople. An advocate hears the worker in confidence and helps put the report in order.
+        The advocate then files it with the EPA or another agency that can act. The advocate stays
         with the worker through the agency's follow-up and any retaliation that comes after. This
         makes the EPA reachable for workers who would rarely contact a federal agency alone,
-        especially blue-collar workers. The agency must log, investigate, and answer every report.
-        Congress writes the protections against retaliation and the duty to respond into the
-        chemicals law. Workers keep any in-house route their company offers. Aviation has run a
+        especially blue-collar workers. Workers keep any in-house route their company offers. Aviation has run a
         similar channel since 1976. The Federal Aviation Administration asked the National
         Aeronautics and Space Administration to take confidential safety reports. Workers would not
         trust a system run by the regulator that enforces rules against them. By 1980, DuPont had
@@ -529,6 +529,19 @@ export default spineData({
                 quote: 'A retrospective cohort study of the incidence of bladder cancer was conducted in response to a union request for an evaluation of a possible excess number of cases of bladder cancer at a chemical plant in western New York State.',
                 sources: [source('Ward et al. 1991, Journal of the National Cancer Institute', 'https://doi.org/10.1093/jnci/83.7.501')]
               }),
+              evidence({
+                headline: 'Employees brought more frauds at large companies to light than auditors or the securities regulator did.',
+                finding: paragraph(`
+                  Dyck, Morse and Zingales studied 216 alleged frauds at large US companies from 1996 to
+                  2004. They found that “fraud detection does not rely on standard corporate governance
+                  actors (investors, SEC, and auditors), but rather takes a village, including several
+                  nontraditional players (employees, media, and industry regulators)”. Employees brought
+                  17 percent of the cases to light. The frauds are financial rather than chemical hazards.
+                `),
+                grade: 'moderate',
+                quote: 'We find that fraud detection does not rely on standard corporate governance actors (investors, SEC, and auditors), but rather takes a village, including several nontraditional players (employees, media, and industry regulators).',
+                sources: [source('Dyck, Morse and Zingales 2010, Journal of Finance', 'https://doi.org/10.1111/j.1540-6261.2010.01614.x')]
+              })
             ],
             counterEvidence: [
               evidence({
@@ -589,17 +602,19 @@ export default spineData({
               evidence({
                 headline: 'After Congress wrote new protections for employees following the accounting scandals, employees did not bring more frauds to light.',
                 finding: paragraph(`
-                  Dyck, Morse and Zingales studied every large US corporate fraud and compared who exposed
-                  them before and after the Sarbanes-Oxley Act. The authors write that “by contrast, we do
-                  not find any evidence that the protection offered to employees by Section 303 of SOX has
-                  any effect”. Employees' share of detections fell from 18 to 13 percent, while auditors'
-                  share rose. Several reforms took effect at once, and the authors say their separate
-                  effects cannot be told apart. Naming yourself stayed costly. “In 82% of the cases, the
+                  Dyck, Morse and Zingales studied 216 alleged frauds at large US companies from 1996 to
+                  2004 and compared who exposed them before and after the Sarbanes-Oxley Act. The authors
+                  write that “by contrast, we do not find any evidence that the protection offered to
+                  whistleblowers by section 303 of SOX has any effect”. Among frauds exposed by people
+                  outside the company, employees' share fell from 18 to 13 percent, while auditors' share
+                  rose. That rests on 21 cases before the law and 5 after. Several reforms took effect at
+                  once, and the authors say their separate effects cannot be told apart. Naming yourself
+                  was costly across the whole period. The authors find that “in 82 percent of cases, the
                   whistleblower was fired, quit under duress, or had significantly altered
-                  responsibilities.”
+                  responsibilities”.
                 `),
                 grade: 'moderate',
-                quote: 'By contrast, we do not find any evidence that the protection offered to employees by Section 303 of SOX has any effect.',
+                quote: 'By contrast, we do not find any evidence that the protection offered to whistleblowers by section 303 of SOX has any effect.',
                 sources: [source('Dyck, Morse and Zingales 2010, Journal of Finance', 'https://doi.org/10.1111/j.1540-6261.2010.01614.x')]
               })
             ]
@@ -770,11 +785,12 @@ export default spineData({
             ],
             counterEvidence: [
               evidence({
-                headline: 'When outside buyers forced Bangladeshi garment factories to set up worker safety committees, workers gained a voice only where managers were already good, and the worst factories did not improve.',
+                headline: 'When outside buyers made Bangladeshi garment factories comply with a worker safety committee law, workers gained a voice only in better-managed factories, and the worse-managed ones did not improve.',
                 finding: paragraph(`
-                  Boudreau worked with 29 multinational apparel buyers to enforce a legal mandate for
-                  worker safety committees at 84 supplier factories, chosen at random for enforcement. The
-                  stronger committees brought small gains in safety. But “the effects on compliance,
+                  Boudreau worked with 29 multinational apparel buyers in an experiment with 84 supplier
+                  factories, enforcing a legal mandate for worker safety committees at a randomly chosen
+                  half. Almost every factory already had a committee on paper. The stronger committees
+                  brought small gains in safety. But “the effects on compliance,
                   safety, and voice were largest for factories with better managerial practices. Factories
                   with worse practices did not improve, and workers in these factories reported lower job
                   satisfaction.” The outside party backed a committee inside the factory rather than
@@ -1001,7 +1017,11 @@ export default spineData({
         listed chemical and screens for unlisted ones. Its testing covers pollutants with no set
         limit as well as regulated ones. The plant pays for the tests, but the body chooses the lab
         and receives every result. The state agency publishes each result. The body can veto the
-        permit if testing finds a chemical the plant did not list. No one had to approve DuPont's
+        permit if testing finds a chemical the plant did not list. Residents have won testing through
+        a permit before. In 2012, residents near a large Wisconsin dairy farm challenged its discharge
+        permit because it required no groundwater monitoring. A state judge ordered monitoring in
+        2014. The state agency reversed that order, and the state's highest court upheld its power to
+        require monitoring in 2021. No one had to approve DuPont's
         releases of perfluorooctanoic acid (PFOA). The chemicals law accepted PFOA without review
         because it was already in use when the law passed. The Environmental Protection Agency (EPA)
         approved GenX as a replacement in 2009. Its own regional inspectors did not learn of that
@@ -1410,7 +1430,8 @@ export default spineData({
       sources: [
         source('US Environmental Protection Agency, About the TSCA Chemical Substance Inventory', 'https://www.epa.gov/tsca-inventory/about-tsca-chemical-substance-inventory'),
         source('US Environmental Protection Agency Office of Inspector General, Report 20-E-0177, 2020', 'https://www.epa.gov/sites/production/files/2020-05/documents/_epaoig_20200528-20-e-0177_1.pdf'),
-        source('North Carolina Department of Environmental Quality, September 5, 2017', 'https://deq.nc.gov/news/press-releases/2017/09/05/state-orders-chemours-stop-chemical-releases-begins-legal-action-and')
+        source('North Carolina Department of Environmental Quality, September 5, 2017', 'https://deq.nc.gov/news/press-releases/2017/09/05/state-orders-chemours-stop-chemical-releases-begins-legal-action-and'),
+        source('Wisconsin Public Radio, July 8, 2021', 'https://www.wpr.org/wisconsin-supreme-court-affirms-dnr-authority-restrict-deny-farm-permits-protect-water')
       ]
     }),
 
@@ -1588,10 +1609,10 @@ export default spineData({
                 sources: [source('Ashraf, Jiang and Wang 2022, Journal of Finance and Data Science', 'https://doi.org/10.1016/j.jfds.2022.08.001')]
               }),
               evidence({
-                headline: 'When Congress gave company insiders two days to report their stock sales, the typical wait for that news fell from more than three weeks to two days.',
+                headline: 'When Congress gave company insiders two days to report their stock sales, the wait for that news fell from more than three weeks to two days.',
                 finding: paragraph(`
                   A 2002 federal law cut the deadline for company insiders to report their trades from the
-                  month after the trade to two business days. Franzen, Li, Vargus and Li compared filings
+                  tenth day of the month after the trade to two business days. Franzen, Li, Vargus and Li compared filings
                   for restricted stock sales before and after the change. They write that the law “reduced
                   the Form 4 disclosure delay for restricted stock transactions from 24days in the pre-SOX
                   period to the mandated 2days in the post-SOX period.” The setting is stock trading
@@ -1609,8 +1630,8 @@ export default spineData({
                 finding: paragraph(`
                   DeVito, Bacon and Goldacre tracked every trial due to post results under the federal
                   rule over 18 months. “4209 trials were due to report results; 1722 (40·9%; 95% CI
-                  39·4-42·2) did so within the 1-year deadline.” Compliance did not improve over the
-                  period. The authors put the poor compliance down to weak enforcement.
+                  39·4-42·2) did so within the 1-year deadline.” Compliance did not improve after July
+                  2018. The authors put the poor compliance down to weak enforcement.
                 `),
                 grade: 'moderate',
                 quote: '4209 trials were due to report results; 1722 (40·9%; 95% CI 39·4-42·2) did so within the 1-year deadline.',
@@ -1648,10 +1669,10 @@ export default spineData({
                 headline: 'Across studies of boil water notices, people followed the advice more when the notice reached them quickly.',
                 finding: paragraph(`
                   Vedachalam, Spotte-Smith and Riha pooled 11 studies of how residents responded to boil
-                  water notices. Typical effective compliance was about 68 percent. The authors report
+                  water notices. The median effective compliance was about 68 percent. The authors report
                   that “timeliness of receipt, content of the advisory, and number of sources reporting
                   the advisory have a significant impact on public response and compliance.” The studies
-                  are surveys taken after each event, so the link to speed is a comparison across events.
+                  are surveys of residents after each event.
                 `),
                 grade: 'moderate',
                 quote: 'Results further suggest that timeliness of receipt, content of the advisory, and number of sources reporting the advisory have a significant impact on public response and compliance.',
@@ -1659,35 +1680,7 @@ export default spineData({
                 sources: [source('Vedachalam, Spotte-Smith and Riha 2016, Water Research', 'https://doi.org/10.1016/j.watres.2016.02.014')]
               })
             ],
-            counterEvidence: [
-              evidence({
-                headline: 'During a deadly water outbreak in a Missouri town, people in nearly a third of households drank unboiled water after hearing the order to boil it.',
-                finding: paragraph(`
-                  Salmonella in the unchlorinated water of Gideon, Missouri, sickened more than 650 people
-                  and killed 7. A household survey after the outbreak found that “persons in 31% (30/ 98)
-                  of city households had drunk unboiled water after being informed about the boil water
-                  order”. The most common reasons were not remembering the order and not believing it. It
-                  is one town and one outbreak.
-                `),
-                grade: 'weak',
-                quote: 'Persons in 31% (30/ 98) of city households had drunk unboiled water after being informed about the boil water order, including 14 individuals who subsequently became ill.',
-                sources: [source('Angulo and colleagues 1997, American Journal of Public Health', 'https://doi.org/10.2105/AJPH.87.4.580')]
-              }),
-              evidence({
-                headline: 'Even when a Norwegian town texted residents a water warning, a third of them did not remember getting it.',
-                finding: paragraph(`
-                  Hyllestad and colleagues surveyed residents of Baerum, Norway, who were sent water
-                  advisories by text message after outages. “Of the 611 respondents, 67% reported that
-                  they had received a water advisory notification.” Among those who remembered the
-                  message, 72 percent followed safe drinking water practices. The main reason for not
-                  following them was believing the water was safe once it ran clear.
-                `),
-                grade: 'weak',
-                quote: 'Of the 611 respondents, 67% reported that they had received a water advisory notification.',
-                caveat: 'The advisories followed water outages rather than a chemical finding, and about one in five people sent the survey answered it.',
-                sources: [source('Hyllestad and colleagues 2019, BMC Public Health', 'https://doi.org/10.1186/s12889-019-7504-8')]
-              })
-            ]
+            counterEvidence: []
           }),
           claim({
             text: 'Households told their water is contaminated switch to safer water.',
@@ -1729,6 +1722,33 @@ export default spineData({
               })
             ],
             counterEvidence: [
+              evidence({
+                headline: 'During a deadly water outbreak in a Missouri town, people in nearly a third of households drank unboiled water after hearing the order to boil it.',
+                finding: paragraph(`
+                  Salmonella in the unchlorinated water of Gideon, Missouri, sickened more than 650 people
+                  and killed 7. A household survey after the outbreak found that “persons in 31% (30/ 98)
+                  of city households had drunk unboiled water after being informed about the boil water
+                  order”. The most common reasons were not remembering the order and not believing it. It
+                  is one town and one outbreak.
+                `),
+                grade: 'weak',
+                quote: 'Persons in 31% (30/ 98) of city households had drunk unboiled water after being informed about the boil water order, including 14 individuals who subsequently became ill.',
+                sources: [source('Angulo and colleagues 1997, American Journal of Public Health', 'https://doi.org/10.2105/AJPH.87.4.580')]
+              }),
+              evidence({
+                headline: 'Even when a Norwegian municipality texted residents a water warning, a third of those who answered did not remember getting it.',
+                finding: paragraph(`
+                  Hyllestad and colleagues surveyed residents of Baerum, Norway, who were sent water
+                  advisories by text message after outages. “Of the 611 respondents, 67% reported that
+                  they had received a water advisory notification.” Among those who remembered the
+                  message, 72 percent followed safe drinking water practices. The main reason for not
+                  following them was believing the water was safe once it ran clear.
+                `),
+                grade: 'weak',
+                quote: 'Of the 611 respondents, 67% reported that they had received a water advisory notification.',
+                caveat: 'The advisories followed water outages rather than a chemical finding, and about one in five people sent the survey answered it.',
+                sources: [source('Hyllestad and colleagues 2019, BMC Public Health', 'https://doi.org/10.1186/s12889-019-7504-8')]
+              }),
               evidence({
                 headline: 'Showing Cambodian households proof their water was contaminated moved only poorer families who had thought it safe, and better-off families did not change.',
                 finding: paragraph(`

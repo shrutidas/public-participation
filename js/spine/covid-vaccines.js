@@ -879,12 +879,14 @@ export default spineData({
                 headline: 'Explaining the reasons for a decision did not make Finns see it as more legitimate, and it may have widened the gap between people who got their way and people who did not.',
                 finding: paragraph(`
                   Christensen, Himmelroos and Setälä ran a survey experiment with 1,243 Finns. Respondents
-                  read about a parliamentary decision on euthanasia. They were told at random whether
-                  experts and citizens took part and whether reasons were given. “Justifications, or
-                  presenting arguments for the decisions, does not enhance legitimacy and may even cause a
-                  backfire mechanism where the difference between getting and not getting the preferred
-                  outcome is amplified.” Parliament explained its own decision rather than why it set
-                  aside an assembly.
+                  read about the preparation of a parliamentary decision on euthanasia. They were told at
+                  random whether experts, ordinary citizens or members of parliament deliberated and made
+                  the recommendation, whether it matched their own view, and whether a short argument came
+                  with it. “Justifications, or presenting arguments for the decisions, does not enhance
+                  legitimacy and may even cause a backfire mechanism where the difference between getting
+                  and not getting the preferred outcome is amplified.” The reasons came with the
+                  deliberating group's recommendation, not from an authority explaining why it set aside
+                  an assembly.
                 `),
                 grade: 'strong',
                 quote: 'Justifications, or presenting arguments for the decisions, does not enhance legitimacy and may even cause a backfire mechanism where the difference between getting and not getting the preferred outcome is amplified.',
@@ -892,7 +894,7 @@ export default spineData({
                 sources: [source('Christensen, Himmelroos and Setälä 2020, Parliamentary Affairs', 'https://doi.org/10.1093/pa/gsz014')]
               }),
               evidence({
-                headline: 'When parliament followed a citizen panel\'s advice, people accepted the decision much less readily if the panel did not mirror the public, and a badly skewed panel gave no boost at all.',
+                headline: 'When parliament followed a citizen panel\'s advice, the boost in acceptance shrank by half or more if the panel did not mirror the public, and a panel stacked with the other side gave no boost at all.',
                 finding: paragraph(`
                   Germann ran a preregistered experiment with 1,308 Irish adults on a universal basic
                   income. Every respondent was told the decision went against their view. A panel that
@@ -1050,7 +1052,7 @@ export default spineData({
             ],
             counterEvidence: [
               evidence({
-                headline: 'When mobile vaccine units visited neighborhoods in northwest England, vaccinations rose overall but barely or not at all among Black, Asian, and the poorest residents.',
+                headline: 'When mobile vaccine units visited neighborhoods in northwest England, vaccinations rose overall but rose less among Black, Asian and the poorest residents, and not at all among most older people in those groups.',
                 finding: paragraph(`
                   Zhang and colleagues studied mobile vaccination units that made 54 visits to 37 sites in
                   Cheshire and Merseyside. Local health teams chose the sites with help from community
@@ -1472,7 +1474,7 @@ export default spineData({
                 sources: [source('Bosworth et al. 2023, BMC Medicine', 'https://doi.org/10.1186/s12916-022-02704-7')]
               }),
               evidence({
-                headline: 'Once dialysis clinics offered vaccines, Black and Hispanic patients got vaccinated at least as often as White patients, and fewer of them died than usual compared with White patients.',
+                headline: 'After COVID-19 vaccines reached dialysis clinics, excess deaths among Black and Hispanic patients with kidney failure fell below those of White patients.',
                 finding: paragraph(`
                   Kim and colleagues compared deaths among about 687,000 Medicare patients with kidney
                   failure against the number expected from earlier years. Until the end of January 2021,
@@ -1481,7 +1483,7 @@ export default spineData({
                   substantially reduced and indeed reversed after the end of January 2021, when COVID-19
                   vaccines were widely distributed, with a percent excess deaths of 17.4% among Hispanic
                   patients, 19.4% among Black patients, and the highest (27.6%) among White patients.” The
-                  authors point to “a higher take-up rate of vaccines among racial/ethnic minority compared
+                  authors suggest as a possible reason “a higher take-up rate of vaccines among racial/ethnic minority compared
                   with White patients”, drawing on another study of dialysis facilities. This research letter
                   counts deaths from all causes, covers Medicare patients only, and does not measure
                   vaccination itself.
@@ -1757,7 +1759,7 @@ export default spineData({
                   could pick and run local projects. Public goods improved, but trust did not. “Despite
                   exploring a wealth of measures, the analysis reveals no treatment effects on social
                   capital and the three mean effects indices are all indistinguishable from zero.”
-                  Agreement that local officials can be trusted did not move.
+                  Trust in the aid groups rose, and none of the other eleven trust measures moved.
                 `),
                 grade: 'strong',
                 quote: 'Despite exploring a wealth of measures, the analysis reveals no treatment effects on social capital and the three mean effects indices are all indistinguishable from zero.',
@@ -1784,7 +1786,7 @@ export default spineData({
                 sources: [source('Ardanaz, Otálvaro-Ramírez and Scartascini 2022, World Development', 'https://doi.org/10.1016/j.worlddev.2022.106132')]
               }),
               evidence({
-                headline: 'South Koreans judged a local decision more legitimate when they were told residents had shaped it in a civic forum, and people who distrust elites moved the most.',
+                headline: 'South Koreans judged a local decision process more legitimate when they were told residents had shaped it in a civic forum, and people who distrust elites moved the most.',
                 finding: paragraph(`
                   Kim, Nam, Yang and Cho ran a survey experiment with 2,083 South Korean adults.
                   Respondents read about a budget increase for a public park and a school merger. They
@@ -1802,7 +1804,8 @@ export default spineData({
               evidence({
                 headline: 'Germans accepted a decision on an issue that mattered to them more readily when voters had made it directly, and the effect was strongest among people who disagreed with it.',
                 finding: paragraph(`
-                  Towfigh and colleagues ran an online experiment with 613 German adults. Each person read
+                  Towfigh and colleagues ran an online experiment with 613 voters in the German state of
+                  Rhineland-Palatinate. Each person read
                   about decisions on nuclear energy, school graduation and religious education. Each was
                   described at random as made by a popular vote, a party in parliament, or an expert
                   committee. “Our results show that for important issues, direct democracy generates
@@ -1820,9 +1823,10 @@ export default spineData({
                 headline: 'Belgians told that an agency had consulted the public judged the process fairer, but they were no more willing to accept the rule itself.',
                 finding: paragraph(`
                   Beyers and Arras ran a survey experiment with 2,138 Belgian adults and 228 company
-                  leaders. Respondents read a news story about an environmental rule on food packaging.
-                  The story said at random that no one was consulted, that interest groups advised, or
-                  that an open online consultation was held. Consultation raised acceptance of the
+                  leaders. Respondents read a news story about a European agency's environmental rule on
+                  food packaging. The agency and rule were made up for the study. The story said at
+                  random that no one was consulted, that one of three kinds of advisory committee
+                  advised, or that an open online consultation was held. Consultation raised acceptance of the
                   procedure, but “the consultation arrangement itself does not directly affect acceptance
                   of the regulatory outcome”.
                 `),
@@ -1965,11 +1969,12 @@ export default spineData({
                 sources: [source('Alatas, Banerjee, Hanna, Olken and Tobias 2012, American Economic Review', 'https://doi.org/10.1257/aer.102.4.1206')]
               }),
               evidence({
-                headline: 'When Malawian communities wrote their own measures for local health services and scored them with health workers, every measure improved and satisfaction with care rose.',
+                headline: 'When Malawian communities wrote their own measures for local health services and compared scores with health workers, every measure improved and satisfaction with care rose.',
                 finding: paragraph(`
                   Ten matched pairs of communities in Malawi were split at random so that one in each pair
                   ran a community score card. Residents named problems in group discussions and turned
-                  each into a measure. Communities and health workers then scored the services together.
+                  each into a measure. Communities and health workers scored the services separately,
+                  then met with local officials to compare scores and agree on fixes.
                   “All 13 community- and provider-developed indicators improved, with 6 of them showing
                   significant improvements.” Home visits and overall satisfaction rose more than in
                   comparison communities. The trial had only 20 communities.
@@ -2041,7 +2046,8 @@ export default spineData({
                   programs raised clinic use and patient satisfaction, and “community monitoring
                   additionally improved child health, leading to 38% fewer deaths of children under age
                   five”. During the outbreak, more Ebola cases were reported around the monitored
-                  clinics. The trial cannot say which part of the monitoring package did the work.
+                  clinics. Monitoring came as a package of scorecards and meetings with staff, tested as a
+                  whole.
                 `),
                 grade: 'strong',
                 quote: 'Community monitoring additionally improved child health, leading to 38% fewer deaths of children under age five.',
@@ -2132,18 +2138,19 @@ export default spineData({
                 ]
               }),
               evidence({
-                headline: 'When Tanzanian villages elected residents to pick and oversee cash transfer recipients, villagers came to trust their elected leaders more.',
+                headline: 'When a Tanzanian cash transfer program run by elected village committees began paying out, villagers came to trust their elected leaders more.',
                 finding: paragraph(`
                   Tanzania assigned 80 villages at random to start a community-managed cash transfer
-                  program right away or 2.5 years later. Residents in each village elected a committee by
-                  secret ballot to select recipients and run the program. “Our analysis reveals that cash
+                  program right away or 2.5 years later. Residents in every village elected a committee by
+                  secret ballot to select recipients and run the program. Control villages had committees
+                  too, but theirs were not yet paying out. “Our analysis reveals that cash
                   transfers can significantly increase trust in leaders. This effect is driven by large
                   increases in trust in elected leaders as opposed to appointed bureaucrats.” Leaders were
                   also seen as more responsive and honest.
                 `),
                 grade: 'strong',
                 quote: 'Our analysis reveals that cash transfers can significantly increase trust in leaders. This effect is driven by large increases in trust in elected leaders as opposed to appointed bureaucrats.',
-                caveat: 'The design cannot separate resident oversight from the cash itself.',
+                caveat: 'Committees were elected in every village, so the study measures the effect of transfers flowing through them, not of electing residents. The gains were concentrated in villages that held more village meetings.',
                 sources: [source('Evans, Holtemeyer and Kosec 2019, World Development', 'https://doi.org/10.1016/j.worlddev.2018.08.020')]
               })
             ],
