@@ -2042,33 +2042,6 @@ export default spineData({
                 quote: 'Civil-service teachers also captured rents for their families, with approximately 1/3 of contract teacher positions going to relatives of existing teachers. A governance program that empowered parents within school committees reduced both forms of capture.',
                 sources: [source('Duflo, Dupas and Kremer 2015, Journal of Public Economics', 'https://doi.org/10.1016/j.jpubeco.2014.11.008')]
               }),
-              evidence({
-                headline: 'In a much larger Ugandan trial, urging citizens to press their health clinics did not raise that pressure or improve health.',
-                finding: paragraph(`
-                  Raffler, Posner and Parkerson (2025) ran a large field experiment in the Ugandan
-                  health sector that encouraged citizens to press underperforming providers. “While
-                  we find modest positive impacts on health provider behavior, we find no effects on
-                  citizen pressure, utilization rates, or bottom-line health outcomes.” The authors
-                  say the result may hold only under conditions like those in their study.
-                `),
-                grade: 'strong',
-                quote: 'While we find modest positive impacts on health provider behavior, we find no effects on citizen pressure, utilization rates, or bottom-line health outcomes.',
-                sources: [source('Raffler, Posner and Parkerson 2025, Journal of Politics', 'https://doi.org/10.1086/736577')]
-              }),
-              evidence({
-                headline: 'Programs that urged Indian villagers to watch over their schools did not make them more involved or make teachers try harder.',
-                finding: paragraph(`
-                  Banerjee, Banerji, Duflo, Glennerster and Khemani (2010) assigned Indian villages at
-                  random to three programs. One told residents about existing school institutions,
-                  one trained them to test children, and one trained volunteers to run reading camps.
-                  “These interventions had no impact on community involvement, teacher effort, or
-                  learning outcomes inside the school.” Children who went to the volunteer camps did
-                  read better. Residents gained information and skills but no formal power.
-                `),
-                grade: 'strong',
-                quote: 'These interventions had no impact on community involvement, teacher effort, or learning outcomes inside the school.',
-                sources: [source('Banerjee, Banerji, Duflo, Glennerster and Khemani 2010, American Economic Journal: Economic Policy', 'https://doi.org/10.1257/pol.2.1.1')]
-              })
             ],
             counterEvidence: [
               evidence({
