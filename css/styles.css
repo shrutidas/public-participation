@@ -364,18 +364,18 @@ body[data-view="chain"] #ctrl .fl,
 #ch-zoom {
   position: absolute; left: 12px; bottom: 12px; z-index: 8;
   display: flex; align-items: stretch;
-  background: #fff; border: 1px solid #c9c2b6; border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.14); overflow: hidden;
+  background: #1c2333; border: 1px solid #2f3950; border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.22); overflow: hidden;
 }
 #ch-zoom button {
-  font-family: inherit; border: none; background: #fff; cursor: pointer;
-  color: #2a2a2a; font-weight: 700; padding: 6px 11px; font-size: 0.875rem;
+  font-family: inherit; border: none; background: #1c2333; cursor: pointer;
+  color: #dfe4ec; font-weight: 700; padding: 6px 11px; font-size: 0.875rem;
   line-height: 1; transition: background 0.12s;
 }
-#ch-zoom button:hover { background: #eee9df; }
+#ch-zoom button:hover { background: #2a344b; color: #fff; }
 #zoom-lbl {
   min-width: 48px; font-size: 0.6875rem; letter-spacing: 0.02em;
-  border-left: 1px solid #e2ddd3; border-right: 1px solid #e2ddd3;
+  border-left: 1px solid #2f3950; border-right: 1px solid #2f3950;
 }
 
 /* ---- the graph ---- */
@@ -1711,17 +1711,18 @@ body[data-view="chain"] #ctrl .fl,
 /* The Comments button, first in the floating zoom control. */
 #ch-zoom #nt-open {
   display: inline-flex; align-items: center; gap: 6px;
-  font-size: .75rem; padding: 6px 12px; border-right: 1px solid #e2ddd3;
+  font-size: .75rem; padding: 6px 12px; border-right: 1px solid #2f3950;
 }
 #ch-zoom #nt-open[hidden] { display: none; }
 /* With the key closed, its button joins the zoom control as one more segment. */
 #ch-zoom #legend-show {
   display: inline-flex; align-items: center; gap: 6px;
-  font-size: .75rem; padding: 6px 12px; border-right: 1px solid #e2ddd3;
+  font-size: .75rem; padding: 6px 12px; border-right: 1px solid #2f3950;
 }
 #legend-show svg { width: 12px; height: 12px; flex: none; }
 #ch-zoom #legend-show[hidden] { display: none; }
 .nt-ico { width: 15px; height: 15px; color: var(--nt-blue); flex: none; }
+#ch-zoom .nt-ico { color: #8cc4f5; }
 #nt-count {
   background: var(--nt-blue); color: #fff; border-radius: 9px;
   padding: 2px 6px; font-size: .625rem; font-weight: 800; line-height: 1.2;
