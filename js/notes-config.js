@@ -12,7 +12,7 @@ export const NOTES = {
   // export says which version of the site each note was written against.
   contentRev: '2026-10-17',
   // Shown when notes cannot reach the sheet: a shared doc to write in.
-  fallbackUrl: '',
+  fallbackUrl: 'https://docs.google.com/document/d/17RfSVyB50cLdCQiHKinZQHfyN-DU9U2KqvLGORSWa80/edit?usp=sharing',
   // How often each browser checks for other people's notes.
   pollMs: 6000
 };
