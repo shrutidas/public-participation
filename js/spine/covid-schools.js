@@ -582,7 +582,7 @@ export default spineData({
                 grade: 'strong',
                 quote: 'it first shows that minipublics are moderately attractive institutional innovations, but that in all three country contexts, citizens in general are very reluctant to grant them empowerment and autonomy as well as ask for additional provisions (such as large size or large majorities for recommendations).',
                 sources: [source('Goldberg, Lindell and Bächtiger 2024, American Political Science Review', 'https://doi.org/10.1017/S0003055424001163')]
-              }),
+              })
             ]
           }),
           claim({
@@ -689,20 +689,6 @@ export default spineData({
                 grade: 'strong',
                 quote: 'this study found that, given the opportunity to participate in the decision-making process and when the decision is reached through a compromise among council members, people tend to feel that the process is fair and accept the decision even when it is unfavourable to them.',
                 sources: [source('Nakatani 2023, International Political Science Review', 'https://doi.org/10.1177/0192512121998250')]
-              }),
-              evidence({
-                headline: 'Members of a citizens\' assembly who lost its votes were about as satisfied with how it was run as members who won.',
-                finding: paragraph(`
-                  Blais, Daoust, Dassonneville and Fournier (2025) surveyed about 100 residents of
-                  Longueuil, Quebec, first invited by letters to random addresses, at a weekend assembly that voted on four changes
-                  to elections. “We find a high degree of satisfaction with the conduct of the assembly,
-                  among both winners and losers.” Losing more votes did not go with lower satisfaction.
-                  The authors note the questions drew little public attention, so the result may not
-                  hold on a divisive issue.
-                `),
-                grade: 'moderate',
-                quote: 'We find a high degree of satisfaction with the conduct of the assembly, among both winners and losers.',
-                sources: [source('Blais, Daoust, Dassonneville and Fournier 2025, Canadian Journal of Political Science', 'https://doi.org/10.1017/S0008423924000775')]
               })
             ],
             counterEvidence: [
@@ -865,7 +851,7 @@ export default spineData({
             ],
             counterEvidence: [
               evidence({
-                headline: 'Opening schools in person spread COVID-19 mainly where the surrounding community already had many cases.',
+                headline: 'Opening schools in person spread COVID-19 where community cases were already moderate to high, a risk every school shared whatever its building.',
                 finding: paragraph(`
                   Linking each Michigan and Washington district’s teaching mode to county case rates
                   through the 2020 to 2021 school year, and comparing each district with itself as
@@ -998,7 +984,7 @@ export default spineData({
             ],
             counterEvidence: [
               evidence({
-                headline: 'When schools brought families and staff together for weekly activities, parents grew closer to each other more clearly than to school staff.',
+                headline: 'When schools brought families and staff together for weekly activities, parents built ties with each other but not reliably with school staff.',
                 finding: paragraph(`
                   Schools in Phoenix and San Antonio were assigned at random to a program designed to
                   build trust among parents, teachers, and children. For the first group of schools,
@@ -1427,23 +1413,7 @@ export default spineData({
             ],
             counterEvidence: [
               evidence({
-                headline: 'Residents told how their local schools compared with schools elsewhere rated those schools lower.',
-                finding: paragraph(`
-                  Barrows, Henderson, Peterson and West ran two experiments inside nationally
-                  representative surveys. In the first, “we find that providing respondents with
-                  information about the performance of their local schools relative to schools in
-                  the state, the nation, and other developed countries depresses average evaluations
-                  of local school quality”. Some respondents rated lower because the comparison
-                  changed what they weighed, and some because it corrected a mistaken belief about
-                  their schools. The numbers were test results, and the measure was a rating of
-                  school quality rather than trust.
-                `),
-                grade: 'strong',
-                quote: 'In the first, we find that providing respondents with information about the performance of their local schools relative to schools in the state, the nation, and other developed countries depresses average evaluations of local school quality.',
-                sources: [source('Barrows, Henderson, Peterson and West 2016, Journal of Public Administration Research and Theory', 'https://doi.org/10.1093/jopart/muw028')]
-              }),
-              evidence({
-                headline: 'Voters more often rejected a school tax after a federal rating marked their district as falling short, though the rating was a poor guide to quality.',
+                headline: 'A published district rating that was a poor guide to school quality made voters more likely to reject school taxes, most of all in poor communities.',
                 finding: paragraph(`
                   Kogan, Lavertu and Peskowitz studied a widely publicized federal rating of school
                   district performance, which they show did not let voters judge the quality of
@@ -1458,7 +1428,7 @@ export default spineData({
                 sources: [source('Kogan, Lavertu and Peskowitz 2016, American Journal of Political Science', 'https://doi.org/10.1111/ajps.12184')]
               }),
               evidence({
-                headline: 'Openness about how decisions were made raised acceptance of routine choices more than choices that put safety at stake.',
+                headline: 'Openness about how decisions were made did less to win acceptance when the decision traded off life or well-being.',
                 finding: paragraph(`
                   With 1,032 participants, “results indicate that transparency can increase public
                   acceptance of political decisions, but this effect is moderated by the type of
@@ -1533,7 +1503,7 @@ export default spineData({
                 sources: [source('Kreps and Kriner 2020, Science Advances', 'https://doi.org/10.1126/sciadv.abd4563')]
               }),
               evidence({
-                headline: 'Admitting uncertainty lowered trust among people who already agreed with the evidence and raised it among people who did not.',
+                headline: 'Admitting uncertainty about the evidence lowered trust among the people who already believed it.',
                 finding: paragraph(`
                   In two preregistered online experiments with US adults, one on COVID-19 vaccines
                   (600 people) and one on hurricane trends (1,001 people), participants were randomly
