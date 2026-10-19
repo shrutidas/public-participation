@@ -2,10 +2,10 @@
  * Participants' notes on the map.
  *
  * Every card on the map can carry notes. A card with notes shows a small blue
- * speech bubble with a count; selecting the card shows its notes in the detail
- * pane, with a box under the pane to add one. The right pane's Comments tab,
- * also opened by the Comments button over the map, lists every note on the
- * case.
+ * speech bubble with a count. The detail pane ends in a feed: the selected
+ * card's notes with a box to add one, or, with nothing selected, every note on
+ * the case grouped by card. The Comments button over the map turns all of it
+ * on or off.
  *
  * Built for a room of people on venue Wi-Fi:
  *   - app.js loads this module after the map is drawn, so if the database is
@@ -200,17 +200,12 @@ export async function initNotes(api) {
   let counts = new Map();                // anchor -> count shown
   let labelsFor = null;                  // { slug, map: anchor -> current title | null }
   let target = null;                     // { slug, anchor, label, kind }
-  let tab = 'details';                   // which right-pane tab is showing
 
   /* ---- static UI from index.html ---- */
 
   const mapEl = $('ch-map');
   const openBtn = $('nt-open');
   const countEl = $('nt-count');
-  const tabDetail = $('rt-tab-detail');
-  const tabComments = $('rt-tab-comments');
-  const tabCount = $('nt-tab-count');
-  const panelBody = $('ch-comments');
   const form = $('nt-compose');
   const nameRow = $('nt-name-row');
   const nameInput = $('nt-name');
@@ -220,9 +215,19 @@ export async function initNotes(api) {
   const listEl = h('section', { class: 'nt-list', 'aria-live': 'polite' });
 
   openBtn.hidden = false;
-  tabComments.hidden = false;
-  if (tx.demo) openBtn.title = 'Demo: comments are kept in this browser only';
-  mapEl.classList.toggle('nt-hide', store.get(K.hideBadges) === '1');
+  let off = store.get(K.hideBadges) === '1';
+  setOff(off);
+
+  /** Comments off hides the map's bubbles and the pane's feed and box. */
+  function setOff(next) {
+    off = next;
+    store.set(K.hideBadges, off ? '1' : '0');
+    mapEl.classList.toggle('nt-hide', off);
+    $('ch-detail').classList.toggle('nt-off', off);
+    openBtn.classList.toggle('nt-is-off', off);
+    openBtn.setAttribute('aria-pressed', String(!off));
+    openBtn.title = `${off ? 'Show' : 'Hide'} comments${tx.demo ? ' (demo: kept in this browser only)' : ''}`;
+  }
 
   /* ---- what is visible ---- */
 
@@ -275,7 +280,6 @@ export async function initNotes(api) {
     drawList();
     drawCount();
     drawStatus();
-    if (tab === 'comments') drawPanel();
   }
 
   function drawBadges() {
@@ -305,7 +309,6 @@ export async function initNotes(api) {
   function drawCount() {
     const n = caseNotes().length;
     countEl.textContent = n ? String(n) : '';
-    tabCount.textContent = n ? String(n) : '';
   }
 
   /** Up to two initials for the avatar beside a note. */
@@ -336,14 +339,16 @@ export async function initNotes(api) {
         h('p', { class: 'nt-text', text: n.body })));
   }
 
-  /** The notes on the selected card, under its detail. */
+  /** The feed under the detail: the selected card's notes, or the case's. */
   function drawList() {
-    if (!target) { listEl.replaceChildren(); return; }
-    const list = caseNotes().filter(n => n.anchor === target.anchor && onCard(n));
-    listEl.replaceChildren(...(list.length ? [
-      h('h4', { class: 'nt-h', text: `Comments (${list.length})` }),
-      h('ul', { class: 'nt-ul' }, list.map(n => noteItem(n)))
-    ] : []));
+    if (!target) { drawCaseFeed(); return; }
+    const facil = facilitate && Boolean(pass);
+    const list = caseNotes({ includeHidden: facil }).filter(n => n.anchor === target.anchor && onCard(n));
+    listEl.replaceChildren(
+      h('h4', { class: 'nt-h', text: list.length ? `Comments (${list.length})` : 'Comments' }),
+      list.length
+        ? h('ul', { class: 'nt-ul' }, list.map(n => noteItem(n, { facil })))
+        : h('p', { class: 'nt-empty', text: 'No comments on this card yet.' }));
   }
 
   // Say so as soon as a note is held up or two syncs in a row fail; offer the
@@ -375,38 +380,14 @@ export async function initNotes(api) {
     if (msg) say.t = setTimeout(() => { statusMsg = ''; drawStatus(); }, 6000);
   }
 
-  /* ---- the Comments tab ---- */
+  /* ---- the case feed ---- */
 
-  const EYE = '<path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/>';
-  const EYE_OFF = '<path d="M9.9 5.2A10.7 10.7 0 0 1 12 5c6.4 0 10 7 10 7a17.6 17.6 0 0 1-3 3.9M6.6 6.6A17.4 17.4 0 0 0 2 12s3.6 7 10 7a10 10 0 0 0 5.4-1.6M9.9 9.9a3 3 0 0 0 4.2 4.2"/><line x1="3" y1="3" x2="21" y2="21"/>';
-
-  /** Shows or hides the speech bubbles on the map; the choice is remembered. */
-  function badgeToggle() {
-    const on = !mapEl.classList.contains('nt-hide');
-    const label = on ? 'Hide comment counts on the map' : 'Show comment counts on the map';
-    const b = h('button', {
-      type: 'button', class: 'nt-eye', title: label, 'aria-label': label,
-      'aria-pressed': String(on),
-      onclick: () => {
-        mapEl.classList.toggle('nt-hide', on);
-        store.set(K.hideBadges, on ? '1' : '0');
-        drawPanel();
-      }
-    });
-    b.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${on ? EYE : EYE_OFF}</svg>`;
-    b.append(on ? 'On map' : 'Off map');
-    return b;
-  }
-
-  function drawPanel() {
+  /** With nothing selected: every note on the case, one group per card. */
+  function drawCaseFeed() {
     const facil = facilitate && Boolean(pass);
     const list = caseNotes({ includeHidden: facil });
-    const kids = [];
-
-    // The tab already says what this is and how many; only the map toggle
-    // sits above the list.
-    kids.push(h('div', { class: 'nt-bar' }, badgeToggle()));
+    const n = list.filter(shown).length;
+    const kids = [h('h4', { class: 'nt-h', text: n ? `Comments on this case (${n})` : 'Comments on this case' })];
 
     if (facilitate) kids.push(facilBox(list));
 
@@ -437,9 +418,7 @@ export async function initNotes(api) {
         h('p', { class: 'nt-empty', text: 'These cards have been edited or moved since the comment was written.' }),
         h('ul', { class: 'nt-ul' }, changed.map(n => noteItem(n, { showCard: true, facil })))));
     }
-    const top = panelBody.scrollTop;
-    panelBody.replaceChildren(...kids);
-    panelBody.scrollTop = top;
+    listEl.replaceChildren(...kids);
   }
 
   function facilBox(list) {
@@ -451,7 +430,7 @@ export async function initNotes(api) {
           if (await tx.rpc('facilitator_ok', { p_pass: input.value })) {
             pass = input.value;
             store.set(K.pass, pass, true);
-            drawPanel();
+            drawList();
           } else say('That passcode is not right.');
         } catch { say('Could not check the passcode. Try again.'); }
       };
@@ -479,7 +458,7 @@ export async function initNotes(api) {
     if (err && err.retry === false && /passcode/i.test(err.message)) {
       pass = null;
       store.set(K.pass, null, true);
-      drawPanel();
+      drawList();
       say('The passcode has changed. Enter it again.');
     } else say('That did not go through. Check the connection and try again.');
   }
@@ -516,25 +495,9 @@ export async function initNotes(api) {
     setTimeout(() => URL.revokeObjectURL(a.href), 10000);
   }
 
-  /** Shows one of the right pane's two tabs. The note box belongs to the
-     selected card, so it shows on the Details tab only. */
-  function showTab(next) {
-    tab = next;
-    const c = tab === 'comments';
-    tabDetail.classList.toggle('on', !c);
-    tabComments.classList.toggle('on', c);
-    tabDetail.setAttribute('aria-selected', String(!c));
-    tabComments.setAttribute('aria-selected', String(c));
-    $('ch-detail').classList.toggle('show', !c);
-    panelBody.classList.toggle('show', c);
-    drawComposer();
-    if (c) { drawPanel(); pullSoon(); }
-  }
-
   function goTo(anchor) {
     const sel = anchorSel(anchor);
     if (!sel) return;
-    showTab('details');
     api.select(sel.kind, sel.idx, { claimIdx: sel.claimIdx ?? null, evIdx: sel.evIdx ?? null, evKind: sel.evKind ?? null });
     const card = sel.kind === 'mech'
       ? mapEl.querySelector(`.sp-star[data-m="${sel.idx}"]`)
@@ -548,7 +511,7 @@ export async function initNotes(api) {
   const draftKey = () => `${target.slug}|${target.anchor}`;
 
   function drawComposer() {
-    form.hidden = !target || tab === 'comments';
+    form.hidden = !target || off;
     if (form.hidden) return;
     // The card's title is no longer shown above the box; screen readers still hear it.
     bodyInput.setAttribute('aria-label', `Your comment on: ${target.label}`);
@@ -755,14 +718,9 @@ export async function initNotes(api) {
   /* ---- wiring ---- */
 
   openBtn.addEventListener('click', () => {
-    api.showRight();
-    showTab(tab === 'comments' ? 'details' : 'comments');
-  });
-  tabDetail.addEventListener('click', () => showTab('details'));
-  tabComments.addEventListener('click', () => showTab('comments'));
-  // Picking a card on the map is a request to read it.
-  mapEl.addEventListener('click', e => {
-    if (tab === 'comments' && e.target.closest(`${NOTE_CARDS}, .sp-star`)) showTab('details');
+    setOff(!off);
+    drawComposer();
+    if (!off) pullSoon();
   });
 
   // Notes that were waiting from an earlier visit show at once, still sending.
@@ -784,18 +742,14 @@ export async function initNotes(api) {
       const sel = api.curSel();
       const anchor = api.curSpine() ? selAnchor(sel) : null;
       const label = anchor ? currentLabel(anchor) : null;
-      const moved = anchor !== (target?.anchor ?? null);
       target = label ? { slug: slug(), anchor, label, kind: sel.kind } : null;
-      // A new selection (arrow keys, a link) brings its detail forward.
-      if (moved && target && tab === 'comments') showTab('details');
-      // The detail pane was just rebuilt, so the list goes back under it.
-      if (target) $('ch-detail').append(listEl);
+      // The detail pane was just rebuilt, so the feed goes back under it.
+      if (api.curSpine()) $('ch-detail').append(listEl);
       drawComposer();
       draw();
     },
-    /** Esc leaves the Comments tab, or the note box. True when it did. */
+    /** Esc leaves the note box. True when it did. */
     handleEscape() {
-      if (tab === 'comments') { showTab('details'); return true; }
       if (form.contains(document.activeElement)) { document.activeElement.blur(); return true; }
       return false;
     }

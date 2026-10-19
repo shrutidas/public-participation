@@ -1136,7 +1136,7 @@ body[data-view="chain"] #ctrl .fl,
   gap: 2px;
   /* The left edge matches #ch-detail's 20px so the header sits on the same
      line as the title and body text under it. */
-  padding: 6px 14px 0 6px;
+  padding: 8px 14px 0 20px;
   border-bottom: 1px solid #eee9e0;
   flex-shrink: 0;
 }
@@ -1155,24 +1155,19 @@ body[data-view="chain"] #ctrl .fl,
 }
 
 .rt:hover { color: #1a1a1a; }
-.rt.on { color: #16202f; border-bottom-color: #2a72ae; }
-.rt[hidden] { display: none; }
-/* The Details tab is named for whatever is selected, so it has to hold a line
-   as long as "Proposed Public Participation" without pushing the others off. */
-#ch-right-tabs .rt {
-  min-width: 0; padding: 9px 14px 8px; line-height: 1.35;
-  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-  display: inline-flex; align-items: center; gap: 6px;
+.rt.on { color: #16202f; border-bottom-color: #4a9fd5; }
+/* The header names whatever is selected, so it has to hold a line as long as
+   "Proposed Public Participation" without pushing the close button off. */
+.rt-label {
+  flex: 1; min-width: 0; font-size: 0.75rem; font-weight: 700;
+  padding: 7px 14px 7px 0; color: #16202f; line-height: 1.35;
 }
-#rt-tab-comments { flex: none; }
-/* Without comments the bar is a plain header, not a lone tab. */
-#ch-right-tabs:has(#rt-tab-comments[hidden]) .rt { color: #16202f; border-bottom-color: transparent; cursor: default; }
 #right-hide { margin-left: auto; }
 
 .rt-pane { display: none; flex: 1; min-height: 0; }
 .rt-pane.show { display: block; }
 
-#ch-detail, #ch-comments {
+#ch-detail {
   overflow-y: auto;
   padding: 0 20px 36px;
 }
@@ -1734,12 +1729,19 @@ body[data-view="chain"] #ctrl .fl,
 }
 #ch-zoom #nt-open[hidden] { display: none; }
 .nt-ico { width: 15px; height: 15px; color: var(--nt-blue); flex: none; }
-#nt-count, .nt-n {
+/* Comments switched off: the button greys out and its icon is struck through. */
+#ch-zoom #nt-open.nt-is-off { color: #8a8377; }
+#nt-open.nt-is-off .nt-ico { color: #8a8377; }
+#nt-open.nt-is-off .nt-ico .nt-ico-x { display: inline; }
+.nt-ico .nt-ico-x { display: none; }
+#nt-open.nt-is-off #nt-count { background: #c9c2b6; }
+#ch-detail.nt-off .nt-list { display: none; }
+#nt-count {
   background: var(--nt-blue); color: #fff; border-radius: 9px;
   padding: 2px 6px; font-size: .625rem; font-weight: 800; line-height: 1.2;
   font-variant-numeric: tabular-nums;
 }
-#nt-count:empty, .nt-n:empty { display: none; }
+#nt-count:empty { display: none; }
 
 /* The comment box, fixed to the bottom of the right pane. */
 #nt-compose {
@@ -1829,17 +1831,7 @@ textarea.nt-input { resize: vertical; min-height: 54px; max-height: 40vh; }
 }
 .nt-was { margin-top: 2px; font-size: .6875rem; font-style: italic; color: #8a8377; }
 
-/* The Comments tab: a count line with the map toggle, then one group per card. */
-.nt-bar { display: flex; justify-content: flex-end; padding: 12px 0 4px; }
-.nt-eye {
-  flex: none; display: inline-flex; align-items: center; gap: 5px;
-  font-family: inherit; font-size: .6875rem; font-weight: 700; color: #6b6457;
-  background: none; border: 1px solid #d4cfc5; border-radius: 6px;
-  padding: 4px 8px; cursor: pointer;
-}
-.nt-eye svg { width: 14px; height: 14px; }
-.nt-eye[aria-pressed="true"] { color: var(--nt-blue-dk); border-color: #b7d0e6; background: var(--nt-tint); }
-.nt-eye:hover { border-color: #1c2333; color: #1c2333; }
+/* The case feed, shown when nothing is selected. */
 .nt-facil {
   display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px;
   padding: 10px 12px; background: #fff; border: 1px solid #d4cfc5; border-radius: 8px;
