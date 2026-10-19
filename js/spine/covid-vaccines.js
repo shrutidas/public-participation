@@ -656,7 +656,7 @@ export default spineData({
         measured: 'Mandates raised vaccination abroad but not in US states',
         claims: [
           claim({
-            text: 'People accept a decision as more legitimate when a randomly selected group of citizens helped make it, even when the decision goes against them.',
+            text: 'People accept a decision as more legitimate when a group of citizens helped make it, even when the decision goes against them.',
             evidence: [
               evidence({
                 headline: 'People judged a decision fairer when citizens had taken part in making it, even when the decision went against them.',
@@ -1000,27 +1000,6 @@ export default spineData({
                 quote: 'We found that our interventions increased COVID-19 vaccine willingness in two treatment areas that are furthest from city centers by 7.6% and 6.6% respectively, while vaccine uptake increased in one of the treatment areas by 17.1%, compared to the control area.',
                 caveat: 'Uptake did not rise in the two areas farthest from the city centers. The authors write that the camps were too small to meet the demand there.',
                 sources: [source('Abdullah et al. 2022, PLOS ONE', 'https://doi.org/10.1371/journal.pone.0274718')]
-              }),
-              evidence({
-                headline: 'Vaccine vans that a Seattle health system sent out with community groups served a larger share of Black, Hispanic, and Pacific Islander residents than its mass site.',
-                finding: paragraph(`
-                  Xie and colleagues compared six months of health records from UW Medicine in Seattle for
-                  people who booked vaccine appointments through four outreach efforts or through standard
-                  online or phone booking at the mass vaccination site. The health system held listening
-                  sessions with community organizations before launching its mobile vans and paid them for
-                  each event. In the program's design, “Three mobile vans worked in concert with CBOs to reach
-                  unhoused, low-income, and underrepresented BIPOC people” at shelters, churches, parks, and
-                  community events. Compared with standard
-                  booking, the vans reached higher shares of Black, Hispanic, Pacific Islander, and
-                  non-English-speaking people and of residents of more socially vulnerable areas. The authors
-                  conclude that “Compared to traditional scheduling, the outreach strategies improved vaccine
-                  equity for vulnerable populations disproportionately impacted by COVID-19.” The comparison
-                  describes who each channel reached, not who would have been vaccinated anyway, and the paper
-                  does not say the community groups picked each van stop.
-                `),
-                grade: 'moderate',
-                quote: 'Compared to traditional scheduling, the outreach strategies improved vaccine equity for vulnerable populations disproportionately impacted by COVID-19.',
-                sources: [source('Xie, Mah, Chew, Ruud, Hernandez, Lowery and Hartzler 2024, Applied Clinical Informatics', 'https://doi.org/10.1055/s-0044-1779258')]
               })
             ],
             counterEvidence: []
@@ -1029,21 +1008,21 @@ export default spineData({
             text: 'Community members doing outreach reach people the health system misses.',
             evidence: [
               evidence({
-                headline: 'A New York vaccination site reached far more Hispanic and Black residents through appointments booked by community groups than through its online sign-up.',
+                headline: 'Across 58 studies, health programs that used lay outreach workers to reach racial and ethnic minority groups improved health behaviors.',
                 finding: paragraph(`
-                  NewYork-Presbyterian ran a vaccination site in upper Manhattan and let community
-                  organizations, including senior centers, faith groups, and local practices, book and
-                  hold appointments for their members. Diaz and colleagues compared who came through
-                  each route. “Hispanic patients represented 21 484 of 36 862 patients (58%) scheduled
-                  through CBO outreach, 7521 of 24 466 patients (31%) self-scheduled after local zip
-                  codes restriction, and 712 of 16 235 patients (4%) of those self-scheduled prior to
-                  restriction”. For Black patients the shares were 12, 10, and 2 percent. The study
-                  covers one site and compares groups before and after the changes, with no outside
-                  comparison.
+                  A review gathered 58 studies of health programs planned and run by coalitions that
+                  included members of the racial or ethnic minority groups being served and at least
+                  two community organizations. Programs that used lay outreach workers improved health
+                  behaviors, while broad community-wide change strategies made little or no
+                  difference, and no study was at low risk of bias. Because the studies said too little
+                  about the coalitions themselves, “a definitive answer as to whether a coalition-led
+                  intervention adds extra value to the types of community engagement intervention
+                  strategies described in this review remains unattainable.” The review ends before
+                  COVID-19 and does not look at where services were placed.
                 `),
                 grade: 'moderate',
-                quote: 'Hispanic patients represented 21 484 of 36 862 patients (58%) scheduled through CBO outreach, 7521 of 24 466 patients (31%) self-scheduled after local zip codes restriction, and 712 of 16 235 patients (4%) of those self-scheduled prior to restriction',
-                sources: [source('Diaz et al. 2022, JAMA Network Open', 'https://doi.org/10.1001/jamanetworkopen.2022.17875')]
+                quote: 'Thus, a definitive answer as to whether a coalition-led intervention adds extra value to the types of community engagement intervention strategies described in this review remains unattainable.',
+                sources: [source('Anderson et al. 2015, Cochrane Database of Systematic Reviews', 'https://doi.org/10.1002/14651858.CD009905.pub2')]
               }),
               evidence({
                 headline: 'Men least willing to get vaccinated became more willing after hearing from people like themselves than from doctors.',
@@ -1181,11 +1160,32 @@ export default spineData({
                 grade: 'moderate',
                 quote: 'Of those eligible, 90 of 112 (80%) in the intervention group used the influenza vaccine compared to 32 of 70 (46%) in the comparison group (P < .001).',
                 sources: [source('Daniels et al. 2007, Ethnicity and Disease', 'https://pubmed.ncbi.nlm.nih.gov/17598312/')]
+              }),
+              evidence({
+                headline: 'Vaccine vans that a Seattle health system sent out with community groups served a larger share of Black, Hispanic, and Pacific Islander residents than its mass site.',
+                finding: paragraph(`
+                  Xie and colleagues compared six months of health records from UW Medicine in Seattle for
+                  people who booked vaccine appointments through four outreach efforts or through standard
+                  online or phone booking at the mass vaccination site. The health system held listening
+                  sessions with community organizations before launching its mobile vans and paid them for
+                  each event. In the program's design, “Three mobile vans worked in concert with CBOs to reach
+                  unhoused, low-income, and underrepresented BIPOC people” at shelters, churches, parks, and
+                  community events. Compared with standard
+                  booking, the vans reached higher shares of Black, Hispanic, Pacific Islander, and
+                  non-English-speaking people and of residents of more socially vulnerable areas. The authors
+                  conclude that “Compared to traditional scheduling, the outreach strategies improved vaccine
+                  equity for vulnerable populations disproportionately impacted by COVID-19.” The comparison
+                  describes who each channel reached, not who would have been vaccinated anyway, and the paper
+                  does not say the community groups picked each van stop.
+                `),
+                grade: 'moderate',
+                quote: 'Compared to traditional scheduling, the outreach strategies improved vaccine equity for vulnerable populations disproportionately impacted by COVID-19.',
+                sources: [source('Xie, Mah, Chew, Ruud, Hernandez, Lowery and Hartzler 2024, Applied Clinical Informatics', 'https://doi.org/10.1055/s-0044-1779258')]
               })
             ],
             counterEvidence: [
               evidence({
-                headline: 'Easier access did not explain why Black adults caught up with White adults on vaccination, and growing knowledge of vaccine safety did.',
+                headline: 'Easier access played no measurable part in Black adults catching up with White adults on vaccination, which a national panel traced to growing knowledge of vaccine safety.',
                 finding: paragraph(`
                   A national panel followed the same adults from April 2021 to July 2022 and tested
                   five explanations for why Black vaccination caught up. “Only increases in knowledge
@@ -1217,7 +1217,7 @@ export default spineData({
             ]
           }),
           claim({
-            text: 'Sending more vaccine and outreach to the hardest-hit neighborhoods helps them catch up with the rest of the city and narrows their gap in COVID-19 deaths.',
+            text: 'Sending more vaccine and outreach to the hardest-hit neighborhoods helps them catch up and narrows the gap in COVID-19 deaths for Black and Hispanic residents.',
             evidence: [
               evidence({
                 headline: 'When Rhode Island sent early vaccine supply and outreach in residents\' own languages to its hardest-hit, mostly Latino city, residents there got vaccinated sooner.',
@@ -1836,18 +1836,22 @@ export default spineData({
             text: 'When residents monitor a public service using data on how it performs, the service improves and residents trust the government more.',
             evidence: [
               evidence({
-                headline: 'Ugandan communities that met to monitor their local clinics got more effort from health workers, more clinic visits, and fewer child deaths.',
+                headline: 'Ugandan communities that used report cards to monitor their local clinics got more effort from health workers, more clinic visits, and fewer child deaths.',
                 finding: paragraph(`
                   Communities around 50 Ugandan clinics were assigned at random to village meetings,
                   run by local nongovernmental groups, that built residents' capacity to hold clinic
                   staff to account for their performance. “A year after the intervention, treatment communities are more
                   involved in monitoring the provider, and the health workers appear to exert higher
                   effort to serve the community.” Clinic use rose, child deaths fell, and children
-                  weighed more. The same team later found the gains lasted.
+                  weighed more. The same team later found the gains lasted, and that a cheaper version
+                  of the meetings with no report card on staff performance did not improve care.
                 `),
                 grade: 'strong',
                 quote: 'A year after the intervention, treatment communities are more involved in monitoring the provider, and the health workers appear to exert higher effort to serve the community.',
-                sources: [source('Björkman and Svensson 2009, Quarterly Journal of Economics', 'https://doi.org/10.1162/qjec.2009.124.2.735')]
+                sources: [
+                  source('Björkman and Svensson 2009, Quarterly Journal of Economics', 'https://doi.org/10.1162/qjec.2009.124.2.735'),
+                  source('Björkman Nyqvist, de Walque and Svensson 2017, American Economic Journal: Applied Economics', 'https://doi.org/10.1257/app.20150027')
+                ]
               }),
               evidence({
                 headline: 'Sierra Leone clinics that communities monitored drew more patients, and fewer young children died.',
@@ -1865,17 +1869,21 @@ export default spineData({
                 sources: [source('Christensen, Dube, Haushofer, Siddiqi and Voors 2021, Quarterly Journal of Economics', 'https://doi.org/10.1093/qje/qjaa039')]
               }),
               evidence({
-                headline: 'Ugandan village meetings that gave residents no data on their clinic\'s performance did not improve care, unlike the earlier meetings that came with report cards.',
+                headline: 'Programs that let residents monitor and give feedback to frontline service staff often improved access to services and their quality.',
                 finding: paragraph(`
-                  The original Ugandan team tested a cheaper version that held participation meetings
-                  but handed out no report card on staff performance. “We find no impact on the
-                  quality of care or health outcomes of a lower cost intervention that focused on
-                  encouraging participation but did not provide information on staff performance.”
-                  Residents meeting to talk was not enough without performance data to judge against.
+                  A review pooled 35 programs in low- and middle-income countries that brought citizens
+                  into planning, information, feedback, or monitoring of public services. Programs
+                  building direct contact between service users and providers were “often effective in
+                  stimulating active citizen engagement in service delivery and realising improvements
+                  in access to services and quality of service provision, particularly for services that
+                  involve direct interaction between citizens and providers”. Without fixes to supplies
+                  and staffing, the authors warn, such programs “alone may not improve key wellbeing
+                  outcomes”. The searches ended before the large null trial in Uganda was published.
                 `),
                 grade: 'strong',
-                quote: 'We find no impact on the quality of care or health outcomes of a lower cost intervention that focused on encouraging participation but did not provide information on staff performance.',
-                sources: [source('Björkman Nyqvist, de Walque and Svensson 2017, American Economic Journal: Applied Economics', 'https://doi.org/10.1257/app.20150027')]
+                quote: 'The findings suggest that interventions promoting citizen engagement by improving direct engagement between service users and service providers, are often effective in stimulating active citizen engagement in service delivery and realising improvements in access to services and quality of service provision, particularly for services that involve direct interaction between citizens and providers.',
+                caveat: 'Low- and middle-income countries only. Monitoring is one of four kinds of engagement pooled. The authors warn that without fixes to supplies and staffing, such programs may not improve health.',
+                sources: [source('Waddington, Sonnenfeld, Finetti, Gaarder, John and Stevenson 2019, Campbell Systematic Reviews', 'https://doi.org/10.1002/cl2.1025')]
               }),
               evidence({
                 headline: 'When Ugandan communities were trained to monitor local development projects, their trust in the central government rose slightly.',

@@ -851,15 +851,15 @@ export default spineData({
             ],
             counterEvidence: [
               evidence({
-                headline: 'Opening schools in person spread COVID-19 where community cases were already moderate to high, a risk every school shared whatever its building.',
+                headline: 'Opening schools in person spread COVID-19 in districts where community cases were already moderate to high.',
                 finding: paragraph(`
                   Linking each Michigan and Washington district’s teaching mode to county case rates
                   through the 2020 to 2021 school year, and comparing each district with itself as
                   its mode changed, the authors find that “in-person/hybrid schooling relative to
                   remote instruction can lead to increases in COVID spread in communities with
                   moderate to high levels of preexisting COVID cases.” In Michigan, the rise after
-                  opening largely faded within two months. Community case levels are shared by every
-                  school in a district, whatever its building.
+                  opening largely faded within two months. The study did not measure ventilation or other
+                  safety measures in the schools.
                 `),
                 grade: 'strong',
                 quote: 'District and month fixed effects models that exploit within-district (over time) variation in instructional modality and account for time-invariant district factors show that, in both states, in-person/hybrid schooling relative to remote instruction can lead to increases in COVID spread in communities with moderate to high levels of preexisting COVID cases.',
@@ -984,7 +984,7 @@ export default spineData({
             ],
             counterEvidence: [
               evidence({
-                headline: 'When schools brought families and staff together for weekly activities, parents built ties with each other but not reliably with school staff.',
+                headline: 'When schools brought families and staff together for weekly activities, ties between parents and school staff did not reliably grow.',
                 finding: paragraph(`
                   Schools in Phoenix and San Antonio were assigned at random to a program designed to
                   build trust among parents, teachers, and children. For the first group of schools,

@@ -623,7 +623,7 @@ export default spineData({
             ],
             counterEvidence: [
               evidence({
-                headline: 'Adding an anonymous route made employees less willing to report through the named routes, so a new route may shift reports rather than add to them.',
+                headline: 'Adding an anonymous reporting route made employees less willing to report through the named routes.',
                 finding: paragraph(`
                   In an experiment on intentions to report questionable acts, “results show that the
                   existence of an anonymous channel does reduce the likelihood of reporting to
@@ -708,18 +708,16 @@ export default spineData({
                 sources: [source('Berish, Bornstein and Bowblis 2019, Journal of the American Medical Directors Association', 'https://doi.org/10.1016/j.jamda.2019.02.006')]
               }),
               evidence({
-                headline: 'Older adults offered hands-on help applying for food benefits enrolled at three times the rate of those who got no contact.',
+                headline: 'Unionized coal mines had fewer deaths and serious injuries but recorded more minor injuries, a sign that union miners reported more of them.',
                 finding: paragraph(`
-                  Finkelstein and Notowidigdo randomly assigned 30,000 likely eligible older adults to no
-                  contact, information only, or information plus help applying. “Only 6% of the control
-                  group enrolls in SNAP over the next nine months, compared to 11% of the Information Only
-                  group and 18% of the Information Plus Assistance group.” Help with the filing raised
-                  take-up beyond what information alone did.
+                  Morantz studied underground coal mines from 1993 to 2010. Unionization went with “a 14
+                  to 32% drop in traumatic injuries and a 29 to 83% drop in fatalities.” It also went with
+                  more recorded minor injuries, “suggesting that injury reporting practices differ between
+                  union and nonunion mines.”
                 `),
-                grade: 'strong',
-                quote: 'Only 6% of the control group enrolls in SNAP over the next nine months, compared to 11% of the Information Only group and 18% of the Information Plus Assistance group.',
-                caveat: 'The help was with a food benefit application. No hazard report was involved.',
-                sources: [source('Finkelstein and Notowidigdo 2019, Quarterly Journal of Economics', 'https://doi.org/10.1093/qje/qjz013')]
+                grade: 'moderate',
+                quote: 'Overall, unionization is associated with a 14 to 32% drop in traumatic injuries and a 29 to 83% drop in fatalities. Yet unionization also predicts higher total and nontraumatic injuries, suggesting that injury reporting practices differ between union and nonunion mines.',
+                sources: [source('Morantz 2013, ILR Review', 'https://doi.org/10.1177/001979391306600104')]
               })
             ],
             counterEvidence: [
@@ -1105,19 +1103,6 @@ export default spineData({
             ],
             counterEvidence: [
               evidence({
-                headline: 'Emissions testers in Mexico City who were independent of the car owners still took bribes to pass cars that should have failed.',
-                finding: paragraph(`
-                  Mexico City required cars to pass emissions tests at licensed test centers. Paulina Oliva
-                  built a statistical test for one kind of cheating, bribing the center technicians, and a
-                  model of how owners decide to retest or cheat. “Results suggest that 9.6 percent of car
-                  owners paid US$20 to circumvent the regulation.” The checkers were separate from the car
-                  owners, and some still sold a passing result.
-                `),
-                grade: 'moderate',
-                quote: 'Results suggest that 9.6 percent of car owners paid US$20 to circumvent the regulation.',
-                sources: [source('Oliva 2015, Journal of Political Economy', 'https://doi.org/10.1086/680936')]
-              }),
-              evidence({
                 headline: 'Companies that policed and reported their own violations went on to comply better, which suggests regulators were right to inspect them less.',
                 finding: paragraph(`
                   Toffel and Short studied firms that disclosed their own violations through a regulator's
@@ -1186,33 +1171,17 @@ export default spineData({
             ],
             counterEvidence: [
               evidence({
-                headline: 'Community panels sponsored by chemical plants built trust but rarely changed how the plants performed.',
+                headline: 'Residents who sampled the air near refineries themselves struggled to get the state to work with them on the results.',
                 finding: paragraph(`
-                  A national survey of members and company representatives at chemical industry community
-                  advisory panels found that the panels “alert companies to community concerns and promote
-                  trust”, but “are less effective in stimulating changes in environmental performance and,
-                  like many citizen advisory groups, have difficulties serving as systematic links back to
-                  the community.” Environmental, community, and health professionals were underrepresented
-                  on the panels, and most community members said access to independent technical experts
-                  made a panel more effective. The survey reports what participants perceive, not measured
-                  emissions.
-                `),
-                grade: 'moderate',
-                quote: 'CAPs are less effective in stimulating changes in environmental performance and, like many citizen advisory groups, have difficulties serving as systematic links back to the community.',
-                sources: [source('Lynn, Busenberg, Cohen and Chess 2000, Environmental Science and Technology', 'https://doi.org/10.1021/es9906599')]
-              }),
-              evidence({
-                headline: 'A northern Canadian review board shared with Aboriginal communities made fair decisions but did not follow up on individual projects.',
-                finding: paragraph(`
-                  The authors assessed the Mackenzie Valley Environmental Impact Review Board, a co-managed
-                  environmental assessment body. It “excels in its use of traditional and local knowledge, and
-                  its fair and rigorous decision-making process”. But the process does not “provide
-                  project-specific follow-up”. Communities turned to private agreements with mining companies
-                  instead. This is one board.
+                  O'Rourke and Macey evaluated community bucket brigades, in which residents near refineries
+                  and chemical plants take their own air samples. Sampling changed how residents saw the
+                  risks and drew them into emergency response and right-to-know efforts. Judged against
+                  community policing, though, “the bucket brigades are currently limited in their ability to
+                  encourage “co‐production” of environmental protection between citizens and the state.”
                 `),
                 grade: 'weak',
-                quote: 'While the MVEIRB EA process excels in its use of traditional and local knowledge, and its fair and rigorous decision-making process, significant deficiencies remain, as the EA process does not adequately consider benefits, provide project-specific follow-up, or build trust and capacity among stakeholders.',
-                sources: [source('Galbraith, Bradshaw and Rutherford 2007, Impact Assessment and Project Appraisal', 'https://doi.org/10.3152/146155107x190596')]
+                quote: 'However, when viewed through the lens of the more developed literature on community policing, the bucket brigades are currently limited in their ability to encourage “co‐production” of environmental protection between citizens and the state.',
+                sources: [source('O\'Rourke and Macey 2003, Journal of Policy Analysis and Management', 'https://doi.org/10.1002/pam.10138')]
               }),
               evidence({
                 headline: 'Regulators dismissed air samples that residents took near refineries because the samples did not fit official standards.',
@@ -1295,7 +1264,7 @@ export default spineData({
                 sources: [source('Earnhart and Jacobson 2025, Environmental and Resource Economics', 'https://doi.org/10.1007/s10640-024-00940-4')]
               }),
               evidence({
-                headline: 'After California set minimum fines for wastewater violations, only late paperwork fell, and treatment plants exceeded their limits for several pollutants as often as before.',
+                headline: 'After California set minimum fines for wastewater violations, treatment plants exceeded their limits for several pollutants as often as before, though cheap-to-fix violations such as reporting lapses fell.',
                 finding: paragraph(`
                   Treves and colleagues compared California with other states after it stepped up $3,000
                   mandatory minimum penalties for wastewater violations, and paired the numbers with case
@@ -2022,12 +1991,12 @@ export default spineData({
                 sources: [source('Flanagan, Marvinney, Johnston, Yang and Zheng 2015, Science of the Total Environment', 'https://doi.org/10.1016/j.scitotenv.2014.03.079')]
               }),
               evidence({
-                headline: 'Wisconsin well owners told their water held bacteria found cracked casings and faulty caps with county help, and their wells then tested clean.',
+                headline: 'After Wisconsin well owners learned their water held bacteria, county staff helped them find cracked casings and faulty caps, and the repaired wells tested clean.',
                 finding: paragraph(`
-                  Kewaunee County, Wisconsin, where manure had fouled many private wells, offered owners
-                  free well tests and mailed each one their own results. Some wells held bacteria but
-                  little nitrate. Those wells had faulty caps, cracked casings, or water pooling around
-                  the cap. County staff and local well installers helped the owners find the problems.
+                  Kewaunee County, Wisconsin, where many private wells held bacteria or too much nitrate,
+                  offered owners free well tests and mailed each one their own results. Some wells held
+                  bacteria but little nitrate. Those wells had faulty caps, cracked casings, water pooling
+                  around the cap, or bugs inside the cap. County staff and local well installers helped the owners find the problems.
                   Once the problems were fixed, the wells were tested again and came back free of the
                   bacteria.
                 `),
