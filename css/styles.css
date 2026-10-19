@@ -311,7 +311,6 @@ body[data-view="chain"] #ctrl .fl,
   body:has(#ch-wrap.show:not(.no-right)) #ch-mapcol { grid-column: 1; grid-row: 2; min-height: 0; border-right: none; }
   body:has(#ch-wrap.show:not(.no-right)) #ch-right {
     grid-column: 2; grid-row: 1 / 3; min-height: 0; max-width: none;
-    border-left: 1px solid #d4cfc5;
   }
 }
 
