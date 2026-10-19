@@ -796,7 +796,7 @@ export default spineData({
     }),
 
     spineProposal({
-      name: 'In spring 2020, before schools reopen in the fall, parents, teachers, and local health experts design how each school reopens, in meetings open to the public.',
+      name: 'Before schools reopen in the fall, parents, teachers, and local health experts design how each school reopens, in meetings open to the public.',
       method: 'Stakeholder Advisory Council',
       summary: 'Parents, teachers, and residents work with building and health experts to draft a reopening plan for each school, and the board must answer it.',
       anchor: 'physical presence in school',
