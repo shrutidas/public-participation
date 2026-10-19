@@ -32,7 +32,7 @@ People at a workshop can leave comments on any card of the map.
 - A card with comments shows a small blue speech bubble with the count.
 - Selecting a card shows its comments under its detail, with a box to add one.
 - With nothing selected, the right pane lists every comment on the case, grouped by card.
-- The **Comments** button by the zoom control turns comments on or off: the counts on the map, the feed, and the box.
+- The **Comments** button by the zoom control clears the selection to show that list.
 
 Comments are kept in a Google Sheet, one row per comment. A short Apps Script in the sheet, [`google/notes.gs`](google/notes.gs), is published as a web app, and the site reads and writes comments through its link. The script decides what anyone with the link can do. If the sheet can't be reached, the map works as usual and the comment box says so. Comments typed while offline are kept on the device and sent when the connection returns.
 
@@ -66,7 +66,7 @@ Use a personal Google account. School and work accounts often aren't allowed to 
 
 ### At the meeting
 
-- **Facilitator link.** Open the site with `?facilitate` before the `#`, for example `https://shrutidas.com/public-participation/?facilitate`. Then press Esc so no card is selected, and enter the passcode at the top of the comment feed. The passcode is never in the URL, so it's safe to show this screen on a projector.
+- **Facilitator link.** Open the site with `?facilitate` before the `#`, for example `https://shrutidas.com/public-participation/?facilitate`. Then click **Comments** and enter the passcode at the top of the comment feed. The passcode is never in the URL, so it's safe to show this screen on a projector.
 - **Controls.** With nothing selected, the comment feed then has three controls:
   - **Hide** on any comment, and **Restore** to bring it back.
   - **Clear this case**, which hides every comment on the case to start a new round.

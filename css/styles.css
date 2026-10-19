@@ -1720,7 +1720,6 @@ body[data-view="chain"] #ctrl .fl,
 }
 /* An event with mechanism stars: the badge joins their row. */
 .sp-ent-stars .nt-badge { position: static; }
-#ch-map.nt-hide .nt-badge { display: none; }
 
 /* The Comments button, first in the floating zoom control. */
 #ch-zoom #nt-open {
@@ -1729,13 +1728,6 @@ body[data-view="chain"] #ctrl .fl,
 }
 #ch-zoom #nt-open[hidden] { display: none; }
 .nt-ico { width: 15px; height: 15px; color: var(--nt-blue); flex: none; }
-/* Comments switched off: the button greys out and its icon is struck through. */
-#ch-zoom #nt-open.nt-is-off { color: #8a8377; }
-#nt-open.nt-is-off .nt-ico { color: #8a8377; }
-#nt-open.nt-is-off .nt-ico .nt-ico-x { display: inline; }
-.nt-ico .nt-ico-x { display: none; }
-#nt-open.nt-is-off #nt-count { background: #c9c2b6; }
-#ch-detail.nt-off .nt-list { display: none; }
 #nt-count {
   background: var(--nt-blue); color: #fff; border-radius: 9px;
   padding: 2px 6px; font-size: .625rem; font-weight: 800; line-height: 1.2;

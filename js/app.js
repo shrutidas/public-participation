@@ -612,6 +612,8 @@ onHashChange();
 import('./notes.js')
   .then(m => m.initNotes({
     curCase, curSpine, curSel, select,
+    // The case-wide comment feed shows when nothing is selected.
+    showAll: () => { setRightPane(true); navigate(NO_SEL); },
     isSpine: () => state.view === 'spine'
   }))
   .then(n => { notes = n; })

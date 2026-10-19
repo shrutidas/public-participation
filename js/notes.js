@@ -4,8 +4,8 @@
  * Every card on the map can carry notes. A card with notes shows a small blue
  * speech bubble with a count. The detail pane ends in a feed: the selected
  * card's notes with a box to add one, or, with nothing selected, every note on
- * the case grouped by card. The Comments button over the map turns all of it
- * on or off.
+ * the case grouped by card. The Comments button over the map shows that
+ * case-wide feed.
  *
  * Built for a room of people on venue Wi-Fi:
  *   - app.js loads this module after the map is drawn, so if the database is
@@ -66,7 +66,6 @@ const K = {
   mine: 'pp-notes-mine',
   outbox: 'pp-notes-outbox',
   drafts: 'pp-notes-drafts',
-  hideBadges: 'pp-notes-hidden',
   pass: 'pp-notes-pass'
 };
 
@@ -215,19 +214,7 @@ export async function initNotes(api) {
   const listEl = h('section', { class: 'nt-list', 'aria-live': 'polite' });
 
   openBtn.hidden = false;
-  let off = store.get(K.hideBadges) === '1';
-  setOff(off);
-
-  /** Comments off hides the map's bubbles and the pane's feed and box. */
-  function setOff(next) {
-    off = next;
-    store.set(K.hideBadges, off ? '1' : '0');
-    mapEl.classList.toggle('nt-hide', off);
-    $('ch-detail').classList.toggle('nt-off', off);
-    openBtn.classList.toggle('nt-is-off', off);
-    openBtn.setAttribute('aria-pressed', String(!off));
-    openBtn.title = `${off ? 'Show' : 'Hide'} comments${tx.demo ? ' (demo: kept in this browser only)' : ''}`;
-  }
+  if (tx.demo) openBtn.title += ' (demo: kept in this browser only)';
 
   /* ---- what is visible ---- */
 
@@ -511,7 +498,7 @@ export async function initNotes(api) {
   const draftKey = () => `${target.slug}|${target.anchor}`;
 
   function drawComposer() {
-    form.hidden = !target || off;
+    form.hidden = !target;
     if (form.hidden) return;
     // The card's title is no longer shown above the box; screen readers still hear it.
     bodyInput.setAttribute('aria-label', `Your comment on: ${target.label}`);
@@ -717,11 +704,7 @@ export async function initNotes(api) {
 
   /* ---- wiring ---- */
 
-  openBtn.addEventListener('click', () => {
-    setOff(!off);
-    drawComposer();
-    if (!off) pullSoon();
-  });
+  openBtn.addEventListener('click', () => { api.showAll(); pullSoon(); });
 
   // Notes that were waiting from an earlier visit show at once, still sending.
   for (const { row } of outbox()) {
