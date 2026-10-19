@@ -1402,7 +1402,7 @@ body[data-view="chain"] #ctrl .fl,
 .sp-band.lane-im { background: #b9cfbf; }
 .sp-band.lane-tl { background: #fff; }
 .sp-band.lane-pp { background: #cbbcdb; }
-.sp-band.lane-ch { background: #6f7c8a; }
+.sp-band.lane-ch { background: #5e656d; }
 
 /* Each header spans its whole band, in a deeper shade of the band, so the
    header and its column read as one strip with no line between them. */
@@ -1452,7 +1452,7 @@ body[data-view="chain"] #ctrl .fl,
 .sp-lane-x:hover { color: #1c2333; background: #dcd8cf; }
 .sp-lane-x:focus-visible { outline: 2px solid #4a9fd5; outline-offset: 1px; }
 .sp-lane.lane-pp { background: #b9a7cf; color: #2e0a56; }
-.sp-lane.lane-ch { background: #63707e; color: #fff; justify-content: flex-start; padding-left: 24px; }
+.sp-lane.lane-ch { background: #535a62; color: #fff; justify-content: flex-start; padding-left: 24px; }
 
 /* What the lane holds, dropping from its header on hover or focus. */
 .sp-lane { cursor: help; }
