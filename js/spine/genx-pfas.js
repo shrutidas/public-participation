@@ -468,8 +468,8 @@ export default spineData({
 
   proposals: [
     spineProposal({
-      name: 'As soon as workers suspect a chemical hazard, local advocates give them a protected, low-cost way to report it to the EPA and support them through the process.',
-      bold: ['local advocates'],
+      name: 'As soon as workers suspect a chemical hazard, a protected whistleblower channel lets them report it to the EPA, with local advocates supporting them through the process.',
+      bold: ['protected whistleblower channel'],
       method: 'Protected Worker Disclosure',
       summary: 'Local advocates, similar to ombudspeople, give workers a low-cost, protected way to report suspected environmental violations or hazards to the Environmental Protection Agency and other agencies, and support them afterward.',
       anchor: 'continued exposure is not tolerable',
