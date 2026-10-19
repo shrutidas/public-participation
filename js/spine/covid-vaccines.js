@@ -1665,6 +1665,24 @@ export default spineData({
                 grade: 'moderate',
                 quote: 'Our evidence also suggests that inequalities in who is interested in participating may not radically affect policy outcomes.',
                 sources: [source('Doherty, Pavel, Jackson and Garbarski 2023, State Politics and Policy Quarterly', 'https://doi.org/10.1017/spq.2023.25')]
+              }),
+              evidence({
+                headline: 'Residents of a Chinese township who came to a day of debate on which public works to fund rated the projects much as invited neighbors who stayed home.',
+                finding: paragraph(`
+                  Zeguo township in China drew a random sample of residents from its household register to
+                  help choose which of thirty public works to fund. The projects included roads, bridges, a
+                  school, and city gardens. Before any discussion, each person who answered a first survey
+                  rated every project. The study compared the 235 who came to the day and finished it with
+                  the 34 who did not. “On only one of the thirty projects (roughly the 5 per cent expectable
+                  by chance) did the participants and non-participants enter the process with significantly
+                  different attitudes.” The two groups did differ in who they were. Those who came were
+                  older, less educated, and more often farmers. The local People's Congress approved the
+                  final list.
+                `),
+                grade: 'moderate',
+                quote: 'It shows the participants to be an attitudinally representative subsample of the whole interview sample. On only one of the thirty projects (roughly the 5 per cent expectable by chance) did the participants and non-participants enter the process with significantly different attitudes.',
+                caveat: 'Residents were drawn by lot and invited, while budgeting voters choose to take part themselves. Only 34 people stayed home.',
+                sources: [source('Fishkin, He, Luskin and Siu 2010, British Journal of Political Science', 'https://doi.org/10.1017/S0007123409990330')]
               })
             ],
             counterEvidence: [
@@ -2136,22 +2154,6 @@ export default spineData({
                 sources: [
                   source('Fiala and Premand 2018, Ruhr Economic Papers 752 (working paper)', 'https://www.econstor.eu/bitstream/10419/179511/1/102399545X.pdf')
                 ]
-              }),
-              evidence({
-                headline: 'When a Tanzanian cash transfer program run by elected village committees began paying out, villagers came to trust their elected leaders more.',
-                finding: paragraph(`
-                  Tanzania assigned 80 villages at random to start a community-managed cash transfer
-                  program right away or 2.5 years later. Residents in every village elected a committee by
-                  secret ballot to select recipients and run the program. Control villages had committees
-                  too, but theirs were not yet paying out. “Our analysis reveals that cash
-                  transfers can significantly increase trust in leaders. This effect is driven by large
-                  increases in trust in elected leaders as opposed to appointed bureaucrats.” Leaders were
-                  also seen as more responsive and honest.
-                `),
-                grade: 'strong',
-                quote: 'Our analysis reveals that cash transfers can significantly increase trust in leaders. This effect is driven by large increases in trust in elected leaders as opposed to appointed bureaucrats.',
-                caveat: 'Committees were elected in every village, so the study measures the effect of transfers flowing through them, not of electing residents. The gains were concentrated in villages that held more village meetings.',
-                sources: [source('Evans, Holtemeyer and Kosec 2019, World Development', 'https://doi.org/10.1016/j.worlddev.2018.08.020')]
               })
             ],
             counterEvidence: [

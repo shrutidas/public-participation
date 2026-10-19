@@ -820,6 +820,46 @@ export default spineData({
                 grade: 'moderate',
                 quote: 'We also find that regulators more quickly begin enforcement proceedings when whistleblowers are involved.',
                 sources: [source('Call, Martin, Sharp and Wilde 2018, Journal of Accounting Research', 'https://doi.org/10.1111/1475-679X.12177')]
+              }),
+              evidence({
+                headline: 'After a union reported low sperm counts among workers at a California pesticide plant, federal agencies inspected within days and issued an emergency rule within five weeks.',
+                finding: paragraph(`
+                  On August 5, 1977, the Oil, Chemical and Atomic Workers union asked the National
+                  Institute for Occupational Safety and Health to evaluate a plant in Lathrop, California.
+                  The union had learned that “a number of workers at this plant had abnormally low sperm
+                  counts.” Institute staff inspected the plant on August 9 and 10. On August 12, the
+                  Occupational Safety and Health Administration warned about 80 makers and formulators of
+                  the pesticide dibromochloropropane by telegram. The institute sent a recommended standard
+                  to the Department of Labor on September 2. The administration published an emergency
+                  temporary standard for the chemical on September 9.
+                `),
+                grade: 'moderate',
+                quote: 'On August 5, 1977, the National Institute for Occupational Safety and Health (NIOSH) was requested by the Oil, Chemical and Atomic Workers (OCAW) union to conduct a health hazard evaluation at the Oxidental Chemical Company plant in Lathrop, California. This request was made when representatives of OCAW learned that a number of workers at this plant had abnormally low sperm counts. ... On August 12, the Occupational Safety and Health Administration in a telegram alerted approximately 80 manufacturers and formulators to the potential hazard of worker exposure to DBCP.',
+                caveat: 'A record of one case. The union made the request on the workers\' behalf.',
+                sources: [
+                  source('National Institute for Occupational Safety and Health, A Recommended Standard for Occupational Exposure to Dibromochloropropane (Publication 78-115)', 'https://stacks.cdc.gov/view/cdc/19405'),
+                  source('Occupational Safety and Health Administration, Federal Register index, 42 FR 45535, September 9, 1977', 'https://www.osha.gov/laws-regs/federalregister/1977-09-09')
+                ]
+              }),
+              evidence({
+                headline: 'When a sick worker\'s blood test reached health officials, the state had the pesticide plant where he worked closed that same month.',
+                finding: paragraph(`
+                  Cannon and colleagues report that from March 1974 through July 1975, 76 of 133 people
+                  who had worked at a Kepone pesticide plant developed a previously unrecognized illness.
+                  Symptoms included tremor, weight loss, and nervousness. In July 1975, a private physician
+                  sent one sick worker's blood to the Center for Disease Control to be tested for Kepone.
+                  The Center told the state epidemiologist that the level was high. He investigated, found
+                  other sick workers, and visited the plant. He “recommended that the plant be closed, and
+                  company management complied.” The National Institute for Occupational Safety and Health
+                  records that the plant closed in July 1975.
+                `),
+                grade: 'moderate',
+                quote: 'In July 1975, a private physician submitted a blood sample to the Center for Disease Control (CDC) to be analyzed for kepone, a chlorinated hydrocarbon pesticide. ... He recommended that the plant be closed, and company management complied.',
+                caveat: 'A record of one case. The report came from a sick worker\'s own doctor.',
+                sources: [
+                  source('National Institute for Occupational Safety and Health, Recommended Standard for Occupational Exposure to Kepone', 'https://stacks.cdc.gov/view/cdc/19374/cdc_19374_DS1.pdf'),
+                  source('Cannon et al. 1978, American Journal of Epidemiology', 'https://doi.org/10.1093/oxfordjournals.aje.a112572')
+                ]
               })
             ],
             counterEvidence: [
@@ -1890,7 +1930,26 @@ export default spineData({
                 sources: [source('Calloway et al. 2020, International Journal of Environmental Research and Public Health', 'https://doi.org/10.3390/ijerph17238706')]
               })
             ],
-            counterEvidence: []
+            counterEvidence: [
+              evidence({
+                headline: 'When a Swedish town learned its water held very high levels of these chemicals, most residents took the town\'s blood test, and their use of mental health care did not rise.',
+                finding: paragraph(`
+                  Kallinge, a town of about 5,000 in southern Sweden, learned in December 2013 that its
+                  drinking water held very high PFAS levels. The municipality switched the town to a clean
+                  source the day it announced the problem. About 70 percent of residents enrolled in the
+                  blood testing the municipality offered. Researchers compared residents' health care use
+                  before and after the announcement with use in nearby areas, drawing on national health
+                  records. They found “no significant increase in health care utilization following the
+                  announcement.” This held for mental health care, antidepressants, and sleeping
+                  medication. Local stores did report a surge in bottled water sales. The authors conclude
+                  that the community and the authorities both managed the situation well.
+                `),
+                grade: 'strong',
+                quote: 'Overall, our results suggest that both the affected community and public authorities managed the situation effectively, mitigating potential health consequences related to anxiety.',
+                caveat: 'The study measures health care use. It does not ask residents whether they trusted the test results.',
+                sources: [source('Elinder, Erixson, Grönqvist, Langenskiöld and Öhman 2026, PLOS ONE', 'https://doi.org/10.1371/journal.pone.0340815')]
+              })
+            ]
           }),
           claim({
             text: 'People believe test results more when they come from someone they see as on their side.',
