@@ -264,8 +264,8 @@ function renderTimeline() {
     curCase().entries.map(e => entryHtml(e)).join('');
 }
 
-/* The right pane always shows the detail, and its header names whatever is
-   selected. The full timeline opens through the expand button in the Main
+/* The right pane's first tab shows the detail and is named for whatever is
+   selected; notes.js adds a second tab with every comment on the case. The full timeline opens through the expand button in the Main
    Timeline lane header on the map. */
 
 function renderSpine() {
@@ -275,7 +275,7 @@ function renderSpine() {
   if (!sp) {
     map.innerHTML = `<div class="empty-msg">No spine has been mapped for this case yet.</div>`;
     el('ch-detail').innerHTML = '';
-    el('rt-label').textContent = 'Detail';
+    el('rt-label').textContent = 'Details';
     return;
   }
 
@@ -612,6 +612,7 @@ onHashChange();
 import('./notes.js')
   .then(m => m.initNotes({
     curCase, curSpine, curSel, select,
+    showRight: () => setRightPane(true),
     isSpine: () => state.view === 'spine'
   }))
   .then(n => { notes = n; })

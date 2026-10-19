@@ -70,8 +70,8 @@ const EXPAND_BTN = `<button class="sp-lane-x" aria-label="Open the full timeline
    is the one place on screen that is not the lane itself. */
 const laneCount = n => `<span class="sp-lane-n">${n}</span>`;
 
-/* What each lane holds, shown on hovering its header and in the How to Read
-   This Map pane. */
+/* What each lane holds, shown on hovering or focusing its header. The ? beside
+   each title says the header has more to tell. */
 const LANE_TIPS = {
   'lane-im': 'Shows what the record measured. Each card sits beside the event it bears on most and shows the date the finding first appeared.',
   'lane-tl': 'Lists the case events in date order. Click an event to read its full record. Click a star to see whether an existing mechanism addressed the event.',
@@ -191,10 +191,21 @@ export function renderSpineMap(el, caseObj, spine, sel = {}) {
     imp: spine.impacts.length, prop: drawn.length
   });
 
-  const lanes = LANES.map(l =>
-    `<div class="sp-lane ${l.cls}" style="left:${l.x}px;width:${l.w}px" tabindex="0"><span
-      class="sp-lane-t">${l.label}</span>${l.n == null ? '' : laneCount(l.n)}${
-      l.expand ? EXPAND_BTN : ''}<div class="sp-lane-tip" role="tooltip">${LANE_TIPS[l.cls]}</div></div>`).join('');
+  // No cream gaps: neighbouring bands meet halfway across the gap between
+  // their lanes, and the outer bands run to the canvas edges. Each header
+  // spans its whole band, so header and column read as one strip.
+  const edges = LANES.map((l, i) => {
+    const prev = LANES[i - 1], next = LANES[i + 1];
+    const left = prev ? Math.round((prev.x + prev.w + l.x) / 2) : 0;
+    const right = next ? Math.round((l.x + l.w + next.x) / 2) : canvasW;
+    return { left, width: right - left };
+  });
+
+  const lanes = LANES.map((l, i) =>
+    `<div class="sp-lane ${l.cls}" style="left:${edges[i].left}px;width:${edges[i].width}px" tabindex="0"><span
+      class="sp-lane-lbl"><span class="sp-lane-t">${l.label}</span><span class="sp-lane-q" aria-hidden="true">?</span>${
+      l.n == null ? '' : laneCount(l.n)}<span class="sp-lane-tip" role="tooltip">${LANE_TIPS[l.cls]}</span></span>${
+      l.expand ? EXPAND_BTN : ''}</div>`).join('');
   el.innerHTML = `<div class="sp">
     <div class="sp-lanes" style="width:${canvasW}px;height:${L.headH}px">${lanes}</div>
     <svg class="sp-edges"></svg></div>`;
@@ -206,13 +217,8 @@ export function renderSpineMap(el, caseObj, spine, sel = {}) {
   LANES.forEach((l, i) => {
     const b = document.createElement('div');
     b.className = `sp-band ${l.cls}`;
-    // No cream gaps between bands: neighbouring bands meet halfway across the
-    // gap between their lanes.
-    const prev = LANES[i - 1], next = LANES[i + 1];
-    const left = prev ? Math.round((prev.x + prev.w + l.x) / 2) : l.x - 14;
-    const right = next ? Math.round((l.x + l.w + next.x) / 2) : l.x + l.w + 14;
-    b.style.left = `${left}px`;
-    b.style.width = `${right - left}px`;
+    b.style.left = `${edges[i].left}px`;
+    b.style.width = `${edges[i].width}px`;
     stage.appendChild(b);
   });
   const bands = [...stage.querySelectorAll('.sp-band')];
@@ -691,12 +697,12 @@ function propEvDetail(spine, i, k, n, kind) {
   </div>`;
 }
 
-/* The counts of events, measured outcomes, and proposals are tags in the lane
-   headers, where the reader is looking at the things themselves. */
-function overview(caseObj, spine) {
-  return `<div class="cd cd-intro">
-    <div class="cd-hint">${lanesFor(0, {}).map(l =>
-      `<p><b>${l.label.replace('&', '&amp;')}.</b> ${LANE_TIPS[l.cls]}</p>`).join('')}</div>
+/* With nothing selected, the pane says how to fill it. What each column
+   holds is in its header's tooltip, so the pane does not repeat it. */
+function overview() {
+  return `<div class="cd cd-intro cd-empty">
+    <p>Select a card on the map to read it here.</p>
+    <p>Hover over or tap a column title to see what the column shows.</p>
   </div>`;
 }
 
@@ -810,8 +816,8 @@ export function renderSpineDetail(el, caseObj, spine, rawSel = {}) {
   else if (sel.kind === 'propout') el.innerHTML = propOutDetail(spine, sel.idx);
   else if (sel.kind === 'propclaim') el.innerHTML = propClaimDetail(spine, sel.idx, sel.claimIdx);
   else if (sel.kind === 'propev') el.innerHTML = propEvDetail(spine, sel.idx, sel.claimIdx, sel.evIdx, sel.evKind);
-  else el.innerHTML = overview(caseObj, spine);
+  else el.innerHTML = overview();
   el.scrollTop = 0;
   if (sel.kind === 'propev' && sel.evKind === 'counter') return 'Counter-Evidence';
-  return DETAIL_LABEL[sel.kind] ?? 'How to Read This Map';
+  return DETAIL_LABEL[sel.kind] ?? 'Details';
 }

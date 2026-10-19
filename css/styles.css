@@ -314,7 +314,9 @@ body[data-view="chain"] #ctrl .fl,
   flex: 1 1 58%;
   min-width: 0;
   overflow: hidden;
-  padding: 14px 18px 14px;
+  /* No padding: the lane bands run to the map's edges and the key sits flush
+     under them, so the map reads as one surface. */
+  padding: 0;
   background: #f0ede6;
   border-right: 1px solid #d4cfc5;
   display: flex;
@@ -474,8 +476,8 @@ body[data-view="chain"] #ctrl .fl,
   grid-template-columns: max-content 1fr;
   align-items: center;
   gap: 9px 16px;
-  flex-shrink: 0; margin-top: 12px; padding: 12px 14px;
-  background: #e6e2d9; border-radius: 6px;
+  flex-shrink: 0; padding: 12px 16px;
+  background: #e6e2d9; border-top: 1px solid #d4cfc5;
   font-size: 0.75rem; color: #5a5347;
 }
 .lg-hd {
@@ -1115,7 +1117,7 @@ body[data-view="chain"] #ctrl .fl,
   gap: 2px;
   /* The left edge matches #ch-detail's 20px so the header sits on the same
      line as the title and body text under it. */
-  padding: 8px 14px 0 20px;
+  padding: 6px 14px 0 6px;
   border-bottom: 1px solid #eee9e0;
   flex-shrink: 0;
 }
@@ -1134,22 +1136,31 @@ body[data-view="chain"] #ctrl .fl,
 }
 
 .rt:hover { color: #1a1a1a; }
-.rt.on { color: #16202f; border-bottom-color: #4a9fd5; }
-/* The header names whatever is selected, so it has to hold a line as long as
-   "Proposed Public Participation" without pushing the close button off. */
-.rt-label {
-  flex: 1; min-width: 0; font-size: 0.75rem; font-weight: 700;
-  padding: 7px 14px 7px 0; color: #16202f; line-height: 1.35;
+.rt.on { color: #16202f; border-bottom-color: #2a72ae; }
+.rt[hidden] { display: none; }
+/* The Details tab is named for whatever is selected, so it has to hold a line
+   as long as "Proposed Public Participation" without pushing the others off. */
+#ch-right-tabs .rt {
+  min-width: 0; padding: 9px 14px 8px; line-height: 1.35;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  display: inline-flex; align-items: center; gap: 6px;
 }
+#rt-tab-comments { flex: none; }
+/* Without comments the bar is a plain header, not a lone tab. */
+#ch-right-tabs:has(#rt-tab-comments[hidden]) .rt { color: #16202f; border-bottom-color: transparent; cursor: default; }
 #right-hide { margin-left: auto; }
 
 .rt-pane { display: none; flex: 1; min-height: 0; }
 .rt-pane.show { display: block; }
 
-#ch-detail {
+#ch-detail, #ch-comments {
   overflow-y: auto;
   padding: 0 20px 36px;
 }
+
+/* Nothing selected: two quiet lines on how to fill the pane. */
+.cd-empty p { font-size: .8125rem; line-height: 1.55; color: #6b6457; margin: 0; }
+.cd-empty p + p { margin-top: 6px; }
 
 /* The pane is a reference column beside the map, not a second page: every
    size runs one notch under the shared card styles, and the type is scoped
@@ -1371,30 +1382,35 @@ body[data-view="chain"] #ctrl .fl,
 .sp { position: relative; min-height: 100%; }
 .sp-edges { position: absolute; inset: 0; pointer-events: none; z-index: 1; }
 
-/* Lane bands and their sticky headers */
-.sp-band { position: absolute; top: 0; z-index: 0; border-radius: 10px; }
-/* The bands touch, so only the outer corners of the group are rounded. */
-.sp-band.lane-tl, .sp-band.lane-pp { border-radius: 0; }
-.sp-band.lane-im { border-top-right-radius: 0; border-bottom-right-radius: 0; }
-.sp-band.lane-ch { border-top-left-radius: 0; border-bottom-left-radius: 0; }
+/* Lane bands and their sticky headers. The bands touch and run to the
+   canvas edges, so they are square. */
+.sp-band { position: absolute; top: 0; z-index: 0; }
 .sp-band.lane-im { background: #b9cfbf; }
 .sp-band.lane-tl { background: #fff; }
 .sp-band.lane-pp { background: #cbbcdb; }
 .sp-band.lane-ch { background: #c2c0bb; }
 
-.sp-lanes {
-  position: sticky; top: 0; z-index: 6;
-  background: #f0ede6; border-bottom: 1px solid #ddd8ce;
-  box-shadow: 0 6px 10px -6px rgba(60,54,44,.28);
-}
+/* Each header spans its whole band, in a deeper shade of the band, so the
+   header and its column read as one strip with no line between them. */
+.sp-lanes { position: sticky; top: 0; z-index: 6; }
 .sp-lane {
-  position: absolute; top: 9px; box-sizing: border-box;
+  position: absolute; top: 0; bottom: 0; box-sizing: border-box;
   font-size: .68rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase;
-  padding: 4px 10px; border-radius: 6px; text-align: center;
-  display: flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 0 14px; text-align: center;
+  display: flex; align-items: center; justify-content: center;
 }
+/* The title, its ?, and its count, which the tooltip hangs from. */
+.sp-lane-lbl { position: relative; display: inline-flex; align-items: center; gap: 7px; min-width: 0; }
 /* Every lane label stays on one line. */
 .sp-lane-t { min-width: 0; white-space: nowrap; }
+/* Says the header has more to tell on hover. */
+.sp-lane-q {
+  flex: none; display: inline-grid; place-items: center;
+  width: 15px; height: 15px; border-radius: 50%;
+  border: 1.5px solid currentColor; opacity: .6;
+  font-size: .58rem; font-weight: 800; letter-spacing: 0; line-height: 1;
+}
+.sp-lane:hover .sp-lane-q, .sp-lane:focus-visible .sp-lane-q { opacity: 1; }
 
 /* How many of the thing the lane holds. It borrows the lane's own border and
    text colour, so it reads as part of the header rather than a second badge. */
@@ -1404,36 +1420,33 @@ body[data-view="chain"] #ctrl .fl,
   font-size: .64rem; font-weight: 800; letter-spacing: .04em;
   font-variant-numeric: tabular-nums;
 }
-.sp-lane.lane-im { background: #e4efe7; border: 1px solid #1e6b3c; color: #143d23; }
-.sp-lane.lane-tl {
-  background: #fff; border: 1px solid #b8b1a3; color: #4a4437;
-  gap: 9px;
-}
+.sp-lane.lane-im { background: #a9c4b1; color: #143d23; }
+.sp-lane.lane-tl { background: #ece9e2; color: #4a4437; }
 
 /* Diagonal arrows out, at the right end of the Main Timeline lane header: it
    opens the full timeline. The lane header is the one place on the map that
    names the timeline, so the control that expands it belongs there and nowhere
    else. It sits outside the centred label and count, so they stay centred. */
 .sp-lane-x {
-  position: absolute; right: 6px; top: 50%; transform: translateY(-50%);
+  position: absolute; right: 10px; top: 50%; transform: translateY(-50%);
   display: grid; place-items: center;
   width: 17px; height: 17px; padding: 0;
   border: none; border-radius: 4px;
   background: transparent; color: #4a4437; cursor: pointer; font-family: inherit;
 }
 .sp-lane-x svg { display: block; width: 10px; height: 10px; }
-.sp-lane-x:hover { color: #1c2333; background: #f0ede6; }
+.sp-lane-x:hover { color: #1c2333; background: #dcd8cf; }
 .sp-lane-x:focus-visible { outline: 2px solid #4a9fd5; outline-offset: 1px; }
-.sp-lane.lane-pp { background: #f0e8fa; border: 1px dashed #601898; color: #380c68; }
-.sp-lane.lane-ch { background: #fff; border: 1px dashed #1e6b3c; color: #143d23; justify-content: flex-start; }
+.sp-lane.lane-pp { background: #b9a7cf; color: #2e0a56; }
+.sp-lane.lane-ch { background: #b2b0aa; color: #2a2e35; justify-content: flex-start; padding-left: 24px; }
 
 /* What the lane holds, dropping from its header on hover or focus. */
 .sp-lane { cursor: help; }
-.sp-lane:focus-visible { outline: 2px solid #4a9fd5; outline-offset: 1px; }
+.sp-lane:focus-visible { outline: 2px solid #4a9fd5; outline-offset: -2px; }
 .sp-lane-tip {
-  display: none; position: absolute; top: calc(100% + 8px); left: 50%; z-index: 10;
+  display: none; position: absolute; top: calc(100% + 14px); left: 50%; z-index: 10;
   transform: translateX(-50%);
-  width: 100%; min-width: 260px; box-sizing: border-box; padding: 10px 12px;
+  width: 300px; box-sizing: border-box; padding: 10px 12px;
   background: #1c2333; border-radius: 6px;
   box-shadow: 0 6px 18px rgba(28,35,51,.35);
   font-size: .75rem; font-weight: 400; letter-spacing: 0; line-height: 1.5;
@@ -1444,8 +1457,8 @@ body[data-view="chain"] #ctrl .fl,
   content: ''; position: absolute; top: -5px; left: 50%; margin-left: -5px;
   border: 5px solid transparent; border-top: 0; border-bottom-color: #1c2333;
 }
-/* The last lane runs as wide as its claim row, so its tip sits under the
-   left-aligned label instead of the lane's middle. */
+/* The last lane runs as wide as its claim row, so its label sits at the left
+   and the tip lines up under the label's start. */
 .sp-lane.lane-ch .sp-lane-tip { left: 0; transform: none; width: 340px; }
 .sp-lane.lane-ch .sp-lane-tip::before { left: 40px; }
 .sp-lane:hover .sp-lane-tip, .sp-lane:focus-within .sp-lane-tip { display: block; }
@@ -1666,9 +1679,11 @@ body[data-view="chain"] #ctrl .fl,
 .cd-kick-mech .sp-star-static { display: inline-flex; vertical-align: -4px; margin-right: 6px; }
 
 /* ------------------------------------------------------------------ *
- * Participants' notes (js/notes.js). Sticky-note yellow, used nowhere
- * else on the map except the mechanism stars, which are round.
+ * Participants' comments (js/notes.js). Blue, used nowhere else on the
+ * map, so a comment never reads as a yellow mechanism star.
  * ------------------------------------------------------------------ */
+
+:root { --nt-blue: #2a72ae; --nt-blue-dk: #225f92; --nt-tint: #e6f0f9; }
 
 #nt-open[hidden], #nt-compose[hidden], #nt-compose [hidden] { display: none; }
 
@@ -1677,51 +1692,53 @@ body[data-view="chain"] #ctrl .fl,
   clip: rect(0 0 0 0); white-space: nowrap;
 }
 
-/* The count on a card: a small square sticky over its top-right corner. It
+/* The count on a card: a small speech bubble over its top-right corner. It
    takes no clicks, so clicking it selects the card like the rest of it. */
 .nt-badge {
-  position: absolute; top: -8px; right: -8px; z-index: 4;
-  min-width: 20px; height: 20px; padding: 0 5px;
+  position: absolute; top: -9px; right: -9px; z-index: 4;
+  min-width: 22px; height: 20px; padding: 0 6px; box-sizing: border-box;
   display: inline-flex; align-items: center; justify-content: center;
-  background: #ffd84d; color: #3d2e00; border: 1px solid #c9a400;
-  border-radius: 3px 3px 8px 3px; box-shadow: 0 1px 3px rgba(0,0,0,.22);
+  background: var(--nt-blue); color: #fff; border: 1.5px solid #fff;
+  border-radius: 10px 10px 10px 3px; box-shadow: 0 1px 4px rgba(20,50,80,.35);
   font-family: inherit; font-size: .62rem; font-weight: 800; line-height: 1;
-  pointer-events: none;
+  font-variant-numeric: tabular-nums; pointer-events: none;
 }
 /* An event with mechanism stars: the badge joins their row. */
 .sp-ent-stars .nt-badge { position: static; }
 #ch-map.nt-hide .nt-badge { display: none; }
 
-/* The Notes button, first in the floating zoom control. */
+/* The Comments button, first in the floating zoom control. */
 #ch-zoom #nt-open {
   display: inline-flex; align-items: center; gap: 6px;
   font-size: .75rem; padding: 6px 12px; border-right: 1px solid #e2ddd3;
 }
 #ch-zoom #nt-open[hidden] { display: none; }
-.nt-ico {
-  width: 11px; height: 11px; background: #ffd84d; border: 1px solid #c9a400;
-  border-radius: 1px 1px 4px 1px; display: inline-block;
+.nt-ico { width: 15px; height: 15px; color: var(--nt-blue); flex: none; }
+#nt-count, .nt-n {
+  background: var(--nt-blue); color: #fff; border-radius: 9px;
+  padding: 2px 6px; font-size: .625rem; font-weight: 800; line-height: 1.2;
+  font-variant-numeric: tabular-nums;
 }
-#nt-count {
-  background: #ffd84d; color: #3d2e00; border-radius: 9px;
-  padding: 2px 6px; font-size: .625rem; font-weight: 800;
-}
-#nt-count:empty { display: none; }
+#nt-count:empty, .nt-n:empty { display: none; }
 
-/* The note box, fixed to the bottom of the detail pane. */
+/* The comment box, fixed to the bottom of the right pane. */
 #nt-compose {
-  flex-shrink: 0; display: flex; flex-direction: column; gap: 6px;
-  padding: 10px 14px 12px 20px; border-top: 1px solid #e2ddd3; background: #fffbe8;
+  flex-shrink: 0; display: flex; flex-direction: column; gap: 8px;
+  padding: 12px 16px 14px 20px; border-top: 1px solid #e6e2da; background: #fff;
 }
 .nt-row { display: flex; align-items: center; gap: 8px; }
 /* 16px: below it, iOS zooms the whole page when the field is focused. */
 .nt-input {
   font-family: inherit; font-size: 16px; line-height: 1.35; width: 100%;
-  padding: 7px 9px; border: 1.5px solid #c9c2b6; border-radius: 6px;
-  background: #fff; color: #1a1a1a; -webkit-appearance: none; appearance: none;
+  padding: 8px 11px; border: 1px solid #d4cfc5; border-radius: 8px;
+  background: #faf9f6; color: #1a1a1a; -webkit-appearance: none; appearance: none;
+  transition: border-color .12s, box-shadow .12s, background .12s;
 }
 textarea.nt-input { resize: vertical; min-height: 46px; max-height: 40vh; }
-.nt-input:focus { outline: none; border-color: #1c2333; }
+.nt-input:focus {
+  outline: none; background: #fff; border-color: var(--nt-blue);
+  box-shadow: 0 0 0 3px rgba(42,114,174,.18);
+}
 .nt-as { flex: 0 0 auto; font-size: .6875rem; color: #6b6457; }
 .nt-as b { color: #1c2333; }
 #nt-status { flex: 1; min-width: 0; font-size: .6875rem; line-height: 1.35; color: #6b6457; }
@@ -1730,68 +1747,76 @@ textarea.nt-input { resize: vertical; min-height: 46px; max-height: 40vh; }
 .nt-btn {
   flex: 0 0 auto; margin-left: auto;
   font-family: inherit; font-size: .75rem; font-weight: 700;
-  padding: 7px 16px; border-radius: 6px; border: 1.5px solid #1c2333;
-  background: #1c2333; color: #fff; cursor: pointer;
+  padding: 7px 18px; border-radius: 8px; border: 1px solid var(--nt-blue);
+  background: var(--nt-blue); color: #fff; cursor: pointer;
 }
-.nt-btn:hover { background: #2c3650; }
+.nt-btn:hover { background: var(--nt-blue-dk); border-color: var(--nt-blue-dk); }
+.nt-btn:focus-visible { outline: 2px solid var(--nt-blue); outline-offset: 2px; }
 .nt-btn:disabled { opacity: .45; cursor: default; }
-.nt-btn-quiet { background: #fff; color: #1c2333; border-color: #b3aca0; margin-left: 0; }
+.nt-btn-quiet { background: #fff; color: #1c2333; border-color: #c9c2b6; margin-left: 0; }
 .nt-btn-quiet:hover { background: #f3f1ec; border-color: #1c2333; }
 .nt-link {
   font: inherit; background: none; border: none; padding: 0;
-  color: #1258a0; cursor: pointer; text-decoration: underline;
+  color: var(--nt-blue); cursor: pointer; text-decoration: underline;
 }
 
-/* The notes under a card's detail, and in the panel. */
-.nt-list:not(:empty) { margin-top: 20px; padding-top: 12px; border-top: 1px solid #eee9e0; }
+/* The comments under a card's detail, and in the Comments tab. */
+.nt-list:not(:empty) { margin-top: 22px; padding-top: 14px; border-top: 1px solid #eee9e0; }
 .nt-h {
   font-size: .625rem; font-weight: 800; letter-spacing: .06em;
-  text-transform: uppercase; color: #6b6457; margin-bottom: 8px;
+  text-transform: uppercase; color: var(--sb-ink); margin-bottom: 10px;
 }
 .nt-ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
 .nt-item {
-  background: #fff6c4; border: 1px solid #ecd77a; border-radius: 3px 3px 10px 3px;
-  padding: 7px 10px; box-shadow: 0 1px 2px rgba(0,0,0,.07);
+  display: grid; grid-template-columns: 26px 1fr; gap: 10px;
+  background: #fff; border: 1px solid #e6e2da; border-left: 3px solid var(--nt-blue);
+  border-radius: 8px; padding: 9px 11px 10px 10px;
 }
+.nt-av {
+  width: 26px; height: 26px; border-radius: 50%;
+  display: grid; place-items: center;
+  background: var(--nt-tint); color: var(--nt-blue-dk);
+  font-size: .625rem; font-weight: 800; letter-spacing: .02em;
+}
+.nt-body { min-width: 0; }
 .nt-meta {
-  display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 6px;
-  font-size: .6875rem; color: #6b6457;
+  display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 8px;
+  font-size: .6875rem; color: #8a8377; min-height: 18px;
 }
-.nt-meta b { color: #1c2333; }
-.nt-meta .nt-link:first-of-type { margin-left: auto; }
+.nt-meta b { color: #1c2333; font-size: .75rem; }
+.nt-acts { margin-left: auto; display: inline-flex; gap: 10px; }
+/* Delete and Hide wait for the pointer; touch screens always show them. */
+@media (hover: hover) {
+  .nt-acts { opacity: 0; transition: opacity .12s; }
+  .nt-item:hover .nt-acts, .nt-item:focus-within .nt-acts { opacity: 1; }
+}
 .nt-text {
-  margin-top: 3px; font-size: .8125rem; line-height: 1.5; color: #1c2333;
+  margin-top: 2px; font-size: .8125rem; line-height: 1.5; color: #1c2333;
   white-space: pre-wrap; overflow-wrap: anywhere;
 }
 .nt-pending { opacity: .65; }
-.nt-hidden { background: #f1efe9; border: 1px dashed #b3aca0; }
+.nt-hidden { background: #f6f4ef; border: 1px dashed #b3aca0; border-left: 3px dashed #b3aca0; }
 .nt-tag {
   font-size: .58rem; font-weight: 800; letter-spacing: .05em; text-transform: uppercase;
   background: #e2ddd3; color: #4a463f; border-radius: 3px; padding: 1px 5px;
 }
 .nt-was { margin-top: 2px; font-size: .6875rem; font-style: italic; color: #8a8377; }
 
-/* The panel: slides over from the right, like the key. */
-#nt-panel {
-  position: fixed; top: 0; right: 0; bottom: 0; z-index: 70;
-  width: 420px; max-width: 94vw;
-  display: flex; flex-direction: column;
-  background: #fbfaf7; border-left: 1px solid #d4cfc5;
-  box-shadow: -6px 0 24px rgba(0,0,0,.18);
-  transform: translateX(100%); visibility: hidden;
-  transition: transform .22s ease, visibility 0s linear .22s;
+/* The Comments tab: a count line with the map toggle, then one group per card. */
+.nt-bar {
+  display: flex; align-items: center; gap: 10px;
+  padding: 14px 0 12px; margin-bottom: 14px; border-bottom: 1px solid #eee9e0;
 }
-#nt-panel.open { transform: translateX(0); visibility: visible; transition: transform .22s ease; }
-#nt-close {
-  background: none; border: none; border-radius: 4px; width: 26px; height: 26px;
-  font-size: 1.1rem; line-height: 1; color: #8a8377; cursor: pointer; padding: 0 4px;
+.nt-bar-t { flex: 1; min-width: 0; font-size: .75rem; font-weight: 700; color: var(--sb-ink); }
+.nt-eye {
+  flex: none; display: inline-flex; align-items: center; gap: 5px;
+  font-family: inherit; font-size: .6875rem; font-weight: 700; color: #6b6457;
+  background: none; border: 1px solid #d4cfc5; border-radius: 6px;
+  padding: 4px 8px; cursor: pointer;
 }
-#nt-close:hover { color: #1a1a1a; }
-#nt-panel-body {
-  flex: 1; min-height: 0; overflow-y: auto; -webkit-overflow-scrolling: touch;
-  padding: 12px 18px 30px;
-}
-.nt-opt { display: flex; align-items: center; gap: 6px; font-size: .75rem; color: #4a463f; margin-bottom: 14px; cursor: pointer; }
+.nt-eye svg { width: 14px; height: 14px; }
+.nt-eye[aria-pressed="true"] { color: var(--nt-blue-dk); border-color: #b7d0e6; background: var(--nt-tint); }
+.nt-eye:hover { border-color: #1c2333; color: #1c2333; }
 .nt-facil {
   display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px;
   padding: 10px 12px; background: #fff; border: 1px solid #d4cfc5; border-radius: 8px;
@@ -1801,10 +1826,10 @@ textarea.nt-input { resize: vertical; min-height: 46px; max-height: 40vh; }
   font-size: .625rem; font-weight: 800; letter-spacing: .06em;
   text-transform: uppercase; color: #6b6457;
 }
-.nt-group { margin-bottom: 18px; }
+.nt-group { margin-bottom: 20px; }
 .nt-card {
   display: block; width: 100%; text-align: left; font-family: inherit;
-  background: none; border: none; padding: 0 0 6px; cursor: pointer;
+  background: none; border: none; padding: 0 0 8px; cursor: pointer;
 }
 .nt-card-kind {
   display: block; font-size: .58rem; font-weight: 800; letter-spacing: .06em;

@@ -43,14 +43,6 @@
   <div id="key-txt"></div>
 </aside>
 
-<aside id="nt-panel" aria-hidden="true" aria-label="Comments">
-  <div class="kp-head">
-    <span>Comments on this case</span>
-    <button id="nt-close" aria-label="Close">&times;</button>
-  </div>
-  <div id="nt-panel-body"></div>
-</aside>
-
 <div id="tl-wrap">
   <!-- The way out sits on the left, where the back arrow points, and the
        filters sit on the right. -->
@@ -76,8 +68,10 @@
     <div id="ch-mapwrap">
       <div id="ch-map"></div>
       <div id="ch-zoom" role="group" aria-label="Zoom">
-        <button id="nt-open" hidden aria-controls="nt-panel" aria-expanded="false"
-          title="Participants' comments on this case"><span class="nt-ico" aria-hidden="true"></span>Comments <span id="nt-count"></span></button>
+        <button id="nt-open" hidden aria-controls="ch-comments"
+          title="Participants' comments on this case"><svg class="nt-ico" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" aria-hidden="true"><path
+          d="M4 5.5A2.5 2.5 0 0 1 6.5 3h11A2.5 2.5 0 0 1 20 5.5v8a2.5 2.5 0 0 1-2.5 2.5H10l-4.5 4v-4h0A1.5 1.5 0 0 1 4 14.5z"/></svg>Comments <span id="nt-count"></span></button>
         <button data-zoom="out" aria-label="Zoom out">&minus;</button>
         <button data-zoom="reset" id="zoom-lbl" aria-label="Reset zoom">100%</button>
         <button data-zoom="in" aria-label="Zoom in">+</button>
@@ -107,12 +101,19 @@
       title="Show the key">Open Key &#x2303;</button>
   </div>
   <div id="ch-right">
-    <div id="ch-right-tabs">
-      <span class="rt-label" id="rt-label">Detail</span>
+    <!-- Two tabs: the selected card's detail, named for what is selected, and
+         every comment on the case. The Comments tab shows once notes.js has
+         loaded, so without comments the bar is a plain header. -->
+    <div id="ch-right-tabs" role="tablist">
+      <button class="rt on" id="rt-tab-detail" role="tab" aria-selected="true"
+        aria-controls="ch-detail"><span id="rt-label">Details</span></button>
+      <button class="rt" id="rt-tab-comments" role="tab" aria-selected="false"
+        aria-controls="ch-comments" hidden>Comments <span id="nt-tab-count" class="nt-n"></span></button>
       <button id="right-hide" class="pane-tog" aria-controls="ch-right"
         aria-expanded="true" aria-label="Hide the detail pane" title="Hide the detail pane">&#x2715;</button>
     </div>
-    <div id="ch-detail" class="rt-pane show"></div>
+    <div id="ch-detail" class="rt-pane show" role="tabpanel" aria-labelledby="rt-tab-detail"></div>
+    <div id="ch-comments" class="rt-pane" role="tabpanel" aria-labelledby="rt-tab-comments"></div>
     <!-- Outside #ch-detail, which is rebuilt on every selection, so a note
          being typed survives. notes.js shows it when a card is selected. -->
     <form id="nt-compose" hidden autocomplete="off">
