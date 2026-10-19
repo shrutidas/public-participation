@@ -331,11 +331,11 @@ export async function initNotes(api) {
     if (!target) { drawCaseFeed(); return; }
     const facil = facilitate && Boolean(pass);
     const list = caseNotes({ includeHidden: facil }).filter(n => n.anchor === target.anchor && onCard(n));
-    listEl.replaceChildren(
-      h('h4', { class: 'nt-h', text: list.length ? `Comments (${list.length})` : 'Comments' }),
-      list.length
-        ? h('ul', { class: 'nt-ul' }, list.map(n => noteItem(n, { facil })))
-        : h('p', { class: 'nt-empty', text: 'No comments on this card yet.' }));
+    // No comments, no section: the box below is invitation enough.
+    listEl.replaceChildren(...(list.length ? [
+      h('h4', { class: 'nt-h', text: `Comments (${list.length})` }),
+      h('ul', { class: 'nt-ul' }, list.map(n => noteItem(n, { facil })))
+    ] : []));
   }
 
   // Say so as soon as a note is held up or two syncs in a row fail; offer the
@@ -374,6 +374,8 @@ export async function initNotes(api) {
     const facil = facilitate && Boolean(pass);
     const list = caseNotes({ includeHidden: facil });
     const n = list.filter(shown).length;
+    // An empty case shows nothing, except the facilitator's tools.
+    if (!list.length && !facilitate) { listEl.replaceChildren(); return; }
     const kids = [h('h4', { class: 'nt-h', text: n ? `Comments on this case (${n})` : 'Comments on this case' })];
 
     if (facilitate) kids.push(facilBox(list));
@@ -389,7 +391,6 @@ export async function initNotes(api) {
     const latest = g => g[g.length - 1].created_at;
     const ordered = [...groups.entries()].sort((a, b) => (latest(a[1]) < latest(b[1]) ? 1 : -1));
 
-    if (!list.length) kids.push(h('p', { class: 'nt-empty', text: 'No comments on this case yet. Select a card on the map, then write in the box under its detail.' }));
 
     for (const [anchor, g] of ordered) {
       const sel = anchorSel(anchor);
