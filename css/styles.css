@@ -1561,7 +1561,7 @@ body[data-view="chain"] #ctrl .fl,
 .sp-propbox-kick { display: block; font-size: .58rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: #601898; margin-bottom: 2px; }
 /* Purple is confined to the header band and the dashed edge, so the body reads
    as a plain record and the green effect links do not have to fight a tint. */
-.sp-prop-head { padding: 8px 11px; background: #f4edfc; }
+.sp-prop-head { padding: 8px 11px; background: #f4edfc; border-radius: 6px; }
 .sp-prop-title { display: block; font-size: .78rem; font-weight: 700; line-height: 1.3; }
 .sp-edge-allude { stroke: #601898; stroke-width: 1.8; fill: none; opacity: .85; }
 .sp-edge-allude-tie { stroke: #601898; stroke-width: 1.6; fill: none; stroke-dasharray: 2.5 4; opacity: .8; }
