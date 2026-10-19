@@ -692,7 +692,6 @@ function propEvDetail(spine, i, k, n, kind) {
   return `<div class="cd">
     <div class="cd-head"><span class="cd-id">${ev.headline ?? title}</span></div>
     <p class="cd-claim">${ev.finding}</p>
-    ${ev.caveat ? `<div class="ev-caveat">Caveat: ${ev.caveat}</div>` : ''}
     ${srcLine(ev.srcs)}
   </div>`;
 }
