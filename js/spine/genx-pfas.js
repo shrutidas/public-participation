@@ -1413,11 +1413,12 @@ export default spineData({
       name: 'When any certified lab finds an unregulated chemical in tap water above a health screening level, the state tells every affected household and residents choose where to test next.',
       method: 'Citizen Science',
       summary: 'When a regulator receives a peer-reviewed finding of a chemical in drinking water, it must tell the public within a day, and residents choose where follow-up testing happens.',
-      anchor: 'stayed inside agencies and journals',
+      anchor: 'mean GenX concentrations of 631',
       where: 'Congress writes the duty into federal law. The Environmental Protection Agency carries it out, and the North Carolina Department of Environmental Quality acts as the backup.',
       when: paragraph(`
-        November 2016, when the study measuring GenX in drinking water reached the state. EPA's own
-        researchers had detected GenX in the river in 2012.
+        November 2016, when a published study showed GenX in the region's drinking water, seven
+        months before the public learned of it. EPA's own researchers had detected GenX in the river
+        in 2012.
       `),
       description: paragraph(`
         The state drinking water agency must tell every household a water system serves when a

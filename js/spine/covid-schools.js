@@ -1272,16 +1272,16 @@ export default spineData({
     spineProposal({
       name: 'Before deciding to close schools, officials publish the data ahead of time, and parents and school staff question experts on it at a public forum.',
       method: 'Participatory Monitoring',
-      summary: 'Officials publish the reopening data ahead of time, and parents and school staff question experts on it at public forums and help choose what is tracked.',
-      anchor: '49 states suspended in-person',
+      summary: 'Officials publish the data behind each decision to close or reopen schools ahead of time, and parents and school staff question experts on it at public forums and help choose what is tracked.',
+      anchor: 'spread readily through respiratory droplets',
       where: 'State health departments and education agencies, with a panel of parents and school staff from each region.',
       when: paragraph(`
-        March to June 2020, before the fall decisions and before reopening turned partisan in
-        July 2020.
+        February 2020, before the first school closures in March, and then before each later
+        decision to close or reopen.
       `),
       description: paragraph(`
-        State health and education agencies publish the data behind reopening decisions at least
-        a week before each decision. The data covers county cases, test positivity, cases traced
+        State health and education agencies publish the data behind each decision to close or
+        reopen schools at least a week before the decision. The data covers county cases, test positivity, cases traced
         to school buildings, and how each school is teaching. Parents and school staff then
         question public health and education experts on the data at an open forum in each
         region. Experts answer every question and publish written answers, including what is not
