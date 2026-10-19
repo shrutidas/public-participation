@@ -1729,12 +1729,20 @@ body[data-view="chain"] #ctrl .fl,
 /* The comment box, fixed to the bottom of the right pane. */
 #nt-compose {
   flex-shrink: 0; display: flex; flex-direction: column; gap: 8px;
-  padding: 10px 16px 14px 20px; border-top: 1px solid #cfe0ef; background: #f3f8fc;
+  padding: 12px 16px 14px 20px;
+  background: linear-gradient(135deg, #1a5aa0 0%, #2a7fd0 55%, #45a6f2 100%);
 }
 .nt-compose-h {
   font-size: .625rem; font-weight: 800; letter-spacing: .06em;
-  text-transform: uppercase; color: var(--nt-blue-dk);
+  text-transform: uppercase; color: rgba(255,255,255,.9);
 }
+/* On the blue box the fields drop their border, and the small text and link go white. */
+#nt-compose .nt-input { border-color: transparent; }
+#nt-compose .nt-input:focus { border-color: #fff; box-shadow: 0 0 0 3px rgba(255,255,255,.35); }
+#nt-compose .nt-as, #nt-compose #nt-status { color: rgba(255,255,255,.85); }
+#nt-compose .nt-as b { color: #fff; }
+#nt-compose .nt-link { color: #fff; }
+#nt-compose #nt-status.nt-warn { color: #ffe08a; }
 .nt-row { display: flex; align-items: center; gap: 8px; }
 /* The sidebar's own text size. Touch screens get 16px below: smaller, and
    iOS zooms the whole page when the field is focused. */
@@ -1765,25 +1773,14 @@ textarea.nt-input { resize: vertical; min-height: 54px; max-height: 40vh; }
 .nt-btn:hover { background: var(--nt-blue-dk); border-color: var(--nt-blue-dk); }
 .nt-btn:focus-visible { outline: 2px solid var(--nt-blue); outline-offset: 2px; }
 .nt-btn:disabled { opacity: .45; cursor: default; }
-/* Post is the one button meant to catch the eye: a glossy blue gradient with
-   a soft glow that lifts on hover. */
+/* Post sits on the blue box as a flat white button with blue text. */
 #nt-post {
   padding: 8px 22px; border: none; border-radius: 10px; letter-spacing: .02em;
-  background: linear-gradient(180deg, #4fa3f7 0%, #2a72ae 55%, #1f5d94 100%);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,.45), 0 2px 6px rgba(42,114,174,.35), 0 6px 16px rgba(42,114,174,.22);
-  text-shadow: 0 1px 1px rgba(0,0,0,.18);
-  transition: transform .15s ease, box-shadow .15s ease, filter .15s ease;
+  background: #fff; color: #1a5aa0; transition: background .12s;
 }
-#nt-post:hover:not(:disabled) {
-  background: linear-gradient(180deg, #5cb0ff 0%, #2f7cbd 55%, #22659f 100%);
-  transform: translateY(-1px);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,.5), 0 4px 10px rgba(42,114,174,.4), 0 10px 22px rgba(42,114,174,.25);
-}
-#nt-post:active:not(:disabled) {
-  transform: translateY(0); filter: brightness(.95);
-  box-shadow: inset 0 1px 2px rgba(0,0,0,.2), 0 1px 3px rgba(42,114,174,.3);
-}
-#nt-post:disabled { box-shadow: none; }
+#nt-post:hover:not(:disabled) { background: #e3f0fd; }
+#nt-post:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+#nt-post:disabled { opacity: .6; }
 .nt-btn-quiet { background: #fff; color: #1c2333; border-color: #c9c2b6; margin-left: 0; }
 .nt-btn-quiet:hover { background: #f3f1ec; border-color: #1c2333; }
 .nt-link {
