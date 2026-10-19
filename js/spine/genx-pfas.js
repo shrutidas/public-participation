@@ -1273,20 +1273,6 @@ export default spineData({
                 sources: [source('Langpap and Shimshack 2010, Journal of Environmental Economics and Management', 'https://doi.org/10.1016/j.jeem.2010.01.001')]
               }),
               evidence({
-                headline: 'Polluted city waterways in China got cleaner when outside monitoring reports went to the officials responsible, but not when they were posted for the public.',
-                finding: paragraph(`
-                  Urban waterways in Jiangsu province already slated for cleanup were assigned at random to
-                  monitoring by a nongovernmental group for 15 months. Researchers also assigned at random who
-                  received the results. “Disseminating results from monitoring to local and provincial
-                  governments improved water quality, but disseminating results to the public did not have
-                  detectable effects on water quality or residents' pursuit of remediation through official and
-                  volunteer channels.” The monitors were an outside group, not members of a review body.
-                `),
-                grade: 'strong',
-                quote: 'Disseminating results from monitoring to local and provincial governments improved water quality, but disseminating results to the public did not have detectable effects on water quality or residents\' pursuit of remediation through official and volunteer channels.',
-                sources: [source('Buntaine, Zhang and Hunnicutt 2021, Proceedings of the National Academy of Sciences', 'https://doi.org/10.1073/pnas.2015175118')]
-              }),
-              evidence({
                 headline: 'In Flint, the state switched the water back within weeks of residents\' and doctors\' lead results, after more than a year of ignored complaints.',
                 finding: paragraph(`
                   Flint residents reported red water, rashes, and hair loss from April 2014, and the

@@ -1069,7 +1069,7 @@ export default spineData({
             ]
           }),
           claim({
-            text: 'Trusted local messengers bring in residents that official channels miss.',
+            text: 'Community members doing outreach reach people the health system misses.',
             evidence: [
               evidence({
                 headline: 'A New York vaccination site reached far more Hispanic and Black residents through appointments booked by community groups than through its online sign-up.',
@@ -1135,27 +1135,7 @@ export default spineData({
                 grade: 'moderate',
                 quote: 'Thus, a definitive answer as to whether a coalition-led intervention adds extra value to the types of community engagement intervention strategies described in this review remains unattainable.',
                 sources: [source('Anderson et al. 2015, Cochrane Database of Systematic Reviews', 'https://doi.org/10.1002/14651858.CD009905.pub2')]
-              })
-            ],
-            counterEvidence: [
-              evidence({
-                headline: 'Having a doctor of the same race barely changed whether people said they would get vaccinated.',
-                finding: paragraph(`
-                  Survey respondents read a standard prompt about the COVID-19 vaccine, with the race
-                  of the doctor varied. “Analyses reveal that racially concordant care has a negligible
-                  effect on vaccine hesitancy, but does ameliorate other harmful beliefs regarding
-                  one's likelihood of experiencing discrimination and racism in healthcare more
-                  generally.” The scenario was hypothetical, and no real vaccination was observed.
-                `),
-                grade: 'moderate',
-                quote: 'Analyses reveal that racially concordant care has a negligible effect on vaccine hesitancy, but does ameliorate other harmful beliefs regarding one\'s likelihood of experiencing discrimination and racism in healthcare more generally.',
-                sources: [source('Anderson 2023, Social Science and Medicine', 'https://doi.org/10.1016/j.socscimed.2023.116335')]
-              })
-            ]
-          }),
-          claim({
-            text: 'Where people distrust the health system, outreach by members of their own community reaches people official channels miss.',
-            evidence: [
+              }),
               evidence({
                 headline: 'New York neighborhoods where community health workers did outreach all year started far behind on vaccination and caught up within a year.',
                 finding: paragraph(`
@@ -1203,6 +1183,19 @@ export default spineData({
             ],
             counterEvidence: [
               evidence({
+                headline: 'Having a doctor of the same race barely changed whether people said they would get vaccinated.',
+                finding: paragraph(`
+                  Survey respondents read a standard prompt about the COVID-19 vaccine, with the race
+                  of the doctor varied. “Analyses reveal that racially concordant care has a negligible
+                  effect on vaccine hesitancy, but does ameliorate other harmful beliefs regarding
+                  one's likelihood of experiencing discrimination and racism in healthcare more
+                  generally.” The scenario was hypothetical, and no real vaccination was observed.
+                `),
+                grade: 'moderate',
+                quote: 'Analyses reveal that racially concordant care has a negligible effect on vaccine hesitancy, but does ameliorate other harmful beliefs regarding one\'s likelihood of experiencing discrimination and racism in healthcare more generally.',
+                sources: [source('Anderson 2023, Social Science and Medicine', 'https://doi.org/10.1016/j.socscimed.2023.116335')]
+              }),
+              evidence({
                 headline: 'Letters and messages from their own doctors got more unvaccinated Black and Latino older adults vaccinated, and tailoring them to culture added little.',
                 finding: paragraph(`
                   Lieu and colleagues randomly assigned 8,287 unvaccinated Black and Latino Kaiser
@@ -1248,20 +1241,6 @@ export default spineData({
           claim({
             text: 'Bringing vaccination close to home gets more unvaccinated people their vaccines sooner.',
             evidence: [
-              evidence({
-                headline: 'People who lived farther from a vaccination site were less likely to be vaccinated, and vaccination rose in Chicago zip codes after a site opened nearby.',
-                finding: paragraph(`
-                  Across California zip codes, longer distance to a vaccination site went with lower
-                  vaccination in 98 percent of thousands of model versions, and the link was
-                  statistically significant in 86 percent, regardless of partisanship. In Chicago,
-                  vaccination rose in zip codes after a nearby site opened. “COVID-19 vaccination is
-                  hampered not only by vaccine hesitancy but also by structural barriers like
-                  distance.”
-                `),
-                grade: 'moderate',
-                quote: 'COVID-19 vaccination is hampered not only by vaccine hesitancy but also by structural barriers like distance.',
-                sources: [source('Mazar et al. 2023, PNAS Nexus', 'https://academic.oup.com/pnasnexus/article/2/12/pgad411/7459517')]
-              }),
               evidence({
                 headline: 'A vaccination site run with community groups in San Francisco\'s Mission District drew mostly Latino residents, who most often said they came because it was in their neighborhood.',
                 finding: paragraph(`
