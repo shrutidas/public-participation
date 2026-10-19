@@ -775,6 +775,21 @@ export default spineData({
                 grade: 'moderate',
                 quote: 'we find that the legitimacy-enhancing effects of participatory processes are driven by citizens with low political trust',
                 sources: [source('Germann, Marien and Muradova 2024, Political Studies', 'https://doi.org/10.1177/00323217221137444')]
+              }),
+              evidence({
+                headline: 'People judged a decision process more legitimate when it included a randomly selected panel of citizens than when citizens had no say at all.',
+                finding: paragraph(`
+                  Jacobs and Kaufmann ran a survey experiment in which people read about a public decision
+                  made with or without citizen participation. They “find that the perceived legitimacy of
+                  a process that includes a deliberative mini-public is higher than a process in which
+                  citizens are not able to participate at all, but no higher than a process that includes
+                  a participation method that relies on self-selection.” People judged a described process
+                  rather than a real one.
+                `),
+                grade: 'strong',
+                quote: 'we find that the perceived legitimacy of a process that includes a deliberative mini-public is higher than a process in which citizens are not able to participate at all, but no higher than a process that includes a participation method that relies on self-selection',
+                caveat: 'A panel of volunteers raised legitimacy just as much as a randomly selected panel.',
+                sources: [source('Jacobs and Kaufmann 2021, Public Management Review', 'https://doi.org/10.1080/14719037.2019.1668468')]
               })
             ],
             counterEvidence: [

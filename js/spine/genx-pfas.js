@@ -528,20 +528,6 @@ export default spineData({
                 quote: 'A retrospective cohort study of the incidence of bladder cancer was conducted in response to a union request for an evaluation of a possible excess number of cases of bladder cancer at a chemical plant in western New York State.',
                 sources: [source('Ward et al. 1991, Journal of the National Cancer Institute', 'https://doi.org/10.1093/jnci/83.7.501')]
               }),
-              evidence({
-                headline: 'Employees brought more large corporate frauds to light than auditors or the securities regulator did.',
-                finding: paragraph(`
-                  Dyck, Morse and Zingales studied every reported fraud at large United States
-                  companies from 1996 to 2004. They found that “fraud detection does not rely on
-                  standard corporate governance actors (investors, SEC, and auditors), but rather takes
-                  a village, including several nontraditional players (employees, media, and industry
-                  regulators)”. Employees brought 17 percent of the cases to light. The frauds are
-                  financial rather than chemical hazards.
-                `),
-                grade: 'moderate',
-                quote: 'We find that fraud detection does not rely on standard corporate governance actors (investors, SEC, and auditors), but rather takes a village, including several nontraditional players (employees, media, and industry regulators).',
-                sources: [source('Dyck, Morse and Zingales 2010, Journal of Finance', 'https://doi.org/10.1111/j.1540-6261.2010.01614.x')]
-              })
             ],
             counterEvidence: [
               evidence({
@@ -599,6 +585,22 @@ export default spineData({
               })
             ],
             counterEvidence: [
+              evidence({
+                headline: 'After Congress wrote new protections for employees following the accounting scandals, employees did not bring more frauds to light.',
+                finding: paragraph(`
+                  Dyck, Morse and Zingales studied every large US corporate fraud and compared who exposed
+                  them before and after the Sarbanes-Oxley Act. The authors write that “by contrast, we do
+                  not find any evidence that the protection offered to employees by Section 303 of SOX has
+                  any effect”. Employees' share of detections fell from 18 to 13 percent, while auditors'
+                  share rose. Several reforms took effect at once, and the authors say their separate
+                  effects cannot be told apart. Naming yourself stayed costly. “In 82% of the cases, the
+                  whistleblower was fired, quit under duress, or had significantly altered
+                  responsibilities.”
+                `),
+                grade: 'moderate',
+                quote: 'By contrast, we do not find any evidence that the protection offered to employees by Section 303 of SOX has any effect.',
+                sources: [source('Dyck, Morse and Zingales 2010, Journal of Finance', 'https://doi.org/10.1111/j.1540-6261.2010.01614.x')]
+              })
             ]
           }),
           claim({
