@@ -1249,21 +1249,6 @@ export default spineData({
             text: 'Bringing vaccination close to home gets more unvaccinated people their vaccines sooner.',
             evidence: [
               evidence({
-                headline: 'Swiss towns that got a mobile vaccination unit for one four-hour visit saw more than three times as many unvaccinated adults get a shot within three weeks.',
-                finding: paragraph(`
-                  Twenty Swiss communities were split into two groups, and half got a mobile
-                  vaccination unit for four hours on a single day. Over the next three weeks, 12.8
-                  percent of unvaccinated adults in those communities got vaccinated, against 3.8
-                  percent elsewhere: “the vaccination rate in the sample of the treatment group
-                  surpassed the rate in the control group by a factor of 3.4 (+9.0 percentage points)
-                  over 3 weeks”. Vaccinations at other locations did not fall. Nothing here was
-                  community-chosen, and the trial had no messaging arm.
-                `),
-                grade: 'strong',
-                quote: 'The vaccination rate in the sample of the treatment group surpassed the rate in the control group by a factor of 3.4 (+9.0 percentage points) over 3 weeks.',
-                sources: [source('Kulle, Schumacher and von Bieberstein 2024, Journal of Public Health', 'https://doi.org/10.1093/pubmed/fdad213')]
-              }),
-              evidence({
                 headline: 'People who lived farther from a vaccination site were less likely to be vaccinated, and vaccination rose in Chicago zip codes after a site opened nearby.',
                 finding: paragraph(`
                   Across California zip codes, longer distance to a vaccination site went with lower
