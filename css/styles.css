@@ -360,22 +360,22 @@ body[data-view="chain"] #ctrl .fl,
 #ch-map.grabbing { cursor: grabbing; }
 #ch-map.grabbing .cg-node, #ch-map.grabbing .cg-chip, #ch-map.grabbing .cg-card { cursor: grabbing; }
 
-/* Zoom control, floating over the map. */
+/* Zoom control, floating over the map's bottom-left corner. */
 #ch-zoom {
-  position: absolute; right: 12px; bottom: 12px; z-index: 8;
+  position: absolute; left: 12px; bottom: 12px; z-index: 8;
   display: flex; align-items: stretch;
-  background: #fff; border: 1px solid #c9c2b6; border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.14); overflow: hidden;
+  background: #1c2333; border: 1px solid #2f3950; border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.22); overflow: hidden;
 }
 #ch-zoom button {
-  font-family: inherit; border: none; background: #fff; cursor: pointer;
-  color: #2a2a2a; font-weight: 700; padding: 6px 11px; font-size: 0.875rem;
+  font-family: inherit; border: none; background: #1c2333; cursor: pointer;
+  color: #dfe4ec; font-weight: 700; padding: 6px 11px; font-size: 0.875rem;
   line-height: 1; transition: background 0.12s;
 }
-#ch-zoom button:hover { background: #eee9df; }
+#ch-zoom button:hover { background: #2a344b; color: #fff; }
 #zoom-lbl {
   min-width: 48px; font-size: 0.6875rem; letter-spacing: 0.02em;
-  border-left: 1px solid #e2ddd3; border-right: 1px solid #e2ddd3;
+  border-left: 1px solid #2f3950; border-right: 1px solid #2f3950;
 }
 
 /* ---- the graph ---- */
@@ -1711,13 +1711,18 @@ body[data-view="chain"] #ctrl .fl,
 /* The Comments button, first in the floating zoom control. */
 #ch-zoom #nt-open {
   display: inline-flex; align-items: center; gap: 6px;
-  font-size: .75rem; padding: 6px 12px; border-right: 1px solid #e2ddd3;
+  font-size: .75rem; padding: 6px 12px; border-right: 1px solid #2f3950;
 }
 #ch-zoom #nt-open[hidden] { display: none; }
 /* With the key closed, its button joins the zoom control as one more segment. */
-#ch-zoom #legend-show { font-size: .75rem; padding: 6px 12px; border-right: 1px solid #e2ddd3; }
+#ch-zoom #legend-show {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: .75rem; padding: 6px 12px; border-right: 1px solid #2f3950;
+}
+#legend-show svg { width: 12px; height: 12px; flex: none; }
 #ch-zoom #legend-show[hidden] { display: none; }
 .nt-ico { width: 15px; height: 15px; color: var(--nt-blue); flex: none; }
+#ch-zoom .nt-ico { color: #8cc4f5; }
 #nt-count {
   background: var(--nt-blue); color: #fff; border-radius: 9px;
   padding: 2px 6px; font-size: .625rem; font-weight: 800; line-height: 1.2;
@@ -1852,3 +1857,39 @@ textarea.nt-input { resize: vertical; min-height: 54px; max-height: 40vh; }
 }
 .nt-card:hover .nt-card-t { text-decoration: underline; }
 .nt-empty { font-size: .75rem; line-height: 1.5; color: #6b6457; margin-bottom: 8px; }
+
+/* ------------------------------------------------------------------ *
+ * The detail pane runs dark, in the top bar's navy, so it stands apart
+ * from the light map columns beside it. The sidebar ink and the few
+ * colors set outside it are lifted to read on navy.
+ * ------------------------------------------------------------------ */
+#ch-right {
+  --sb-ink: #dfe4ec;
+  background: #1c2333; color: #dfe4ec; color-scheme: dark;
+}
+#ch-right-tabs { border-bottom-color: #2f3950; }
+#ch-right .rt-label { color: #fff; }
+#ch-right #right-hide { color: #a9b2c3; }
+#ch-right #right-hide:hover { color: #fff; }
+#ch-right .cd-back { background: #1c2333; border-bottom-color: #2f3950; color: #8cc4f5; }
+#ch-right .cd-back:hover { color: #b9dcfb; }
+#ch-right .ev-srcs a { color: #dfe4ec; text-decoration-color: #6f7a8f; }
+#ch-right .ev-srcs a:hover { color: #fff; text-decoration-color: currentColor; }
+#ch-right .cat-br { color: #ff8f86; }
+#ch-right .cat-bo { color: #f4a764; }
+#ch-right .cat-bg { color: #6fd39a; }
+#ch-right .cat-bb { color: #7fbaf5; }
+#ch-right .cat-bp { color: #c9a0f2; }
+
+/* Comments on navy. */
+#ch-right .nt-item { background: #252e43; border-color: #343e56; border-left-color: #4a9fd5; }
+#ch-right .nt-hidden { background: #1f2739; border-color: #4a5468; border-left-color: #4a5468; }
+#ch-right .nt-av { background: rgba(74,159,213,.2); color: #a9d3f5; }
+#ch-right .nt-meta, #ch-right .nt-was { color: #a9b2c3; }
+#ch-right .nt-meta b, #ch-right .nt-text, #ch-right .nt-card-t { color: #fff; }
+#ch-right .nt-tag { background: #343e56; color: #dfe4ec; }
+#ch-right .nt-list .nt-link { color: #8cc4f5; }
+#ch-right .nt-list:not(:empty) { border-top-color: #2f3950; }
+#ch-right .nt-list.nt-case { border-top: none; }
+#ch-right .nt-empty, #ch-right .nt-facil-h { color: #a9b2c3; }
+#ch-right .nt-facil { background: #252e43; border-color: #343e56; }
