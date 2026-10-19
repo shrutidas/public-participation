@@ -2168,6 +2168,21 @@ export default spineData({
                 quote: 'Another 30% report taking other mitigation actions such as drinking bottled water because of the As, but the remaining 27% of households did not act.',
                 caveat: 'More than a quarter of households did nothing. Those households more often had lower arsenic levels.',
                 sources: [source('Flanagan, Marvinney, Johnston, Yang and Zheng 2015, Science of the Total Environment', 'https://doi.org/10.1016/j.scitotenv.2014.03.079')]
+              }),
+              evidence({
+                headline: 'Wisconsin well owners told their water held bacteria found cracked casings and faulty caps with county help, and their wells then tested clean.',
+                finding: paragraph(`
+                  Kewaunee County, Wisconsin, where manure had fouled many private wells, offered owners
+                  free well tests and mailed each one their own results. Some wells held bacteria but
+                  little nitrate. Those wells had faulty caps, cracked casings, or water pooling around
+                  the cap. County staff and local well installers helped the owners find the problems.
+                  Once the problems were fixed, the wells were tested again and came back free of the
+                  bacteria.
+                `),
+                grade: 'weak',
+                quote: 'LWCD and local well installers assisted those landowners’ in identifying those problems, and once corrected, those wells were re-tested and came back negative for coliform bacteria.',
+                caveat: 'A county report on its own program. It does not say how many owners were told or how many acted. The wells tested were not chosen at random.',
+                sources: [source('Kewaunee County Land and Water Conservation Department, 2023 Coastal Management Grant final report', 'https://www.kewauneeco.org/i/f/Land%20%26%20Water/2023%20Final%20Report%20Coastal%20Management%20Grant.pdf')]
               })
             ],
             counterEvidence: [
