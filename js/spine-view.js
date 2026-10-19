@@ -818,5 +818,5 @@ export function renderSpineDetail(el, caseObj, spine, rawSel = {}) {
   else el.innerHTML = overview();
   el.scrollTop = 0;
   if (sel.kind === 'propev' && sel.evKind === 'counter') return 'Counter-Evidence';
-  return DETAIL_LABEL[sel.kind] ?? 'Comments on this case';
+  return DETAIL_LABEL[sel.kind] ?? 'Comments';
 }

@@ -371,7 +371,7 @@ export async function initNotes(api) {
     const list = caseNotes({ includeHidden: facil });
     const n = list.filter(shown).length;
     // The pane's own header carries the title and count.
-    $('rt-label').textContent = n ? `Comments on this case (${n})` : 'Comments on this case';
+    $('rt-label').textContent = n ? `Comments (${n})` : 'Comments';
     const kids = [];
     if (facilitate) kids.push(facilBox(list));
     if (!n) kids.push(h('p', { class: 'nt-empty', text: 'There are no comments on this case yet.' }));
