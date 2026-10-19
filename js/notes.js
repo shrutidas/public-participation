@@ -404,10 +404,9 @@ export async function initNotes(api) {
     const list = caseNotes({ includeHidden: facil });
     const kids = [];
 
-    const n = list.filter(shown).length;
-    kids.push(h('div', { class: 'nt-bar' },
-      h('span', { class: 'nt-bar-t', text: n ? `${n} comment${n === 1 ? '' : 's'} on this case` : 'Comments on this case' }),
-      badgeToggle()));
+    // The tab already says what this is and how many; only the map toggle
+    // sits above the list.
+    kids.push(h('div', { class: 'nt-bar' }, badgeToggle()));
 
     if (facilitate) kids.push(facilBox(list));
 
