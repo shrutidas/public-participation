@@ -1848,8 +1848,7 @@ export default spineData({
       bold: ['residents choose which results are tracked and published'],
       method: 'Participatory Monitoring and Evaluation',
       summary: 'Residents decide which results of the rollout are tracked and published, by the government or an independent group, and public funds pay for residents to gather their own data.',
-      anchor: 'vaccine equity push',
-      linked: true,
+      anchor: 'By July 1, the US had administered',
       where: 'Any level of government that funds vaccine outreach, from a city to the federal government.',
       when: paragraph(`
         June to July 2021, when the outreach awards were made. Award terms are set once, so that is
