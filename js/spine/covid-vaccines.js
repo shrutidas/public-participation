@@ -458,34 +458,6 @@ export default spineData({
                 grade: 'moderate',
                 quote: 'Once a Democratic administration took over the federal government, Republicans became more likely to distrust recommendations and information from federal scientific agencies.',
                 sources: [source('Hatton, Barry, Levine, McGinty and Han 2022, Daedalus', 'https://doi.org/10.1162/daed_a_01945')]
-              }),
-              evidence({
-                headline: 'In New Hampshire, Republicans\' trust in the CDC fell sharply in the first months of the pandemic, while Democrats and independents barely changed.',
-                finding: paragraph(`
-                  Hamilton and Safford ran three statewide surveys in New Hampshire from March to July
-                  2020. “Over this period trust in science agencies such as the CDC for information on
-                  the coronavirus fell dramatically among Republicans, while views among Democrats and
-                  Independents changed little.” The authors see the president's reversal on the agency
-                  as the obvious explanation. People with less trust in scientists also reported
-                  following science-based health recommendations less. The surveys cover one state.
-                `),
-                grade: 'moderate',
-                quote: 'Over this period trust in science agencies such as the CDC for information on the coronavirus fell dramatically among Republicans, while views among Democrats and Independents changed little.',
-                sources: [source('Hamilton and Safford 2021, Sociological Perspectives', 'https://doi.org/10.1177/07311214211022391')]
-              }),
-              evidence({
-                headline: 'Trust in the CDC fell during 2020 among Trump voters and nonvoters, while Biden voters barely moved.',
-                finding: paragraph(`
-                  RAND's national panel rated its trust in the Centers for Disease Control and
-                  Prevention in May and again in October 2020, on a scale from 0 to 10. Trust fell 0.8
-                  points among people intending to vote for Donald Trump and 1.1 points among people
-                  voting for someone else or not voting, both significant, against a drop of 0.3 among
-                  Biden voters, which was not. The authors write that views of the agency “are now
-                  strongly politicized”.
-                `),
-                grade: 'moderate',
-                quote: 'are now strongly politicized',
-                sources: [source('Pollard and Davis 2021, RAND Corporation', 'https://www.rand.org/pubs/research_reports/RRA308-12.html')]
               })
             ]
           }),
@@ -556,19 +528,6 @@ export default spineData({
                 grade: 'moderate',
                 quote: 'The effect of attendance on trust and approval seems limited to co-partisans; in fact, there was a negative point estimate for this effect among Republicans.',
                 sources: [source('Abernathy, Esterling, Freebourn, Kennedy, Minozzi, Neblo and Solis 2019, Legislative Studies Quarterly', 'https://doi.org/10.1111/lsq.12242')]
-              }),
-              evidence({
-                headline: 'Viewers trusted politicians and government less after watching a rude exchange of views, while the same disagreement voiced politely did no harm.',
-                finding: paragraph(`
-                  Mutz and Reeves ran three laboratory experiments in which viewers watched televised political
-                  discussions that varied only in how civilly the speakers disagreed. Disagreement by itself did
-                  not hurt attitudes toward politics and politicians. “However, political trust is adversely
-                  affected by levels of incivility in these exchanges.” The exchanges were between political
-                  figures on television, not between officials and residents.
-                `),
-                grade: 'strong',
-                quote: 'However, political trust is adversely affected by levels of incivility in these exchanges.',
-                sources: [source('Mutz and Reeves 2005, American Political Science Review', 'https://doi.org/10.1017/S0003055405051452')]
               })
             ]
           }),
@@ -697,7 +656,7 @@ export default spineData({
         measured: 'Mandates raised vaccination abroad but not in US states',
         claims: [
           claim({
-            text: 'People accept a decision as more legitimate when a randomly selected group of citizens helped make it, even when the decision goes against them.',
+            text: 'People accept a decision as more legitimate when a group of citizens helped make it, even when the decision goes against them.',
             evidence: [
               evidence({
                 headline: 'People judged a decision fairer when citizens had taken part in making it, even when the decision went against them.',
@@ -724,6 +683,36 @@ export default spineData({
                 grade: 'moderate',
                 quote: 'In a Norwegian survey experiment, we find that people are more willing to accept a decision when it is made by a group of people like them, and who are assigned as decision makers based on their expertise. Descriptive representation also serves as a cushion for unfavorable decisions.',
                 sources: [source('Arnesen and Peters 2018, Comparative Political Studies', 'https://doi.org/10.1177/0010414017720702')]
+              }),
+              evidence({
+                headline: 'People told a decision had gone against them were readier to accept it when a citizen panel had recommended it, and people who distrusted politics moved the most.',
+                finding: paragraph(`
+                  Germann, Marien and Muradova ran a preregistered survey experiment with 1,309 Irish
+                  adults, all told the decision went against their view. When a panel of randomly
+                  selected citizens had recommended the decision and officials followed it, people
+                  judged the process fairer and were more willing to accept the result. The authors
+                  find that “the legitimacy-enhancing effects of participatory processes are driven by
+                  citizens with low political trust”. People read a scenario, so the study measures
+                  judgments of a described decision rather than a real one.
+                `),
+                grade: 'moderate',
+                quote: 'we find that the legitimacy-enhancing effects of participatory processes are driven by citizens with low political trust',
+                sources: [source('Germann, Marien and Muradova 2024, Political Studies', 'https://doi.org/10.1177/00323217221137444')]
+              }),
+              evidence({
+                headline: 'People judged a decision process more legitimate when it included a randomly selected panel of citizens than when citizens had no say at all.',
+                finding: paragraph(`
+                  Jacobs and Kaufmann ran a survey experiment in which people read about a public decision
+                  made with or without citizen participation. They “find that the perceived legitimacy of
+                  a process that includes a deliberative mini-public is higher than a process in which
+                  citizens are not able to participate at all, but no higher than a process that includes
+                  a participation method that relies on self-selection.” People judged a described process
+                  rather than a real one.
+                `),
+                grade: 'strong',
+                quote: 'we find that the perceived legitimacy of a process that includes a deliberative mini-public is higher than a process in which citizens are not able to participate at all, but no higher than a process that includes a participation method that relies on self-selection',
+                caveat: 'A panel of volunteers raised legitimacy just as much as a randomly selected panel.',
+                sources: [source('Jacobs and Kaufmann 2021, Public Management Review', 'https://doi.org/10.1080/14719037.2019.1668468')]
               })
             ],
             counterEvidence: [
@@ -757,44 +746,7 @@ export default spineData({
                 grade: 'moderate',
                 quote: 'democratic governments can achieve little in terms of acceptance of policy decisions by the procedural means at their disposal. Instead, outcome favorability is the dominant determinant of decision acceptance.',
                 sources: [source('Esaiasson et al. 2019, British Journal of Political Science', 'https://doi.org/10.1017/S0007123416000508')]
-              })
-            ]
-          }),
-          claim({
-            text: 'People who learn that residents helped make a decision judge the decision more favorably.',
-            evidence: [
-              evidence({
-                headline: 'People told a decision had gone against them were readier to accept it when a citizen panel had recommended it, and people who distrusted politics moved the most.',
-                finding: paragraph(`
-                  Germann, Marien and Muradova ran a preregistered survey experiment with 1,309 Irish
-                  adults, all told the decision went against their view. When a panel of randomly
-                  selected citizens had recommended the decision and officials followed it, people
-                  judged the process fairer and were more willing to accept the result. The authors
-                  find that “the legitimacy-enhancing effects of participatory processes are driven by
-                  citizens with low political trust”. People read a scenario, so the study measures
-                  judgments of a described decision rather than a real one.
-                `),
-                grade: 'moderate',
-                quote: 'we find that the legitimacy-enhancing effects of participatory processes are driven by citizens with low political trust',
-                sources: [source('Germann, Marien and Muradova 2024, Political Studies', 'https://doi.org/10.1177/00323217221137444')]
               }),
-              evidence({
-                headline: 'People judged a decision process more legitimate when it included a randomly selected panel of citizens than when citizens had no say at all.',
-                finding: paragraph(`
-                  Jacobs and Kaufmann ran a survey experiment in which people read about a public decision
-                  made with or without citizen participation. They “find that the perceived legitimacy of
-                  a process that includes a deliberative mini-public is higher than a process in which
-                  citizens are not able to participate at all, but no higher than a process that includes
-                  a participation method that relies on self-selection.” People judged a described process
-                  rather than a real one.
-                `),
-                grade: 'strong',
-                quote: 'we find that the perceived legitimacy of a process that includes a deliberative mini-public is higher than a process in which citizens are not able to participate at all, but no higher than a process that includes a participation method that relies on self-selection',
-                caveat: 'A panel of volunteers raised legitimacy just as much as a randomly selected panel.',
-                sources: [source('Jacobs and Kaufmann 2021, Public Management Review', 'https://doi.org/10.1080/14719037.2019.1668468')]
-              })
-            ],
-            counterEvidence: [
               evidence({
                 headline: 'Telling people a citizens\' assembly had backed a lockdown extension did not make them any more willing to go along with it.',
                 finding: paragraph(`
@@ -876,7 +828,7 @@ export default spineData({
             ],
             counterEvidence: [
               evidence({
-                headline: 'Explaining the reasons for a decision did not make Finns see it as more legitimate, and it may have widened the gap between people who got their way and people who did not.',
+                headline: 'Explaining the reasons for a decision did not make Finns see it as more legitimate, and it may have widened the gap between winners and losers.',
                 finding: paragraph(`
                   Christensen, Himmelroos and Setälä ran a survey experiment with 1,243 Finns. Respondents
                   read about the preparation of a parliamentary decision on euthanasia. They were told at
@@ -894,7 +846,7 @@ export default spineData({
                 sources: [source('Christensen, Himmelroos and Setälä 2020, Parliamentary Affairs', 'https://doi.org/10.1093/pa/gsz014')]
               }),
               evidence({
-                headline: 'When parliament followed a citizen panel\'s advice, the boost in acceptance shrank by half or more if the panel did not mirror the public, and a panel stacked with the other side gave no boost at all.',
+                headline: 'Following a citizen panel\'s advice won much less acceptance when the panel was even slightly unrepresentative, and a badly skewed panel could win none.',
                 finding: paragraph(`
                   Germann ran a preregistered experiment with 1,308 Irish adults on a universal basic
                   income. Every respondent was told the decision went against their view. A panel that
@@ -1010,7 +962,7 @@ export default spineData({
         measured: 'The racial gap in vaccination narrowed',
         claims: [
           claim({
-            text: 'Modeled after community health workers, when residents help choose and run vaccination sites, the sites reach people least likely to get vaccinated.',
+            text: 'When residents help choose and run vaccination sites, the sites reach the people least likely to get vaccinated.',
             evidence: [
               evidence({
                 headline: 'After Chicago let neighborhood task forces design vaccine outreach in its hardest-hit zip codes, vaccination there began climbing faster than in the rest of the city.',
@@ -1050,59 +1002,27 @@ export default spineData({
                 sources: [source('Abdullah et al. 2022, PLOS ONE', 'https://doi.org/10.1371/journal.pone.0274718')]
               })
             ],
-            counterEvidence: [
-              evidence({
-                headline: 'When mobile vaccine units visited neighborhoods in northwest England, vaccinations rose overall but rose less among Black, Asian and the poorest residents, and not at all among most older people in those groups.',
-                finding: paragraph(`
-                  Zhang and colleagues studied mobile vaccination units that made 54 visits to 37 sites in
-                  Cheshire and Merseyside. Local health teams chose the sites with help from community
-                  groups. Each neighborhood was compared with a blend of similar neighborhoods without
-                  visits. First doses rose 25 percent within three weeks, but “interaction analyses showed
-                  smaller or no effect among older age groups, Asian and black ethnic groups, and the most
-                  socioeconomically deprived populations.”
-                `),
-                grade: 'moderate',
-                quote: 'Interaction analyses showed smaller or no effect among older age groups, Asian and black ethnic groups, and the most socioeconomically deprived populations.',
-                caveat: 'Residents did not run these sites. Officials picked them, and community groups helped promote them.',
-                sources: [source('Zhang and colleagues 2023, BMJ Open', 'https://doi.org/10.1136/bmjopen-2023-071852')]
-              })
-            ]
+            counterEvidence: []
           }),
           claim({
             text: 'Community members doing outreach reach people the health system misses.',
             evidence: [
               evidence({
-                headline: 'A New York vaccination site reached far more Hispanic and Black residents through appointments booked by community groups than through its online sign-up.',
+                headline: 'Across 58 studies, health programs that used lay outreach workers to reach racial and ethnic minority groups improved health behaviors.',
                 finding: paragraph(`
-                  NewYork-Presbyterian ran a vaccination site in upper Manhattan and let community
-                  organizations, including senior centers, faith groups, and local practices, book and
-                  hold appointments for their members. Diaz and colleagues compared who came through
-                  each route. “Hispanic patients represented 21 484 of 36 862 patients (58%) scheduled
-                  through CBO outreach, 7521 of 24 466 patients (31%) self-scheduled after local zip
-                  codes restriction, and 712 of 16 235 patients (4%) of those self-scheduled prior to
-                  restriction”. For Black patients the shares were 12, 10, and 2 percent. The study
-                  covers one site and compares groups before and after the changes, with no outside
-                  comparison.
+                  A review gathered 58 studies of health programs planned and run by coalitions that
+                  included members of the racial or ethnic minority groups being served and at least
+                  two community organizations. Programs that used lay outreach workers improved health
+                  behaviors, while broad community-wide change strategies made little or no
+                  difference, and no study was at low risk of bias. Because the studies said too little
+                  about the coalitions themselves, “a definitive answer as to whether a coalition-led
+                  intervention adds extra value to the types of community engagement intervention
+                  strategies described in this review remains unattainable.” The review ends before
+                  COVID-19 and does not look at where services were placed.
                 `),
                 grade: 'moderate',
-                quote: 'Hispanic patients represented 21 484 of 36 862 patients (58%) scheduled through CBO outreach, 7521 of 24 466 patients (31%) self-scheduled after local zip codes restriction, and 712 of 16 235 patients (4%) of those self-scheduled prior to restriction',
-                sources: [source('Diaz et al. 2022, JAMA Network Open', 'https://doi.org/10.1001/jamanetworkopen.2022.17875')]
-              }),
-              evidence({
-                headline: 'Vaccination events at churches and other faith groups reached more Hispanic, Marshallese, and uninsured people than events at clinics.',
-                finding: paragraph(`
-                  Community partners in Arkansas ran vaccination events at faith-based organizations
-                  and at outpatient clinics, then surveyed 1,476 people while they waited after their
-                  shot. “A higher proportion of Hispanic/Latino and Marshallese participants utilized
-                  FBOs for vaccination, suggesting collaborations with FBOs can potentially increase
-                  vaccination uptake among minority communities and help mitigate vaccination
-                  disparities.” People at faith-based events were also more often uninsured and more
-                  likely to say they completely trusted the vaccine. The survey describes who came to
-                  each kind of event and does not show that they would otherwise have gone unvaccinated.
-                `),
-                grade: 'moderate',
-                quote: 'A higher proportion of Hispanic/Latino and Marshallese participants utilized FBOs for vaccination, suggesting collaborations with FBOs can potentially increase vaccination uptake among minority communities and help mitigate vaccination disparities.',
-                sources: [source('McElfish et al. 2022, Journal of Family Medicine and Primary Care', 'https://doi.org/10.4103/jfmpc.jfmpc_327_22')]
+                quote: 'Thus, a definitive answer as to whether a coalition-led intervention adds extra value to the types of community engagement intervention strategies described in this review remains unattainable.',
+                sources: [source('Anderson et al. 2015, Cochrane Database of Systematic Reviews', 'https://doi.org/10.1002/14651858.CD009905.pub2')]
               }),
               evidence({
                 headline: 'Men least willing to get vaccinated became more willing after hearing from people like themselves than from doctors.',
@@ -1118,23 +1038,6 @@ export default spineData({
                 grade: 'moderate',
                 quote: 'Our main finding is that laypeople (nonexpert concordant senders) are most effective at promoting vaccination, particularly among those least willing to become vaccinated.',
                 sources: [source('Alsan and Eichmeyer 2024, American Economic Journal: Economic Policy', 'https://doi.org/10.1257/pol.20210393')]
-              }),
-              evidence({
-                headline: 'Health programs that used lay outreach workers improved health behaviors, while broad community-wide campaigns made little or no difference.',
-                finding: paragraph(`
-                  A review gathered 58 studies of health programs planned and run by coalitions that
-                  included members of the racial or ethnic minority groups being served and at least
-                  two community organizations. Programs that used lay outreach workers improved health
-                  behaviors, while broad community-wide change strategies made little or no
-                  difference, and no study was at low risk of bias. Because the studies said too little
-                  about the coalitions themselves, “a definitive answer as to whether a coalition-led
-                  intervention adds extra value to the types of community engagement intervention
-                  strategies described in this review remains unattainable.” The review ends before
-                  COVID-19 and does not look at where services were placed.
-                `),
-                grade: 'moderate',
-                quote: 'Thus, a definitive answer as to whether a coalition-led intervention adds extra value to the types of community engagement intervention strategies described in this review remains unattainable.',
-                sources: [source('Anderson et al. 2015, Cochrane Database of Systematic Reviews', 'https://doi.org/10.1002/14651858.CD009905.pub2')]
               }),
               evidence({
                 headline: 'New York neighborhoods where community health workers did outreach all year started far behind on vaccination and caught up within a year.',
@@ -1165,20 +1068,6 @@ export default spineData({
                 grade: 'strong',
                 quote: 'The intervention tested 3.84 (95% CI, 2.47-5.97) times more Latinx individuals per event than controls',
                 sources: [source('DeGarmo et al. 2022, JAMA Network Open', 'https://doi.org/10.1001/jamanetworkopen.2022.16796')]
-              }),
-              evidence({
-                headline: 'Older Black and Latino churchgoers who did not usually get flu shots were far more likely to get one when their church offered vaccination on site.',
-                finding: paragraph(`
-                  Daniels and colleagues randomly assigned 15 churches to host vaccination or not.
-                  They enrolled Black and Latino adults 65 and older who did not regularly get flu
-                  shots. “Of those eligible, 90 of 112 (80%) in the intervention group used the
-                  influenza vaccine compared to 32 of 70 (46%) in the comparison group.” Pneumonia
-                  shots rose by a similar margin. The sample was small. On-site shots also made
-                  getting vaccinated easier, apart from coming from a trusted place.
-                `),
-                grade: 'moderate',
-                quote: 'Of those eligible, 90 of 112 (80%) in the intervention group used the influenza vaccine compared to 32 of 70 (46%) in the comparison group (P < .001).',
-                sources: [source('Daniels et al. 2007, Ethnicity and Disease', 'https://pubmed.ncbi.nlm.nih.gov/17598312/')]
               })
             ],
             counterEvidence: [
@@ -1196,7 +1085,7 @@ export default spineData({
                 sources: [source('Anderson 2023, Social Science and Medicine', 'https://doi.org/10.1016/j.socscimed.2023.116335')]
               }),
               evidence({
-                headline: 'Letters and messages from their own doctors got more unvaccinated Black and Latino older adults vaccinated, and tailoring them to culture added little.',
+                headline: 'Letters from their own doctors, an official channel, reached unvaccinated Black and Latino older adults, and tailoring the letters to their culture did no better than standard letters.',
                 finding: paragraph(`
                   Lieu and colleagues randomly assigned 8,287 unvaccinated Black and Latino Kaiser
                   Permanente members aged 65 and older to one of three groups. Some got messages from
@@ -1221,20 +1110,6 @@ export default spineData({
                 grade: 'moderate',
                 quote: 'Vaccination rates continue to be lower among Black individuals than White individuals, but these results suggest that this might be less likely the result of vaccine hesitancy than other factors.',
                 sources: [source('Padamsee et al. 2022, JAMA Network Open', 'https://doi.org/10.1001/jamanetworkopen.2021.44470')]
-              }),
-              evidence({
-                headline: 'Doctors\' videos about COVID-19 raised Black and White adults\' knowledge equally, and naming racial injustice or using Black doctors did not add anything.',
-                finding: paragraph(`
-                  Torres and colleagues randomly assigned 18,223 Black and White adults to
-                  doctor-delivered COVID-19 videos or a control. Some videos used Black doctors or
-                  acknowledged racial inequity in health care. The videos raised knowledge and
-                  information seeking, and “effects did not differ by race (F = 0.0112; P > .99) or in
-                  different intervention groups.” The outcomes were survey answers and clicks, not
-                  vaccination.
-                `),
-                grade: 'moderate',
-                quote: 'Effects did not differ by race (F = 0.0112; P > .99) or in different intervention groups (F = 0.324; P > .99).',
-                sources: [source('Torres et al. 2021, JAMA Network Open', 'https://doi.org/10.1001/jamanetworkopen.2021.17115')]
               })
             ]
           }),
@@ -1273,6 +1148,20 @@ export default spineData({
                 sources: [source('Abdul-Mutakabbir et al. 2021, Open Forum Infectious Diseases', 'https://doi.org/10.1093/ofid/ofab466.674')]
               }),
               evidence({
+                headline: 'Older Black and Latino churchgoers who did not usually get flu shots were far more likely to get one when their church offered vaccination on site.',
+                finding: paragraph(`
+                  Daniels and colleagues randomly assigned 15 churches to host vaccination or not.
+                  They enrolled Black and Latino adults 65 and older who did not regularly get flu
+                  shots. “Of those eligible, 90 of 112 (80%) in the intervention group used the
+                  influenza vaccine compared to 32 of 70 (46%) in the comparison group.” Pneumonia
+                  shots rose by a similar margin. The sample was small. On-site shots also made
+                  getting vaccinated easier, apart from coming from a trusted place.
+                `),
+                grade: 'moderate',
+                quote: 'Of those eligible, 90 of 112 (80%) in the intervention group used the influenza vaccine compared to 32 of 70 (46%) in the comparison group (P < .001).',
+                sources: [source('Daniels et al. 2007, Ethnicity and Disease', 'https://pubmed.ncbi.nlm.nih.gov/17598312/')]
+              }),
+              evidence({
                 headline: 'Vaccine vans that a Seattle health system sent out with community groups served a larger share of Black, Hispanic, and Pacific Islander residents than its mass site.',
                 finding: paragraph(`
                   Xie and colleagues compared six months of health records from UW Medicine in Seattle for
@@ -1296,7 +1185,7 @@ export default spineData({
             ],
             counterEvidence: [
               evidence({
-                headline: 'As Black adults caught up with White adults on vaccination, what tracked the change was learning about vaccine safety, not easier access.',
+                headline: 'Easier access played no measurable part in Black adults catching up with White adults on vaccination, which a national panel traced to growing knowledge of vaccine safety.',
                 finding: paragraph(`
                   A national panel followed the same adults from April 2021 to July 2022 and tested
                   five explanations for why Black vaccination caught up. “Only increases in knowledge
@@ -1309,11 +1198,26 @@ export default spineData({
                 grade: 'moderate',
                 quote: 'Only increases in knowledge about the safety and efficacy of COVID-19 vaccines uniquely mediated the increase in vaccination uptake among non-Hispanic Black compared to White, Asian and Hispanic panelists.',
                 sources: [source('Romer, Patterson, Jamieson and Jamieson 2024, Journal of Health Communication', 'https://doi.org/10.1080/10810730.2024.2354360')]
+              }),
+              evidence({
+                headline: 'Mobile vaccine units in northwest England did little or nothing for older, Black, Asian, and the poorest residents, though they raised vaccination overall.',
+                finding: paragraph(`
+                  Zhang and colleagues studied mobile vaccination units that made 54 visits to 37 sites in
+                  Cheshire and Merseyside. Local health teams chose the sites with help from community
+                  groups. Each neighborhood was compared with a blend of similar neighborhoods without
+                  visits. First doses rose 25 percent within three weeks, but “interaction analyses showed
+                  smaller or no effect among older age groups, Asian and black ethnic groups, and the most
+                  socioeconomically deprived populations.”
+                `),
+                grade: 'moderate',
+                quote: 'Interaction analyses showed smaller or no effect among older age groups, Asian and black ethnic groups, and the most socioeconomically deprived populations.',
+                caveat: 'Residents did not run these sites. Officials picked them, and community groups helped promote them.',
+                sources: [source('Zhang and colleagues 2023, BMJ Open', 'https://doi.org/10.1136/bmjopen-2023-071852')]
               })
             ]
           }),
           claim({
-            text: 'Sending more vaccine and outreach to the hardest-hit neighborhoods helps them catch up with the rest of the city faster.',
+            text: 'Sending more vaccine and outreach to the hardest-hit neighborhoods helps them catch up and narrows the gap in COVID-19 deaths for Black and Hispanic residents.',
             evidence: [
               evidence({
                 headline: 'When Rhode Island sent early vaccine supply and outreach in residents\' own languages to its hardest-hit, mostly Latino city, residents there got vaccinated sooner.',
@@ -1348,29 +1252,7 @@ export default spineData({
                 grade: 'strong',
                 quote: 'Among prioritized communities, vaccination rates increased 28.4 percent after policy implementation.',
                 sources: [source('Hoover et al. 2024, Health Affairs', 'https://doi.org/10.1377/hlthaff.2023.01163')]
-              })
-            ],
-            counterEvidence: [
-              evidence({
-                headline: 'Black neighborhoods in Chicago still had the lowest vaccination rates after a year of community outreach.',
-                finding: paragraph(`
-                  Researchers matched the timeline of Chicago’s vaccine outreach, led by Protect
-                  Chicago Plus, to uptake in each community area. By December 2021, 51.3 percent of
-                  Black Chicagoans had completed vaccination, against 63.6 percent of Hispanic, 69.8
-                  percent of White, and 77.6 percent of Asian residents. “Despite citywide efforts to
-                  build community infrastructure, Black communities had relatively lower levels of
-                  vaccine uptake than other communities.” The study describes the pattern and does not
-                  compare areas with and without task forces.
-                `),
-                grade: 'moderate',
-                quote: 'Despite citywide efforts to build community infrastructure, Black communities had relatively lower levels of vaccine uptake than other communities.',
-                sources: [source('Kim et al. 2024, Journal of Public Health Management and Practice', 'https://doi.org/10.1097/phh.0000000000001841')]
-              })
-            ]
-          }),
-          claim({
-            text: 'Raising vaccination among Black and Hispanic residents helps close the racial gap in deaths due to COVID-19.',
-            evidence: [
+              }),
               evidence({
                 headline: 'Chicago neighborhoods with lower vaccination lost more residents to COVID-19, and most of those deaths could have been prevented at the best-covered neighborhoods\' rates.',
                 finding: paragraph(`
@@ -1389,38 +1271,6 @@ export default spineData({
                 sources: [source('Zeng et al. 2022, JAMA Network Open', 'https://doi.org/10.1001/jamanetworkopen.2022.14753')]
               }),
               evidence({
-                headline: 'Poorer US counties lost more people to COVID-19, and much of that extra loss went with their lower vaccination.',
-                finding: paragraph(`
-                  Goto and colleagues compared COVID-19 deaths across 3,142 US counties, using each
-                  county's share of fully vaccinated residents at the end of 2021.
-                  Each 10 percent rise in a county's poverty rate went with 25.3 more deaths per 100,000
-                  people. Holding vaccination at the level of the best-covered tenth of counties removed
-                  an estimated 37 percent of that gap, and at the highest observed level, 81 percent.
-                  “Higher county-level poverty rates and lower vaccination rates were associated with
-                  greater COVID-19 mortality rates in the United States.” The estimates come from one
-                  snapshot of counties, which are larger than neighborhoods.
-                `),
-                grade: 'moderate',
-                quote: 'Higher county-level poverty rates and lower vaccination rates were associated with greater COVID-19 mortality rates in the United States.',
-                sources: [source('Goto, Kawachi, Kondo and Inoue 2023, Annals of Epidemiology', 'https://doi.org/10.1016/j.annepidem.2023.07.003')]
-              }),
-              evidence({
-                headline: 'In Ontario, residents of the poorest neighborhoods kept dying of COVID-19 more often, and their lower vaccination accounted for more than half of that extra risk.',
-                finding: paragraph(`
-                  Wang and colleagues followed 11.2 million adults in Ontario from March 2020 to January
-                  2022, grouping them by the income of their small neighborhood. After accounting for age,
-                  health, and other social conditions, people in the poorest fifth of neighborhoods were
-                  more likely to die of COVID-19, and that gap persisted across waves. They were also less
-                  likely to be vaccinated, and “this inequality in vaccination accounted for 56.9% [22.5%-91.3%] of inequalities in
-                  COVID-19 deaths between individuals in the lowest income vs highest income quintiles.” The
-                  estimate splits observed deaths in the fourth and fifth waves into the part that ran
-                  through vaccination and the rest, and its range is wide.
-                `),
-                grade: 'moderate',
-                quote: 'This inequality in vaccination accounted for 56.9% [22.5%-91.3%] of inequalities in COVID-19 deaths between individuals in the lowest income vs highest income quintiles.',
-                sources: [source('Wang et al. 2026, American Journal of Epidemiology', 'https://doi.org/10.1093/aje/kwaf051')]
-              }),
-              evidence({
                 headline: 'In England, the higher risk of dying of COVID-19 that Black adults still faced after the vaccine rollout shrank sharply once their lower vaccination was counted.',
                 finding: paragraph(`
                   Bosworth and colleagues linked census and health records for 28.8 million adults in
@@ -1436,45 +1286,24 @@ export default spineData({
                 grade: 'moderate',
                 quote: 'Lower COVID-19 vaccination uptake in several ethnic minority groups may drive some of the differences in COVID-19 mortality compared to White British.',
                 sources: [source('Bosworth et al. 2023, BMC Medicine', 'https://doi.org/10.1186/s12916-022-02704-7')]
-              }),
-              evidence({
-                headline: 'After COVID-19 vaccines reached dialysis clinics, excess deaths among Black and Hispanic patients with kidney failure fell below those of White patients.',
-                finding: paragraph(`
-                  Kim and colleagues compared deaths among about 687,000 Medicare patients with kidney
-                  failure against the number expected from earlier years. Until the end of January 2021,
-                  deaths ran 31.9 percent above normal for Hispanic patients and 27.5 percent for Black
-                  patients, against 16.4 percent for White patients. “However, these disparities were
-                  substantially reduced and indeed reversed after the end of January 2021, when COVID-19
-                  vaccines were widely distributed, with a percent excess deaths of 17.4% among Hispanic
-                  patients, 19.4% among Black patients, and the highest (27.6%) among White patients.” The
-                  authors suggest as a possible reason “a higher take-up rate of vaccines among racial/ethnic minority compared
-                  with White patients”, drawing on another study of dialysis facilities. This research letter
-                  counts deaths from all causes, covers Medicare patients only, and does not measure
-                  vaccination itself.
-                `),
-                grade: 'moderate',
-                quote: 'However, these disparities were substantially reduced and indeed reversed after the end of January 2021, when COVID-19 vaccines were widely distributed, with a percent excess deaths of 17.4% among Hispanic patients, 19.4% among Black patients, and the highest (27.6%) among White patients.',
-                sources: [source('Kim et al. 2023, Clinical Journal of the American Society of Nephrology', 'https://doi.org/10.2215/CJN.0000000000000226')]
-              }),
-              evidence({
-                headline: 'In US counties with more minority and non-English-speaking residents, lower vaccination accounted for their higher share of COVID-19 cases ending in death.',
-                finding: paragraph(`
-                  Chen and colleagues used 2021 data for 3,112 US counties to trace how social vulnerability
-                  related to vaccination coverage and to the share of COVID-19 cases that ended in death.
-                  Counties that ranked higher on minority status and language had lower vaccination. The
-                  analysis “found that 37.6% (mediation/total effect, 0.0014/0.0037), 10% (0.0003/0.0030)
-                  and 100% (0.0005/0.0005) of the effects in the pathways involving socioeconomic status,
-                  household composition & disability and minority status & language, respectively, were
-                  mediated by VCR”, the vaccination coverage rate. The counties were compared at one time,
-                  the outcome is deaths per case rather than per resident, and the minority status effect
-                  was small.
-                `),
-                grade: 'moderate',
-                quote: 'found that 37.6% (mediation/total effect, 0.0014/0.0037), 10% (0.0003/0.0030) and 100% (0.0005/0.0005) of the effects in the pathways involving socioeconomic status, household composition & disability and minority status & language, respectively, were mediated by VCR.',
-                sources: [source('Chen, Zhang, Li and Li 2022, BMC Public Health', 'https://doi.org/10.1186/s12889-022-14592-w')]
               })
             ],
             counterEvidence: [
+              evidence({
+                headline: 'Black neighborhoods in Chicago still had the lowest vaccination rates after a year of community outreach.',
+                finding: paragraph(`
+                  Researchers matched the timeline of Chicago’s vaccine outreach, led by Protect
+                  Chicago Plus, to uptake in each community area. By December 2021, 51.3 percent of
+                  Black Chicagoans had completed vaccination, against 63.6 percent of Hispanic, 69.8
+                  percent of White, and 77.6 percent of Asian residents. “Despite citywide efforts to
+                  build community infrastructure, Black communities had relatively lower levels of
+                  vaccine uptake than other communities.” The study describes the pattern and does not
+                  compare areas with and without task forces.
+                `),
+                grade: 'moderate',
+                quote: 'Despite citywide efforts to build community infrastructure, Black communities had relatively lower levels of vaccine uptake than other communities.',
+                sources: [source('Kim et al. 2024, Journal of Public Health Management and Practice', 'https://doi.org/10.1097/phh.0000000000001841')]
+              }),
               evidence({
                 headline: 'The poorest Dutch adults over 50 died of COVID-19 about three times as often as the richest, and worse health explained far more of that gap than lower vaccination.',
                 finding: paragraph(`
@@ -1508,7 +1337,7 @@ export default spineData({
                 sources: [source('Wrigley-Field, Berry, Stokes and Leider 2023, American Journal of Preventive Medicine', 'https://doi.org/10.1016/j.amepre.2022.08.005')]
               })
             ]
-          })
+          }),
         ]
       }),
       sources: [
@@ -1709,6 +1538,20 @@ export default spineData({
                 quote: 'governmental use of public input does increase perceptions of governmental fairness',
                 caveat: 'The study measures perceived fairness and overall views of the government, not trust in spending as such.',
                 sources: [source('Herian, Hamm, Tomkins and Pytlik Zillig 2012, Journal of Public Administration Research and Theory', 'https://doi.org/10.1093/jopart/mur064')]
+              }),
+              evidence({
+                headline: 'Buenos Aires residents told how the city\'s participatory budget worked rated their government as slightly more honest and well-meaning.',
+                finding: paragraph(`
+                  In a survey experiment in Buenos Aires, giving residents detailed information about
+                  the city's participatory budget “marginally shapes voters' assessments of government
+                  performance and political trust”. It raised their sense of the government's
+                  benevolence and honesty, most among people who started out with low opinions of it.
+                  The people surveyed heard about the budget rather than taking part in it, and the
+                  effect is small.
+                `),
+                grade: 'moderate',
+                quote: 'providing detailed information about citizen involvement and outputs of a participatory budget initiative marginally shapes voters\' assessments of government performance and political trust',
+                sources: [source('Ardanaz, Otálvaro-Ramírez and Scartascini 2022, World Development', 'https://doi.org/10.1016/j.worlddev.2022.106132')]
               })
             ],
             counterEvidence: [
@@ -1753,20 +1596,6 @@ export default spineData({
           claim({
             text: 'People who learn that residents helped make a decision judge the decision more favorably.',
             evidence: [
-              evidence({
-                headline: 'Buenos Aires residents told how the city\'s participatory budget worked rated their government as slightly more honest and well-meaning.',
-                finding: paragraph(`
-                  In a survey experiment in Buenos Aires, giving residents detailed information about
-                  the city's participatory budget “marginally shapes voters' assessments of government
-                  performance and political trust”. It raised their sense of the government's
-                  benevolence and honesty, most among people who started out with low opinions of it.
-                  The people surveyed heard about the budget rather than taking part in it, and the
-                  effect is small.
-                `),
-                grade: 'moderate',
-                quote: 'providing detailed information about citizen involvement and outputs of a participatory budget initiative marginally shapes voters\' assessments of government performance and political trust',
-                sources: [source('Ardanaz, Otálvaro-Ramírez and Scartascini 2022, World Development', 'https://doi.org/10.1016/j.worlddev.2022.106132')]
-              }),
               evidence({
                 headline: 'South Koreans judged a local decision process more legitimate when they were told residents had shaped it in a civic forum, and people who distrust elites moved the most.',
                 finding: paragraph(`
@@ -2004,21 +1833,25 @@ export default spineData({
             ]
           }),
           claim({
-            text: 'When residents monitor a public service using data on how it performs, the service improves.',
+            text: 'When residents monitor a public service using data on how it performs, the service improves and residents trust the government more.',
             evidence: [
               evidence({
-                headline: 'Ugandan communities that met to monitor their local clinics got more effort from health workers, more clinic visits, and fewer child deaths.',
+                headline: 'Ugandan communities that used report cards to monitor their local clinics got more effort from health workers, more clinic visits, and fewer child deaths.',
                 finding: paragraph(`
                   Communities around 50 Ugandan clinics were assigned at random to village meetings,
                   run by local nongovernmental groups, that built residents' capacity to hold clinic
                   staff to account for their performance. “A year after the intervention, treatment communities are more
                   involved in monitoring the provider, and the health workers appear to exert higher
                   effort to serve the community.” Clinic use rose, child deaths fell, and children
-                  weighed more. The same team later found the gains lasted.
+                  weighed more. The same team later found the gains lasted, and that a cheaper version
+                  of the meetings with no report card on staff performance did not improve care.
                 `),
                 grade: 'strong',
                 quote: 'A year after the intervention, treatment communities are more involved in monitoring the provider, and the health workers appear to exert higher effort to serve the community.',
-                sources: [source('Björkman and Svensson 2009, Quarterly Journal of Economics', 'https://doi.org/10.1162/qjec.2009.124.2.735')]
+                sources: [
+                  source('Björkman and Svensson 2009, Quarterly Journal of Economics', 'https://doi.org/10.1162/qjec.2009.124.2.735'),
+                  source('Björkman Nyqvist, de Walque and Svensson 2017, American Economic Journal: Applied Economics', 'https://doi.org/10.1257/app.20150027')
+                ]
               }),
               evidence({
                 headline: 'Sierra Leone clinics that communities monitored drew more patients, and fewer young children died.',
@@ -2036,7 +1869,7 @@ export default spineData({
                 sources: [source('Christensen, Dube, Haushofer, Siddiqi and Voors 2021, Quarterly Journal of Economics', 'https://doi.org/10.1093/qje/qjaa039')]
               }),
               evidence({
-                headline: 'Programs that let residents monitor and give feedback to frontline service staff often improved access and quality, but rarely improved health on their own.',
+                headline: 'Programs that let residents monitor and give feedback to frontline service staff often improved access to services and their quality.',
                 finding: paragraph(`
                   A review pooled 35 programs in low- and middle-income countries that brought citizens
                   into planning, information, feedback, or monitoring of public services. Programs
@@ -2049,58 +1882,11 @@ export default spineData({
                 `),
                 grade: 'strong',
                 quote: 'The findings suggest that interventions promoting citizen engagement by improving direct engagement between service users and service providers, are often effective in stimulating active citizen engagement in service delivery and realising improvements in access to services and quality of service provision, particularly for services that involve direct interaction between citizens and providers.',
-                caveat: 'Low- and middle-income countries only. Monitoring is one of four kinds of engagement pooled.',
+                caveat: 'Low- and middle-income countries only. Monitoring is one of four kinds of engagement pooled. The authors warn that without fixes to supplies and staffing, such programs may not improve health.',
                 sources: [source('Waddington, Sonnenfeld, Finetti, Gaarder, John and Stevenson 2019, Campbell Systematic Reviews', 'https://doi.org/10.1002/cl2.1025')]
               }),
               evidence({
-                headline: 'Ugandan village meetings that urged residents to take part, without giving them data on how their clinic performed, did not improve care.',
-                finding: paragraph(`
-                  The original Ugandan team tested a cheaper version that held participation meetings
-                  but handed out no report card on staff performance. “We find no impact on the
-                  quality of care or health outcomes of a lower cost intervention that focused on
-                  encouraging participation but did not provide information on staff performance.”
-                  Residents meeting to talk was not enough without performance data to judge against.
-                `),
-                grade: 'strong',
-                quote: 'We find no impact on the quality of care or health outcomes of a lower cost intervention that focused on encouraging participation but did not provide information on staff performance.',
-                sources: [source('Björkman Nyqvist, de Walque and Svensson 2017, American Economic Journal: Applied Economics', 'https://doi.org/10.1257/app.20150027')]
-              }),
-              evidence({
-                headline: 'When Kenyan parents on school committees were given real standing, school staff steered fewer jobs to relatives and cut their own effort less.',
-                finding: paragraph(`
-                  Duflo, Dupas and Kremer (2015) studied Kenyan schools picked at random to hire an
-                  extra teacher locally on a renewable contract. Existing civil-service teachers cut
-                  their own effort, and “approximately 1/3 of contract teacher positions” went to
-                  their relatives. “A governance program that empowered parents within school
-                  committees reduced both forms of capture.”
-                `),
-                grade: 'strong',
-                quote: 'Civil-service teachers also captured rents for their families, with approximately 1/3 of contract teacher positions going to relatives of existing teachers. A governance program that empowered parents within school committees reduced both forms of capture.',
-                sources: [source('Duflo, Dupas and Kremer 2015, Journal of Public Economics', 'https://doi.org/10.1016/j.jpubeco.2014.11.008')]
-              })
-            ],
-            counterEvidence: [
-              evidence({
-                headline: 'When community monitoring of clinics was run across much more of Uganda, clinic use and child health did not improve.',
-                finding: paragraph(`
-                  A program in 16 Ugandan districts, modeled on the earlier Ugandan trial, gave
-                  communities report cards on their health center and brought residents and staff
-                  together to agree on fixes. Villages were assigned at random. “While we find modest
-                  positive impacts on health provider behavior, we find no effects on citizen pressure,
-                  utilization rates, or bottom-line health outcomes.” The authors point to much better
-                  baseline health than in the original study.
-                `),
-                grade: 'strong',
-                quote: 'While we find modest positive impacts on health provider behavior, we find no effects on citizen pressure, utilization rates, or bottom-line health outcomes.',
-                sources: [source('Raffler, Posner and Parkerson 2025, Journal of Politics', 'https://doi.org/10.1086/736577')]
-              }),
-            ]
-          }),
-          claim({
-            text: 'Residents who help oversee a public program come to trust the government that runs it.',
-            evidence: [
-              evidence({
-                headline: 'When Ugandan communities were trained to monitor local development projects, their trust in the central government rose slightly.',
+                headline: 'When northern Ugandan communities were trained to monitor their local projects under a national program, they complained more to officials and trusted the central government slightly more.',
                 finding: paragraph(`
                   In a national program in northern Uganda, communities were assigned at random to
                   training in how to monitor their local projects, to information on project
@@ -2121,6 +1907,20 @@ export default spineData({
               })
             ],
             counterEvidence: [
+              evidence({
+                headline: 'When the Ugandan clinic report card program was repeated across 16 districts, clinic use and child health did not improve.',
+                finding: paragraph(`
+                  A program in 16 Ugandan districts, modeled on the earlier Ugandan trial, gave
+                  communities report cards on their health center and brought residents and staff
+                  together to agree on fixes. Villages were assigned at random. “While we find modest
+                  positive impacts on health provider behavior, we find no effects on citizen pressure,
+                  utilization rates, or bottom-line health outcomes.” The authors point to much better
+                  baseline health than in the original study.
+                `),
+                grade: 'strong',
+                quote: 'While we find modest positive impacts on health provider behavior, we find no effects on citizen pressure, utilization rates, or bottom-line health outcomes.',
+                sources: [source('Raffler, Posner and Parkerson 2025, Journal of Politics', 'https://doi.org/10.1086/736577')]
+              }),
               evidence({
                 headline: 'When police in six countries asked residents about local problems and worked to fix them, residents did not come to trust the police more.',
                 finding: paragraph(`
@@ -2150,7 +1950,7 @@ export default spineData({
                 sources: [source('Sexton 2022, Quarterly Journal of Political Science', 'https://doi.org/10.1561/100.00020079')]
               })
             ]
-          })
+          }),
         ]
       }),
       sources: [

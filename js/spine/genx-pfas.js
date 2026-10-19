@@ -564,7 +564,7 @@ export default spineData({
             ]
           }),
           claim({
-            text: 'Workers report more hazards when speaking up puts their job at less risk.',
+            text: 'Workers report more hazards when they can speak up without risking their job, such as by going to someone other than their boss.',
             evidence: [
               evidence({
                 headline: 'When losing a job got less costly, workers filed more safety complaints against their employers, and regulators found more violations.',
@@ -583,19 +583,17 @@ export default spineData({
                 sources: [source('Heese and Perez-Cavazos 2021, Journal of Accounting and Economics', 'https://doi.org/10.1016/j.jacceco.2020.101385')]
               }),
               evidence({
-                headline: 'Laws meant to encourage federal workers to report wrongdoing were followed by more reporting and by more retaliation.',
+                headline: 'Companies that gave employees a way to report without going to their boss found more fraud.',
                 finding: paragraph(`
-                  Surveys of federal employees taken at three points over twelve years found that
-                  “laws intended to encourage whistle-blowing seem to have two desired effects: to
-                  reduce the incidence of perceived wrongdoing and to increase the likelihood of
-                  whistle-blowing. However, two unintended effects are also observed: perceived
-                  retaliation increased and whistle-blowers increasingly sought anonymity.” The
-                  surveys cannot tell which change drove which.
+                  Using survey data from publicly listed Australian companies, where such channels are
+                  not required, the authors “find a positive association between ARCs and reported
+                  fraud. These results indicate that ARCs are effective in detecting fraud.” Small
+                  firms gained most. Companies chose whether to have a channel, so the comparison is
+                  between companies that did and companies that did not.
                 `),
                 grade: 'moderate',
-                quote: 'Laws intended to encourage whistle-blowing seem to have two desired effects: to reduce the incidence of perceived wrongdoing and to increase the likelihood of whistle-blowing. However, two unintended effects are also observed: perceived retaliation increased and whistle-blowers increasingly sought anonymity.',
-                caveat: 'Over the same years, workers also saw more retaliation, and more of those who reported tried to stay anonymous.',
-                sources: [source('Miceli, Rehg, Near and Ryan 1999, Work and Occupations', 'https://doi.org/10.1177/0730888499026001007')]
+                quote: 'we find a positive association between ARCs and reported fraud. These results indicate that ARCs are effective in detecting fraud.',
+                sources: [source('Johansson and Carey 2016, Journal of Business Ethics', 'https://doi.org/10.1007/s10551-015-2673-6')]
               })
             ],
             counterEvidence: [
@@ -616,49 +614,9 @@ export default spineData({
                 grade: 'moderate',
                 quote: 'By contrast, we do not find any evidence that the protection offered to whistleblowers by section 303 of SOX has any effect.',
                 sources: [source('Dyck, Morse and Zingales 2010, Journal of Finance', 'https://doi.org/10.1111/j.1540-6261.2010.01614.x')]
-              })
-            ]
-          }),
-          claim({
-            text: 'Workers speak up more when they can report to someone other than their employer.',
-            evidence: [
-              evidence({
-                headline: 'Companies that gave employees a way to report without going to their boss found more fraud.',
-                finding: paragraph(`
-                  Using survey data from publicly listed Australian companies, where such channels are
-                  not required, the authors “find a positive association between ARCs and reported
-                  fraud. These results indicate that ARCs are effective in detecting fraud.” Small
-                  firms gained most. Companies chose whether to have a channel, so the comparison is
-                  between companies that did and companies that did not.
-                `),
-                grade: 'moderate',
-                quote: 'we find a positive association between ARCs and reported fraud. These results indicate that ARCs are effective in detecting fraud.',
-                sources: [source('Johansson and Carey 2016, Journal of Business Ethics', 'https://doi.org/10.1007/s10551-015-2673-6')]
               }),
               evidence({
-                headline: 'In one hospital, each way of reporting drew a different group of staff, with doctors filing half of one route\'s reports and almost none of another\'s.',
-                finding: paragraph(`
-                  Researchers sorted the reports from five routes at one academic hospital: staff
-                  incident reports, patient complaints, risk management, malpractice claims, and safety
-                  walk rounds by executives. Who reported changed with the route: “Physicians
-                  accounted for 50% of risk management reports, but in adverse event reporting, where
-                  nurses were the main reporters, physicians accounted for only 2.5% of reports.” What
-                  they reported changed too. “Overall, there was little overlap, although each
-                  reporting system identified important safety issues.” Incident reports mostly
-                  flagged mislabeled specimens, walk rounds turned up equipment problems, and
-                  complaints and claims pointed to failures of communication. Opening a route the
-                  staff did not already use brought reports from people the existing routes were not
-                  reaching.
-                `),
-                grade: 'moderate',
-                quote: 'Physicians accounted for 50% of risk management reports, but in adverse event reporting, where nurses were the main reporters, physicians accounted for only 2.5% of reports.',
-                caveat: 'One hospital, and all five routes sat inside it. It shows that the route on offer changes who reports and what they report. It cannot show that a route outside the employer would draw more reports than one inside it.',
-                sources: [source('Levtzion-Korach et al. 2010, Joint Commission Journal on Quality and Patient Safety', 'https://doi.org/10.1016/s1553-7250(10)36059-4')]
-              })
-            ],
-            counterEvidence: [
-              evidence({
-                headline: 'Giving employees an anonymous route made them less willing to use the named routes.',
+                headline: 'Adding an anonymous reporting route made employees less willing to report through the named routes.',
                 finding: paragraph(`
                   In an experiment on intentions to report questionable acts, “results show that the
                   existence of an anonymous channel does reduce the likelihood of reporting to
@@ -718,20 +676,6 @@ export default spineData({
                 sources: [source('Sojourner and Yang 2022, ILR Review', 'https://doi.org/10.1177/0019793920953089')]
               }),
               evidence({
-                headline: 'Within two years of their workers unionizing, nursing homes became far more likely to send their injury records to the federal safety regulator.',
-                finding: paragraph(`
-                  Dean and colleagues compared nursing homes before and after unionizing with homes that
-                  stayed nonunion, from 2016 to 2021. Only 40 percent of nursing homes filed the injury
-                  data the law requires. “Two years after unionization, nursing homes were 31.1
-                  percentage points more likely than nonunion nursing homes to report workplace injury and
-                  illness data to OSHA.” The filing is the employer's own, so the study measures hazard
-                  data reaching the regulator. It does not track individual worker complaints.
-                `),
-                grade: 'moderate',
-                quote: 'we found that two years after unionization, nursing homes were 31.1 percentage points more likely than nonunion nursing homes to report workplace injury and illness data to OSHA.',
-                sources: [source('Dean, McCallum, Venkataramani and Michaels 2023, Health Affairs', 'https://doi.org/10.1377/hlthaff.2023.00255')]
-              }),
-              evidence({
                 headline: 'Injured union members were much more likely than similar nonunion workers to receive workers\' compensation, partly because union representatives told them how to file.',
                 finding: paragraph(`
                   Hirsch, Macpherson and DuMond followed workers in national survey data from 1977 to
@@ -742,18 +686,6 @@ export default spineData({
                 grade: 'moderate',
                 quote: 'Union members were substantially more likely to receive workers\' compensation benefits than were similar nonunion workers ... The authors suggest that differences in union, as compared to nonunion, workplaces arise because workers are provided with information from their union representatives, supervisors are more likely to inform injured workers about workers\' compensation filing procedures and less likely to discourage workers from filing claims, workers are less likely to fear being penalized for filing claims',
                 sources: [source('Hirsch, Macpherson and DuMond 1997, ILR Review', 'https://doi.org/10.1177/001979399705000202')]
-              }),
-              evidence({
-                headline: 'Unionized coal mines had fewer deaths and serious injuries but recorded more minor injuries, a sign that union miners reported more of them.',
-                finding: paragraph(`
-                  Morantz studied underground coal mines from 1993 to 2010. Unionization went with “a 14
-                  to 32% drop in traumatic injuries and a 29 to 83% drop in fatalities.” It also went with
-                  more recorded minor injuries, “suggesting that injury reporting practices differ between
-                  union and nonunion mines.”
-                `),
-                grade: 'moderate',
-                quote: 'Overall, unionization is associated with a 14 to 32% drop in traumatic injuries and a 29 to 83% drop in fatalities. Yet unionization also predicts higher total and nontraumatic injuries, suggesting that injury reporting practices differ between union and nonunion mines.',
-                sources: [source('Morantz 2013, ILR Review', 'https://doi.org/10.1177/001979391306600104')]
               }),
               evidence({
                 headline: 'State inspectors found more problems in nursing homes when an independent residents\' ombudsman attended the inspection.',
@@ -769,18 +701,16 @@ export default spineData({
                 sources: [source('Berish, Bornstein and Bowblis 2019, Journal of the American Medical Directors Association', 'https://doi.org/10.1016/j.jamda.2019.02.006')]
               }),
               evidence({
-                headline: 'Older adults offered hands-on help applying for food benefits enrolled at three times the rate of those who got no contact.',
+                headline: 'Unionized coal mines had fewer deaths and serious injuries but recorded more minor injuries, a sign that union miners reported more of them.',
                 finding: paragraph(`
-                  Finkelstein and Notowidigdo randomly assigned 30,000 likely eligible older adults to no
-                  contact, information only, or information plus help applying. “Only 6% of the control
-                  group enrolls in SNAP over the next nine months, compared to 11% of the Information Only
-                  group and 18% of the Information Plus Assistance group.” Help with the filing raised
-                  take-up beyond what information alone did.
+                  Morantz studied underground coal mines from 1993 to 2010. Unionization went with “a 14
+                  to 32% drop in traumatic injuries and a 29 to 83% drop in fatalities.” It also went with
+                  more recorded minor injuries, “suggesting that injury reporting practices differ between
+                  union and nonunion mines.”
                 `),
-                grade: 'strong',
-                quote: 'Only 6% of the control group enrolls in SNAP over the next nine months, compared to 11% of the Information Only group and 18% of the Information Plus Assistance group.',
-                caveat: 'The help was with a food benefit application. No hazard report was involved.',
-                sources: [source('Finkelstein and Notowidigdo 2019, Quarterly Journal of Economics', 'https://doi.org/10.1093/qje/qjz013')]
+                grade: 'moderate',
+                quote: 'Overall, unionization is associated with a 14 to 32% drop in traumatic injuries and a 29 to 83% drop in fatalities. Yet unionization also predicts higher total and nontraumatic injuries, suggesting that injury reporting practices differ between union and nonunion mines.',
+                sources: [source('Morantz 2013, ILR Review', 'https://doi.org/10.1177/001979391306600104')]
               })
             ],
             counterEvidence: [
@@ -875,136 +805,6 @@ export default spineData({
                 sources: [source('Heese, Krishnan and Ramasubramanian 2021, Journal of Accounting and Economics', 'https://doi.org/10.1016/j.jacceco.2020.101357')]
               })
             ]
-          }),
-          claim({
-            text: 'Acting on a reported hazard lowers people\'s exposure to it.',
-            evidence: [
-              evidence({
-                headline: 'Chinese factories cut their pollution after their violations were reported to the regulator, most of all when the reports were made in public.',
-                finding: paragraph(`
-                  Buntaine, Greenstone, He, Liu, Wang and Zhang ran a nationwide field experiment in
-                  China. Firms that broke pollution standards were assigned at random to have their
-                  violations raised with the regulator in a public appeal on social media, in a
-                  private appeal, or not at all. “First, public appeals to the regulator through social
-                  media substantially reduce violations and pollution emissions, while private appeals
-                  cause more modest environmental improvements.” The cuts at treated firms were not
-                  offset by more pollution at firms left out. The appeals came from outside the firms,
-                  not from workers inside them.
-                `),
-                grade: 'strong',
-                quote: 'First, public appeals to the regulator through social media substantially reduce violations and pollution emissions, while private appeals cause more modest environmental improvements.',
-                sources: [source('Buntaine, Greenstone, He, Liu, Wang and Zhang 2024, American Economic Review', 'https://doi.org/10.1257/aer.20221215')]
-              }),
-              evidence({
-                headline: 'After manufacturers stopped making the PFAS chemical PFOS, Americans carried steadily less of it in their blood.',
-                finding: paragraph(`
-                  Kato, Wong, Jia, Kuklenyik and Calafat measured four PFAS in 7,876 blood samples from
-                  a representative sample of Americans aged 12 and older, collected in the national
-                  health survey from 1999 to 2008. “Since 1999-2000, PFOS concentrations showed a
-                  significant downward trend, because of discontinuing industrial production of PFOS,
-                  but PFNA concentrations showed a significant upward trend.” PFOA was highest at the
-                  start and then held steady. All four chemicals were still found in more than 95
-                  percent of people, so levels fell while almost everyone stayed exposed. The survey
-                  tracks levels over time, and the link to the end of production is the authors'
-                  reading of that trend.
-                `),
-                grade: 'strong',
-                quote: 'Since 1999-2000, PFOS concentrations showed a significant downward trend, because of discontinuing industrial production of PFOS, but PFNA concentrations showed a significant upward trend.',
-                sources: [source('Kato, Wong, Jia, Kuklenyik and Calafat 2011, Environmental Science and Technology', 'https://doi.org/10.1021/es1043613')]
-              }),
-              evidence({
-                headline: 'Arsenic in people\'s bodies fell after the federal limit took effect, and only among those drinking public water.',
-                finding: paragraph(`
-                  Researchers compared people on public water with private well users, whom the rule
-                  does not cover, in a repeated national health survey. Urinary arsenic fell 17 percent
-                  over a decade among public water users and did not change among well water users.
-                  The authors conclude that “the decline
-                  in urinary arsenic among public water but not private well users in NHANES 2003-2014
-                  indicates that the implementation of the current MCL has reduced arsenic exposure in
-                  the US population”.
-                `),
-                grade: 'strong',
-                quote: 'The decline in urinary arsenic among public water but not private well users in NHANES 2003-2014 indicates that the implementation of the current MCL has reduced arsenic exposure in the US population.',
-                sources: [source('Nigra et al. 2017, The Lancet Public Health', 'https://doi.org/10.1016/S2468-2667(17)30195-0')]
-              }),
-              evidence({
-                headline: 'Levels of PFAS chemicals in New Jersey tap water fell after the state moved to set limits for them.',
-                finding: paragraph(`
-                  New Jersey's drinking water institute recommended limits for three PFAS compounds
-                  between 2015 and 2018. Comparing quarterly test results from 47 water systems before
-                  and after, the researchers found “a 55% (95% CI: 11%, 77%) and 50% (95% CI: 14%, 71%)
-                  decline in PFOA and PFNA levels, respectively, following recommendation of MCLs”.
-                  There is no comparison group, and the authors note voluntary reductions and industry
-                  phase-outs as possible explanations.
-                `),
-                grade: 'moderate',
-                quote: 'There was a 55% (95% CI: 11%, 77%) and 50% (95% CI: 14%, 71%) decline in PFOA and PFNA levels, respectively, following recommendation of MCLs.',
-                sources: [source('Iyer et al. 2026, Environment International', 'https://doi.org/10.1016/j.envint.2026.110179')]
-              }),
-              evidence({
-                headline: 'Flint children\'s blood lead fell back to where it had been once the city switched its water back.',
-                finding: paragraph(`
-                  Zahran, McElmurry and Sadler used more than 21,000 geocoded, time-stamped blood lead
-                  tests from Genesee County children. They divided the Flint water crisis into four phases
-                  and used quasi-experimental models to estimate how water lead moved children's blood
-                  lead in each. The switch to Flint River water raised blood lead. After boil water
-                  advisories, levels fell about halfway back as households avoided tap water. Once the
-                  city returned to its earlier water source, children's blood lead returned to where it
-                  was before the crisis. Lead leaves the blood within weeks, so recovery would be slower
-                  for a persistent chemical such as PFAS.
-                `),
-                grade: 'strong',
-                quote: 'Finally, the return to the baseline source water (Phase D) returned child BLLs to pre-FWC levels further implicating water-lead exposure as a causal source of child BLLs throughout the FWC.',
-                sources: [source('Zahran, McElmurry and Sadler 2017, Environmental Research', 'https://doi.org/10.1016/j.envres.2017.05.028')]
-              })
-            ],
-            counterEvidence: [
-              evidence({
-                headline: 'In Chinese provinces, more pollution complaints sent to environmental offices by letter or visit did not bring local pollution down.',
-                finding: paragraph(`
-                  Ma, Song and Zhang followed 30 Chinese provinces from 2011 to 2020 and compared local
-                  pollution with several ways the public took part in pollution control, using a dynamic
-                  spatial panel model. Participation “based on environmental letters and visits have no
-                  significant impact on local pollution reduction,” while online searches about pollution,
-                  proposals from legislators, and microblogging were linked to lower emissions. The study
-                  compares provinces over time rather than following the polluters named in each complaint,
-                  and it counts complaints in total, not whether each one reported a real violation.
-                `),
-                grade: 'moderate',
-                quote: 'based on environmental letters and visits have no significant impact on local pollution reduction, while the Baidu search index of environmental pollution has the greatest effect on emission reduction, followed by environmental protection strategies based on the National People\'s Congress (NPC) and microblogging.',
-                sources: [source('Ma, Song and Zhang 2023, Journal of Environmental Management', 'https://doi.org/10.1016/j.jenvman.2023.118046')]
-              }),
-              evidence({
-                headline: 'As rules on PFOS tightened, Chinese factories used more of a substitute chemical, and most people tested now carry it in their blood.',
-                finding: paragraph(`
-                  He and colleagues reviewed studies of F-53B, a chlorinated PFAS that the Chinese
-                  electroplating industry uses in place of PFOS. “Due to greater restrictions on PFOS
-                  globally in recent years, the production and use of F-53B correspondingly increased,
-                  consequently causing more emissions into the environment.” In the studies they
-                  reviewed, the substitute was found in almost 80 percent of human blood samples, and
-                  they describe it as the most persistent PFAS in humans found to date, with a
-                  half-life of 15.3 years. The review draws on studies from China and does not measure
-                  whether total PFAS exposure rose or fell.
-                `),
-                grade: 'moderate',
-                quote: 'Due to greater restrictions on PFOS globally in recent years, the production and use of F-53B correspondingly increased, consequently causing more emissions into the environment.',
-                sources: [source('He, Lv, Li, Liu, Liu and Han 2022, Environment International', 'https://doi.org/10.1016/j.envint.2022.107108')]
-              }),
-              evidence({
-                headline: 'After the arsenic limit took effect, small groundwater systems and those serving Hispanic communities were more likely to keep exceeding it.',
-                finding: paragraph(`
-                  Comparing monitoring records from 36,406 community water systems before and after the
-                  federal arsenic limit took effect, Nigra and colleagues found arsenic fell nationwide, but
-                  “CWSs reliant on groundwater, serving smaller populations, located in the Southwest, and
-                  serving Hispanic communities were more likely to continue exceeding the arsenic MCL, raising
-                  environmental justice concerns”. The records show who stayed out of compliance. They do
-                  not show why.
-                `),
-                grade: 'strong',
-                quote: 'CWSs reliant on groundwater, serving smaller populations, located in the Southwest, and serving Hispanic communities were more likely to continue exceeding the arsenic MCL, raising environmental justice concerns.',
-                sources: [source('Nigra et al. 2020, Environmental Health Perspectives', 'https://doi.org/10.1289/EHP7313')]
-              })
-            ]
           })
         ]
       }),
@@ -1052,58 +852,6 @@ export default spineData({
         text: 'Plants stay within their discharge limits, so less pollution reaches residents\' drinking water.',
         measured: 'Residents drank water contaminated with GenX',
         claims: [
-          claim({
-            text: 'Compliance checks that rely on a company\'s own reports miss violations.',
-            evidence: [
-              evidence({
-                headline: 'Plants reported large cuts in their toxic air emissions that nearby government air monitors did not pick up.',
-                finding: paragraph(`
-                  The authors compared the air emissions that plants reported to the Toxics Release
-                  Inventory with the concentrations that federal monitors measured near them. They “find
-                  that the large drops in air emissions reported by firms in the TRI are not always matched
-                  by similar reductions in measured concentrations from EPA monitors”, and the reported
-                  figures for two chemicals failed a statistical test of whether they looked authentic. The
-                  study compares reports with measurements. It does not show which plants misreported on
-                  purpose.
-                `),
-                grade: 'moderate',
-                quote: 'We find that the large drops in air emissions reported by firms in the TRI are not always matched by similar reductions in measured concentrations from EPA monitors.',
-                sources: [source('de Marchi and Hamilton 2006, Journal of Risk and Uncertainty', 'https://ideas.repec.org/a/kap/jrisku/v32y2006i1p57-76.html')]
-              }),
-              evidence({
-                headline: 'Satellite images caught Wisconsin livestock farms spreading manure in winter far more often than the farms themselves reported.',
-                finding: paragraph(`
-                  Winter manure spreading violates environmental law in many states, and federal and state
-                  agencies have tracked it mainly through the farms' own reports. Chugg and colleagues
-                  labeled daily to weekly satellite images of 330 large livestock farms in Wisconsin and
-                  trained a model to spot spreading. “We show that the prevalence of land application is
-                  much higher than what is self-reported by facilities.” The estimate comes from a model
-                  applied to one state over one winter, and the violation is manure spreading rather than a
-                  chemical discharge.
-                `),
-                grade: 'moderate',
-                quote: 'We show that the prevalence of land application is much higher than what is self-reported by facilities.',
-                sources: [source('Chugg, Rothbacher, Feng, Long and Ho 2022, Proceedings of the ACM International Conference on Information and Knowledge Management', 'https://doi.org/10.1145/3511808.3557104')]
-              })
-            ],
-            counterEvidence: [
-              evidence({
-                headline: 'Companies that reported their own violations to regulators went on to comply better with environmental rules.',
-                finding: paragraph(`
-                  Toffel and Short studied firms that disclosed their own violations through a regulator's
-                  voluntary self-reporting program. Regulators shifted inspections away from those firms,
-                  and “these firms that voluntarily disclosed regulatory violations and committed to
-                  self-policing improved their regulatory compliance and environmental performance, which
-                  suggests that the enforcement relief they received was warranted.” The firms chose to
-                  disclose, so the result describes companies that opt in to self-policing, not the routine
-                  reports every permit holder must file.
-                `),
-                grade: 'moderate',
-                quote: 'We also find that these firms that voluntarily disclosed regulatory violations and committed to self-policing improved their regulatory compliance and environmental performance, which suggests that the enforcement relief they received was warranted.',
-                sources: [source('Toffel and Short 2011, Journal of Law and Economics', 'https://doi.org/10.1086/658494')]
-              })
-            ]
-          }),
           claim({
             text: 'Checks run by government agencies alone miss violations.',
             evidence: [
@@ -1155,21 +903,6 @@ export default spineData({
             ],
             counterEvidence: [
               evidence({
-                headline: 'Government inspections and fines reduce violations and emissions, at the plants checked and at other plants.',
-                finding: paragraph(`
-                  Gray and Shimshack reviewed the empirical studies of environmental monitoring and
-                  enforcement, most of them on the Environmental Protection Agency and state agencies. The
-                  studies consistently find that “environmental monitoring and enforcement activities
-                  generate substantial specific deterrence, reducing future violations at the targeted
-                  firm”, that they deter violations at other facilities, and that they bring significant
-                  cuts in emissions. The review measures what inspections and penalties achieve when they
-                  happen, not how many violations go unseen between them.
-                `),
-                grade: 'moderate',
-                quote: 'environmental monitoring and enforcement activities generate substantial specific deterrence, reducing future violations at the targeted firm',
-                sources: [source('Gray and Shimshack 2011, Review of Environmental Economics and Policy', 'https://doi.org/10.1093/reep/req017')]
-              }),
-              evidence({
                 headline: 'An Indian regulator\'s own choice of which plants to inspect cut three times as much pollution as inspections assigned at random.',
                 finding: paragraph(`
                   The Gujarat regulator worked with researchers to double the inspection rate at randomly
@@ -1187,7 +920,7 @@ export default spineData({
             ]
           }),
           claim({
-            text: 'Independent inspectors find violations that company-paid inspectors miss.',
+            text: 'Independent checks find violations that a company\'s own reports and its paid inspectors miss.',
             evidence: [
               evidence({
                 headline: 'Auditors in India reported plant pollution truthfully once plants no longer chose and paid them, and the plants then cut their emissions.',
@@ -1223,21 +956,53 @@ export default spineData({
                 grade: 'moderate',
                 quote: 'Our analysis of nearly 17,000 supplier audits reveals that auditors report fewer violations when individual auditors have audited the factory before, when audit teams are less experienced or less trained, when audit teams are all male, and when audits are paid for by the audited supplier.',
                 sources: [source('Short, Toffel and Hugill 2016, Strategic Management Journal', 'https://doi.org/10.1002/smj.2417')]
+              }),
+              evidence({
+                headline: 'Plants reported large cuts in their toxic air emissions that nearby government air monitors did not pick up.',
+                finding: paragraph(`
+                  The authors compared the air emissions that plants reported to the Toxics Release
+                  Inventory with the concentrations that federal monitors measured near them. They “find
+                  that the large drops in air emissions reported by firms in the TRI are not always matched
+                  by similar reductions in measured concentrations from EPA monitors”, and the reported
+                  figures for two chemicals failed a statistical test of whether they looked authentic. The
+                  study compares reports with measurements. It does not show which plants misreported on
+                  purpose.
+                `),
+                grade: 'moderate',
+                quote: 'We find that the large drops in air emissions reported by firms in the TRI are not always matched by similar reductions in measured concentrations from EPA monitors.',
+                sources: [source('de Marchi and Hamilton 2006, Journal of Risk and Uncertainty', 'https://ideas.repec.org/a/kap/jrisku/v32y2006i1p57-76.html')]
+              }),
+              evidence({
+                headline: 'Satellite images caught Wisconsin livestock farms spreading manure in winter far more often than the farms themselves reported.',
+                finding: paragraph(`
+                  Winter manure spreading violates environmental law in many states, and federal and state
+                  agencies have tracked it mainly through the farms' own reports. Chugg and colleagues
+                  labeled daily to weekly satellite images of 330 large livestock farms in Wisconsin and
+                  trained a model to spot spreading. “We show that the prevalence of land application is
+                  much higher than what is self-reported by facilities.” The estimate comes from a model
+                  applied to one state over one winter, and the violation is manure spreading rather than a
+                  chemical discharge.
+                `),
+                grade: 'moderate',
+                quote: 'We show that the prevalence of land application is much higher than what is self-reported by facilities.',
+                sources: [source('Chugg, Rothbacher, Feng, Long and Ho 2022, Proceedings of the ACM International Conference on Information and Knowledge Management', 'https://doi.org/10.1145/3511808.3557104')]
               })
             ],
             counterEvidence: [
               evidence({
-                headline: 'Private emissions test centers in Mexico City took bribes to pass cars that should have failed.',
+                headline: 'Companies that policed and reported their own violations went on to comply better, which suggests regulators were right to inspect them less.',
                 finding: paragraph(`
-                  Mexico City required cars to pass emissions tests at licensed test centers. Paulina Oliva
-                  built a statistical test for one kind of cheating, bribing the center technicians, and a
-                  model of how owners decide to retest or cheat. “Results suggest that 9.6 percent of car
-                  owners paid US$20 to circumvent the regulation.” The checkers were separate from the car
-                  owners, and some still sold a passing result.
+                  Toffel and Short studied firms that disclosed their own violations through a regulator's
+                  voluntary self-reporting program. Regulators shifted inspections away from those firms,
+                  and “these firms that voluntarily disclosed regulatory violations and committed to
+                  self-policing improved their regulatory compliance and environmental performance, which
+                  suggests that the enforcement relief they received was warranted.” The firms chose to
+                  disclose, so the result describes companies that opt in to self-policing, not the routine
+                  reports every permit holder must file.
                 `),
                 grade: 'moderate',
-                quote: 'Results suggest that 9.6 percent of car owners paid US$20 to circumvent the regulation.',
-                sources: [source('Oliva 2015, Journal of Political Economy', 'https://doi.org/10.1086/680936')]
+                quote: 'We also find that these firms that voluntarily disclosed regulatory violations and committed to self-policing improved their regulatory compliance and environmental performance, which suggests that the enforcement relief they received was warranted.',
+                sources: [source('Toffel and Short 2011, Journal of Law and Economics', 'https://doi.org/10.1086/658494')]
               })
             ]
           }),
@@ -1289,52 +1054,25 @@ export default spineData({
                 quote: 'That result, coupled with a later independent analysis by researchers at Hurley Medical Center demonstrating rising blood lead in some Flint children, led local medical authorities and, eventually, the State of Michigan to declare a water health advisory on October 1, 2015 and to switch back to Lake Huron water supplied by DWSD on October 15, 2015',
                 caveat: 'One case, told by people who took part. The journal later attached an editor\'s note to the article.',
                 sources: [source('Roy and Edwards 2019, Citizen Science: Theory and Practice', 'https://doi.org/10.5334/cstp.154')]
+              }),
+              evidence({
+                headline: 'Chinese factories cut their pollution after their violations were reported to the regulator, most of all when the reports were made in public.',
+                finding: paragraph(`
+                  Buntaine, Greenstone, He, Liu, Wang and Zhang ran a nationwide field experiment in
+                  China. Firms that broke pollution standards were assigned at random to have their
+                  violations raised with the regulator in a public appeal on social media, in a
+                  private appeal, or not at all. “First, public appeals to the regulator through social
+                  media substantially reduce violations and pollution emissions, while private appeals
+                  cause more modest environmental improvements.” The cuts at treated firms were not
+                  offset by more pollution at firms left out. The appeals were sent as part of the
+                  experiment, so they did not come from people living near each plant.
+                `),
+                grade: 'strong',
+                quote: 'First, public appeals to the regulator through social media substantially reduce violations and pollution emissions, while private appeals cause more modest environmental improvements.',
+                sources: [source('Buntaine, Greenstone, He, Liu, Wang and Zhang 2024, American Economic Review', 'https://doi.org/10.1257/aer.20221215')]
               })
             ],
             counterEvidence: [
-              evidence({
-                headline: 'Community panels sponsored by chemical plants built trust but rarely changed how the plants performed.',
-                finding: paragraph(`
-                  A national survey of members and company representatives at chemical industry community
-                  advisory panels found that the panels “alert companies to community concerns and promote
-                  trust”, but “are less effective in stimulating changes in environmental performance and,
-                  like many citizen advisory groups, have difficulties serving as systematic links back to
-                  the community.” Environmental, community, and health professionals were underrepresented
-                  on the panels, and most community members said access to independent technical experts
-                  made a panel more effective. The survey reports what participants perceive, not measured
-                  emissions.
-                `),
-                grade: 'moderate',
-                quote: 'CAPs are less effective in stimulating changes in environmental performance and, like many citizen advisory groups, have difficulties serving as systematic links back to the community.',
-                sources: [source('Lynn, Busenberg, Cohen and Chess 2000, Environmental Science and Technology', 'https://doi.org/10.1021/es9906599')]
-              }),
-              evidence({
-                headline: 'Community negotiations with nearby plants worked only where the company was willing and residents had independent technical help.',
-                finding: paragraph(`
-                  Five community-initiated negotiations with Minnesota manufacturers were examined: “three
-                  community-company partnerships (a container plant, a foundry, and a cabinet manufacturer)
-                  were successful and two (a munitions plant and a petroleum refinery) were not”. The
-                  successes shared a company willing to negotiate, an internal champion, an independent
-                  facilitator, and independent technical assistance for the community participants. Nothing
-                  here measures emissions or compliance.
-                `),
-                grade: 'moderate',
-                quote: 'Three community-company partnerships (a container plant, a foundry, and a cabinet manufacturer) were successful and two (a munitions plant and a petroleum refinery) were not.',
-                sources: [source('Murdock and Sexton 2002, Environmental Science and Technology', 'https://doi.org/10.1021/es011272k')]
-              }),
-              evidence({
-                headline: 'A northern Canadian review board shared with Aboriginal communities made fair decisions but did not follow up on individual projects.',
-                finding: paragraph(`
-                  The authors assessed the Mackenzie Valley Environmental Impact Review Board, a co-managed
-                  environmental assessment body. It “excels in its use of traditional and local knowledge, and
-                  its fair and rigorous decision-making process”. But the process does not “provide
-                  project-specific follow-up”. Communities turned to private agreements with mining companies
-                  instead. This is one board.
-                `),
-                grade: 'weak',
-                quote: 'While the MVEIRB EA process excels in its use of traditional and local knowledge, and its fair and rigorous decision-making process, significant deficiencies remain, as the EA process does not adequately consider benefits, provide project-specific follow-up, or build trust and capacity among stakeholders.',
-                sources: [source('Galbraith, Bradshaw and Rutherford 2007, Impact Assessment and Project Appraisal', 'https://doi.org/10.3152/146155107x190596')]
-              }),
               evidence({
                 headline: 'Residents who sampled the air near refineries themselves struggled to get the state to work with them on the results.',
                 finding: paragraph(`
@@ -1361,6 +1099,21 @@ export default spineData({
                 grade: 'weak',
                 quote: 'standards simultaneously serve a boundary-policing function, allowing experts to dismiss bucket data as irrelevant to the central project of air quality assessment',
                 sources: [source('Ottinger 2010, Science, Technology, and Human Values', 'https://doi.org/10.1177/0162243909337121')]
+              }),
+              evidence({
+                headline: 'In Chinese provinces, more pollution complaints sent to environmental offices by letter or visit did not bring local pollution down.',
+                finding: paragraph(`
+                  Ma, Song and Zhang followed 30 Chinese provinces from 2011 to 2020 and compared local
+                  pollution with several ways the public took part in pollution control, using a dynamic
+                  spatial panel model. Participation “based on environmental letters and visits have no
+                  significant impact on local pollution reduction,” while online searches about pollution,
+                  proposals from legislators, and microblogging were linked to lower emissions. The study
+                  compares provinces over time rather than following the polluters named in each complaint,
+                  and it counts complaints in total, not whether each one reported a real violation.
+                `),
+                grade: 'moderate',
+                quote: 'based on environmental letters and visits have no significant impact on local pollution reduction, while the Baidu search index of environmental pollution has the greatest effect on emission reduction, followed by environmental protection strategies based on the National People\'s Congress (NPC) and microblogging.',
+                sources: [source('Ma, Song and Zhang 2023, Journal of Environmental Management', 'https://doi.org/10.1016/j.jenvman.2023.118046')]
               })
             ]
           }),
@@ -1395,6 +1148,21 @@ export default spineData({
                 grade: 'moderate',
                 quote: 'We find that many plants with discharges typically below legally permitted levels reduce discharges further when regulators issue fines, even on other plants.',
                 sources: [source('Shimshack and Ward 2008, Journal of Environmental Economics and Management', 'https://doi.org/10.1016/j.jeem.2007.05.003')]
+              }),
+              evidence({
+                headline: 'Government inspections and fines reduce violations and emissions, at the plants checked and at other plants.',
+                finding: paragraph(`
+                  Gray and Shimshack reviewed the empirical studies of environmental monitoring and
+                  enforcement, most of them on the Environmental Protection Agency and state agencies. The
+                  studies consistently find that “environmental monitoring and enforcement activities
+                  generate substantial specific deterrence, reducing future violations at the targeted
+                  firm”, that they deter violations at other facilities, and that they bring significant
+                  cuts in emissions. The review measures what inspections and penalties achieve when they
+                  happen, not how many violations go unseen between them.
+                `),
+                grade: 'moderate',
+                quote: 'environmental monitoring and enforcement activities generate substantial specific deterrence, reducing future violations at the targeted firm',
+                sources: [source('Gray and Shimshack 2011, Review of Environmental Economics and Policy', 'https://doi.org/10.1093/reep/req017')]
               })
             ],
             counterEvidence: [
@@ -1414,7 +1182,7 @@ export default spineData({
                 sources: [source('Earnhart and Jacobson 2025, Environmental and Resource Economics', 'https://doi.org/10.1007/s10640-024-00940-4')]
               }),
               evidence({
-                headline: 'When California required minimum fines for wastewater violations, late reports fell, but the fines were small next to the cost of keeping many pollutants under their limits.',
+                headline: 'After California set minimum fines for wastewater violations, treatment plants exceeded their limits for several pollutants as often as before, though cheap-to-fix violations such as reporting lapses fell.',
                 finding: paragraph(`
                   Treves and colleagues compared California with other states after it stepped up $3,000
                   mandatory minimum penalties for wastewater violations, and paired the numbers with case
@@ -1686,7 +1454,22 @@ export default spineData({
                 sources: [source('Vedachalam, Spotte-Smith and Riha 2016, Water Research', 'https://doi.org/10.1016/j.watres.2016.02.014')]
               })
             ],
-            counterEvidence: []
+            counterEvidence: [
+              evidence({
+                headline: 'Even when a Norwegian municipality texted residents a water warning, a third of those who answered did not remember getting it.',
+                finding: paragraph(`
+                  Hyllestad and colleagues surveyed residents of Baerum, Norway, who were sent water
+                  advisories by text message after outages. “Of the 611 respondents, 67% reported that
+                  they had received a water advisory notification.” Among those who remembered the
+                  message, 72 percent followed safe drinking water practices. The main reason for not
+                  following them was believing the water was safe once it ran clear.
+                `),
+                grade: 'weak',
+                quote: 'Of the 611 respondents, 67% reported that they had received a water advisory notification.',
+                caveat: 'The advisories followed water outages rather than a chemical finding, and about one in five people sent the survey answered it.',
+                sources: [source('Hyllestad and colleagues 2019, BMC Public Health', 'https://doi.org/10.1186/s12889-019-7504-8')]
+              })
+            ]
           }),
           claim({
             text: 'Households switch to safer water once they learn it is contaminated.',
@@ -1742,20 +1525,6 @@ export default spineData({
                 sources: [source('Angulo and colleagues 1997, American Journal of Public Health', 'https://doi.org/10.2105/AJPH.87.4.580')]
               }),
               evidence({
-                headline: 'Even when a Norwegian municipality texted residents a water warning, a third of those who answered did not remember getting it.',
-                finding: paragraph(`
-                  Hyllestad and colleagues surveyed residents of Baerum, Norway, who were sent water
-                  advisories by text message after outages. “Of the 611 respondents, 67% reported that
-                  they had received a water advisory notification.” Among those who remembered the
-                  message, 72 percent followed safe drinking water practices. The main reason for not
-                  following them was believing the water was safe once it ran clear.
-                `),
-                grade: 'weak',
-                quote: 'Of the 611 respondents, 67% reported that they had received a water advisory notification.',
-                caveat: 'The advisories followed water outages rather than a chemical finding, and about one in five people sent the survey answered it.',
-                sources: [source('Hyllestad and colleagues 2019, BMC Public Health', 'https://doi.org/10.1186/s12889-019-7504-8')]
-              }),
-              evidence({
                 headline: 'Showing Cambodian households proof their water was contaminated moved only poorer families who had thought it safe, and better-off families did not change.',
                 finding: paragraph(`
                   Brown, Hamoudi, Jeuland and Turrini ran a randomized experiment in two periurban
@@ -1770,22 +1539,6 @@ export default spineData({
                 grade: 'strong',
                 quote: 'However, demand for the treatment product among higher and initially more pessimistic SES households did not change significantly.',
                 sources: [source('Brown, Hamoudi, Jeuland and Turrini 2017, Journal of Environmental Economics and Management', 'https://doi.org/10.1016/j.jeem.2016.08.005')]
-              }),
-              evidence({
-                headline: 'Many customers who read a water quality report could not tell whether it reported a health violation, even when the front page said so.',
-                finding: paragraph(`
-                  Johnson randomly assigned New Jersey water customers to read different versions of an
-                  annual water quality report, some of them reporting a violation of a health standard.
-                  Overall, readers of the violation versions were more likely to report a violation,
-                  but “many respondents had trouble identifying the presence or absence of substance
-                  amounts or violations, despite their seeming obviousness (e.g., in a ‘bottom line’
-                  summary on the front page of each report), suggesting many were not processing this
-                  information carefully.” Readers saw the reports inside a survey rather than in the
-                  mail, and an annual report is less urgent than a notice of a new detection.
-                `),
-                grade: 'moderate',
-                quote: 'Many respondents had trouble identifying the presence or absence of substance amounts or violations, despite their seeming obviousness (e.g., in a "bottom line" summary on the front page of each report), suggesting many were not processing this information carefully.',
-                sources: [source('Johnson 2003, Risk Analysis', 'https://doi.org/10.1111/1539-6924.00375')]
               }),
               evidence({
                 headline: 'Rural, low-income communities bought no more bottled water after nitrate violations, even though they faced more of them.',
@@ -1935,7 +1688,7 @@ export default spineData({
                 sources: [source('Meijnders et al. 2009, Risk Analysis', 'https://doi.org/10.1111/j.1539-6924.2009.01240.x')]
               }),
               evidence({
-                headline: 'Residents trusted independent scientists most about contaminated land, and trusted neighbors\' groups almost as much.',
+                headline: 'Residents near contaminated land trusted neighbors\' groups for their openness and shared interests, even though they saw them as less expert.',
                 finding: paragraph(`
                   Residents of two English urban regions rated six sources of information about
                   contaminated land. “Overall, scientists were trusted most and developers least, but
@@ -1969,7 +1722,7 @@ export default spineData({
             ],
             counterEvidence: [
               evidence({
-                headline: 'When people read the same facts about these chemicals from scientists or from the government, they found them equally believable.',
+                headline: 'Facts about these chemicals were no more believable when they came from scientists than when they came from the government.',
                 finding: paragraph(`
                   In an Australian experiment, 1,031 people read a short resource about these
                   chemicals, attributed either to scientists or to the government, with four kinds of
@@ -2156,12 +1909,12 @@ export default spineData({
                 sources: [source('Flanagan, Marvinney, Johnston, Yang and Zheng 2015, Science of the Total Environment', 'https://doi.org/10.1016/j.scitotenv.2014.03.079')]
               }),
               evidence({
-                headline: 'Wisconsin well owners told their water held bacteria found cracked casings and faulty caps with county help, and their wells then tested clean.',
+                headline: 'After Wisconsin well owners learned their water held bacteria, county staff helped them find cracked casings and faulty caps, and the repaired wells tested clean.',
                 finding: paragraph(`
-                  Kewaunee County, Wisconsin, where manure had fouled many private wells, offered owners
-                  free well tests and mailed each one their own results. Some wells held bacteria but
-                  little nitrate. Those wells had faulty caps, cracked casings, or water pooling around
-                  the cap. County staff and local well installers helped the owners find the problems.
+                  Kewaunee County, Wisconsin, where many private wells held bacteria or too much nitrate,
+                  offered owners free well tests and mailed each one their own results. Some wells held
+                  bacteria but little nitrate. Those wells had faulty caps, cracked casings, water pooling
+                  around the cap, or bugs inside the cap. County staff and local well installers helped the owners find the problems.
                   Once the problems were fixed, the wells were tested again and came back free of the
                   bacteria.
                 `),
