@@ -159,11 +159,17 @@ function setDrawer(open) {
 function store(k, v) { try { localStorage.setItem(k, v ? '1' : '0'); } catch {} }
 function stored(k) { try { return localStorage.getItem(k) === '1'; } catch { return false; } }
 
+/* The detail pane opens when there is something to read in it: a selected
+   card, or every comment on the case. With nothing selected it stays closed,
+   so the map has the whole window. */
 function setRightPane(open) {
   el('ch-wrap').classList.toggle('no-right', !open);
   el('right-hide').setAttribute('aria-expanded', String(open));
-  store('pp-right-hidden', !open);
 }
+
+// True while the pane shows every comment on the case with nothing selected.
+let allComments = false;
+let lastSel;
 
 function setLegend(open) {
   el('ch-mapcol').classList.toggle('no-legend', !open);
@@ -386,6 +392,14 @@ function onHashChange() {
     router.go(route(), { replace: true });
     return;
   }
+  // A new selection opens the pane; clearing it closes the pane, unless the
+  // case's comments were asked for.
+  const sel = state.selKind == null ? null : JSON.stringify(curSel());
+  if (sel !== lastSel) {
+    lastSel = sel;
+    if (sel) allComments = false;
+    setRightPane(Boolean(sel) || allComments);
+  }
   render();
 }
 
@@ -413,7 +427,7 @@ function bindEvents() {
     router.go({ caseSlug: b.dataset.case });
   });
 
-  el('right-hide').addEventListener('click', () => setRightPane(false));
+  el('right-hide').addEventListener('click', () => { allComments = false; setRightPane(false); });
   el('legend-hide').addEventListener('click', () => setLegend(false));
   el('legend-show').addEventListener('click', () => setLegend(true));
 
@@ -603,7 +617,6 @@ function bindEvents() {
 /* -------------------------------- boot ----------------------------------- */
 
 bindEvents();
-setRightPane(!stored('pp-right-hidden'));
 setLegend(!stored('pp-legend-hidden'));
 onHashChange();
 
@@ -613,7 +626,7 @@ import('./notes.js')
   .then(m => m.initNotes({
     curCase, curSpine, curSel, select,
     // The case-wide comment feed shows when nothing is selected.
-    showAll: () => { setRightPane(true); navigate(NO_SEL); },
+    showAll: () => { allComments = true; setRightPane(true); navigate(NO_SEL); },
     isSpine: () => state.view === 'spine'
   }))
   .then(n => { notes = n; })
