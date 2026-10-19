@@ -469,6 +469,7 @@ export default spineData({
   proposals: [
     spineProposal({
       name: 'As soon as workers suspect a chemical hazard, local advocates give them a protected, low-cost way to report it to the EPA and support them through the process.',
+      bold: ['local advocates'],
       method: 'Protected Worker Disclosure',
       summary: 'Local advocates, similar to ombudspeople, give workers a low-cost, protected way to report suspected environmental violations or hazards to the Environmental Protection Agency and other agencies, and support them afterward.',
       anchor: 'continued exposure is not tolerable',
@@ -981,6 +982,7 @@ export default spineData({
 
     spineProposal({
       name: 'When a chemical is approved for release or a discharge permit is issued, downstream residents are told, and they direct independent testing of their water, including for chemicals with no set limit.',
+      bold: ['direct independent testing'],
       method: 'Community Review and Monitoring Body',
       summary: 'When a chemical is approved for manufacture or release, or a plant applies for or renews a discharge permit, downstream residents are notified. They form a body that directs independent testing, including for pollutants with no set limit.',
       anchor: 'Discharge continued largely unmonitored',
@@ -1414,6 +1416,7 @@ export default spineData({
 
     spineProposal({
       name: 'When any certified lab finds an unregulated chemical in tap water above a health screening level, the state tells every affected household and residents choose where to test next.',
+      bold: ['residents choose where to test next'],
       method: 'Citizen Science',
       summary: 'When a regulator receives a peer-reviewed finding of a chemical in drinking water, it must tell the public within a day, and residents choose where follow-up testing happens.',
       anchor: 'mean GenX concentrations of 631',
@@ -1786,6 +1789,7 @@ export default spineData({
 
     spineProposal({
       name: 'As soon as there is evidence that a harmful chemical was released, a community forum gathers residents\' evidence and works with an independent expert board to review safety levels and test results.',
+      bold: ['community forum', 'independent expert board'],
       method: 'Community Forum and Expert Review',
       summary: 'As soon as there is evidence a harmful chemical was released, a community forum gathers residents\' evidence, works with an independent expert board on safety levels and test results, and shares what it finds.',
       anchor: 'Wilbur Tennant, a West Virginia farmer',

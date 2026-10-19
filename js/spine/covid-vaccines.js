@@ -274,6 +274,7 @@ export default spineData({
   proposals: [
     spineProposal({
       name: 'Throughout the vaccine rollout, federal health officials or their accountable representatives answer the public\'s questions on federal vaccine policy at regular public sessions.',
+      bold: ['regular public sessions'],
       method: 'Town Hall',
       summary: 'Throughout the rollout, federal health officials or their accountable representatives answer residents\' questions on federal vaccine policy at regular public sessions.',
       anchor: 'ACIP voted 11 to 0',
@@ -658,6 +659,7 @@ export default spineData({
 
     spineProposal({
       name: 'Before any vaccine is approved, a citizens\' assembly weighs whether it should be mandated at all.',
+      bold: ['citizens\' assembly'],
       method: 'Citizens\' Assembly',
       summary: 'Before any vaccine is approved, residents chosen by lot weigh whether it should be mandated at all, and the government must answer their recommendation in public.',
       anchor: 'Gallup first asked in July 2020',
@@ -965,6 +967,7 @@ export default spineData({
 
     spineProposal({
       name: 'As vaccines roll out, neighborhood task forces decide where and how vaccines are delivered.',
+      bold: ['neighborhood task forces'],
       method: 'Neighborhood Task Force',
       summary: 'City health departments let task forces of residents and local groups choose sites, hours, and outreach for doses set aside for hard-hit neighborhoods.',
       anchor: '20,792 doses',
@@ -1554,6 +1557,7 @@ export default spineData({
 
     spineProposal({
       name: 'When vaccine outreach funds are awarded, residents decide through participatory budgeting which local projects the money supports.',
+      bold: ['participatory budgeting'],
       method: 'Participatory Budgeting',
       summary: 'When outreach funds are awarded, residents of the neighborhoods the money is meant for decide which projects supporting the rollout it pays for.',
       anchor: 'vaccine equity push',
@@ -1841,6 +1845,7 @@ export default spineData({
 
     spineProposal({
       name: 'When vaccine outreach funds are awarded, residents choose which results are tracked and published, and public funds pay for residents to gather their own data.',
+      bold: ['residents choose which results are tracked and published'],
       method: 'Participatory Monitoring and Evaluation',
       summary: 'Residents decide which results of the rollout are tracked and published, by the government or an independent group, and public funds pay for residents to gather their own data.',
       anchor: 'vaccine equity push',

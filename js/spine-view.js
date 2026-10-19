@@ -152,8 +152,14 @@ function impactBoxHtml(im, ii) {
 function propBoxHtml(p, pi, total) {
   return `<div class="sp-prop-head">
       <span class="sp-propbox-kick">Proposed Public Participation <span class="sp-propbox-n">(${pi + 1}/${total})</span></span>
-      <span class="sp-prop-title">${p.name}</span>
+      <span class="sp-prop-title">${boldPhrases(p.name, p.bold)}</span>
     </div>`;
+}
+
+/** The title in plain weight with its mechanism phrases in bold, so the kind
+   of participation stands out from the timing and detail around it. */
+function boldPhrases(text, phrases = []) {
+  return phrases.reduce((t, b) => t.replace(b, `<strong>${b}</strong>`), text);
 }
 
 /** The one outcome box of a proposal. Every one of these is a proposed

@@ -404,6 +404,7 @@ export default spineData({
   proposals: [
     spineProposal({
       name: 'Before the fall 2020 reopening decision, officials convene a citizens\' assembly, advised by administrators, health officials, and educators, with a clear and public path to the decision, instead of a self-selected advisory council.',
+      bold: ['citizens\' assembly'],
       method: 'Citizens\' Assembly',
       summary: 'Residents chosen by lot study the reopening choice and recommend a plan before officials decide.',
       anchor: 'Return to School Roadmap',
@@ -797,6 +798,7 @@ export default spineData({
 
     spineProposal({
       name: 'Before schools reopen in the fall, parents, teachers, and local health experts design how each school reopens, in meetings open to the public.',
+      bold: ['design how each school reopens'],
       method: 'Stakeholder Advisory Council',
       summary: 'Parents, teachers, and residents work with building and health experts to draft a reopening plan for each school, and the board must answer it.',
       anchor: 'physical presence in school',
@@ -1179,6 +1181,7 @@ export default spineData({
 
     spineProposal({
       name: 'Before deciding to close schools, officials publish the data ahead of time, and parents and school staff question experts on it at a public forum.',
+      bold: ['public forum'],
       method: 'Participatory Monitoring',
       summary: 'Officials publish the data behind each decision to close or reopen schools ahead of time, and parents and school staff question experts on it at public forums and help choose what is tracked.',
       anchor: 'spread readily through respiratory droplets',

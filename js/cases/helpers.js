@@ -412,10 +412,13 @@ export function outcome({ text, measured = null, claims = [] }) {
  * leaves it off the map.
  */
 export function spineProposal({
-  name, method, summary = '', anchor, linked = false, when, where, description,
+  name, bold = [], method, summary = '', anchor, linked = false, when, where, description,
   note = '', outcome: out, sources = [], hidden = false
 }) {
   if (!name?.trim()) throw new Error('Spine proposal is missing a name');
+  for (const b of bold) {
+    if (!name.includes(b)) throw new Error(`Spine proposal "${name}" bolds "${b}", which is not in its name`);
+  }
   if (!method?.trim()) throw new Error(`Spine proposal "${name}" is missing a method`);
   if (!anchor?.trim()) throw new Error(`Spine proposal "${name}" is missing a timeline anchor`);
   if (!when?.trim()) throw new Error(`Spine proposal "${name}" is missing a when paragraph`);
@@ -424,7 +427,7 @@ export function spineProposal({
   if (!out?.text) throw new Error(`Spine proposal "${name}" has no outcome`);
   checkSources(sources, `Spine proposal "${name}"`);
   return {
-    name, method, summary, anchor, linked: Boolean(linked), when, where, description,
+    name, bold, method, summary, anchor, linked: Boolean(linked), when, where, description,
     note, outcome: out, hidden: Boolean(hidden),
     srcs: sources.map(s => ({ l: s.label, u: s.url }))
   };
