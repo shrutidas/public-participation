@@ -654,9 +654,6 @@ function propDetail(spine, i) {
   const p = spine.proposals[i];
   return `<div class="cd">
     <div class="cd-head"><span class="cd-id">${p.name}</span></div>
-    <p class="cd-claim">${p.description}</p>
-    ${p.note ? `<div class="ln-sec"><h4>How It Can Feed a Decision</h4><p class="cd-claim">${p.note}</p></div>` : ''}
-    ${srcLine(p.srcs)}
   </div>`;
 }
 

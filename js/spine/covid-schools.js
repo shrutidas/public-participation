@@ -529,46 +529,6 @@ export default spineData({
                 sources: [source('Niessen and Reuchamps 2022, Parliamentary Affairs', 'https://doi.org/10.1093/pa/gsaa056')]
               }),
               evidence({
-                headline: 'Gdańsk\'s mayor pledged to treat any recommendation backed by at least 80 percent of a randomly chosen residents\' panel as binding.',
-                finding: paragraph(`
-                  The city’s report on its first residents’ panel, on preparing for heavy rain, sets out
-                  the rule. In English, it reads “the panel’s recommendations are therefore binding, on
-                  the basis of an informal declaration by the city mayor (just as is done with the
-                  citizens’ budget). In Gdańsk it was adopted that the required level of support for a
-                  binding recommendation is 80 percent agreement of panelists.” The pledge rested on the
-                  mayor’s word, with no law behind it. The report is in Polish.
-                `),
-                grade: 'moderate',
-                quote: 'rekomendacje panelu są więc wiążące, na zasadzie nieformalnej deklaracji prezydenta miasta (tak samo, jak robi się to przy budżecie obywatelskim). W Gdańsku zostało przyjęte, że wymagany poziom poparcia dla wiążącej rekomendacji to 80 procent zgodności panelistów i panelistek.',
-                sources: [source('City of Gdańsk, citizens\' panel summary report', 'https://download.cloudgdansk.pl/gdansk-pl/d/20170183715/raport-podsumowujacy-panel-obywtelski-plik-pdf-do-pobrania.pdf')]
-              }),
-              evidence({
-                headline: 'British Columbia sent its citizens\' assembly\'s voting reform straight to a referendum whose result would bind the government if it cleared two thresholds.',
-                finding: paragraph(`
-                  Elections BC reported that the Electoral Reform Referendum Act set two thresholds “in
-                  order for the referendum results to be binding on government.” The assembly’s proposal
-                  won 57.69 percent of the vote and majorities in 77 of 79 districts. It fell short of the
-                  60 percent threshold, so the reform did not take effect.
-                `),
-                grade: 'strong',
-                quote: 'Two thresholds were set by the Electoral Reform Referendum Act in order for the referendum results to be binding on government',
-                sources: [source('Elections BC news release, archived', 'https://bac-lac.wayback.archive-it.org/web/20080206192110/http:/elections.bc.ca/newsrel/n_050609.pdf')]
-              }),
-              evidence({
-                headline: 'Of six climate assemblies, only France\'s, which the president had promised a direct route to lawmakers, changed a substantial share of government decisions.',
-                finding: paragraph(`
-                  Pfeffer and colleagues (2026) traced 488 recommendations from six European climate
-                  assemblies against what governments would have done anyway. Only the French assembly
-                  changed policy at scale. One-third of its recommendations influenced decisions, “due to
-                  strong power delegation, political leadership and resulting public pressure.” The
-                  assemblies limited to advising had little or no impact. France’s direct route rested on
-                  a promise from the president, with no law behind it.
-                `),
-                grade: 'moderate',
-                quote: 'Only the French assembly shows substantial policy impact, with one-third of its recommendations having influenced policy, due to strong power delegation, political leadership and resulting public pressure.',
-                sources: [source('Pfeffer and colleagues 2026, Nature Climate Change', 'https://doi.org/10.1038/s41558-026-02755-1')]
-              }),
-              evidence({
                 headline: 'Across hundreds of Spanish city proposals, residents\' ideas were more often carried out when the process gave them a direct route to decisions.',
                 finding: paragraph(`
                   Font and colleagues (2018) tracked what happened to 571 proposals from local
@@ -610,20 +570,6 @@ export default spineData({
                 sources: [source('Pfeffer and colleagues 2026, Nature Climate Change', 'https://doi.org/10.1038/s41558-026-02755-1')]
               }),
               evidence({
-                headline: 'Even with a written duty to respond, Ireland\'s government acted on some assembly topics and left others with little more than a ministerial answer years later.',
-                finding: paragraph(`
-                  Courant (2021) tracked what became of Ireland’s assemblies. For the earlier
-                  Constitutional Convention, he reports that “some others were not even debated” and
-                  that elected officials practiced “selective listening” or “cherry picking.” The
-                  assembly’s recommendations on ageing went to parliament in December 2017. They drew
-                  only a reply to a parliamentary question in May 2019, saying some proposals were under
-                  consideration.
-                `),
-                grade: 'moderate',
-                quote: 'While the government and Parliament directly integrated some of its recommendations into legislation, some others were not even debated (Farrell et al., 2018; see, Table 3). In this way, the elected officials conducted "selective listening" or "cherry picking," as observed in many participatory institutions',
-                sources: [source('Courant 2021, Frontiers in Political Science', 'https://doi.org/10.3389/fpos.2020.591983')]
-              }),
-              evidence({
                 headline: 'People in the United States, Ireland and Finland like citizens\' assemblies but are reluctant to give them real power over decisions.',
                 finding: paragraph(`
                   Goldberg, Lindell and Bächtiger (2024) ran three identical preregistered experiments
@@ -636,19 +582,6 @@ export default spineData({
                 quote: 'it first shows that minipublics are moderately attractive institutional innovations, but that in all three country contexts, citizens in general are very reluctant to grant them empowerment and autonomy as well as ask for additional provisions (such as large size or large majorities for recommendations).',
                 sources: [source('Goldberg, Lindell and Bächtiger 2024, American Political Science Review', 'https://doi.org/10.1017/S0003055424001163')]
               }),
-              evidence({
-                headline: 'Few of the citizens\' juries on health that researchers reviewed had their rulings taken up by the bodies that made decisions.',
-                finding: paragraph(`
-                  Street and colleagues (2014) reviewed 66 citizens’ juries on health questions. They
-                  found that “many juries were shorter duration than originally recommended, limiting
-                  opportunity for constructive dialogue. With respect to citizenship, few juries’ rulings
-                  were considered by decision-making bodies thereby limiting transfer into policy and
-                  practice.”
-                `),
-                grade: 'moderate',
-                quote: 'Many juries were shorter duration than originally recommended, limiting opportunity for constructive dialogue. With respect to citizenship, few juries\' rulings were considered by decision-making bodies thereby limiting transfer into policy and practice.',
-                sources: [source('Street and colleagues 2014, Social Science and Medicine', 'https://doi.org/10.1016/j.socscimed.2014.03.005')]
-              })
             ]
           }),
           claim({
@@ -863,7 +796,7 @@ export default spineData({
     }),
 
     spineProposal({
-      name: 'Once a district decides to reopen, and before classes start, parents, teachers, and local health experts design each school\'s reopening plan in meetings open to the public.',
+      name: 'In spring 2020, before schools reopen in the fall, parents, teachers, and local health experts design how each school reopens, in meetings open to the public.',
       method: 'Stakeholder Advisory Council',
       summary: 'Parents, teachers, and residents work with building and health experts to draft a reopening plan for each school, and the board must answer it.',
       anchor: 'physical presence in school',
@@ -891,11 +824,11 @@ export default spineData({
         principals still controlled the decisions that mattered. The board's duty to answer each
         plan in writing is meant to guard against that. No study here tests whether a written answer
         prevents that capture. Each school then reopens under a plan built around its own building,
-        staff, and families, rather than one district-wide rule. The aim is that teachers stay in
-        their schools and students come back to class.
+        staff, and families, rather than one district-wide rule. The aim is that parents and
+        teachers trust their school's plan, so students come back to class and teachers stay.
       `),
       outcome: outcome({
-        text: 'Locally designed policies with community input can be more aware of and responsive to local context and community priorities, and will be seen as more trustworthy.',
+        text: 'Parents and teachers trust their school\'s reopening plan, so more students come back to class and more teachers stay.',
         measured: 'Chronic absenteeism stayed high',
         claims: [
           claim({
@@ -1161,19 +1094,6 @@ export default spineData({
                 sources: [source('Channa and Faguet 2016, World Bank Research Observer', 'https://doi.org/10.1093/wbro/lkw001')]
               }),
               evidence({
-                headline: 'After Bolivia handed budget power to its towns, investment shifted toward the services each place lacked.',
-                finding: paragraph(`
-                  After Bolivia devolved resources to municipalities, public investment changed in
-                  education, agriculture, urban development, water, and sanitation. Need predicted
-                  where it went. “By far the most important determinant of these changes are
-                  objective indicators of social need (for example, education investment rises where
-                  illiteracy is higher).” The study covers town budgets, not school plans.
-                `),
-                grade: 'moderate',
-                quote: 'By far the most important determinant of these changes are objective indicators of social need (for example, education investment rises where illiteracy is higher).',
-                sources: [source('Faguet 2004, Journal of Public Economics', 'https://doi.org/10.1016/S0047-2727(02)00185-8')]
-              }),
-              evidence({
                 headline: 'Most of Chicago\'s parent-majority school councils carried out their governing duties.',
                 finding: paragraph(`
                   Chicago’s elected Local School Councils hire principals on performance contracts,
@@ -1234,18 +1154,6 @@ export default spineData({
                 sources: [source('Carr-Hill, Rolleston and Schendel 2016, Campbell Systematic Reviews', 'https://doi.org/10.4073/csr.2016.9')]
               }),
               evidence({
-                headline: 'When Argentina moved secondary schools to provincial control, test scores rose overall but the gains skipped poor communities.',
-                finding: paragraph(`
-                  “We find that decentralization had an overall positive impact on student test
-                  scores. The decentralization gains, however, did not reach the poor.” Moving a
-                  decision closer to a community helps where that community can press its case, and
-                  can leave the weakest places behind.
-                `),
-                grade: 'strong',
-                quote: 'We find that decentralization had an overall positive impact on student test scores. The decentralization gains, however, did not reach the poor.',
-                sources: [source('Galiani, Gertler and Schargrodsky 2008, Journal of Public Economics', 'https://doi.org/10.1016/j.jpubeco.2008.05.004')]
-              }),
-              evidence({
                 headline: 'When Afghan villages chose projects in meetings instead of secret ballots, local elites had more say over what got built.',
                 finding: paragraph(`
                   Villages were assigned at random to choose projects by secret ballot or by
@@ -1291,11 +1199,11 @@ export default spineData({
         agencies keep the decision and must correct errors in public. In 2020 no federal dataset
         tracked which schools were open, and district choices tracked partisanship and union
         strength more than local case rates. The aim is that parents trust their school
-        district's reopening decisions more because they can see and question the measures and
-        reasons behind them.
+        district's decisions to close and reopen schools more because they can see and question
+        the measures and reasons behind them.
       `),
       outcome: outcome({
-        text: 'Parents trust their school district\'s reopening decisions more when they can see the measures and reasons behind them.',
+        text: 'Parents trust their school district\'s decisions to close and reopen schools more when they can see the measures and reasons behind them.',
         measured: null,
         claims: [
           claim({

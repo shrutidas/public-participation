@@ -599,22 +599,6 @@ export default spineData({
               })
             ],
             counterEvidence: [
-              evidence({
-                headline: 'After Congress wrote new protections for employees following the accounting scandals, employees did not bring more frauds to light.',
-                finding: paragraph(`
-                  The same census of corporate frauds compared who exposed them before and after the
-                  Sarbanes-Oxley Act (SOX). The authors write that “by contrast, we do not find any
-                  evidence that the protection offered to employees by Section 303 of SOX has any
-                  effect”. Employees' share of detections fell from 18 to 13 percent, while auditors'
-                  share rose. Several reforms took effect at once, and the authors say their separate
-                  effects cannot be told apart. Naming
-                  yourself stayed costly: “in 82% of the cases, the whistleblower was fired, quit under
-                  duress, or had significantly altered responsibilities”.
-                `),
-                grade: 'moderate',
-                quote: 'By contrast, we do not find any evidence that the protection offered to employees by Section 303 of SOX has any effect.',
-                sources: [source('Dyck, Morse and Zingales 2010, Journal of Finance', 'https://doi.org/10.1111/j.1540-6261.2010.01614.x')]
-              })
             ]
           }),
           claim({
@@ -781,7 +765,24 @@ export default spineData({
                 sources: [source('Finkelstein and Notowidigdo 2019, Quarterly Journal of Economics', 'https://doi.org/10.1093/qje/qjz013')]
               })
             ],
-            counterEvidence: []
+            counterEvidence: [
+              evidence({
+                headline: 'When outside buyers forced Bangladeshi garment factories to set up worker safety committees, workers gained a voice only where managers were already good, and the worst factories did not improve.',
+                finding: paragraph(`
+                  Boudreau worked with 29 multinational apparel buyers to enforce a legal mandate for
+                  worker safety committees at 84 supplier factories, chosen at random for enforcement. The
+                  stronger committees brought small gains in safety. But “the effects on compliance,
+                  safety, and voice were largest for factories with better managerial practices. Factories
+                  with worse practices did not improve, and workers in these factories reported lower job
+                  satisfaction.” The outside party backed a committee inside the factory rather than
+                  helping workers report to a regulator.
+                `),
+                grade: 'strong',
+                quote: 'The effects on compliance, safety, and voice were largest for factories with better managerial practices. Factories with worse practices did not improve, and workers in these factories reported lower job satisfaction',
+                caveat: 'The committees made factories somewhat safer overall.',
+                sources: [source('Boudreau 2024, Econometrica', 'https://doi.org/10.3982/ECTA19408')]
+              })
+            ]
           }),
           claim({
             text: 'Regulators act sooner on problems that workers report.',
@@ -1580,26 +1581,36 @@ export default spineData({
                 grade: 'moderate',
                 quote: 'Exploiting this state-level variation in disclosure deadlines, we find that, when facing a deadline, firms disclose a data breach 90 percent faster but are 58 percent less likely to disclose breach details.',
                 sources: [source('Ashraf, Jiang and Wang 2022, Journal of Finance and Data Science', 'https://doi.org/10.1016/j.jfds.2022.08.001')]
+              }),
+              evidence({
+                headline: 'When Congress gave company insiders two days to report their stock sales, the typical wait for that news fell from more than three weeks to two days.',
+                finding: paragraph(`
+                  A 2002 federal law cut the deadline for company insiders to report their trades from the
+                  month after the trade to two business days. Franzen, Li, Vargus and Li compared filings
+                  for restricted stock sales before and after the change. They write that the law “reduced
+                  the Form 4 disclosure delay for restricted stock transactions from 24days in the pre-SOX
+                  period to the mandated 2days in the post-SOX period.” The setting is stock trading
+                  rather than public health.
+                `),
+                grade: 'moderate',
+                quote: 'We confirm that mandatory filing requirements under Section 403 of SOX reduced the Form 4 disclosure delay for restricted stock transactions from 24days in the pre-SOX period to the mandated 2days in the post-SOX period.',
+                caveat: 'A related filing with no new deadline became less timely.',
+                sources: [source('Franzen, Li, Vargus and Li 2013, Research in Accounting Regulation', 'https://doi.org/10.1016/j.racreg.2012.11.011')]
               })
             ],
             counterEvidence: [
               evidence({
-                headline: 'Under a rule to notify customers within 30 days, about three in ten water systems\' notices of bacteria went out more than six months late.',
+                headline: 'Under a federal law that gives drug and device trials one year to post their results, most trials missed the deadline.',
                 finding: paragraph(`
-                  Monthly coliform bacteria violations require water systems to notify the public
-                  within 30 days. In data on when systems actually sent those notices, Marcus found
-                  that most went out within the first week, but “this distribution has a long right
-                  tail with about 30 percent of public notifications occurring more than 6 months after
-                  the determination date.” The deadline was in place and a large share of notices still
-                  came months late. The paper does not say why those notices were late or whether
-                  regulators acted on the delays.
+                  DeVito, Bacon and Goldacre tracked every trial due to post results under the federal
+                  rule over 18 months. “4209 trials were due to report results; 1722 (40·9%; 95% CI
+                  39·4-42·2) did so within the 1-year deadline.” Compliance did not improve over the
+                  period. The authors put the poor compliance down to weak enforcement.
                 `),
                 grade: 'moderate',
-                quote: 'However, this distribution has a long right tail with about 30 percent of public notifications occurring more than 6 months after the determination date.',
-                sources: [
-                  source('Marcus 2022, Review of Economics and Statistics', 'https://doi.org/10.1162/rest_a_01006'),
-                  source('Marcus, author\'s version, November 2020', 'https://michellemmarcus.com/wp-content/uploads/2020/12/marcus_testingthewater.pdf')
-                ]
+                quote: '4209 trials were due to report results; 1722 (40·9%; 95% CI 39·4-42·2) did so within the 1-year deadline.',
+                caveat: 'The study has no comparison group without a deadline, so it cannot say the deadline had no effect.',
+                sources: [source('DeVito, Bacon and Goldacre 2020, The Lancet', 'https://doi.org/10.1016/S0140-6736(19)33220-9')]
               })
             ]
           }),
@@ -1627,9 +1638,51 @@ export default spineData({
                   source('Marcus 2022, Review of Economics and Statistics', 'https://doi.org/10.1162/rest_a_01006'),
                   source('Marcus, author\'s version, November 2020', 'https://michellemmarcus.com/wp-content/uploads/2020/12/marcus_testingthewater.pdf')
                 ]
+              }),
+              evidence({
+                headline: 'Across studies of boil water notices, people followed the advice more when the notice reached them quickly.',
+                finding: paragraph(`
+                  Vedachalam, Spotte-Smith and Riha pooled 11 studies of how residents responded to boil
+                  water notices. Typical effective compliance was about 68 percent. The authors report
+                  that “timeliness of receipt, content of the advisory, and number of sources reporting
+                  the advisory have a significant impact on public response and compliance.” The studies
+                  are surveys taken after each event, so the link to speed is a comparison across events.
+                `),
+                grade: 'moderate',
+                quote: 'Results further suggest that timeliness of receipt, content of the advisory, and number of sources reporting the advisory have a significant impact on public response and compliance.',
+                caveat: 'Boil water notices cover germs rather than chemicals, and the surveys rely on what residents recalled.',
+                sources: [source('Vedachalam, Spotte-Smith and Riha 2016, Water Research', 'https://doi.org/10.1016/j.watres.2016.02.014')]
               })
             ],
-            counterEvidence: []
+            counterEvidence: [
+              evidence({
+                headline: 'During a deadly water outbreak in a Missouri town, people in nearly a third of households drank unboiled water after hearing the order to boil it.',
+                finding: paragraph(`
+                  Salmonella in the unchlorinated water of Gideon, Missouri, sickened more than 650 people
+                  and killed 7. A household survey after the outbreak found that “persons in 31% (30/ 98)
+                  of city households had drunk unboiled water after being informed about the boil water
+                  order”. The most common reasons were not remembering the order and not believing it. It
+                  is one town and one outbreak.
+                `),
+                grade: 'weak',
+                quote: 'Persons in 31% (30/ 98) of city households had drunk unboiled water after being informed about the boil water order, including 14 individuals who subsequently became ill.',
+                sources: [source('Angulo and colleagues 1997, American Journal of Public Health', 'https://doi.org/10.2105/AJPH.87.4.580')]
+              }),
+              evidence({
+                headline: 'Even when a Norwegian town texted residents a water warning, a third of them did not remember getting it.',
+                finding: paragraph(`
+                  Hyllestad and colleagues surveyed residents of Baerum, Norway, who were sent water
+                  advisories by text message after outages. “Of the 611 respondents, 67% reported that
+                  they had received a water advisory notification.” Among those who remembered the
+                  message, 72 percent followed safe drinking water practices. The main reason for not
+                  following them was believing the water was safe once it ran clear.
+                `),
+                grade: 'weak',
+                quote: 'Of the 611 respondents, 67% reported that they had received a water advisory notification.',
+                caveat: 'The advisories followed water outages rather than a chemical finding, and about one in five people sent the survey answered it.',
+                sources: [source('Hyllestad and colleagues 2019, BMC Public Health', 'https://doi.org/10.1186/s12889-019-7504-8')]
+              })
+            ]
           }),
           claim({
             text: 'Households told their water is contaminated switch to safer water.',

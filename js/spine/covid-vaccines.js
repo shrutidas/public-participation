@@ -508,6 +508,35 @@ export default spineData({
                 grade: 'strong',
                 quote: 'We find evidence of substantial persuasion effects on specific policy issues, attributions of trust and approval, and ultimately the decision to vote for the leader.',
                 sources: [source('Minozzi, Neblo, Esterling and Lazer 2015, Proceedings of the National Academy of Sciences', 'https://doi.org/10.1073/pnas.1418188112')]
+              }),
+              evidence({
+                headline: 'People accepted an unwelcome decision more readily when politicians had listened to citizens and explained themselves.',
+                finding: paragraph(`
+                  Esaiasson, Gilljam and Persson asked a panel of adult Swedes to imagine politicians deciding on
+                  a change to immigration law, and varied at random whether the politicians had listened to
+                  citizens, explained their reasons, or followed majority opinion. They then studied a real
+                  dispute over school closures in a Swedish town. “Responsiveness actions that signal
+                  willingness to communicate (‘to listen’ and ‘to explain’) are more effective than the action
+                  to follow majority opinion (‘to adapt’).” The reward held only when citizens were convinced
+                  that politicians had paid attention, and people who lost out were hard pressed to believe
+                  that. The study measures acceptance of a decision, not trust in an agency.
+                `),
+                grade: 'strong',
+                quote: 'Responsiveness actions that signal willingness to communicate (“to listen” and “to explain”) are more effective than the action to follow majority opinion (“to adapt”).',
+                sources: [source('Esaiasson, Gilljam and Persson 2017, Comparative Political Studies', 'https://doi.org/10.1177/0010414015626445')]
+              }),
+              evidence({
+                headline: 'People who took part in well-run public meetings with a government agency came away more likely to believe the agency responded to public concerns.',
+                finding: paragraph(`
+                  Halvorsen surveyed members of the public who took part in project meetings held by a
+                  public agency and asked how good each meeting was. The study tested whether good
+                  meetings changed what participants believed about the agency. “After participation in
+                  quality project meetings, participants were significantly more likely to believe the
+                  agency was responsive to public concerns.” The study covers people who chose to attend.
+                `),
+                grade: 'weak',
+                quote: 'After participation in quality project meetings, participants were significantly more likely to believe the agency was responsive to public concerns.',
+                sources: [source('Halvorsen 2003, Public Administration Review', 'https://doi.org/10.1111/1540-6210.00317')]
               })
             ],
             counterEvidence: [
@@ -541,28 +570,6 @@ export default spineData({
                 sources: [source('Mutz and Reeves 2005, American Political Science Review', 'https://doi.org/10.1017/S0003055405051452')]
               })
             ]
-          }),
-          claim({
-            text: 'People who learn that residents helped make a decision judge the decision more favorably.',
-            evidence: [
-              evidence({
-                headline: 'People accepted an unwelcome decision more readily when politicians had listened to citizens and explained themselves.',
-                finding: paragraph(`
-                  Esaiasson, Gilljam and Persson asked a panel of adult Swedes to imagine politicians deciding on
-                  a change to immigration law, and varied at random whether the politicians had listened to
-                  citizens, explained their reasons, or followed majority opinion. They then studied a real
-                  dispute over school closures in a Swedish town. “Responsiveness actions that signal
-                  willingness to communicate (‘to listen’ and ‘to explain’) are more effective than the action
-                  to follow majority opinion (‘to adapt’).” The reward held only when citizens were convinced
-                  that politicians had paid attention, and people who lost out were hard pressed to believe
-                  that. The study measures acceptance of a decision, not trust in an agency.
-                `),
-                grade: 'strong',
-                quote: 'Responsiveness actions that signal willingness to communicate (“to listen” and “to explain”) are more effective than the action to follow majority opinion (“to adapt”).',
-                sources: [source('Esaiasson, Gilljam and Persson 2017, Comparative Political Studies', 'https://doi.org/10.1177/0010414015626445')]
-              })
-            ],
-            counterEvidence: []
           }),
           claim({
             text: 'People who trust the authorities follow their health advice more closely.',
@@ -850,7 +857,39 @@ export default spineData({
                 sources: [source('Goovaerts, De Fine Licht and Marien 2025, European Journal of Political Research', 'https://doi.org/10.1111/1475-6765.12711')]
               })
             ],
-            counterEvidence: []
+            counterEvidence: [
+              evidence({
+                headline: 'Explaining the reasons for a decision did not make Finns see it as more legitimate, and it may have widened the gap between people who got their way and people who did not.',
+                finding: paragraph(`
+                  Christensen, Himmelroos and Setälä ran a survey experiment with 1,243 Finns. Respondents
+                  read about a parliamentary decision on euthanasia. They were told at random whether
+                  experts and citizens took part and whether reasons were given. “Justifications, or
+                  presenting arguments for the decisions, does not enhance legitimacy and may even cause a
+                  backfire mechanism where the difference between getting and not getting the preferred
+                  outcome is amplified.” Parliament explained its own decision rather than why it set
+                  aside an assembly.
+                `),
+                grade: 'strong',
+                quote: 'Justifications, or presenting arguments for the decisions, does not enhance legitimacy and may even cause a backfire mechanism where the difference between getting and not getting the preferred outcome is amplified.',
+                caveat: 'The same study found that involving citizens raised legitimacy.',
+                sources: [source('Christensen, Himmelroos and Setälä 2020, Parliamentary Affairs', 'https://doi.org/10.1093/pa/gsz014')]
+              }),
+              evidence({
+                headline: 'When parliament followed a citizen panel\'s advice, people accepted the decision much less readily if the panel did not mirror the public, and a badly skewed panel gave no boost at all.',
+                finding: paragraph(`
+                  Germann ran a preregistered experiment with 1,308 Irish adults on a universal basic
+                  income. Every respondent was told the decision went against their view. A panel that
+                  mirrored the population raised fairness ratings and acceptance. But “even minor biases
+                  in the composition of mini-publics substantially decrease those gains while larger
+                  biases can wipe them out entirely.” People read a scenario rather than living through a
+                  real decision.
+                `),
+                grade: 'strong',
+                quote: 'even minor biases in the composition of mini-publics substantially decrease those gains while larger biases can wipe them out entirely',
+                caveat: 'A panel that mirrored the public did raise acceptance of a decision that went against people.',
+                sources: [source('Germann 2025, British Journal of Political Science', 'https://doi.org/10.1017/S0007123424000322')]
+              })
+            ]
           }),
           claim({
             text: 'People follow a rule more closely when they see the authority behind it as legitimate.',
@@ -991,7 +1030,23 @@ export default spineData({
                 sources: [source('Abdullah et al. 2022, PLOS ONE', 'https://doi.org/10.1371/journal.pone.0274718')]
               })
             ],
-            counterEvidence: []
+            counterEvidence: [
+              evidence({
+                headline: 'When mobile vaccine units visited neighborhoods in northwest England, vaccinations rose overall but barely or not at all among Black, Asian, and the poorest residents.',
+                finding: paragraph(`
+                  Zhang and colleagues studied mobile vaccination units that made 54 visits to 37 sites in
+                  Cheshire and Merseyside. Local health teams chose the sites with help from community
+                  groups. Each neighborhood was compared with a blend of similar neighborhoods without
+                  visits. First doses rose 25 percent within three weeks, but “interaction analyses showed
+                  smaller or no effect among older age groups, Asian and black ethnic groups, and the most
+                  socioeconomically deprived populations.”
+                `),
+                grade: 'moderate',
+                quote: 'Interaction analyses showed smaller or no effect among older age groups, Asian and black ethnic groups, and the most socioeconomically deprived populations.',
+                caveat: 'Residents did not run these sites. Officials picked them, and community groups helped promote them.',
+                sources: [source('Zhang and colleagues 2023, BMJ Open', 'https://doi.org/10.1136/bmjopen-2023-071852')]
+              })
+            ]
           }),
           claim({
             text: 'Trusted local messengers bring in residents that official channels miss.',
@@ -1635,6 +1690,21 @@ export default spineData({
                 grade: 'strong',
                 quote: 'Plebiscites resulted in dramatically higher satisfaction among villagers, increased knowledge about the project, greater perceived benefits, and higher reported willingness to contribute.',
                 sources: [source('Olken 2010, American Political Science Review', 'https://doi.org/10.1017/S0003055410000079')]
+              }),
+              evidence({
+                headline: 'When a city used a public survey to guide its budget, residents who learned their input would be used saw the city as fairer.',
+                finding: paragraph(`
+                  Herian and colleagues built an experiment into a survey that a US local government used
+                  to guide its budget. It tested whether telling residents the government used public
+                  input changed how they saw it. The authors report “that governmental use of public input
+                  does increase perceptions of governmental fairness”. Fairness mattered most to residents
+                  who knew little about the government. Respondents gave input through a survey and did
+                  not vote on spending.
+                `),
+                grade: 'moderate',
+                quote: 'governmental use of public input does increase perceptions of governmental fairness',
+                caveat: 'The study measures perceived fairness and overall views of the government, not trust in spending as such.',
+                sources: [source('Herian, Hamm, Tomkins and Pytlik Zillig 2012, Journal of Public Administration Research and Theory', 'https://doi.org/10.1093/jopart/mur064')]
               })
             ],
             counterEvidence: [
@@ -1658,6 +1728,21 @@ export default spineData({
                   source('Beath, Christia and Enikolopov 2015, International Peacekeeping', 'https://doi.org/10.1080/13533312.2015.1059287'),
                   source('Beath, Christia and Enikolopov 2013, WIDER Working Paper 2013/112', 'https://www.econstor.eu/bitstream/10419/93712/1/770277225.pdf')
                 ]
+              }),
+              evidence({
+                headline: 'Villages in Sierra Leone that chose and managed their own projects with public grants did not come to trust local officials more.',
+                finding: paragraph(`
+                  Casey, Glennerster and Miguel studied a community-driven program in 236 villages.
+                  Villages chosen at random received block grants and elected committees so residents
+                  could pick and run local projects. Public goods improved, but trust did not. “Despite
+                  exploring a wealth of measures, the analysis reveals no treatment effects on social
+                  capital and the three mean effects indices are all indistinguishable from zero.”
+                  Agreement that local officials can be trusted did not move.
+                `),
+                grade: 'strong',
+                quote: 'Despite exploring a wealth of measures, the analysis reveals no treatment effects on social capital and the three mean effects indices are all indistinguishable from zero.',
+                caveat: 'The trust results appear in the working paper version. Trust in the aid groups that ran the program did rise.',
+                sources: [source('Casey, Glennerster and Miguel 2012, Quarterly Journal of Economics', 'https://doi.org/10.1093/qje/qje027'), source('Casey, Glennerster and Miguel 2011, NBER Working Paper 17012', 'https://www.nber.org/system/files/working_papers/w17012/w17012.pdf')]
               })
             ]
           }),
@@ -1677,9 +1762,56 @@ export default spineData({
                 grade: 'moderate',
                 quote: 'providing detailed information about citizen involvement and outputs of a participatory budget initiative marginally shapes voters\' assessments of government performance and political trust',
                 sources: [source('Ardanaz, Otálvaro-Ramírez and Scartascini 2022, World Development', 'https://doi.org/10.1016/j.worlddev.2022.106132')]
+              }),
+              evidence({
+                headline: 'South Koreans judged a local decision more legitimate when they were told residents had shaped it in a civic forum, and people who distrust elites moved the most.',
+                finding: paragraph(`
+                  Kim, Nam, Yang and Cho ran a survey experiment with 2,083 South Korean adults.
+                  Respondents read about a budget increase for a public park and a school merger. They
+                  were told at random that officials decided alone or that officials decided in
+                  consultation with a civic forum. “We find that a decision-making process including
+                  public participation produces a higher legitimacy belief than decision-making process
+                  without public participation.” The effect was larger among people with strong anti-elite
+                  views. Respondents judged a described decision rather than a real one.
+                `),
+                grade: 'strong',
+                quote: 'We find that a decision-making process including public participation produces a higher legitimacy belief than decision-making process without public participation.',
+                caveat: 'The study measures how legitimate people found the process, which is close to judging the decision but not the same.',
+                sources: [source('Kim, Nam, Yang and Cho 2026, European Political Science Review', 'https://doi.org/10.1017/S1755773926100411')]
+              }),
+              evidence({
+                headline: 'Germans accepted a decision on an issue that mattered to them more readily when voters had made it directly, and the effect was strongest among people who disagreed with it.',
+                finding: paragraph(`
+                  Towfigh and colleagues ran an online experiment with 613 German adults. Each person read
+                  about decisions on nuclear energy, school graduation and religious education. Each was
+                  described at random as made by a popular vote, a party in parliament, or an expert
+                  committee. “Our results show that for important issues, direct democracy generates
+                  greater acceptance; this finding holds particularly for those voters who do not agree
+                  with a collectively chosen outcome.”
+                `),
+                grade: 'strong',
+                quote: 'Our results show that for important issues, direct democracy generates greater acceptance; this finding holds particularly for those voters who do not agree with a collectively chosen outcome.',
+                caveat: 'On issues people cared little about, a popular vote won less acceptance than a decision by representatives.',
+                sources: [source('Towfigh and colleagues 2016, Public Choice', 'https://doi.org/10.1007/s11127-016-0330-y')]
               })
             ],
-            counterEvidence: []
+            counterEvidence: [
+              evidence({
+                headline: 'Belgians told that an agency had consulted the public judged the process fairer, but they were no more willing to accept the rule itself.',
+                finding: paragraph(`
+                  Beyers and Arras ran a survey experiment with 2,138 Belgian adults and 228 company
+                  leaders. Respondents read a news story about an environmental rule on food packaging.
+                  The story said at random that no one was consulted, that interest groups advised, or
+                  that an open online consultation was held. Consultation raised acceptance of the
+                  procedure, but “the consultation arrangement itself does not directly affect acceptance
+                  of the regulatory outcome”.
+                `),
+                grade: 'strong',
+                quote: 'the consultation arrangement itself does not directly affect acceptance of the regulatory outcome',
+                caveat: 'People who disliked government regulation accepted the rule more when they saw the process as fair.',
+                sources: [source('Beyers and Arras 2020, Regulation and Governance', 'https://doi.org/10.1111/rego.12323')]
+              })
+            ]
           })
         ]
       }),
@@ -1777,25 +1909,6 @@ export default spineData({
             ],
             counterEvidence: [
               evidence({
-                headline: 'When report cards on Ugandan clinics were shared at community meetings, fewer than one in five households in those villages had even heard of the meetings.',
-                finding: paragraph(`
-                  A program in 16 Ugandan districts gave communities report cards on their health
-                  center and brought residents and staff together to agree on fixes. It reached few
-                  residents: “fewer than 20 percent of households surveyed at midline in treated
-                  villages had even heard about the community dialogues or interface meetings.”
-                  Residents’ knowledge of their rights as patients did not rise. The authors note that
-                  low awareness is common in programs of this kind, and argue that the meetings still
-                  drew enough people for pressure on staff to build, which it did not.
-                `),
-                grade: 'strong',
-                quote: 'fewer than 20 percent of households surveyed at midline in treated villages had even heard about the community dialogues or interface meetings',
-                caveat: 'Quote taken from the authors’ October 2020 working paper version. Check the wording against the published article.',
-                sources: [
-                  source('Raffler, Posner and Parkerson 2025, Journal of Politics', 'https://doi.org/10.1086/736577'),
-                  source('Raffler, Posner and Parkerson, working paper version, October 2020', 'http://piaraffler.com/wp-content/uploads/2020/10/Citizen-Pressure_Oct2020.pdf')
-                ]
-              }),
-              evidence({
                 headline: 'After village meetings in India explained how parents could oversee their schools, barely any more parents knew the school oversight committee existed.',
                 finding: paragraph(`
                   In villages chosen at random, an education organization held meetings to tell
@@ -1811,27 +1924,6 @@ export default spineData({
                 sources: [source('Banerjee, Banerji, Duflo, Glennerster and Khemani 2010, American Economic Journal: Economic Policy', 'https://doi.org/10.1257/pol.2.1.1')]
               })
             ]
-          }),
-          claim({
-            text: 'People who learn that residents helped make a decision judge the decision more favorably.',
-            evidence: [
-              evidence({
-                headline: 'People told a decision had gone against them were readier to accept it when a citizen panel had recommended it, and people who distrusted politics moved the most.',
-                finding: paragraph(`
-                  Germann, Marien and Muradova ran a preregistered survey experiment with 1,309 Irish
-                  adults, all told the decision went against their view. When a panel of randomly
-                  selected citizens had recommended the decision and officials followed it, people
-                  judged the process fairer and were more willing to accept the result. The authors
-                  find that “the legitimacy-enhancing effects of participatory processes are driven by
-                  citizens with low political trust”. People read a scenario, so the study measures
-                  judgments of a described decision rather than a real one.
-                `),
-                grade: 'moderate',
-                quote: 'we find that the legitimacy-enhancing effects of participatory processes are driven by citizens with low political trust',
-                sources: [source('Germann, Marien and Muradova 2024, Political Studies', 'https://doi.org/10.1177/00323217221137444')]
-              })
-            ],
-            counterEvidence: []
           }),
           claim({
             text: 'Residents who set a program\'s goals judge it by measures that suit their neighbors better than officials\' measures do.',
@@ -1851,6 +1943,21 @@ export default spineData({
                 grade: 'strong',
                 quote: 'Elite capture does not explain these results. Instead, communities appear to apply a different concept of poverty. Consistent with this finding, community targeting results in higher satisfaction.',
                 sources: [source('Alatas, Banerjee, Hanna, Olken and Tobias 2012, American Economic Review', 'https://doi.org/10.1257/aer.102.4.1206')]
+              }),
+              evidence({
+                headline: 'When Malawian communities wrote their own measures for local health services and scored them with health workers, every measure improved and satisfaction with care rose.',
+                finding: paragraph(`
+                  Ten matched pairs of communities in Malawi were split at random so that one in each pair
+                  ran a community score card. Residents named problems in group discussions and turned
+                  each into a measure. Communities and health workers then scored the services together.
+                  “All 13 community- and provider-developed indicators improved, with 6 of them showing
+                  significant improvements.” Home visits and overall satisfaction rose more than in
+                  comparison communities. The trial had only 20 communities.
+                `),
+                grade: 'moderate',
+                quote: 'All 13 community- and provider-developed indicators improved, with 6 of them showing significant improvements.',
+                caveat: 'Only the treated communities had their own measures, so the study cannot show they fit needs better than official ones. Health workers also helped write them.',
+                sources: [source('Gullo and colleagues 2017, PLOS ONE', 'https://doi.org/10.1371/journal.pone.0171316')]
               })
             ],
             counterEvidence: [
@@ -1979,20 +2086,6 @@ export default spineData({
                 quote: 'While we find modest positive impacts on health provider behavior, we find no effects on citizen pressure, utilization rates, or bottom-line health outcomes.',
                 sources: [source('Raffler, Posner and Parkerson 2025, Journal of Politics', 'https://doi.org/10.1086/736577')]
               }),
-              evidence({
-                headline: 'Programs that urged Indian villagers to watch over their schools did not make them more involved or make teachers try harder.',
-                finding: paragraph(`
-                  Banerjee, Banerji, Duflo, Glennerster and Khemani (2010) assigned Indian villages at
-                  random to three programs. One told residents about existing school institutions,
-                  one trained them to test children, and one trained volunteers to run reading camps.
-                  “These interventions had no impact on community involvement, teacher effort, or
-                  learning outcomes inside the school.” Children who went to the volunteer camps did
-                  read better. Residents gained information and skills but no formal power.
-                `),
-                grade: 'strong',
-                quote: 'These interventions had no impact on community involvement, teacher effort, or learning outcomes inside the school.',
-                sources: [source('Banerjee, Banerji, Duflo, Glennerster and Khemani 2010, American Economic Journal: Economic Policy', 'https://doi.org/10.1257/pol.2.1.1')]
-              })
             ]
           }),
           claim({
@@ -2017,6 +2110,21 @@ export default spineData({
                 sources: [
                   source('Fiala and Premand 2018, Ruhr Economic Papers 752 (working paper)', 'https://www.econstor.eu/bitstream/10419/179511/1/102399545X.pdf')
                 ]
+              }),
+              evidence({
+                headline: 'When Tanzanian villages elected residents to pick and oversee cash transfer recipients, villagers came to trust their elected leaders more.',
+                finding: paragraph(`
+                  Tanzania assigned 80 villages at random to start a community-managed cash transfer
+                  program right away or 2.5 years later. Residents in each village elected a committee by
+                  secret ballot to select recipients and run the program. “Our analysis reveals that cash
+                  transfers can significantly increase trust in leaders. This effect is driven by large
+                  increases in trust in elected leaders as opposed to appointed bureaucrats.” Leaders were
+                  also seen as more responsive and honest.
+                `),
+                grade: 'strong',
+                quote: 'Our analysis reveals that cash transfers can significantly increase trust in leaders. This effect is driven by large increases in trust in elected leaders as opposed to appointed bureaucrats.',
+                caveat: 'The design cannot separate resident oversight from the cash itself.',
+                sources: [source('Evans, Holtemeyer and Kosec 2019, World Development', 'https://doi.org/10.1016/j.worlddev.2018.08.020')]
               })
             ],
             counterEvidence: [
