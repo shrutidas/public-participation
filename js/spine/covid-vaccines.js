@@ -274,6 +274,7 @@ export default spineData({
   proposals: [
     spineProposal({
       name: 'Throughout the vaccine rollout, federal health officials or their accountable representatives answer the public\'s questions on federal vaccine policy at regular public sessions.',
+      bold: ['regular public sessions'],
       method: 'Town Hall',
       summary: 'Throughout the rollout, federal health officials or their accountable representatives answer residents\' questions on federal vaccine policy at regular public sessions.',
       anchor: 'ACIP voted 11 to 0',
@@ -658,6 +659,7 @@ export default spineData({
 
     spineProposal({
       name: 'Before any vaccine is approved, a citizens\' assembly weighs whether it should be mandated at all.',
+      bold: ['citizens\' assembly'],
       method: 'Citizens\' Assembly',
       summary: 'Before any vaccine is approved, residents chosen by lot weigh whether it should be mandated at all, and the government must answer their recommendation in public.',
       anchor: 'Gallup first asked in July 2020',
@@ -775,6 +777,21 @@ export default spineData({
                 grade: 'moderate',
                 quote: 'we find that the legitimacy-enhancing effects of participatory processes are driven by citizens with low political trust',
                 sources: [source('Germann, Marien and Muradova 2024, Political Studies', 'https://doi.org/10.1177/00323217221137444')]
+              }),
+              evidence({
+                headline: 'People judged a decision process more legitimate when it included a randomly selected panel of citizens than when citizens had no say at all.',
+                finding: paragraph(`
+                  Jacobs and Kaufmann ran a survey experiment in which people read about a public decision
+                  made with or without citizen participation. They “find that the perceived legitimacy of
+                  a process that includes a deliberative mini-public is higher than a process in which
+                  citizens are not able to participate at all, but no higher than a process that includes
+                  a participation method that relies on self-selection.” People judged a described process
+                  rather than a real one.
+                `),
+                grade: 'strong',
+                quote: 'we find that the perceived legitimacy of a process that includes a deliberative mini-public is higher than a process in which citizens are not able to participate at all, but no higher than a process that includes a participation method that relies on self-selection',
+                caveat: 'A panel of volunteers raised legitimacy just as much as a randomly selected panel.',
+                sources: [source('Jacobs and Kaufmann 2021, Public Management Review', 'https://doi.org/10.1080/14719037.2019.1668468')]
               })
             ],
             counterEvidence: [
@@ -950,6 +967,7 @@ export default spineData({
 
     spineProposal({
       name: 'As vaccines roll out, neighborhood task forces decide where and how vaccines are delivered.',
+      bold: ['neighborhood task forces'],
       method: 'Neighborhood Task Force',
       summary: 'City health departments let task forces of residents and local groups choose sites, hours, and outreach for doses set aside for hard-hit neighborhoods.',
       anchor: '20,792 doses',
@@ -1538,15 +1556,17 @@ export default spineData({
     }),
 
     spineProposal({
-      name: 'When vaccine outreach funds are awarded, residents decide through participatory budgeting which local projects the money supports.',
+      name: 'When vaccine outreach money is handed out, residents decide through participatory budgeting which local projects it pays for.',
+      bold: ['participatory budgeting'],
       method: 'Participatory Budgeting',
-      summary: 'When outreach funds are awarded, residents of the neighborhoods the money is meant for decide which projects supporting the rollout it pays for.',
+      summary: 'When outreach money is handed out, residents of the neighborhoods the money is meant for decide which projects supporting the rollout it pays for.',
       anchor: 'vaccine equity push',
       where: 'City and county governments that received American Rescue Plan community engagement funds.',
       when: paragraph(`
-        June to July 2021, when the outreach awards were made. The federal government gave $323
+        June to July 2021, when the outreach money was handed out. The federal government gave $323
         million to 150 organizations for vaccination outreach and $250 million to 73 local
-        governments for health literacy work. The rules for who decides are set once, at the award.
+        governments for health literacy work. The rules for who decides are set once, when the
+        money is handed out.
       `),
       description: paragraph(`
         Residents of the neighborhoods the money is meant to reach decide how a share of publicly
@@ -1825,15 +1845,15 @@ export default spineData({
     }),
 
     spineProposal({
-      name: 'When vaccine outreach funds are awarded, residents choose which results are tracked and published, and public funds pay for residents to gather their own data.',
+      name: 'As vaccine outreach money is spent, residents choose which results are tracked and published, and public funds pay for residents to gather their own data.',
+      bold: ['residents choose which results are tracked and published'],
       method: 'Participatory Monitoring and Evaluation',
       summary: 'Residents decide which results of the rollout are tracked and published, by the government or an independent group, and public funds pay for residents to gather their own data.',
-      anchor: 'vaccine equity push',
-      linked: true,
+      anchor: 'By July 1, the US had administered',
       where: 'Any level of government that funds vaccine outreach, from a city to the federal government.',
       when: paragraph(`
-        June to July 2021, when the outreach awards were made. Award terms are set once, so that is
-        where an evaluation duty can attach without new legal authority.
+        From July 2021, as the outreach money was spent. The duty to track results is written into
+        the terms of the money when it is handed out, so it needs no new legal authority.
       `),
       description: paragraph(`
         Residents decide which measures of the vaccine rollout are tracked and published. The

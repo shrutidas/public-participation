@@ -303,7 +303,7 @@ body[data-view="chain"] #ctrl .fl,
 @media (min-width: 901px) {
   body:has(#ch-wrap.show:not(.no-right)) {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) min(38%, 340px);
+    grid-template-columns: minmax(0, 1fr) min(38%, 380px);
     grid-template-rows: auto minmax(0, 1fr);
   }
   body:has(#ch-wrap.show:not(.no-right)) #ch-wrap { display: contents; }
@@ -323,10 +323,9 @@ body[data-view="chain"] #ctrl .fl,
 .pane-tog:hover { border-color: #1c2333; color: #1c2333; }
 #right-hide { margin: 0 0 6px 4px; font-size: .9rem; line-height: 1; padding: 6px 6px; border: none; background: none; color: #6b6457; }
 #right-hide:hover { color: #1c2333; background: none; }
-/* Open Key sits directly under the zoom pill, in the space the key vacated.
+/* Open Key joins the zoom pill when the key is closed (see #ch-zoom).
    The detail pane has no reopen button: clicking anything on the map brings
    it back, which is the same gesture that put something in it. */
-.pane-tog-strip { align-self: flex-end; margin: 10px 12px; }
 
 #ch-mapcol {
   flex: 1 1 58%;
@@ -1124,7 +1123,7 @@ body[data-view="chain"] #ctrl .fl,
 #ch-right {
   flex: 1 1 36%;
   min-width: 0;
-  max-width: 340px;
+  max-width: 380px;
   display: flex;
   flex-direction: column;
   background: #fff;
@@ -1482,7 +1481,7 @@ body[data-view="chain"] #ctrl .fl,
 .sp-edge-spine-case { stroke: #cdc7ba; stroke-width: 4.5; }
 .sp-edge-spine { stroke: #fff; stroke-width: 2.5; }
 /* Impact arrows: short horizontal runs from the source event to its card. */
-.sp-edge-imp { stroke: rgba(30,107,60,.45); stroke-width: 1.8; }
+.sp-edge-imp { stroke: rgba(30,107,60,.55); stroke-width: 2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
 .sp-edge-imp.on { stroke: #1e6b3c; stroke-width: 2.6; }
 .sp-edge-chain { stroke: #1e6b3c; stroke-width: 2.25; }
 .sp-edge-chain.on { stroke-width: 3.2; }
@@ -1561,8 +1560,9 @@ body[data-view="chain"] #ctrl .fl,
 .sp-propbox-kick { display: block; font-size: .58rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: #601898; margin-bottom: 2px; }
 /* Purple is confined to the header band and the dashed edge, so the body reads
    as a plain record and the green effect links do not have to fight a tint. */
-.sp-prop-head { padding: 8px 11px; background: #f4edfc; }
-.sp-prop-title { display: block; font-size: .78rem; font-weight: 700; line-height: 1.3; }
+.sp-prop-head { padding: 8px 11px; background: #f4edfc; border-radius: 6px; }
+.sp-prop-title { display: block; font-size: .78rem; font-weight: 400; line-height: 1.3; }
+.sp-prop-title strong { font-weight: 700; }
 .sp-edge-allude { stroke: #601898; stroke-width: 1.8; fill: none; opacity: .85; }
 .sp-edge-allude-tie { stroke: #601898; stroke-width: 1.6; fill: none; stroke-dasharray: 2.5 4; opacity: .8; }
 /* The solid bracket: a proposal sits beside this stretch of the record and
@@ -1717,6 +1717,9 @@ body[data-view="chain"] #ctrl .fl,
   font-size: .75rem; padding: 6px 12px; border-right: 1px solid #e2ddd3;
 }
 #ch-zoom #nt-open[hidden] { display: none; }
+/* With the key closed, its button joins the zoom control as one more segment. */
+#ch-zoom #legend-show { font-size: .75rem; padding: 6px 12px; border-right: 1px solid #e2ddd3; }
+#ch-zoom #legend-show[hidden] { display: none; }
 .nt-ico { width: 15px; height: 15px; color: var(--nt-blue); flex: none; }
 #nt-count {
   background: var(--nt-blue); color: #fff; border-radius: 9px;

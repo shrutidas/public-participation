@@ -468,7 +468,8 @@ export default spineData({
 
   proposals: [
     spineProposal({
-      name: 'As soon as workers suspect a chemical hazard, local advocates give them a protected, low-cost way to report it to the EPA and support them through the process.',
+      name: 'As soon as workers suspect a chemical hazard, a protected whistleblower channel lets them report it to the EPA, with local advocates supporting them through the process.',
+      bold: ['protected whistleblower channel'],
       method: 'Protected Worker Disclosure',
       summary: 'Local advocates, similar to ombudspeople, give workers a low-cost, protected way to report suspected environmental violations or hazards to the Environmental Protection Agency and other agencies, and support them afterward.',
       anchor: 'continued exposure is not tolerable',
@@ -528,20 +529,6 @@ export default spineData({
                 quote: 'A retrospective cohort study of the incidence of bladder cancer was conducted in response to a union request for an evaluation of a possible excess number of cases of bladder cancer at a chemical plant in western New York State.',
                 sources: [source('Ward et al. 1991, Journal of the National Cancer Institute', 'https://doi.org/10.1093/jnci/83.7.501')]
               }),
-              evidence({
-                headline: 'Employees brought more large corporate frauds to light than auditors or the securities regulator did.',
-                finding: paragraph(`
-                  Dyck, Morse and Zingales studied every reported fraud at large United States
-                  companies from 1996 to 2004. They found that “fraud detection does not rely on
-                  standard corporate governance actors (investors, SEC, and auditors), but rather takes
-                  a village, including several nontraditional players (employees, media, and industry
-                  regulators)”. Employees brought 17 percent of the cases to light. The frauds are
-                  financial rather than chemical hazards.
-                `),
-                grade: 'moderate',
-                quote: 'We find that fraud detection does not rely on standard corporate governance actors (investors, SEC, and auditors), but rather takes a village, including several nontraditional players (employees, media, and industry regulators).',
-                sources: [source('Dyck, Morse and Zingales 2010, Journal of Finance', 'https://doi.org/10.1111/j.1540-6261.2010.01614.x')]
-              })
             ],
             counterEvidence: [
               evidence({
@@ -599,6 +586,22 @@ export default spineData({
               })
             ],
             counterEvidence: [
+              evidence({
+                headline: 'After Congress wrote new protections for employees following the accounting scandals, employees did not bring more frauds to light.',
+                finding: paragraph(`
+                  Dyck, Morse and Zingales studied every large US corporate fraud and compared who exposed
+                  them before and after the Sarbanes-Oxley Act. The authors write that “by contrast, we do
+                  not find any evidence that the protection offered to employees by Section 303 of SOX has
+                  any effect”. Employees' share of detections fell from 18 to 13 percent, while auditors'
+                  share rose. Several reforms took effect at once, and the authors say their separate
+                  effects cannot be told apart. Naming yourself stayed costly. “In 82% of the cases, the
+                  whistleblower was fired, quit under duress, or had significantly altered
+                  responsibilities.”
+                `),
+                grade: 'moderate',
+                quote: 'By contrast, we do not find any evidence that the protection offered to employees by Section 303 of SOX has any effect.',
+                sources: [source('Dyck, Morse and Zingales 2010, Journal of Finance', 'https://doi.org/10.1111/j.1540-6261.2010.01614.x')]
+              })
             ]
           }),
           claim({
@@ -979,6 +982,7 @@ export default spineData({
 
     spineProposal({
       name: 'When a chemical is approved for release or a discharge permit is issued, downstream residents are told, and they direct independent testing of their water, including for chemicals with no set limit.',
+      bold: ['direct independent testing'],
       method: 'Community Review and Monitoring Body',
       summary: 'When a chemical is approved for manufacture or release, or a plant applies for or renews a discharge permit, downstream residents are notified. They form a body that directs independent testing, including for pollutants with no set limit.',
       anchor: 'Discharge continued largely unmonitored',
@@ -1412,6 +1416,7 @@ export default spineData({
 
     spineProposal({
       name: 'When any certified lab finds an unregulated chemical in tap water above a health screening level, the state tells every affected household and residents choose where to test next.',
+      bold: ['residents choose where to test next'],
       method: 'Citizen Science',
       summary: 'When a regulator receives a peer-reviewed finding of a chemical in drinking water, it must tell the public within a day, and residents choose where follow-up testing happens.',
       anchor: 'mean GenX concentrations of 631',
@@ -1784,6 +1789,7 @@ export default spineData({
 
     spineProposal({
       name: 'As soon as there is evidence that a harmful chemical was released, a community forum gathers residents\' evidence and works with an independent expert board to review safety levels and test results.',
+      bold: ['community forum', 'independent expert board'],
       method: 'Community Forum and Expert Review',
       summary: 'As soon as there is evidence a harmful chemical was released, a community forum gathers residents\' evidence, works with an independent expert board on safety levels and test results, and shares what it finds.',
       anchor: 'Wilbur Tennant, a West Virginia farmer',
