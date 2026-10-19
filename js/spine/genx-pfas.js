@@ -840,26 +840,6 @@ export default spineData({
                   source('National Institute for Occupational Safety and Health, A Recommended Standard for Occupational Exposure to Dibromochloropropane (Publication 78-115)', 'https://stacks.cdc.gov/view/cdc/19405'),
                   source('Occupational Safety and Health Administration, Federal Register index, 42 FR 45535, September 9, 1977', 'https://www.osha.gov/laws-regs/federalregister/1977-09-09')
                 ]
-              }),
-              evidence({
-                headline: 'When a sick worker\'s blood test reached health officials, the state had the pesticide plant where he worked closed that same month.',
-                finding: paragraph(`
-                  Cannon and colleagues report that from March 1974 through July 1975, 76 of 133 people
-                  who had worked at a Kepone pesticide plant developed a previously unrecognized illness.
-                  Symptoms included tremor, weight loss, and nervousness. In July 1975, a private physician
-                  sent one sick worker's blood to the Center for Disease Control to be tested for Kepone.
-                  The Center told the state epidemiologist that the level was high. He investigated, found
-                  other sick workers, and visited the plant. He “recommended that the plant be closed, and
-                  company management complied.” The National Institute for Occupational Safety and Health
-                  records that the plant closed in July 1975.
-                `),
-                grade: 'moderate',
-                quote: 'In July 1975, a private physician submitted a blood sample to the Center for Disease Control (CDC) to be analyzed for kepone, a chlorinated hydrocarbon pesticide. ... He recommended that the plant be closed, and company management complied.',
-                caveat: 'A record of one case. The report came from a sick worker\'s own doctor.',
-                sources: [
-                  source('National Institute for Occupational Safety and Health, Recommended Standard for Occupational Exposure to Kepone', 'https://stacks.cdc.gov/view/cdc/19374/cdc_19374_DS1.pdf'),
-                  source('Cannon et al. 1978, American Journal of Epidemiology', 'https://doi.org/10.1093/oxfordjournals.aje.a112572')
-                ]
               })
             ],
             counterEvidence: [
@@ -1207,7 +1187,7 @@ export default spineData({
             ]
           }),
           claim({
-            text: 'Checkers who are independent of the company catch violations that company-controlled checks miss.',
+            text: 'Independent inspectors find violations that company-paid inspectors miss.',
             evidence: [
               evidence({
                 headline: 'Auditors in India reported plant pollution truthfully once plants no longer chose and paid them, and the plants then cut their emissions.',
@@ -1262,7 +1242,7 @@ export default spineData({
             ]
           }),
           claim({
-            text: 'Affected residents who take part in oversight get a plant\'s compliance checked.',
+            text: 'When nearby residents report problems at a plant, regulators inspect it more and find violations they would have missed.',
             evidence: [
               evidence({
                 headline: 'Residents\' complaints in Texas sent inspectors to facilities and turned up more, and more serious, violations than routine checks.',
@@ -1632,7 +1612,7 @@ export default spineData({
             ]
           }),
           claim({
-            text: 'A legal deadline to tell the public makes those who find a problem disclose it sooner.',
+            text: 'When the law sets a deadline for making findings public, the people who hold them release them sooner.',
             evidence: [
               evidence({
                 headline: 'Companies in states with a deadline to report data breaches disclosed them much faster than companies in states without one.',
@@ -1681,7 +1661,7 @@ export default spineData({
             ]
           }),
           claim({
-            text: 'Residents act sooner on a contamination warning when it reaches them within days.',
+            text: 'The faster a contamination warning reaches households, the more of them act on it.',
             evidence: [
               evidence({
                 headline: 'Households bought more bottled water when water systems had to warn them of bacteria within a day, but not when the warning could wait a month.',
@@ -1723,7 +1703,7 @@ export default spineData({
             counterEvidence: []
           }),
           claim({
-            text: 'Households told their water is contaminated switch to safer water.',
+            text: 'Households switch to safer water once they learn it is contaminated.',
             evidence: [
               evidence({
                 headline: 'Indian households told their drinking water was contaminated were more likely to start purifying it than households given no test results.',
