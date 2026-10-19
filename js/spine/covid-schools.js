@@ -987,7 +987,9 @@ export default spineData({
                   Surveying parents across 79 schools, the authors find that “affective norms of
                   parent perceived influence on school decisions” had larger effects on parent
                   trust in the school than poverty, school size, or ethnic makeup. Influence here is
-                  what parents perceive, measured at one point in time.
+                  what parents perceive, measured at one point in time. The study measures parents'
+                  trust in the school as a whole, not in particular teachers, and teachers' trust in
+                  parents is not measured.
                 `),
                 grade: 'moderate',
                 quote: 'Affective norms of parent perceived influence on school decisions (β 5j = 5.0, p < .01) and school identification (β 4j = 2.7, p < .01) had larger individual effects on parent-school trust than contextual conditions.',
